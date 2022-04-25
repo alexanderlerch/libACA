@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<title>Xen</title>
+<style type="text/css">
+	EM.red {color:red; font-style:normal}
+        EM.tab {font-style: normal; font-size: small; font-family: fixed}
+	EM.def {font-weight: bold; font-style: normal}
+	H1 {text-align: center}
+	UL {list-style-type: none}
+
+	A {text-decoration:none}
+	A:hover {text-decoration:underline}
+	A.quiet {color:black; text-decoration:none}
+	A.quiet:hover {text-decoration:underline}
+
+        BODY.body {background-color: #ffffff;    /* white */
+	           margin-left: 0.5cm; 
+                   }
+        DIV.centered1 {padding-left: 35%;
+	               padding-bottom: 0.5cm;
+		       }
+        DIV.topheader {margin-top: 10px;
+	            margin-bottom: 40px;
+	            border: 4px solid #00ff00; /* green */
+		    background-color: #f5f5dc; /* beige */
+		    font-family: 'Helvetica';
+		    font-size: 30px;
+		    text-align: center;
+		    padding-top: 10px;
+		    padding-bottom: 10px;
+	           }
+</style>
+</head>
+<body class="body">
+
+<div class="topheader">Xen</div>
+
+
+<p>The Xen package provides macros and procedures making it possible for the
+same C code to support several different embedded (or extension) languages.
+Currently supported are s7, Ruby, and Forth.
+</p>
+<p>Here's a program that defines a function (named "fnc" in the
+extension language) that takes an integer argument and increments it,
+a variable (named "var" in the extension language) that is initialized
+to 32, a constant (named "twelve") that has the value 12, then places
+you in a read-eval-print loop:
+</p>
+
+<pre>
+#include &lt;stdio.h&gt;
+#include "xen.h"
+
+static XEN orig_function(XEN argument)
+{
+  XEN_ASSERT_TYPE(XEN_INTEGER_P(argument), argument, XEN_ONLY_ARG, "fnc", "an integer");
+  fprintf(stdout, "argument is %d\n", XEN_TO_C_INT(argument));
+  return(C_TO_XEN_INT(XEN_TO_C_INT(argument) + 1));
+}
+
+#ifdef XEN_ARGIFY_1
+  XEN_NARGIFY_1(function, orig_function);
+#else
+  #define function orig_function
+#endif
+
+static XEN variable;
+
+int main(int argc, char **argv)
+{
+  xen_initialize();
+
+  XEN_DEFINE_VARIABLE("var", variable, C_TO_XEN_INT(32));
+  XEN_DEFINE_CONSTANT("twelve", 12, "this is 12");
+  XEN_DEFINE_PROCEDURE("fnc", function, 1, 0, 0, "this is our function");
+
+  fprintf(stdout, "we're running: %s\n", xen_version());
+
+  xen_repl(argc, argv);
+  return(0);
+}
+</pre>
+
+<p>The "XEN_ARGIFY" step
+is needed for those languages that assume one calling sequence for
+a C-defined function; we have to wrap up the actual call in whatever
+sequence the extension language wants.
+</p>
+<p>Currently constants are assumed to be integers.  Type checks are
+handled by macros such as XEN_INTEGER_P; type conversions by macros
+such as XEN_TO_C_INT or C_TO_XEN_INT. 
+</p>
+
+</body>
+</html>

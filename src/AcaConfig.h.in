@@ -1,0 +1,35 @@
+#ifndef __ACA_config_hdr__
+#define __ACA_config_hdr__
+
+// set platform defines
+#ifndef ACA_LINUX32
+#cmakedefine ACA_LINUX32
+#endif // ACA_LINUX32
+#ifndef ACA_LINUX64
+#cmakedefine ACA_LINUX64
+#endif // ACA_LINUX64
+#ifndef ACA_MACOSX
+#cmakedefine ACA_MACOSX
+#endif // ACA_MACOSX
+#ifndef ACA_WIN32
+#cmakedefine ACA_WIN32
+#endif // ACA_WIN32
+#ifndef ACA_WIN64
+#cmakedefine ACA_WIN64
+#endif // ACA_WIN64
+
+//////////////////////////////////////////////////////////
+// set module switches
+#ifndef WITH_TESTS //!< gtest should be used for for testing
+#cmakedefine WITH_TESTS
+#endif // WITH_TESTS
+
+// set the version number
+#define ACA_VERSION_MAJOR ${PROJECT_VERSION_MAJOR}
+#define ACA_VERSION_MINOR ${PROJECT_VERSION_MINOR}
+#define ACA_VERSION_PATCH ${PROJECT_VERSION_PATCH}
+
+// for testing only
+#define CMAKE_SOURCE_DIR "@CMAKE_SOURCE_DIR@"
+
+#endif // __MigEdit_config_hdr__

@@ -1,0 +1,403 @@
+-*- outline -*-
+
+* Introduction
+
+The C/XEN library `libsndins.so' provides the instrument FM-VIOLIN and
+the reverberators JC-REVERB, NREV, and FREEVERB to use them in longer
+notelists in Snd/Scheme, Snd/Ruby, or Snd/Forth.  They are not so fast
+as Lisp's FFI versions, at least not on my machine, but they run much
+faster than the Scheme, Ruby, or Forth variants.  In addition I have
+added the FCOMB example from sndscm.html which is used in freeverb.
+
+The library is based on Bill Schottstaedt's `xen' and `sndlib'
+libraries and the Snd editor itself.  Thank you for these great music
+programs and libraries!
+
+* XEN-Instruments
+
+The following generator and instruments are accessible from Scheme,
+Ruby and Forth.
+
+** make-fcomb, fcomb?, and fcomb
+
+These are the examples from sndscm.html.
+
+*** (make-fcomb (:scaler 1.0) (:size 1) (:a0 0.0) (:a1 0.0))
+*** make_fcomb(:scaler, 1.0, :size, 1, :a0, 0.0, :a1, 0.0)
+*** make-fcomb ( :scaler 1.0 :size 1 :a0 0.0 :a1 0.0 -- gen )
+
+Return a new fcomb generator.
+
+*** (fcomb? gen)
+*** fcomb?(gen)
+*** fcomb? ( gen -- f )
+
+Test if GEN is an fcomb generator.
+
+*** (fcomb gen (input 0.0))
+*** fcomb(gen[, input=0.0])
+*** fcomb ( gen input=0.0 -- result )
+
+Return the next value of the fcomb generator GEN.
+
+*** (mus-describe gen)
+*** gen.to_s
+*** object->string ( gen -- str )
+
+Show the inspect string of the fcomb GEN.
+
+*** (mus-length gen)
+*** gen.length
+*** mus-length ( gen -- len )
+
+Show length of delay line.
+
+*** (mus-scaler gen)                  (set! (mus-scaler gen) scl)
+*** gen.scaler                        gen.scaler = scl
+*** mus-scaler ( gen -- scl )         set-mus-scaler ( gen scl -- scl )
+
+Show the scaler value, settable.
+
+*** (mus-xcoeff gen index)            (set! (mus-xcoeff gen index) val)
+*** gen.xcoeff(index)                 gen.xcoeff = [index, val]
+*** mus-xcoeff ( gen index -- val )   set-mus-xcoeff ( gen index val -- val )
+
+Show the a0/a1 values, settable (index == 0: a0, index == 1: a1)
+
+** fm-violin
+
+Keyword options for fm-violin (v.ins, v.scm, examp.rb, clm-ins.fs).
+
+*** :startime                      0.0
+*** :duration                      1.0
+*** :frequency                     440.0
+*** :amplitude                     0.5
+*** :fm-index                      1.0
+*** :amp-env                       '( 0 0 25 1 75 1 100 0 )
+*** :periodic-vibrato-rate         5.0
+*** :periodic-vibrato-amplitude    0.0025
+*** :random-vibrato-rate           16.0
+*** :random-vibrato-amplitude      0.005
+*** :noise-freq                    1000.0
+*** :noise-amount                  0.0
+*** :ind-noise-freq                10.0
+*** :ind-noise-amount              0.0
+*** :amp-noise-freq                20.0
+*** :amp-noise-amount              0.0
+*** :gliss-env                     '( 0 0 100 0 )
+*** :glissando-amount              0.0
+*** :fm1-env                       '( 0 1 25 0.4 75 0.6 100 0 )
+*** :fm2-env                       '( 0 1 25 0.4 75 0.6 100 0 )
+*** :fm3-env                       '( 0 1 25 0.4 75 0.6 100 0 )
+*** :fm1-rat                       1.0
+*** :fm2-rat                       3.0
+*** :fm3-rat                       4.0
+*** :fm1-index                     #f
+*** :fm2-index                     #f
+*** :fm3-index                     #f
+*** :base                          1.0
+*** :degree                        0.0
+*** :distance                      1.0
+*** :reverb-amount                 0.01
+*** :index-type                    'violin ('cello or 'violin)
+*** :no-waveshaping                #f
+
+** jc-reverb
+
+Keyword options for jc-reverb (jcrev.ins, jcrev.scm, examp.rb,
+clm-ins.fs).
+
+*** :volume     1.0
+*** :delay1     0.013
+*** :delay2     0.011
+*** :delay3     0.015
+*** :delay4     0.017
+*** :low-pass   #f
+*** :doubled    #f
+*** :amp-env    #f
+
+If more than one reverb channel exists, the values from them are
+collected together before computing the result.
+
+** nrev
+
+Keyword options for nrev (nrev.ins, clm-ins.scm, clm-ins.rb).
+
+*** :reverb-factor   1.09
+*** :lp-coeff        0.7
+*** :lp-out-coeff    0.85
+*** :output-scale    1.0
+*** :amp-env         '( 0 1 1 1 )
+*** :volume          1.0
+
+If more than one reverb channel exists, the values from them are
+collected together before computing the result.
+
+** freeverb
+
+Keyword options for freeverb (freeverb.ins, freeverb.scm, freeverb.rb).
+
+*** :room-decay          0.5
+*** :damping             0.5
+*** :global              0.3
+*** :predelay            0.03
+*** :output-gain         1.0
+*** :output-mixer        #f
+*** :scale-room-decay    0.28
+*** :offset-room-decay   0.7
+*** :combtuning          '( 1116 1188 1277 1356 1422 1491 1557 1617 )
+*** :allpasstuning       '( 556 441 341 225 )
+*** :scale-damping       0.4
+*** :stereo-spread       23.0
+
+Works with one reverb channel or the same number of reverb channels
+like output channels.
+
+* C-Instruments
+
+The following functions are accessible from C.
+
+** mus_any *mus_make_fcomb(Float scaler, int size, Float a0, Float a1);
+** int mus_fcomb_p(mus_any *ptr);
+** Float mus_fcomb(mus_any *ptr, Float input, Float ignored);
+
+** off_t ins_fm_violin(Float start,
+		       Float dur,
+		       Float freq,
+		       Float amp,
+		       Float fm_index,
+		       Float *amp_env,
+		       int amp_len,
+		       Float periodic_vibrato_rate,
+		       Float periodic_vibrato_amp,
+		       Float random_vibrato_rate,
+		       Float random_vibrato_amp,
+		       Float noise_freq,
+		       Float noise_amount,
+		       Float ind_noise_freq,
+		       Float ind_noise_amount,
+		       Float amp_noise_freq,
+		       Float amp_noise_amount,
+		       Float *gliss_env,
+		       int gliss_len,
+		       Float gliss_amount,
+		       Float *fm1_env,
+		       int fm1_len,
+		       Float *fm2_env,
+		       int fm2_len,
+		       Float *fm3_env,
+		       int fm3_len,
+		       Float fm1_rat,
+		       Float fm2_rat,
+		       Float fm3_rat,
+		       Float fm1_index,
+		       Float fm2_index,
+		       Float fm3_index,
+		       Float base,
+		       Float degree,
+		       Float distance,
+		       Float reverb_amount,
+		       bool index_type,
+		       bool no_waveshaping,
+		       mus_any *out,
+		       mus_any *rev,
+		       mus_interp_t mode);
+
+** off_t ins_jc_reverb(Float start,
+		       Float dur,
+		       Float volume,
+		       bool low_pass,
+		       bool doubled,
+		       Float delay1,
+		       Float delay2,
+		       Float delay3,
+		       Float delay4,
+		       Float *amp_env,
+		       int amp_len,
+		       mus_any *out,
+		       mus_any *rev);
+
+** off_t ins_nrev(Float start,
+		  Float dur,
+		  Float reverb_factor,
+		  Float lp_coeff,
+		  Float lp_out_coeff,
+		  Float output_scale,
+		  Float volume,
+		  Float *amp_env,
+		  int amp_len,
+		  mus_any *out,
+		  mus_any *rev);
+
+** off_t ins_freeverb(Float start,
+		      Float dur,
+		      Float room_decay,
+		      Float damping,
+		      Float global,
+		      Float predelay,
+		      Float output_gain,
+		      Float scale_room_decay,
+		      Float offset_room_decay,
+		      Float scale_damping,
+		      Float stereo_spread,
+		      int *combtuning,
+		      int comb_len,
+		      int *allpasstuning,
+		      int all_len,
+		      mus_any *output_mixer,
+		      mus_any *out,
+		      mus_any *rev);
+
+* Prerequisite	    
+
+Sndins depends on a configured and compiled, but not necessary
+installed, libsndlib.a one directory in the hierarchy above sndins.
+Configuring sndlib from sndlib.tar.gz creates a Makefile in
+sndlib/sndins, sndlib's mus-config.h is needed as well and the
+compiled sndlib/libsndlib.a will be linked in
+sndlib/sndins/libsndins.*
+
+* Compilation
+
+Running Sndlib's configure script in sndlib path creates
+sndins/Makefile from sndins/Makefile.in so we can use the configured
+variables from Sndlib.  Then one can cd to sndins and run make.
+Again: Sndlib must be configured before!
+
+    cd sndins
+    make
+
+* Installation
+
+** Scheme
+
+You can install libsndlib.so and libsndins.so to ${prefix}/lib with
+the usual `make install' command.  Again: Sndlib must be configured
+before!
+
+    cd ${compile_sndlib_dir}
+    make
+    make install
+    cd sndins
+    make
+    make install
+
+The library path should be in your LD_LIBRARY_PATH, e.g. if you have
+installed the library in the unusual path /usr/gnu/lib., you can add
+it by:
+
+	(csh) setenv LD_LIBRARY_PATH /usr/gnu/lib:${LD_LIBRARY_PATH}
+
+	(sh)  LD_LIBRARY_PATH=/usr/gnu/lib:${LD_LIBRARY_PATH}; export LD_LIBRARY_PATH
+
+In Snd/Scheme one can add to the ~/.snd init file:
+
+(if (provided? 'snd)
+    (begin
+      (if (not (provided? 'sndlib))
+	  (let ((hsndlib (dlopen "sndlib.so")))
+	    (if (string? hsndlib)
+		(snd-error (format #f "script needs the sndlib module: ~A" hsndlib))
+		(dlinit hsndlib "Init_sndlib"))))
+      (if (not (provided? 'sndins))
+	  (let ((hsndins (dlopen "sndins.so")))
+	    (if (string? hsndins)
+		(snd-error (format #f "script needs the sndins module: ~A" hsndins))
+		(dlinit hsndins "Init_sndins")))))
+    (begin
+      (if (not (provided? 'sndlib)) (load-extension "libsndlib" "Init_sndlib"))
+      (if (not (provided? 'sndins)) (load-extension "libsndins" "Init_sndins"))))
+
+** Ruby
+
+You can install sndlib.so and sndins.so in the ruby library path, e.g.
+
+    (csh) setenv RUBYLIB ${HOME}/share/ruby/site-ruby:${HOME}/share/snd:${HOME}/lib/ruby/site-ruby
+    (sh)  RUBYLIB=${HOME}/share/ruby/site-ruby:${HOME}/share/snd:${HOME}/lib/ruby/site-ruby
+    (sh)  export RUBYLIB
+    cd ${compile_sndlib_dir}
+    make
+    install -c sndlib.so ~/lib/ruby/site-ruby/
+    cd sndins
+    make
+    install -c sndins.so ~/lib/ruby/site-ruby/
+
+So in Snd/Ruby one can add to the ~/.snd(_ruby) init file:
+
+    require "sndlib"
+    require "sndins"
+
+** Forth
+
+Installing so-libs in Forth is possible with these command lines:
+
+    (csh) setenv FTH_FTHPATH ${HOME}/share/fth/site-fth
+    (csh) setenv FTH_LIBPATH ${HOME}/lib/fth
+    (sh)  FTH_FTHPATH=${HOME}/share/fth/site-fth; export FTH_FTHPATH
+    (sh)  FTH_LIBPATH=${HOME}/lib/fth;            export FTH_LIBPATH
+
+    cd ${compile_sndlib_dir}
+    make
+    fth -Qve "install sndlib.so"
+    cd sndins
+    make
+    fth -Qve "install sndins.so"
+
+These lines install the libraries in ~/lib/fth, the first user
+writeable path.
+
+Then in Snd/Forth one can add to the ~/.snd(_forth) init file:
+
+    dl-load sndlib Init_sndlib
+    dl-load sndins Init_sndins
+
+* Samples
+
+You can load the sample files into Snd, with Ruby and Forth you can
+test them in a shell too.  One may set with-sound variables in agn.*
+and fmviolin.* files.
+
+The agn.* files are translations of clm/clm-example.clm into Scheme,
+Ruby, and Forth as a test case.
+
+The fmviolin.* files are translations of clm/fmviolin.clm into Scheme,
+Ruby, and Forth as a test case.
+
+** Scheme
+
+You can load the *.scm scripts into Snd.  If you have compiled and
+installed the Scheme sndlib and sndins libraries, you can type
+
+    (do-agn)                  ;; agn.scm
+    (short-example)           ;; fmviolin.scm
+    (long-example)            ;; fmviolin.scm
+
+** Ruby
+
+If you have compiled and installed the Ruby sndlib and sndins
+libraries, you can type in a shell
+
+    ./agn.rb [ outfile.rbm ]
+    ./fmviolin.rb [ -s ]
+
+The default outfile is agn.rbm.  A different outfile name may end
+in *.rbm.  The option -s can be everything, its only meaning is to
+choose the short_example, without an option long_example is chosen.
+
+You can load these scripts into Snd too.
+
+** Forth
+
+If you have compiled and installed the Forth sndlib and sndins
+libraries, you can type
+
+    ./agn.fth [ outfile.fsm ]
+    ./fmviolin.fth [ -s ]
+
+The default outfile is agn.fsm.  A different outfile name should end
+in *.fsm.  The option -s can be everything, its only meaning is to
+choose the short-example, without an option long-example is chosen.
+
+You can load these scripts into Snd too.
+
+* README ends here

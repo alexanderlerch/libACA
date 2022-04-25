@@ -1,0 +1,1119 @@
+\ bird.fsm -- clm/bird.clm   -*- snd-forth -*-
+
+\ Translator: Michael Scholz <mi-scholz@users.sourceforge.net>
+\ Created: Tue Dec 12 03:26:27 CET 2006
+\ Changed: Thu Jun 18 12:20:57 CEST 2009
+
+\ Usage: <'> bird-test with-sound
+\        or ws-bird-test
+
+require clm
+
+instrument: bird <{ start dur freq freq-skew amp freqenv ampenv
+     :optional lpfilt 1.0 degree 0.0 reverb-amount 0.0 -- }>
+  :envelope ampenv  :scaler amp                   :duration dur make-env { amp-env }
+  :envelope freqenv :scaler freq-skew hz->radians :duration dur make-env { gls-env }
+  :frequency freq make-oscil { os }
+  :a0 lpfilt :b1 1.0 lpfilt f- make-one-pole { fil }
+  *channels* 2 =  degree f0= && if  45.0 to degree        then
+  *reverb* reverb-amount f0= && if 0.001 to reverb-amount then
+  start dur #{ :degree degree :distance 1.0 :reverb-amount reverb-amount } run-instrument
+    fil  os gls-env env 0.0 oscil  amp-env env  f*  one-pole
+  end-run
+;instrument
+
+instrument: bigbird <{ start dur freq freq-skew amp freqenv ampenv parts
+     :optional lpcoeff 1.0 degree 0.0 reverb-amount 0.0 -- }>
+  parts normalize-partials to parts
+  :envelope ampenv  :scaler amp                   :duration dur make-env { amp-env }
+  :envelope freqenv :scaler freq-skew hz->radians :duration dur make-env { gls-env }
+  :frequency freq :coeffs parts mus-chebyshev-first-kind partials->polynomial make-polyshape { os }
+  :a0 lpcoeff :b1 1.0 lpcoeff f- make-one-pole { fil }
+  *channels* 2 =  degree f0= && if  45.0 to degree        then
+  *reverb* reverb-amount f0= && if 0.001 to reverb-amount then
+  start dur #{ :degree degree :distance 1.0 :reverb-amount reverb-amount } run-instrument
+    fil  os 1.0 gls-env env polyshape  amp-env env  f*  one-pole
+  end-run
+;instrument
+
+#( 0 0 0.25 1 0.6 0.7 0.75 1 1 0 ) constant main-amp
+#( 0 0 0.01 1 0.99 1 1 0 )         constant tap-amp
+#( 0 0 0.25 1 0.75 1 1 0 )         constant bird-amp
+#( 0 0 1 1 )                       constant bird-up
+#( 0 1 1 0 )                       constant bird-down
+
+event: orchard-oriole ( beg -- )
+  0.38 f- { beg }
+  #( 0 0 0.6 1 1 0.6 ) { oriupdwna }
+  #( 0 0.5 0.3 1 1 0 ) { oriupdwnb }
+  #( 0 0.9 0.15 1 0.4 0.3 0.6 0.6 0.85 0 1 0 ) { oribiga }
+  #( 0 1 0.05 0.5 0.1 1 0.25 0 0.85 0.5 1 0 ) { orimid }
+  #( 0 0.3 0.25 0 1 1 ) { oridwnup }
+  #( 0 0 0.1 1 1 0 ) { oriamp }
+
+  0.38 beg f+ 0.03 3700  100 0.05 bird-down main-amp                        bird
+  0.41 beg f+ 0.05 2500 1000 0.10 bird-up   main-amp                        bird
+  0.50 beg f+ 0.10 2000  800 0.20 oriupdwna main-amp #( 1 1 2 0.02 3 0.05 ) bigbird
+  0.65 beg f+ 0.03 3900 1200 0.10 bird-down main-amp                        bird
+  0.70 beg f+ 0.21 2000 1200 0.15 oribiga   main-amp #( 1 1 2 0.05 )        bigbird
+  1.00 beg f+ 0.05 4200 1000 0.10 bird-down main-amp                        bird
+  1.10 beg f+ 0.10 2000 1000 0.25 orimid    main-amp #( 1 1 2 0.05 )        bigbird
+  1.30 beg f+ 0.10 2000 1000 0.25 orimid    main-amp #( 1 1 2 0.05 )        bigbird
+  1.48 beg f+ 0.10 2300 3200 0.10 oriupdwnb oriamp                          bird
+  1.65 beg f+ 0.03 1800  300 0.05 bird-up   main-amp                        bird
+  1.70 beg f+ 0.03 2200  100 0.04 bird-down main-amp                        bird
+  1.80 beg f+ 0.07 2500 2000 0.15 oriupdwnb oriamp                          bird
+  1.92 beg f+ 0.20 2400 1200 0.25 oridwnup  main-amp #( 1 1 2 0.04 )        bigbird
+  2.20 beg f+ 0.02 2200 3000 0.04 bird-up   main-amp                        bird
+  2.28 beg f+ 0.02 2200 3000 0.04 bird-up   main-amp                        bird
+  2.40 beg f+ 0.17 2000 1000 0.20 oriupdwna oriamp   #( 1 1 2 0.04 )        bigbird
+  2.4 0.17 f+ step
+;event
+
+event: cassins-kingbird ( beg -- )
+  0.03 f- { beg }
+  #( 0 0.3 0.45 1 0.9 0.1 1 0 ) { kingfirst }
+  #( 0.00 0.00 0.02 0.50 0.04 0.00 0.06 0.55 0.08 0.05 0.10 0.60
+     0.12 0.05 0.14 0.65 0.16 0.10 0.18 0.70 0.20 0.10 0.22 0.75
+     0.24 0.15 0.26 0.80 0.28 0.20 0.30 0.85 0.32 0.25 0.34 0.90
+     0.36 0.30 0.38 0.95 0.40 0.40 0.42 1.00 0.44 0.50 0.46 1.00
+     0.48 0.45 0.50 1.00 0.52 0.50 0.54 1.00 0.56 0.40 0.58 0.95
+     0.60 0.40 0.62 0.90 0.64 0.40 0.66 0.85 0.68 0.35 0.70 0.80
+     0.72 0.30 0.74 0.75 0.76 0.25 0.78 0.70 0.80 0.20 0.82 0.65
+     0.84 0.10 0.86 0.60 0.88 0.00 0.90 0.55 0.92 0.00 0.94 0.50
+     0.96 0.00 1.00 0.40 ) { kingsecond }
+
+  0.03 beg f+ 0.04 1700 1200 0.15 kingfirst  main-amp #( 1 1 2 0.5 3 0 4 0.2 )  bigbird
+  0.12 beg f+ 0.18 1700  900 0.25 kingsecond main-amp #( 1 1 2 0.01 3 0 4 0.1 ) bigbird
+  0.12 0.18 f+ step
+;event
+
+event: chipping-sparrow ( beg -- )
+  { beg }
+  #( 0 0.8 0.15 1 0.75 0.3 1 0 ) { chip-up }
+
+  0.00 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.06 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.12 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.18 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.24 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.30 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.36 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.42 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.48 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.54 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.60 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.66 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.72 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.78 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.84 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.90 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.96 beg f+ 0.05 4000 2400 0.2 chip-up main-amp bird
+  0.96 0.05 f+ step
+;event
+
+event: bobwhite ( beg -- )
+  0.4 f- { beg }
+  #( 0 0 0.4 1 1 1 ) { bobup1 }
+  #( 0 0 0.65 0.5 1 1 ) { bobup2 }
+
+  0.4 beg f+ 0.2 1800  200 0.1 bobup1 main-amp #( 1 1 2 0.02 ) bigbird
+  1.0 beg f+ 0.2 1800 1200 0.2 bobup2 main-amp #( 1 1 2 0.02 ) bigbird
+  1 0.2 f+ step
+;event
+
+event: western-meadowlark ( beg -- )
+  0.8 f- { beg }
+  #( 0 0 1 0 ) { no-skw }
+  #( 0 1 0.4 0.4 1 0 ) { down-skw }
+
+  0.80 beg f+ 0.10 2010    0 0.10 no-skw    main-amp #( 1 1 2 0.04 ) bigbird
+  1.10 beg f+ 0.15 3000  100 0.11 down-skw  main-amp #( 1 1 2 0.04 ) bigbird
+  1.30 beg f+ 0.25 2000  150 0.20 down-skw  main-amp #( 1 1 2 0.04 ) bigbird
+  1.65 beg f+ 0.15 3010  250 0.11 down-skw  main-amp #( 1 1 2 0.04 ) bigbird
+  1.85 beg f+ 0.10 2200  150 0.11 down-skw  main-amp #( 1 1 2 0.04 ) bigbird
+  2.00 beg f+ 0.10 3200 1400 0.11 bird-down main-amp #( 1 1 2 0.04 ) bigbird
+  2.20 beg f+ 0.05 2000  200 0.11 bird-down main-amp #( 1 1 2 0.04 ) bigbird
+  2.30 beg f+ 0.10 1600    0 0.11 bird-down main-amp #( 1 1 2 0.04 ) bigbird
+  2.3 0.1 f+ step
+;event
+
+event: scissor-tailed-flycatcher ( beg -- )
+  { beg }
+  #( 0 0 0.4 1 0.6 1 1 0 ) { scissor }
+
+  beg 0.05 1800 1800 0.2 scissor main-amp #( 1 0.5 2 1 3 0.5 4 0.1 5 0.01 ) bigbird
+  0.05 step
+;event
+
+event: great-horned-owl ( beg -- )
+  0.3 f- { beg }
+  #( 0 0 0.3 1 1 1 ) { owlup }
+  #( 1 1 3 0.02 7 0.01 ) { owl-parts }
+
+  0.30 beg f+ 0.10 300 0 0.1 main-amp  main-amp owl-parts bigbird
+  0.60 beg f+ 0.40 293 6 0.1 bird-down main-amp owl-parts bigbird
+  1.75 beg f+ 0.35 293 7 0.1 owlup     main-amp owl-parts bigbird
+  2.50 beg f+ 0.20 300 0 0.1 owlup     main-amp owl-parts bigbird
+  2.5 0.2 f+ step
+;event
+
+event: black-throated-gray-warbler ( beg -- )
+  { beg }
+  #( 0.00 0.50 0.02 0.60 0.04 0.45 0.06 0.62 0.08 0.40 0.10 0.65
+     0.12 0.35 0.14 0.70 0.18 0.30 0.20 0.70 0.22 0.30 0.24 0.70
+     0.25 0.20 0.30 0.80 0.35 0.10 0.40 0.90 0.45 0.00 0.50 1.00
+     0.55 0.00 0.60 1.00 0.65 0.00 0.70 1.00 0.75 0.00 0.80 1.00
+     0.85 0.00 0.90 1.00 0.95 0.00 1.00 0.50 ) { gray-one }
+  #( 0.00 0.00 0.01 0.40 0.02 0.00 0.03 0.40 0.04 0.00 0.05 0.40
+     0.06 0.00 0.07 0.40 0.08 0.00 0.09 0.40 0.10 0.00 0.25 0.80
+     0.40 0.30 0.55 1.00 0.70 0.00 0.85 0.80 1.00 0.40 ) { gray-two }
+  #( 0.00 1.00 0.01 0.60 0.02 1.00 0.03 0.60 0.04 1.00 0.05 0.60
+     0.06 1.00 0.07 0.60 0.08 1.00 0.09 0.60 0.10 1.00 0.11 0.60
+     0.12 1.00 0.13 0.60 0.14 1.00 0.15 0.60 0.16 1.00 0.17 0.60
+     0.18 1.00 0.19 0.60 0.20 1.00 0.21 0.55 0.22 1.00 0.23 0.50
+     0.24 1.00 0.25 0.50 0.26 1.00 0.27 0.50 0.28 1.00 0.29 0.50
+     0.30 1.00 0.31 0.50 0.32 1.00 0.33 0.50 0.34 1.00 0.35 0.50
+     0.36 1.00 0.37 0.50 0.38 1.00 0.39 0.50 0.40 1.00 0.41 0.50
+     0.42 1.00 0.43 0.50 0.44 1.00 0.45 0.50 0.46 1.00 0.47 0.50
+     0.48 1.00 0.49 0.50 0.50 1.00 0.51 0.50 0.52 1.00 0.53 0.50
+     0.54 1.00 0.55 0.50 0.56 1.00 0.57 0.50 0.58 1.00 0.59 0.50
+     0.60 1.00 1.00 0.00 ) { gray-three }
+
+  0.00 beg f+ 0.12 3700  600 0.05 gray-one   main-amp bird
+  0.18 beg f+ 0.08 3000  800 0.07 gray-two   main-amp bird
+  0.28 beg f+ 0.12 3700  600 0.12 gray-one   main-amp bird
+  0.44 beg f+ 0.08 3000  800 0.15 gray-two   main-amp bird
+  0.54 beg f+ 0.12 3700  600 0.20 gray-one   main-amp bird
+  0.72 beg f+ 0.08 3000  800 0.25 gray-two   main-amp bird
+  0.82 beg f+ 0.12 3700  600 0.25 gray-one   main-amp bird
+  0.96 beg f+ 0.20 3000 2000 0.20 gray-three main-amp bird
+  1.20 beg f+ 0.02 4500  500 0.05 bird-up    main-amp bird
+  1.25 beg f+ 0.02 4200  800 0.05 bird-up    main-amp bird
+  1.30 beg f+ 0.02 4000  900 0.05 bird-up    main-amp bird
+  1.3 0.02 f+ step
+;event
+
+event: yellow-warbler ( beg -- )
+  { beg }
+  #( 0 0 0.6 1 1 0.5 ) { yellow-up }
+  #( 0 1 0.05 1 0.6 0 0.8 0.3 1 0.1 ) { yellow-swirl }
+  #( 0 0 0.3 0.2 0.8 0.7 1 1 ) { yellow-last }
+  #( 0 0 0.9 1 1 0 ) { swirl-amp }
+
+  0.00 beg f+ 0.050 5600  400 0.05 yellow-up    main-amp bird
+  0.23 beg f+ 0.120 5000 1500 0.15 yellow-swirl main-amp bird
+  0.45 beg f+ 0.130 5000 1700 0.17 yellow-swirl main-amp bird
+  0.62 beg f+ 0.160 5000 2000 0.20 yellow-swirl main-amp bird
+  0.85 beg f+ 0.150 5000 2000 0.20 yellow-swirl main-amp bird
+  1.05 beg f+ 0.075 3700 1000 0.20 bird-down 	main-amp bird
+  1.15 beg f+ 0.075 3700  800 0.15 bird-down 	main-amp bird
+  1.25 beg f+ 0.075 3700  800 0.15 bird-down 	main-amp bird
+  1.40 beg f+ 0.200 3700 2000 0.20 yellow-last  main-amp bird
+  1.4 0.2 f+ step
+;event
+
+event: black-necked-stilt ( beg -- )
+  { beg }
+  #( 0 0 0.9 1 1 0 ) { upamp }
+  #( 0 0 0.5 1 1 0.2 ) { rampup }
+  #( 1 0.5 2 1 3 0.75 4 0.5 5 0.1 ) { bns-parts }
+
+  0.0 beg f+ 0.1 900 100 0.2 rampup upamp bns-parts bigbird
+  0.3 beg f+ 0.1 900 200 0.2 rampup upamp bns-parts bigbird
+  0.6 beg f+ 0.1 900 250 0.2 rampup upamp bns-parts bigbird
+  0.6 0.1 f+ step
+;event
+
+event: chestnut-sided-warbler ( beg -- )
+  0.1 f- { beg }
+  #( 0 1 0.3 0.5 0.6 1 0.8 0.2 1 0 ) { ycurve }
+  #( 0 0.2 0.5 1 1 0 ) { vcurve }
+  #( 0 0.5 0.15 0 0.45 0.1 0.6 1 0.7 0.9 1 0.9 ) { wcurve }
+  #( 0 0 0.95 1 1 1 ) { upcurve }
+  #( 0 1 0.25 0.3 0.6 0.15 1 0 ) { downcurve }
+  #( 0 0 0.9 1 1 0 ) { louder }
+  #( 0 0 0.1 1 0.4 0.1 0.5 0.9 0.6 0.1 0.7 1 1 0 ) { wamp }
+
+  0.10 beg f+ 0.10 4050 1200 0.050 ycurve    main-amp #( 1 1 2 0.1 ) bigbird
+  0.25 beg f+ 0.03 3900  300 0.075 vcurve    main-amp #( 1 1 2 0.1 ) bigbird
+  0.30 beg f+ 0.10 4050 1200 0.150 ycurve    louder   #( 1 1 2 0.1 ) bigbird
+  0.42 beg f+ 0.03 3800  500 0.100 vcurve    main-amp #( 1 1 2 0.1 ) bigbird
+  0.50 beg f+ 0.10 4000 1200 0.200 ycurve    tap-amp  #( 1 1 2 0.1 ) bigbird
+  0.65 beg f+ 0.03 3800  500 0.150 vcurve    main-amp #( 1 1 2 0.1 ) bigbird
+  0.72 beg f+ 0.10 4000 1200 0.200 ycurve    tap-amp  #( 1 1 2 0.1 ) bigbird
+  0.85 beg f+ 0.03 3800  500 0.150 vcurve    main-amp #( 1 1 2 0.1 ) bigbird
+  0.91 beg f+ 0.10 4000 1200 0.200 ycurve    tap-amp  #( 1 1 2 0.1 ) bigbird
+  1.05 beg f+ 0.12 3800 2200 0.150 wcurve    wamp     #( 1 1 2 0.1 ) bigbird
+  1.20 beg f+ 0.12 3800 2200 0.150 wcurve    wamp     #( 1 1 2 0.1 ) bigbird
+  1.35 beg f+ 0.12 2500 2200 0.250 upcurve   louder   #( 1 1 2 0.1 ) bigbird
+  1.50 beg f+ 0.12 2500 4000 0.150 downcurve main-amp #( 1 1 2 0.1 ) bigbird
+  1.5 0.12 f+ step
+;event
+
+event: grasshopper-sparrow ( beg -- )
+   0.49 f- { beg }
+  #( 0.00 0.50 0.02 0.80 0.04 0.30 0.06 0.80 0.07 0.10 0.08 0.90
+     0.10 0.00 0.11 0.90 0.12 0.00 0.13 0.90 0.14 0.10 0.15 1.00
+     0.16 0.10 0.17 1.00 0.18 0.10 0.19 1.00 0.20 0.10 0.21 1.00
+     0.22 0.10 0.23 1.00 0.24 0.10 0.25 1.00 0.26 0.10 0.27 1.00
+     0.28 0.10 0.29 1.00 0.30 0.10 0.31 1.00 0.32 0.10 0.33 1.00
+     0.34 0.10 0.35 1.00 0.36 0.10 0.37 1.00 0.38 0.10 0.39 1.00
+     0.40 0.10 0.41 1.00 0.42 0.10 0.43 1.00 0.44 0.10 0.45 1.00
+     0.46 0.10 0.47 1.00 0.48 0.10 0.49 1.00 0.50 0.10 0.51 1.00
+     0.52 0.10 0.53 1.00 0.54 0.10 0.55 1.00 0.56 0.10 0.57 1.00
+     0.58 0.10 0.59 1.00 0.60 0.10 0.61 1.00 0.62 0.10 0.63 1.00
+     0.64 0.10 0.65 1.00 0.66 0.10 0.67 1.00 0.68 0.10 0.69 1.00
+     0.70 0.10 0.71 1.00 0.72 0.10 0.73 1.00 0.74 0.10 0.75 1.00
+     0.76 0.10 0.77 1.00 0.78 0.10 0.79 1.00 0.80 0.10 0.81 1.00
+     0.82 0.10 0.83 1.00 0.84 0.10 0.85 1.00 0.86 0.10 0.87 1.00
+     0.88 0.10 0.89 1.00 0.90 0.10 0.91 1.00 0.92 0.10 0.93 1.00
+     0.94 0.10 0.95 1.00 0.96 0.10 0.97 1.00 0.98 0.10 1.00 1.00 ) { grass-one }
+  #( 0.00 0.00 0.10 1.00 0.20 0.00 0.30 1.00 0.40 0.00 0.50 1.00
+     0.60 0.00 0.70 1.00 0.80 0.00 0.90 1.00 1.00 0.00 ) { grass-two }
+  
+  0.49 beg f+ 0.01 8000  100 0.1 grass-two main-amp bird
+  0.60 beg f+ 0.01 5700  300 0.1 grass-two main-amp bird
+  0.92 beg f+ 0.01 3900  100 0.1 grass-two main-amp bird
+  1.00 beg f+ 1.40 6000 2500 0.2 grass-one main-amp bird
+  1 1.4 f+ step
+;event
+
+event: swamp-sparrow ( beg -- )
+  { beg }
+  #( 0 0 0.6 0.7 1 1 ) { swamp-up }
+  #( 0 1 0.5 0.5 0.6 0.6 1 0 ) { swamp-down }
+
+  0.000 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.035 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.080 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.100 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.135 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.180 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.200 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.235 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.280 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.300 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.335 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.380 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.400 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.435 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.480 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.500 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.535 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.580 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.600 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.635 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.680 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.700 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.735 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.780 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.800 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.835 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.880 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.900 beg f+ 0.020 3900  200 0.3 swamp-up   main-amp bird
+  0.935 beg f+ 0.035 3200 3000 0.1 swamp-down main-amp bird
+  0.980 beg f+ 0.025 3700    0 0.1 main-amp   main-amp bird
+  0.98 0.025 f+ step
+;event
+
+event: golden-crowned-sparrow ( beg -- )
+  0.6 f- { beg }
+  #( 0 1 0.25 0.2 1 0 ) { gold-one }
+  #( 0 0.9 0.05 1 0.1 0.4 1 0 ) { gold-two }
+  #( 0 0.5 0.1 0 0.2 1 0.3 0 0.4 1 0.5 0 0.6 1 0.7 0 0.8 1 0.9 0 1 0.5 )
+  { gold-trill }
+
+  0.60 beg f+ 0.50 4300 1000 0.15 gold-one   main-amp bird
+  1.30 beg f+ 0.45 3300  200 0.15 gold-one   main-amp bird
+  1.75 beg f+ 0.40 3800  100 0.15 gold-two   main-amp bird
+  2.20 beg f+ 0.30 3800  100 0.10 gold-trill main-amp bird
+  2.2 0.3 f+ step
+;event
+
+event: indigo-bunting ( beg -- )
+  0.4 f- { beg }
+  #( 0 0 0.5 1 1 0 ) { bunt-v }
+  #( 0 1 0.5 0 1 0.9 ) { bunt-y }
+  #( 0 0.8 0.3 1 0.7 0.2 1 0 ) { bunt-n }
+  #( 0 1 0.1 0.5 0.25 0.9 1 0 ) { bunt-x }
+
+  0.40 beg f+ 0.08 3000  700 0.25 bird-down main-amp bird
+  0.52 beg f+ 0.02 6200 1000 0.05 bird-down main-amp bird
+  0.55 beg f+ 0.15 3500 2300 0.10 bunt-v    main-amp bird
+  0.74 beg f+ 0.02 6200 1800 0.05 bunt-x    main-amp bird
+  0.80 beg f+ 0.15 3400 2300 0.10 bunt-v    main-amp bird
+  1.00 beg f+ 0.10 3400  800 0.20 bunt-v    main-amp bird
+  1.13 beg f+ 0.03 4100 2000 0.05 bird-down main-amp bird
+  1.25 beg f+ 0.08 3400  800 0.20 bunt-v    main-amp bird
+  1.40 beg f+ 0.03 4100 2000 0.05 bird-down main-amp bird
+  1.50 beg f+ 0.07 3700  300 0.10 bird-down main-amp bird
+  1.60 beg f+ 0.10 4100 2200 0.15 bunt-y    main-amp bird
+  1.72 beg f+ 0.05 3700  300 0.10 bird-down main-amp bird
+  1.81 beg f+ 0.10 4100 2200 0.15 bunt-y    main-amp bird
+  1.94 beg f+ 0.07 5200 1800 0.20 bunt-n    main-amp bird
+  2.05 beg f+ 0.08 3000 1500 0.15 bird-up   main-amp bird
+  2.20 beg f+ 0.07 5200 1800 0.20 bunt-n    main-amp bird
+  2.33 beg f+ 0.08 3000 1500 0.15 bird-up   main-amp bird
+  2.43 beg f+ 0.07 5200 1800 0.10 bunt-n    main-amp bird
+  2.51 beg f+ 0.08 3000 1500 0.10 bird-up   main-amp bird
+  2.51 0.08 f+ step
+;event
+
+event: hooded-warbler ( beg -- )
+  0.6 f- { beg }
+  0.60 beg f+ 0.03 3900 1600 0.05 bird-down main-amp bird
+  0.64 beg f+ 0.03 3900 1700 0.05 bird-down main-amp bird
+  0.80 beg f+ 0.03 3900 2000 0.10 bird-down main-amp bird
+  0.84 beg f+ 0.03 3900 2000 0.10 bird-down main-amp bird
+  0.93 beg f+ 0.03 3900 2100 0.15 bird-down main-amp bird
+  0.97 beg f+ 0.03 3900 2100 0.15 bird-down main-amp bird
+  1.05 beg f+ 0.03 3900 2100 0.05 bird-down main-amp bird
+  1.09 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.17 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.21 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.39 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.43 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.51 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.55 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.63 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.67 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.75 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.80 beg f+ 0.03 3900 2100 0.20 bird-down main-amp bird
+  1.90 beg f+ 0.04 3000 1000 0.15 bird-up   main-amp bird
+  1.98 beg f+ 0.04 3000 1000 0.15 bird-up   main-amp bird
+  2.05 beg f+ 0.04 3000 1000 0.15 bird-up   main-amp bird
+  2.13 beg f+ 0.04 3000 1000 0.15 bird-up   main-amp bird
+  2.21 beg f+ 0.04 3000 1000 0.15 bird-up   main-amp bird
+  2.29 beg f+ 0.04 3000 1000 0.15 bird-up   main-amp bird
+  2.37 beg f+ 0.04 3000 1000 0.15 bird-up   main-amp bird
+  2.45 beg f+ 0.04 3000 1000 0.15 bird-up   main-amp bird
+  2.45 0.04 f+ step
+;event
+
+event: american-widgeon ( beg -- )
+  0.3 f- { beg }
+  #( 0 0 0.5 1 1 0 ) { widgeon }
+
+  0.30 beg f+ 0.07 1900  300 0.15 widgeon widgeon #( 1 1 2 0.02 )       bigbird
+  0.40 beg f+ 0.11 1700 1400 0.25 widgeon widgeon #( 1 0.7 2 1 3 0.02 ) bigbird
+  0.55 beg f+ 0.07 1900  300 0.15 widgeon widgeon #( 1 1 2 0.02 )       bigbird
+  0.55 0.07 f+ step
+;event
+
+event: louisiana-waterthrush ( beg -- )
+  { beg }
+  #( 0 0.8 0.35 0.4 0.45 0.9 0.5 1 0.75 1 1 1 ) { water-one }
+  #( 0 1 0.4 0 0.6 0.1 1 0.8 ) { water-two }
+  #( 0 1 0.95 0 1 0 ) { water-three }
+  #( 0 0 1 1 ) { water-four }
+  #( 0 1 1 0 ) { water-five }
+  #( 0 0 0.35 1 0.5 0.2 0.9 1 1 0 ) { water-amp }
+  #( 0 0 0.9 1 1 0 ) { water-damp }
+
+  0.00 beg f+ 0.170 4100 2000 0.20 water-one   water-amp  bird
+  0.32 beg f+ 0.180 4050 2050 0.30 water-one   water-amp  bird
+  0.64 beg f+ 0.200 4000 1900 0.25 water-one   water-amp  bird
+  0.90 beg f+ 0.200 3900 2000 0.30 water-two   tap-amp    bird
+  1.25 beg f+ 0.120 3000 3000 0.25 water-three water-damp bird
+  1.40 beg f+ 0.100 2700 1500 0.20 water-four  water-damp bird
+  1.58 beg f+ 0.020 5200 1000 0.10 water-five  main-amp   bird
+  1.65 beg f+ 0.020 5200 1000 0.10 water-five  main-amp   bird
+  1.70 beg f+ 0.035 3200 1000 0.10 water-three water-damp bird
+  1.7 0.03 f+ step
+;event
+
+event: robin ( beg -- )
+  0.45 f- { beg }
+  #( 0.00 0.10 0.08 0.70 0.30 0.00 0.35 1.00 0.40 0.30 1.00 0.30 ) { r-one }
+  #( 0.00 0.00 0.10 1.00 0.20 0.70 0.35 0.70 0.65 0.30 0.70 0.50
+     0.80 0.00 0.90 0.20 1.00 0.00 ) { r-two }
+  #( 0.00 0.20 0.25 1.00 0.60 0.70 0.90 0.00 1.00 0.10 ) { r-three }
+  #( 0.00 0.50 0.10 0.00 0.20 1.00 0.30 0.00 0.40 1.00 0.50 0.00
+     0.60 1.00 0.70 0.50 1.00 0.20 ) { r-five }
+  #( 0.00 0.00 0.12 0.70 0.30 0.00 0.70 1.00 1.00 0.50 ) { r-six }
+
+  0.45 beg f+ 0.06 2000  800 0.15 r-six     main-amp #( 1 1 2 0.1 ) bigbird
+  0.56 beg f+ 0.10 2000  900 0.15 r-one     main-amp #( 1 1 2 0.1 ) bigbird
+  1.04 beg f+ 0.24 2000 2000 0.25 r-two     main-amp #( 1 1 2 0.1 ) bigbird
+  1.63 beg f+ 0.13 1900 1600 0.20 r-three   main-amp #( 1 1 2 0.1 ) bigbird
+  1.80 beg f+ 0.11 2200 1200 0.25 bird-down main-amp #( 1 1 2 0.1 ) bigbird
+  2.31 beg f+ 0.21 1950 2000 0.15 r-five    main-amp #( 1 1 2 0.1 ) bigbird
+  2.31 0.21 f+ step
+;event
+
+event: solitary-vireo ( beg -- )
+  { beg }
+  #( 0.00 0.20 0.03 0.30 0.06 0.10 0.10 0.50 0.13 0.40 0.16 0.80
+     0.19 0.50 0.22 0.90 0.25 0.60 0.28 1.00 0.31 0.60 0.34 1.00
+     0.37 0.50 0.41 0.90 0.45 0.40 0.49 0.80 0.51 0.40 0.54 0.75
+     0.57 0.35 0.60 0.70 0.63 0.30 0.66 0.60 0.69 0.25 0.72 0.50
+     0.75 0.20 0.78 0.30 0.82 0.10 0.85 0.30 0.88 0.05 0.91 0.30
+     0.94 0.00 0.95 0.30 0.99 0.00 1.00 0.10 ) { bigskew }
+
+  beg 0.4 1800 1200 0.2 bigskew main-amp bird
+  0.4 step
+;event
+
+event: pigeon-hawk ( beg -- )
+  { beg }
+  #( 0 0 0.3 1 0.7 1 1 0 ) { hupdown }
+
+  0.00 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  0.12 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  0.13 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  0.25 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  0.26 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  0.38 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  0.39 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  0.51 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  0.52 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  0.64 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  0.65 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  0.77 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  0.78 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  0.90 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  0.91 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  1.03 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  1.04 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  1.16 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  1.17 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  1.29 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  1.30 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  1.42 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  1.43 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  1.55 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  1.56 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  1.68 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  1.69 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  1.81 beg f+ 0.01 2050   0 0.1 main-amp main-amp #( 1 0.5 2 1 ) bigbird
+  1.82 beg f+ 0.10 1900 200 0.2 hupdown  main-amp #( 1 0.7 2 1 ) bigbird
+  1.82 0.1 f+ step
+;event
+
+event: cerulean-warbler ( beg -- )
+  0.27 f- { beg }
+  #( 0 0.8 0.1 1 0.25 0.5 0.4 1 0.55 0.5 0.7 1 1 0 ) { trill }
+
+  0.27 beg f+ 0.05 3000 1000 0.050 bird-down main-amp bird
+  0.33 beg f+ 0.05 3000  800 0.075 bird-up   main-amp bird
+  0.41 beg f+ 0.01 3200  700 0.070 bird-down main-amp bird
+  0.42 beg f+ 0.01 3200  700 0.080 bird-down main-amp bird
+  0.43 beg f+ 0.06 3200  700 0.090 bird-down main-amp bird
+  0.51 beg f+ 0.06 3200  500 0.100 bird-up   main-amp bird
+  0.60 beg f+ 0.10 3000 1200 0.200 trill     main-amp bird
+  0.72 beg f+ 0.05 3000  800 0.200 bird-up   main-amp bird
+  0.80 beg f+ 0.10 3000 1200 0.200 trill     main-amp bird
+  0.92 beg f+ 0.05 3000  800 0.200 bird-up   main-amp bird
+  1.00 beg f+ 0.01 3900  600 0.100 bird-up   main-amp bird
+  1.01 beg f+ 0.01 3910  800 0.100 bird-up   main-amp bird
+  1.02 beg f+ 0.01 3940  500 0.100 bird-up   main-amp bird
+  1.03 beg f+ 0.01 4000  500 0.100 bird-up   main-amp bird
+  1.04 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.05 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.06 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.07 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.08 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.09 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.10 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.11 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.12 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.13 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.14 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.15 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.16 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.17 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.18 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.19 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.20 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.21 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.22 beg f+ 0.01 3900 1000 0.100 bird-up   main-amp bird
+  1.23 beg f+ 0.01 3900 1200 0.100 bird-up   main-amp bird
+  1.24 beg f+ 0.01 3900 1200 0.100 bird-up   main-amp bird
+  1.25 beg f+ 0.01 3900 1200 0.100 bird-up   main-amp bird
+  1.26 beg f+ 0.01 3900 1200 0.100 bird-up   main-amp bird
+  1.27 beg f+ 0.01 3900 1400 0.100 bird-up   main-amp bird
+  1.28 beg f+ 0.01 3900 1400 0.100 bird-up   main-amp bird
+  1.29 beg f+ 0.01 3900 1400 0.100 bird-up   main-amp bird
+  1.30 beg f+ 0.01 3900 1400 0.100 bird-up   main-amp bird
+  1.3 0.01 f+ step
+;event
+
+event: nashville-warbler ( beg -- )
+  0.15 f- { beg }
+  #( 0 0.6 0.35 1 1 0 ) { nash-blip }
+  #( 0 0.9 0.05 1 0.1 0.9 0.65 0.5 1 0 ) { nash-down }
+  #( 0 0 0.15 0.2 0.25 0.05 0.9 0.95 1 1 ) { nash-up }
+  #( 0 0 0.8 1 1 0 ) { nash-amp }
+
+  0.15 beg f+ 0.025 3900  300 0.300 nash-blip main-amp bird
+  0.24 beg f+ 0.160 4200 3800 0.150 nash-down nash-amp bird
+  0.42 beg f+ 0.025 3900  300 0.300 nash-blip main-amp bird
+  0.55 beg f+ 0.140 4300 3700 0.150 nash-down nash-amp bird
+  0.75 beg f+ 0.030 3950  350 0.300 nash-blip main-amp bird
+  0.81 beg f+ 0.170 4200 3900 0.175 nash-down main-amp bird
+  1.00 beg f+ 0.020 3800  400 0.250 nash-blip main-amp bird
+  1.11 beg f+ 0.140 4200 3800 0.165 nash-down nash-amp bird
+  1.30 beg f+ 0.030 3750  300 0.200 nash-blip main-amp bird
+  1.40 beg f+ 0.110 4200 3700 0.100 nash-down main-amp bird
+  1.57 beg f+ 0.100 3800 2200 0.100 nash-up   main-amp bird
+  1.70 beg f+ 0.100 3800 2150 0.125 nash-up   main-amp bird
+  1.85 beg f+ 0.075 3900 1800 0.100 nash-up   nash-amp bird
+  1.85 0.075 f+ step
+;event
+
+event: eastern-phoebe ( beg -- )
+  { beg }
+  #( 0 0 0.3 0.3 0.35 0.5 0.55 0.4 0.7 0.8 0.75 0.7 0.8 1 0.95 0.9 1 0 ) { phoebe-one }
+  #( 0 0 0.5 1 1 0 ) { phoebe-two }
+  #( 0 0 0.1 0.4 0.8 1 1 0.1 ) { phoebe-three }
+  #( 0 1 0.5 0.7 1 0 ) { phoebe-four }
+  #( 0 0 0.1 1 1 0 ) { phoebe-amp }
+
+  0.00 beg f+ 0.225 3000 1300 0.3 phoebe-one   main-amp   bird
+  0.35 beg f+ 0.120 3000  500 0.1 phoebe-two   phoebe-amp bird
+  0.40 beg f+ 0.100 3000 1500 0.2 phoebe-three phoebe-amp bird
+  0.55 beg f+ 0.050 3000 1400 0.2 phoebe-four  phoebe-amp bird
+  0.55 0.05 f+ step
+;event
+
+event: painted-bunting ( beg -- )
+  0.05 f- { beg }
+  #( 0 0 0.9 1 1 0 ) { b-two }
+  #( 0 0 0.5 1 1 0 ) { b-four }
+  #( 0 0.7 0.15 0 0.4 1 0.8 1 1 0.5 ) { b-five }
+  #( 0 0 0.1 0.5 0.15 0 0.4 1 0.9 1 1 0 ) { b-six }
+  #( 0 1 0.25 0.4 0.75 0.5 1 0 ) { b-seven }
+  #( 0 0.3 0.4 0.4 0.5 1 0.6 0.2 1 0 ) { b-eight }
+  #( 0 0 0.05 1 0.3 1 0.5 0.3 0.9 1 1 0 ) { b-nine }
+  #( 0 0.4 0.25 0 0.35 1 0.5 0 0.65 1 0.75 0 0.85 1 1 0 ) { b-ten }
+  #( 0 0 0.5 1 1 0.5 ) { b-twelve }
+  #( 0 0 0.05 1 0.3 0.2 0.6 0.2 0.9 1 1 0 ) { b-thirteen }
+  #( 0 0.3 0.3 1 0.6 0.3 1 0 ) { b-fourteen }
+  #( 0 0 0.1 0.5 0.5 0.5 0.9 1 1 0 ) { b-fifteen }
+
+  0.05 beg f+ 0.10 3100  900 0.05 bird-up    b-two      bird
+  0.21 beg f+ 0.07 4100  700 0.15 bird-down  main-amp   bird
+  0.36 beg f+ 0.12 3700 1000 0.20 b-four     main-amp   bird
+  0.52 beg f+ 0.08 2300 1600 0.15 b-five     b-six      bird
+  0.68 beg f+ 0.10 4000 1000 0.25 bird-up    tap-amp    bird
+  0.80 beg f+ 0.12 2300 1700 0.20 b-seven    main-amp   bird
+  0.96 beg f+ 0.15 3800 2200 0.30 b-eight    b-nine     bird
+  1.18 beg f+ 0.10 2300 1600 0.15 b-ten      main-amp 	bird
+  1.30 beg f+ 0.02 3200 1000 0.10 bird-down  main-amp 	bird
+  1.33 beg f+ 0.02 3200 1000 0.10 bird-down  main-amp 	bird
+  1.36 beg f+ 0.02 3200 1000 0.10 bird-down  main-amp 	bird
+  1.40 beg f+ 0.03 4000 2000 0.12 b-twelve   b-thirteen bird
+  1.47 beg f+ 0.10 2300 1700 0.20 b-fourteen b-fifteen  bird
+  1.47 0.1 f+ step
+;event
+
+event: western-flycatcher ( beg -- )
+  { beg }
+  #( 0 0 0.1 1 0.2 0.4 0.95 0.1 1 0 ) { f-one }
+  #( 0 0 0.1 0.2 0.2 0.1 0.3 1 0.9 1 1 0 ) { a-one }
+  #( 0 0.5 0.25 1 0.5 0 0.6 0 0.95 0.3 1 0.6 ) { f-two }
+  #( 0 0 0.1 1 0.2 1 0.5 0.1 0.6 0.1 0.9 1 1 0 ) { a-two }
+  #( 1 1 2 0.02 3 0.1 4 0.01 ) { fc-parts }
+  
+  0.0 beg f+ 0.2 2000 2200 0.2 f-one a-one fc-parts bigbird
+  0.3 beg f+ 0.2 2000 1100 0.2 f-two a-two fc-parts bigbird
+  0.3 0.2 f+ step
+;event
+
+event: bachmans-sparrow ( beg -- )
+  { beg }
+  #( 0 1 0.1 0.5 0.9 0.5 1 0 ) { sopening }
+  #( 0 0.1 0.35 0 1 1 ) { sup }
+  #( 0 1 0.4 0.5 1 0 ) { sdwn }
+  #( 0 1 0.25 0 0.75 0.4 1 0.5 ) { slast }
+
+  0.00 beg f+ 0.510 4900  200 0.3 sopening main-amp bird
+  0.52 beg f+ 0.015 3800  200 0.1 sup 	   main-amp bird
+  0.52 beg f+ 0.015 3750  250 0.1 sup 	   main-amp bird
+  0.54 beg f+ 0.015 3600  300 0.1 sup 	   main-amp bird
+  0.56 beg f+ 0.015 3500  250 0.1 sup 	   main-amp bird
+  0.58 beg f+ 0.015 3400  200 0.1 sup 	   main-amp bird
+  0.60 beg f+ 0.015 3200  200 0.1 sup 	   main-amp bird
+  0.62 beg f+ 0.015 3800  100 0.1 sup 	   main-amp bird
+  0.65 beg f+ 0.070 3000  750 0.2 sup 	   main-amp bird
+  0.73 beg f+ 0.030 5000 1000 0.1 sdwn 	   main-amp bird
+  0.80 beg f+ 0.070 3000  750 0.2 sup  	   main-amp bird
+  0.88 beg f+ 0.030 5000 1000 0.1 sdwn 	   main-amp bird
+  0.95 beg f+ 0.070 3000  750 0.2 sup  	   main-amp bird
+  1.03 beg f+ 0.030 5000 1000 0.1 sdwn 	   main-amp bird
+  1.10 beg f+ 0.070 3000  750 0.2 sup  	   main-amp bird
+  1.18 beg f+ 0.030 5000 1000 0.1 sdwn 	   main-amp bird
+  1.25 beg f+ 0.070 3000  750 0.2 sup  	   main-amp bird
+  1.33 beg f+ 0.030 5000 1000 0.1 sdwn 	   main-amp bird
+  1.40 beg f+ 0.070 3000  750 0.2 sup  	   main-amp bird
+  1.48 beg f+ 0.030 5000 1000 0.1 sdwn 	   main-amp bird
+  1.55 beg f+ 0.070 3000  750 0.2 sup  	   main-amp bird
+  1.63 beg f+ 0.030 5000 1000 0.1 sdwn 	   main-amp bird
+  2.80 beg f+ 0.060 4000 1700 0.1 bird-up  main-amp bird
+  2.87 beg f+ 0.010 5200    0 0.2 bird-up  main-amp bird
+  2.90 beg f+ 0.060 4000 1700 0.1 bird-up  main-amp bird
+  2.97 beg f+ 0.010 5200    0 0.2 bird-up  main-amp bird
+  3.00 beg f+ 0.060 4000 1700 0.1 bird-up  main-amp bird
+  3.07 beg f+ 0.010 5200    0 0.2 bird-up  main-amp bird
+  3.10 beg f+ 0.060 4000 1700 0.1 bird-up  main-amp bird
+  3.17 beg f+ 0.010 5200    0 0.2 bird-up  main-amp bird
+  3.20 beg f+ 0.060 4000 1700 0.1 bird-up  main-amp bird
+  3.27 beg f+ 0.010 5200    0 0.2 bird-up  main-amp bird
+  3.40 beg f+ 0.150 3000 1000 0.2 slast    main-amp bird
+  3.60 beg f+ 0.150 3000 1000 0.2 slast    main-amp bird
+  3.80 beg f+ 0.150 3000 1000 0.2 slast    main-amp bird
+  4.00 beg f+ 0.150 3000 1000 0.2 slast    main-amp bird
+  4.20 beg f+ 0.150 3000 1000 0.2 slast    main-amp bird
+  4.40 beg f+ 0.150 3000 1000 0.2 slast    main-amp bird
+  4.4 0.15 f+ step
+;event
+
+event: cedar-waxwing ( beg -- )
+  { beg }
+  #( 0 0 0.25 0.7 0.7 1 0.9 1 1 0.2 ) { cedar }
+  #( 0 0 0.2 1 0.4 1 1 0 ) { cedamp }
+
+  beg 0.5 6000 800 0.2 cedar cedamp bird
+  0.5 step
+;event
+
+event: bairds-sparrow ( beg -- )
+  { beg }
+  #( 0 0 0.25 1 0.5 0 0.75 1 1 0 ) { bairdend }
+  #( 0.00 0.50 0.05 1.00 0.10 0.00 0.15 1.00 0.20 0.00 0.25 1.00
+     0.30 0.00 0.35 1.00 0.40 0.00 0.45 1.00 0.50 0.00 0.55 1.00
+     0.60 0.00 0.65 1.00 0.70 0.00 0.75 1.00 0.80 0.00 0.85 1.00
+     0.90 0.00 0.95 1.00 1.00 0.00 ) { bairdstart }
+
+  0.00 beg f+ 0.09 6500 1500 0.20 bairdstart main-amp bird
+  0.22 beg f+ 0.01 5900  100 0.20 bairdend   main-amp bird
+  0.25 beg f+ 0.09 6000 1000 0.20 bairdstart main-amp bird
+  0.45 beg f+ 0.01 4200  100 0.20 bairdend   main-amp bird
+  0.50 beg f+ 0.08 4200  600 0.20 bairdstart main-amp bird
+  0.59 beg f+ 0.01 4400  100 0.20 bairdend   main-amp bird
+  0.60 beg f+ 0.01 4400  100 0.20 bairdend   main-amp bird
+  0.68 beg f+ 0.07 5400  700 0.20 bairdstart main-amp bird
+  0.75 beg f+ 0.01 4200  100 0.20 bairdend   main-amp bird
+  0.79 beg f+ 0.01 4400  100 0.20 bairdend   main-amp bird
+  0.83 beg f+ 0.01 4200  100 0.19 bairdend   main-amp bird
+  0.87 beg f+ 0.01 4400  100 0.19 bairdend   main-amp bird
+  0.91 beg f+ 0.01 4200  100 0.18 bairdend   main-amp bird
+  0.95 beg f+ 0.01 4400  100 0.18 bairdend   main-amp bird
+  0.99 beg f+ 0.01 4200  100 0.17 bairdend   main-amp bird
+  1.03 beg f+ 0.01 4400  100 0.17 bairdend   main-amp bird
+  1.07 beg f+ 0.01 4200  100 0.16 bairdend   main-amp bird
+  1.11 beg f+ 0.01 4400  100 0.16 bairdend   main-amp bird
+  1.15 beg f+ 0.01 4200  100 0.15 bairdend   main-amp bird
+  1.19 beg f+ 0.01 4400  100 0.15 bairdend   main-amp bird
+  1.23 beg f+ 0.01 4200  100 0.14 bairdend   main-amp bird
+  1.27 beg f+ 0.01 4400  100 0.14 bairdend   main-amp bird
+  1.31 beg f+ 0.01 4200  100 0.13 bairdend   main-amp bird
+  1.35 beg f+ 0.01 4400  100 0.13 bairdend   main-amp bird
+  1.39 beg f+ 0.01 4200  100 0.12 bairdend   main-amp bird
+  1.43 beg f+ 0.01 4400  100 0.12 bairdend   main-amp bird
+  1.47 beg f+ 0.01 4200  100 0.11 bairdend   main-amp bird
+  1.51 beg f+ 0.01 4400  100 0.11 bairdend   main-amp bird
+  1.55 beg f+ 0.01 4200  100 0.10 bairdend   main-amp bird
+  1.59 beg f+ 0.01 4400  100 0.10 bairdend   main-amp bird
+  1.63 beg f+ 0.01 4200  100 0.09 bairdend   main-amp bird
+  1.67 beg f+ 0.01 4400  100 0.09 bairdend   main-amp bird
+  1.71 beg f+ 0.01 4200  100 0.08 bairdend   main-amp bird
+  1.75 beg f+ 0.01 4400  100 0.08 bairdend   main-amp bird
+  1.79 beg f+ 0.01 4200  100 0.07 bairdend   main-amp bird
+  1.83 beg f+ 0.01 4400  100 0.07 bairdend   main-amp bird
+  1.87 beg f+ 0.01 4200  100 0.06 bairdend   main-amp bird
+  1.92 beg f+ 0.01 4400  100 0.06 bairdend   main-amp bird
+  1.97 beg f+ 0.01 4200  100 0.05 bairdend   main-amp bird
+  1.97 0.01 f+ step
+;event
+
+event: kentucky-warbler ( beg -- )
+  0.6 f- { beg }
+  #( 0 0.3 0.5 1 1 0 ) { kenstart }
+  #( 0 0.9 0.1 1 1 0 ) { kendwn }
+  #( 0 1 0.25 0 0.5 0 0.75 1 1 0 ) { kentrill }
+  #( 1 1 2 0.1 ) { ken-parts-1 }
+  #( 1 1 2 0.01 ) { ken-parts-01 }
+  #( 1 1 2 0.03 ) { ken-parts-03 }
+
+  0.60 beg f+ 0.02 3800  200 0.05 kenstart main-amp ken-parts-03 bigbird
+  0.65 beg f+ 0.03 4300  200 0.15 bird-up  main-amp ken-parts-1  bigbird
+  0.73 beg f+ 0.02 3200  100 0.10 kendwn   main-amp ken-parts-1  bigbird
+  0.75 beg f+ 0.05 3000  800 0.15 kenstart main-amp ken-parts-01 bigbird
+  0.82 beg f+ 0.06 3100 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  0.90 beg f+ 0.06 3200 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  0.98 beg f+ 0.05 4600  100 0.20 kentrill main-amp ken-parts-1  bigbird
+  1.10 beg f+ 0.05 2900  800 0.15 kenstart main-amp ken-parts-01 bigbird
+  1.17 beg f+ 0.06 3000 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  1.25 beg f+ 0.06 3100 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  1.33 beg f+ 0.05 4600  100 0.20 kentrill main-amp ken-parts-1  bigbird
+  1.43 beg f+ 0.05 2800  800 0.15 kenstart main-amp ken-parts-01 bigbird
+  1.50 beg f+ 0.05 2700 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  1.57 beg f+ 0.06 2800 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  1.64 beg f+ 0.05 4600  100 0.20 kentrill main-amp ken-parts-1  bigbird
+  1.75 beg f+ 0.05 2700  800 0.15 kenstart main-amp ken-parts-01 bigbird
+  1.81 beg f+ 0.05 2600 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  1.88 beg f+ 0.06 2600 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  1.97 beg f+ 0.05 4600  100 0.20 kentrill main-amp ken-parts-1  bigbird
+  2.05 beg f+ 0.05 2700  800 0.15 kenstart main-amp ken-parts-01 bigbird
+  2.12 beg f+ 0.06 2600 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  2.20 beg f+ 0.05 4600  100 0.20 kentrill main-amp ken-parts-1  bigbird
+  2.30 beg f+ 0.05 2800  800 0.15 kenstart main-amp ken-parts-01 bigbird
+  2.37 beg f+ 0.06 2700 1200 0.10 kendwn   main-amp ken-parts-01 bigbird
+  2.45 beg f+ 0.05 4700  100 0.25 kentrill main-amp ken-parts-1  bigbird
+  2.45 0.05 f+ step
+;event
+
+event: rufous-sided-towhee ( beg -- )
+  0.25 f- { beg }
+  #( 0.00 0.10 0.02 0.05 0.04 0.15 0.06 0.05 0.08 0.20 0.10 0.04
+     0.12 0.25 0.14 0.03 0.16 0.30 0.18 0.02 0.20 0.35 0.22 0.01
+     0.24 0.40 0.26 0.00 0.28 0.45 0.30 0.00 0.32 0.50 0.34 0.00
+     0.36 0.50 0.80 1.00 1.00 0.00 ) { towhee-one }
+  #( 1 0.03 2 1 3 0.03 ) { towhee-parts }
+
+  0.250 beg f+ 0.13 1400 1100 0.20 towhee-one main-amp towhee-parts bigbird
+  0.450 beg f+ 0.13 1400 1100 0.20 towhee-one main-amp towhee-parts bigbird
+  0.600 beg f+ 0.13 1400 1100 0.20 towhee-one main-amp towhee-parts bigbird
+  0.750 beg f+ 0.10 1400 1100 0.20 towhee-one main-amp towhee-parts bigbird
+  0.880 beg f+ 0.01 5100 2000 0.10 bird-up    main-amp 		    bird
+  0.895 beg f+ 0.01 5100 1600 0.10 bird-up    main-amp 		    bird
+  0.910 beg f+ 0.01 5100 1000 0.10 bird-up    main-amp 		    bird
+  0.930 beg f+ 0.01 3000 1200 0.10 bird-down  main-amp 		    bird
+  0.945 beg f+ 0.01 5100 2000 0.09 bird-up    main-amp 		    bird
+  0.960 beg f+ 0.01 5100 1600 0.09 bird-up    main-amp 		    bird
+  0.975 beg f+ 0.01 5100 1000 0.09 bird-up    main-amp 		    bird
+  0.995 beg f+ 0.01 3000 1200 0.09 bird-down  main-amp 		    bird
+  1.010 beg f+ 0.01 5100 2000 0.10 bird-up    main-amp 		    bird
+  1.025 beg f+ 0.01 5100 1600 0.10 bird-up    main-amp 		    bird
+  1.040 beg f+ 0.01 5100 1000 0.10 bird-up    main-amp 		    bird
+  1.060 beg f+ 0.01 3000 1200 0.10 bird-down  main-amp 		    bird
+  1.075 beg f+ 0.01 5100 2000 0.09 bird-up    main-amp 		    bird
+  1.090 beg f+ 0.01 5100 1600 0.09 bird-up    main-amp 		    bird
+  1.105 beg f+ 0.01 5100 1000 0.09 bird-up    main-amp 		    bird
+  1.125 beg f+ 0.01 3000 1200 0.09 bird-down  main-amp 		    bird
+  1.140 beg f+ 0.01 5100 2000 0.08 bird-up    main-amp 		    bird
+  1.155 beg f+ 0.01 5100 1600 0.08 bird-up    main-amp 		    bird
+  1.170 beg f+ 0.01 5100 1000 0.08 bird-up    main-amp 		    bird
+  1.190 beg f+ 0.01 3000 1200 0.08 bird-down  main-amp 		    bird
+  1.205 beg f+ 0.01 5100 2000 0.08 bird-up    main-amp 		    bird
+  1.220 beg f+ 0.01 5100 1600 0.08 bird-up    main-amp 		    bird
+  1.235 beg f+ 0.01 5100 1000 0.08 bird-up    main-amp 		    bird
+  1.255 beg f+ 0.01 3000 1200 0.08 bird-down  main-amp 		    bird
+  1.270 beg f+ 0.01 5100 2000 0.07 bird-up    main-amp 		    bird
+  1.285 beg f+ 0.01 5100 1600 0.07 bird-up    main-amp 		    bird
+  1.300 beg f+ 0.01 5100 1000 0.07 bird-up    main-amp 		    bird
+  1.320 beg f+ 0.01 3000 1200 0.07 bird-down  main-amp 		    bird
+  1.335 beg f+ 0.01 5100 2000 0.06 bird-up    main-amp 		    bird
+  1.350 beg f+ 0.01 5100 1600 0.06 bird-up    main-amp 		    bird
+  1.365 beg f+ 0.01 5100 1000 0.06 bird-up    main-amp 		    bird
+  1.385 beg f+ 0.01 3000 1200 0.06 bird-down  main-amp 		    bird
+  1.400 beg f+ 0.01 5100 2000 0.05 bird-up    main-amp 		    bird
+  1.415 beg f+ 0.01 5100 1600 0.05 bird-up    main-amp 		    bird
+  1.430 beg f+ 0.01 5100 1000 0.05 bird-up    main-amp 		    bird
+  1.450 beg f+ 0.01 3000 1200 0.05 bird-down  main-amp 		    bird
+  1.465 beg f+ 0.01 5100 2000 0.03 bird-up    main-amp 		    bird
+  1.480 beg f+ 0.01 5100 1600 0.03 bird-up    main-amp 		    bird
+  1.495 beg f+ 0.01 5100 1000 0.03 bird-up    main-amp 		    bird
+  1.515 beg f+ 0.01 3000 1200 0.03 bird-down  main-amp 		    bird
+  1.515 0.01 f+ step
+;event
+
+event: prothonotary-warbler ( beg -- )
+  0.76 f- { beg }
+  #( 0 0.1 0.2 0 1 1 ) { pro-one }
+  #( 0 0 0.2 1 0.4 0.5 1 0 ) { pro-amp }
+
+  0.76 beg f+ 0.08 3000 3000 0.05 pro-one pro-amp  bird
+  0.85 beg f+ 0.05 4000 2500 0.06 bird-up bird-amp bird
+  1.02 beg f+ 0.08 3000 3000 0.10 pro-one pro-amp  bird
+  1.12 beg f+ 0.05 4000 2500 0.10 bird-up bird-amp bird
+
+  1.26 beg f+ 0.08 3000 3000 0.15 pro-one pro-amp  bird
+  1.35 beg f+ 0.05 4000 2500 0.16 bird-up bird-amp bird
+
+  1.54 beg f+ 0.08 3000 3000 0.20 pro-one pro-amp  bird
+  1.63 beg f+ 0.05 4000 2500 0.19 bird-up bird-amp bird
+
+  1.80 beg f+ 0.08 3000 3000 0.20 pro-one pro-amp  bird
+  1.89 beg f+ 0.05 4000 2500 0.16 bird-up bird-amp bird
+
+  2.03 beg f+ 0.08 3000 3000 0.15 pro-one pro-amp  bird
+  2.12 beg f+ 0.05 4000 2500 0.10 bird-up bird-amp bird
+
+  2.30 beg f+ 0.08 3000 3000 0.10 pro-one pro-amp  bird
+  2.39 beg f+ 0.05 4000 2500 0.06 bird-up bird-amp bird
+  2.39 0.05 f+ step
+;event
+
+event: audubons-warbler ( beg -- )
+  0.75 f- { beg }
+  #( 0 0 0.15 1 0.45 0.9 0.5 0 0.55 1 0.9 0.9 1 1 ) { w-end }
+  #( 0 0.1 0.5 1 1 0 ) { w-updown }
+
+  0.75 beg f+ 0.04 2400  200 0.05 bird-down bird-amp bird
+  0.83 beg f+ 0.03 3200  200 0.10 bird-up   bird-amp bird
+  0.90 beg f+ 0.04 2500  300 0.15 bird-up   bird-amp bird
+  0.97 beg f+ 0.04 2300  600 0.15 bird-down bird-amp bird
+
+  1.02 beg f+ 0.03 3500  400 0.20 bird-up   bird-amp bird
+  1.06 beg f+ 0.04 2300 1200 0.10 bird-up   bird-amp bird
+  1.13 beg f+ 0.05 2300 1200 0.15 bird-down bird-amp bird
+  1.22 beg f+ 0.02 3200  800 0.25 bird-up   bird-amp bird
+  1.25 beg f+ 0.08 2400  600 0.20 w-updown  bird-amp bird
+  1.35 beg f+ 0.02 2200  400 0.10 bird-up   bird-amp bird
+  1.38 beg f+ 0.07 2400 1400 0.15 bird-down bird-amp bird
+  1.47 beg f+ 0.03 3000  800 0.20 bird-up   bird-amp bird
+  1.50 beg f+ 0.03 2500  400 0.10 w-updown  bird-amp bird
+  1.55 beg f+ 0.01 2300  100 0.05 bird-up   bird-amp bird
+  1.56 beg f+ 0.06 2200 1400 0.15 bird-down bird-amp bird
+  1.65 beg f+ 0.03 3100  800 0.10 bird-up   bird-amp bird
+  1.70 beg f+ 0.07 2800  800 0.15 w-updown  bird-amp bird
+  1.79 beg f+ 0.06 2400 1000 0.10 bird-down bird-amp bird
+  1.86 beg f+ 0.14 3100  900 0.25 w-end     bird-amp bird
+  2.02 beg f+ 0.12 3200  800 0.20 w-end     bird-amp bird
+  2.02 0.12 f+ step
+;event
+
+event: lark-bunting ( beg -- )
+  0.1 f- { beg }
+  #( 0.00 0.00 0.06 0.80 0.12 0.00 0.18 0.85 0.24 0.05 0.36 0.90
+     0.42 0.10 0.48 0.95 0.54 0.20 0.60 1.00 0.66 0.20 0.72 1.00
+     0.78 0.20 0.84 1.00 0.90 0.20 1.00 1.00 ) { b-trill-one }
+  #( 0.00 0.00 0.05 0.80 0.10 0.00 0.15 0.85 0.20 0.00 0.25 0.90
+     0.30 0.00 0.35 0.95 0.40 0.00 0.45 1.00 0.50 0.00 0.55 1.00
+     0.60 0.00 0.65 1.00 0.70 0.00 0.75 1.00 0.80 0.00 0.85 1.00
+     0.90 0.00 0.95 1.00 1.00 0.00 ) { b-trill-two }
+
+  0.10 	beg f+ 0.03 1800 100 0.10 bird-up     bird-amp bird
+  0.20 	beg f+ 0.12 3700 400 0.20 bird-up     bird-amp bird
+  0.40 	beg f+ 0.03 4100 500 0.15 bird-down   bird-amp bird
+  0.45 	beg f+ 0.05 2000 400 0.20 bird-down   bird-amp bird
+  0.51 	beg f+ 0.03 1800 100 0.10 bird-up     bird-amp bird
+  0.04 	beg f+ 0.03 4100 500 0.15 bird-down   bird-amp bird
+  0.65 	beg f+ 0.05 2000 400 0.20 bird-down   bird-amp bird
+  0.71 	beg f+ 0.03 1800 100 0.10 bird-up     bird-amp bird
+  0.80 	beg f+ 0.03 4100 500 0.15 bird-down   bird-amp bird
+  0.85 	beg f+ 0.05 2000 400 0.20 bird-down   bird-amp bird
+  0.91 	beg f+ 0.03 1800 100 0.10 bird-up     bird-amp bird
+  1.00 	beg f+ 0.03 4100 500 0.15 bird-down   bird-amp bird
+  1.05 	beg f+ 0.05 2000 400 0.20 bird-down   bird-amp bird
+  1.01 	beg f+ 0.03 1800 100 0.10 bird-up     bird-amp bird
+  1.20 	beg f+ 0.03 4100 500 0.15 bird-down   bird-amp bird
+  1.25 	beg f+ 0.05 2000 400 0.20 bird-down   bird-amp bird
+  1.31 	beg f+ 0.03 1800 100 0.10 bird-up     bird-amp bird
+  1.40 	beg f+ 0.03 4100 500 0.15 bird-down   bird-amp bird
+  1.45 	beg f+ 0.05 2000 400 0.20 bird-down   bird-amp bird
+  1.51 	beg f+ 0.03 1800 100 0.10 bird-up     bird-amp bird
+  1.60 	beg f+ 0.03 4100 500 0.15 bird-down   bird-amp bird
+  1.65 	beg f+ 0.05 2000 400 0.20 bird-down   bird-amp bird
+  1.71 	beg f+ 0.03 1800 100 0.10 bird-up     bird-amp bird
+  1.770 beg f+ 0.23 6000 600 0.15 b-trill-one bird-amp bird
+  2.005 beg f+ 0.28 6000 600 0.15 b-trill-two bird-amp bird
+  2.005 0.28 f+ step
+;event
+
+event: eastern-bluebird ( beg -- )
+  0.75 f- { beg }
+  #( 0.00 0.60 0.10 1.00 0.20 0.00 0.25 1.00 0.30 0.00 0.35 1.00
+     0.40 0.00 0.45 1.00 0.50 0.00 0.75 1.00 1.00 0.00 ) { blue-three }
+  #( 0 0 0.5 1 1 0 ) { blue-four }
+  #( 0.00 0.50 0.10 1.00 0.20 0.00 0.35 1.00 0.50 0.00 0.65 1.00
+     0.80 0.00 0.95 1.00 1.00 0.50 ) { blue-five }
+
+  0.75 beg f+ 0.02 2000 1600 0.10 bird-up    bird-amp bird
+  0.80 beg f+ 0.02 2000 1600 0.10 bird-up    bird-amp bird
+  0.86 beg f+ 0.02 2000 1600 0.10 bird-up    bird-amp bird
+  1.00 beg f+ 0.13 2000 1400 0.20 bird-down  bird-amp bird
+  1.20 beg f+ 0.24 2000  800 0.20 blue-three bird-amp bird
+  1.68 beg f+ 0.03 2200  400 0.10 bird-up    bird-amp bird
+  1.72 beg f+ 0.10 1950  100 0.15 blue-four  bird-amp bird
+  1.96 beg f+ 0.15 2000  600 0.20 blue-five  bird-amp bird
+  1.96 0.15 f+ step
+;event
+
+event: chuck-wills-widow ( beg -- )
+  0.05 f- { beg }
+  #( 0 0 0.1 0.1 0.25 1 0.5 0.3 0.8 0.7 1 0 ) { wid-one }
+  #( 0 0.2 0.3 1 0.5 0.3 0.6 0.7 0.9 0.1 1 0 ) { wid-two }
+
+  0.05 beg f+ 0.03 1000  800 0.1 bird-down bird-amp bird
+  0.32 beg f+ 0.20 1000 1000 0.2 wid-one   bird-amp bird
+  0.56 beg f+ 0.29  900 1100 0.2 wid-two   bird-amp bird
+  0.56 0.29 f+ step
+;event
+
+event: blue-gray-gnatcatcher ( beg -- )
+  0.5 f- { beg }
+  #( 0 0 0.15 1 0.75 0.8 0.9 1 1 0.7 ) { gskw1 }
+  #( 0 0 0.25 1 0.75 0.7 1 0 ) { gskw2 }
+  #( 1 0.4 2 1 3 0.1 ) { gparts-1 }
+  #( 1 0.4 2 1 3 0.2 ) { gparts-2 }
+  #( 1 0.4 2 1 3 0.3 ) { gparts-3 }
+
+  0.5 beg f+ 0.20 4000 1000 0.2 gskw1 bird-amp gparts-1 bigbird
+  0.8 beg f+ 0.13 4000  800 0.2 gskw2 bird-amp gparts-2 bigbird
+  1.4 beg f+ 0.25 4000  800 0.2 gskw2 bird-amp gparts-3 bigbird
+  1.8 beg f+ 0.17 4000  900 0.2 gskw1 bird-amp gparts-3 bigbird
+  2.0 beg f+ 0.17 4000  700 0.2 gskw1 bird-amp gparts-3 bigbird
+  2.2 beg f+ 0.17 4000  800 0.2 gskw2 bird-amp gparts-3 bigbird
+  2.2 0.17 f+ step
+;event
+
+event: black-throated-sparrow ( beg -- )
+  0.8 f- { beg }
+  #( 0 0 0.75 1 1 0 ) { black-down-amp }
+  #( 0 0 0.5 1 1 0.2 ) { black-up-down }
+  #( 0 0 0.5 1 1 0 ) { black-amp }
+  #( 0.00 0.00 0.03 0.70 0.06 0.00 0.09 0.75 0.12 0.00 0.15 0.80
+     0.18 0.05 0.21 0.85 0.24 0.10 0.27 0.90 0.30 0.10 0.33 1.00
+     0.36 0.10 0.39 1.00 0.42 0.10 0.45 1.00 0.48 0.10 0.51 1.00
+     0.54 0.10 0.57 1.00 0.60 0.10 0.63 1.00 0.66 0.10 0.69 1.00
+     0.72 0.10 0.75 1.00 0.78 0.10 0.81 1.00 0.84 0.10 0.87 1.00
+     0.90 0.00 0.93 0.95 0.96 0.00 1.00 0.90 ) { black-trill }
+
+  0.80 beg f+ 0.02 2200 1000 0.10 bird-down   	bird-amp       bird
+  0.83 beg f+ 0.01 3000  200 0.05 bird-up     	bird-amp       bird
+  0.96 beg f+ 0.02 5800  500 0.05 bird-up     	bird-amp       bird
+  1.00 beg f+ 0.02 4000  200 0.05 bird-up     	bird-amp       bird
+  1.04 beg f+ 0.10 2100 1700 0.15 bird-down   	black-down-amp bird
+  1.15 beg f+ 0.05 5700  400 0.25 bird-up     	bird-amp       bird
+  1.25 beg f+ 0.25 2000  900 0.20 black-trill   bird-amp       bird
+  1.52 beg f+ 0.05 5600  400 0.15 black-up-down bird-amp       bird
+
+  1.60 beg f+ 0.04 3900 1100 0.15 bird-up bird-amp  bird
+  1.66 beg f+ 0.01 1900  100 0.10 bird-up black-amp bird
+
+  1.69 beg f+ 0.01 3600  300 0.10 bird-up black-amp bird
+  1.71 beg f+ 0.03 3900 1000 0.15 bird-up black-amp bird
+  1.74 beg f+ 0.02 5000  100 0.20 bird-up black-amp bird
+  1.76 beg f+ 0.01 1900  100 0.10 bird-up black-amp bird
+
+  1.78 beg f+ 0.01 3600  300 0.10 bird-up black-amp bird
+  1.80 beg f+ 0.03 3900 1000 0.15 bird-up black-amp bird
+  1.83 beg f+ 0.02 5000  100 0.20 bird-up black-amp bird
+  1.85 beg f+ 0.01 1900  100 0.10 bird-up black-amp bird
+
+  1.87 beg f+ 0.01 3600  300 0.10 bird-up black-amp bird
+  1.89 beg f+ 0.03 3900 1000 0.15 bird-up black-amp bird
+  1.92 beg f+ 0.02 5000  100 0.20 bird-up black-amp bird
+  1.94 beg f+ 0.01 1900  100 0.10 bird-up black-amp bird
+
+  1.96 beg f+ 0.01 3600  300 0.10 bird-up black-amp bird
+  1.98 beg f+ 0.03 3900 1000 0.15 bird-up black-amp bird
+  2.01 beg f+ 0.02 5000  100 0.20 bird-up black-amp bird
+  2.03 beg f+ 0.01 1900  100 0.10 bird-up black-amp bird
+
+  2.05 beg f+ 0.01 3600  300 0.10 bird-up black-amp bird
+  2.07 beg f+ 0.03 3900 1000 0.15 bird-up black-amp bird
+  2.10 beg f+ 0.02 5000  100 0.20 bird-up black-amp bird
+  2.13 beg f+ 0.01 1900  100 0.10 bird-up black-amp bird
+
+  2.16 beg f+ 0.03 3800  300 0.10 bird-up bird-amp  bird
+  2.16 0.03 f+ step
+;event
+
+event: black-chinned-sparrow ( beg -- )
+  0.6 f- { beg }
+  #( 0 0 0.3 0.2 1 1 ) { chin-up }
+
+  0.60 beg f+ 0.20 4200  100 0.10 bird-up bird-amp bird
+  1.00 beg f+ 0.09 3800 2000 0.10 chin-up bird-amp bird
+  1.25 beg f+ 0.08 3900 1700 0.12 chin-up bird-amp bird
+  1.40 beg f+ 0.08 3600 2300 0.13 bird-up bird-amp bird
+  1.50 beg f+ 0.11 3100 2800 0.14 bird-up bird-amp bird
+  1.65 beg f+ 0.07 2900 2700 0.15 bird-up bird-amp bird
+  1.74 beg f+ 0.07 2900 2700 0.15 bird-up bird-amp bird
+  1.82 beg f+ 0.07 3000 2300 0.13 bird-up bird-amp bird
+  1.89 beg f+ 0.07 3200 2000 0.10 bird-up bird-amp bird
+  1.97 beg f+ 0.05 3200 1500 0.10 bird-up bird-amp bird
+
+  2.04 beg f+ 0.04 3400 1000 0.07 bird-up bird-amp bird
+  2.10 beg f+ 0.03 3600  700 0.05 bird-up bird-amp bird
+  2.15 beg f+ 0.03 3800  300 0.05 bird-up bird-amp bird
+  2.19 beg f+ 0.02 3900  100 0.03 bird-up bird-amp bird
+  2.22 beg f+ 0.01 3900  100 0.01 bird-up bird-amp bird
+  2.24 beg f+ 0.01 3900  100 0.01 bird-up bird-amp bird
+  2.24 0.01 f+ step
+;event
+
+event: various-gull-cries-from-end-of-colony-5 ( beg -- )
+  0.25 f- { beg }
+  #( 0 0 10 1 20 0.5 40 0.6 60 0.5 100 0 ) { gull-start }
+  #( 0 0 10 1 30 0.5 80 0.5 100 0 ) { gull-middle }
+  #( 0 0 5 1 10 0.5 90 0.4 100 0 ) { gull-end }
+  #( 1 0.1 2 1 3 0.1 4 0.01 5 0.09 6 0.01 7 0.01 ) { gull-parts }
+
+  0.25 beg f+ 0.80 1180 1180 0.08 gull-end    bird-amp gull-parts bigbird
+  1.50 beg f+ 0.90 1180 1180 0.07 gull-end    bird-amp gull-parts bigbird
+  2.75 beg f+ 1.00 1050 1050 0.08 gull-end    bird-amp gull-parts bigbird
+  4.80 beg f+ 0.05 1180 1180 0.06 gull-start  bird-amp gull-parts bigbird
+  4.95 beg f+ 0.10 1180 1180 0.08 gull-start  bird-amp gull-parts bigbird
+  5.15 beg f+ 0.10 1180 1180 0.09 gull-start  bird-amp gull-parts bigbird
+  5.35 beg f+ 0.10 1180 1180 0.10 gull-middle bird-amp gull-parts bigbird
+  5.45 beg f+ 0.40 1050 1050 0.10 gull-end    bird-amp gull-parts bigbird
+  6.25 beg f+ 0.80 1050 1050 0.10 gull-end    bird-amp gull-parts bigbird
+  7.45 beg f+ 1.80 1050 1050 0.10 gull-end    bird-amp gull-parts bigbird
+  7.45 1.80 f+ step
+;event
+
+\ <'> bird-test with-sound
+: bird-test ( -- )
+  0.0 now!
+  1.0 { dur }
+  now@ orchard-oriole              dur step
+  now@ cassins-kingbird            dur step
+  now@ chipping-sparrow            dur step
+  now@ bobwhite                    dur step
+  now@ western-meadowlark          dur step
+  now@ scissor-tailed-flycatcher   dur step
+  now@ great-horned-owl            dur step
+  now@ black-throated-gray-warbler dur step
+  now@ yellow-warbler              dur step
+  now@ black-necked-stilt          dur step
+  now@ chestnut-sided-warbler      dur step
+  now@ grasshopper-sparrow         dur step
+  now@ swamp-sparrow               dur step
+  now@ golden-crowned-sparrow      dur step
+  now@ indigo-bunting              dur step
+  now@ hooded-warbler              dur step
+  now@ american-widgeon            dur step
+  now@ louisiana-waterthrush       dur step
+  now@ robin                       dur step
+  now@ solitary-vireo              dur step
+  now@ pigeon-hawk                 dur step
+  now@ cerulean-warbler            dur step
+  now@ nashville-warbler           dur step
+  now@ eastern-phoebe              dur step
+  now@ painted-bunting             dur step
+  now@ western-flycatcher          dur step
+  now@ bachmans-sparrow            dur step
+  now@ cedar-waxwing               dur step
+  now@ bairds-sparrow              dur step
+  now@ kentucky-warbler            dur step
+  now@ rufous-sided-towhee         dur step
+  now@ prothonotary-warbler        dur step
+  now@ audubons-warbler            dur step
+  now@ lark-bunting                dur step
+  now@ eastern-bluebird            dur step
+  now@ chuck-wills-widow           dur step
+  now@ blue-gray-gnatcatcher       dur step
+  now@ black-throated-sparrow      dur step
+  now@ black-chinned-sparrow       dur step
+  now@ various-gull-cries-from-end-of-colony-5 dur step
+;
+
+: ws-bird-test ( -- )
+  <'> bird-test
+  :play       #t
+  :statistics #t
+  :verbose    #t
+  :channels   2
+  :srate      44100
+  :scaled-to  0.8
+  :notehook   #f
+  with-sound ( ws ) :output array-assoc-ref .string cr
+;
+
+\ bird.fsm ends here
