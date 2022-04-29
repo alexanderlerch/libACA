@@ -92,16 +92,18 @@ private:
     }
 
 
-    bool m_bIsInitialized;              //!< true if init has been called
-    bool m_bWasProcessed;               //!< true if process has been called
+    bool m_bIsInitialized = false;                              //!< true if init has been called
+    bool m_bWasProcessed = false;                               //!< true if process has been called
 
-    float *m_apfCost[kNumVectors];      //!< only allocate two rows instead of a whole matrix for the cost 
-    float m_fOverallCost;               //!< overall cost
-    unsigned char  **m_ppePathIdx;      //!< matrix with directions for traceback
-    int   m_iLengthOfPath;              //!< overall length of path
-    int   m_aiMatrixDimensions[kNumMatrixDimensions]; //!, size of distance matrix
+    float *m_apfCost[kNumVectors] = {0,0};                      //!< only allocate two rows instead of a whole matrix for the cost 
+    float m_fOverallCost = 0;                                   //!< overall cost
 
-    static const int aiDecrement[kNumDirections][kNumMatrixDimensions];
+    unsigned char  **m_ppePathIdx = 0;                          //!< matrix with directions for traceback
+    int   m_iLengthOfPath = 0;                                  //!< overall length of path
+
+    int   m_aiMatrixDimensions[kNumMatrixDimensions] = {0,0};   //!< size of distance matrix
+
+    static const int aiDecrement[kNumDirections][kNumMatrixDimensions]; //!< index changes for directions
 };
 
 

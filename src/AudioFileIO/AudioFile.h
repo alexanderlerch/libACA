@@ -59,11 +59,11 @@ private:
     long long getPositionIntern_() override;
     Error_t setPositionIntern_( long long iFrame ) override;
 
-    int m_FileHandle;                           //!< sndlib file handle
+    int m_FileHandle = 0;           //!< sndlib file handle
 
-    long long m_lFrameCnt;                      //!< current file position in frames
-    long long m_lFileLength;                    //!< file length in frames
-    double    **m_ppdTmpBuff;                   //!< temporary buffer for double values
+    long long m_lFrameCnt = 0;      //!< current file position in frames
+    long long m_lFileLength = 0;    //!< file length in frames
+    double    **m_ppdTmpBuff = 0;   //!< temporary buffer for double values
 
 };
 

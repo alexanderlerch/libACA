@@ -5,9 +5,9 @@
 
 #include "AudioFileIf.h"
 
-#include "helper/Vector.h"
+#include "Vector.h"
 
-/*! \brief class with static utility functions 
+/*! \brief class with static utility functions for pre-processing 
 */
 class CPreProc
 {
@@ -59,10 +59,12 @@ public:
         for (auto c = 0; c < stFileSpec.iNumChannels; c++)
             ppfAudioData[c] = new float [iBlockLength];
 
+        // store current file position for resetting later
         pCAudioFile->getPosition(iCurrPos);
 
         pCAudioFile->getFileSpec(stFileSpec);
 
+        // 
         pCAudioFile->setPosition(0.);
         while (!pCAudioFile->isEof())
         {
@@ -73,7 +75,10 @@ public:
             // read data (iNumOfFrames might be updated!)
             pCAudioFile->readData(ppfAudioData, iNumFrames);
 
+            //downmix if multichannel
             CPreProc::downmix(ppfAudioData[0], ppfAudioData, stFileSpec.iNumChannels, iNumFrames);
+
+            // find max
             fMax = CVectorFloat::getMax(ppfAudioData[0], iNumFrames, true);
             if (fMax > fGlobalMax)
                 fGlobalMax = fMax;
@@ -134,6 +139,6 @@ public:
     }
 private:
     CNormalizeAudio();
-    float m_fScaleFactor;
+    float m_fScaleFactor;   //!< factor to normalize
 };
 #endif // __ToolPreProc_hdr__

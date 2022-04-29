@@ -3,6 +3,7 @@
 #ifdef WITH_TESTS
 
 #include "Synthesis.h"
+#include "Vector.h"
 #include "Spectrogram.h"
 
 #include "gtest/gtest.h"
@@ -107,8 +108,8 @@ TEST_F(Spectrogram, Dimensions)
 
 TEST_F(Spectrogram, Values)
 {
-    m_f0 = 400;
-    m_fs = 40000;
+    m_f0 = 80;
+    m_fs = 8192;
     m_iBlockLength = 1024;
     m_iHopLength = 512;
 
@@ -129,6 +130,27 @@ TEST_F(Spectrogram, Values)
     EXPECT_NEAR(m_ppfSpecGram[116][10], 0, 1e-6F);
 
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
+    
+    m_f0 = 84;
+    m_fs = 8192;
+    m_iBlockLength = 1024;
+    m_iHopLength = 512;
+
+    CSynthesis::generateSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
+
+    EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength));
+
+    EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getSpectrogramDimensions(m_aiSpecGramDimension[0], m_aiSpecGramDimension[1]));
+
+    m_ppfSpecGram = new float* [m_aiSpecGramDimension[0]];
+    for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
+        m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
+
+    m_pCSpecGram->process(m_ppfSpecGram);
+
+    EXPECT_NEAR(m_ppfSpecGram[10][10] - m_ppfSpecGram[11][10], 0, 1e-4F);
+
+    EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
 
     m_f0 = 4;
     m_fs = 16;
@@ -136,9 +158,12 @@ TEST_F(Spectrogram, Values)
     m_iBlockLength = 16;
     m_iHopLength = 16;
 
+    //reuse buffer for window setting
+    CVectorFloat::setValue(m_pfTimeStamps, 1.F, m_iBlockLength);
+
     CSynthesis::generateSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs), fAmp);
 
-    EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength, false));
+    EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength, false, m_pfTimeStamps));
 
     EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getSpectrogramDimensions(m_aiSpecGramDimension[0], m_aiSpecGramDimension[1]));
 
@@ -152,7 +177,7 @@ TEST_F(Spectrogram, Values)
     EXPECT_NEAR(m_ppfSpecGram[0][0], 0, 1e-4F);
 
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
-    EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength, true));
+    EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength, true, m_pfTimeStamps));
 
     m_pCSpecGram->process(m_ppfSpecGram);
 

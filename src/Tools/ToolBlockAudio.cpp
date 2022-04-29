@@ -2,29 +2,28 @@
 #include "RingBuffer.h"
 #include "AudioFileIf.h"
 #include "ToolPreProc.h"
+
 #include "ToolBlockAudio.h"
 
 
 class CBlockAudioFile : public CBlockAudioIf
 {
 public:
-    CBlockAudioFile(CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength, float fSampleRate) :
+    CBlockAudioFile(CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength) :
         m_pCAudioFile(pCAudioFile),
         m_pCRingBuffer(0),
         m_ppfAudioData(0)
     {
-        m_fSampleRate = fSampleRate;
-
         m_iBlockLength = iBlockLength;
         m_iHopLength = iHopLength;
             
         CAudioFileIf::FileSpec_t stFileSpec;
 
-
         // get length of audio file
         m_pCAudioFile->getLength(m_iAudioLength);
         m_pCAudioFile->getFileSpec(stFileSpec);
         m_iNumChannels = stFileSpec.iNumChannels;
+        m_fSampleRate = stFileSpec.fSampleRateInHz;
 
         // compute number of blocks
         m_iNumBlocks = m_iAudioLength / m_iHopLength + 1;
@@ -37,9 +36,6 @@ public:
         
         // read from file to read buffer
         readFile2RingBuff();
-
-        m_bIsInitialized = true;
-
     }
 
     virtual ~CBlockAudioFile()
@@ -51,14 +47,9 @@ public:
             delete[] m_ppfAudioData[c];
         delete[] m_ppfAudioData;
         m_ppfAudioData = 0;
-
-        m_bIsInitialized = false;
     }
     bool IsEndOfData() const override
     {
-        if (!m_bIsInitialized)
-            return true;
-
         assert(m_pCAudioFile);
         return m_pCAudioFile->isEof();
     }
@@ -78,7 +69,9 @@ public:
         m_pCRingBuffer->setReadIdx(m_pCRingBuffer->getReadIdx() + m_iHopLength);
 
         if (pfTimeStamp)
-            *pfTimeStamp = computeTimeStamp_();
+            *pfTimeStamp = getTimeStamp(m_iCurrBlock);
+        
+        m_iCurrBlock++;
 
         return Error_t::kNoError;
     }
@@ -132,9 +125,6 @@ public:
         // initialize read buffers
         m_pfAudioData = new float[m_iAudioLength];
         CVectorFloat::copy(m_pfAudioData, pfAudioBuff, m_iAudioLength);
-
-        m_bIsInitialized = true;
-
     }
 
     virtual ~CBlockAudioBuffer()
@@ -144,14 +134,10 @@ public:
 
         m_iAudioLength = 0;
         m_iCurrIdx = 0;
-
-        m_bIsInitialized = false;
     }
+
     bool IsEndOfData() const override
     {
-        if (!m_bIsInitialized)
-            return true;
-
         return m_iAudioLength == m_iCurrIdx;
     }
 
@@ -168,9 +154,10 @@ public:
         CVectorFloat::setZero(&pfBlock[iNumFrames], m_iBlockLength - iNumFrames);
 
         if (pfTimeStamp)
-            *pfTimeStamp = computeTimeStamp_();
+            *pfTimeStamp = getTimeStamp(m_iCurrBlock);
 
         m_iCurrIdx += std::min(iNumFrames, static_cast<long long>(m_iHopLength));
+        m_iCurrBlock++;
 
         return Error_t::kNoError;
     }
@@ -182,17 +169,18 @@ private:
 };
 
 
-Error_t CBlockAudioIf::create(CBlockAudioIf*& pCInstance, CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength, float fSampleRate)
+Error_t CBlockAudioIf::create(CBlockAudioIf*& pCInstance, CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength)
 {
     if (!pCAudioFile)
         return Error_t::kFunctionInvalidArgsError;
-    if (iBlockLength <= 0 || iHopLength <= 0 || iHopLength > iBlockLength || fSampleRate <= 0 )
+    if (iBlockLength <= 0 || iHopLength <= 0 || iHopLength > iBlockLength)
         return Error_t::kFunctionInvalidArgsError;
 
-    pCInstance = new CBlockAudioFile(pCAudioFile, iBlockLength, iHopLength, fSampleRate);
+    pCInstance = new CBlockAudioFile(pCAudioFile, iBlockLength, iHopLength);
 
     return Error_t::kNoError;
 }
+
 Error_t CBlockAudioIf::create(CBlockAudioIf*& pCInstance, const float* pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate)
 {
     if (!pfAudioBuff)

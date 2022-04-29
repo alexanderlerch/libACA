@@ -155,21 +155,21 @@ protected:
 
     CAudioFileIf ();
     virtual ~CAudioFileIf ();
-    virtual Error_t freeMemory ();
-    virtual Error_t allocMemory ();
+    virtual Error_t freeMemory_ ();
+    virtual Error_t allocMemory_ ();
 
-    Error_t setInitialized (bool bInitialized = true);
-    Error_t setIoType (FileIoType_t eIoType);
-    FileIoType_t getIoType () const;
-    Error_t setFileSpec (const FileSpec_t *pFileSpec);
-    int getNumChannels () const;
-    long long convFrames2Bytes (long long iNumFrames);
-    long long convBytes2Frames (long long iNumFrames);
-    Error_t setNumBytesPerSample (int iNumBytes);
-    int getNumBytesPerSample () const;
-    int getNumBitsPerSample () const {return (m_iNumBytesPerSample<<3);}
+    Error_t setInitialized_ (bool bInitialized = true);
+    Error_t setIoType_ (FileIoType_t eIoType);
+    FileIoType_t getIoType_ () const;
+    Error_t setFileSpec_ (const FileSpec_t *pFileSpec);
+    int getNumChannels_ () const;
+    long long convFrames2Bytes_ (long long iNumFrames);
+    long long convBytes2Frames_ (long long iNumFrames);
+    Error_t setNumBytesPerSample_ (int iNumBytes);
+    int getNumBytesPerSample_ () const;
+    int getNumBitsPerSample_ () const {return (m_iNumBytesPerSample<<3);}
 
-    float clip2Range(float fSample2Clip, float fMin, float fMax)
+    float clip2Range_(float fSample2Clip, float fMin, float fMax)
     {
         fSample2Clip = std::min (fSample2Clip, fMax);
         fSample2Clip = std::max (fSample2Clip, fMin);
@@ -180,20 +180,20 @@ protected:
 
 private:
     CAudioFileIf(const CAudioFileIf& that);
-    virtual Error_t initDefaults ();
+    virtual Error_t initDefaults_ ();
 
-    virtual long long int readDataIntern (float **ppfAudioData, long long int iLength) = 0;
-    virtual long long int writeDataIntern (float **ppfAudioData, long long int iLength) = 0;
-    virtual long long getLengthIntern() = 0;
-    virtual long long getPositionIntern() = 0;
-    virtual Error_t setPositionIntern( long long iFrame ) = 0;
+    virtual long long int readDataIntern_ (float **ppfAudioData, long long int iLength) = 0;
+    virtual long long int writeDataIntern_ (float **ppfAudioData, long long int iLength) = 0;
+    virtual long long getLengthIntern_() = 0;
+    virtual long long getPositionIntern_() = 0;
+    virtual Error_t setPositionIntern_( long long iFrame ) = 0;
 
-    FileSpec_t      m_CurrFileSpec;            //!< current file specifications
+    FileSpec_t      m_CurrFileSpec;             //!< current file specifications
     FileIoType_t    m_eIoType;                  //!< read or write
 
-    bool            m_bWithClipping;            //!< true if abs(values ) > 1 should be clipped
-    bool            m_bIsInitialized;           //!< true if initialized
-    int             m_iNumBytesPerSample;       //!< number of bytes per sample for the raw pcm IO option without sndlib
+    bool            m_bWithClipping = false;    //!< true if abs(values ) > 1 should be clipped
+    bool            m_bIsInitialized = false;   //!< true if initialized
+    int             m_iNumBytesPerSample = 0;   //!< number of bytes per sample for the raw pcm IO option without sndlib
 
 };
 

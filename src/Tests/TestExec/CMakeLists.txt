@@ -2,7 +2,6 @@ set (APP TestExec)
 
 set (TestLIB gtest)
 
-set (ToolsLIB Tools)
 set (AudioLIB AudioFileIO)
 set (AcaLIB Aca)
 
@@ -27,6 +26,6 @@ add_inc_directories ()
 add_executable(${APP} ${${APP}_SOURCES} ${${APP}_HEADERS} ${${APP}_SOURCES_TEST} ${${APP}_HEADERS_TEST})
 
 # link the libraries
-target_link_libraries(${APP} ${LIB} ${TestLIB} ${AcaLIB} ${ToolsLIB} ${AudioLIB} ${OS_LIBS})
+target_link_libraries(${APP} ${LIB} ${TestLIB} ${AcaLIB} ${AudioLIB} ${OS_LIBS})
 
 

@@ -12,13 +12,31 @@ class CAudioFileIf; //!< forward declaration
 class CBlockAudioIf
 {
 public:
-    static Error_t create(CBlockAudioIf*& pCInstance, CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength, float fSampleRate);
+
+    /*! creates an instance for blocking from file
+    \param CBlockAudioIf*& pCInstance pointer to instance to be written
+    \param CAudioFileIf* pCAudioFile pointer to audio file
+    \param int iBlockLength block length in frames
+    \param int iHopLength hop length in frames
+    \param float fSampleRate sample rate in Hz
+    \return float
+    */
+    static Error_t create(CBlockAudioIf*& pCInstance, CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength);
+
+    /*! creates an instance for blocking from vector
+    \param CBlockAudioIf*& pCInstance pointer to instance to be written
+    \param const float *pfAudioBuff buffer with audio data
+    \param long long iAudioLength length of pfAudioBuff in frames
+    \param int iBlockLength block length in frames
+    \param int iHopLength hop length in frames
+    \param float fSampleRate sample rate in Hz
+    \return float
+    */
     static Error_t create(CBlockAudioIf*& pCInstance, const float *pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate);
 
     /*! destroys a block audio instance
     \return Error_t
     */
-
     static Error_t destroy(CBlockAudioIf*& pCInstance) 
     {
         delete pCInstance;
@@ -32,11 +50,17 @@ public:
     */
     long long getNumBlocks() const
     {
-        if (!m_bIsInitialized)
-            return 0;
-
         return m_iNumBlocks;
     };
+
+    /*! returns time stamp in s for a given block index
+    \param long long iBlockIdx index for requested time stamp
+    \return float
+    */
+    float getTimeStamp(long long iBlockIdx)
+    {
+        return (m_iBlockLength / 2.F + iBlockIdx * m_iHopLength) / m_fSampleRate;
+    }
 
     /*! checks for end of data
     \return bool true if end of audio data is reached
@@ -53,23 +77,15 @@ public:
 protected:
     CBlockAudioIf() {};
     virtual ~CBlockAudioIf() {};
-    float computeTimeStamp_()
-    {
-        float fTimeStamp = (m_iBlockLength / 2.F + m_iCurrBlock * m_iHopLength) / m_fSampleRate;
 
-        m_iCurrBlock++;
-        return fTimeStamp;
-    }
+    long long m_iNumBlocks = 0,     //!< number of blocks
+        m_iCurrBlock = 0,           //!< current block index
+        m_iAudioLength = 0;         //!< length of audio buffer
 
-    bool m_bIsInitialized = false;
-    long long m_iNumBlocks = 0,
-        m_iCurrBlock = 0,
-        m_iAudioLength = 0;
+    int m_iBlockLength = 0,         //!< block length
+        m_iNumChannels = 0,         //!< number of channels
+        m_iHopLength = 0;           //!< hop length
 
-    int m_iBlockLength = 0,
-        m_iNumChannels = 0,
-        m_iHopLength = 0;
-
-    float m_fSampleRate = 0;
+    float m_fSampleRate = 0;        //!< sample rate
 };
 #endif // __ToolBlockAudio_hdr__

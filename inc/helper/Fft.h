@@ -3,6 +3,8 @@
 
 #include "ErrorDef.h"
 
+/*! \brief class for FFT computation with windowing
+*/
 class CFft
 {
 public:
