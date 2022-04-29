@@ -1,4 +1,4 @@
-#include "MUSI6106Config.h"
+#include "ACAConfig.h"
 
 #ifdef WITH_TESTS
 #include "Synthesis.h"

@@ -1,4 +1,3 @@
-
 #if !defined(__Dtw_HEADER_INCLUDED__)
 #define __Dtw_HEADER_INCLUDED__
 
@@ -73,7 +72,7 @@ private:
         kNumVectors
     };
 
-    static inline Directions_t findMinimum (float fHorizCost, float fVertCost, float fDiagCost, float &fResultCost) 
+    static inline Directions_t findMin_ (float fHorizCost, float fVertCost, float fDiagCost, float &fResultCost) 
     {
         Directions_t eDirection = kDiag;
         fResultCost = fDiagCost;

@@ -40,7 +40,7 @@ CAudioFileIf::CAudioFileIf() :
     m_bIsInitialized(false),
     m_iNumBytesPerSample(2)
 {
-        this->initDefaults();
+        this->initDefaults_();
 }
 
 CAudioFileIf::~CAudioFileIf()
@@ -55,40 +55,40 @@ Error_t CAudioFileIf::reset( bool bFreeMemory /*= false*/ )
 
     if (bFreeMemory)
     {
-        eErr = freeMemory ();
+        eErr = freeMemory_ ();
         if (eErr != Error_t::kNoError)
             return eErr;
     }
   
-    eErr = initDefaults ();
+    eErr = initDefaults_ ();
     if (eErr != Error_t::kNoError)
         return eErr;
 
     return eErr;
 }
 
-Error_t CAudioFileIf::freeMemory()
+Error_t CAudioFileIf::freeMemory_()
 {
     return Error_t::kNoError;
 }
 
-Error_t CAudioFileIf::allocMemory()
+Error_t CAudioFileIf::allocMemory_()
 {
-    freeMemory ();
+    freeMemory_ ();
 
     return Error_t::kNoError;
 }
 
-Error_t CAudioFileIf::initDefaults()
+Error_t CAudioFileIf::initDefaults_()
 {
     m_CurrFileSpec.eBitStreamType  = kFileBitStreamInt16;
     m_CurrFileSpec.eFormat         = kFileFormatRaw;
     m_CurrFileSpec.fSampleRateInHz = 48000;
     m_CurrFileSpec.iNumChannels    = 2;
 
-    setIoType(kFileRead);
+    setIoType_(kFileRead);
 
-    setInitialized(false);
+    setInitialized_(false);
     setClippingEnabled ();
 
     return Error_t::kNoError;
@@ -109,7 +109,7 @@ Error_t CAudioFileIf::readData( float **ppfAudioData, long long int &iLength )
         return Error_t::kNotInitializedError;
 
     // update iLength to the number of frames actually read
-    iLength = readDataIntern (ppfAudioData, iLength);
+    iLength = readDataIntern_ (ppfAudioData, iLength);
     if (iLength < 0)
         return Error_t::kFileAccessError;
 
@@ -132,21 +132,21 @@ Error_t CAudioFileIf::writeData( float **ppfAudioData, long long int iLength )
         return Error_t::kNotInitializedError;
 
     // update iLength
-    iLength = writeDataIntern (ppfAudioData, iLength);
+    iLength = writeDataIntern_ (ppfAudioData, iLength);
     if (iLength < 0)
         return Error_t::kFileAccessError;
 
     return Error_t::kNoError;
 }
 
-long long CAudioFileIf::convFrames2Bytes( long long iNumFrames )
+long long CAudioFileIf::convFrames2Bytes_( long long iNumFrames )
 {
-    return m_iNumBytesPerSample*iNumFrames*getNumChannels();
+    return m_iNumBytesPerSample*iNumFrames*getNumChannels_();
 }
 
-long long CAudioFileIf::convBytes2Frames( long long iNumBytes )
+long long CAudioFileIf::convBytes2Frames_( long long iNumBytes )
 {
-    return iNumBytes/(m_iNumBytesPerSample * getNumChannels());    
+    return iNumBytes/(m_iNumBytesPerSample * getNumChannels_());    
 }
 
 Error_t CAudioFileIf::getFileSpec( FileSpec_t &sFileSpec )
@@ -172,10 +172,10 @@ Error_t CAudioFileIf::setPosition( long long iFrame /*= 0*/ )
     if (!isInitialized())
         return Error_t::kNotInitializedError;
 
-    if (iFrame < 0 || iFrame >= getLengthIntern())
+    if (iFrame < 0 || iFrame >= getLengthIntern_())
         return Error_t::kFunctionInvalidArgsError;
 
-    return setPositionIntern(iFrame);
+    return setPositionIntern_(iFrame);
 
 }
 
@@ -198,7 +198,7 @@ Error_t CAudioFileIf::getLength( long long &iLengthInFrames )
     if (!isInitialized())
         return Error_t::kNotInitializedError;
 
-    iLengthInFrames = getLengthIntern ();
+    iLengthInFrames = getLengthIntern_();
 
     return Error_t::kNoError;
 }
@@ -213,7 +213,7 @@ Error_t CAudioFileIf::getPosition( long long &iFrame )
     if (!isInitialized())
         return Error_t::kNotInitializedError;
 
-    iFrame = getPositionIntern();
+    iFrame = getPositionIntern_();
 
     return Error_t::kNoError;
 }
@@ -258,43 +258,43 @@ bool CAudioFileIf::isInitialized()
     return m_bIsInitialized;
 }
 
-Error_t CAudioFileIf::setInitialized( bool bInitialized /*= true*/ )
+Error_t CAudioFileIf::setInitialized_( bool bInitialized /*= true*/ )
 {
     m_bIsInitialized    = bInitialized;
 
     return Error_t::kNoError;
 }
 
-Error_t CAudioFileIf::setIoType( FileIoType_t eIoType )
+Error_t CAudioFileIf::setIoType_( FileIoType_t eIoType )
 {
     m_eIoType   = eIoType;
     return Error_t::kNoError;
 }
 
-CAudioFileIf::FileIoType_t CAudioFileIf::getIoType() const
+CAudioFileIf::FileIoType_t CAudioFileIf::getIoType_() const
 {
     return m_eIoType;
 }
 
-Error_t CAudioFileIf::setFileSpec( const FileSpec_t *pFileSpec )
+Error_t CAudioFileIf::setFileSpec_( const FileSpec_t *pFileSpec )
 {
     memcpy (&m_CurrFileSpec, pFileSpec, sizeof (FileSpec_t));
     return Error_t::kNoError;
 }
 
-int CAudioFileIf::getNumChannels() const
+int CAudioFileIf::getNumChannels_() const
 {
     return m_CurrFileSpec.iNumChannels;
 }
 
-Error_t CAudioFileIf::setNumBytesPerSample( int iNumBytes )
+Error_t CAudioFileIf::setNumBytesPerSample_( int iNumBytes )
 {
     assert (iNumBytes > 0);
     m_iNumBytesPerSample    = iNumBytes;
     return Error_t::kNoError;
 }
 
-int CAudioFileIf::getNumBytesPerSample() const
+int CAudioFileIf::getNumBytesPerSample_() const
 {
     return m_iNumBytesPerSample;
 }

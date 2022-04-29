@@ -132,7 +132,7 @@ public:
 
 private:
     Error_t allocMemory ();
-    Error_t freeMemory ();
+    Error_t freeMemory_ ();
     Error_t computeWindow (WindowFunction_t eWindow);
 
     float   *m_pfProcessBuff;

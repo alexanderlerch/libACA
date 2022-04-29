@@ -15,7 +15,7 @@ public:
     /*! downmixes multichannel audio (can be inplace
     \return void (no error returns b/c not user-facing)
     */
-    static void downmix (float *pfOutput, float **ppfInput, int iNumChannels, int iNumFrames)
+    static void downmix (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumFrames)
     {
         // sanity checks
         assert(pfOutput);
@@ -47,6 +47,7 @@ public:
         assert(pCAudioFile);
 
         CAudioFileIf::FileSpec_t stFileSpec;
+        pCAudioFile->getFileSpec(stFileSpec);
 
         const int iBlockLength = 4096;
         float fGlobalMax = 0.F;
@@ -89,15 +90,48 @@ public:
         delete[] ppfAudioData;
         ppfAudioData = 0;
     };
+    CNormalizeAudio(const float* pfAudioBuff, long long iAudioLength) :
+        m_fScaleFactor(1.F)
+    {
+        assert(pfAudioBuff);
+        assert(iAudioLength > 0);
+
+        float fGlobalMax = CVectorFloat::getMax(pfAudioBuff, iAudioLength, true);
+        if (fGlobalMax > 0)
+            m_fScaleFactor = 1.F / fGlobalMax;
+    };
     virtual ~CNormalizeAudio() {};
 
-    void normalizeBlock(float* pfAudio, int iNumFrames)
+    /*! performs the normalization on a buffer after previous file parsing to get the maximum
+    \param float *pfAudio audio data, to be over-written
+    \param  long long iNumFrames legnth of pfAudio
+    \return Error_t
+    */
+    void normalizeBlock(float* pfAudio, long long iNumFrames)
     {
         assert(pfAudio);
         assert(iNumFrames > 0);
 
         CVectorFloat::mulC_I(pfAudio, m_fScaleFactor, iNumFrames);
     };
+
+    /*! performs the normalization inplace on a buffer
+    \param float *pfAudio audio data, to be over-written
+    \param  long long iNumFrames legnth of pfAudio
+    \return Error_t
+    */
+    static void normalizeWithinVec(float* pfAudio, long long iNumFrames)
+    {
+        assert(pfAudio);
+        assert(iNumFrames > 0);
+
+        float fMax = CVectorFloat::getMax(pfAudio, iNumFrames, true);
+
+        if (fMax > 0)
+            CVectorFloat::mulC_I(pfAudio, 1.F / fMax, iNumFrames);
+
+        return;
+    }
 private:
     CNormalizeAudio();
     float m_fScaleFactor;

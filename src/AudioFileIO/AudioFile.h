@@ -20,13 +20,13 @@ public:
 
 private:
     CAudioFileRaw(const CAudioFileRaw& that);
-    Error_t freeMemory () override;
-    Error_t allocMemory () override;
-    long long int readDataIntern (float **ppfAudioData, long long int iNumFrames) override;
-    long long int writeDataIntern (float **ppfAudioData, long long int iLength) override;
-    long long getLengthIntern() override;
-    long long getPositionIntern() override;
-    Error_t setPositionIntern( long long iFrame ) override;
+    Error_t freeMemory_ () override;
+    Error_t allocMemory_ () override;
+    long long int readDataIntern_ (float **ppfAudioData, long long int iNumFrames) override;
+    long long int writeDataIntern_ (float **ppfAudioData, long long int iLength) override;
+    long long getLengthIntern_() override;
+    long long getPositionIntern_() override;
+    Error_t setPositionIntern_( long long iFrame ) override;
 
     float scaleUp (float fSample2Clip);
     float scaleDown (float fSample2Scale);
@@ -48,16 +48,16 @@ public:
     Error_t closeFile () override;
     bool isEof () override;
     bool isOpen () override;
-    Error_t freeMemory () override;
-    Error_t allocMemory () override;
+    Error_t freeMemory_ () override;
+    Error_t allocMemory_ () override;
 
 private:
     CAudioFileSndLib(const CAudioFileSndLib& that);
-    long long int readDataIntern (float **ppfAudioData, long long int iLength) override;
-    long long int writeDataIntern (float **ppfAudioData, long long int iLength) override;
-    long long getLengthIntern() override;
-    long long getPositionIntern() override;
-    Error_t setPositionIntern( long long iFrame ) override;
+    long long int readDataIntern_ (float **ppfAudioData, long long int iLength) override;
+    long long int writeDataIntern_ (float **ppfAudioData, long long int iLength) override;
+    long long getLengthIntern_() override;
+    long long getPositionIntern_() override;
+    Error_t setPositionIntern_( long long iFrame ) override;
 
     int m_FileHandle;                           //!< sndlib file handle
 

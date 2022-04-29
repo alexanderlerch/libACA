@@ -117,7 +117,7 @@ Error_t CDtw::process(float **ppfDistanceMatrix)
 
         for (int j = 1; j < m_aiMatrixDimensions[kCol]; j++)
         {
-            m_ppePathIdx[i][j] = static_cast<unsigned char>(findMinimum(    m_apfCost[kRowNext][j-1],   // horiz
+            m_ppePathIdx[i][j] = static_cast<unsigned char>(findMin_(    m_apfCost[kRowNext][j-1],   // horiz
                                                                             m_apfCost[kRowCurr][j],     // vert
                                                                             m_apfCost[kRowCurr][j-1],   // diag
                                                                             m_apfCost[kRowNext][j]));   // minimum cost output

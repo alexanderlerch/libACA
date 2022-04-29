@@ -28,9 +28,9 @@ CAudioFileRaw::~CAudioFileRaw()
     reset (true);
 }
 
-Error_t CAudioFileRaw::freeMemory()
+Error_t CAudioFileRaw::freeMemory_()
 {
-    CAudioFileIf::freeMemory ();
+    CAudioFileIf::freeMemory_ ();
     if (!m_piTmpBuff)
         return Error_t::kNoError;
 
@@ -40,9 +40,9 @@ Error_t CAudioFileRaw::freeMemory()
     return Error_t::kNoError;
 }
 
-Error_t CAudioFileRaw::allocMemory()
+Error_t CAudioFileRaw::allocMemory_()
 {
-    freeMemory ();
+    freeMemory_ ();
 
     m_piTmpBuff = new short [static_cast<unsigned int>(m_kiDefBlockLength)];
 
@@ -58,13 +58,13 @@ Error_t CAudioFileRaw::openFile( std::string cAudioFileName, FileIoType_t eIoTyp
         return Error_t::kFileOpenError;
 
     reset (true);
-    setIoType(eIoType);
+    setIoType_(eIoType);
 
     // set file spec (required for raw streams)
     if (psFileSpec)
     {
-        setFileSpec(psFileSpec);
-        setInitialized(true);
+        setFileSpec_(psFileSpec);
+        setInitialized_(true);
     }
     // open file
     m_File.open (cAudioFileName.c_str(), ios::binary | ((eIoType & kFileRead)? ios::in : ios::out));
@@ -76,7 +76,7 @@ Error_t CAudioFileRaw::openFile( std::string cAudioFileName, FileIoType_t eIoTyp
     }
 
     // allocate internal memory
-    return allocMemory ();
+    return allocMemory_ ();
 }
 
 Error_t CAudioFileRaw::closeFile()
@@ -89,7 +89,7 @@ Error_t CAudioFileRaw::closeFile()
     m_File.close ();
 
     // free internal memory
-    return freeMemory ();
+    return freeMemory_ ();
 }
 
 bool CAudioFileRaw::isEof()
@@ -104,24 +104,24 @@ bool CAudioFileRaw::isOpen()
 
 float CAudioFileRaw::scaleUp( float fSample2Clip )
 {
-    float fScale        = static_cast<float>(1<<(getNumBitsPerSample()-1));
+    float fScale        = static_cast<float>(1<<(getNumBitsPerSample_()-1));
     fSample2Clip *= fScale;
     if (isClippingEnabled())
     {
-        fSample2Clip = clip2Range(fSample2Clip, -fScale, fScale-1);
+        fSample2Clip = clip2Range_(fSample2Clip, -fScale, fScale-1);
     }
     return fSample2Clip;
 }
 
 float CAudioFileRaw::scaleDown( float fSample2Scale )
 {
-    float fScale        = static_cast<float>(1<<(getNumBitsPerSample()-1));
+    float fScale        = static_cast<float>(1<<(getNumBitsPerSample_()-1));
     return fSample2Scale/fScale;
 }
 
-long long int CAudioFileRaw::readDataIntern( float **ppfAudioData, long long int iLength )
+long long int CAudioFileRaw::readDataIntern_( float **ppfAudioData, long long int iLength )
 {
-    int iNumChannels                = getNumChannels();
+    int iNumChannels                = getNumChannels_();
     long long int iNumFrames2Read   = min (iLength, m_kiDefBlockLength/iNumChannels);
     long long int iNumFrames        = 0;
 
@@ -135,13 +135,13 @@ long long int CAudioFileRaw::readDataIntern( float **ppfAudioData, long long int
     while (iNumFrames2Read > 0)
     {
         long long int iCurrFrames = iNumFrames2Read;
-        m_File.read (reinterpret_cast<char*>(m_piTmpBuff), convFrames2Bytes(iNumFrames2Read));
+        m_File.read (reinterpret_cast<char*>(m_piTmpBuff), convFrames2Bytes_(iNumFrames2Read));
 
         iNumFrames2Read = min (iLength-iCurrFrames, m_kiDefBlockLength/iNumChannels);
 
         if (!m_File)
         {
-            iCurrFrames     = static_cast<int>(convBytes2Frames(m_File.gcount ()));
+            iCurrFrames     = static_cast<int>(convBytes2Frames_(m_File.gcount ()));
             iNumFrames2Read = 0;
         }
 
@@ -166,10 +166,10 @@ long long int CAudioFileRaw::readDataIntern( float **ppfAudioData, long long int
 
 }
 
-long long int CAudioFileRaw::writeDataIntern( float **ppfAudioData, long long int iLength )
+long long int CAudioFileRaw::writeDataIntern_( float **ppfAudioData, long long int iLength )
 {
     long long int iIdx  = 0;
-    int iNumChannels    = getNumChannels();
+    int iNumChannels    = getNumChannels_();
 
     // sanity check
     assert(ppfAudioData);
@@ -191,7 +191,7 @@ long long int CAudioFileRaw::writeDataIntern( float **ppfAudioData, long long in
             }
         }
 
-        m_File.write (reinterpret_cast<char*>(m_piTmpBuff), convFrames2Bytes(iNumFrames2Write));
+        m_File.write (reinterpret_cast<char*>(m_piTmpBuff), convFrames2Bytes_(iNumFrames2Write));
 
         if (!m_File)
         {
@@ -204,35 +204,35 @@ long long int CAudioFileRaw::writeDataIntern( float **ppfAudioData, long long in
     return iIdx;
 }
 
-long long CAudioFileRaw::getLengthIntern() 
+long long CAudioFileRaw::getLengthIntern_() 
 {
     assert(m_File);
 
     //static const int    iNumOfBytesPerSample = 2;
-    long long iCurrPos  = getPositionIntern();
+    long long iCurrPos  = getPositionIntern_();
     long long iLength   = 0;
 
     m_File.seekg (0, m_File.end);
 
-    iLength = convBytes2Frames(static_cast<long long>(m_File.tellg()));
+    iLength = convBytes2Frames_(static_cast<long long>(m_File.tellg()));
 
-    setPositionIntern(iCurrPos);
+    setPositionIntern_(iCurrPos);
 
     return iLength;
 }
 
-long long CAudioFileRaw::getPositionIntern()
+long long CAudioFileRaw::getPositionIntern_()
 {
     assert(m_File);
-    return convBytes2Frames(static_cast<long long>(m_File.tellg()));
+    return convBytes2Frames_(static_cast<long long>(m_File.tellg()));
 }
 
-Error_t CAudioFileRaw::setPositionIntern( long long iFrame )
+Error_t CAudioFileRaw::setPositionIntern_( long long iFrame )
 {
     assert(m_File);
     assert(iFrame >= 0);
 
-    m_File.seekg (convFrames2Bytes(iFrame), m_File.beg);
+    m_File.seekg (convFrames2Bytes_(iFrame), m_File.beg);
 
     return Error_t::kNoError;
 }
@@ -264,7 +264,7 @@ Error_t CAudioFileSndLib::openFile( std::string cAudioFileName, FileIoType_t eIo
         return Error_t::kFileOpenError;
 
     reset (true);
-    setIoType(eIoType);
+    setIoType_(eIoType);
 
     if (!psFileSpec)
     {
@@ -291,9 +291,9 @@ Error_t CAudioFileSndLib::openFile( std::string cAudioFileName, FileIoType_t eIo
     }
 
     // set file spec (required for raw streams)
-    setFileSpec(&sSpec);
+    setFileSpec_(&sSpec);
 
-    if (getIoType() == kFileRead)
+    if (getIoType_() == kFileRead)
     {
         if (mus_sound_header_type(cAudioFileName.c_str()) == MUS_RAW)
         {
@@ -327,18 +327,18 @@ Error_t CAudioFileSndLib::openFile( std::string cAudioFileName, FileIoType_t eIo
             case MUS_LSHORT:
             case MUS_BSHORT:
                 sFileSpec.eBitStreamType = kFileBitStreamInt16;
-                setNumBytesPerSample(2);
+                setNumBytesPerSample_(2);
                 break;
             case MUS_BFLOAT:
             case MUS_LFLOAT:
                 sFileSpec.eBitStreamType = kFileBitStreamFloat32;
-                setNumBytesPerSample(4);
+                setNumBytesPerSample_(4);
                 break;
             default:
                 sFileSpec.eBitStreamType = kFileBitStreamUnknown;
                 break;
             }
-            setFileSpec(&sFileSpec);
+            setFileSpec_(&sFileSpec);
         }
 
         m_FileHandle = mus_sound_open_input(cAudioFileName.c_str());
@@ -360,10 +360,10 @@ Error_t CAudioFileSndLib::openFile( std::string cAudioFileName, FileIoType_t eIo
     }
 
     m_lFileLength = mus_sound_frames(cAudioFileName.c_str());
-    setInitialized(true);
+    setInitialized_(true);
 
     // allocate internal memory
-    return allocMemory ();
+    return allocMemory_();
 }
 
 Error_t CAudioFileSndLib::closeFile()
@@ -373,13 +373,13 @@ Error_t CAudioFileSndLib::closeFile()
         return Error_t::kNoError;
     }    
 
-    if (getIoType() == kFileRead)
+    if (getIoType_() == kFileRead)
     {
         mus_sound_close_input(m_FileHandle);
     }
     else
     {        
-        mus_sound_close_output(m_FileHandle, convFrames2Bytes(m_lFrameCnt));
+        mus_sound_close_output(m_FileHandle, convFrames2Bytes_(m_lFrameCnt));
     }
 
     m_lFrameCnt     = 0;
@@ -387,7 +387,7 @@ Error_t CAudioFileSndLib::closeFile()
     m_lFileLength   = 0;
 
     // free internal memory
-    return freeMemory ();
+    return freeMemory_();
 }
 
 bool CAudioFileSndLib::isOpen()
@@ -395,9 +395,9 @@ bool CAudioFileSndLib::isOpen()
     return (m_FileHandle >= 0);
 }
 
-long long int CAudioFileSndLib::readDataIntern( float **ppfAudioData, long long int iLength )
+long long int CAudioFileSndLib::readDataIntern_( float **ppfAudioData, long long int iLength )
 {
-    int iNumChannels                = getNumChannels();
+    int iNumChannels                = getNumChannels_();
     long long int iNumFrames2Read   = min (iLength, m_kiDefBlockLength);
     long long int iNumFrames        = 0;
 
@@ -408,7 +408,7 @@ long long int CAudioFileSndLib::readDataIntern( float **ppfAudioData, long long 
     // use internal buffer with fixed length
     while (iNumFrames2Read > 0)
     {
-        long long int iCurrFrames = mus_sound_read(m_FileHandle, 0, iNumFrames2Read-1, getNumChannels(), m_ppdTmpBuff);
+        long long int iCurrFrames = mus_sound_read(m_FileHandle, 0, iNumFrames2Read-1, getNumChannels_(), m_ppdTmpBuff);
 
         if (iCurrFrames <= m_lFileLength-m_lFrameCnt)
         {
@@ -441,10 +441,10 @@ long long int CAudioFileSndLib::readDataIntern( float **ppfAudioData, long long 
     return iNumFrames;
 }
 
-long long int CAudioFileSndLib::writeDataIntern( float **ppfAudioData, long long int iLength )
+long long int CAudioFileSndLib::writeDataIntern_( float **ppfAudioData, long long int iLength )
 {
     long long int iIdx            = 0;
-    long long int iNumChannels    = getNumChannels();
+    long long int iNumChannels    = getNumChannels_();
 
     // sanity check
     assert(ppfAudioData);
@@ -454,7 +454,7 @@ long long int CAudioFileSndLib::writeDataIntern( float **ppfAudioData, long long
     if (isClippingEnabled())
     {
         afRange[0]  = -1.F;
-        afRange[1]  = 1-1.F/static_cast<float>(1<<(getNumBitsPerSample()));
+        afRange[1]  = 1-1.F/static_cast<float>(1<<(getNumBitsPerSample_()));
     }
 
     // use internal buffer with fixed length
@@ -467,11 +467,11 @@ long long int CAudioFileSndLib::writeDataIntern( float **ppfAudioData, long long
         {
             for (int i = 0; i < iNumFrames2Write; i++)
             {
-                m_ppdTmpBuff[iCh][i]    = clip2Range(ppfAudioData[iCh][iIdx+i], afRange[0], afRange[1]);
+                m_ppdTmpBuff[iCh][i]    = clip2Range_(ppfAudioData[iCh][iIdx+i], afRange[0], afRange[1]);
             }
         }
 
-        if (mus_sound_write(m_FileHandle, 0, iNumFrames2Write-1, getNumChannels(), m_ppdTmpBuff) == 0)
+        if (mus_sound_write(m_FileHandle, 0, iNumFrames2Write-1, getNumChannels_(), m_ppdTmpBuff) == 0)
         {
             // update frame counter
             iIdx        += iNumFrames2Write;
@@ -482,9 +482,9 @@ long long int CAudioFileSndLib::writeDataIntern( float **ppfAudioData, long long
     return iIdx;
 }
 
-long long CAudioFileSndLib::getLengthIntern()
+long long CAudioFileSndLib::getLengthIntern_()
 {
-    if (getIoType() == kFileWrite)
+    if (getIoType_() == kFileWrite)
     {
         return m_lFrameCnt;
     }
@@ -494,25 +494,25 @@ long long CAudioFileSndLib::getLengthIntern()
     }
 }
 
-long long CAudioFileSndLib::getPositionIntern()
+long long CAudioFileSndLib::getPositionIntern_()
 {
     return m_lFrameCnt;
 }
 
-Error_t CAudioFileSndLib::setPositionIntern( long long iFrame )
+Error_t CAudioFileSndLib::setPositionIntern_( long long iFrame )
 {
-    m_lFrameCnt = convBytes2Frames(mus_sound_seek_frame(m_FileHandle, iFrame));
+    m_lFrameCnt = convBytes2Frames_(mus_sound_seek_frame(m_FileHandle, iFrame));
     
     return Error_t::kNoError;
 }
 
-Error_t CAudioFileSndLib::freeMemory()
+Error_t CAudioFileSndLib::freeMemory_()
 {
-    CAudioFileIf::freeMemory ();
+    CAudioFileIf::freeMemory_ ();
     if (!m_ppdTmpBuff)
         return Error_t::kNoError;
 
-    for (int i = 0; i < getNumChannels(); i++)
+    for (int i = 0; i < getNumChannels_(); i++)
         delete m_ppdTmpBuff[i];
 
     delete [] m_ppdTmpBuff;
@@ -521,10 +521,10 @@ Error_t CAudioFileSndLib::freeMemory()
     return Error_t::kNoError;
 }
 
-Error_t CAudioFileSndLib::allocMemory()
+Error_t CAudioFileSndLib::allocMemory_()
 {
-    int iNumChannels = getNumChannels();
-    freeMemory ();
+    int iNumChannels = getNumChannels_();
+    freeMemory_();
 
     m_ppdTmpBuff    = new double* [iNumChannels];
     for (int i = 0; i < iNumChannels; i++)

@@ -51,7 +51,7 @@ Error_t CFft::init( int iBlockLength, int iZeroPadFactor, WindowFunction_t eWind
 
 Error_t CFft::reset()
 {
-    freeMemory();
+    freeMemory_();
 
     m_iDataLength       = 0;
     m_iFftLength        = 0;
@@ -236,7 +236,7 @@ Error_t CFft::allocMemory()
     }
 }
 
-Error_t CFft::freeMemory()
+Error_t CFft::freeMemory_()
 {
     delete [] m_pfProcessBuff;
     delete [] m_pfWindowBuff;
