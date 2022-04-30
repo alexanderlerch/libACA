@@ -81,7 +81,7 @@ namespace {
     };
 }
 
-TEST_F(ToolsConversion, Conversion)
+TEST_F(ToolsConversion, Freq2Mel2Freq)
 {
     // Mel (Fant)
     EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::create(m_pCFreq2Mel2Freq, CFreq2Mel2Freq::kFant));
@@ -118,6 +118,43 @@ TEST_F(ToolsConversion, Conversion)
 
     CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, m_iNumValues, 1e-3F);
     EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq));
+}
+
+TEST_F(ToolsConversion, Freq2Midi2Freq)
+{
+    EXPECT_NEAR(69.F, CFreq2Midi2Freq::convertFreq2Midi(440.F), 1e-6F);
+    EXPECT_NEAR(57.F, CFreq2Midi2Freq::convertFreq2Midi(440.F, 880.F), 1e-6F);
+    EXPECT_NEAR(81.F, CFreq2Midi2Freq::convertFreq2Midi(440.F, 220.F), 1e-6F);
+    EXPECT_NEAR(70.F, CFreq2Midi2Freq::convertFreq2Midi(440.F * 1.0594630943593F), 1e-6F);
+
+    EXPECT_NEAR(440.F, CFreq2Midi2Freq::convertMidi2Freq(69.F), 1e-6F);
+    EXPECT_NEAR(440.F, CFreq2Midi2Freq::convertMidi2Freq(57.F, 880.F), 1e-6F);
+    EXPECT_NEAR(440.F, CFreq2Midi2Freq::convertMidi2Freq(81.F, 220.F), 1e-6F);
+    EXPECT_NEAR(440.F, CFreq2Midi2Freq::convertMidi2Freq(70.F) / 1.0594630943593F, 1e-6F);
+
+    CFreq2Midi2Freq::convertMidi2Freq(m_pfFreq, m_pfMel, 128);
+    CFreq2Midi2Freq::convertFreq2Midi(m_pfOut, m_pfFreq, 128);
+
+    CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, 128, 1e-3F);
+}
+
+TEST_F(ToolsConversion, Freq2Bin2Freq)
+{
+    float fSampleRate = 48000.f;
+    int iFftLength = 16;
+
+    EXPECT_NEAR(0.F, CFreq2Bin2Freq::convertFreq2Bin(0.F, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(iFftLength / 2.F, CFreq2Bin2Freq::convertFreq2Bin(fSampleRate / 2, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(1.F, CFreq2Bin2Freq::convertFreq2Bin(fSampleRate / iFftLength, iFftLength, fSampleRate), 1e-6F);
+
+    EXPECT_NEAR(0.F, CFreq2Bin2Freq::convertBin2Freq(0.F, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(fSampleRate / 2, CFreq2Bin2Freq::convertBin2Freq(iFftLength / 2.F, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(fSampleRate / iFftLength, CFreq2Bin2Freq::convertBin2Freq(1.F, iFftLength, fSampleRate), 1e-6F);
+
+    CFreq2Bin2Freq::convertBin2Freq(m_pfFreq, m_pfMel, iFftLength, iFftLength, fSampleRate);
+    CFreq2Bin2Freq::convertFreq2Bin(m_pfOut, m_pfFreq, iFftLength, iFftLength, fSampleRate);
+
+    CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, iFftLength, 1e-3F);
 }
 
 TEST_F(ToolsBlockAudio, Dimensions)
