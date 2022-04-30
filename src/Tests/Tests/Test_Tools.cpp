@@ -4,23 +4,24 @@
 
 #include "Vector.h"
 #include "ToolBlockAudio.h"
+#include "ToolConversion.h"
 
 #include "gtest/gtest.h"
 
 
 namespace {
-    void CHECK_ARRAY_EQUAL(int *buffer1, int *buffer2, int iLength)
+    void CHECK_ARRAY_CLOSE(float* buffer1, float* buffer2, int iLength, float fTolerance)
     {
         for (int i = 0; i < iLength; i++)
         {
-            EXPECT_EQ(buffer1[i], buffer2[i]);
+            EXPECT_NEAR(buffer1[i], buffer2[i], fTolerance);
         }
     }
 
     class ToolsBlockAudio : public testing::Test
     {
     protected:
-        void SetUp() override 
+        void SetUp() override
         {
             m_pfAudio = new float[m_iBufferLength];
             m_pfBlock = new float[1024];
@@ -49,8 +50,75 @@ namespace {
             m_iAudioLength = 0,
             m_iBufferLength = 40000;
     };
+
+    class ToolsConversion : public testing::Test
+    {
+    protected:
+        void SetUp() override
+        {
+            m_pfMel = new float[m_iNumValues];
+            m_pfFreq = new float[m_iNumValues];
+            m_pfOut = new float[m_iNumValues];
+
+            for (auto m = 0; m < m_iNumValues; m++)
+                m_pfMel[m] = m;
+        }
+
+        virtual void TearDown()
+        {
+            CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq);
+
+            delete[] m_pfMel;
+            delete[] m_pfFreq;
+            delete[] m_pfOut;
+        }
+
+        CFreq2Mel2Freq* m_pCFreq2Mel2Freq = 0;
+        float* m_pfMel = 0,
+            * m_pfFreq = 0,
+            * m_pfOut = 0;
+        int m_iNumValues = 1024;
+    };
 }
 
+TEST_F(ToolsConversion, Conversion)
+{
+    // Mel (Fant)
+    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::create(m_pCFreq2Mel2Freq, CFreq2Mel2Freq::kFant));
+
+    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertFreq2Mel(1000.F), 1e-6F);
+    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertMel2Freq(1000.F), 1e-6F);
+
+    m_pCFreq2Mel2Freq->convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
+    m_pCFreq2Mel2Freq->convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+
+    CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, m_iNumValues, 1e-3F);
+    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq));
+
+    // Mel (Shaughnessy)
+    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::create(m_pCFreq2Mel2Freq, CFreq2Mel2Freq::kShaughnessy));
+
+    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertFreq2Mel(1000.F), 1e-1F);
+    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertMel2Freq(1000.F), 1e-1F);
+
+    m_pCFreq2Mel2Freq->convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
+    m_pCFreq2Mel2Freq->convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+
+    CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, m_iNumValues, 1e-3F);
+    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq));
+
+    // Mel (Umesh)
+    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::create(m_pCFreq2Mel2Freq, CFreq2Mel2Freq::kUmesh));
+
+    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertFreq2Mel(1000.F), 25.F);
+    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertMel2Freq(1000.F), 25.F);
+
+    m_pCFreq2Mel2Freq->convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
+    m_pCFreq2Mel2Freq->convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+
+    CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, m_iNumValues, 1e-3F);
+    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq));
+}
 
 TEST_F(ToolsBlockAudio, Dimensions)
 {
