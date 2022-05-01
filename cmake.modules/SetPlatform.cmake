@@ -2,7 +2,7 @@
 
 if (APPLE)
 	set(ACA_MACOSX 1)
-	add_compile_options("-Wno-c++11")
+	add_compile_options("-Wno-c++11-extension")
 endif (APPLE)
 
 if (UNIX AND NOT APPLE)
