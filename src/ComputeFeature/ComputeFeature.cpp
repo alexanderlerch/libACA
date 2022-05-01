@@ -2,7 +2,7 @@
 #include <iostream>
 #include <ctime>
 
-#include "MUSI6106Config.h"
+#include "ACAConfig.h"
 
 #include "AudioFileIf.h"
 

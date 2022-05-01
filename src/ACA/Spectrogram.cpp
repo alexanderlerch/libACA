@@ -1,6 +1,6 @@
 
 #include "Util.h"
-#include "Ringbuffer.h"
+#include "RingBuffer.h"
 #include "AudioFileIf.h"
 #include "Fft.h"
 #include "ToolPreProc.h"
