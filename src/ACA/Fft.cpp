@@ -22,6 +22,11 @@ CFft::CFft() :
     reset ();
 }
 
+inline CFft::~CFft()
+{
+    reset();
+}
+
 Error_t CFft::init( int iBlockLength, int iZeroPadFactor, WindowFunction_t eWindow /*= kWindowHann*/, Windowing_t eWindowing /*= kPreWindow*/ )
 {
     Error_t  rErr = Error_t::kNoError;
@@ -38,11 +43,11 @@ Error_t CFft::init( int iBlockLength, int iZeroPadFactor, WindowFunction_t eWind
 
     m_ePrePostWindowOpt = eWindowing;
 
-    rErr = allocMemory ();
+    rErr = allocMemory_ ();
     if (rErr != Error_t::kNoError)
         return rErr;
 
-    rErr = computeWindow (eWindow);
+    rErr = computeWindow_ (eWindow);
 
     m_bIsInitialized    = true;
 
@@ -222,7 +227,7 @@ float CFft::bin2freq( int iBinIdx, float fSampleRateInHz ) const
     return iBinIdx * fSampleRateInHz / m_iFftLength;
 }
 
-Error_t CFft::allocMemory()
+Error_t CFft::allocMemory_()
 {
 
     m_pfProcessBuff = new float [m_iFftLength];
@@ -247,7 +252,7 @@ Error_t CFft::freeMemory_()
     return Error_t::kNoError;
 }
 
-Error_t CFft::computeWindow( WindowFunction_t eWindow )
+Error_t CFft::computeWindow_( WindowFunction_t eWindow )
 {
     int i;
 
@@ -255,35 +260,40 @@ Error_t CFft::computeWindow( WindowFunction_t eWindow )
     switch (eWindow)
     {
     case kWindowSine:
+    {
+        for (i = 0; i < m_iDataLength; i++)
         {
-            for (i = 0; i < m_iDataLength; i++)
-            {
-                m_pfWindowBuff[i]   = sinf((i * m_Pi) / (m_iDataLength+1));
-            }
-            break;
+            m_pfWindowBuff[i] = sinf((i * m_Pi) / (m_iDataLength + 1));
         }
+        break;
+    }
     case kWindowHann:
+    {
+        for (i = 0; i < m_iDataLength; i++)
         {
-            for (i = 0; i < m_iDataLength; i++)
-            {
-                m_pfWindowBuff[i]   = .5F * (1.F - cosf((i * 2.F*m_Pi) / (m_iDataLength+1)));
-            }
-            break;
+            m_pfWindowBuff[i] = .5F * (1.F - cosf((i * 2.F * m_Pi) / (m_iDataLength + 1)));
         }
+        break;
+    }
     case kWindowHamming:
+    {
+        for (i = 0; i < m_iDataLength; i++)
         {
-            for (i = 0; i < m_iDataLength; i++)
-            {
-                m_pfWindowBuff[i]   = .54F - .46F * cosf((i * 2.F*m_Pi) / (m_iDataLength+1));
-            }
-            break;
+            m_pfWindowBuff[i] = .54F - .46F * cosf((i * 2.F * m_Pi) / (m_iDataLength + 1));
         }
+        break;
+    }
+    default:
+    case kNumWindows:
+    {
+        return Error_t::kFunctionInvalidArgsError;
+    }
     }
 
     return Error_t::kNoError;
 }
 
-int CFft::getLength( Length_t eLengthIdx )
+int CFft::getLength( Length_t eLengthIdx ) const
 {
     switch (eLengthIdx)
     {
@@ -294,6 +304,8 @@ int CFft::getLength( Length_t eLengthIdx )
     case kLengthMagnitude:
     case kLengthPhase:
         return m_iFftLength/2+1;
+    default:
+    case kNumLengths:
+        return -1;
     }
-    return 0;
 }

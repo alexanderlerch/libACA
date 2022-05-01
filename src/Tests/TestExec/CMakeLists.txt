@@ -12,7 +12,7 @@ list (APPEND PROJECT_INCLUDES ${CMAKE_SOURCE_DIR}/3rdparty/googletest/${TestLIB}
 ##############################################################
 ## TestExec
 file(GLOB ${APP}_SOURCES RELATIVE ${CMAKE_SOURCE_DIR}/src/Tests/${APP} Test.cpp)
-file(GLOB ${APP}_HEADERS RELATIVE ${CMAKE_SOURCE_DIR}/src/Tests/${APP} *.h;../incl/*.h)
+file(GLOB ${APP}_HEADERS RELATIVE ${CMAKE_SOURCE_DIR}/src/Tests/${APP} *.h;../../../inc/*.h;)
 source_group (Main FILES ${APP}_SOURCES ${APP}_HEADERS)
 
 # these are the individual tests

@@ -38,6 +38,11 @@ public:
  };
 
 
+/*! \brief class for audio normalization offering three options
+* 1. normalize an audio file during blockwise reading with normalizeBlock (requires instance with audio file)
+* 2. normalize an audio vector with blockwise reading with normalizeBlock (requires instance with buffer)
+* 3. normalize an entire vector at once with normalizeWithinVec (static function does not require instance)
+*/
 class CNormalizeAudio
 {
 public:
@@ -108,8 +113,8 @@ public:
     virtual ~CNormalizeAudio() {};
 
     /*! performs the normalization on a buffer after previous file parsing to get the maximum
-    \param float *pfAudio audio data, to be over-written
-    \param  long long iNumFrames legnth of pfAudio
+    \param pfAudio audio data, to be over-written
+    \param  iNumFrames legnth of pfAudio
     \return Error_t
     */
     void normalizeBlock(float* pfAudio, long long iNumFrames)
@@ -121,8 +126,8 @@ public:
     };
 
     /*! performs the normalization inplace on a buffer
-    \param float *pfAudio audio data, to be over-written
-    \param  long long iNumFrames legnth of pfAudio
+    \param pfAudio audio data, to be over-written
+    \param  iNumFrames legnth of pfAudio
     \return Error_t
     */
     static void normalizeWithinVec(float* pfAudio, long long iNumFrames)

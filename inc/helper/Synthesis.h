@@ -13,18 +13,36 @@
 class CSynthesis
 {
 public:
-    static Error_t generateSine (float *pfOutBuf, float fFreqInHz, float fSampleFreqInHz, int iLength, float fAmplitude = 1.F, float fStartPhaseInRad = 0.F)
+    /*! generates a sinusoidal
+    \param pfOutBuf output memory buffer (to be written)
+    \param fFreqInHz frequency of sinusoidal
+    \param fSampleRateInHz sample rate 
+    \param iLength number of frames to be generated
+    \param fAmplitude amplitude of signal
+    \param fStartPhaseInRad starting phase in radiants
+    \return Error_t
+    */
+    static Error_t generateSine (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F, float fStartPhaseInRad = 0.F)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
 
         for (int i = 0; i < iLength; i++)
         {
-            pfOutBuf[i] = fAmplitude * static_cast<float>(sin (2*M_PI*fFreqInHz * i/fSampleFreqInHz + fStartPhaseInRad));
+            pfOutBuf[i] = fAmplitude * static_cast<float>(sin (2*M_PI*fFreqInHz * i/fSampleRateInHz + fStartPhaseInRad));
         }
 
         return Error_t::kNoError;
     }
+
+    /*! generates a square wave
+    \param pfOutBuf output memory buffer (to be written)
+    \param fFreqInHz frequency of sinusoidal
+    \param fSampleRateInHz sample rate
+    \param iLength number of frames to be generated
+    \param fAmplitude amplitude of signal
+    \return Error_t
+    */
     static Error_t generateRect (float *pfOutBuf, float fFreqInHz, float fSampleFreqInHz, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
@@ -46,6 +64,15 @@ public:
 
         return Error_t::kNoError;
     }
+
+    /*! generates a sawtooth
+   \param pfOutBuf output memory buffer (to be written)
+   \param fFreqInHz frequency of sinusoidal
+   \param fSampleRateInHz sample rate
+   \param iLength number of frames to be generated
+    \param fAmplitude amplitude of signal
+   \return Error_t
+   */
     static Error_t generateSaw (float *pfOutBuf, float fFreqInHz, float fSampleFreqInHz, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
@@ -60,6 +87,13 @@ public:
 
         return Error_t::kNoError;
     }
+
+    /*! generates a dc signal
+    \param pfOutBuf output memory buffer (to be written)
+    \param iLength number of frames to be generated
+    \param fAmplitude amplitude of signal
+    \return Error_t
+    */
     static Error_t generateDc (float *pfOutBuf, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
@@ -72,6 +106,13 @@ public:
 
         return Error_t::kNoError;
     }
+
+    /*! generates a uniform noise
+    \param pfOutBuf output memory buffer (to be written)
+    \param iLength number of frames to be generated
+    \param fAmplitude max amplitude of noise
+    \return Error_t
+    */
     static Error_t generateNoise (float *pfOutBuf, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)

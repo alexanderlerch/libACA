@@ -25,48 +25,51 @@ public:
     };
 
     /*! initializes a Spectrogram instance with file reading
-    \param string strAudioFilePath complete path to audio file
-    \param int iBlockLength: FFT block length in Frames
-    \param int iHopLength: hop length in Frames
-    \param bool bNormalize: flag if input audio should be normalized
-    \param float pfWindow: window function of length iBlockLength (optional, default will be von-Hann if 0)
+    \param pCInstance pointer to instance to be written
+    \param strAudioFilePath complete path to audio file
+    \param iBlockLength: FFT block length in Frames
+    \param iHopLength: hop length in Frames
+    \param bNormalize: flag if input audio should be normalized
+    \param pfWindow: window function of length iBlockLength (optional, default will be von-Hann if 0)
     \return Error_t
     */
     static Error_t create(CSpectrogramIf*& pCInstance, const std::string strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024, bool bNormalize = true, float *pfWindow = 0);
 
     /*! initializes a Spectrogram instance from audio data
-    \param float *pfAudio complete audio data
-    \param long long iNumFrames: length of pfAudio
-    \param float fSampleRate: sample rate in Hz
-    \param int iBlockLength: FFT block length in Frames
-    \param int iHopLength: hop length in Frames
-    \param bool bNormalize: flag if input audio should be normalized
-    \param float pfWindow: window function of length iBlockLength (optional, default will be von-Hann if 0)
+    \param pCInstance pointer to instance to be written
+    \param pfAudio complete audio data
+    \param iNumFrames: length of pfAudio
+    \param fSampleRate: sample rate in Hz
+    \param iBlockLength: FFT block length in Frames
+    \param iHopLength: hop length in Frames
+    \param bNormalize: flag if input audio should be normalized
+    \param pfWindow: window function of length iBlockLength (optional, default will be von-Hann if 0)
     \return Error_t
     */
     static Error_t create(CSpectrogramIf*& pCInstance, const float *pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 2048, int iHopLength = 1024, bool bNormalize = true, float* pfWindow = 0);
 
     /*! destroys a Spectrogram instance
+    \param pCInstance pointer to instance to be destroyed
     \return Error_t
     */
     static Error_t destroy(CSpectrogramIf*& pCInstance);
 
     /*! returns size of matrix to be allocated by user
-    \param int iNumRows (number of rows, to be written) equals number of frequency bins
-    \param int iNumCols (number of columns, to be written) equals number of blocks
+    \param iNumRows (number of rows, to be written) equals number of frequency bins
+    \param iNumCols (number of columns, to be written) equals number of blocks
     \return Error_t
     */
     Error_t getSpectrogramDimensions(int& iNumRows, int& iNumCols) const;
 
     /*! returns axis ticks
-    \param float *pfAxisTicks (to be written) equals iNumRows if eAxisLabel == kFrequencyInHz, otherwise iNumCols
-    \param AxisLabel_t eAxisLabel indicator which axis
+    \param pfAxisTicks (to be written) equals iNumRows if eAxisLabel == kFrequencyInHz, otherwise iNumCols
+    \param eAxisLabel indicator which axis
     \return Error_t
     */
     Error_t getAxisVectors(float *pfAxisTicks, enum AxisLabel_t eAxisLabel) const;
 
     /*! performs the Spectrogram computation
-    \param float **ppfSpectrogram (user-allocated, to be written, dimensions from ::getSpectrogramDimensions)
+    \param ppfSpectrogram (user-allocated, to be written, dimensions from CSpectrogramIf::getSpectrogramDimensions)
     \return Error_t
     */
     Error_t process (float **ppfSpectrogram);

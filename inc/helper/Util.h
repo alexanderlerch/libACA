@@ -64,6 +64,11 @@ public:
         return (1<<(iOrder));
     }
 
+    /*! swaps two values
+    \param tValue1 first value
+    \param tValue2 second value
+    \return void
+    */
     template<typename T>
     static void swap (T &tValue1, T &tValue2)
     {
