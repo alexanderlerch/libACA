@@ -43,12 +43,12 @@ public:
     \param fAmplitude amplitude of signal
     \return Error_t
     */
-    static Error_t generateRect (float *pfOutBuf, float fFreqInHz, float fSampleFreqInHz, int iLength, float fAmplitude = 1.F)
+    static Error_t generateRect (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
 
-        float fPeriodLength = fSampleFreqInHz / fFreqInHz;
+        float fPeriodLength = fSampleRateInHz / fFreqInHz;
         for (int i = 0; i < iLength; i++)
         {
             // this seems super inefficient
@@ -73,12 +73,12 @@ public:
     \param fAmplitude amplitude of signal
    \return Error_t
    */
-    static Error_t generateSaw (float *pfOutBuf, float fFreqInHz, float fSampleFreqInHz, int iLength, float fAmplitude = 1.F)
+    static Error_t generateSaw (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
 
-        float fIncr = 2*fAmplitude / fSampleFreqInHz * fFreqInHz;
+        float fIncr = 2*fAmplitude / fSampleRateInHz * fFreqInHz;
         pfOutBuf[0] = 0;
         for (int i = 1; i < iLength; i++)
         {

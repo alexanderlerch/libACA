@@ -84,6 +84,7 @@ public:
     /*! converts a frequency vector to midi (float)
     \param pfMidi output buffer (length iLengthBuff, to be written)
     \param pffInHz input buffer with frequency values in Hz (length iLengthBuff)
+    \param iLengthBuff length of buffers
     \param fA4InHz tuning (reference) frequency in Hz
     \return void 
     */
@@ -113,6 +114,7 @@ public:
     /*! converts a midi vector to frequency 
     \param pffInHz output buffer with frequency values in Hz (length iLengthBuff)
     \param pfMidi input buffer (length iLengthBuff, to be written)
+    \param iLengthBuff length of buffers
     \param fA4InHz tuning (reference) frequency in Hz
     \return void
     */

@@ -775,7 +775,8 @@ WARN_LOGFILE           = @CMAKE_BINARY_DIR@/docs/warn.log
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  = @CMAKE_SOURCE_DIR@/src \
+INPUT                  = @CMAKE_SOURCE_DIR@ \
+						 @CMAKE_SOURCE_DIR@/src \
                          @CMAKE_SOURCE_DIR@/inc 
 
 # This tag can be used to specify the character encoding of the source files
@@ -837,7 +838,7 @@ EXCLUDE_SYMLINKS       = NO
 
 EXCLUDE_PATTERNS       = */3rdParty/* \
                          */cmake.modules/* \
-                         */slide-examples/* 
+                         */Tests/* 
 
 # The EXCLUDE_SYMBOLS tag can be used to specify one or more symbol names
 # (namespaces, classes, functions, etc.) that should be excluded from the
@@ -930,7 +931,7 @@ FILTER_SOURCE_PATTERNS =
 # (index.html). This can be useful if you have a project on for instance GitHub
 # and want to reuse the introduction page also for the doxygen output.
 
-USE_MDFILE_AS_MAINPAGE = README.md
+USE_MDFILE_AS_MAINPAGE = @CMAKE_SOURCE_DIR@/README.md
 
 #---------------------------------------------------------------------------
 # Configuration options related to source browsing
