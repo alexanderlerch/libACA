@@ -66,13 +66,44 @@ public:
     \param eAxisLabel indicator which axis
     \return Error_t
     */
-    Error_t getAxisVectors(float *pfAxisTicks, enum AxisLabel_t eAxisLabel) const;
+    Error_t getSpectrogramAxisVectors(float* pfAxisTicks, enum AxisLabel_t eAxisLabel) const;
 
     /*! performs the Spectrogram computation
     \param ppfSpectrogram (user-allocated, to be written, dimensions from CSpectrogramIf::getSpectrogramDimensions)
     \return Error_t
     */
-    Error_t process (float **ppfSpectrogram);
+    Error_t getSpectrogram(float** ppfSpectrogram);
+
+    struct MelSpectrogramConfig_t
+    {
+        int iNumMelBins = 0;            //!< number of frequency bins
+        float fMinFreqInHz = 0;         //!< maximum frequency
+        float fMaxFreqInHz = 0;         //!< minimum frequency
+        bool bIsLogarithmic = false;    //!< true for logarithmic amplitude
+    };
+
+    /*! returns size of matrix to be allocated by user
+    \param iNumRows (number of rows, to be written) equals number of frequency bins
+    \param iNumCols (number of columns, to be written) equals number of blocks
+    \param pMelSpecConfig parametrization of the mel spectrogram
+    \return Error_t
+    */
+    Error_t getMelSpectrogramDimensions(int& iNumRows, int& iNumCols, const MelSpectrogramConfig_t *pMelSpecConfig) const;
+
+    /*! returns axis ticks
+    \param pfAxisTicks (to be written) equals iNumRows if eAxisLabel == kFrequencyInHz, otherwise iNumCols
+    \param eAxisLabel indicator which axis
+    \param pMelSpecConfig parametrization of the mel spectrogram
+    \return Error_t
+    */
+    Error_t getMelSpectrogramAxisVectors(float* pfAxisTicks, enum AxisLabel_t eAxisLabel, const MelSpectrogramConfig_t* pMelSpecConfig);
+
+    /*! performs the Spectrogram computation
+    \param ppfMelSpectrogram (user-allocated, to be written, dimensions from CSpectrogramIf::getSpectrogramDimensions)
+    \param pMelSpecConfig parametrization of the mel spectrogram
+    \return Error_t
+    */
+    Error_t getMelSpectrogram(float** ppfMelSpectrogram, const MelSpectrogramConfig_t* pMelSpecConfig);
 
 protected:
     CSpectrogramIf();
@@ -81,8 +112,12 @@ protected:
 
     Error_t reset_();                    //!< reset configuration
     Error_t init_(float* pfWindow);      //!< init configuration
+    void computeMagSpectrum_(int iLength);
 
-    CNormalizeAudio* m_pCNormalize = 0;  //!< instantiate if normalization is wanted
+    Error_t generateMelFb_(const MelSpectrogramConfig_t *pMelSpecConfig);
+    void destroyMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig);
+
+    CNormalizeAudio* m_pCNormalize = 0;  //!< instantiate if audio file normalization is wanted
  
     CBlockAudioIf* m_pCBlockAudio = 0;   //!< instantiate for blocking time domain signal
 
@@ -99,6 +134,8 @@ protected:
     bool    m_bIsInitialized = false;    //!< true if initialized
 
 
+    float** m_ppfHMel = 0;               //!< Mel filterbank
+    float* m_pffcMel = 0;                //!< Mel center frequencies
 };
 
 #endif // #if !defined(__Spectrogram_hdr__)

@@ -82,7 +82,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // compute spectrogram
     cout << "\n1. computing spectrogram..." << endl;
-    pCSpectrogram->process(ppfSpectrogram);
+    pCSpectrogram->getSpectrogram(ppfSpectrogram);
 
     cout << "\n spectrogram computation done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
 

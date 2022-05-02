@@ -70,7 +70,8 @@ TEST_F(Spectrogram, Api)
     EXPECT_EQ(false, Error_t::kNoError == CSpectrogramIf::create(m_pCSpecGram, m_pfInput, 1, m_fs, 3, m_iHopLength));
 
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::create(m_pCSpecGram, m_pfInput, 5, m_fs, m_iBlockLength, m_iHopLength));
-    EXPECT_EQ(false, Error_t::kNoError == m_pCSpecGram->getAxisVectors(0, CSpectrogramIf::kFrequencyInHz));
+    EXPECT_EQ(false, Error_t::kNoError == m_pCSpecGram->getSpectrogramAxisVectors(0, CSpectrogramIf::kFrequencyInHz));
+    EXPECT_EQ(false, Error_t::kNoError == m_pCSpecGram->getMelSpectrogramAxisVectors(m_pfInput, CSpectrogramIf::kFrequencyInHz, 0));
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
 }
 
@@ -92,12 +93,12 @@ TEST_F(Spectrogram, Dimensions)
 
     pfVector = new float[std::max(m_aiSpecGramDimension[0], m_aiSpecGramDimension[1])];
 
-    EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getAxisVectors(pfVector, CSpectrogramIf::kFrequencyInHz));
+    EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getSpectrogramAxisVectors(pfVector, CSpectrogramIf::kFrequencyInHz));
     EXPECT_EQ(pfVector[0], 0);
     EXPECT_NEAR(pfVector[1], m_fs / m_iBlockLength, 1e-6);
     EXPECT_NEAR(pfVector[m_iBlockLength / 2], m_fs / 2, 1e-6);
 
-    EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getAxisVectors(pfVector, CSpectrogramIf::kTimeInS));
+    EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getSpectrogramAxisVectors(pfVector, CSpectrogramIf::kTimeInS));
     EXPECT_NEAR(pfVector[0], m_iBlockLength / (2 * m_fs), 1e-6);
     EXPECT_NEAR(pfVector[1], pfVector[0] + m_iHopLength / m_fs, 1e-6);
 
@@ -123,7 +124,7 @@ TEST_F(Spectrogram, Values)
     for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
         m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
 
-    m_pCSpecGram->process(m_ppfSpecGram);
+    m_pCSpecGram->getSpectrogram(m_ppfSpecGram);
 
     EXPECT_NEAR(m_ppfSpecGram[10][10] - m_ppfSpecGram[20][10], m_ppfSpecGram[10][10], 1e-4F);
     EXPECT_NEAR(m_ppfSpecGram[115][10], 0, 1e-6F);
@@ -146,7 +147,7 @@ TEST_F(Spectrogram, Values)
     for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
         m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
 
-    m_pCSpecGram->process(m_ppfSpecGram);
+    m_pCSpecGram->getSpectrogram(m_ppfSpecGram);
 
     EXPECT_NEAR(m_ppfSpecGram[10][10] - m_ppfSpecGram[11][10], 0, 1e-4F);
 
@@ -171,7 +172,7 @@ TEST_F(Spectrogram, Values)
     for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
         m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
 
-    m_pCSpecGram->process(m_ppfSpecGram);
+    m_pCSpecGram->getSpectrogram(m_ppfSpecGram);
 
     EXPECT_NEAR(m_ppfSpecGram[4][0], fAmp, 1e-6F);
     EXPECT_NEAR(m_ppfSpecGram[0][0], 0, 1e-4F);
@@ -179,11 +180,53 @@ TEST_F(Spectrogram, Values)
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength, true, m_pfTimeStamps));
 
-    m_pCSpecGram->process(m_ppfSpecGram);
+    m_pCSpecGram->getSpectrogram(m_ppfSpecGram);
 
     EXPECT_NEAR(m_ppfSpecGram[4][0], 1, 1e-6F);
     EXPECT_NEAR(m_ppfSpecGram[0][0], 0, 1e-6F);
 
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
 }
+
+TEST_F(Spectrogram, MelSpectrogram)
+{
+    CSpectrogramIf::MelSpectrogramConfig_t stMelSpecConfig;
+    float* pfVector = 0;
+
+    m_f0 = 400;
+
+    stMelSpecConfig.bIsLogarithmic = false;
+    stMelSpecConfig.fMaxFreqInHz = 20000;
+    stMelSpecConfig.fMinFreqInHz = 0;
+    stMelSpecConfig.iNumMelBins = 128;
+
+    CSynthesis::generateSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
+
+    EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<long long>(m_fs), m_fs, m_iBlockLength, m_iHopLength));
+
+    EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getMelSpectrogramDimensions(m_aiSpecGramDimension[0], m_aiSpecGramDimension[1], &stMelSpecConfig));
+
+    EXPECT_EQ(stMelSpecConfig.iNumMelBins, m_aiSpecGramDimension[0]);
+    EXPECT_EQ(static_cast<int>(m_fs) / m_iHopLength + 1, m_aiSpecGramDimension[1]);
+
+    pfVector = new float[std::max(m_aiSpecGramDimension[0], m_aiSpecGramDimension[1])];
+
+    EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getMelSpectrogramAxisVectors(pfVector, CSpectrogramIf::kFrequencyInHz, &stMelSpecConfig));
+
+    EXPECT_EQ(Error_t::kNoError, m_pCSpecGram->getMelSpectrogramAxisVectors(pfVector, CSpectrogramIf::kTimeInS, &stMelSpecConfig));
+    EXPECT_NEAR(pfVector[0], m_iBlockLength / (2 * m_fs), 1e-6);
+    EXPECT_NEAR(pfVector[1], pfVector[0] + m_iHopLength / m_fs, 1e-6);
+
+    m_ppfSpecGram = new float* [m_aiSpecGramDimension[0]];
+    for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
+        m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
+
+    stMelSpecConfig.bIsLogarithmic = true;
+    m_pCSpecGram->getMelSpectrogram(m_ppfSpecGram, &stMelSpecConfig);
+
+    EXPECT_NEAR(-36.9, m_ppfSpecGram[13][1], 1e-1F);
+
+    delete[] pfVector;
+}
+
 #endif //WITH_TESTS

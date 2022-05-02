@@ -1,3 +1,4 @@
+#include "Spectrogram.h"
 
 #include "Util.h"
 #include "RingBuffer.h"
@@ -5,6 +6,7 @@
 #include "Fft.h"
 #include "ToolPreProc.h"
 #include "ToolBlockAudio.h"
+#include "ToolConversion.h"
 
 #include "Spectrogram.h"
 
@@ -160,7 +162,7 @@ Error_t CSpectrogramIf::getSpectrogramDimensions(int& iNumRows, int& iNumCols) c
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::getAxisVectors(float* pfAxisTicks, AxisLabel_t eAxisLabel) const
+Error_t CSpectrogramIf::getSpectrogramAxisVectors(float* pfAxisTicks, AxisLabel_t eAxisLabel) const
 {
     if (!m_bIsInitialized)
     {
@@ -174,10 +176,9 @@ Error_t CSpectrogramIf::getAxisVectors(float* pfAxisTicks, AxisLabel_t eAxisLabe
     assert(m_iHopLength > 0);
     assert(m_fSampleRate > 0);
 
-    long long iNumBlocks = m_pCBlockAudio->getNumBlocks();
-
     if (eAxisLabel == kTimeInS)
     {
+        long long iNumBlocks = m_pCBlockAudio->getNumBlocks();
         for (auto n = 0; n < iNumBlocks; n++)
             pfAxisTicks[n] = m_pCBlockAudio->getTimeStamp(n);
     }
@@ -192,7 +193,7 @@ Error_t CSpectrogramIf::getAxisVectors(float* pfAxisTicks, AxisLabel_t eAxisLabe
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::process(float** ppfSpectrogram)
+Error_t CSpectrogramIf::getSpectrogram(float** ppfSpectrogram)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -209,25 +210,49 @@ Error_t CSpectrogramIf::process(float** ppfSpectrogram)
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
-        // retrieve the next audio block
-        m_pCBlockAudio->getNextBlock(m_pfProcessBuff);
+        auto iLength = m_pCFft->getLength(CFft::kLengthMagnitude);
 
-        // normalize if specified
-        if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff, m_iBlockLength);
-
-        // compute magnitude spectrum (hack
-        m_pCFft->doFft(m_pfSpectrum, m_pfProcessBuff);
-        m_pCFft->getMagnitude(m_pfSpectrum, m_pfSpectrum);
+        computeMagSpectrum_(iLength);
 
         // copy to output buffer
-        auto iLength = m_pCFft->getLength(CFft::kLengthMagnitude);
-        CVectorFloat::mulC_I(m_pfSpectrum, 2.F, iLength);
         for (auto k = 0; k < iLength; k++)
             ppfSpectrogram[k][n] = m_pfSpectrum[k];
     }
 
     return Error_t::kNoError;
+}
+
+void CSpectrogramIf::computeMagSpectrum_(int iLength)
+{
+    // retrieve the next audio block
+    m_pCBlockAudio->getNextBlock(m_pfProcessBuff);
+
+    // normalize if specified
+    if (m_pCNormalize)
+        m_pCNormalize->normalizeBlock(m_pfProcessBuff, m_iBlockLength);
+
+    // compute magnitude spectrum (hack
+    m_pCFft->doFft(m_pfSpectrum, m_pfProcessBuff);
+    m_pCFft->getMagnitude(m_pfSpectrum, m_pfSpectrum);
+
+    CVectorFloat::mulC_I(m_pfSpectrum, 2.F, iLength);
+}
+
+void CSpectrogramIf::destroyMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig)
+{
+    if (m_ppfHMel)
+    {
+        for (auto k = 0; k < pMelSpecConfig->iNumMelBins; k++)
+        {
+            delete[] m_ppfHMel[k];
+            m_ppfHMel[k] = 0;
+        }
+        delete[] m_ppfHMel;
+        m_ppfHMel = 0;
+    }
+
+    delete[] m_pffcMel;
+    m_pffcMel = 0;
 }
 
 Error_t CSpectrogramIf::reset_()
@@ -267,6 +292,170 @@ Error_t CSpectrogramIf::init_(float* pfWindow)
     m_pfProcessBuff = new float[m_iBlockLength];
 
     m_bIsInitialized = true;
+
+    return Error_t::kNoError;
+}
+
+
+Error_t CSpectrogramIf::getMelSpectrogramDimensions(int& iNumRows, int& iNumCols, const MelSpectrogramConfig_t* pMelSpecConfig) const
+{
+    if (!pMelSpecConfig)
+        return Error_t::kFunctionInvalidArgsError;
+
+    if (!m_bIsInitialized)
+    {
+        iNumRows = 0;
+        iNumCols = 0;
+        return Error_t::kFunctionIllegalCallError;
+    }
+
+    iNumRows = pMelSpecConfig->iNumMelBins;
+    iNumCols = m_pCBlockAudio->getNumBlocks();
+
+    return Error_t::kNoError;
+}
+
+Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float* pfAxisTicks, AxisLabel_t eAxisLabel, const MelSpectrogramConfig_t* pMelSpecConfig)
+{
+    if (!m_bIsInitialized)
+    {
+        return Error_t::kFunctionIllegalCallError;
+    }
+
+    if (!pfAxisTicks || !pMelSpecConfig)
+        return Error_t::kFunctionInvalidArgsError;
+
+    if (!pfAxisTicks)
+        return Error_t::kFunctionInvalidArgsError;
+
+    assert(m_iBlockLength > 0);
+    assert(m_iHopLength > 0);
+    assert(m_fSampleRate > 0);
+
+
+    if (eAxisLabel == kTimeInS)
+    {
+        long long iNumBlocks = m_pCBlockAudio->getNumBlocks();
+        for (auto n = 0; n < iNumBlocks; n++)
+            pfAxisTicks[n] = m_pCBlockAudio->getTimeStamp(n);
+    }
+
+    if (eAxisLabel == kFrequencyInHz)
+    {
+        generateMelFb_(pMelSpecConfig);
+        
+        assert(m_pffcMel);
+
+        // note that we start with 1 to look at the center freqs only
+        CVectorFloat::copy(pfAxisTicks, &m_pffcMel[1], pMelSpecConfig->iNumMelBins);
+
+        destroyMelFb_(pMelSpecConfig);
+    }
+
+    return Error_t::kNoError;
+}
+
+Error_t CSpectrogramIf::getMelSpectrogram(float** ppfMelSpectrogram, const MelSpectrogramConfig_t* pMelSpecConfig)
+{
+    if (!m_bIsInitialized)
+        return Error_t::kFunctionIllegalCallError;
+    if (!pMelSpecConfig)
+        return Error_t::kFunctionInvalidArgsError;
+    if (!ppfMelSpectrogram)
+        return Error_t::kFunctionInvalidArgsError;
+    if (!ppfMelSpectrogram[0])
+        return Error_t::kFunctionInvalidArgsError;
+
+    assert(m_pfProcessBuff);
+    assert(m_pfSpectrum);
+    assert(m_pCFft);
+
+    // initialize mel filterbank
+    generateMelFb_(pMelSpecConfig);
+    assert(m_ppfHMel);
+
+    long long iNumBlocks = m_pCBlockAudio->getNumBlocks();
+
+    for (auto n = 0; n < iNumBlocks; n++)
+    {
+        auto iLength = m_pCFft->getLength(CFft::kLengthMagnitude);
+
+        computeMagSpectrum_(iLength);
+
+        // copy to output buffer
+        for (auto k = 0; k < pMelSpecConfig->iNumMelBins; k++)
+        {
+            assert(m_ppfHMel[k]);
+            ppfMelSpectrogram[k][n] = CVectorFloat::mulScalar(m_ppfHMel[k], m_pfSpectrum, iLength);
+        }
+
+        if (pMelSpecConfig->bIsLogarithmic)
+        {
+            // convert amplitude to level(dB)
+            for (auto k = 0; k < pMelSpecConfig->iNumMelBins; k++)
+                ppfMelSpectrogram[k][n] = 20.F * std::log10f(ppfMelSpectrogram[k][n] + 1e-12F);
+        }
+    }
+
+    destroyMelFb_(pMelSpecConfig);
+
+    return Error_t::kNoError;
+}
+
+Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig)
+{
+    assert(pMelSpecConfig);
+
+    int iMagLength = m_pCFft->getLength(CFft::kLengthMagnitude);
+
+    // configuration check
+    if (pMelSpecConfig->fMinFreqInHz < 0)
+        return Error_t::kFunctionInvalidArgsError;
+    if (pMelSpecConfig->fMaxFreqInHz > m_fSampleRate / 2)
+        return Error_t::kFunctionInvalidArgsError;
+    if (pMelSpecConfig->iNumMelBins <= 0 || pMelSpecConfig->iNumMelBins > iMagLength)
+        return Error_t::kFunctionInvalidArgsError;
+
+    // allocate filter matrix and frequency matrix
+    m_pffcMel = new float[pMelSpecConfig->iNumMelBins + 2]; // +2 for lower and upper bound
+    m_ppfHMel = new float* [pMelSpecConfig->iNumMelBins];
+    for (auto k = 0; k < pMelSpecConfig->iNumMelBins; k++)
+    {
+        m_ppfHMel[k] = new float[iMagLength];
+        CVectorFloat::setZero(m_ppfHMel[k], iMagLength);
+    }
+
+    // compute center band frequencies
+    CFreq2Mel2Freq* pCMelConversion = 0;
+    CFreq2Mel2Freq::create(pCMelConversion);
+    m_pffcMel[0] = pCMelConversion->convertFreq2Mel(pMelSpecConfig->fMinFreqInHz);
+    m_pffcMel[pMelSpecConfig->iNumMelBins + 1] = pCMelConversion->convertFreq2Mel(pMelSpecConfig->fMaxFreqInHz);
+    float fMelInc = (m_pffcMel[pMelSpecConfig->iNumMelBins + 1] - m_pffcMel[0]) / (pMelSpecConfig->iNumMelBins+1);
+    for (auto k = 1; k < pMelSpecConfig->iNumMelBins + 1; k++)
+        m_pffcMel[k] = m_pffcMel[k - 1] + fMelInc;
+    for (auto k = 0; k < pMelSpecConfig->iNumMelBins + 2; k++)
+        m_pffcMel[k] = pCMelConversion->convertMel2Freq(m_pffcMel[k]);
+
+    float* pf_l = &m_pffcMel[0],
+        * pf_c = &m_pffcMel[1],
+        * pf_u = &m_pffcMel[2];
+
+    for (auto m = 0; m < pMelSpecConfig->iNumMelBins; m++)
+    {
+        float fFilterMax = 2.F / (pf_u[m] - pf_l[m]); //!< normalization
+
+        int iLowBin = 1 + static_cast<int>(m_pCFft->freq2bin(pf_l[m], m_fSampleRate));
+        int iCenterBin = 1 + static_cast<int>(m_pCFft->freq2bin(pf_c[m], m_fSampleRate));
+        int iUpBin = 1 + static_cast<int>(m_pCFft->freq2bin(pf_u[m], m_fSampleRate));
+
+        for (auto k = iLowBin; k < iCenterBin; k++)
+            m_ppfHMel[m][k] = fFilterMax * (CFreq2Bin2Freq::convertBin2Freq(k, (iMagLength - 1) * 2, m_fSampleRate) - pf_l[m]) / (pf_c[m] - pf_l[m]);
+        for (auto k = iCenterBin; k < iUpBin; k++)
+            m_ppfHMel[m][k] = fFilterMax * (pf_u[m] - CFreq2Bin2Freq::convertBin2Freq(k, (iMagLength - 1) * 2, m_fSampleRate)) / (pf_u[m] - pf_c[m]);
+
+    }
+
+    CFreq2Mel2Freq::destroy(pCMelConversion);
 
     return Error_t::kNoError;
 }
