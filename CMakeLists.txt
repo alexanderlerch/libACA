@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.0)
 project (ACA
-        VERSION 0.0.0.1)
+        VERSION 0.0.2)
 
 #######################################################################################################
 ## includes
@@ -73,6 +73,7 @@ if (WITH_TESTS)
     # add tests here
     add_test(AudioIo ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=AudioIo* "${CMAKE_SOURCE_DIR}/src/Tests/TestData/")
     add_test(Dtw ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=Dtw*)
+    add_test(Fft ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=Feature*)
     add_test(Fft ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=Fft*)
     add_test(RingBuff ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=RingBuff*)
     add_test(Spectrogram ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=Spectrogram*)

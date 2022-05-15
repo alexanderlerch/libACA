@@ -1,6 +1,7 @@
 #if !defined(__VectorFloat_hdr__)
 #define __VectorFloat_hdr__
 
+#define _USE_MATH_DEFINES
 #include <cassert>
 #include <cstring>
 #include <limits>

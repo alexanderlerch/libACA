@@ -70,12 +70,36 @@ public:
     \return void
     */
     template<typename T>
-    static void swap (T &tValue1, T &tValue2)
+    static void swap(T& tValue1, T& tValue2)
     {
         T tTmp = tValue1;
 
         tValue1 = tValue2;
         tValue2 = tTmp;
+    }
+
+    /*! returns the sign of a value
+    \param fValue value
+    \return float -1, 0, or 1
+    */
+    static float sign(float fValue)
+    {
+        if (fValue > 0) return 1.F;
+        if (fValue < 0) return -1.F;
+
+        return 0.F;
+    }
+
+    /*! returns the sign of a value
+    \param iValue value
+    \return int -1, 0, or 1
+    */
+    static int sign(int iValue)
+    {
+        if (iValue > 0) return 1;
+        if (iValue < 0) return -1;
+
+        return 0;
     }
 };
 #endif // __Util_hdr__

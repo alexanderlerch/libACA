@@ -1,6 +1,7 @@
 #if !defined(__RingBuffer_hdr__)
 #define __RingBuffer_hdr__
 
+#define _USE_MATH_DEFINES
 #include <cassert>
 #include <algorithm>
 #include <cmath>
