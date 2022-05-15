@@ -17,7 +17,25 @@ public:
     enum Feature_t
     {
         kFeatureSpectralCentroid,
+        kFeatureSpectralCrestFactor,
+        kFeatureSpectralDecrease,
+        kFeatureSpectralFlatness,
+        kFeatureSpectralFlux,
+        kFeatureSpectralKurtosis,
+        kFeatureSpectralMfccs,
+        kFeatureSpectralPitchChroma,
+        kFeatureSpectralRolloff,
+        kFeatureSpectralSkewness,
+        kFeatureSpectralSlope,
         kFeatureSpectralSpread,
+        kFeatureSpectralTonalPowerRatio,
+        kFeatureTimeAcfCoeff,
+        kFeatureTimeMaxAcf,
+        kFeatureTimePeakEnvelope,
+        kFeatureTimePredictivityRatio,
+        kFeatureTimeRms,
+        kFeatureTimeStd,
+        kFeatureTimeZeroCrossingRate,
 
         kNumFeatures
     };
@@ -52,31 +70,21 @@ public:
 
     ////////////////////////////////////////////////////////////////////////////
     // static functions for some features where it makes sense (use at your own risk)
-
     static inline float compFeatureSpectralCentroid(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-
     static inline float compFeatureSpectralCrestFactor(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-
     static inline float compFeatureSpectralDecrease(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-
     static inline float compFeatureSpectralFlatness(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-
     static inline float compFeatureSpectralFlux(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float fSampleRate = 1.F);
-
-    static inline float compFeatureSpectralSpread(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-
     static inline float compFeatureSpectralKurtosis(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-
     static inline float compFeatureSpectralRolloff(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F, float fKappa = .85F);
-
     static inline float compFeatureSpectralSkewness(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-
     static inline float compFeatureSpectralSlope(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-
+    static inline float compFeatureSpectralSpread(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    static inline float compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    static inline float compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
+    static inline float compFeatureTimeRms(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureTimeStd(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
-
     static inline float compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
-
 
     static const float m_kfFloatThresh;      //!< below this we just assume it's zero
 
@@ -329,6 +337,15 @@ inline float CFeatureFromBlockIf::compFeatureTimeStd(const float* pfSamples, int
     assert(fSampleRate > 0);
 
     return CVectorFloat::getStd(pfSamples, iDataLength);
+}
+
+inline float CFeatureFromBlockIf::compFeatureTimeRms(const float* pfSamples, int iDataLength, float fSampleRate /*= 1.F*/)
+{
+    assert(pfSamples);
+    assert(iDataLength > 0);
+    assert(fSampleRate > 0);
+
+    return CVectorFloat::getStd(pfSamples, iDataLength, 0.F);
 }
 
 inline float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float fSampleRate /*= 1.F*/)

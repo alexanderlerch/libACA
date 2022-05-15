@@ -259,6 +259,25 @@ TEST_F(FeaturesStatic, SpectralSlope)
     EXPECT_NEAR(0.F, CFeatureFromBlockIf::compFeatureSpectralSlope(m_pfInput, m_iBufferLength), 1e-2F);
 }
 
+TEST_F(FeaturesStatic, TimeRms)
+{
+    // zero test
+    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, m_iBufferLength));
+
+    // sine wave
+    m_fSampleRate = 200;
+    CSynthesis::generateSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+    EXPECT_NEAR(1.F / std::sqrtf(2.F), CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000), 1e-6F);
+
+    // square wave
+    m_fSampleRate = 200;
+    CSynthesis::generateRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+    EXPECT_NEAR(1.F, CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000), 1e-3F);
+
+    // square wave with offset
+    CVectorFloat::addC_I(m_pfInput, 1, m_iBufferLength);
+    EXPECT_NEAR(std::sqrtf(2.F), CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000), 1e-3F);
+}
 TEST_F(FeaturesStatic, TimeStd)
 {
     // zero test
@@ -272,6 +291,10 @@ TEST_F(FeaturesStatic, TimeStd)
     // square wave
     m_fSampleRate = 200;
     CSynthesis::generateRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+    EXPECT_NEAR(1.F, CFeatureFromBlockIf::compFeatureTimeStd(m_pfInput, 1000), 1e-3F);
+
+    // square wave with offset
+    CVectorFloat::addC_I(m_pfInput, 1, m_iBufferLength);
     EXPECT_NEAR(1.F, CFeatureFromBlockIf::compFeatureTimeStd(m_pfInput, 1000), 1e-3F);
 }
 
