@@ -263,17 +263,17 @@ public:
 
     /*! adds a buffer to a scalar
     \param pfSrcDest buffer to be added
-    \param fScale scalar
+    \param fConst scalar
     \param iLength number of element to be added
     \return void
     */
-    static inline void addC_I (float *pfSrcDest, float fScale, long long int iLength)
+    static inline void addC_I (float *pfSrcDest, float fConst, long long int iLength)
     {
         assert (iLength >= 0);
         assert (pfSrcDest);
 
         for (auto i = 0; i < iLength; i++)
-            pfSrcDest[i] += fScale;
+            pfSrcDest[i] += fConst;
     }
 
     /*! element-wise vector subtraction

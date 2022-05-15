@@ -52,7 +52,7 @@ public:
         for (int i = 0; i < iLength; i++)
         {
             // this seems super inefficient
-            if (i%CUtil::float2int<int>(fPeriodLength) <= .5*fPeriodLength)
+            if (i%CUtil::float2int<int>(fPeriodLength) < .5F*fPeriodLength)
             {            
                 pfOutBuf[i] = fAmplitude;
             }
