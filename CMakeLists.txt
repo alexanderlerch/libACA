@@ -26,9 +26,12 @@ option (WITH_TESTS "Use googletest for testing" ON)
 
 #######################################################################################################
 ## project specific stuff
+set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 
 # set directories
 set (PROJECT_DIRECTORIES)
+list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/Aca) 
+
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeBeatHisto)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeChords)      
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFeature)       
@@ -40,8 +43,6 @@ list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputePitch)
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeSpectrogram)   
 
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/AudioFileIO) 
-list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/Tools) 
-list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/Aca) 
     
 # set includes
 set (PROJECT_INCLUDES)

@@ -16,3 +16,4 @@ add_executable(${APP} ${${APP}_SOURCES} ${${APP}_HEADERS})
 # link the libraries
 target_link_libraries(${APP} ${LIB} ${AudioLIB} ${AcaLIB} ${OS_LIBS})
 
+set_target_properties(${APP} PROPERTIES FOLDER Executables)

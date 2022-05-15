@@ -18,7 +18,6 @@ source_group (Main FILES ${APP}_SOURCES ${APP}_HEADERS)
 # these are the individual tests
 file(GLOB ${APP}_SOURCES_TEST RELATIVE ${CMAKE_SOURCE_DIR}/src/Tests/${APP} ../Tests/*.cpp;)
 file(GLOB ${APP}_HEADERS_TEST RELATIVE ${CMAKE_SOURCE_DIR}/src/Tests/${APP} ../Tests/*.h)
-source_group (Tests FILES ${APP}_SOURCES_TEST ${APP}_HEADERS_TEST)
 
 ## add include directories
 add_inc_directories ()
@@ -28,4 +27,7 @@ add_executable(${APP} ${${APP}_SOURCES} ${${APP}_HEADERS} ${${APP}_SOURCES_TEST}
 # link the libraries
 target_link_libraries(${APP} ${LIB} ${TestLIB} ${AcaLIB} ${AudioLIB} ${OS_LIBS})
 
+set_target_properties(${APP} PROPERTIES FOLDER Testing)
+set_target_properties(gtest PROPERTIES FOLDER Testing)
+set_target_properties(gtest_main PROPERTIES FOLDER Testing)
 
