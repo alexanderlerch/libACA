@@ -32,7 +32,6 @@ public:
         kFeatureTimeAcfCoeff,
         kFeatureTimeMaxAcf,
         kFeatureTimePeakEnvelope,
-        kFeatureTimePredictivityRatio,
         kFeatureTimeRms,
         kFeatureTimeStd,
         kFeatureTimeZeroCrossingRate,
@@ -80,7 +79,7 @@ public:
     static inline float compFeatureSpectralSkewness(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureSpectralSlope(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureSpectralSpread(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static inline float compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    static inline float compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F, float fThresh = 5e-4);
     static inline float compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureTimeRms(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureTimeStd(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
@@ -319,7 +318,7 @@ inline float CFeatureFromBlockIf::compFeatureSpectralSlope(const float* pfMagSpe
 
     for (auto k = 0; k < iDataLength; k++)
     {
-        float fk = k - (iDataLength+1) / 2.F;
+        float fk = k - (iDataLength + 1) / 2.F;
         fvssl += fk * (pfMagSpec[k] - fvsc);
         fNorm += fk * fk;
     }
@@ -328,6 +327,46 @@ inline float CFeatureFromBlockIf::compFeatureSpectralSlope(const float* pfMagSpe
         return 0;
 
     return fvssl / fNorm;
+}
+inline float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/, float fThresh /*= 5e-4F*/)
+{
+    assert(pfMagSpec);
+    assert(iDataLength > 0);
+    assert(fSampleRate > 0);
+
+    // compute mean
+    float fvtpr = 0;
+    float fNorm = pfMagSpec[0] * pfMagSpec[0] + pfMagSpec[iDataLength-1] * pfMagSpec[iDataLength-1];
+
+    for (auto k = 1; k < iDataLength - 1; k++)
+    {
+        float fSquare = pfMagSpec[k] * pfMagSpec[k];
+        fNorm += fSquare;
+
+        // search for local maxima
+        if (pfMagSpec[k] <= pfMagSpec[k - 1] || pfMagSpec[k] <= pfMagSpec[k + 1] || pfMagSpec[k] <= fThresh)
+            continue;
+        else
+        {
+            fvtpr += fSquare;
+            fNorm += pfMagSpec[k+1] * pfMagSpec[k+1];
+            k++;
+        }
+    }
+
+    if (fNorm < m_kfFloatThresh)
+        return 0;
+
+    return fvtpr / fNorm;
+}
+
+inline float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float fSampleRate /*= 1.F*/)
+{
+    assert(pfSamples);
+    assert(iDataLength > 0);
+    assert(fSampleRate > 0);
+
+    return CVectorFloat::getMax(pfSamples, iDataLength);
 }
 
 inline float CFeatureFromBlockIf::compFeatureTimeStd(const float* pfSamples, int iDataLength, float fSampleRate /*= 1.F*/)

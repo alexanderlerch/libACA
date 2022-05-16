@@ -159,26 +159,6 @@ TEST_F(FeaturesStatic, SpectralFlux)
     EXPECT_NEAR(1.F / std::sqrtf(m_iBufferLength), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength), 1e-4F);
 }
 
-TEST_F(FeaturesStatic, SpectralSpread)
-{
-    // zero test
-    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, m_iBufferLength));
-
-    // 'sine' test
-    m_pfInput[10] = 1;
-    m_fSampleRate = 2048;
-    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, m_iBufferLength, m_fSampleRate));
-    m_fSampleRate = 32;
-    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, 17, m_fSampleRate));
-
-    // flat spectrum test
-    m_fSampleRate = 1;
-    CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-    CVectorFloat::setValue(&m_pfInput[5], 1.F, 5);
-    m_iBufferLength = 17;
-    EXPECT_NEAR(std::sqrtf(10.F / 5.F) / (2 * (m_iBufferLength - 1)), CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, m_iBufferLength, m_fSampleRate), 1e-4F);
-}
-
 TEST_F(FeaturesStatic, SpectralKurtosis)
 {
     // zero test
@@ -257,6 +237,71 @@ TEST_F(FeaturesStatic, SpectralSlope)
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
     EXPECT_NEAR(0.F, CFeatureFromBlockIf::compFeatureSpectralSlope(m_pfInput, 5), 1e-6F);
     EXPECT_NEAR(0.F, CFeatureFromBlockIf::compFeatureSpectralSlope(m_pfInput, m_iBufferLength), 1e-2F);
+}
+
+TEST_F(FeaturesStatic, SpectralSpread)
+{
+    // zero test
+    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, m_iBufferLength));
+
+    // 'sine' test
+    m_pfInput[10] = 1;
+    m_fSampleRate = 2048;
+    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, m_iBufferLength, m_fSampleRate));
+    m_fSampleRate = 32;
+    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, 17, m_fSampleRate));
+
+    // flat spectrum test
+    m_fSampleRate = 1;
+    CVectorFloat::setZero(m_pfInput, m_iBufferLength);
+    CVectorFloat::setValue(&m_pfInput[5], 1.F, 5);
+    m_iBufferLength = 17;
+    EXPECT_NEAR(std::sqrtf(10.F / 5.F) / (2 * (m_iBufferLength - 1)), CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, m_iBufferLength, m_fSampleRate), 1e-4F);
+}
+
+TEST_F(FeaturesStatic, SpectralTonalPowerRatio)
+{
+    // zero test
+    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(m_pfInput, m_iBufferLength));
+
+    // 'sine' test
+    m_pfInput[10] = 1;
+    m_fSampleRate = 2048;
+    EXPECT_EQ(1.F, CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(m_pfInput, m_iBufferLength, m_fSampleRate));
+    m_fSampleRate = 32;
+    EXPECT_EQ(1.F, CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(m_pfInput, 17, m_fSampleRate));
+
+    // multiple maxima 
+    CVectorFloat::setValue(m_pfInput, .5F, m_iBufferLength);
+    m_pfInput[100] = 2.F;
+    m_pfInput[200] = 2.F;
+    m_pfInput[300] = 2.F;
+    m_pfInput[400] = 2.F;
+    m_pfInput[500] = 2.F;
+    EXPECT_NEAR(5.F * 4.F / (.25 * (m_iBufferLength - 5) + 5.F * 4.F), CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(m_pfInput, m_iBufferLength, m_fSampleRate), 1e-4F);
+}
+
+TEST_F(FeaturesStatic, TimePeakEnvelope)
+{
+    // zero test
+    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureTimePeakEnvelope(m_pfInput, m_iBufferLength));
+
+    // offset
+    CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
+    EXPECT_NEAR(1.F, CFeatureFromBlockIf::compFeatureTimePeakEnvelope(m_pfInput, m_iBufferLength), 1e-3F);
+
+    // one maximum
+    m_pfInput[117] = 2.F;
+    EXPECT_NEAR(2.F, CFeatureFromBlockIf::compFeatureTimePeakEnvelope(m_pfInput, m_iBufferLength), 1e-3F);
+
+    // negative maximm
+    CVectorFloat::addC_I(m_pfInput, -5.F, m_iBufferLength);
+    EXPECT_NEAR(-3.F, CFeatureFromBlockIf::compFeatureTimePeakEnvelope(m_pfInput, m_iBufferLength), 1e-3F);
+
+    // sine wave
+    m_fSampleRate = 200;
+    CSynthesis::generateSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength, .7F);
+    EXPECT_NEAR(.7F, CFeatureFromBlockIf::compFeatureTimePeakEnvelope(m_pfInput, m_iBufferLength), 1e-6F);
 }
 
 TEST_F(FeaturesStatic, TimeRms)

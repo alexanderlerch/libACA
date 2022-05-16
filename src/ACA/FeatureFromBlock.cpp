@@ -257,6 +257,29 @@ private:
     CFeatureSpectralTonalPowerRatio(const CFeatureSpectralTonalPowerRatio& that);
 };
 
+class CFeatureTimePeakEnvelope : public CFeatureFromBlockIf
+{
+public:
+    CFeatureTimePeakEnvelope(int iDataLength, float fSampleRate)
+    {
+        m_iDataLength = iDataLength;
+        m_fSampleRate = fSampleRate;
+    };
+
+    virtual ~CFeatureTimePeakEnvelope() {};
+
+    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    {
+        *pfFeature = compFeatureTimePeakEnvelope(pfInput, m_iDataLength, m_fSampleRate);
+
+        return Error_t::kNoError;
+    };
+
+private:
+    CFeatureTimePeakEnvelope() {};
+    CFeatureTimePeakEnvelope(const CFeatureTimePeakEnvelope& that);
+};
+
 class CFeatureTimeRms : public CFeatureFromBlockIf
 {
 public:
@@ -398,9 +421,9 @@ Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, Feature_t 
     //    pCInstance = new CFeatureTimeMaxAcf(iDataLength, fSampleRate);
     //    break;
 
-    //case kFeatureTimePeakEnvelope:
-    //    pCInstance = new CFeatureTimePeakEnvelope(iDataLength, fSampleRate);
-    //    break;
+    case kFeatureTimePeakEnvelope:
+        pCInstance = new CFeatureTimePeakEnvelope(iDataLength, fSampleRate);
+        break;
 
     case kFeatureTimeRms:
         pCInstance = new CFeatureTimeRms(iDataLength, fSampleRate);
