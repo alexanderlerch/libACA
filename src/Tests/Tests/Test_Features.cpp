@@ -142,7 +142,7 @@ TEST_F(FeaturesStatic, SpectralFlatness)
     // 'sine w noise' test
     CVectorFloat::setValue(m_pfInput, 1, m_iBufferLength);
     m_pfInput[2] = 10;
-    EXPECT_EQ(std::sqrtf(std::sqrtf(10)) / (13.F / 4), CFeatureFromBlockIf::compFeatureSpectralFlatness(m_pfInput, 4));
+    EXPECT_NEAR(std::sqrt(std::sqrt(10)) / (13.F / 4), CFeatureFromBlockIf::compFeatureSpectralFlatness(m_pfInput, 4), 1e-6F);
 }
 
 TEST_F(FeaturesStatic, SpectralFlux)
@@ -165,13 +165,13 @@ TEST_F(FeaturesStatic, SpectralFlux)
 
     // one spectrum zero, the other one
     CVectorFloat::setZero(m_pfInput, m_iBufferLength / 2);
-    EXPECT_NEAR(1.F / std::sqrtf(m_iBufferLength / 2.F), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength / 2), 1e-4F);
-    EXPECT_NEAR(1.F / std::sqrtf(m_iBufferLength / 2.F), CFeatureFromBlockIf::compFeatureSpectralFlux(&m_pfInput[iIdx], m_pfInput, m_iBufferLength / 2), 1e-4F);
+    EXPECT_NEAR(1.F / std::sqrt(m_iBufferLength / 2.F), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength / 2), 1e-4F);
+    EXPECT_NEAR(1.F / std::sqrt(m_iBufferLength / 2.F), CFeatureFromBlockIf::compFeatureSpectralFlux(&m_pfInput[iIdx], m_pfInput, m_iBufferLength / 2), 1e-4F);
 
     // one spectrum zero, the other two
     CVectorFloat::mulC_I(m_pfInput, 2.F, m_iBufferLength);
-    EXPECT_NEAR(std::sqrtf(4.F * (m_iBufferLength / 2)) / (m_iBufferLength / 2), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength / 2), 1e-4F);
-    EXPECT_NEAR(std::sqrtf(4.F * (m_iBufferLength /2)) / (m_iBufferLength / 2), CFeatureFromBlockIf::compFeatureSpectralFlux(&m_pfInput[iIdx], m_pfInput, m_iBufferLength / 2), 1e-4F);
+    EXPECT_NEAR(std::sqrt(4.F * (m_iBufferLength / 2)) / (m_iBufferLength / 2), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength / 2), 1e-4F);
+    EXPECT_NEAR(std::sqrt(4.F * (m_iBufferLength /2)) / (m_iBufferLength / 2), CFeatureFromBlockIf::compFeatureSpectralFlux(&m_pfInput[iIdx], m_pfInput, m_iBufferLength / 2), 1e-4F);
 
     // alternating spectral bins
     iIdx = 4;
@@ -180,7 +180,7 @@ TEST_F(FeaturesStatic, SpectralFlux)
     m_pfInput[2] = 1;
     m_pfInput[iIdx + 1] = 1;
     m_pfInput[iIdx + 3] = 1;
-    EXPECT_NEAR(1.F / std::sqrtf(static_cast<float>(m_iBufferLength)), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength), 1e-4F);
+    EXPECT_NEAR(1.F / std::sqrt(static_cast<float>(m_iBufferLength)), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength), 1e-4F);
 }
 
 TEST_F(FeaturesStatic, SpectralKurtosis)
@@ -280,7 +280,7 @@ TEST_F(FeaturesStatic, SpectralSpread)
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
     CVectorFloat::setValue(&m_pfInput[5], 1.F, 5);
     m_iBufferLength = 17;
-    EXPECT_NEAR(std::sqrtf(10.F / 5.F) / (2 * (m_iBufferLength - 1)), CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, m_iBufferLength, m_fSampleRate), 1e-4F);
+    EXPECT_NEAR(std::sqrt(10.F / 5.F) / (2 * (m_iBufferLength - 1)), CFeatureFromBlockIf::compFeatureSpectralSpread(m_pfInput, m_iBufferLength, m_fSampleRate), 1e-4F);
 }
 
 TEST_F(FeaturesStatic, SpectralTonalPowerRatio)
@@ -336,7 +336,7 @@ TEST_F(FeaturesStatic, TimeRms)
     // sine wave
     m_fSampleRate = 200;
     CSynthesis::generateSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
-    EXPECT_NEAR(1.F / std::sqrtf(2.F), CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000), 1e-6F);
+    EXPECT_NEAR(1.F / std::sqrt(2.F), CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000), 1e-6F);
 
     // square wave
     m_fSampleRate = 200;
@@ -345,7 +345,7 @@ TEST_F(FeaturesStatic, TimeRms)
 
     // square wave with offset
     CVectorFloat::addC_I(m_pfInput, 1, m_iBufferLength);
-    EXPECT_NEAR(std::sqrtf(2.F), CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000), 1e-3F);
+    EXPECT_NEAR(std::sqrt(2.F), CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000), 1e-3F);
 }
 TEST_F(FeaturesStatic, TimeStd)
 {
@@ -355,7 +355,7 @@ TEST_F(FeaturesStatic, TimeStd)
     // sine wave
     m_fSampleRate = 200;
     CSynthesis::generateSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
-    EXPECT_NEAR(1.F / std::sqrtf(2.F), CFeatureFromBlockIf::compFeatureTimeStd(m_pfInput, 1000), 1e-6F);
+    EXPECT_NEAR(1.F / std::sqrt(2.F), CFeatureFromBlockIf::compFeatureTimeStd(m_pfInput, 1000), 1e-6F);
 
     // square wave
     m_fSampleRate = 200;

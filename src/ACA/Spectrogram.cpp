@@ -393,7 +393,7 @@ Error_t CSpectrogramIf::getMelSpectrogram(float** ppfMelSpectrogram, const MelSp
         {
             // convert amplitude to level(dB)
             for (auto k = 0; k < pMelSpecConfig->iNumMelBins; k++)
-                ppfMelSpectrogram[k][n] = 20.F * std::log10f(ppfMelSpectrogram[k][n] + 1e-12F);
+                ppfMelSpectrogram[k][n] = 20.F * std::log10(ppfMelSpectrogram[k][n] + 1e-12F);
         }
     }
 

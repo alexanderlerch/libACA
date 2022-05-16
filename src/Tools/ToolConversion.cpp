@@ -13,12 +13,12 @@ public:
     inline float convertFreq2Mel(float fFrequency) override
     {
         assert(fFrequency >= 0);
-        return 1000.F * std::log2f(1.F + fFrequency / 1000.F);
+        return 1000.F * std::log2(1.F + fFrequency / 1000.F);
     }
     inline float convertMel2Freq(float fMel) override
     {
         assert(fMel >= 0);
-        return 1000.F * (std::exp2f(fMel / 1000.F) - 1.F);
+        return 1000.F * (std::exp2(fMel / 1000.F) - 1.F);
     }
 };
 
@@ -31,12 +31,12 @@ public:
     inline float convertFreq2Mel(float fFrequency) override
     {
         assert(fFrequency >= 0);
-        return 2595.F * std::log10f(1.F + fFrequency / 700.F);
+        return 2595.F * std::log10(1.F + fFrequency / 700.F);
     }
     inline float convertMel2Freq(float fMel) override
     {
         assert(fMel >= 0);
-        return 700.F * (std::powf(10.F, fMel / 2595.F) - 1.F);
+        return 700.F * (std::pow(10.F, fMel / 2595.F) - 1.F);
 
     }
 };

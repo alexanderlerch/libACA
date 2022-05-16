@@ -23,4 +23,6 @@ source_group("Tools" FILES ${TOOLS_SOURCES})
 source_group("Header Files\\Helpers" FILES ${HELPER_HEADERS})
 source_group("3rd Party" FILES ${3RDPARTY_SOURCES})
 
+target_link_libraries(${CurrLib} AudioFileIO)
+
 

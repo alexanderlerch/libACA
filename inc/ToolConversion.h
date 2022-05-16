@@ -78,7 +78,7 @@ public:
     {
         assert(fInHz > 0);
         assert(fA4InHz > 0);
-        return 69.F + 12.F * std::log2f(fInHz / fA4InHz);
+        return 69.F + 12.F * std::log2(fInHz / fA4InHz);
     };
 
     /*! converts a frequency vector to midi (float)
@@ -108,7 +108,7 @@ public:
     {
         assert(fMidi >= 0);
         assert(fA4InHz > 0);
-        return fA4InHz * std::exp2f((fMidi - 69.F) / 12.F);
+        return fA4InHz * std::exp2((fMidi - 69.F) / 12.F);
     };
 
     /*! converts a midi vector to frequency 

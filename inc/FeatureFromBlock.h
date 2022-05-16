@@ -1,13 +1,9 @@
 #if !defined(__FeatureFromBlock_hdr__)
 #define __FeatureFromBlock_hdr__
 
-#include <string>
-
 #include "Util.h"
 #include "ErrorDef.h"
 
-// forward declarations
-class CFeature;
 
 /*! \brief class for computation of a feature from a block of data (e.g., time or magnitude spectrum)
 */
@@ -169,10 +165,10 @@ inline float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float* pfMag
 
     for (auto k = 0; k < iDataLength; k++)
     {
-        fGeoMean += std::logf(pfMagSpec[k]);
+        fGeoMean += std::log(pfMagSpec[k]);
     }
 
-    return std::expf(fGeoMean / iDataLength) / fNorm;
+    return std::exp(fGeoMean / iDataLength) / fNorm;
 }
 
 inline float CFeatureFromBlockIf::compFeatureSpectralFlux(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
@@ -188,7 +184,7 @@ inline float CFeatureFromBlockIf::compFeatureSpectralFlux(const float* pfMagSpec
         fSum += fDiff * fDiff;
     }
 
-    return std::sqrtf(fSum) / iDataLength;
+    return std::sqrt(fSum) / iDataLength;
 }
 
 inline float CFeatureFromBlockIf::compFeatureSpectralSpread(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
@@ -212,7 +208,7 @@ inline float CFeatureFromBlockIf::compFeatureSpectralSpread(const float* pfMagSp
     }
 
     // convert from index to Hz
-    return std::sqrtf(fvss / fNorm) * fSampleRate / (2.F * (iDataLength - 1));
+    return std::sqrt(fvss / fNorm) * fSampleRate / (2.F * (iDataLength - 1));
 }
 
 inline float CFeatureFromBlockIf::compFeatureSpectralKurtosis(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
@@ -389,7 +385,7 @@ inline float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* p
     for (auto i = 0; i < iDataLength; i++)
     {
         float fCurrSign = CUtil::sign(pfSamples[i]);
-        fvzc += std::fabsf(fCurrSign - fPrevSign);
+        fvzc += std::abs(fCurrSign - fPrevSign);
         fPrevSign = fCurrSign;
     }
 
