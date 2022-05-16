@@ -99,7 +99,6 @@ protected:
     float m_fSampleRate = 0;             //!< sample rate
 };
 
-const float CFeatureFromBlockIf::m_kfFloatThresh = 1e-30F;      //!< below this we just assume it's zero
 
 inline float CFeatureFromBlockIf::compFeatureSpectralCentroid(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
 {
@@ -123,11 +122,10 @@ inline float CFeatureFromBlockIf::compFeatureSpectralCentroid(const float* pfMag
     return fvsc * fSampleRate / (2.F * fNorm * (iDataLength - 1));
 }
 
-inline float CFeatureFromBlockIf::compFeatureSpectralCrestFactor(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+inline float CFeatureFromBlockIf::compFeatureSpectralCrestFactor(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     float fNorm = CVectorFloat::getSum(pfMagSpec, iDataLength);
 
@@ -137,11 +135,10 @@ inline float CFeatureFromBlockIf::compFeatureSpectralCrestFactor(const float* pf
     return CVectorFloat::getMax(pfMagSpec, iDataLength) / fNorm;
 }
 
-inline float CFeatureFromBlockIf::compFeatureSpectralDecrease(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+inline float CFeatureFromBlockIf::compFeatureSpectralDecrease(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     float fNorm = 0;
     float fvsd = 0;
@@ -159,11 +156,10 @@ inline float CFeatureFromBlockIf::compFeatureSpectralDecrease(const float* pfMag
     return fvsd / fNorm;
 }
 
-inline float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+inline float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     float fNorm = CVectorFloat::getMean(pfMagSpec, iDataLength);
     float fGeoMean = 0;
@@ -179,12 +175,11 @@ inline float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float* pfMag
     return std::expf(fGeoMean / iDataLength) / fNorm;
 }
 
-inline float CFeatureFromBlockIf::compFeatureSpectralFlux(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+inline float CFeatureFromBlockIf::compFeatureSpectralFlux(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(pfPrevSpec);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     float fSum = 0;
     for (auto k = 0; k < iDataLength; k++)
@@ -328,11 +323,10 @@ inline float CFeatureFromBlockIf::compFeatureSpectralSlope(const float* pfMagSpe
 
     return fvssl / fNorm;
 }
-inline float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/, float fThresh /*= 5e-4F*/)
+inline float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/, float fThresh /*= 5e-4F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     // compute mean
     float fvtpr = 0;
@@ -360,38 +354,34 @@ inline float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float
     return fvtpr / fNorm;
 }
 
-inline float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float fSampleRate /*= 1.F*/)
+inline float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfSamples);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     return CVectorFloat::getMax(pfSamples, iDataLength);
 }
 
-inline float CFeatureFromBlockIf::compFeatureTimeStd(const float* pfSamples, int iDataLength, float fSampleRate /*= 1.F*/)
+inline float CFeatureFromBlockIf::compFeatureTimeStd(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfSamples);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     return CVectorFloat::getStd(pfSamples, iDataLength);
 }
 
-inline float CFeatureFromBlockIf::compFeatureTimeRms(const float* pfSamples, int iDataLength, float fSampleRate /*= 1.F*/)
+inline float CFeatureFromBlockIf::compFeatureTimeRms(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfSamples);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     return CVectorFloat::getStd(pfSamples, iDataLength, 0.F);
 }
 
-inline float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float fSampleRate /*= 1.F*/)
+inline float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfSamples);
     assert(iDataLength > 0);
-    assert(fSampleRate > 0);
 
     float fvzc = 0;
 

@@ -4,6 +4,8 @@
 
 #include "FeatureFromBlock.h"
 
+const float CFeatureFromBlockIf::m_kfFloatThresh = 1e-30F;      //!< below this we just assume it's zero
+
 class CFeatureSpectralCentroid : public CFeatureFromBlockIf
 {
 public:
@@ -96,28 +98,39 @@ private:
     CFeatureSpectralFlatness(const CFeatureSpectralFlatness& that);
 };
 
-//class CFeatureSpectralFlux : public CFeatureFromBlockIf
-//{
-//public:
-//    CFeatureSpectralFlux(int iDataLength, float fSampleRate)
-//    {
-//        m_iDataLength = iDataLength;
-//        m_fSampleRate = fSampleRate;
-//    };
-//
-//    virtual ~CFeatureSpectralFlux() {};
-//
-//    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
-//    {
-//        *pfFeature = compFeatureSpectralFlux(pfInput, m_iDataLength, m_fSampleRate);
-//
-//        return Error_t::kNoError;
-//    };
-//
-//private:
-//    CFeatureSpectralFlux() {};
-//    CFeatureSpectralFlux(const CFeatureSpectralFlux& that);
-//};
+class CFeatureSpectralFlux : public CFeatureFromBlockIf
+{
+public:
+    CFeatureSpectralFlux(int iDataLength, float fSampleRate)
+    {
+        m_iDataLength = iDataLength;
+        m_fSampleRate = fSampleRate;
+
+        m_pfPrevSpec = new float[m_iDataLength];
+        CVectorFloat::setZero(m_pfPrevSpec, m_iDataLength);
+    };
+
+    virtual ~CFeatureSpectralFlux() 
+    {
+        delete[] m_pfPrevSpec;
+        m_pfPrevSpec = 0;
+    };
+
+    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    {
+        *pfFeature = compFeatureSpectralFlux(pfInput, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
+
+        CVectorFloat::copy(m_pfPrevSpec, pfInput, m_iDataLength);
+
+        return Error_t::kNoError;
+    };
+
+private:
+    CFeatureSpectralFlux() {};
+    CFeatureSpectralFlux(const CFeatureSpectralFlux& that);
+
+    float* m_pfPrevSpec = 0;
+};
 
 class CFeatureSpectralKurtosis : public CFeatureFromBlockIf
 {
@@ -356,8 +369,8 @@ private:
 
 Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, Feature_t eFeatureIdx, int iDataLength, float fSampleRate)
 {
-    assert(iDataLength > 0);
-    assert(fSampleRate > 0);
+    if (iDataLength <= 0 || fSampleRate <= 0)
+        return Error_t::kFunctionInvalidArgsError;
 
     switch (eFeatureIdx)
     {
@@ -377,9 +390,9 @@ Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, Feature_t 
         pCInstance = new CFeatureSpectralFlatness(iDataLength, fSampleRate);
         break;
 
-    //case kFeatureSpectralFlux:
-    //    pCInstance = new CFeatureSpectralFlux(iDataLength, fSampleRate);
-    //    break;
+    case kFeatureSpectralFlux:
+        pCInstance = new CFeatureSpectralFlux(iDataLength, fSampleRate);
+        break;
 
     case kFeatureSpectralKurtosis:
         pCInstance = new CFeatureSpectralKurtosis(iDataLength, fSampleRate);

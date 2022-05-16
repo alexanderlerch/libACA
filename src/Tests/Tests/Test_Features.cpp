@@ -39,6 +39,30 @@ namespace {
 
         int m_iBufferLength = 1025;
     };
+
+    class FeaturesClass : public testing::Test
+    {
+    protected:
+        void SetUp() override
+        {
+            m_pfInput = new float[m_iBufferLength];
+            CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
+            m_pfInput[m_iBufferLength / 2] = 2;
+        }
+
+        virtual void TearDown()
+        {
+            delete[] m_pfInput;
+        }
+
+        CFeatureFromBlockIf* pCInstance = 0;
+
+        float* m_pfInput = 0;
+
+        float m_fSampleRate = 1;
+
+        int m_iBufferLength = 1025;
+    };
 }
 
 TEST_F(FeaturesStatic, SpectralCentroid)
@@ -90,7 +114,7 @@ TEST_F(FeaturesStatic, SpectralDecrease)
 
     // increasing spectrum
     for (auto k = 0; k < m_iBufferLength; k++)
-        m_pfInput[k] = k;
+        m_pfInput[k] = static_cast<float>(k);
 
     EXPECT_NEAR((m_iBufferLength-1)/CVectorFloat::getSum(m_pfInput, m_iBufferLength), CFeatureFromBlockIf::compFeatureSpectralDecrease(m_pfInput, m_iBufferLength), 1e-6F);
 }
@@ -156,7 +180,7 @@ TEST_F(FeaturesStatic, SpectralFlux)
     m_pfInput[2] = 1;
     m_pfInput[iIdx + 1] = 1;
     m_pfInput[iIdx + 3] = 1;
-    EXPECT_NEAR(1.F / std::sqrtf(m_iBufferLength), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength), 1e-4F);
+    EXPECT_NEAR(1.F / std::sqrtf(static_cast<float>(m_iBufferLength)), CFeatureFromBlockIf::compFeatureSpectralFlux(m_pfInput, &m_pfInput[iIdx], m_iBufferLength), 1e-4F);
 }
 
 TEST_F(FeaturesStatic, SpectralKurtosis)
@@ -208,17 +232,17 @@ TEST_F(FeaturesStatic, SpectralSkewness)
 
     // decreasing spectrum -> positive skewness
     for (auto k = 0; k < m_iBufferLength; k++)
-        m_pfInput[k] = m_iBufferLength - 1 - k;
+        m_pfInput[k] = m_iBufferLength - 1.F - k;
     EXPECT_EQ(true, 0.F < CFeatureFromBlockIf::compFeatureSpectralSkewness(m_pfInput, m_iBufferLength, m_fSampleRate));
 
     // increasing spectrum -> negative skewness
     for (auto k = 0; k < m_iBufferLength; k++)
-        m_pfInput[k] = k;
+        m_pfInput[k] = static_cast<float>(k);
     EXPECT_EQ(false, 0.F < CFeatureFromBlockIf::compFeatureSpectralSkewness(m_pfInput, m_iBufferLength, m_fSampleRate));
 
     // symmetry
     for (auto k = m_iBufferLength/2; k < m_iBufferLength; k++)
-        m_pfInput[k] = m_iBufferLength - 1 - k;
+        m_pfInput[k] = m_iBufferLength - 1.F - k;
     EXPECT_NEAR(CFeatureFromBlockIf::compFeatureSpectralSkewness(&m_pfInput[m_iBufferLength / 2], m_iBufferLength / 2, m_fSampleRate), -1.F * CFeatureFromBlockIf::compFeatureSpectralSkewness(m_pfInput, m_iBufferLength / 2, m_fSampleRate), 1e-4F);
 }
 
@@ -229,7 +253,7 @@ TEST_F(FeaturesStatic, SpectralSlope)
 
     // increasing spectrum
     for (auto k = 0; k < m_iBufferLength; k++)
-        m_pfInput[k] = k;
+        m_pfInput[k] = static_cast<float>(k);
     EXPECT_NEAR(1.F, CFeatureFromBlockIf::compFeatureSpectralSlope(m_pfInput, 5), 1e-6F);
     EXPECT_NEAR(1.F, CFeatureFromBlockIf::compFeatureSpectralSlope(m_pfInput, m_iBufferLength), 1e-2F);
 
@@ -359,6 +383,38 @@ TEST_F(FeaturesStatic, TimeZeroCrossingRate)
     EXPECT_NEAR(19.F / 2000.F, CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(m_pfInput, 1000), 1e-6F);
 }
 
+
+TEST_F(FeaturesClass, Api)
+{
+    // zero test
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, 0, m_fSampleRate));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, -1, m_fSampleRate));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, m_iBufferLength, 0));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, m_iBufferLength, -1));
+
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(1, pCInstance->getFeatureDimensions());
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(pCInstance));
+}
+
+TEST_F(FeaturesClass, FeatureCalc)
+{
+    for (auto k = 0; k < CFeatureFromBlockIf::kNumFeatures; k++)
+    {
+        //implement me later
+        if (k == CFeatureFromBlockIf::kFeatureSpectralMfccs ||
+            k == CFeatureFromBlockIf::kFeatureSpectralPitchChroma ||
+            k == CFeatureFromBlockIf::kFeatureTimeAcfCoeff ||
+            k == CFeatureFromBlockIf::kFeatureTimeMaxAcf)
+            continue;
+
+        float fResult = 0;
+        EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, static_cast<CFeatureFromBlockIf::Feature_t>(k), m_iBufferLength, m_fSampleRate));
+        EXPECT_EQ(1, pCInstance->getFeatureDimensions());
+        EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+        EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(pCInstance));
+    }
+}
 
 
 #endif //WITH_TESTS
