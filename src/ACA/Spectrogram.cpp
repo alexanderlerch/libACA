@@ -449,9 +449,9 @@ Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t* pMelSpecCon
         int iUpBin = 1 + static_cast<int>(m_pCFft->freq2bin(pf_u[m], m_fSampleRate));
 
         for (auto k = iLowBin; k < iCenterBin; k++)
-            m_ppfHMel[m][k] = fFilterMax * (CFreq2Bin2Freq::convertBin2Freq(k, (iMagLength - 1) * 2, m_fSampleRate) - pf_l[m]) / (pf_c[m] - pf_l[m]);
+            m_ppfHMel[m][k] = fFilterMax * (CFreq2Bin2Freq::convertBin2Freq(static_cast<float>(k), (iMagLength - 1) * 2, m_fSampleRate) - pf_l[m]) / (pf_c[m] - pf_l[m]);
         for (auto k = iCenterBin; k < iUpBin; k++)
-            m_ppfHMel[m][k] = fFilterMax * (pf_u[m] - CFreq2Bin2Freq::convertBin2Freq(k, (iMagLength - 1) * 2, m_fSampleRate)) / (pf_u[m] - pf_c[m]);
+            m_ppfHMel[m][k] = fFilterMax * (pf_u[m] - CFreq2Bin2Freq::convertBin2Freq(static_cast<float>(k), (iMagLength - 1) * 2, m_fSampleRate)) / (pf_u[m] - pf_c[m]);
 
     }
 

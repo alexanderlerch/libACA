@@ -26,7 +26,7 @@ namespace {
             m_pfAudio = new float[m_iBufferLength];
             m_pfBlock = new float[1024];
             for (auto i = 0; i < m_iBufferLength; i++)
-                m_pfAudio[i] = i;
+                m_pfAudio[i] = static_cast<float>(i);
 
         }
 
@@ -61,7 +61,7 @@ namespace {
             m_pfOut = new float[m_iNumValues];
 
             for (auto m = 0; m < m_iNumValues; m++)
-                m_pfMel[m] = m;
+                m_pfMel[m] = static_cast<float>(m);
         }
 
         virtual void TearDown()

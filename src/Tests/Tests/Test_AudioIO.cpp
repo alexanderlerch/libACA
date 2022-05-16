@@ -297,7 +297,7 @@ namespace audiofile_test {
 
         // check identity
         for (int i = 0; i < m_iNumChannels; i++)
-            CHECK_ARRAY_CLOSE(m_ppfAudioData[i], ppfReadData[i], m_iBuffLength, 1e-3); // succeeds
+            CHECK_ARRAY_CLOSE(m_ppfAudioData[i], ppfReadData[i], m_iBuffLength, 1e-3F); // succeeds
 
         // free allocated memory
         for (int i = 0; i < m_iNumChannels; i++)
