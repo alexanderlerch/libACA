@@ -1,6 +1,9 @@
 #if !defined(__FeatureFromBlock_hdr__)
 #define __FeatureFromBlock_hdr__
 
+#include <map>
+#include <functional>
+
 #include "Util.h"
 #include "ErrorDef.h"
 
@@ -60,7 +63,25 @@ public:
     \param pfInput input data of length iDataLength
     \return Error_t
     */
-    virtual Error_t calcFeatureFromBlock(float* pfFeature, const float *pfInput) = 0;
+    virtual Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput)
+    {
+        *pfFeature = dispatch_map.at(m_eFeatureIdx)(pfInput, m_iDataLength, m_fSampleRate);
+
+        return Error_t::kNoError;
+    }
+
+    /*! returns true if there is an additional parameter
+    \return bool
+    */
+    virtual bool hasAdditionalParam() const;
+
+    /*! returns true if there is an additional parameter
+    * \param fParamValue new parameter value
+    \return bool
+    */
+    virtual Error_t setAdditionalParam(float fParamvalue);
+
+
 
 
     ////////////////////////////////////////////////////////////////////////////
@@ -76,23 +97,41 @@ public:
     static inline float compFeatureSpectralSlope(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureSpectralSpread(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F, float fThresh = 5e-4);
+    static inline float compFeatureTimeAcfCoeff(const float* pfSamples, int iDataLength, float fSampleRate = 1.F, int  iEta = 19);
     static inline float compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureTimeRms(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureTimeStd(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
     static inline float compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
+
+    // dispatcher map for static functions without additional arguments
+    const std::map<Feature_t, std::function<float(const float*, int, float)>> dispatch_map
+    {
+            {kFeatureSpectralCentroid, &compFeatureSpectralCentroid},
+            {kFeatureSpectralCrestFactor, &compFeatureSpectralCrestFactor},
+            {kFeatureSpectralDecrease, &compFeatureSpectralDecrease},
+            {kFeatureSpectralFlatness, &compFeatureSpectralFlatness},
+            {kFeatureSpectralKurtosis, &compFeatureSpectralKurtosis},
+            {kFeatureSpectralSkewness, &compFeatureSpectralSkewness},
+            {kFeatureSpectralSlope, &compFeatureSpectralSlope},
+            {kFeatureSpectralSpread, &compFeatureSpectralSpread},
+            {kFeatureTimeStd, &compFeatureTimeStd},
+            {kFeatureTimeZeroCrossingRate, &compFeatureTimeZeroCrossingRate}
+    };
 
     static const float m_kfFloatThresh;      //!< below this we just assume it's zero
 
 
 protected:
     CFeatureFromBlockIf() {};
+    CFeatureFromBlockIf(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : m_eFeatureIdx(eFeatureIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) {};
     virtual ~CFeatureFromBlockIf() {};
     CFeatureFromBlockIf(const CFeatureFromBlockIf& that);
-
 
     int m_iDataLength = 0;               //!< block length
 
     float m_fSampleRate = 0;             //!< sample rate
+
+    Feature_t m_eFeatureIdx = kNumFeatures;
 };
 
 
@@ -348,6 +387,15 @@ inline float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float
         return 0;
 
     return fvtpr / fNorm;
+}
+
+inline float CFeatureFromBlockIf::compFeatureTimeAcfCoeff(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/, int  iEta /*= 19*/)
+{
+    assert(pfSamples);
+    assert(iDataLength > iEta);
+    assert(iEta >= 0);
+
+    return CVectorFloat::mulScalar(pfSamples, &pfSamples[iEta], iDataLength - iEta);
 }
 
 inline float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)

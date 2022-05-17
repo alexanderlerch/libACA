@@ -305,6 +305,25 @@ TEST_F(FeaturesStatic, SpectralTonalPowerRatio)
     EXPECT_NEAR(5.F * 4.F / (.25 * (m_iBufferLength - 5) + 5.F * 4.F), CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(m_pfInput, m_iBufferLength, m_fSampleRate), 1e-4F);
 }
 
+TEST_F(FeaturesStatic, TimeAcfCoeff)
+{
+    int eta = 0;
+
+    // zero test
+    EXPECT_EQ(0.F, CFeatureFromBlockIf::compFeatureTimeAcfCoeff(m_pfInput, m_iBufferLength));
+
+    // dc input
+    CVectorFloat::setValue(m_pfInput, 1.F, 20);
+    for (eta = 0; eta < 19; eta++)
+        EXPECT_EQ(true, CFeatureFromBlockIf::compFeatureTimeAcfCoeff(m_pfInput, 20, m_fSampleRate, eta) > CFeatureFromBlockIf::compFeatureTimeAcfCoeff(m_pfInput, 20, m_fSampleRate, eta + 1));
+
+    // sine wave
+    eta = 500;
+    m_fSampleRate = 1000;
+    CSynthesis::generateSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
+    EXPECT_NEAR(500*(1.F-eta/1000.F), CFeatureFromBlockIf::compFeatureTimeAcfCoeff(m_pfInput, 1000, m_fSampleRate, eta), 1e-4F);
+}
+
 TEST_F(FeaturesStatic, TimePeakEnvelope)
 {
     // zero test
@@ -386,7 +405,6 @@ TEST_F(FeaturesStatic, TimeZeroCrossingRate)
 
 TEST_F(FeaturesClass, Api)
 {
-    // zero test
     EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, 0, m_fSampleRate));
     EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, -1, m_fSampleRate));
     EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, m_iBufferLength, 0));
