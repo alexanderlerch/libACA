@@ -12,6 +12,8 @@ CCcf::CCcf(void)
 
 CCcf::~CCcf(void)
 {
+    reset();
+
     delete m_pCFft;
 }
 
