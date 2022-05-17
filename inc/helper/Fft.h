@@ -129,6 +129,9 @@ public:
     */
     float bin2freq (int iBinIdx, float fSampleRateInHz) const;
 
+    void conjugate_I(complex_t *pfFftResult) const;
+    void multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) const;
+
 private:
     Error_t allocMemory_ ();
     Error_t freeMemory_ ();

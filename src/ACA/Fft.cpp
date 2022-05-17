@@ -227,6 +227,37 @@ float CFft::bin2freq( int iBinIdx, float fSampleRateInHz ) const
     return iBinIdx * fSampleRateInHz / m_iFftLength;
 }
 
+void CFft::conjugate_I(complex_t* pfFftResult) const
+{
+    // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
+    CVectorFloat::mulC_I(&pfFftResult[(m_iFftLength>>1)+1], -1.F, (m_iFftLength>>1)-1);
+}
+
+void CFft::multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) const
+{
+    int i = 0,
+        j = 0;
+
+    // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
+    pfFftSrc1Dest[0] *= pfFftSrc2[0];
+    pfFftSrc1Dest[m_iFftLength >> 1] *= pfFftSrc2[m_iFftLength >> 1];
+
+    for (i = 1, j = m_iFftLength-1; i < m_iFftLength>>1; i++, j--)
+    {
+        float fTemp = pfFftSrc1Dest[i];
+
+        // real part of multiplication
+        pfFftSrc1Dest[i] *= pfFftSrc2[i];
+        pfFftSrc1Dest[i] -= pfFftSrc1Dest[j] * pfFftSrc2[j];
+
+        // imaginary part of multiplication
+        pfFftSrc1Dest[j] *= pfFftSrc2[i];
+        pfFftSrc1Dest[j] += fTemp * pfFftSrc2[j];
+    }
+
+    return;
+}
+
 Error_t CFft::allocMemory_()
 {
 
