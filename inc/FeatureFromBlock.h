@@ -65,7 +65,7 @@ public:
     */
     virtual Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput)
     {
-        *pfFeature = dispatch_map.at(m_eFeatureIdx)(pfInput, m_iDataLength, m_fSampleRate);
+        *pfFeature = m_DispatchMap.at(m_eFeatureIdx)(pfInput, m_iDataLength, m_fSampleRate);
 
         return Error_t::kNoError;
     }
@@ -104,7 +104,7 @@ public:
     static inline float compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
 
     // dispatcher map for static functions without additional arguments
-    const std::map<Feature_t, std::function<float(const float*, int, float)>> dispatch_map
+    const std::map<Feature_t, std::function<float(const float*, int, float)>> m_DispatchMap
     {
             {kFeatureSpectralCentroid, &compFeatureSpectralCentroid},
             {kFeatureSpectralCrestFactor, &compFeatureSpectralCrestFactor},
