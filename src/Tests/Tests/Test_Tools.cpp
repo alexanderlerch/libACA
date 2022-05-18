@@ -125,7 +125,7 @@ TEST_F(ToolsCcf, Api)
 
     // initialized
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->init(m_iNumValues));
-    EXPECT_EQ(-1, m_pCCcf->getCcfLength());
+    EXPECT_EQ( 2* m_iNumValues - 1, m_pCCcf->getCcfLength());
     EXPECT_EQ(Error_t::kFunctionIllegalCallError, m_pCCcf->getCcf(m_pfOut));
     EXPECT_EQ(-1, m_pCCcf->getCcfMax());
     EXPECT_EQ(-1, m_pCCcf->getCcfMaxIdx());
