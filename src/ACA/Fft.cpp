@@ -32,14 +32,16 @@ Error_t CFft::init( int iBlockLength, int iZeroPadFactor, WindowFunction_t eWind
     Error_t  rErr = Error_t::kNoError;
 
     // sanity check
-    if (!CUtil::isPowOf2(iBlockLength) || iZeroPadFactor <= 0 || !CUtil::isPowOf2(iBlockLength*iZeroPadFactor))
+    if (iZeroPadFactor <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
     // clean up
     reset();
 
+    // make sure the fft length is a power of two
+    int iInternalBlockLength = CUtil::isPowOf2(iBlockLength) ? iBlockLength : CUtil::nextPowOf2(iBlockLength);
     m_iDataLength   = iBlockLength;
-    m_iFftLength    = iBlockLength * iZeroPadFactor;
+    m_iFftLength    = iInternalBlockLength * iZeroPadFactor;
 
     m_ePrePostWindowOpt = eWindowing;
 
