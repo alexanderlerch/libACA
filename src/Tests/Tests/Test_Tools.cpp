@@ -153,7 +153,7 @@ TEST_F(ToolsCcf, Acf)
     CVectorFloat::setValue(m_pfInput, 1.F, 16);
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->init(16));
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->calcCcf(m_pfInput, m_pfInput, false));
-    EXPECT_EQ(16 - 1, m_pCCcf->getCcfLength(true));
+    EXPECT_EQ(16, m_pCCcf->getCcfLength(true));
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->getCcf(m_pfOut, true));
     EXPECT_NEAR(16, m_pCCcf->getCcfMax(true), 1e-6F);
     EXPECT_NEAR(16, m_pCCcf->getCcfMax(false), 1e-6F);
@@ -162,7 +162,7 @@ TEST_F(ToolsCcf, Acf)
 
     // normalized
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->calcCcf(m_pfInput, m_pfInput, true));
-    EXPECT_EQ(16 - 1, m_pCCcf->getCcfLength(true));
+    EXPECT_EQ(16, m_pCCcf->getCcfLength(true));
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->getCcf(m_pfOut, true));
     EXPECT_NEAR(1.F, m_pCCcf->getCcfMax(true), 1e-6F);
     EXPECT_EQ(0, m_pCCcf->getCcfMaxIdx(true));
@@ -171,7 +171,7 @@ TEST_F(ToolsCcf, Acf)
     CSynthesis::generateSine(m_pfInput, 4, 512, m_iNumValues);
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->init(m_iNumValues));
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->calcCcf(m_pfInput, m_pfInput, false));
-    EXPECT_EQ(m_iNumValues - 1, m_pCCcf->getCcfLength(true));
+    EXPECT_EQ(m_iNumValues, m_pCCcf->getCcfLength(true));
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->getCcf(m_pfOut, true));
     EXPECT_NEAR(m_iNumValues / 2, m_pCCcf->getCcfMax(), 1e-6F);
     EXPECT_EQ(m_iNumValues - 1, m_pCCcf->getCcfMaxIdx());

@@ -17,21 +17,21 @@ CCcf::~CCcf(void)
     delete m_pCFft;
 }
 
-Error_t CCcf::init(int iBlockSize)
+Error_t CCcf::init(int iBlockLength)
 {
-    if (iBlockSize <= 0)
+    if (iBlockLength <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
     if (m_bIsInitialized)
         reset();
 
-    m_iBlockLength = iBlockSize;
+    m_iBlockLength = iBlockLength;
     if (CUtil::isPowOf2(m_iBlockLength))
         m_iFftLength = 2 * m_iBlockLength;
     else
-        m_iFftLength = CUtil::nextPowOf2(2*iBlockSize);
+        m_iFftLength = CUtil::nextPowOf2(2*iBlockLength);
 
-    m_pCFft->init(m_iFftLength / 2, 2, CFft::kWindowHann, CFft::kNoWindow);
+    m_pCFft->init(m_iBlockLength, 2, CFft::kWindowHann, CFft::kNoWindow);
 
     for (auto j = 0; j < 2; j++)
     {
@@ -109,7 +109,7 @@ int CCcf::getCcfLength(bool bIsAcf)
     if (!(m_bIsInitialized && m_bWasProcessed))
         return -1;
 
-    return bIsAcf ? m_iBlockLength - 1 : 2 * m_iBlockLength -1;
+    return bIsAcf ? m_iBlockLength : 2 * m_iBlockLength - 1;
 }
 
 Error_t CCcf::getCcf(float* pfCcfResult, bool bIsAcf) const
