@@ -9,7 +9,7 @@
 const float CFeatureFromBlockIf::m_kfFloatThresh = 1e-30F;      //!< below this we just assume it's zero
 
 ////////////////////////////////////////////////////////////////////////
-
+// static member functions
 float CFeatureFromBlockIf::compFeatureSpectralCentroid(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
 {
     assert(pfMagSpec);
@@ -62,7 +62,6 @@ float CFeatureFromBlockIf::compFeatureSpectralDecrease(const float* pfMagSpec, i
     if (fNorm < m_kfFloatThresh)
         return 0;
 
-    // convert from index to Hz
     return fvsd / fNorm;
 }
 
@@ -74,13 +73,13 @@ float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float* pfMagSpec, i
     float fNorm = CVectorFloat::getMean(pfMagSpec, iDataLength);
     float fGeoMean = 0;
 
+    // avoid unnecessary complications
     if (fNorm < m_kfFloatThresh || CVectorFloat::getMin(pfMagSpec, iDataLength) < m_kfFloatThresh)
         return 0;
 
+    // compute geometric mean through log
     for (auto k = 0; k < iDataLength; k++)
-    {
         fGeoMean += std::log(pfMagSpec[k]);
-    }
 
     return std::exp(fGeoMean / iDataLength) / fNorm;
 }
@@ -238,7 +237,7 @@ float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float* pfMag
     assert(pfMagSpec);
     assert(iDataLength > 0);
 
-    // compute mean
+    // initialize
     float fvtpr = 0;
     float fNorm = pfMagSpec[0] * pfMagSpec[0] + pfMagSpec[iDataLength - 1] * pfMagSpec[iDataLength - 1];
 
@@ -253,8 +252,10 @@ float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float* pfMag
         else
         {
             fvtpr += fSquare;
+
+            // increment because the next bin cannot be a local max but don't forget fNorm
             fNorm += pfMagSpec[k + 1] * pfMagSpec[k + 1];
-            k++;
+            k++; 
         }
     }
 
@@ -312,12 +313,13 @@ float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* pfSample
         fPrevSign = fCurrSign;
     }
 
+    // standardize feature 
     return fvzc / (2 * iDataLength);
 }
 
 
 ///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
+// features that need "memory" so can't easily work as static functions
 class CFeatureSpectralFlux : public CFeatureFromBlockIf
 {
 public:
@@ -509,7 +511,6 @@ public:
         // avoid main lobe
         while (m_pfAcf[iEta] > fMinThresh)
             iEta++;
-
         if (iEtaMin < iEta)
             iEtaMin = iEta;
 
@@ -521,10 +522,10 @@ public:
             if (iEta >= m_iDataLength)
                 break;
         }
-
         if (iEtaMin < iEta)
             iEtaMin = iEta;
 
+        // get the maximum given the constraints above
         *pfFeature = CVectorFloat::getMax(&m_pfAcf[iEtaMin], m_iDataLength - iEtaMin);
 
         return Error_t::kNoError;
@@ -575,11 +576,7 @@ private:
 };
 
 ///////////////////////////////////////////////////////////////////
-///////////////////////////////////////////////////////////////////
-
-/*! returns size of output feature (1 in most cases)
-\return int
-*/
+// normal member functions
 Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, Feature_t eFeatureIdx, int iDataLength, float fSampleRate)
 {
     if (iDataLength <= 0 || fSampleRate <= 0)
@@ -651,18 +648,13 @@ Error_t CFeatureFromBlockIf::destroy(CFeatureFromBlockIf*& pCInstance)
 
 int CFeatureFromBlockIf::getFeatureDimensions() const
 {
+    // default: 1 value per block
     return 1;
 }
 
-
-/*! performs the FeatureFromBlock computation
-\param pfFeature feature result (user-allocated, to be written, length from CFeatureFromBlockIf::getFeatureDimensions)
-\param pfInput input data of length iDataLength
-\return Error_t
-*/
-
 Error_t CFeatureFromBlockIf::calcFeatureFromBlock(float* pfFeature, const float* pfInput)
 {
+    // default: use one of the static functions
     *pfFeature = m_DispatchMap.at(m_eFeatureIdx)(pfInput, m_iDataLength, m_fSampleRate);
 
     return Error_t::kNoError;
@@ -670,10 +662,12 @@ Error_t CFeatureFromBlockIf::calcFeatureFromBlock(float* pfFeature, const float*
 
 bool CFeatureFromBlockIf::hasAdditionalParam() const
 {
+    // default: feature doesn't need any additional parameters
     return false;
 }
 
 Error_t CFeatureFromBlockIf::setAdditionalParam(float /*fParamvalue*/)
 {
+    // default: setting a parameter that doesn't exist
     return Error_t::kFunctionIllegalCallError;
 }

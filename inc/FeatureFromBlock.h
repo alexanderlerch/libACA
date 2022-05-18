@@ -4,7 +4,6 @@
 #include <map>
 #include <functional>
 
-#include "Util.h"
 #include "ErrorDef.h"
 
 
@@ -98,21 +97,6 @@ public:
     static float compFeatureTimeStd(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
     static float compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
 
-    // dispatcher map for static functions without additional arguments
-    const std::map<Feature_t, std::function<float(const float*, int, float)>> m_DispatchMap
-    {
-            {kFeatureSpectralCentroid, &compFeatureSpectralCentroid},
-            {kFeatureSpectralCrestFactor, &compFeatureSpectralCrestFactor},
-            {kFeatureSpectralDecrease, &compFeatureSpectralDecrease},
-            {kFeatureSpectralFlatness, &compFeatureSpectralFlatness},
-            {kFeatureSpectralKurtosis, &compFeatureSpectralKurtosis},
-            {kFeatureSpectralSkewness, &compFeatureSpectralSkewness},
-            {kFeatureSpectralSlope, &compFeatureSpectralSlope},
-            {kFeatureSpectralSpread, &compFeatureSpectralSpread},
-            {kFeatureTimeStd, &compFeatureTimeStd},
-            {kFeatureTimeZeroCrossingRate, &compFeatureTimeZeroCrossingRate}
-    };
-
     static const float m_kfFloatThresh;         //!< below this we just assume it's zero
 
 
@@ -127,6 +111,21 @@ protected:
     float m_fSampleRate = 0;                    //!< sample rate
 
     Feature_t m_eFeatureIdx = kNumFeatures;     //!< index of feature to extract
+
+    // dispatcher map for static functions without additional arguments
+    const std::map<Feature_t, std::function<float(const float*, int, float)>> m_DispatchMap
+    {
+            {kFeatureSpectralCentroid, &compFeatureSpectralCentroid},
+            {kFeatureSpectralCrestFactor, &compFeatureSpectralCrestFactor},
+            {kFeatureSpectralDecrease, &compFeatureSpectralDecrease},
+            {kFeatureSpectralFlatness, &compFeatureSpectralFlatness},
+            {kFeatureSpectralKurtosis, &compFeatureSpectralKurtosis},
+            {kFeatureSpectralSkewness, &compFeatureSpectralSkewness},
+            {kFeatureSpectralSlope, &compFeatureSpectralSlope},
+            {kFeatureSpectralSpread, &compFeatureSpectralSpread},
+            {kFeatureTimeStd, &compFeatureTimeStd},
+            {kFeatureTimeZeroCrossingRate, &compFeatureTimeZeroCrossingRate}
+    };
 };
 
 
