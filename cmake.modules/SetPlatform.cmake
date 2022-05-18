@@ -2,7 +2,6 @@
 
 if (APPLE)
 	set(ACA_MACOSX 1)
-	add_compile_options("-Wno-c++11-extensions")
 endif (APPLE)
 
 if (UNIX AND NOT APPLE)
@@ -55,6 +54,7 @@ if (MSVC)
       string(REPLACE "/EHsc" "/fp:precise" ${flag_var} "${${flag_var}}")
 	set (CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}" CACHE STRING "" FORCE)    
 	set (CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE}" CACHE STRING "" FORCE)    
+	add_compile_options("/wd26812")
 	  
     endforeach()
 endif (MSVC)
