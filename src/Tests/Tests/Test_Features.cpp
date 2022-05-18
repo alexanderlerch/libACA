@@ -4,7 +4,7 @@
 
 #include "Vector.h"
 #include "Synthesis.h"
-#include "FeaturefromBlock.h"
+#include "FeatureFromBlock.h"
 
 #include "gtest/gtest.h"
 
