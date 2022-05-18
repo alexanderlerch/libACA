@@ -421,9 +421,7 @@ TEST_F(FeaturesClass, FeatureCalc)
     {
         //implement me later
         if (k == CFeatureFromBlockIf::kFeatureSpectralMfccs ||
-            k == CFeatureFromBlockIf::kFeatureSpectralPitchChroma ||
-            k == CFeatureFromBlockIf::kFeatureTimeAcfCoeff ||
-            k == CFeatureFromBlockIf::kFeatureTimeMaxAcf)
+            k == CFeatureFromBlockIf::kFeatureSpectralPitchChroma)
             continue;
 
         float fResult = 0;
@@ -432,6 +430,29 @@ TEST_F(FeaturesClass, FeatureCalc)
         EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
         EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(pCInstance));
     }
+}
+
+TEST_F(FeaturesClass, TimeMaxAcf)
+{
+    float fResult = 0;
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureTimeMaxAcf, m_iBufferLength, m_fSampleRate));
+
+    // ones
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+    EXPECT_NEAR(fResult, 1.F, 1e-6F);
+
+    // zeros
+    CVectorFloat::setZero(m_pfInput, m_iBufferLength);
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+    EXPECT_NEAR(fResult, 0.F, 1e-6F);
+
+    // sine wave
+    int eta = 500;
+    m_fSampleRate = 1000;
+    CSynthesis::generateSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+    EXPECT_NEAR((1.F - eta / 1000.F), fResult, 1e-3F);
+
 }
 
 

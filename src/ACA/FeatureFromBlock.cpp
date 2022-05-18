@@ -486,7 +486,7 @@ public:
         m_pCCcf = new CCcf();
         m_pCCcf->init(iDataLength);
 
-        m_pfAcf = new float[iDataLength - 1];
+        m_pfAcf = new float[m_pCCcf->getCcfLength(true)];
     };
 
     virtual ~CFeatureTimeMaxAcf() 
@@ -522,7 +522,11 @@ public:
             if (iEta >= m_iDataLength)
                 break;
         }
-        if (iEtaMin < iEta)
+        
+
+        if (iEta >= m_iDataLength)
+            iEtaMin = 0;
+        else if (iEtaMin < iEta)
             iEtaMin = iEta;
 
         // get the maximum given the constraints above
