@@ -106,7 +106,7 @@ Error_t CCcf::calcCcf(const float* pfInput1, const float* pfInput2, bool bNormal
 
 int CCcf::getCcfLength(bool bIsAcf)
 {
-    if (!(m_bIsInitialized && m_bWasProcessed))
+    if (!m_bIsInitialized)
         return -1;
 
     return bIsAcf ? m_iBlockLength : 2 * m_iBlockLength - 1;
