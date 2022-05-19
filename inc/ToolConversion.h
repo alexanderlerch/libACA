@@ -1,14 +1,17 @@
 #if !defined(__ToolConversion_hdr__)
 #define __ToolConversion_hdr__
 
+#include <map>
+#include <functional>
+
 #include "ErrorDef.h"
 
-/*! \brief class frequency to mel and mel to frequency conversion functions (requires instantiation)
+/*! \brief class for various frequency conversion functions
 */
-class CFreq2Mel2Freq
+class CConversion
 {
 public:
-    enum ConversionFunctions_t
+    enum MelConversionFunctions_t
     {
         kFant,          //!< conversion acc. to Fant
         kShaughnessy,   //!< conversion acc. to Shaughnessy
@@ -17,24 +20,20 @@ public:
         kNumConversionFunctions
     };
 
-    /*! creates a new instance for conversion
-    \param pCInstance pointer to new instance (to be written)
-    \param eConversion flag for the conversion function to use
-    \return Error_t
-    */
-    static Error_t create(CFreq2Mel2Freq*& pCInstance, ConversionFunctions_t eConversion = kFant);
-
-    /*! destroys an instance 
-    \param pCInstance pointer to instance to be destroyed (set to zero)
-    \return Error_t
-    */
-    static Error_t destroy(CFreq2Mel2Freq*& pCInstance);
-
+ 
     /*! converts a frequency scalar to a mel value
     \param fInHz frequency in Hz
+    \param eFunc index for conversion function selection
     \return mel value
     */
-    virtual float convertFreq2Mel(float fInHz) = 0;
+    static float convertFreq2Mel(float fInHz, MelConversionFunctions_t eFunc = kFant);
+
+    /*! converts a mel scalar to a frequency
+    \param fMel mel value
+    \param eFunc index for conversion function selection
+    \return frequency value in Hz
+    */
+    static float convertMel2Freq(float fMel, MelConversionFunctions_t eFunc = kFant);
 
     /*! converts a frequency array to a mel array
     \param pfMel output mel values (length iLenghBuff, to be written)
@@ -42,13 +41,7 @@ public:
     \param iLengthBuff length of buffers
     \return void
     */
-    virtual void convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengthBuff);
-
-    /*! converts a mel scalar to a frequency
-    \param fMel mel value
-    \return frequency value in Hz
-    */
-    virtual float convertMel2Freq(float fMel) = 0;
+    static void convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
 
     /*! converts a mel array to a frequency array
     \param pffInHz output frequency values in Hz (length iLenghBuff, to be written)
@@ -56,18 +49,8 @@ public:
     \param iLengthBuff length of buffers
     \return void
     */
-    virtual void convertMel2Freq(float* pffInHz, const float* pfMel, int iLengthBuff);
+    static void convertMel2Freq(float* pffInHz, const float* pfMel, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
 
-protected:
-    CFreq2Mel2Freq() {};
-    virtual ~CFreq2Mel2Freq() {};
-};
-
-/*! \brief class frequency to midi and midi to frequency conversion functions (does not require instantiation)
-*/
-class CFreq2Midi2Freq
-{
-public:
 
     /*! converts a frequency scalar to midi (float)
     \param fInHz frequency value in Hz
@@ -129,16 +112,6 @@ public:
             pffInHz[n] = convertMidi2Freq(pfMidi[n], fA4InHz);
     };
 
-private:
-    CFreq2Midi2Freq() {};
-    virtual ~CFreq2Midi2Freq() {};
-};
-
-/*! \brief class frequency to FFT bin index and FFT bin index to frequency conversion functions (does not require instantiation)
-*/
-class CFreq2Bin2Freq
-{
-public:
 
     /*! converts a frequency scalar to an FFT bin index
     \param fInHz frequency value in Hz
@@ -200,22 +173,24 @@ public:
     \param fSampleRate sample rate frequency in Hz
     \return void
     */
-    static void convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F)
-    {
-        assert(pfBin);
-        assert(pffInHz);
-        assert(iLengthBuff > 0);
-        assert(iFftLength >= 0);
-        assert(fSampleRate > 0);
+    static void convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F);;
 
-        for (auto n = 0; n < iLengthBuff; n++)
-            pffInHz[n] = convertBin2Freq(pfBin[n], iFftLength, fSampleRate);
-    };
+    static float convertFreq2MelFant(float fFrequency);
+    static float convertMel2FreqFant(float fMel);
+
+    static float convertFreq2MelShaughnessy(float fFrequency);
+    static float convertMel2FreqShaughnessy(float fMel);
+
+    static float convertFreq2MelUmesh(float fFrequency);
+    static float convertMel2FreqUmesh(float fMel);
 
 private:
-    CFreq2Bin2Freq() {};
-    virtual ~CFreq2Bin2Freq() {};
+    CConversion() {};
+    virtual ~CConversion() {};
+    // dispatcher map for static mel functions 
+    static const std::map<int, std::function<float(float)>> m_DispatchMap;
 };
+
 
 
 #endif // __ToolConversion_hdr__

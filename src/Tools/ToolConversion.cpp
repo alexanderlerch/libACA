@@ -4,101 +4,116 @@
 
 #include "ToolConversion.h"
 
-class CFant : public CFreq2Mel2Freq
+const std::map<int, std::function<float(float)>> CConversion::m_DispatchMap
 {
-public:
-    CFant() {};
-    virtual ~CFant() {};
-
-    inline float convertFreq2Mel(float fFrequency) override
-    {
-        assert(fFrequency >= 0);
-        return 1000.F * std::log2(1.F + fFrequency / 1000.F);
-    }
-    inline float convertMel2Freq(float fMel) override
-    {
-        assert(fMel >= 0);
-        return 1000.F * (std::exp2(fMel / 1000.F) - 1.F);
-    }
+        {kFant, &convertFreq2MelFant},
+        {kShaughnessy, &convertFreq2MelShaughnessy},
+        {kUmesh, &convertFreq2MelUmesh},
+        {kFant + kNumConversionFunctions, &convertMel2FreqFant},
+        {kShaughnessy + kNumConversionFunctions, &convertMel2FreqShaughnessy},
+        {kUmesh + kNumConversionFunctions, &convertMel2FreqUmesh}
 };
 
-class CShaughnessy : public CFreq2Mel2Freq
+float CConversion::convertFreq2Mel(float fInHz, MelConversionFunctions_t eFunc)
 {
-public:
-    CShaughnessy() {};
-    virtual ~CShaughnessy() {};
-
-    inline float convertFreq2Mel(float fFrequency) override
-    {
-        assert(fFrequency >= 0);
-        return 2595.F * std::log10(1.F + fFrequency / 700.F);
-    }
-    inline float convertMel2Freq(float fMel) override
-    {
-        assert(fMel >= 0);
-        return 700.F * (std::pow(10.F, fMel / 2595.F) - 1.F);
-
-    }
-};
-class CUmesh : public CFreq2Mel2Freq
-{
-public:
-    CUmesh() {};
-    virtual ~CUmesh() {};
-
-    inline float convertFreq2Mel(float fFrequency) override
-    {
-        assert(fFrequency >= 0);
-        return fFrequency / (2.4e-4F * fFrequency + 0.741F);
-    }
-    inline float convertMel2Freq(float fMel) override
-    {
-        assert(fMel >= 0);
-        return  fMel * 0.741F / (1.F - fMel * 2.4e-4F);
-
-    }
-};
-
-Error_t CFreq2Mel2Freq::create(CFreq2Mel2Freq*& pCInstance, ConversionFunctions_t eConversion)
-{
-    switch (eConversion)
-    {
-    default:
-    case kFant:
-        pCInstance = new CFant();
-        break;
-    case kShaughnessy:
-        pCInstance = new CShaughnessy();
-        break;
-    case kUmesh:
-        pCInstance = new CUmesh();
-        break;
-    }
-    return Error_t::kNoError;
+    assert(fInHz >= 0);
+    return m_DispatchMap.at(eFunc)(fInHz);
 }
 
-Error_t CFreq2Mel2Freq::destroy(CFreq2Mel2Freq*& pCInstance)
-{
-    delete pCInstance;
-    pCInstance = 0;
+/*! converts a mel scalar to a frequency
+\param fMel mel value
+\param eFunc index for conversion function selection
+\return frequency value in Hz
+*/
 
-    return Error_t::kNoError;
+float CConversion::convertMel2Freq(float fMel, MelConversionFunctions_t eFunc)
+{
+    assert(fMel >= 0);
+    return m_DispatchMap.at(eFunc + kNumConversionFunctions)(fMel);
 }
-void CFreq2Mel2Freq::convertFreq2Mel(float* pfMel, const float* pfFrequency, int iLengthBuff) 
+
+/*! converts a frequency array to a mel array
+\param pfMel output mel values (length iLenghBuff, to be written)
+\param pffInHz input frequency values in Hz (length iLenghBuff)
+\param iLengthBuff length of buffers
+\return void
+*/
+void CConversion::convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengthBuff, MelConversionFunctions_t eFunc)
 {
     assert(pfMel);
-    assert(pfFrequency);
+    assert(pffInHz);
     assert(iLengthBuff > 0);
 
     for (auto k = 0; k < iLengthBuff; k++)
-        pfMel[k] = convertFreq2Mel(pfFrequency[k]);
+        pfMel[k] = m_DispatchMap.at(eFunc)(pffInHz[k]);
 }
-void CFreq2Mel2Freq::convertMel2Freq(float* pfFrequency, const float* pfMel, int iLengthBuff) 
+
+/*! converts a mel array to a frequency array
+\param pffInHz output frequency values in Hz (length iLenghBuff, to be written)
+\param pfMel input mel values (length iLenghBuff)
+\param iLengthBuff length of buffers
+\return void
+*/
+
+void CConversion::convertMel2Freq(float* pffInHz, const float* pfMel, int iLengthBuff, MelConversionFunctions_t eFunc)
 {
     assert(pfMel);
-    assert(pfFrequency);
+    assert(pffInHz);
     assert(iLengthBuff > 0);
 
     for (auto k = 0; k < iLengthBuff; k++)
-        pfFrequency[k] = convertMel2Freq(pfMel[k]);
+        pffInHz[k] = m_DispatchMap.at(eFunc + kNumConversionFunctions)(pfMel[k]);
+}
+
+
+/*! converts an FFT bin vector to a frequency vector
+\param pffInHz frequency in Hz output buffer (length iLengthBuff, to be written)
+\param pfBin input buffer with FFT bin indices (length iLengthBuff)
+\param iLengthBuff length of buffers
+\param iFftLength length of FFT
+\param fSampleRate sample rate frequency in Hz
+\return void
+*/
+
+
+void CConversion::convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate)
+{
+    assert(pfBin);
+    assert(pffInHz);
+    assert(iLengthBuff > 0);
+    assert(iFftLength >= 0);
+    assert(fSampleRate > 0);
+
+    for (auto n = 0; n < iLengthBuff; n++)
+        pffInHz[n] = convertBin2Freq(pfBin[n], iFftLength, fSampleRate);
+}
+
+float CConversion::convertFreq2MelFant(float fFrequency)
+{
+    return 1000.F * std::log2(1.F + fFrequency / 1000.F);
+}
+
+float CConversion::convertMel2FreqFant(float fMel)
+{
+    return 1000.F * (std::exp2(fMel / 1000.F) - 1.F);
+}
+
+float CConversion::convertFreq2MelShaughnessy(float fFrequency)
+{
+    return 2595.F * std::log10(1.F + fFrequency / 700.F);
+}
+
+float CConversion::convertMel2FreqShaughnessy(float fMel)
+{
+    return 700.F * (std::pow(10.F, fMel / 2595.F) - 1.F);
+}
+
+float CConversion::convertFreq2MelUmesh(float fFrequency)
+{
+    return fFrequency / (2.4e-4F * fFrequency + 0.741F);
+}
+
+float CConversion::convertMel2FreqUmesh(float fMel)
+{
+    return  fMel * 0.741F / (1.F - fMel * 2.4e-4F);
 }

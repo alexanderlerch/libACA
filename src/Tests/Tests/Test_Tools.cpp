@@ -96,14 +96,11 @@ namespace {
 
         virtual void TearDown()
         {
-            CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq);
-
             delete[] m_pfMel;
             delete[] m_pfFreq;
             delete[] m_pfOut;
         }
 
-        CFreq2Mel2Freq* m_pCFreq2Mel2Freq = 0;
         float* m_pfMel = 0,
             * m_pfFreq = 0,
             * m_pfOut = 0;
@@ -213,56 +210,47 @@ TEST_F(ToolsCcf, Ccf)
 TEST_F(ToolsConversion, Freq2Mel2Freq)
 {
     // Mel (Fant)
-    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::create(m_pCFreq2Mel2Freq, CFreq2Mel2Freq::kFant));
+    EXPECT_NEAR(1000.F, CConversion::convertFreq2Mel(1000.F, CConversion::kFant), 1e-6F);
+    EXPECT_NEAR(1000.F, CConversion::convertMel2Freq(1000.F), 1e-6F);
 
-    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertFreq2Mel(1000.F), 1e-6F);
-    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertMel2Freq(1000.F), 1e-6F);
-
-    m_pCFreq2Mel2Freq->convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
-    m_pCFreq2Mel2Freq->convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+    CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
+    CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
 
     CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, m_iNumValues, 1e-3F);
-    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq));
 
     // Mel (Shaughnessy)
-    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::create(m_pCFreq2Mel2Freq, CFreq2Mel2Freq::kShaughnessy));
+    EXPECT_NEAR(1000.F, CConversion::convertFreq2Mel(1000.F, CConversion::kShaughnessy), 1e-1F);
+    EXPECT_NEAR(1000.F, CConversion::convertMel2Freq(1000.F, CConversion::kShaughnessy), 1e-1F);
 
-    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertFreq2Mel(1000.F), 1e-1F);
-    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertMel2Freq(1000.F), 1e-1F);
-
-    m_pCFreq2Mel2Freq->convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
-    m_pCFreq2Mel2Freq->convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+    CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
+    CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
 
     CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, m_iNumValues, 1e-3F);
-    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq));
 
     // Mel (Umesh)
-    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::create(m_pCFreq2Mel2Freq, CFreq2Mel2Freq::kUmesh));
+    EXPECT_NEAR(1000.F, CConversion::convertFreq2Mel(1000.F, CConversion::kUmesh), 25.F);
+    EXPECT_NEAR(1000.F, CConversion::convertMel2Freq(1000.F, CConversion::kUmesh), 25.F);
 
-    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertFreq2Mel(1000.F), 25.F);
-    EXPECT_NEAR(1000.F, m_pCFreq2Mel2Freq->convertMel2Freq(1000.F), 25.F);
-
-    m_pCFreq2Mel2Freq->convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
-    m_pCFreq2Mel2Freq->convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+    CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
+    CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
 
     CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, m_iNumValues, 1e-3F);
-    EXPECT_EQ(Error_t::kNoError, CFreq2Mel2Freq::destroy(m_pCFreq2Mel2Freq));
 }
 
 TEST_F(ToolsConversion, Freq2Midi2Freq)
 {
-    EXPECT_NEAR(69.F, CFreq2Midi2Freq::convertFreq2Midi(440.F), 1e-6F);
-    EXPECT_NEAR(57.F, CFreq2Midi2Freq::convertFreq2Midi(440.F, 880.F), 1e-6F);
-    EXPECT_NEAR(81.F, CFreq2Midi2Freq::convertFreq2Midi(440.F, 220.F), 1e-6F);
-    EXPECT_NEAR(70.F, CFreq2Midi2Freq::convertFreq2Midi(440.F * 1.0594630943593F), 1e-6F);
+    EXPECT_NEAR(69.F, CConversion::convertFreq2Midi(440.F), 1e-6F);
+    EXPECT_NEAR(57.F, CConversion::convertFreq2Midi(440.F, 880.F), 1e-6F);
+    EXPECT_NEAR(81.F, CConversion::convertFreq2Midi(440.F, 220.F), 1e-6F);
+    EXPECT_NEAR(70.F, CConversion::convertFreq2Midi(440.F * 1.0594630943593F), 1e-6F);
 
-    EXPECT_NEAR(440.F, CFreq2Midi2Freq::convertMidi2Freq(69.F), 1e-6F);
-    EXPECT_NEAR(440.F, CFreq2Midi2Freq::convertMidi2Freq(57.F, 880.F), 1e-6F);
-    EXPECT_NEAR(440.F, CFreq2Midi2Freq::convertMidi2Freq(81.F, 220.F), 1e-6F);
-    EXPECT_NEAR(440.F, CFreq2Midi2Freq::convertMidi2Freq(70.F) / 1.0594630943593F, 1e-6F);
+    EXPECT_NEAR(440.F, CConversion::convertMidi2Freq(69.F), 1e-6F);
+    EXPECT_NEAR(440.F, CConversion::convertMidi2Freq(57.F, 880.F), 1e-6F);
+    EXPECT_NEAR(440.F, CConversion::convertMidi2Freq(81.F, 220.F), 1e-6F);
+    EXPECT_NEAR(440.F, CConversion::convertMidi2Freq(70.F) / 1.0594630943593F, 1e-6F);
 
-    CFreq2Midi2Freq::convertMidi2Freq(m_pfFreq, m_pfMel, 128);
-    CFreq2Midi2Freq::convertFreq2Midi(m_pfOut, m_pfFreq, 128);
+    CConversion::convertMidi2Freq(m_pfFreq, m_pfMel, 128);
+    CConversion::convertFreq2Midi(m_pfOut, m_pfFreq, 128);
 
     CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, 128, 1e-3F);
 }
@@ -272,16 +260,16 @@ TEST_F(ToolsConversion, Freq2Bin2Freq)
     float fSampleRate = 48000.f;
     int iFftLength = 16;
 
-    EXPECT_NEAR(0.F, CFreq2Bin2Freq::convertFreq2Bin(0.F, iFftLength, fSampleRate), 1e-6F);
-    EXPECT_NEAR(iFftLength / 2.F, CFreq2Bin2Freq::convertFreq2Bin(fSampleRate / 2, iFftLength, fSampleRate), 1e-6F);
-    EXPECT_NEAR(1.F, CFreq2Bin2Freq::convertFreq2Bin(fSampleRate / iFftLength, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(0.F, CConversion::convertFreq2Bin(0.F, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(iFftLength / 2.F, CConversion::convertFreq2Bin(fSampleRate / 2, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(1.F, CConversion::convertFreq2Bin(fSampleRate / iFftLength, iFftLength, fSampleRate), 1e-6F);
 
-    EXPECT_NEAR(0.F, CFreq2Bin2Freq::convertBin2Freq(0.F, iFftLength, fSampleRate), 1e-6F);
-    EXPECT_NEAR(fSampleRate / 2, CFreq2Bin2Freq::convertBin2Freq(iFftLength / 2.F, iFftLength, fSampleRate), 1e-6F);
-    EXPECT_NEAR(fSampleRate / iFftLength, CFreq2Bin2Freq::convertBin2Freq(1.F, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(0.F, CConversion::convertBin2Freq(0.F, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(fSampleRate / 2, CConversion::convertBin2Freq(iFftLength / 2.F, iFftLength, fSampleRate), 1e-6F);
+    EXPECT_NEAR(fSampleRate / iFftLength, CConversion::convertBin2Freq(1.F, iFftLength, fSampleRate), 1e-6F);
 
-    CFreq2Bin2Freq::convertBin2Freq(m_pfFreq, m_pfMel, iFftLength, iFftLength, fSampleRate);
-    CFreq2Bin2Freq::convertFreq2Bin(m_pfOut, m_pfFreq, iFftLength, iFftLength, fSampleRate);
+    CConversion::convertBin2Freq(m_pfFreq, m_pfMel, iFftLength, iFftLength, fSampleRate);
+    CConversion::convertFreq2Bin(m_pfOut, m_pfFreq, iFftLength, iFftLength, fSampleRate);
 
     CHECK_ARRAY_CLOSE(m_pfMel, m_pfOut, iFftLength, 1e-3F);
 }

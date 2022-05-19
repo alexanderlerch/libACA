@@ -426,15 +426,13 @@ Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t* pMelSpecCon
     }
 
     // compute center band frequencies
-    CFreq2Mel2Freq* pCMelConversion = 0;
-    CFreq2Mel2Freq::create(pCMelConversion);
-    m_pffcMel[0] = pCMelConversion->convertFreq2Mel(pMelSpecConfig->fMinFreqInHz);
-    m_pffcMel[pMelSpecConfig->iNumMelBins + 1] = pCMelConversion->convertFreq2Mel(pMelSpecConfig->fMaxFreqInHz);
+    m_pffcMel[0] = CConversion::convertFreq2Mel(pMelSpecConfig->fMinFreqInHz);
+    m_pffcMel[pMelSpecConfig->iNumMelBins + 1] = CConversion::convertFreq2Mel(pMelSpecConfig->fMaxFreqInHz);
     float fMelInc = (m_pffcMel[pMelSpecConfig->iNumMelBins + 1] - m_pffcMel[0]) / (pMelSpecConfig->iNumMelBins+1);
     for (auto k = 1; k < pMelSpecConfig->iNumMelBins + 1; k++)
         m_pffcMel[k] = m_pffcMel[k - 1] + fMelInc;
     for (auto k = 0; k < pMelSpecConfig->iNumMelBins + 2; k++)
-        m_pffcMel[k] = pCMelConversion->convertMel2Freq(m_pffcMel[k]);
+        m_pffcMel[k] = CConversion::convertMel2Freq(m_pffcMel[k]);
 
     float* pf_l = &m_pffcMel[0],
         * pf_c = &m_pffcMel[1],
@@ -449,13 +447,11 @@ Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t* pMelSpecCon
         int iUpBin = 1 + static_cast<int>(m_pCFft->freq2bin(pf_u[m], m_fSampleRate));
 
         for (auto k = iLowBin; k < iCenterBin; k++)
-            m_ppfHMel[m][k] = fFilterMax * (CFreq2Bin2Freq::convertBin2Freq(static_cast<float>(k), (iMagLength - 1) * 2, m_fSampleRate) - pf_l[m]) / (pf_c[m] - pf_l[m]);
+            m_ppfHMel[m][k] = fFilterMax * (CConversion::convertBin2Freq(static_cast<float>(k), (iMagLength - 1) * 2, m_fSampleRate) - pf_l[m]) / (pf_c[m] - pf_l[m]);
         for (auto k = iCenterBin; k < iUpBin; k++)
-            m_ppfHMel[m][k] = fFilterMax * (pf_u[m] - CFreq2Bin2Freq::convertBin2Freq(static_cast<float>(k), (iMagLength - 1) * 2, m_fSampleRate)) / (pf_u[m] - pf_c[m]);
+            m_ppfHMel[m][k] = fFilterMax * (pf_u[m] - CConversion::convertBin2Freq(static_cast<float>(k), (iMagLength - 1) * 2, m_fSampleRate)) / (pf_u[m] - pf_c[m]);
 
     }
-
-    CFreq2Mel2Freq::destroy(pCMelConversion);
 
     return Error_t::kNoError;
 }
