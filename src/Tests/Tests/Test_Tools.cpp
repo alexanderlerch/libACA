@@ -7,6 +7,7 @@
 #include "ToolCcf.h"
 #include "ToolBlockAudio.h"
 #include "ToolConversion.h"
+#include "ToolLowPass.h"
 
 #include "gtest/gtest.h"
 
@@ -43,6 +44,62 @@ namespace {
         }
 
         CCcf* m_pCCcf = 0;
+        float* m_pfInput = 0,
+            * m_pfOut = 0;
+        int m_iNumValues = 1024;
+    };
+
+    class ToolsSinglePole : public testing::Test
+    {
+    protected:
+        void SetUp() override
+        {
+
+            CSinglePoleLp::create(m_pCLowPass);
+            m_pfInput = new float[m_iNumValues];
+            m_pfOut = new float[2 * m_iNumValues];
+
+            CVectorFloat::setZero(m_pfInput, m_iNumValues);
+            CVectorFloat::setZero(m_pfOut, m_iNumValues);
+        }
+
+        virtual void TearDown()
+        {
+            CSinglePoleLp::destroy(m_pCLowPass);
+
+            delete[] m_pfInput;
+            delete[] m_pfOut;
+        }
+
+        CSinglePoleLp* m_pCLowPass = 0;
+        float* m_pfInput = 0,
+            * m_pfOut = 0;
+        int m_iNumValues = 1024;
+    };
+
+    class ToolsMovingAverage : public testing::Test
+    {
+    protected:
+        void SetUp() override
+        {
+
+            CMovingAverage::create(m_pCLowPass);
+            m_pfInput = new float[m_iNumValues];
+            m_pfOut = new float[2 * m_iNumValues];
+
+            CVectorFloat::setZero(m_pfInput, m_iNumValues);
+            CVectorFloat::setZero(m_pfOut, m_iNumValues);
+        }
+
+        virtual void TearDown()
+        {
+            CMovingAverage::destroy(m_pCLowPass);
+
+            delete[] m_pfInput;
+            delete[] m_pfOut;
+        }
+
+        CMovingAverage* m_pCLowPass = 0;
         float* m_pfInput = 0,
             * m_pfOut = 0;
         int m_iNumValues = 1024;
@@ -109,6 +166,100 @@ namespace {
 }
 
 
+TEST_F(ToolsSinglePole, Api)
+{
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(-1));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(1));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(1.1));
+
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->reset());
+
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->setFilterParam(.01F));
+    EXPECT_NEAR(.01F, m_pCLowPass->getFilterParam(), 1e-6F);
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->setFilterParam(.5F));
+    EXPECT_NEAR(.5F, m_pCLowPass->getFilterParam(), 1e-6F);
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->setFilterParam(.99F));
+    EXPECT_NEAR(.99F, m_pCLowPass->getFilterParam(), 1e-6F);
+
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->process(0, m_pfInput, m_iNumValues));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->process(m_pfOut, 0, m_iNumValues));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->process(m_pfOut, m_pfInput, 0));
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->process(m_pfOut, m_pfInput, m_iNumValues));
+}
+
+TEST_F(ToolsSinglePole, Process)
+{
+    // zeros
+    for (auto i = 0; i < m_iNumValues; i++)
+    {
+        EXPECT_EQ(Error_t::kNoError, m_pCLowPass->process(&m_pfOut[i], &m_pfInput[i], 1));
+        EXPECT_NEAR(0.F, m_pfOut[i], 1e-6F);
+    }
+
+    // ones
+    CVectorFloat::setValue(m_pfInput, 1.F, m_iNumValues);
+    for (auto c = 0; c < 10; c++)
+    {
+        float fAlpha = c / 10.1F;
+        m_pCLowPass->reset();
+        m_pCLowPass->setFilterParam(fAlpha);
+        for (auto i = 0; i < m_iNumValues; i++)
+        {
+            EXPECT_EQ(Error_t::kNoError, m_pCLowPass->process(&m_pfOut[i], &m_pfInput[i], 1));
+            EXPECT_NEAR(1.F - std::pow(m_pCLowPass->getFilterParam(), i + 1), m_pfOut[i], 1e-6F);
+        }
+    }
+}
+
+TEST_F(ToolsMovingAverage, Api)
+{
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(0));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(-5));
+
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->reset());
+
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->setFilterParam(5));
+    EXPECT_NEAR(5, m_pCLowPass->getFilterParam(), 1e-6F);
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->setFilterParam(1000));
+    EXPECT_NEAR(1000, m_pCLowPass->getFilterParam(), 1e-6F);
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->setFilterParam(1));
+    EXPECT_NEAR(1, m_pCLowPass->getFilterParam(), 1e-6F);
+
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->process(0, m_pfInput, m_iNumValues));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->process(m_pfOut, 0, m_iNumValues));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->process(m_pfOut, m_pfInput, 0));
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->process(m_pfOut, m_pfInput, m_iNumValues));
+}
+
+TEST_F(ToolsMovingAverage, Process)
+{
+    // zeros
+    for (auto i = 0; i < m_iNumValues; i++)
+    {
+        EXPECT_EQ(Error_t::kNoError, m_pCLowPass->process(&m_pfOut[i], &m_pfInput[i], 1));
+        EXPECT_NEAR(0.F, m_pfOut[i], 1e-6F);
+    }
+
+    // ones
+    CVectorFloat::setValue(m_pfInput, 1.F, m_iNumValues);
+    m_pCLowPass->reset();
+    m_pCLowPass->setFilterParam(1);
+    EXPECT_EQ(Error_t::kNoError, m_pCLowPass->process(m_pfOut, m_pfInput, m_iNumValues));
+    CHECK_ARRAY_CLOSE(m_pfInput, m_pfOut, m_iNumValues);
+
+    for (auto c = 0; c < 10; c++)
+    {
+        int iLength = c * 10.F + 2;
+        m_pCLowPass->reset();
+        m_pCLowPass->setFilterParam(iLength);
+        for (auto i = 0; i < iLength; i++)
+        {
+            EXPECT_EQ(Error_t::kNoError, m_pCLowPass->process(&m_pfOut[i], &m_pfInput[i], 1));
+            EXPECT_NEAR((i+1.F)/iLength, m_pfOut[i], 1e-6F);
+        }
+    }
+}
+
 TEST_F(ToolsCcf, Api)
 {
     // not initialized
@@ -122,7 +273,7 @@ TEST_F(ToolsCcf, Api)
 
     // initialized
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->init(m_iNumValues));
-    EXPECT_EQ( 2* m_iNumValues - 1, m_pCCcf->getCcfLength());
+    EXPECT_EQ(2 * m_iNumValues - 1, m_pCCcf->getCcfLength());
     EXPECT_EQ(Error_t::kFunctionIllegalCallError, m_pCCcf->getCcf(m_pfOut));
     EXPECT_EQ(-1, m_pCCcf->getCcfMax());
     EXPECT_EQ(-1, m_pCCcf->getCcfMaxIdx());
@@ -132,7 +283,6 @@ TEST_F(ToolsCcf, Api)
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->calcCcf(m_pfInput, m_pfInput));
 
     EXPECT_EQ(Error_t::kNoError, m_pCCcf->reset());
-
 }
 
 TEST_F(ToolsCcf, Acf)
