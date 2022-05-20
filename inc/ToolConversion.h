@@ -11,6 +11,7 @@
 class CConversion
 {
 public:
+    /*! \brief different methods for frequency to mel conversion */
     enum MelConversionFunctions_t
     {
         kFant,          //!< conversion acc. to Fant
@@ -39,6 +40,7 @@ public:
     \param pfMel output mel values (length iLenghBuff, to be written)
     \param pffInHz input frequency values in Hz (length iLenghBuff)
     \param iLengthBuff length of buffers
+    \param eFunc index for conversion function selection
     \return void
     */
     static void convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
@@ -47,6 +49,7 @@ public:
     \param pffInHz output frequency values in Hz (length iLenghBuff, to be written)
     \param pfMel input mel values (length iLenghBuff)
     \param iLengthBuff length of buffers
+    \param eFunc index for conversion function selection
     \return void
     */
     static void convertMel2Freq(float* pffInHz, const float* pfMel, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
@@ -175,6 +178,7 @@ public:
     */
     static void convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F);;
 
+protected:
     static float convertFreq2MelFant(float fFrequency);
     static float convertMel2FreqFant(float fMel);
 

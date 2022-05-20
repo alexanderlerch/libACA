@@ -20,24 +20,12 @@ float CConversion::convertFreq2Mel(float fInHz, MelConversionFunctions_t eFunc)
     return m_DispatchMap.at(eFunc)(fInHz);
 }
 
-/*! converts a mel scalar to a frequency
-\param fMel mel value
-\param eFunc index for conversion function selection
-\return frequency value in Hz
-*/
-
 float CConversion::convertMel2Freq(float fMel, MelConversionFunctions_t eFunc)
 {
     assert(fMel >= 0);
     return m_DispatchMap.at(eFunc + kNumConversionFunctions)(fMel);
 }
 
-/*! converts a frequency array to a mel array
-\param pfMel output mel values (length iLenghBuff, to be written)
-\param pffInHz input frequency values in Hz (length iLenghBuff)
-\param iLengthBuff length of buffers
-\return void
-*/
 void CConversion::convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengthBuff, MelConversionFunctions_t eFunc)
 {
     assert(pfMel);
@@ -48,13 +36,6 @@ void CConversion::convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengt
         pfMel[k] = m_DispatchMap.at(eFunc)(pffInHz[k]);
 }
 
-/*! converts a mel array to a frequency array
-\param pffInHz output frequency values in Hz (length iLenghBuff, to be written)
-\param pfMel input mel values (length iLenghBuff)
-\param iLengthBuff length of buffers
-\return void
-*/
-
 void CConversion::convertMel2Freq(float* pffInHz, const float* pfMel, int iLengthBuff, MelConversionFunctions_t eFunc)
 {
     assert(pfMel);
@@ -64,17 +45,6 @@ void CConversion::convertMel2Freq(float* pffInHz, const float* pfMel, int iLengt
     for (auto k = 0; k < iLengthBuff; k++)
         pffInHz[k] = m_DispatchMap.at(eFunc + kNumConversionFunctions)(pfMel[k]);
 }
-
-
-/*! converts an FFT bin vector to a frequency vector
-\param pffInHz frequency in Hz output buffer (length iLengthBuff, to be written)
-\param pfBin input buffer with FFT bin indices (length iLengthBuff)
-\param iLengthBuff length of buffers
-\param iFftLength length of FFT
-\param fSampleRate sample rate frequency in Hz
-\return void
-*/
-
 
 void CConversion::convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate)
 {
