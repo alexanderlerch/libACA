@@ -2,6 +2,7 @@
 #include "Vector.h"
 #include "Util.h"
 
+#include "ToolConversion.h"
 #include "ToolCcf.h"
 
 #include "FeatureFromBlock.h"
@@ -351,6 +352,291 @@ private:
     float* m_pfPrevSpec = 0;
 };
 
+class CFeatureSpectralMfccs : public CFeatureFromBlockIf
+{
+public:
+    CFeatureSpectralMfccs(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
+    {
+        // alloc transfer function memory
+        m_ppfH = new float* [m_iNumBands];
+        for (auto p = 0; p < m_iNumBands; p++)
+        {
+            m_ppfH[p] = new float[iDataLength];
+            CVectorFloat::setZero(m_ppfH[p], iDataLength);
+        }
+        genMfccFilters_();
+        genDctMat_(m_iNumMfcCoeffs);
+
+        m_pfMelSpec = new float [m_iNumBands];
+    }
+
+    virtual ~CFeatureSpectralMfccs()
+    {
+        for (auto p = 0; p < m_iNumBands; p++)
+            delete[] m_ppfH[p];
+        delete[] m_ppfH;
+        m_ppfH = 0;
+
+        deleteDctMat_();
+
+        delete [] m_pfMelSpec;
+        m_pfMelSpec = 0;
+    }
+
+    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    {
+        assert(pfFeature);
+        assert(pfInput);
+
+        CVectorFloat::setZero(pfFeature, m_iNumMfcCoeffs);
+
+        // compute mel spectrum
+        for (auto c = 0; c < m_iNumBands; c++)
+            m_pfMelSpec[c] = std::log10(CVectorFloat::mulScalar(m_ppfH[c], pfInput, m_iDataLength) + 1e-20F);
+
+        // compute dct
+        for (auto j = 0; j < m_iNumMfcCoeffs; j++)
+            pfFeature[j] = CVectorFloat::mulScalar(m_ppfDct[j], m_pfMelSpec, m_iNumBands);
+
+         return Error_t::kNoError;
+    };
+
+
+    int getFeatureDimensions() const
+    {
+        return m_iNumMfcCoeffs;
+    }
+
+    bool hasAdditionalParam() const
+    {
+        return true;
+    }
+
+    Error_t setAdditionalParam(float fParamValue)
+    {
+        if (fParamValue <= 0)
+            return Error_t::kFunctionInvalidArgsError;
+
+        genDctMat_(CUtil::float2int<int>(fParamValue));
+
+        return Error_t::kNoError;
+    }
+private:
+    CFeatureSpectralMfccs() {};
+    CFeatureSpectralMfccs(const CFeatureSpectralMfccs& that);
+
+    void genMfccFilters_()
+    {
+        const double dFreq = 400. / 3.; 
+        const int iNumLinFilters = 13,
+            iNumLogFilters = 27;
+        const double dLinSpacing = 200. / 3.,
+            dLogSpacing = 1.0711703; // note sure where this mel resolution comes from exactly
+
+        assert(m_iNumBands == iNumLinFilters + iNumLogFilters);
+        double adBoundFreqs[3] = { dFreq, 
+            dFreq + dLinSpacing,
+            dFreq + 2. * dLinSpacing};
+        int aiBoundIdx[3] = { static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[0]), (m_iDataLength - 1) * 2, m_fSampleRate)),
+            static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[1]), (m_iDataLength - 1) * 2, m_fSampleRate)),
+            static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[2]), (m_iDataLength - 1) * 2, m_fSampleRate))};
+
+        for (auto c = 0; c < m_iNumBands; c++)
+        {
+            double dFilterAmp = 2. / (adBoundFreqs[2] - adBoundFreqs[0]);
+
+            // upward slope
+            for (auto k = aiBoundIdx[0]; k <= aiBoundIdx[1]; k++)
+            {
+                float fFreqk = CConversion::convertBin2Freq(1.F * k, (m_iDataLength - 1) * 2, m_fSampleRate);
+                if ((fFreqk - adBoundFreqs[0]) <= 0.F)
+                    continue;
+                m_ppfH[c][k] = static_cast<float>(dFilterAmp * (fFreqk - adBoundFreqs[0]) / (adBoundFreqs[1] - adBoundFreqs[0]));
+                assert(m_ppfH[c][k] >= 0);
+            }
+
+            // downward slope
+            for (auto k = aiBoundIdx[1]+1; k <= aiBoundIdx[2]; k++)
+            {
+                float fFreqk = CConversion::convertBin2Freq(1.F * k, (m_iDataLength - 1) * 2, m_fSampleRate);
+                //if ((afBoundFreqs[2] - fFreqk) < 0.F)
+                //    continue;
+                m_ppfH[c][k] = static_cast<float>(dFilterAmp * (adBoundFreqs[2] - fFreqk) / (adBoundFreqs[2] - adBoundFreqs[1]));
+                assert(m_ppfH[c][k] >= 0);
+            }
+
+            // proceed to next band
+            adBoundFreqs[0] = adBoundFreqs[1];
+            adBoundFreqs[1] = adBoundFreqs[2];
+            adBoundFreqs[2] = (c < iNumLinFilters-3) ? adBoundFreqs[1] + dLinSpacing : adBoundFreqs[2] * dLogSpacing; //!< Check me
+            aiBoundIdx[0] = aiBoundIdx[1];
+            aiBoundIdx[1] = aiBoundIdx[2];
+            aiBoundIdx[2] = static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[2]), (m_iDataLength - 1) * 2, m_fSampleRate));
+        }
+    }
+
+    void genDctMat_(int iNumCoeffs)
+    {
+        allocDctMat_(iNumCoeffs);
+
+        for (auto c = 0; c < iNumCoeffs; c++)
+        {
+            for (auto b = 0; b < m_iNumBands; b++)
+                m_ppfDct[c][b] = static_cast<float>(std::cos(c * (2 * b + 1) * M_PI / 2. / m_iNumBands));
+
+            CVectorFloat::mulC_I(m_ppfDct[c], 1/std::sqrt(m_iNumBands / 2.F), m_iNumBands);
+        }
+        CVectorFloat::mulC_I(m_ppfDct[0], 1.F / std::sqrt(2.f), m_iNumBands);
+
+        m_iNumMfcCoeffs = iNumCoeffs;
+    }
+    void allocDctMat_(int iNumCoeffs)
+    {
+        if (m_ppfDct)
+            deleteDctMat_();
+
+        m_ppfDct = new float* [iNumCoeffs];
+        for (auto c = 0; c < iNumCoeffs; c++)
+        {
+            m_ppfDct[c] = new float[m_iNumBands];
+            CVectorFloat::setZero(m_ppfDct[c], m_iNumBands);
+        }
+    }
+    void deleteDctMat_()
+    {
+        for (auto c = 0; c < m_iNumMfcCoeffs; c++)
+            delete[] m_ppfDct[c];
+        delete[] m_ppfDct;
+        m_ppfDct = 0;
+    }
+
+    const int m_iNumBands = 40;
+    int m_iNumMfcCoeffs = 13;
+
+    float** m_ppfH = 0,
+        **m_ppfDct = 0;
+
+    float *m_pfMelSpec = 0;
+};
+class CFeatureSpectralPitchChroma : public CFeatureFromBlockIf
+{
+public:
+    CFeatureSpectralPitchChroma(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
+    {
+        // alloc transfer function memory
+        m_ppfH = new float* [m_iNumPitchClasses];
+        for (auto p = 0; p < m_iNumPitchClasses; p++)
+        {
+            m_ppfH[p] = new float[iDataLength];
+            CVectorFloat::setZero(m_ppfH[p], iDataLength);
+        }
+
+        genPcFilters_();
+    };
+
+    virtual ~CFeatureSpectralPitchChroma()
+    {
+        for (auto p = 0; p < m_iNumPitchClasses; p++)
+            delete[] m_ppfH[p];
+        delete[] m_ppfH;
+        m_ppfH = 0;
+    };
+
+    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    {
+        assert(pfFeature);
+        assert(pfInput);
+
+        CVectorFloat::setZero(pfFeature, m_iNumPitchClasses);
+
+        for (auto p = 0; p < m_iNumPitchClasses; p++)
+        {
+            // we could do this nicer with CVectorFloat::mulScalar if we allocated memory
+            for (auto k = 0; k < m_iDataLength; k++)
+            {
+                pfFeature[p] += m_ppfH[p][k] * (pfInput[k] * pfInput[k]);
+            }
+        }
+
+        float fSum = CVectorFloat::getSum(pfFeature, m_iNumPitchClasses);
+
+        if (fSum > 0)
+            CVectorFloat::mulC_I(pfFeature, 1.F/fSum, m_iNumPitchClasses);
+
+        return Error_t::kNoError;
+    };
+
+
+    int getFeatureDimensions() const
+    {
+        return m_iNumPitchClasses;
+    }
+
+    bool hasAdditionalParam() const
+    {
+        return true;
+    }
+
+    Error_t setAdditionalParam(float fParamValue)
+    {
+        if (fParamValue <= 0)
+            return Error_t::kFunctionInvalidArgsError;
+
+        m_iNumOctaves = CUtil::float2int<int>(fParamValue);
+
+        // recompute transformation matrix
+        genPcFilters_();
+
+        return Error_t::kNoError;
+    }
+private:
+    CFeatureSpectralPitchChroma() {};
+    CFeatureSpectralPitchChroma(const CFeatureSpectralPitchChroma& that);
+
+    void genPcFilters_()
+    {
+        const float fStartPitch = 60; //!< C4
+        float fMid = CConversion::convertMidi2Freq(fStartPitch, m_fA4);
+
+        //sanity check: reduce number of octaves if highest freq is higher than half fs
+        while (fMid * std::exp2(m_iNumOctaves) > m_fSampleRate / 2)
+            m_iNumOctaves--;
+        if (m_iNumOctaves <= 0)
+            return;
+
+        for (auto p = 0; p < m_iNumPitchClasses; p++)
+        {
+            const float fQuarterToneRatio = 1.02930223664349F;
+            float afBoundFreqs[2] = { fMid / fQuarterToneRatio,
+                fMid * fQuarterToneRatio };
+
+            for (auto o = 0; o < m_iNumOctaves; o++)
+            {
+                // get indices from freqs
+                int aiBoundIdx[2] = { static_cast<int>(CConversion::convertFreq2Bin(afBoundFreqs[0], (m_iDataLength - 1) * 2, m_fSampleRate)) + 1,
+                    static_cast<int>(CConversion::convertFreq2Bin(afBoundFreqs[1], (m_iDataLength - 1) * 2, m_fSampleRate)) };
+
+                // set transfer function
+                CVectorFloat::setValue(&m_ppfH[p][aiBoundIdx[0]], 1.F / (aiBoundIdx[1] - aiBoundIdx[0] + 1), aiBoundIdx[1] - aiBoundIdx[0] + 1);
+
+                // proceed to next octave
+                for (auto i = 0; i < 2; i++)
+                    afBoundFreqs[i] *= 2.F;
+            }
+
+            // proceed to next pitch class
+            fMid *= fQuarterToneRatio * fQuarterToneRatio;
+        }
+    }
+
+    const int m_iNumPitchClasses = 12;
+
+    const float m_fA4 = 440.F;
+    int m_iNumOctaves = 4;
+
+    float** m_ppfH = 0;
+};
+
 class CFeatureSpectralRolloff : public CFeatureFromBlockIf
 {
 public:
@@ -607,13 +893,13 @@ Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, Feature_t 
         pCInstance = new CFeatureSpectralFlux(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    //case kFeatureSpectralMfccs:
-    //    pCInstance = new CFeatureSpectralMfccs(eFeatureIdx, iDataLength, fSampleRate);
-    //    break;
+    case kFeatureSpectralMfccs:
+        pCInstance = new CFeatureSpectralMfccs(eFeatureIdx, iDataLength, fSampleRate);
+        break;
 
-    //case kFeatureSpectralPitchChroma:
-    //    pCInstance = new CFeatureSpectralPitchChroma(eFeatureIdx, iDataLength, fSampleRate);
-    //    break;
+    case kFeatureSpectralPitchChroma:
+        pCInstance = new CFeatureSpectralPitchChroma(eFeatureIdx, iDataLength, fSampleRate);
+        break;
 
     case kFeatureSpectralRolloff:
         pCInstance = new CFeatureSpectralRolloff(eFeatureIdx, iDataLength, fSampleRate);
@@ -670,7 +956,7 @@ bool CFeatureFromBlockIf::hasAdditionalParam() const
     return false;
 }
 
-Error_t CFeatureFromBlockIf::setAdditionalParam(float /*fParamvalue*/)
+Error_t CFeatureFromBlockIf::setAdditionalParam(float /*fParamValue*/)
 {
     // default: setting a parameter that doesn't exist
     return Error_t::kFunctionIllegalCallError;

@@ -75,7 +75,7 @@ public:
     * \param fParamValue new parameter value
     \return bool
     */
-    virtual Error_t setAdditionalParam(float fParamvalue);
+    virtual Error_t setAdditionalParam(float fParamValue);
 
 
     ////////////////////////////////////////////////////////////////////////////
@@ -102,7 +102,7 @@ public:
 
 protected:
     CFeatureFromBlockIf() {};
-    CFeatureFromBlockIf(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : m_eFeatureIdx(eFeatureIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) {};
+    CFeatureFromBlockIf(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : m_eFeatureIdx(eFeatureIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) {assert(iDataLength > 0);};
     virtual ~CFeatureFromBlockIf() {};
     CFeatureFromBlockIf(const CFeatureFromBlockIf& that);
 
