@@ -1,8 +1,8 @@
 #if !defined(__LowPass_hdr__)
 #define __LowPass_hdr__
 
-#include <map>
-#include <functional>
+#define _USE_MATH_DEFINES
+#include <cmath>
 
 #include "RingBuffer.h"
 #include "ErrorDef.h"
@@ -62,6 +62,7 @@ public:
     /*! performs the SinglePoleLp computation
     \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
     \param pfInput input data of length iLengthOfBuffer
+    return Error_t
     */
     Error_t process(float* pfOutput, const float* pfInput, int iLengthOfBuffer)
     {
@@ -89,7 +90,20 @@ public:
         return Error_t::kNoError;
     }
 
- 
+    /*! compute the filter coeff from an "integration time"
+    \param fIntegrationTimeInS integration time in seconds (the higher, the more low pass)
+    \param fSampleRate sample rate in Hz
+    return float alpha
+    */
+    static float calcFilterParam(float fIntegrationTimeInS, float fSampleRate)
+    {
+        assert(fSampleRate > 0);
+        assert(fIntegrationTimeInS >= 0);
+        if (fIntegrationTimeInS == 0)
+            return 0.F;
+
+        return std::exp(-2.2F / fSampleRate / fIntegrationTimeInS);
+    }
 private:
     CSinglePoleLp() {};
     virtual ~CSinglePoleLp() {};

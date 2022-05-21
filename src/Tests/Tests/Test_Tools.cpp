@@ -209,6 +209,10 @@ TEST_F(ToolsSinglePole, Process)
             EXPECT_NEAR(1.F - std::pow(m_pCLowPass->getFilterParam(), i + 1), m_pfOut[i], 1e-6F);
         }
     }
+    EXPECT_EQ(true, 0 < CSinglePoleLp::calcFilterParam(0.1, 48000));
+    EXPECT_NEAR(0.F, 0 < CSinglePoleLp::calcFilterParam(0, 48000), 1e-3F);
+    EXPECT_NEAR(1.F, 0 < CSinglePoleLp::calcFilterParam(1000000, 48000), 1e-6F);
+
 }
 
 TEST_F(ToolsMovingAverage, Api)
@@ -249,7 +253,7 @@ TEST_F(ToolsMovingAverage, Process)
 
     for (auto c = 0; c < 10; c++)
     {
-        int iLength = c * 10.F + 2;
+        int iLength = c * 10 + 2;
         m_pCLowPass->reset();
         m_pCLowPass->setFilterParam(iLength);
         for (auto i = 0; i < iLength; i++)
