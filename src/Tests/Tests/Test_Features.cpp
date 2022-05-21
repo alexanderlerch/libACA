@@ -5,6 +5,7 @@
 #include "Vector.h"
 #include "Synthesis.h"
 #include "ToolConversion.h"
+#include "ToolLowPass.h"
 
 #include "FeatureFromBlock.h"
 
@@ -49,7 +50,7 @@ namespace {
         {
             m_pfInput = new float[m_iBufferLength];
             CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
-            m_pfInput[m_iBufferLength / 2] = 2;
+            //m_pfInput[m_iBufferLength / 2] = 2;
         }
 
         virtual void TearDown()
@@ -419,17 +420,14 @@ TEST_F(FeaturesClass, Api)
 
 TEST_F(FeaturesClass, FeatureCalc)
 {
+    m_fSampleRate = 16000.F;
     for (auto k = 0; k < CFeatureFromBlockIf::kNumFeatures; k++)
     {
-        //implement me later
-        if (k == CFeatureFromBlockIf::kFeatureSpectralMfccs ||
-            k == CFeatureFromBlockIf::kFeatureSpectralPitchChroma)
-            continue;
-
         float fResult = 0;
         EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, static_cast<CFeatureFromBlockIf::Feature_t>(k), m_iBufferLength, m_fSampleRate));
-        EXPECT_EQ(1, pCInstance->getFeatureDimensions());
-        EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+        EXPECT_EQ(true, pCInstance->getFeatureDimensions() >= 1);
+        if (pCInstance->getFeatureDimensions() == 1)
+            EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
         EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(pCInstance));
     }
 }
@@ -496,8 +494,8 @@ TEST_F(FeaturesClass, SpectralPitchChroma)
     }
     EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(afResult[9], CVectorFloat::getMax(afResult, 12), 1e-6F);
-    EXPECT_EQ(true, afResult[1] > 0, 1e-6F);
-    EXPECT_EQ(true, afResult[4] > 0, 1e-6F);
+    EXPECT_EQ(true, afResult[1] > 0);
+    EXPECT_EQ(true, afResult[4] > 0);
     EXPECT_NEAR(1.F, CVectorFloat::getSum(afResult, 12), 1e-6F);
 }
 
@@ -519,7 +517,71 @@ TEST_F(FeaturesClass, SpectralMfccs)
     EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(0.F, CVectorFloat::getMean(&afResult[1], 12), 1e-6F);
     EXPECT_EQ(afResult[0], CVectorFloat::getMin(afResult, 13));
-    EXPECT_EQ(true, afResult[0] < -100, 1e-6F);
+    EXPECT_EQ(true, afResult[0] < -100);
+}
+
+TEST_F(FeaturesClass, TimeRms)
+{
+    float afResult[2] = { 0,0 };
+    m_fSampleRate = 32000;
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureTimeRms, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(2, pCInstance->getFeatureDimensions());
+
+    // zeros
+    CVectorFloat::setZero(m_pfInput, m_iBufferLength);
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_NEAR(0.F, afResult[1], 1e-6F);
+
+    // ones
+    float fTmp = 0;
+    CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
+    for (auto n = 0; n < 2000; n++)
+    {
+        EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        EXPECT_EQ(true, fTmp <= afResult[1]);
+        fTmp = afResult[1];
+    }
+    EXPECT_NEAR(1.F, afResult[1], 1e-4F);
+
+    // zeros
+    CVectorFloat::setZero(m_pfInput, m_iBufferLength);
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    float fAlpha = CSinglePoleLp::calcFilterParam(.3F, m_fSampleRate);
+    EXPECT_NEAR(std::sqrt(fAlpha), afResult[1], 1e-4F);
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_NEAR(std::pow(fAlpha, m_iBufferLength/2.), afResult[1], 1e-3F);
+}
+
+TEST_F(FeaturesClass, TimePeakEnvelope)
+{
+    float afResult[2] = { 0,0 };
+    m_fSampleRate = 32000;
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureTimePeakEnvelope, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(2, pCInstance->getFeatureDimensions());
+
+    // zeros
+    CVectorFloat::setZero(m_pfInput, m_iBufferLength);
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_NEAR(0.F, afResult[1], 1e-6F);
+
+    // ones
+    float fTmp = 0;
+    CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
+    for (auto n = 0; n < 2000; n++)
+    {
+        EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        EXPECT_EQ(true, fTmp <= afResult[1]);
+        fTmp = afResult[1];
+    }
+    EXPECT_NEAR(1.F, afResult[1], 1e-4F);
+
+    // zeros
+    CVectorFloat::setZero(m_pfInput, m_iBufferLength);
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    float fAlpha = CSinglePoleLp::calcFilterParam(1.5F, m_fSampleRate);
+    EXPECT_NEAR(fAlpha, afResult[1], 1e-4F);
+    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_NEAR(std::pow(fAlpha, m_iBufferLength), afResult[1], 1e-3F);
 }
 
 

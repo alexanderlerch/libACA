@@ -4,6 +4,7 @@
 
 #include "ToolConversion.h"
 #include "ToolCcf.h"
+#include "ToolLowPass.h"
 
 #include "FeatureFromBlock.h"
 
@@ -347,7 +348,7 @@ public:
 
 private:
     CFeatureSpectralFlux() {};
-    CFeatureSpectralFlux(const CFeatureSpectralFlux& that);
+    CFeatureSpectralFlux(const CFeatureSpectralFlux& that);     //!< disallow copy construction
 
     float* m_pfPrevSpec = 0;
 };
@@ -423,7 +424,7 @@ public:
     }
 private:
     CFeatureSpectralMfccs() {};
-    CFeatureSpectralMfccs(const CFeatureSpectralMfccs& that);
+    CFeatureSpectralMfccs(const CFeatureSpectralMfccs& that);     //!< disallow copy construction  
 
     void genMfccFilters_()
     {
@@ -591,7 +592,7 @@ public:
     }
 private:
     CFeatureSpectralPitchChroma() {};
-    CFeatureSpectralPitchChroma(const CFeatureSpectralPitchChroma& that);
+    CFeatureSpectralPitchChroma(const CFeatureSpectralPitchChroma& that);     //!< disallow copy construction
 
     void genPcFilters_()
     {
@@ -668,7 +669,6 @@ public:
 
 private:
     CFeatureSpectralRolloff() {};
-    CFeatureSpectralRolloff(const CFeatureSpectralRolloff& that);
 
     float m_fKappa = 0.85F;
 };
@@ -704,28 +704,8 @@ public:
 
 private:
     CFeatureSpectralTonalPowerRatio() {};
-    CFeatureSpectralTonalPowerRatio(const CFeatureSpectralTonalPowerRatio& that);
 
     float m_fThresh = 5e-4F;
-};
-
-class CFeatureTimePeakEnvelope : public CFeatureFromBlockIf
-{
-public:
-    CFeatureTimePeakEnvelope(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) {};
-
-    virtual ~CFeatureTimePeakEnvelope() {};
-
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
-    {
-        *pfFeature = compFeatureTimePeakEnvelope(pfInput, m_iDataLength, m_fSampleRate);
-
-        return Error_t::kNoError;
-    };
-
-private:
-    CFeatureTimePeakEnvelope() {};
-    CFeatureTimePeakEnvelope(const CFeatureTimePeakEnvelope& that);
 };
 
 class CFeatureTimeAcfCoeff : public CFeatureFromBlockIf
@@ -759,7 +739,6 @@ public:
 
 private:
     CFeatureTimeAcfCoeff() {};
-    CFeatureTimeAcfCoeff(const CFeatureTimeAcfCoeff& that);
 
     int m_iEta = 19;
 };
@@ -838,7 +817,7 @@ public:
 
 private:
     CFeatureTimeMaxAcf() {};
-    CFeatureTimeMaxAcf(const CFeatureTimeMaxAcf& that);
+    CFeatureTimeMaxAcf(const CFeatureTimeMaxAcf& that);     //!< disallow copy construction
 
     CCcf *m_pCCcf = 0;
     float* m_pfAcf = 0;
@@ -846,23 +825,144 @@ private:
     float m_fMax = 2000.F;
 };
 
-class CFeatureTimeRms : public CFeatureFromBlockIf
+class CFeatureTimePeakEnvelope : public CFeatureFromBlockIf
 {
 public:
-    CFeatureTimeRms(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) {};
+    CFeatureTimePeakEnvelope(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
+    {
+        for (auto i = 0; i < kNumPpmFilters; i++)
+            m_afAlpha[i] = CSinglePoleLp::calcFilterParam(m_afIntegrationTimeInS[i], fSampleRate);
+    };
 
-    virtual ~CFeatureTimeRms() {};
+    virtual ~CFeatureTimePeakEnvelope() {};
 
     Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
     {
-        *pfFeature = compFeatureTimeRms(pfInput, m_iDataLength, m_fSampleRate);
+        pfFeature[kBlock] = compFeatureTimePeakEnvelope(pfInput, m_iDataLength, m_fSampleRate);
+
+        pfFeature[kPpmMax] = 0;
+        for (auto i = 0; i < m_iDataLength; i++)
+        {
+            float fOut = ppm_I(pfInput[i]);
+            if (fOut > pfFeature[kPpmMax])
+                pfFeature[kPpmMax] = fOut;
+        }
 
         return Error_t::kNoError;
     };
 
+    int getFeatureDimensions() const
+    {
+        return kNumPeakTypes;
+    }
+
 private:
+    CFeatureTimePeakEnvelope() {};
+
+    enum PeakType_t
+    {
+        kBlock,
+        kPpmMax,
+
+        kNumPeakTypes
+    };
+
+    enum PpmFilters_t
+    {
+        kAttack,
+        kRelease,
+
+        kNumPpmFilters
+    };
+
+    float ppm_I(float fIn)
+    {
+        float fOut = 0;
+
+        fIn = std::abs(fIn);
+
+        if (m_fFilterBuff > fIn)
+            fOut = m_afAlpha[kRelease] * m_fFilterBuff;
+        else
+            fOut = (1.F - m_afAlpha[kAttack]) * fIn + m_afAlpha[kAttack] * m_fFilterBuff;
+
+        m_fFilterBuff = fOut;
+
+        return fOut;
+    }
+
+    float m_afIntegrationTimeInS[kNumPpmFilters] = { .01F, 1.5F };
+    float m_afAlpha[kNumPpmFilters] = { 0,0 };
+    float m_fFilterBuff = 0.F;
+};
+
+class CFeatureTimeRms : public CFeatureFromBlockIf
+{
+public:
+    CFeatureTimeRms(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) 
+    {
+        CSinglePoleLp::create(m_pCSinglePole);
+        m_pCSinglePole->setFilterParam(CSinglePoleLp::calcFilterParam(m_fIntegrationTimeInS, fSampleRate));
+    };
+
+    virtual ~CFeatureTimeRms() 
+    {
+        CSinglePoleLp::destroy(m_pCSinglePole);
+    };
+
+    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    {
+        pfFeature[kBlock] = compFeatureTimeRms(pfInput, m_iDataLength, m_fSampleRate);
+        
+        // do inefficient sample based processing so we don't have to alloc memory
+        pfFeature[kLowpass] = 0;
+        for (auto i = 0; i < m_iDataLength; i++)
+        {
+            float fIn = pfInput[i] * pfInput[i];
+            float fOut = 0;
+            m_pCSinglePole->process(&fOut, &fIn, 1);
+            if (fOut > pfFeature[kLowpass])
+                pfFeature[kLowpass] = fOut;
+        }
+        pfFeature[kLowpass] = std::sqrt(pfFeature[kLowpass]);
+
+        return Error_t::kNoError;
+    };
+
+    int getFeatureDimensions() const
+    {
+        return kNumRmsTypes;
+    }
+
+    bool hasAdditionalParam() const override
+    {
+        return true;
+    }
+
+    Error_t setAdditionalParam(float fParamValue) override
+    {
+        if (fParamValue <= 0)
+            return Error_t::kNoError;
+
+        m_fIntegrationTimeInS = fParamValue;
+
+        return Error_t::kNoError;
+    }
+
+private:
+    enum RmsType_t
+    {
+        kBlock,
+        kLowpass,
+
+        kNumRmsTypes
+    };
     CFeatureTimeRms() {};
-    CFeatureTimeRms(const CFeatureTimeRms& that);
+    CFeatureTimeRms(const CFeatureTimeRms& that);     //!< disallow copy construction   
+
+    CSinglePoleLp* m_pCSinglePole = 0;
+
+    float m_fIntegrationTimeInS = .3F;
 };
 
 ///////////////////////////////////////////////////////////////////
