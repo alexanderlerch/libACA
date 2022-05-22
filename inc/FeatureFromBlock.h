@@ -4,6 +4,8 @@
 #include <map>
 #include <functional>
 
+#include "Feature.h"
+
 #include "ErrorDef.h"
 
 
@@ -12,32 +14,6 @@
 class CFeatureFromBlockIf
 {
 public:
-    /*! \brief enum to index all features
-    */
-    enum Feature_t
-    {
-        kFeatureSpectralCentroid,
-        kFeatureSpectralCrestFactor,
-        kFeatureSpectralDecrease,
-        kFeatureSpectralFlatness,
-        kFeatureSpectralFlux,
-        kFeatureSpectralKurtosis,
-        kFeatureSpectralMfccs,
-        kFeatureSpectralPitchChroma,
-        kFeatureSpectralRolloff,
-        kFeatureSpectralSkewness,
-        kFeatureSpectralSlope,
-        kFeatureSpectralSpread,
-        kFeatureSpectralTonalPowerRatio,
-        kFeatureTimeAcfCoeff,
-        kFeatureTimeMaxAcf,
-        kFeatureTimePeakEnvelope,
-        kFeatureTimeRms,
-        kFeatureTimeStd,
-        kFeatureTimeZeroCrossingRate,
-
-        kNumFeatures
-    };
 
     /*! initializes a FeatureFromBlock instance with file reading
     \param pCInstance pointer to instance to be written
@@ -46,7 +22,7 @@ public:
     \param fSampleRate: sample rate (only used when needed)
     \return Error_t
     */
-    static Error_t create(CFeatureFromBlockIf*& pCInstance, Feature_t eFeatureIdx, int iDataLength, float fSampleRate = 1.F);
+    static Error_t create(CFeatureFromBlockIf*& pCInstance, CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate = 1.F);
 
     /*! destroys a FeatureFromBlock instance
     \param pCInstance pointer to instance to be destroyed
@@ -102,7 +78,7 @@ public:
 
 protected:
     CFeatureFromBlockIf() {};
-    CFeatureFromBlockIf(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : m_eFeatureIdx(eFeatureIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) {assert(iDataLength > 0);};
+    CFeatureFromBlockIf(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : m_eFeatureIdx(eFeatureIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) {assert(iDataLength > 0);};
     virtual ~CFeatureFromBlockIf() {};
     CFeatureFromBlockIf(const CFeatureFromBlockIf& that);
 
@@ -110,21 +86,21 @@ protected:
 
     float m_fSampleRate = 0;                    //!< sample rate
 
-    Feature_t m_eFeatureIdx = kNumFeatures;     //!< index of feature to extract
+    CFeatureIf::Feature_t m_eFeatureIdx = CFeatureIf::kNumFeatures;     //!< index of feature to extract
 
     // dispatcher map for static functions without additional arguments
-    const std::map<Feature_t, std::function<float(const float*, int, float)>> m_DispatchMap
+    const std::map<CFeatureIf::Feature_t, std::function<float(const float*, int, float)>> m_DispatchMap
     {
-            {kFeatureSpectralCentroid, &compFeatureSpectralCentroid},
-            {kFeatureSpectralCrestFactor, &compFeatureSpectralCrestFactor},
-            {kFeatureSpectralDecrease, &compFeatureSpectralDecrease},
-            {kFeatureSpectralFlatness, &compFeatureSpectralFlatness},
-            {kFeatureSpectralKurtosis, &compFeatureSpectralKurtosis},
-            {kFeatureSpectralSkewness, &compFeatureSpectralSkewness},
-            {kFeatureSpectralSlope, &compFeatureSpectralSlope},
-            {kFeatureSpectralSpread, &compFeatureSpectralSpread},
-            {kFeatureTimeStd, &compFeatureTimeStd},
-            {kFeatureTimeZeroCrossingRate, &compFeatureTimeZeroCrossingRate}
+            {CFeatureIf::kFeatureSpectralCentroid, &compFeatureSpectralCentroid},
+            {CFeatureIf::kFeatureSpectralCrestFactor, &compFeatureSpectralCrestFactor},
+            {CFeatureIf::kFeatureSpectralDecrease, &compFeatureSpectralDecrease},
+            {CFeatureIf::kFeatureSpectralFlatness, &compFeatureSpectralFlatness},
+            {CFeatureIf::kFeatureSpectralKurtosis, &compFeatureSpectralKurtosis},
+            {CFeatureIf::kFeatureSpectralSkewness, &compFeatureSpectralSkewness},
+            {CFeatureIf::kFeatureSpectralSlope, &compFeatureSpectralSlope},
+            {CFeatureIf::kFeatureSpectralSpread, &compFeatureSpectralSpread},
+            {CFeatureIf::kFeatureTimeStd, &compFeatureTimeStd},
+            {CFeatureIf::kFeatureTimeZeroCrossingRate, &compFeatureTimeZeroCrossingRate}
     };
 };
 

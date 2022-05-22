@@ -325,7 +325,7 @@ float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* pfSample
 class CFeatureSpectralFlux : public CFeatureFromBlockIf
 {
 public:
-    CFeatureSpectralFlux(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
+    CFeatureSpectralFlux(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         m_pfPrevSpec = new float[m_iDataLength];
         CVectorFloat::setZero(m_pfPrevSpec, m_iDataLength);
@@ -356,7 +356,7 @@ private:
 class CFeatureSpectralMfccs : public CFeatureFromBlockIf
 {
 public:
-    CFeatureSpectralMfccs(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
+    CFeatureSpectralMfccs(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         // alloc transfer function memory
         m_ppfH = new float* [m_iNumBands];
@@ -403,17 +403,17 @@ public:
     };
 
 
-    int getFeatureDimensions() const
+    int getFeatureDimensions() const override
     {
         return m_iNumMfcCoeffs;
     }
 
-    bool hasAdditionalParam() const
+    bool hasAdditionalParam() const override
     {
         return true;
     }
 
-    Error_t setAdditionalParam(float fParamValue)
+    Error_t setAdditionalParam(float fParamValue) override
     {
         if (fParamValue <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -522,7 +522,7 @@ private:
 class CFeatureSpectralPitchChroma : public CFeatureFromBlockIf
 {
 public:
-    CFeatureSpectralPitchChroma(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
+    CFeatureSpectralPitchChroma(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         // alloc transfer function memory
         m_ppfH = new float* [m_iNumPitchClasses];
@@ -568,17 +568,17 @@ public:
     };
 
 
-    int getFeatureDimensions() const
+    int getFeatureDimensions() const override
     {
         return m_iNumPitchClasses;
     }
 
-    bool hasAdditionalParam() const
+    bool hasAdditionalParam() const override
     {
         return true;
     }
 
-    Error_t setAdditionalParam(float fParamValue)
+    Error_t setAdditionalParam(float fParamValue) override
     {
         if (fParamValue <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -614,7 +614,7 @@ private:
             for (auto o = 0; o < m_iNumOctaves; o++)
             {
                 // get indices from freqs
-                int aiBoundIdx[2] = { static_cast<int>(CConversion::convertFreq2Bin(afBoundFreqs[0], (m_iDataLength - 1) * 2, m_fSampleRate)) + 1,
+                const int aiBoundIdx[2] = { static_cast<int>(CConversion::convertFreq2Bin(afBoundFreqs[0], (m_iDataLength - 1) * 2, m_fSampleRate)) + 1,
                     static_cast<int>(CConversion::convertFreq2Bin(afBoundFreqs[1], (m_iDataLength - 1) * 2, m_fSampleRate)) };
 
                 // set transfer function
@@ -641,7 +641,7 @@ private:
 class CFeatureSpectralRolloff : public CFeatureFromBlockIf
 {
 public:
-    CFeatureSpectralRolloff(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) {};
+    CFeatureSpectralRolloff(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) {};
 
     virtual ~CFeatureSpectralRolloff() {};
 
@@ -676,7 +676,7 @@ private:
 class CFeatureSpectralTonalPowerRatio : public CFeatureFromBlockIf
 {
 public:
-    CFeatureSpectralTonalPowerRatio(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) {};
+    CFeatureSpectralTonalPowerRatio(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) {};
 
     virtual ~CFeatureSpectralTonalPowerRatio() {};
 
@@ -711,7 +711,7 @@ private:
 class CFeatureTimeAcfCoeff : public CFeatureFromBlockIf
 {
 public:
-    CFeatureTimeAcfCoeff(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) {};
+    CFeatureTimeAcfCoeff(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) {};
 
     virtual ~CFeatureTimeAcfCoeff() {};
 
@@ -746,7 +746,7 @@ private:
 class CFeatureTimeMaxAcf : public CFeatureFromBlockIf
 {
 public:
-    CFeatureTimeMaxAcf(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
+    CFeatureTimeMaxAcf(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         m_pCCcf = new CCcf();
         m_pCCcf->init(iDataLength);
@@ -828,7 +828,7 @@ private:
 class CFeatureTimePeakEnvelope : public CFeatureFromBlockIf
 {
 public:
-    CFeatureTimePeakEnvelope(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
+    CFeatureTimePeakEnvelope(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         for (auto i = 0; i < kNumPpmFilters; i++)
             m_afAlpha[i] = CSinglePoleLp::calcFilterParam(m_afIntegrationTimeInS[i], fSampleRate);
@@ -851,7 +851,7 @@ public:
         return Error_t::kNoError;
     };
 
-    int getFeatureDimensions() const
+    int getFeatureDimensions() const override
     {
         return kNumPeakTypes;
     }
@@ -899,7 +899,7 @@ private:
 class CFeatureTimeRms : public CFeatureFromBlockIf
 {
 public:
-    CFeatureTimeRms(Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate) 
+    CFeatureTimeRms(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         CSinglePoleLp::create(m_pCSinglePole);
         m_pCSinglePole->setFilterParam(CSinglePoleLp::calcFilterParam(m_fIntegrationTimeInS, fSampleRate));
@@ -929,7 +929,7 @@ public:
         return Error_t::kNoError;
     };
 
-    int getFeatureDimensions() const
+    int getFeatureDimensions() const override
     {
         return kNumRmsTypes;
     }
@@ -967,7 +967,7 @@ private:
 
 ///////////////////////////////////////////////////////////////////
 // normal member functions
-Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, Feature_t eFeatureIdx, int iDataLength, float fSampleRate)
+Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate)
 {
     if (iDataLength <= 0 || fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -976,52 +976,52 @@ Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, Feature_t 
     switch (eFeatureIdx)
     {
     default:
-    case kFeatureSpectralCentroid:
-    case kFeatureSpectralCrestFactor:
-    case kFeatureSpectralDecrease:
-    case kFeatureSpectralFlatness:
-    case kFeatureSpectralKurtosis:
-    case kFeatureSpectralSkewness:
-    case kFeatureSpectralSlope:
-    case kFeatureSpectralSpread:
-    case kFeatureTimeStd:
-    case kFeatureTimeZeroCrossingRate:
+    case CFeatureIf::kFeatureSpectralCentroid:
+    case CFeatureIf::kFeatureSpectralCrestFactor:
+    case CFeatureIf::kFeatureSpectralDecrease:
+    case CFeatureIf::kFeatureSpectralFlatness:
+    case CFeatureIf::kFeatureSpectralKurtosis:
+    case CFeatureIf::kFeatureSpectralSkewness:
+    case CFeatureIf::kFeatureSpectralSlope:
+    case CFeatureIf::kFeatureSpectralSpread:
+    case CFeatureIf::kFeatureTimeStd:
+    case CFeatureIf::kFeatureTimeZeroCrossingRate:
         pCInstance = new CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureSpectralFlux:
+    case CFeatureIf::kFeatureSpectralFlux:
         pCInstance = new CFeatureSpectralFlux(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureSpectralMfccs:
+    case CFeatureIf::kFeatureSpectralMfccs:
         pCInstance = new CFeatureSpectralMfccs(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureSpectralPitchChroma:
+    case CFeatureIf::kFeatureSpectralPitchChroma:
         pCInstance = new CFeatureSpectralPitchChroma(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureSpectralRolloff:
+    case CFeatureIf::kFeatureSpectralRolloff:
         pCInstance = new CFeatureSpectralRolloff(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureSpectralTonalPowerRatio:
+    case CFeatureIf::kFeatureSpectralTonalPowerRatio:
         pCInstance = new CFeatureSpectralTonalPowerRatio(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureTimeAcfCoeff:
+    case CFeatureIf::kFeatureTimeAcfCoeff:
         pCInstance = new CFeatureTimeAcfCoeff(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureTimeMaxAcf:
+    case CFeatureIf::kFeatureTimeMaxAcf:
         pCInstance = new CFeatureTimeMaxAcf(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureTimePeakEnvelope:
+    case CFeatureIf::kFeatureTimePeakEnvelope:
         pCInstance = new CFeatureTimePeakEnvelope(eFeatureIdx, iDataLength, fSampleRate);
         break;
 
-    case kFeatureTimeRms:
+    case CFeatureIf::kFeatureTimeRms:
         pCInstance = new CFeatureTimeRms(eFeatureIdx, iDataLength, fSampleRate);
         break;
     }
@@ -1032,6 +1032,8 @@ Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, Feature_t 
 Error_t CFeatureFromBlockIf::destroy(CFeatureFromBlockIf*& pCInstance)
 {
     delete pCInstance;
+
+    pCInstance = 0;
 
     return Error_t::kNoError;
 }
