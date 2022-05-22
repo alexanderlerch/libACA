@@ -1,4 +1,3 @@
-#include "Spectrogram.h"
 
 #include "Util.h"
 #include "RingBuffer.h"

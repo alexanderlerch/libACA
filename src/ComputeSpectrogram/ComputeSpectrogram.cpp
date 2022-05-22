@@ -15,20 +15,20 @@ void    showClInfo();
 // main function
 int main(int argc, char* argv[])
 {
-    std::string sInputFilePath,                 //!< file paths
+    std::string sInputFilePath, //!< file paths
         sOutputFilePath;
 
-    int iBlockLength = 0,
-        iHopLength = 0;
-    int aiSpecGramDimensions[2] = { 0,0 };
+    int iBlockLength = 0, //!< block length in samples 
+        iHopLength = 0; //!< hop length in samples
+    int aiSpecGramDimensions[2] = { 0,0 }; //!< spectrogram number of rows and cols
 
     clock_t time = 0;
 
-    CSpectrogramIf* pCSpectrogram = 0;
+    CSpectrogramIf* pCSpectrogram = 0; //!< instance to extract the spectrogram
 
-    float** ppfSpectrogram = 0;
+    float** ppfSpectrogram = 0; //!< resulting spectrogram
 
-    std::fstream hOutputFile;
+    std::fstream hOutputFile; //!< output text file
 
     showClInfo();
 
@@ -123,9 +123,9 @@ int main(int argc, char* argv[])
 
 void     showClInfo()
 {
-    cout << "Demo Executable for Spectrogram Extraction" << endl;
+    cout << "ACA: Demo Executable for Spectrogram Extraction" << endl;
     cout << "(c) 2022 by Alexander Lerch" << endl;
-    cout << "Synopsis: ComputeSpectrogram inputfile [outputfile] [blocksize] [hopsize]" << endl;
+    cout << "Synopsis: ComputeSpectrogram inputwavfile [outputtxtfile] [blocksize] [hopsize]" << endl;
     cout << endl;
 
     return;
