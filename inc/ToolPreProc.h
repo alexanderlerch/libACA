@@ -46,7 +46,7 @@ public:
 class CNormalizeAudio
 {
 public:
-    CNormalizeAudio(CAudioFileIf* pCAudioFile) :
+    explicit CNormalizeAudio(CAudioFileIf* pCAudioFile) :
         m_fScaleFactor(1.F)
     {
         assert(pCAudioFile);

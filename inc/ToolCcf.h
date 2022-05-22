@@ -61,6 +61,7 @@ public:
     int getCcfMaxIdx(bool bIsAcf = false) const;
 
 private:
+    CCcf(const CCcf& that);     //!< disallow copy construction   
 
     bool m_bIsInitialized = false;  //!< true if init has been called
     bool m_bWasProcessed = false;   //!< true if process has been called

@@ -168,9 +168,9 @@ namespace {
 
 TEST_F(ToolsSinglePole, Api)
 {
-    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(-1));
-    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(1));
-    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(1.1));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(-1.F));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(1.F));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCLowPass->setFilterParam(1.1F));
 
     EXPECT_EQ(Error_t::kNoError, m_pCLowPass->reset());
 
@@ -209,7 +209,7 @@ TEST_F(ToolsSinglePole, Process)
             EXPECT_NEAR(1.F - std::pow(m_pCLowPass->getFilterParam(), i + 1), m_pfOut[i], 1e-6F);
         }
     }
-    EXPECT_EQ(true, 0 < CSinglePoleLp::calcFilterParam(0.1, 48000));
+    EXPECT_EQ(true, 0 < CSinglePoleLp::calcFilterParam(0.1F, 48000));
     EXPECT_NEAR(0.F, 0 < CSinglePoleLp::calcFilterParam(0, 48000), 1e-3F);
     EXPECT_NEAR(1.F, 0 < CSinglePoleLp::calcFilterParam(1000000, 48000), 1e-6F);
 

@@ -492,8 +492,8 @@ TEST_F(FeaturesClass, SpectralPitchChroma)
     EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralPitchChroma, 1000, m_fSampleRate));
     for (auto k = 0; k < 6; k++)
     {
-        m_pfInput[(k + 1) * k0] = 1.F / std::sqrt(k + 1);
-        fNorm += 1.F / std::sqrt(k + 1);
+        m_pfInput[(k + 1) * k0] = 1.F / std::sqrt(k + 1.F);
+        fNorm += 1.F / std::sqrt(k + 1.F);
     }
     EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(afResult[9], CVectorFloat::getMax(afResult, 12), 1e-6F);
