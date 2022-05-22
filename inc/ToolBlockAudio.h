@@ -7,7 +7,7 @@
 
 class CAudioFileIf; //!< forward declaration
 
-/*! \brief class for audio blocking, supports both and audio file or an audio buffer as source to block
+/*! \brief class for audio blocking, supports both an audio file or an audio buffer as source to block
 */
 class CBlockAudioIf
 {
