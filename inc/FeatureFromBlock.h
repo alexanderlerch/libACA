@@ -15,7 +15,7 @@ class CFeatureFromBlockIf
 {
 public:
 
-    /*! initializes a FeatureFromBlock instance with file reading
+    /*! initializes a FeatureFromBlock instance 
     \param pCInstance pointer to instance to be written
     \param eFeatureIdx index of Feature to extract
     \param iDataLength: block length
@@ -34,6 +34,14 @@ public:
     \return int
     */
     virtual int getFeatureDimensions() const;
+
+    /*! returns index of the feature to extract
+    \return CFeatureIf::Feature_t
+    */
+    CFeatureIf::Feature_t getFeatureIdx() const
+    {
+        return m_eFeatureIdx;
+    }
 
     /*! performs the FeatureFromBlock computation
     \param pfFeature feature result (user-allocated, to be written, length from CFeatureFromBlockIf::getFeatureDimensions)

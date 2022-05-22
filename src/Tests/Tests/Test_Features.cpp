@@ -44,14 +44,13 @@ namespace {
         int m_iBufferLength = 1025;
     };
 
-    class FeaturesClass : public testing::Test
+    class FeaturesBlockClass : public testing::Test
     {
     protected:
         void SetUp() override
         {
             m_pfInput = new float[m_iBufferLength];
             CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
-            //m_pfInput[m_iBufferLength / 2] = 2;
         }
 
         virtual void TearDown()
@@ -68,6 +67,33 @@ namespace {
         float m_fSampleRate = 1;
 
         int m_iBufferLength = 1025;
+    };
+
+    class FeaturesClass : public testing::Test
+    {
+    protected:
+        void SetUp() override
+        {
+            m_pfInput = new float[m_iBufferLength];
+            CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
+        }
+
+        virtual void TearDown()
+        {
+            CFeatureIf::destroy(m_pCInstance);
+
+            delete[] m_pfInput;
+        }
+
+        CFeatureIf* m_pCInstance = 0;
+
+        float* m_pfInput = 0;
+
+        float m_fSampleRate = 44100;
+
+        int m_iBlockLength = 1023,
+            m_iHopLength = 512,
+            m_iBufferLength = 96000;
     };
 }
 
@@ -409,7 +435,7 @@ TEST_F(FeaturesStatic, TimeZeroCrossingRate)
 }
 
 
-TEST_F(FeaturesClass, Api)
+TEST_F(FeaturesBlockClass, Api)
 {
     EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralCentroid, 0, m_fSampleRate));
     EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralCentroid, -1, m_fSampleRate));
@@ -421,7 +447,7 @@ TEST_F(FeaturesClass, Api)
     EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(m_pCInstance));
 }
 
-TEST_F(FeaturesClass, FeatureCalc)
+TEST_F(FeaturesBlockClass, FeatureCalc)
 {
     m_fSampleRate = 16000.F;
     for (auto k = 0; k < CFeatureIf::kNumFeatures; k++)
@@ -435,7 +461,7 @@ TEST_F(FeaturesClass, FeatureCalc)
     }
 }
 
-TEST_F(FeaturesClass, TimeMaxAcf)
+TEST_F(FeaturesBlockClass, TimeMaxAcf)
 {
     float fResult = 0;
     EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureTimeMaxAcf, m_iBufferLength, m_fSampleRate));
@@ -457,7 +483,7 @@ TEST_F(FeaturesClass, TimeMaxAcf)
     EXPECT_NEAR((1.F - eta / 1000.F), fResult, 1e-3F);
 }
 
-TEST_F(FeaturesClass, SpectralPitchChroma)
+TEST_F(FeaturesBlockClass, SpectralPitchChroma)
 {
     float afResult[12] = { 0,0,0,0,0,0,0,0,0,0,0,0 };
     m_fSampleRate = 32000;
@@ -502,7 +528,7 @@ TEST_F(FeaturesClass, SpectralPitchChroma)
     EXPECT_NEAR(1.F, CVectorFloat::getSum(afResult, 12), 1e-6F);
 }
 
-TEST_F(FeaturesClass, SpectralMfccs)
+TEST_F(FeaturesBlockClass, SpectralMfccs)
 {
     float afResult[13] = { 0,0,0,0,0,0,0,0,0,0,0,0,0 };
     m_fSampleRate = 32000;
@@ -523,7 +549,7 @@ TEST_F(FeaturesClass, SpectralMfccs)
     EXPECT_EQ(true, afResult[0] < -100);
 }
 
-TEST_F(FeaturesClass, TimeRms)
+TEST_F(FeaturesBlockClass, TimeRms)
 {
     float afResult[2] = { 0,0 };
     m_fSampleRate = 32000;
@@ -555,7 +581,7 @@ TEST_F(FeaturesClass, TimeRms)
     EXPECT_NEAR(std::pow(fAlpha, m_iBufferLength/2.), afResult[1], 1e-3F);
 }
 
-TEST_F(FeaturesClass, TimePeakEnvelope)
+TEST_F(FeaturesBlockClass, TimePeakEnvelope)
 {
     float afResult[2] = { 0,0 };
     m_fSampleRate = 32000;
@@ -585,6 +611,47 @@ TEST_F(FeaturesClass, TimePeakEnvelope)
     EXPECT_NEAR(fAlpha, afResult[1], 1e-4F);
     EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(std::pow(fAlpha, m_iBufferLength), afResult[1], 1e-3F);
+}
+
+
+TEST_F(FeaturesClass, Api)
+{
+    for (auto f = 0; f < CFeatureIf::kNumFeatures; f++)
+    {
+        int aiDim[2] = { 0,0 };
+        float** ppfFeature = 0;
+        EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(f), 0, m_iBufferLength, m_fSampleRate, m_iBlockLength, m_iHopLength));
+        EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(f), m_pfInput, 0, m_fSampleRate, m_iBlockLength, m_iHopLength));
+        EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(f), m_pfInput, -1, m_fSampleRate, m_iBlockLength, m_iHopLength));
+        EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(f), m_pfInput, m_iBufferLength, 0, m_iBlockLength, m_iHopLength));
+        EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(f), m_pfInput, m_iBufferLength, m_fSampleRate, 0, m_iHopLength));
+        EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(f), m_pfInput, m_iBufferLength, m_fSampleRate, m_iBlockLength, 0));
+
+        EXPECT_EQ(Error_t::kNoError, CFeatureIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(f), m_pfInput, m_iBufferLength, m_fSampleRate, m_iBlockLength, m_iHopLength));
+    
+        EXPECT_FALSE(m_pCInstance == 0);
+
+        EXPECT_EQ(Error_t::kNoError, m_pCInstance->getFeatureDimensions(aiDim[0], aiDim[1]));
+        EXPECT_EQ(true, aiDim[0] > 0); 
+        EXPECT_EQ(true, aiDim[1] > 0);
+
+        ppfFeature = new float*[aiDim[0]];
+        for (auto i = 0; i < aiDim[0]; i++)
+            ppfFeature[i] = new float[aiDim[1]];
+
+        EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCInstance->getFeature1Dim(0));
+        EXPECT_EQ(Error_t::kFunctionInvalidArgsError, m_pCInstance->getFeatureNDim(0));
+
+
+        EXPECT_EQ(Error_t::kNoError, CFeatureIf::destroy(m_pCInstance));
+        
+        if (ppfFeature)
+        {
+            for (auto i = 0; i < aiDim[0]; i++)
+                delete[] ppfFeature[i];
+        }
+        delete[] ppfFeature;
+    }
 }
 
 
