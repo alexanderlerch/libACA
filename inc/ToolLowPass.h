@@ -213,7 +213,10 @@ private:
     {
         reset();
     };
-    virtual ~CMovingAverage() {};
+    virtual ~CMovingAverage() 
+    {
+        delete m_pCRingBuff;
+    };
     CMovingAverage(const CMovingAverage& that);
 
     CRingBuffer<float>* m_pCRingBuff = new CRingBuffer<float>(65);

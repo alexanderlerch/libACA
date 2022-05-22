@@ -33,6 +33,7 @@ namespace {
 
         virtual void TearDown()
         {
+
             delete[] m_pfInput;
         }
 
@@ -55,10 +56,12 @@ namespace {
 
         virtual void TearDown()
         {
+            CFeatureFromBlockIf::destroy(m_pCInstance);
+
             delete[] m_pfInput;
         }
 
-        CFeatureFromBlockIf* pCInstance = 0;
+        CFeatureFromBlockIf* m_pCInstance = 0;
 
         float* m_pfInput = 0;
 
@@ -408,49 +411,49 @@ TEST_F(FeaturesStatic, TimeZeroCrossingRate)
 
 TEST_F(FeaturesClass, Api)
 {
-    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, 0, m_fSampleRate));
-    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, -1, m_fSampleRate));
-    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, m_iBufferLength, 0));
-    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, m_iBufferLength, -1));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralCentroid, 0, m_fSampleRate));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralCentroid, -1, m_fSampleRate));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralCentroid, m_iBufferLength, 0));
+    EXPECT_EQ(Error_t::kFunctionInvalidArgsError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralCentroid, m_iBufferLength, -1));
 
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralCentroid, m_iBufferLength, m_fSampleRate));
-    EXPECT_EQ(1, pCInstance->getFeatureDimensions());
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(pCInstance));
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralCentroid, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(1, m_pCInstance->getFeatureDimensions());
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(m_pCInstance));
 }
 
 TEST_F(FeaturesClass, FeatureCalc)
 {
     m_fSampleRate = 16000.F;
-    for (auto k = 0; k < CFeatureFromBlockIf::kNumFeatures; k++)
+    for (auto k = 0; k < CFeatureIf::kNumFeatures; k++)
     {
         float fResult = 0;
-        EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, static_cast<CFeatureFromBlockIf::Feature_t>(k), m_iBufferLength, m_fSampleRate));
-        EXPECT_EQ(true, pCInstance->getFeatureDimensions() >= 1);
-        if (pCInstance->getFeatureDimensions() == 1)
-            EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
-        EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(pCInstance));
+        EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(k), m_iBufferLength, m_fSampleRate));
+        EXPECT_EQ(true, m_pCInstance->getFeatureDimensions() >= 1);
+        if (m_pCInstance->getFeatureDimensions() == 1)
+            EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+        EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(m_pCInstance));
     }
 }
 
 TEST_F(FeaturesClass, TimeMaxAcf)
 {
     float fResult = 0;
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureTimeMaxAcf, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureTimeMaxAcf, m_iBufferLength, m_fSampleRate));
 
     // ones
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
     EXPECT_NEAR(fResult, 1.F, 1e-6F);
 
     // zeros
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
     EXPECT_NEAR(fResult, 0.F, 1e-6F);
 
     // sine wave
     int eta = 500;
     m_fSampleRate = 1000;
     CSynthesis::generateSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
     EXPECT_NEAR((1.F - eta / 1000.F), fResult, 1e-3F);
 }
 
@@ -458,41 +461,41 @@ TEST_F(FeaturesClass, SpectralPitchChroma)
 {
     float afResult[12] = { 0,0,0,0,0,0,0,0,0,0,0,0 };
     m_fSampleRate = 32000;
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralPitchChroma, m_iBufferLength, m_fSampleRate));
-    EXPECT_EQ(12, pCInstance->getFeatureDimensions());
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralPitchChroma, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(12, m_pCInstance->getFeatureDimensions());
 
     // ones
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(1.F, CVectorFloat::getSum(afResult, 12), 1e-6F);
     EXPECT_NEAR(1.F / 12.F, CVectorFloat::getMax(afResult, 12), 1e-6F);
     EXPECT_NEAR(1.F / 12.F, CVectorFloat::getMin(afResult, 12), 1e-6F);
 
     // zeros
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(0.F, CVectorFloat::getSum(afResult, 12), 1e-6F);
     EXPECT_NEAR(0.F, CVectorFloat::getMin(afResult, 12), 1e-6F);
 
     // sine 
     m_fSampleRate = 44000;
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(pCInstance));
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralPitchChroma, 1000, m_fSampleRate));
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(m_pCInstance));
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralPitchChroma, 1000, m_fSampleRate));
     m_pfInput[static_cast<int>(CConversion::convertFreq2Bin(440, 2000, m_fSampleRate))] = 1;
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(1.F, afResult[9], 1e-6F);
 
     // sine 
     float fNorm = 0;
     int k0 = static_cast<int>(CConversion::convertFreq2Bin(440, 2000, m_fSampleRate));
     m_fSampleRate = 44000;
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(pCInstance));
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralPitchChroma, 1000, m_fSampleRate));
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::destroy(m_pCInstance));
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralPitchChroma, 1000, m_fSampleRate));
     for (auto k = 0; k < 6; k++)
     {
         m_pfInput[(k + 1) * k0] = 1.F / std::sqrt(k + 1);
         fNorm += 1.F / std::sqrt(k + 1);
     }
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(afResult[9], CVectorFloat::getMax(afResult, 12), 1e-6F);
     EXPECT_EQ(true, afResult[1] > 0);
     EXPECT_EQ(true, afResult[4] > 0);
@@ -503,18 +506,18 @@ TEST_F(FeaturesClass, SpectralMfccs)
 {
     float afResult[13] = { 0,0,0,0,0,0,0,0,0,0,0,0,0 };
     m_fSampleRate = 32000;
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureSpectralMfccs, m_iBufferLength, m_fSampleRate));
-    EXPECT_EQ(13, pCInstance->getFeatureDimensions());
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralMfccs, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(13, m_pCInstance->getFeatureDimensions());
 
     // ones
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(0.F, CVectorFloat::getSum(&afResult[1], 12), 1e-2F);
     EXPECT_EQ(afResult[0], CVectorFloat::getMin(afResult, 13));
     EXPECT_NEAR(-7.55021658F, afResult[0], 1e-6F);
 
     // zeros
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(0.F, CVectorFloat::getMean(&afResult[1], 12), 1e-6F);
     EXPECT_EQ(afResult[0], CVectorFloat::getMin(afResult, 13));
     EXPECT_EQ(true, afResult[0] < -100);
@@ -524,12 +527,12 @@ TEST_F(FeaturesClass, TimeRms)
 {
     float afResult[2] = { 0,0 };
     m_fSampleRate = 32000;
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureTimeRms, m_iBufferLength, m_fSampleRate));
-    EXPECT_EQ(2, pCInstance->getFeatureDimensions());
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureTimeRms, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(2, m_pCInstance->getFeatureDimensions());
 
     // zeros
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(0.F, afResult[1], 1e-6F);
 
     // ones
@@ -537,7 +540,7 @@ TEST_F(FeaturesClass, TimeRms)
     CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
     for (auto n = 0; n < 2000; n++)
     {
-        EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
         EXPECT_EQ(true, fTmp <= afResult[1]);
         fTmp = afResult[1];
     }
@@ -545,10 +548,10 @@ TEST_F(FeaturesClass, TimeRms)
 
     // zeros
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     float fAlpha = CSinglePoleLp::calcFilterParam(.3F, m_fSampleRate);
     EXPECT_NEAR(std::sqrt(fAlpha), afResult[1], 1e-4F);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(std::pow(fAlpha, m_iBufferLength/2.), afResult[1], 1e-3F);
 }
 
@@ -556,12 +559,12 @@ TEST_F(FeaturesClass, TimePeakEnvelope)
 {
     float afResult[2] = { 0,0 };
     m_fSampleRate = 32000;
-    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(pCInstance, CFeatureFromBlockIf::kFeatureTimePeakEnvelope, m_iBufferLength, m_fSampleRate));
-    EXPECT_EQ(2, pCInstance->getFeatureDimensions());
+    EXPECT_EQ(Error_t::kNoError, CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureTimePeakEnvelope, m_iBufferLength, m_fSampleRate));
+    EXPECT_EQ(2, m_pCInstance->getFeatureDimensions());
 
     // zeros
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(0.F, afResult[1], 1e-6F);
 
     // ones
@@ -569,7 +572,7 @@ TEST_F(FeaturesClass, TimePeakEnvelope)
     CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
     for (auto n = 0; n < 2000; n++)
     {
-        EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
         EXPECT_EQ(true, fTmp <= afResult[1]);
         fTmp = afResult[1];
     }
@@ -577,10 +580,10 @@ TEST_F(FeaturesClass, TimePeakEnvelope)
 
     // zeros
     CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     float fAlpha = CSinglePoleLp::calcFilterParam(1.5F, m_fSampleRate);
     EXPECT_NEAR(fAlpha, afResult[1], 1e-4F);
-    EXPECT_EQ(Error_t::kNoError, pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+    EXPECT_EQ(Error_t::kNoError, m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
     EXPECT_NEAR(std::pow(fAlpha, m_iBufferLength), afResult[1], 1e-3F);
 }
 

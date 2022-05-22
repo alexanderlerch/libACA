@@ -131,7 +131,11 @@ TEST_F(Spectrogram, Values)
     EXPECT_NEAR(m_ppfSpecGram[116][10], 0, 1e-6F);
 
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
-    
+
+    for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
+        delete[] m_ppfSpecGram[k];
+    delete[] m_ppfSpecGram;
+
     m_f0 = 84;
     m_fs = 8192;
     m_iBlockLength = 1024;
@@ -152,6 +156,10 @@ TEST_F(Spectrogram, Values)
     EXPECT_NEAR(m_ppfSpecGram[10][10] - m_ppfSpecGram[11][10], 0, 1e-4F);
 
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
+
+    for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
+        delete[] m_ppfSpecGram[k];
+    delete[] m_ppfSpecGram;
 
     m_f0 = 4;
     m_fs = 16;
@@ -186,6 +194,11 @@ TEST_F(Spectrogram, Values)
     EXPECT_NEAR(m_ppfSpecGram[0][0], 0, 1e-6F);
 
     EXPECT_EQ(Error_t::kNoError, CSpectrogramIf::destroy(m_pCSpecGram));
+
+    for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
+        delete[] m_ppfSpecGram[k];
+    delete[] m_ppfSpecGram;
+    m_ppfSpecGram = 0;
 }
 
 TEST_F(Spectrogram, MelSpectrogram)
