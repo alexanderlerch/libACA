@@ -87,16 +87,7 @@ CSpectrogramFromVector::CSpectrogramFromVector(const float* pfAudio, long long i
 
 /////////////////////////////////////////////////////////////////////////////////
 // base class
-CSpectrogramIf::CSpectrogramIf() :
-    m_bIsInitialized(false),
-    m_pCFft(0),
-    m_pfSpectrum(0),
-    m_pfProcessBuff(0),
-    m_iBlockLength(0),
-    m_iHopLength(0),
-    m_fSampleRate(0),
-    m_pCNormalize(0),
-    m_pCBlockAudio(0)
+CSpectrogramIf::CSpectrogramIf()
 {
     reset_();
 }
