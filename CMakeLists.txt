@@ -32,14 +32,14 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set (PROJECT_DIRECTORIES)
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ACA) 
 
-list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeBeatHisto)       
-list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeChords)      
+#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeBeatHisto)       
+#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeChords)      
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFeature)       
-list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFingerprint)       
-list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeKey)       
+#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFingerprint)       
+#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeKey)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeMelSpectrogram)   
-list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeNoveltyFunction)       
-list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputePitch)       
+#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeNoveltyFunction)       
+#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputePitch)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeSpectrogram)   
 
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/AudioFileIO) 
@@ -79,6 +79,10 @@ if (WITH_TESTS)
     add_test(RingBuff ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=RingBuff*)
     add_test(Spectrogram ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=Spectrogram*)
     add_test(Tools ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec --gtest_filter=Tools*)
+
+    include(AddCppcheckTest)
+    add_cppcheck_test ()
+
 endif (WITH_TESTS)
 
 #######################################################################################################
