@@ -147,7 +147,7 @@ Error_t CSpectrogramIf::getSpectrogramDimensions(int& iNumRows, int& iNumCols) c
     }
 
     iNumRows = (m_iBlockLength >> 1) + 1;
-    iNumCols = m_pCBlockAudio->getNumBlocks();
+    iNumCols = static_cast<int>(m_pCBlockAudio->getNumBlocks());
 
     return Error_t::kNoError;
 }
@@ -300,7 +300,7 @@ Error_t CSpectrogramIf::getMelSpectrogramDimensions(int& iNumRows, int& iNumCols
     }
 
     iNumRows = pMelSpecConfig->iNumMelBins;
-    iNumCols = m_pCBlockAudio->getNumBlocks();
+    iNumCols = static_cast<int>(m_pCBlockAudio->getNumBlocks());
 
     return Error_t::kNoError;
 }

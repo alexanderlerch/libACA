@@ -148,7 +148,7 @@ Error_t CFeatureIf::getFeatureDimensions(int& iNumRows, int& iNumCols) const
     }
 
     iNumRows = m_pCFeature->getFeatureDimensions();
-    iNumCols = m_pCBlockAudio->getNumBlocks();
+    iNumCols = static_cast<int>(m_pCBlockAudio->getNumBlocks());
 
     return Error_t::kNoError;
 }

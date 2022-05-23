@@ -137,12 +137,12 @@ float CCcf::getCcfMax(bool bIsAcf) const
 int CCcf::getCcfMaxIdx(bool bIsAcf) const
 {
     if (!(m_bIsInitialized && m_bWasProcessed))
-        return -1.F;
+        return -1;
     float fMax = -1.F;
     long long iMax = -1;
     int iStartIdx = bIsAcf ? m_iBlockLength - 1 : 0;
     
     CVectorFloat::findMax(&m_apfData[1][iStartIdx], fMax, iMax, 2 * m_iBlockLength - 1 - iStartIdx);
 
-    return iMax;
+    return static_cast<int>(iMax);
 }
