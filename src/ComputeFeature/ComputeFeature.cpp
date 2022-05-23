@@ -1,3 +1,4 @@
+#include "ACAConfig.h"
 
 #include <iostream>
 #include <fstream>
@@ -43,7 +44,7 @@ int main(int argc, char* argv[])
     if (argc < 2)
     {
         cout << "Missing audio input path!" << endl;
-        cout << "Expected Synopsis: inputfile featurename [outputfile] [blocksize] [hopsize]" << endl;
+        cout << "Expected Synopsis: inputfile featurename [outputtxtfile] [blocksize] [hopsize]" << endl;
         return -1;
     }
     else
@@ -134,7 +135,7 @@ int main(int argc, char* argv[])
 
 void     showClInfo()
 {
-    cout << "ACA: Demo Executable for Feature Extraction" << endl;
+    cout << "ACA v" << ACA_VERSION_MAJOR << "." << ACA_VERSION_MINOR << "." << ACA_VERSION_PATCH << ": Demo Executable for Feature Extraction" << endl;
     cout << "(c) 2022 by Alexander Lerch" << endl;
     cout << "Synopsis: ComputeSpectrogram inputwavfile featurename [outputtxtfile] [blocksize] [hopsize]" << endl;
     cout << endl;
