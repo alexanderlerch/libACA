@@ -11,6 +11,11 @@ file(GLOB SNDLIB_SOURCES RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} ../../3rdpa
 file(GLOB ${CurrLib}_HEADERS RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} *.h;../inc/*.h)
 file(GLOB SNDLIB_HEADERS RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} ../../3rdparty/sndlib/*.h)
 
+#remove mains
+list(REMOVE_ITEM SNDLIB_SOURCES RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} ../../3rdparty/sndlib/sndplay.c)
+list(REMOVE_ITEM SNDLIB_SOURCES RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} ../../3rdparty/sndlib/sndinfo.c)
+
+
 ## add include directories
 include_directories(${CMAKE_SOURCE_DIR}/3rdparty/sndlib)
 add_inc_directories ()
@@ -26,7 +31,8 @@ set_target_properties(${CurrLib} PROPERTIES PREFIX "lib")
 source_group("3rd Party" FILES ${SNDLIB_SOURCES} ${SNDLIB_HEADERS})
 
 if(MSVC)
-    set_target_properties(${CurrLib} PROPERTIES COMPILE_FLAGS "/W1 /DMUS_WINDOZE")
+    #set_target_properties(${CurrLib} PROPERTIES COMPILE_FLAGS "/W1 /DMUS_WINDOZE")
+    target_compile_options(${CurrLib} PRIVATE /W1 /DMUS_WINDOZE)
 endif(MSVC)
 
 if (APPLE)

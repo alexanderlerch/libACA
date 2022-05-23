@@ -1,13 +1,12 @@
 set (APP TestExec)
 
-set (TestLIB gtest)
+set (TestLIB catch2)
 
 set (AudioLIB AudioFileIO)
 set (AcaLIB Aca)
 
 
-list (APPEND PROJECT_INCLUDES ${CMAKE_SOURCE_DIR}/3rdparty/googletest/${TestLIB}/include)
-list (APPEND PROJECT_INCLUDES ${CMAKE_SOURCE_DIR}/3rdparty/googletest/${TestLIB})
+list (APPEND PROJECT_INCLUDES ${CMAKE_SOURCE_DIR}/3rdparty/${TestLIB})
 
 ##############################################################
 ## TestExec
@@ -26,11 +25,12 @@ add_inc_directories ()
 add_executable(${APP} ${${APP}_SOURCES} ${${APP}_HEADERS} ${${APP}_SOURCES_TEST} ${${APP}_HEADERS_TEST} ${HELPER_HEADERS})
 
 # link the libraries
-target_link_libraries(${APP} ${LIB} ${TestLIB} ${AcaLIB} ${AudioLIB} ${OS_LIBS})
+target_link_libraries(${APP} ${LIB}${AcaLIB} ${AudioLIB} ${OS_LIBS})
+
+if(MSVC)
+    target_compile_options(${APP} PRIVATE /W4 /WX)
+endif(MSVC)
 
 set_target_properties(${APP} PROPERTIES FOLDER Testing)
 source_group("Header Files\\Helpers" FILES ${HELPER_HEADERS})
-
-set_target_properties(gtest PROPERTIES FOLDER Testing)
-set_target_properties(gtest_main PROPERTIES FOLDER Testing)
 
