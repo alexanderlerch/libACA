@@ -32,7 +32,7 @@ source_group("3rd Party" FILES ${SNDLIB_SOURCES} ${SNDLIB_HEADERS})
 
 if(MSVC)
     #set_target_properties(${CurrLib} PROPERTIES COMPILE_FLAGS "/W1 /DMUS_WINDOZE")
-    target_compile_options(${CurrLib} PRIVATE /W1 /DMUS_WINDOZE)
+    target_compile_options(${CurrLib} PRIVATE /W1 /DMUS_WINDOZE /wd4273 /wd4090 /wd4047)
 endif(MSVC)
 
 if (APPLE)
