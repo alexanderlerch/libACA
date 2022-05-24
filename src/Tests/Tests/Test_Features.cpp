@@ -10,7 +10,7 @@
 #include "FeatureFromBlock.h"
 #include "catch.hpp"
 
-TEST_CASE("features (static functions)", "[FeaturesStatic]")
+TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 {
 
     float* m_pfInput = 0;
@@ -360,7 +360,7 @@ TEST_CASE("features (static functions)", "[FeaturesStatic]")
     delete[] m_pfInput;
 }
 
-TEST_CASE("features (class interface per block)", "[FeaturesBlockClass]")
+TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
 {
     CFeatureFromBlockIf* m_pCInstance = 0;
     float* m_pfInput = 0;
@@ -553,7 +553,7 @@ TEST_CASE("features (class interface per block)", "[FeaturesBlockClass]")
     delete[] m_pfInput;
 }
 
-TEST_CASE("features (per array)", "[FeaturesClass]")
+TEST_CASE("Features (per array)", "[FeaturesClass]")
 {
 
     CFeatureIf* m_pCInstance = 0;
