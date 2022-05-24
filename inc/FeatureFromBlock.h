@@ -90,11 +90,11 @@ protected:
     virtual ~CFeatureFromBlockIf() {};
     CFeatureFromBlockIf(const CFeatureFromBlockIf& that);
 
+    CFeatureIf::Feature_t m_eFeatureIdx = CFeatureIf::kNumFeatures;     //!< index of feature to extract
+
     int m_iDataLength = 0;                      //!< block length
 
     float m_fSampleRate = 0;                    //!< sample rate
-
-    CFeatureIf::Feature_t m_eFeatureIdx = CFeatureIf::kNumFeatures;     //!< index of feature to extract
 
     // dispatcher map for static functions without additional arguments
     const std::map<CFeatureIf::Feature_t, std::function<float(const float*, int, float)>> m_DispatchMap

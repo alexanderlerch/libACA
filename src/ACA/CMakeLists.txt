@@ -25,6 +25,8 @@ source_group("3rd Party" FILES ${3RDPARTY_SOURCES})
 
 if(MSVC)
     target_compile_options(${CurrLib} PRIVATE /W4 /WX)
+else (MSVC)
+    target_compile_options(${CurrLib} PRIVATE -Wall)
 endif(MSVC)
 
 target_link_libraries(${CurrLib} AudioFileIO)

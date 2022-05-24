@@ -111,8 +111,8 @@ class CBlockAudioBuffer : public CBlockAudioIf
 {
 public:
     CBlockAudioBuffer(const float* pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate) :
-        m_pfAudioData(0),
-        m_iCurrIdx(0)
+        m_iCurrIdx(0),
+        m_pfAudioData(0)
     {
         m_fSampleRate = fSampleRate;
 
@@ -166,8 +166,8 @@ public:
 private:
     CBlockAudioBuffer(const CBlockAudioBuffer& that);     //!< disallow copy construction   
     
-    long long m_iCurrIdx;
-    float* m_pfAudioData;
+    long long m_iCurrIdx = 0;
+    float* m_pfAudioData = 0;
 };
 
 
