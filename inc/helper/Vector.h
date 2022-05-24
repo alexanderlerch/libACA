@@ -123,7 +123,7 @@ public:
     \param fThresh threshold value
     \return void
     */
-    static inline void setZeroBelowThresh (float *pfSrcDest, long long int iLength, float fThresh)
+    static inline void setZeroBelowThresh (float *pfSrcDest, long long int iLength, float fThresh = 0.F)
     {
         CVector::setZeroBelowThresh(pfSrcDest, iLength, fThresh);
     }
