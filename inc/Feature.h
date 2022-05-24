@@ -53,7 +53,7 @@ public:
     \param iHopLength: hop length in Frames
     \return Error_t
     */
-    static Error_t create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const std::string strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024);
+    static Error_t create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const std::string& strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024);
 
     /*! initializes a Feature instance from audio data
     \param pCInstance pointer to instance to be written

@@ -3,6 +3,7 @@
 #include "RingBuffer.h"
 #include "AudioFileIf.h"
 #include "Fft.h"
+
 #include "ToolPreProc.h"
 #include "ToolBlockAudio.h"
 #include "ToolConversion.h"
@@ -96,7 +97,7 @@ inline CSpectrogramIf::~CSpectrogramIf()
     reset_();
 }
 
-Error_t CSpectrogramIf::create(CSpectrogramIf*& pCInstance, std::string strAudioFilePath, int iBlockLength, int iHopLength, bool bNormalize, float* pfWindow)
+Error_t CSpectrogramIf::create(CSpectrogramIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength, int iHopLength, bool bNormalize, float* pfWindow)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;

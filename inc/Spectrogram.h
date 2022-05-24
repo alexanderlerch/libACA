@@ -33,7 +33,7 @@ public:
     \param pfWindow: window function of length iBlockLength (optional, default will be von-Hann if 0)
     \return Error_t
     */
-    static Error_t create(CSpectrogramIf*& pCInstance, const std::string strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024, bool bNormalize = true, float *pfWindow = 0);
+    static Error_t create(CSpectrogramIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024, bool bNormalize = true, float *pfWindow = 0);
 
     /*! initializes a Spectrogram instance from audio data
     \param pCInstance pointer to instance to be written

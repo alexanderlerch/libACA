@@ -151,7 +151,7 @@ float CFeatureFromBlockIf::compFeatureSpectralKurtosis(const float* pfMagSpec, i
     if (fNorm < m_kfFloatThresh)
         return 0;
 
-    return fvsk = fvsk / (fvss * fvss * fvss * fvss * fNorm) - 3;
+    return fvsk / (fvss * fvss * fvss * fvss * fNorm) - 3;
 }
 
 float CFeatureFromBlockIf::compFeatureSpectralRolloff(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/, float fKappa /*= .85F*/)
@@ -205,7 +205,7 @@ float CFeatureFromBlockIf::compFeatureSpectralSkewness(const float* pfMagSpec, i
     if (fNorm < m_kfFloatThresh)
         return 0;
 
-    return fvssk = fvssk / (fvss * fvss * fvss * fNorm);
+    return fvssk / (fvss * fvss * fvss * fNorm);
 }
 
 float CFeatureFromBlockIf::compFeatureSpectralSlope(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
