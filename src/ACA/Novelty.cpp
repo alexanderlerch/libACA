@@ -4,7 +4,7 @@
 #include "Fft.h"
 #include "ToolPreProc.h"
 #include "ToolBlockAudio.h"
-#include "ToolLowpass.h"
+#include "ToolLowPass.h"
 #include "NoveltyFromBlock.h"
 
 #include "Novelty.h"

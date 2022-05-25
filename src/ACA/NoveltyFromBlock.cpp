@@ -2,9 +2,6 @@
 #include "Vector.h"
 #include "Util.h"
 
-#include "ToolConversion.h"
-#include "ToolCcf.h"
-#include "ToolLowPass.h"
 
 #include "NoveltyFromBlock.h"
 
