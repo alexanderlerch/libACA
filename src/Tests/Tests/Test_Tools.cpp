@@ -382,6 +382,51 @@ TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
             }
         }
     }
+
+    SECTION("Filtfilt")
+    {
+        int iSignalLength = 16;
+        int iFilterLength = 5;
+        int iMaxIdx = 6;
+        m_pCLowPass->setFilterParam(iFilterLength);
+
+        m_pfInput[iMaxIdx] = 1;
+
+        m_pCLowPass->filtfilt(m_pfOut, m_pfInput, iSignalLength);
+        
+        CHECK(.2F == Approx(CVectorFloat::getMax(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.2F == Approx(m_pfOut[iMaxIdx]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.0F == Approx(CVectorFloat::getMin(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+
+        for (auto i = iMaxIdx-iFilterLength+1; i <= iMaxIdx; i++)
+            CHECK(m_pfOut[i - 1] < m_pfOut[i]);
+        for (auto i = iMaxIdx; i < iMaxIdx + iFilterLength-1; i++)
+            CHECK(m_pfOut[i + 1] < m_pfOut[i]);
+
+        iFilterLength = 4;
+        m_pCLowPass->setFilterParam(iFilterLength);
+
+        m_pCLowPass->filtfilt(m_pfOut, m_pfInput, iSignalLength);
+
+        CHECK(.25F == Approx(CVectorFloat::getMax(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.25F == Approx(m_pfOut[iMaxIdx]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.0F == Approx(CVectorFloat::getMin(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+
+        for (auto i = iMaxIdx - iFilterLength + 1; i <= iMaxIdx; i++)
+            CHECK(m_pfOut[i - 1] < m_pfOut[i]);
+        for (auto i = iMaxIdx; i < iMaxIdx + iFilterLength - 1; i++)
+            CHECK(m_pfOut[i + 1] < m_pfOut[i]);
+
+
+        //DC input
+        iFilterLength = 3;
+        m_pCLowPass->setFilterParam(iFilterLength);
+        CVectorFloat::setValue(m_pfInput, 1.F, iSignalLength);
+        m_pCLowPass->filtfilt(m_pfOut, m_pfInput, iSignalLength);
+        CHECK(1.F == Approx(CVectorFloat::getMax(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(CVectorFloat::getMean(&m_pfOut[iFilterLength - 1], iSignalLength - 2 * (iFilterLength - 1))).margin(1e-6F).epsilon(1e-6F));
+    }
+
     CMovingAverage::destroy(m_pCLowPass);
 
     delete[] m_pfInput;

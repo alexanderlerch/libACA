@@ -64,7 +64,7 @@ public:
     \param pfInput input data of length iLengthOfBuffer
     return Error_t
     */
-    Error_t process(float* pfOutput, const float* pfInput, int iLengthOfBuffer)
+    Error_t process(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
     {
         if (!pfOutput || !pfInput || iLengthOfBuffer <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -172,12 +172,28 @@ public:
         return m_pCRingBuff->getNumValuesInBuffer();
     }
 
+    /*! compute the filter length from an "integration time"
+    \param fIntegrationTimeInS integration time in seconds (the higher, the more low pass)
+    \param fSampleRate sample rate in Hz
+    return int number of coeffs
+    */
+    static int calcFilterLength(float fIntegrationTimeInS, float fSampleRate)
+    {
+        assert(fSampleRate > 0);
+        assert(fIntegrationTimeInS >= 0);
+        if (fIntegrationTimeInS <= 1.5F / fSampleRate)
+            return 1;
+
+        return static_cast<int>(std::ceil(fIntegrationTimeInS * fSampleRate));
+    }
+
     /*! performs the MovingAverage computation
     \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
     \param pfInput input data of length iLengthOfBuffer
+    \param iLengthOfBuffer length of buffer in samples
     \return Error_t
     */
-    Error_t process(float* pfOutput, const float* pfInput, int iLengthOfBuffer)
+    Error_t process(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
     {
         if (!pfOutput || !pfInput || iLengthOfBuffer <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -205,6 +221,46 @@ public:
         m_fPrevOut = 0;
 
         return Error_t::kNoError;
+    }
+
+    /*! performs zero-phase filtering with the MA
+    \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
+    \param pfInput input data of length iLengthOfBuffer
+    \param iLengthOfBuffer length of buffer in samples
+    \return Error_t
+    */
+    void filtfilt(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
+    {
+        
+        int iFilterLength = this->getFilterParam();
+        this->reset();
+        this->setFilterParam(iFilterLength);
+
+        float* pfTmpBuff = new float[iLengthOfBuffer + 2 * iFilterLength];
+
+        this->process(&pfTmpBuff[iFilterLength], pfInput, iLengthOfBuffer);
+
+        // tail
+        for (auto i = 0; i < iFilterLength; i++)
+        {
+            float fZero = 0.F;
+            this->process(&pfTmpBuff[iLengthOfBuffer + iFilterLength + i], &fZero, 1);
+        }
+
+        // reverse tail
+        for (auto i = iLengthOfBuffer + 2*iFilterLength - 1; i >= iLengthOfBuffer + iFilterLength; i--)
+        {
+            float fZero = 0.F;
+            this->process(&fZero, &pfTmpBuff[i], 1);
+        }
+
+        for (auto i = iLengthOfBuffer + iFilterLength - 1; i >= iFilterLength; i--)
+            this->process(&pfOutput[i-iFilterLength], &pfTmpBuff[i], 1);
+
+        this->reset();
+        this->setFilterParam(iFilterLength);
+
+        delete[] pfTmpBuff;
     }
 
 
