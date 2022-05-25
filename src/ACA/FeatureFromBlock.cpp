@@ -429,12 +429,11 @@ private:
     void genMfccFilters_()
     {
         const double dFreq = 400. / 3.; 
-        const int iNumLinFilters = 13,
-            iNumLogFilters = 27;
+        const int iNumLinFilters = 13;
         const double dLinSpacing = 200. / 3.,
             dLogSpacing = 1.0711703; // note sure where this mel resolution comes from exactly
 
-        assert(m_iNumBands == iNumLinFilters + iNumLogFilters);
+        assert(m_iNumBands > iNumLinFilters);
         double adBoundFreqs[3] = { dFreq, 
             dFreq + dLinSpacing,
             dFreq + 2. * dLinSpacing};
