@@ -18,7 +18,18 @@ public:
         kShaughnessy,   //!< conversion acc. to Shaughnessy
         kUmesh,         //!< conversion acc. to Umesh
 
-        kNumConversionFunctions
+        kNumMelConversionFunctions
+    };
+
+    /*! \brief different methods for frequency to bark conversion */
+    enum BarkConversionFunctions_t
+    {
+        kSchroeder,     //!< conversion acc. to Schroeder
+        kTerhardt,      //!< conversion acc. to Terhardt
+        kZwicker,       //!< conversion acc. to Zwicker
+        kTraunmuller,   //!< conversion acc. to Traunmuller
+
+        kNumBarkConversionFunctions
     };
 
  
@@ -53,6 +64,39 @@ public:
     \return void
     */
     static void convertMel2Freq(float* pffInHz, const float* pfMel, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
+
+
+    /*! converts a frequency scalar to a Bark value
+    \param fInHz frequency in Hz
+    \param eFunc index for conversion function selection
+    \return Bark value
+    */
+    static float convertFreq2Bark(float fInHz, BarkConversionFunctions_t eFunc = kSchroeder);
+
+    /*! converts a Bark scalar to a frequency
+    \param fBark Bark value
+    \param eFunc index for conversion function selection
+    \return frequency value in Hz
+    */
+    static float convertBark2Freq(float fBark, BarkConversionFunctions_t eFunc = kSchroeder);
+
+    /*! converts a frequency array to a Bark array
+    \param pfBark output Bark values (length iLenghBuff, to be written)
+    \param pffInHz input frequency values in Hz (length iLenghBuff)
+    \param iLengthBuff length of buffers
+    \param eFunc index for conversion function selection
+    \return void
+    */
+    static void convertFreq2Bark(float* pfBark, const float* pffInHz, int iLengthBuff, BarkConversionFunctions_t eFunc = kSchroeder);
+
+    /*! converts a Bark array to a frequency array
+    \param pffInHz output frequency values in Hz (length iLenghBuff, to be written)
+    \param pfBark input Bark values (length iLenghBuff)
+    \param iLengthBuff length of buffers
+    \param eFunc index for conversion function selection
+    \return void
+    */
+    static void convertBark2Freq(float* pffInHz, const float* pfBark, int iLengthBuff, BarkConversionFunctions_t eFunc = kSchroeder);
 
 
     /*! converts a frequency scalar to midi (float)
@@ -188,11 +232,25 @@ protected:
     static float convertFreq2MelUmesh(float fFrequency);
     static float convertMel2FreqUmesh(float fMel);
 
+    static float convertFreq2BarkSchroeder(float fFrequency);
+    static float convertBark2FreqSchroeder(float fBark);
+
+    static float convertFreq2BarkTerhardt(float fFrequency);
+    static float convertBark2FreqTerhardt(float fBark);
+
+    static float convertFreq2BarkZwicker(float fFrequency);
+    static float convertBark2FreqZwicker(float fBark);
+
+    static float convertFreq2BarkTraunmuller(float fFrequency);
+    static float convertBark2FreqTraunmuller(float fBark);
+
 private:
     CConversion() {};
     virtual ~CConversion() {};
     // dispatcher map for static mel functions 
-    static const std::map<int, std::function<float(float)>> m_DispatchMap;
+    static const std::map<int, std::function<float(float)>> m_MelDispatchMap;
+    // dispatcher map for static Bark functions 
+    static const std::map<int, std::function<float(float)>> m_BarkDispatchMap;
 };
 
 

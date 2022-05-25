@@ -248,8 +248,8 @@ TEST_CASE("ToolsConversion", "[ToolsConversion]")
         CHECK(1000.F == Approx(CConversion::convertFreq2Mel(1000.F, CConversion::kFant)).margin(1e-6F).epsilon(1e-6F));
         CHECK(1000.F == Approx(CConversion::convertMel2Freq(1000.F)).margin(1e-6F).epsilon(1e-6F));
 
-        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
-        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kFant);
+        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kFant);
 
         for (auto i = 0; i < m_iNumValues; i++)
             CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
@@ -258,8 +258,8 @@ TEST_CASE("ToolsConversion", "[ToolsConversion]")
         CHECK(1000.F == Approx(CConversion::convertFreq2Mel(1000.F, CConversion::kShaughnessy)).margin(1e-1F).epsilon(1e-1F));
         CHECK(1000.F == Approx(CConversion::convertMel2Freq(1000.F, CConversion::kShaughnessy)).margin(1e-1F).epsilon(1e-1F));
 
-        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
-        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kShaughnessy);
+        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kShaughnessy);
 
         for (auto i = 0; i < m_iNumValues; i++)
             CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
@@ -268,11 +268,51 @@ TEST_CASE("ToolsConversion", "[ToolsConversion]")
         CHECK(CConversion::convertFreq2Mel(1000.F, CConversion::kUmesh) - 1000.F <= 25.F);
         CHECK(1000.F - CConversion::convertMel2Freq(1000.F, CConversion::kUmesh) <= 25.F);
 
-        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues);
-        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues);
+        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kUmesh);
+        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kUmesh);
 
         for (auto i = 0; i < m_iNumValues; i++)
             CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+    }
+
+    SECTION("Freq2Bark2Freq")
+    {
+        for (auto m = 1; m < m_iNumValues; m++)
+            m_pfMel[m] = m * 20.F /m_iNumValues;
+        m_pfMel[0] = m_pfMel[1];
+
+        // Bark (Schroeder)
+        CHECK(8.51137148802024F == Approx(CConversion::convertFreq2Bark(1000.F, CConversion::kSchroeder)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1000.F == Approx(CConversion::convertBark2Freq(8.51137148802024F, CConversion::kSchroeder)).margin(1e-6F).epsilon(1e-6F));
+
+        CConversion::convertBark2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kSchroeder);
+        CConversion::convertFreq2Bark(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kSchroeder);
+
+        for (auto i = 0; i < m_iNumValues; i++)
+            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+
+        // Bark (kTerhardt)
+        CHECK(8.55856474695068F == Approx(CConversion::convertFreq2Bark(1000.F, CConversion::kTerhardt)).margin(1e-1F).epsilon(1e-1F));
+        CHECK(1000.F == Approx(CConversion::convertBark2Freq(8.55856474695068F, CConversion::kTerhardt)).margin(1e-1F).epsilon(1e-1F));
+
+        CConversion::convertBark2Freq(m_pfFreq, m_pfMel, 650, CConversion::kTerhardt);
+        CConversion::convertFreq2Bark(m_pfOut, m_pfFreq, 650, CConversion::kTerhardt);
+
+        for (auto i = 0; i < 650; i++)
+            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+
+        // Bark (kTraunmuller)
+        CHECK(8.52743243243243F == Approx(CConversion::convertFreq2Bark(1000.F, CConversion::kTraunmuller)).margin(1e-1F).epsilon(1e-1F));
+        CHECK(1000.F == Approx( CConversion::convertBark2Freq(8.52743243243243F, CConversion::kTraunmuller)).margin(1e-1F).epsilon(1e-1F));
+
+        CConversion::convertBark2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kTraunmuller);
+        CConversion::convertFreq2Bark(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kTraunmuller);
+
+        for (auto i = 0; i < m_iNumValues; i++)
+            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+
+        // Bark (Zwicker)
+        CHECK(8.91224620539368F == Approx(CConversion::convertFreq2Bark(1000.F, CConversion::kZwicker)).margin(1e-1F).epsilon(1e-1F));
     }
 
     SECTION("Freq2Midi2Freq")
