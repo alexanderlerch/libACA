@@ -13,91 +13,108 @@ class CVector
 {
 public:
     /*! sets a buffer to zero
-    \param pfSrcDest pointer to memory to be modified
+    \param ptSrcDest pointer to memory to be modified
     \param iLength  buffer length
     \return void
     */
     template<typename T>
-    static void setZero (T *pfSrcDest, long long int iLength)
+    static void setZero (T *ptSrcDest, long long iLength)
     {
         assert (iLength >= 0);
-        assert (pfSrcDest);
+        assert (ptSrcDest);
 
         if (iLength > 0)
-            memset (pfSrcDest, 0, sizeof(T)*iLength);
+            memset (ptSrcDest, 0, sizeof(T)*iLength);
     }
+
+    /*! initializes the buffer to a specific value
+    \param pfDest pointer to memory to be initialized
+    \param fValue value to use
+    \param iLength number of elements to be set
+    \return void
+    */
+    template<typename T>
+    static void setValue(T* ptDest, T tValue, long long iLength)
+    {
+        assert(iLength >= 0);
+        assert(ptDest);
+
+        for (auto i = 0; i < iLength; i++)
+            ptDest[i] = tValue;
+    }
+
     /*! sets all values smaller than a threshold to 0
-    \param pfSrcDest pointer to memory to be modified
+    \param ptSrcDest pointer to memory to be modified
     \param iLength  buffer length
     \param Thresh threshold value
     \return void
     */
     template<typename T>
-    static void setZeroBelowThresh (T *pfSrcDest, long long int iLength, T Thresh)
+    static void setZeroBelowThresh (T *ptSrcDest, long long int iLength, T Thresh)
     {
         assert (iLength >= 0);
-        assert (pfSrcDest);
+        assert (ptSrcDest);
 
         for (auto i = 0; i < iLength; i++)
-            if (pfSrcDest[i] < Thresh)
-                pfSrcDest[i] = 0;
+            if (ptSrcDest[i] < Thresh)
+                ptSrcDest[i] = 0;
     }
     /*! copies buffer of type T
-    \param pDest pointer to destination memory
+    \param ptDest pointer to destination memory
     \param pSource pointer to source memory
     \param iLength length of buffer
     \return void
     */
     template<typename T>
-    static void copy(T *pDest, const T *pSource, long long int iLength)
+    static void copy(T *ptDest, const T *pSource, long long int iLength)
     {
         assert(iLength >= 0);
 
         if (iLength > 0)
         {
-            assert(pDest);
+            assert(ptDest);
             assert(pSource);
-            memcpy(pDest, pSource, sizeof(T)*iLength);
+            memcpy(ptDest, pSource, sizeof(T)*iLength);
         }
     }
     /*! reverses buffer (last to first element)
-    \param pfSrcDest pointer to memory to be flipped
+    \param ptSrcDest pointer to memory to be flipped
     \param iLength number of elements
     \return void
     */
     template<typename T>
-    static void flip_I(T *pfSrcDest, long long int iLength)
+    static void flip_I(T *ptSrcDest, long long int iLength)
     {
         assert(iLength >= 0);
 
         if (iLength > 0)
         {
-            assert(pfSrcDest);
+            assert(ptSrcDest);
 
             auto iLoopLength = iLength / 2; // integer division!
             for (auto i = 0; i < iLoopLength; i++)
             {
-                T Tmp = pfSrcDest[i];
-                pfSrcDest[i] = pfSrcDest[iLength - 1 - i];
-                pfSrcDest[iLength - 1 - i] = Tmp;
+                T Tmp = ptSrcDest[i];
+                ptSrcDest[i] = ptSrcDest[iLength - 1 - i];
+                ptSrcDest[iLength - 1 - i] = Tmp;
             }
         }
     }
     /*! moves a subset of the current buffer
-    \param pfSrcDest source and destination
+    \param ptSrcDest source and destination
     \param iDestIdx destination index
     \param iSrcIdx source index
     \param iLength number of elements to be moved
     \return void
     */
     template<typename T>
-    static void moveInMem (T *pfSrcDest, int iDestIdx, int iSrcIdx, long long int iLength)
+    static void moveInMem (T *ptSrcDest, int iDestIdx, int iSrcIdx, long long int iLength)
     {
         assert (iLength >= 0);
-        assert (pfSrcDest);
+        assert (ptSrcDest);
 
         if (iLength > 0)
-            memmove (&pfSrcDest[iDestIdx], &pfSrcDest[iSrcIdx], sizeof(T)*iLength);
+            memmove (&ptSrcDest[iDestIdx], &ptSrcDest[iSrcIdx], sizeof(T)*iLength);
     }
 };
 
@@ -413,7 +430,7 @@ public:
     \param bAbs bool to specify whether we search absolute values
     \return float
     */
-    static inline float getMax (const float *pfSrc, long long int iLength, bool bAbs = false)
+    static inline float getMax(const float* pfSrc, long long int iLength, bool bAbs = false)
     {
         float fMax;
         long long iMax;
@@ -421,6 +438,41 @@ public:
         findMax(pfSrc, fMax, iMax, iLength, bAbs);
 
         return fMax;
+    }
+
+    /*! finds the local maxima in the buffer
+    \param pbIsLocalMax result buffer
+    \param pfSrc input buffer
+    \param iLength number of elements in buffer
+    \param fThresh only detect maxima above this threshold
+    \return int number of local maxima
+    */
+    static inline int findPeaks(bool *pbIsLocalMax, const float* pfSrc, long long int iLength, float fThresh = -std::numeric_limits<float>::max())
+    {
+        assert(iLength >= 0);
+        assert(pfSrc);
+        assert(pbIsLocalMax);
+
+        int iNumPeaks = 0;
+
+        CVector::setValue(pbIsLocalMax, false, iLength);
+
+        for (auto k = 1; k < iLength - 1; k++)
+        {
+            // search for local maxima
+            if (pfSrc[k] <= pfSrc[k - 1] || pfSrc[k] <= pfSrc[k + 1] || pfSrc[k] <= fThresh)
+                continue;
+            else
+            {
+                pbIsLocalMax[k] = true;
+                iNumPeaks++;
+
+                // increment because the next bin cannot be a local max
+                k++;
+            }
+        }
+
+        return iNumPeaks;
     }
 
     /*! finds the minimum (absolute) value in the buffer
