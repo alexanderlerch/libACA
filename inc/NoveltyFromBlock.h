@@ -6,20 +6,13 @@
 
 #include "ErrorDef.h"
 
+#include "Novelty.h"
 
 /*! \brief class for computation of a Novelty from a block of data (e.g., time or magnitude spectrum)
 */
 class CNoveltyFromBlockIf
 {
 public:
-    enum Novelty_t
-    {
-        kNoveltyFlux,
-        kNoveltyHainsworth,
-        kNoveltyLaroche,
-
-        kNumNoveltyFunctions
-    };
 
     /*! initializes a NoveltyFromBlock instance
     \param pCInstance pointer to instance to be written
@@ -28,7 +21,7 @@ public:
     \param fSampleRate: sample rate (only used when needed)
     \return Error_t
     */
-    static Error_t create(CNoveltyFromBlockIf*& pCInstance, Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate = 1.F);
+    static Error_t create(CNoveltyFromBlockIf*& pCInstance, CNoveltyIf::Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate = 1.F);
 
     /*! destroys a NoveltyFromBlock instance
     \param pCInstance pointer to instance to be destroyed
@@ -36,21 +29,21 @@ public:
     */
     static Error_t destroy(CNoveltyFromBlockIf*& pCInstance);
 
-    /*! returns size of output Novelty (1 in most cases)
+    /*! returns size of output Novelty (1 in all currently implemented cases)
     \return int
     */
-    virtual int getNoveltyDimensions() const;
+    virtual int getNoveltyDimension() const;
 
     /*! returns index of the Novelty to extract
     \return Novelty_t
     */
-    Novelty_t getNoveltyIdx() const
+    CNoveltyIf::Novelty_t getNoveltyIdx() const
     {
         return m_eNoveltyIdx;
     }
 
     /*! performs the NoveltyFromBlock computation
-    \param pfNovelty Novelty result (user-allocated, to be written, length from CNoveltyFromBlockIf::getNoveltyDimensions)
+    \param pfNovelty Novelty result (user-allocated, to be written, length from CNoveltyFromBlockIf::getNoveltyDimension)
     \param pfInput input data of length iDataLength
     \return Error_t
     */
@@ -65,12 +58,12 @@ public:
 
 protected:
     CNoveltyFromBlockIf() {};
-    CNoveltyFromBlockIf(Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate);
+    CNoveltyFromBlockIf(CNoveltyIf::Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate);
     virtual ~CNoveltyFromBlockIf();
 
     CNoveltyFromBlockIf(const CNoveltyFromBlockIf& that);
 
-    Novelty_t m_eNoveltyIdx = kNumNoveltyFunctions;     //!< index of Novelty to extract
+    CNoveltyIf::Novelty_t m_eNoveltyIdx = CNoveltyIf::kNumNoveltyFunctions;     //!< index of Novelty to extract
 
     int m_iDataLength = 0;                      //!< block length
 
@@ -79,11 +72,11 @@ protected:
     float* m_pfPrevSpec = 0;
 
     // dispatcher map for static functions without additional arguments
-    const std::map<Novelty_t, std::function<float(const float*, const float*, int, float)>> m_DispatchMap
+    const std::map<CNoveltyIf::Novelty_t, std::function<float(const float*, const float*, int, float)>> m_DispatchMap
     {
-            {kNoveltyFlux, &compNoveltyFlux},
-            {kNoveltyHainsworth, &compNoveltyHainsworth},
-            {kNoveltyLaroche, &compNoveltyLaroche}
+            {CNoveltyIf::kNoveltyFlux, &compNoveltyFlux},
+            {CNoveltyIf::kNoveltyHainsworth, &compNoveltyHainsworth},
+            {CNoveltyIf::kNoveltyLaroche, &compNoveltyLaroche}
     };
 };
 

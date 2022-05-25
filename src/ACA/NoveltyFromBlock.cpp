@@ -70,7 +70,7 @@ float CNoveltyFromBlockIf::compNoveltyLaroche(const float* pfMagSpec, const floa
 ///////////////////////////////////////////////////////////////////
 // normal member functions
 
-CNoveltyFromBlockIf::CNoveltyFromBlockIf(Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate) :
+CNoveltyFromBlockIf::CNoveltyFromBlockIf(CNoveltyIf::Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate) :
     m_eNoveltyIdx(eNoveltyIdx),
     m_iDataLength(iDataLength),
     m_fSampleRate(fSampleRate)
@@ -88,7 +88,7 @@ CNoveltyFromBlockIf::~CNoveltyFromBlockIf()
     m_pfPrevSpec = 0;
 }
 
-Error_t CNoveltyFromBlockIf::create(CNoveltyFromBlockIf*& pCInstance, Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate)
+Error_t CNoveltyFromBlockIf::create(CNoveltyFromBlockIf*& pCInstance, CNoveltyIf::Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate)
 {
     if (iDataLength <= 0 || fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -107,7 +107,7 @@ Error_t CNoveltyFromBlockIf::destroy(CNoveltyFromBlockIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-int CNoveltyFromBlockIf::getNoveltyDimensions() const
+int CNoveltyFromBlockIf::getNoveltyDimension() const
 {
     // default: 1 value per block
     return 1;
