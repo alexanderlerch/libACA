@@ -73,7 +73,7 @@ public:
     static Error_t destroy(CFeatureIf*& pCInstance);
 
     /*! returns size of matrix to be allocated by user
-    \param iNumRows (number of rows, to be written) equals number of frequency bins
+    \param iNumRows (number of rows, to be written) equals number of feature values per time stamp
     \param iNumCols (number of columns, to be written) equals number of blocks
     \return Error_t
     */
