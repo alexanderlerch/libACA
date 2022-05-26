@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.0)
 project (ACA
-        VERSION 0.1.0)
+        VERSION 0.1.1)
 
 #######################################################################################################
 ## includes
@@ -32,7 +32,7 @@ set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set (PROJECT_DIRECTORIES)
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ACA) 
 
-#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeBeatHisto)       
+list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeBeatHisto)       
 #list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeChords)      
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFeature)       
 #list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFingerprint)       
@@ -73,9 +73,11 @@ if (WITH_TESTS)
     
     # add tests here
     add_test(AudioIo ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec AudioIo* "${CMAKE_SOURCE_DIR}/src/Tests/TestData/")
+    add_test(BeatHisto ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec BeatHisto*)
     add_test(Dtw ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Dtw*)
     add_test(Features ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Feature*)
     add_test(Fft ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Fft*)
+    add_test(Novelty ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Novelty*)
     add_test(RingBuff ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec RingBuff*)
     add_test(Spectrogram ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Spectrogram*)
     add_test(Tools ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Tools*)

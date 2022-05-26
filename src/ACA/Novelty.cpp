@@ -143,9 +143,17 @@ Error_t CNoveltyIf::getNumBlocks(int& iNumBlocks) const
         return Error_t::kFunctionIllegalCallError;
     }
 
-    iNumBlocks = static_cast<int>(m_pCBlockAudio->getNumBlocks());
+    iNumBlocks = this->getNumBlocks();
 
     return Error_t::kNoError;
+}
+
+int CNoveltyIf::getNumBlocks() const
+{
+    assert(m_bIsInitialized);
+    assert(m_pCBlockAudio);
+
+    return static_cast<int>(m_pCBlockAudio->getNumBlocks());
 }
 
 Error_t CNoveltyIf::getNoveltyTimeStamps(float* pfAxisTicks) const

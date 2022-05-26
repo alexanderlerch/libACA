@@ -57,11 +57,15 @@ public:
     static Error_t destroy(CNoveltyIf*& pCInstance);
 
     /*! returns size of matrix to be allocated by user
-    \param iNumRows (number of rows, to be written) equals number of frequency bins
-    \param iNumCols (number of columns, to be written) equals number of blocks
+    \param iNumBlocks (number of blocks, to be written) equals number of hops
     \return Error_t
     */
     Error_t getNumBlocks(int& iNumBlocks) const;
+
+    /*! returns size of matrix to be allocated by user
+    \return int
+    */
+    int getNumBlocks() const;
 
     /*! returns axis ticks
     \param pfAxisTicks (to be written) equals iNumRows if eAxisLabel == kFrequencyInHz, otherwise iNumCols
