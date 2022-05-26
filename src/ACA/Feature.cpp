@@ -193,7 +193,7 @@ Error_t CFeatureIf::getFeature1Dim(float* pfFeature)
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizePerBlock(m_pfProcessBuff1, m_iBlockLength);
 
         if (isFeatureSpectral_(m_pCFeature->getFeatureIdx()))
             computeMagSpectrum_();
@@ -229,7 +229,7 @@ Error_t CFeatureIf::getFeatureNDim(float** ppfFeature)
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizePerBlock(m_pfProcessBuff1, m_iBlockLength);
 
         if (isFeatureSpectral_(m_pCFeature->getFeatureIdx()))
             computeMagSpectrum_();

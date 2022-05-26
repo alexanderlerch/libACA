@@ -39,8 +39,8 @@ public:
 
 
 /*! \brief class for audio normalization offering three options
-* 1. normalize an audio file during blockwise reading with normalizeBlock (requires instance with audio file)
-* 2. normalize an audio vector with blockwise reading with normalizeBlock (requires instance with buffer)
+* 1. normalize an audio file during blockwise reading with normalizePerBlock (requires instance with audio file)
+* 2. normalize an audio vector with blockwise reading with normalizePerBlock (requires instance with buffer)
 * 3. normalize an entire vector at once with normalizeWithinVec (static function does not require instance)
 */
 class CNormalizeAudio
@@ -117,7 +117,7 @@ public:
     \param  iNumFrames legnth of pfAudio
     \return Error_t
     */
-    void normalizeBlock(float* pfAudio, long long iNumFrames)
+    void normalizePerBlock(float* pfAudio, long long iNumFrames)
     {
         assert(pfAudio);
         assert(iNumFrames > 0);

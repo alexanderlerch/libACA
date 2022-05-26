@@ -196,13 +196,17 @@ Error_t CNoveltyIf::getNovelty(float* pfNovelty, bool* pbIsOnset)
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizePerBlock(m_pfProcessBuff1, m_iBlockLength);
 
         computeMagSpectrum_();
 
         m_pCNovelty->calcNoveltyFromBlock(&pfNovelty[n], m_pfProcessBuff1);
     }
 
+    // normalize
+    float fMax = CVectorFloat::getMax(pfNovelty, iNumBlocks, true);
+    if (fMax > 0)
+        CVectorFloat::mulC_I(pfNovelty, 1 / fMax, iNumBlocks);
 
     // smoothing with moving average
     m_pCLpFilter->reset();

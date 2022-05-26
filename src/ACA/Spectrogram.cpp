@@ -220,7 +220,7 @@ void CSpectrogramIf::computeMagSpectrum_(int iLength)
 
     // normalize if specified
     if (m_pCNormalize)
-        m_pCNormalize->normalizeBlock(m_pfProcessBuff, m_iBlockLength);
+        m_pCNormalize->normalizePerBlock(m_pfProcessBuff, m_iBlockLength);
 
     // compute magnitude spectrum (hack
     m_pCFft->doFft(m_pfSpectrum, m_pfProcessBuff);

@@ -59,8 +59,8 @@ public:
     {
         if (!m_pCAudioFile)
             return Error_t::kFunctionIllegalCallError;
-        if (m_pCAudioFile->isEof())
-            return Error_t::kFunctionIllegalCallError;
+        //if (m_pCAudioFile->isEof())
+        //    return Error_t::kFunctionIllegalCallError;
 
         // read from file to read buffer
         readFile2RingBuff();
@@ -82,7 +82,8 @@ private:
     inline void readFile2RingBuff()
     {        
         // set file read length variable
-        long long iNumFrames = std::min(m_iHopLength, m_pCRingBuffer->getLength() - m_pCRingBuffer->getNumValuesInBuffer()); 
+        //long long iNumFrames = std::min(m_iHopLength, m_pCRingBuffer->getLength() - m_pCRingBuffer->getNumValuesInBuffer() + 1);
+        long long iNumFrames = m_iHopLength;
 
         // read data (iNumOfFrames might be updated!)
         m_pCAudioFile->readData(m_ppfAudioData, iNumFrames);
@@ -92,6 +93,8 @@ private:
         {
             for (int c = 0; c < m_iNumChannels; c++)
                 CVectorFloat::setZero(&m_ppfAudioData[c][iNumFrames], m_iHopLength - iNumFrames);
+            
+            iNumFrames = m_iHopLength;
         }
 
         // downmix in case of multichannel

@@ -57,7 +57,7 @@ int main(int argc, char* argv[])
     }
 
     //////////////////////////////////////////////////////////////////////////////
-    // initialize spectrogram instance
+    // initialize feature instance
     eFeatureIdx = CFeatureIf::getFeatureIdxFromString(sFeatureString);
     CFeatureIf::create(pCInstance, eFeatureIdx, sInputFilePath, iBlockLength, iHopLength);
     pCInstance->getFeatureDimensions(aiFeatureDimensions[0], aiFeatureDimensions[1]);
@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
     time = clock();
 
     //////////////////////////////////////////////////////////////////////////////
-    // compute spectrogram
+    // compute feature
     cout << "\n1. computing feature..." << endl;
     if (aiFeatureDimensions[0] == 1)
         pCInstance->getFeature1Dim(ppfFeature[0]);
@@ -137,7 +137,7 @@ void     showClInfo()
 {
     cout << "ACA v" << ACA_VERSION_MAJOR << "." << ACA_VERSION_MINOR << "." << ACA_VERSION_PATCH << ": Demo Executable for Feature Extraction" << endl;
     cout << "(c) 2022 by Alexander Lerch" << endl;
-    cout << "Synopsis: ComputeSpectrogram inputwavfile featurename [outputtxtfile] [blocksize] [hopsize]" << endl;
+    cout << "Synopsis: ComputeFeature inputwavfile featurename [outputtxtfile] [blocksize] [hopsize]" << endl;
     cout << endl;
 
     return;

@@ -1,10 +1,12 @@
+#include "ACAConfig.h"
 
 #include <iostream>
+#include <fstream>
 #include <ctime>
 
 #include "ACAConfig.h"
 
-#include "AudioFileIf.h"
+#include "Novelty.h"
 
 using std::cout;
 using std::endl;
@@ -20,82 +22,98 @@ int main(int argc, char* argv[])
     std::string             sInputFilePath,                 //!< file paths
         sOutputFilePath;
 
-    static const int            kBlockSize = 1024;
-    long long                   iNumFrames = kBlockSize;
-    int                         iNumChannels;
+    std::string sNoveltyString; //!< string of the Novelty to be extracted
 
-    float                       fModFrequencyInHz;
-    float                       fModWidthInSec;
+    int iBlockLength = 0, //!< block length in samples 
+        iHopLength = 0; //!< hop length in samples
+    int iNoveltyDimensions = 0;
 
-    clock_t                     time = 0;
+    clock_t time = 0;
 
-    float** ppfInputAudio = 0;
-    float** ppfOutputAudio = 0;
+    CNoveltyIf* pCInstance = 0;
+    CNoveltyIf::Novelty_t eNoveltyIdx = CNoveltyIf::kNumNoveltyFunctions;
 
-    CAudioFileIf* phAudioFile = 0;
-    CAudioFileIf::FileSpec_t    stFileSpec;
+    float* pfNovelty = 0; //!< Novelty result
+
+    std::fstream hOutputFile;
 
     showClInfo();
 
-
-    // command line args
-    if (argc < 5)
+    //////////////////////////////////////////////////////////////////////////////
+    // parse command line arguments
+    if (argc < 2)
     {
-        cout << "Incorrect number of arguments!" << endl;
+        cout << "Missing audio input path!" << endl;
+        cout << "Expected Synopsis: inputfile Noveltyname [outputtxtfile] [blocksize] [hopsize]" << endl;
         return -1;
     }
-    sInputFilePath = argv[1];
-    sOutputFilePath = argv[2];
-    fModFrequencyInHz = atof(argv[3]);
-    fModWidthInSec = atof(argv[4]);
-
-    ///////////////////////////////////////////////////////////////////////////
-    CAudioFileIf::create(phAudioFile);
-
-    phAudioFile->openFile(sInputFilePath, CAudioFileIf::kFileRead);
-    phAudioFile->getFileSpec(stFileSpec);
-    iNumChannels = stFileSpec.iNumChannels;
-    if (!phAudioFile->isOpen())
+    else
     {
-        cout << "Input file open error!";
-
-        CAudioFileIf::destroy(phAudioFile);
-        return -1;
+        sInputFilePath = argv[1];
+        sNoveltyString = (argc < 3) ? "SpectralCentroid" : argv[2];
+        sOutputFilePath = (argc < 4) ? sInputFilePath + ".txt" : argv[3];
+        iBlockLength = (argc < 5) ? 4096 : std::stoi(argv[4]);
+        iHopLength = (argc < 6) ? 512 : std::stoi(argv[5]);
     }
-
-    // allocate memory
-    ppfInputAudio = new float* [stFileSpec.iNumChannels];
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
-        ppfInputAudio[i] = new float[kBlockSize];
-
-    ppfOutputAudio = new float* [stFileSpec.iNumChannels];
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
-        ppfOutputAudio[i] = new float[kBlockSize];
-
-
-    // processing
-    while (!phAudioFile->isEof())
-    {
-        phAudioFile->readData(ppfInputAudio, iNumFrames);
-    }
-    phAudioFile->getFileSpec(stFileSpec);
-
-
-    cout << "\nreading/writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
 
     //////////////////////////////////////////////////////////////////////////////
-    // clean-up
-    CAudioFileIf::destroy(phAudioFile);
+    // initialize novelty instance
+    eNoveltyIdx = CNoveltyIf::getNoveltyIdxFromString(sNoveltyString);
+    CNoveltyIf::create(pCInstance, eNoveltyIdx, sInputFilePath, iBlockLength, iHopLength);
+    pCInstance->getNumBlocks(iNoveltyDimensions);
 
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
+    //////////////////////////////////////////////////////////////////////////////
+    // open the output text file
+    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
+    if (!hOutputFile.is_open())
     {
-        delete[] ppfInputAudio[i];
-        delete[] ppfOutputAudio[i];
+        cout << "Text file open error!";
+        CNoveltyIf::destroy(pCInstance);
+        return -1;
     }
-    delete[] ppfInputAudio;
-    delete[] ppfOutputAudio;
-    ppfInputAudio = 0;
-    ppfOutputAudio = 0;
+
+    //////////////////////////////////////////////////////////////////////////////
+    // allocate memory
+    pfNovelty = new float [iNoveltyDimensions];
+
+
+    if (!pfNovelty)
+    {
+        CNoveltyIf::destroy(pCInstance);
+        hOutputFile.close();
+        return -1;
+    }
+
+    time = clock();
+
+    //////////////////////////////////////////////////////////////////////////////
+    // compute spectrogram
+    cout << "\n1. computing Novelty..." << endl;
+    pCInstance->getNovelty(pfNovelty);
+
+    cout << "\n Novelty computation done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
+
+    time = clock();
+
+    //////////////////////////////////////////////////////////////////////////////
+    // file writing
+
+    cout << "\n2. writing output file..." << endl;
+
+    for (int n = 0; n < iNoveltyDimensions; n++)
+    {
+        hOutputFile << pfNovelty[n] << endl;
+    }
+
+    cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
+
+    //////////////////////////////////////////////////////////////////////////////
+    // clean-up (close files, delete instances, and free memory)
+    CNoveltyIf::destroy(pCInstance);
+    hOutputFile.close();
+
+    delete[] pfNovelty;
+    pfNovelty = 0;
 
     // all done
     return 0;
@@ -105,8 +123,9 @@ int main(int argc, char* argv[])
 
 void     showClInfo()
 {
-    cout << "ACA: ComputeFeature" << endl;
+    cout << "ACA v" << ACA_VERSION_MAJOR << "." << ACA_VERSION_MINOR << "." << ACA_VERSION_PATCH << ": Demo Executable for Novelty Extraction" << endl;
     cout << "(c) 2022 by Alexander Lerch" << endl;
+    cout << "Synopsis: ComputeNoveltyFunction inputwavfile Noveltyname [outputtxtfile] [blocksize] [hopsize]" << endl;
     cout << endl;
 
     return;
