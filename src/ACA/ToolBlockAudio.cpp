@@ -29,13 +29,14 @@ public:
         m_iNumBlocks = m_iAudioLength / m_iHopLength + 1;
 
         // initialize read buffers
-        m_pCRingBuffer = new CRingBuffer<float>(iBlockLength);
+        m_pCRingBuffer = new CRingBuffer<float>(iBlockLength+1);
         m_ppfAudioData = new float* [m_iNumChannels];
         for (auto c = 0; c < m_iNumChannels; c++)
             m_ppfAudioData[c] = new float[iHopLength];
         
-        // read from file to read buffer
-        readFile2RingBuff();
+        // prefill from file to read buffer
+        while(m_pCRingBuffer->getNumValuesInBuffer() < m_pCRingBuffer->getLength() - m_iHopLength - 1)
+            readFile2RingBuff();
     }
 
     virtual ~CBlockAudioFile()
@@ -81,7 +82,7 @@ private:
     inline void readFile2RingBuff()
     {        
         // set file read length variable
-        long long iNumFrames = m_iHopLength;
+        long long iNumFrames = std::min(m_iHopLength, m_pCRingBuffer->getLength() - m_pCRingBuffer->getNumValuesInBuffer()); 
 
         // read data (iNumOfFrames might be updated!)
         m_pCAudioFile->readData(m_ppfAudioData, iNumFrames);
