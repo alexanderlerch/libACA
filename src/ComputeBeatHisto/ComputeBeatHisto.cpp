@@ -87,7 +87,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // compute spectrogram
     cout << "\n1. computing BeatHisto..." << endl;
-    pCInstance->getBeatHisto(pfBeatHisto);
+    pCInstance->compBeatHisto(pfBeatHisto);
 
     cout << "\n BeatHisto computation done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
 

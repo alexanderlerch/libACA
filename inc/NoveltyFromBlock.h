@@ -47,7 +47,7 @@ public:
     \param pfInput input data of length iDataLength
     \return Error_t
     */
-    virtual Error_t calcNoveltyFromBlock(float* pfNovelty, const float* pfInput);
+    virtual Error_t compNovelty(float* pfNovelty, const float* pfInput);
 
 
     ////////////////////////////////////////////////////////////////////////////

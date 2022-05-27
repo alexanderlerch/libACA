@@ -24,13 +24,13 @@ TEST_CASE("dtw", "[Dtw]")
         m_ppfData = new float* [m_aiMatrixDimension[0]];
         CVector::setZero(m_ppfData, m_aiMatrixDimension[0]);
 
-        CHECK(Error_t::kNotInitializedError == m_pCDtw->process(m_ppfData));
+        CHECK(Error_t::kNotInitializedError == m_pCDtw->compDtw(m_ppfData));
 
         CHECK(Error_t::kFunctionInvalidArgsError == m_pCDtw->init(-1, 4));
         CHECK(Error_t::kFunctionInvalidArgsError == m_pCDtw->init(3, 0));
 
         CHECK(Error_t::kNoError == m_pCDtw->init(m_aiMatrixDimension[0], m_aiMatrixDimension[1]));
-        CHECK(Error_t::kFunctionInvalidArgsError == m_pCDtw->process(0));
+        CHECK(Error_t::kFunctionInvalidArgsError == m_pCDtw->compDtw(0));
         CHECK(0 == m_pCDtw->getPathLength());
     }
 
@@ -57,7 +57,7 @@ TEST_CASE("dtw", "[Dtw]")
         m_ppfData[3][0] = 2; m_ppfData[3][1] = 1; m_ppfData[3][2] = 0; m_ppfData[3][3] = 3;
         m_ppfData[4][0] = 0; m_ppfData[4][1] = 1; m_ppfData[4][2] = 2; m_ppfData[4][3] = 1;
 
-        m_pCDtw->process(m_ppfData);
+        m_pCDtw->compDtw(m_ppfData);
 
         iPathLength = m_pCDtw->getPathLength();
         CHECK(5 == iPathLength);
@@ -92,7 +92,7 @@ TEST_CASE("dtw", "[Dtw]")
         m_ppfData[2][0] = 2;
 
         m_pCDtw->init(m_aiMatrixDimension[0], m_aiMatrixDimension[1]);
-        m_pCDtw->process(m_ppfData);
+        m_pCDtw->compDtw(m_ppfData);
 
         iPathLength = m_pCDtw->getPathLength();
         CHECK(m_aiMatrixDimension[0] == iPathLength);
@@ -126,7 +126,7 @@ TEST_CASE("dtw", "[Dtw]")
         m_ppfData[0][0] = 0.1F; m_ppfData[0][1] = 1; m_ppfData[0][2] = 2;
 
         m_pCDtw->init(m_aiMatrixDimension[0], m_aiMatrixDimension[1]);
-        m_pCDtw->process(m_ppfData);
+        m_pCDtw->compDtw(m_ppfData);
 
         iPathLength = m_pCDtw->getPathLength();
         CHECK(m_aiMatrixDimension[1] == iPathLength);

@@ -127,7 +127,7 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         // not initialized
         CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->init(-1));
         CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->init(0));
-        CHECK(Error_t::kFunctionIllegalCallError ==m_pCCcf->calcCcf(m_pfInput, m_pfInput));
+        CHECK(Error_t::kFunctionIllegalCallError ==m_pCCcf->compCcf(m_pfInput, m_pfInput));
         CHECK(-1 == m_pCCcf->getCcfLength());
         CHECK(Error_t::kFunctionIllegalCallError ==m_pCCcf->getCcf(m_pfOut));
         CHECK(-1 == m_pCCcf->getCcfMax());
@@ -140,9 +140,9 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         CHECK(-1 == m_pCCcf->getCcfMax());
         CHECK(-1 == m_pCCcf->getCcfMaxIdx());
 
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->calcCcf(0, m_pfInput));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->calcCcf(m_pfInput, 0));
-        CHECK(Error_t::kNoError == m_pCCcf->calcCcf(m_pfInput, m_pfInput));
+        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->compCcf(0, m_pfInput));
+        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->compCcf(m_pfInput, 0));
+        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput));
 
         CHECK(Error_t::kNoError == m_pCCcf->reset());
     }
@@ -151,7 +151,7 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
     {
         // zero
         CHECK(Error_t::kNoError == m_pCCcf->init(6));
-        CHECK(Error_t::kNoError == m_pCCcf->calcCcf(m_pfInput, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput));
         CHECK(11 == m_pCCcf->getCcfLength());
         CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut));
         CHECK(0 == CVectorFloat::getSum(m_pfOut, 6));
@@ -161,7 +161,7 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         // dc input
         CVectorFloat::setValue(m_pfInput, 1.F, 16);
         CHECK(Error_t::kNoError == m_pCCcf->init(16));
-        CHECK(Error_t::kNoError == m_pCCcf->calcCcf(m_pfInput, m_pfInput, false));
+        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, false));
         CHECK(16 == m_pCCcf->getCcfLength(true));
         CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, true));
         CHECK(16.F == Approx(m_pCCcf->getCcfMax(true)).margin(1e-6F).epsilon(1e-6F));
@@ -170,23 +170,23 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         CHECK(16 - 1 == Approx(m_pCCcf->getCcfMaxIdx(false)).margin(1e-6F).epsilon(1e-6F));
 
         // normalized
-        CHECK(Error_t::kNoError == m_pCCcf->calcCcf(m_pfInput, m_pfInput, true));
+        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, true));
         CHECK(16 == m_pCCcf->getCcfLength(true));
         CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, true));
         CHECK(1.F == Approx(m_pCCcf->getCcfMax(true)).margin(1e-6F).epsilon(1e-6F));
         CHECK(0 == m_pCCcf->getCcfMaxIdx(true));
 
         // sine wave
-        CSynthesis::generateSine(m_pfInput, 4, 512, m_iNumValues);
+        CSynthesis::genSine(m_pfInput, 4, 512, m_iNumValues);
         CHECK(Error_t::kNoError == m_pCCcf->init(m_iNumValues));
-        CHECK(Error_t::kNoError == m_pCCcf->calcCcf(m_pfInput, m_pfInput, false));
+        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, false));
         CHECK(m_iNumValues == m_pCCcf->getCcfLength(true));
         CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, true));
         CHECK(m_iNumValues / 2 == Approx(m_pCCcf->getCcfMax()).margin(1e-6F).epsilon(1e-6F));
         CHECK(m_iNumValues - 1 ==  m_pCCcf->getCcfMaxIdx());
 
         // normalized
-        CHECK(Error_t::kNoError == m_pCCcf->calcCcf(m_pfInput, m_pfInput, true));
+        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, true));
         CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, true));
         CHECK(1.F == Approx(m_pCCcf->getCcfMax()).margin(1e-6F).epsilon(1e-6F));
 
@@ -201,20 +201,20 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         int iBlockLength = 8;
 
         // sine wave w impulse
-        CSynthesis::generateSine(m_pfInput, 1, 1.F*iBlockLength, iBlockLength);
+        CSynthesis::genSine(m_pfInput, 1, 1.F*iBlockLength, iBlockLength);
         m_pfInput[iBlockLength] = 1;
         CHECK(Error_t::kNoError == m_pCCcf->init(iBlockLength));
-        CHECK(Error_t::kNoError == m_pCCcf->calcCcf(m_pfInput, &m_pfInput[iBlockLength], false));
+        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, &m_pfInput[iBlockLength], false));
         CHECK(2 * iBlockLength - 1 == m_pCCcf->getCcfLength(false));
         CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, false));
         for (auto i = 0; i < iBlockLength; i++)
             CHECK(m_pfInput[i] == Approx(m_pfOut[iBlockLength - 1+i]).margin(1e-3F).epsilon(1e-3F));
 
         // impulse w sine wave 
-        CSynthesis::generateSine(m_pfInput, 1, 1.F * iBlockLength, iBlockLength);
+        CSynthesis::genSine(m_pfInput, 1, 1.F * iBlockLength, iBlockLength);
         m_pfInput[iBlockLength] = 1;
         CHECK(Error_t::kNoError == m_pCCcf->init(iBlockLength));
-        CHECK(Error_t::kNoError == m_pCCcf->calcCcf(&m_pfInput[iBlockLength], m_pfInput, false));
+        CHECK(Error_t::kNoError == m_pCCcf->compCcf(&m_pfInput[iBlockLength], m_pfInput, false));
         CHECK(2 * iBlockLength - 1 == m_pCCcf->getCcfLength(false));
         CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, false));
 

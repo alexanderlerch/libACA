@@ -184,7 +184,7 @@ Error_t CSpectrogramIf::getSpectrogramAxisVectors(float* pfAxisTicks, AxisLabel_
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::getSpectrogram(float** ppfSpectrogram)
+Error_t CSpectrogramIf::compSpectrogram(float** ppfSpectrogram)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -220,10 +220,10 @@ void CSpectrogramIf::computeMagSpectrum_(int iLength)
 
     // normalize if specified
     if (m_pCNormalize)
-        m_pCNormalize->normalizePerBlock(m_pfProcessBuff, m_iBlockLength);
+        m_pCNormalize->normalizeBlock(m_pfProcessBuff, m_iBlockLength);
 
     // compute magnitude spectrum (hack
-    m_pCFft->doFft(m_pfSpectrum, m_pfProcessBuff);
+    m_pCFft->compFft(m_pfSpectrum, m_pfProcessBuff);
     m_pCFft->getMagnitude(m_pfSpectrum, m_pfSpectrum);
 
     CVectorFloat::mulC_I(m_pfSpectrum, 2.F, iLength);
@@ -346,7 +346,7 @@ Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float* pfAxisTicks, AxisLab
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::getMelSpectrogram(float** ppfMelSpectrogram, const MelSpectrogramConfig_t* pMelSpecConfig)
+Error_t CSpectrogramIf::compMelSpectrogram(float** ppfMelSpectrogram, const MelSpectrogramConfig_t* pMelSpecConfig)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;

@@ -61,14 +61,14 @@ public:
     \param pfInput: input data of length iBlockLength (\sa initInstance)
     \return Error_t
     */
-    Error_t doFft (complex_t *pfSpectrum, const float *pfInput);
+    Error_t compFft (complex_t *pfSpectrum, const float *pfInput);
 
     /*! perform IFFT
     \param pfOutput: time domain output signal of length iBlockLength * iZeroPadFactor (\sa initInstance)
     \param pfSpectrum: input spectrum of length iBlockLength * iZeroPadFactor (\sa initInstance)
     \return Error_t
     */
-    Error_t doInvFft (float *pfOutput, const complex_t *pfSpectrum);
+    Error_t compInvFft (float *pfOutput, const complex_t *pfSpectrum);
 
     /*! extract magnitude spectrum from complex values
     \param pfMag: resulting magnitude spectrum of length (iBlockLength * iZeroPadFactor)/2+1 (\sa initInstance)

@@ -274,7 +274,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         // sine wave
         eta = 500;
         m_fSampleRate = 1000;
-        CSynthesis::generateSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
+        CSynthesis::genSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
         CHECK(500 * (1.F - eta / 1000.F) == Approx(CFeatureFromBlockIf::compFeatureTimeAcfCoeff(m_pfInput, 1000, m_fSampleRate, eta)).margin(1e-4F).epsilon(1e-4F));
     }
 
@@ -297,7 +297,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // sine wave
         m_fSampleRate = 200;
-        CSynthesis::generateSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength, .7F);
+        CSynthesis::genSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength, .7F);
         CHECK(.7F == Approx(CFeatureFromBlockIf::compFeatureTimePeakEnvelope(m_pfInput, m_iBufferLength)).margin(1e-6F).epsilon(1e-6F));
     }
 
@@ -308,12 +308,12 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // sine wave
         m_fSampleRate = 200;
-        CSynthesis::generateSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(1.F / std::sqrt(2.F) == Approx(CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000)).margin(1e-6F).epsilon(1e-6F));
 
         // square wave
         m_fSampleRate = 200;
-        CSynthesis::generateRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000)).margin(1e-3F).epsilon(1e-3F));
 
         // square wave with offset
@@ -328,12 +328,12 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // sine wave
         m_fSampleRate = 200;
-        CSynthesis::generateSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(1.F / std::sqrt(2.F) == Approx(CFeatureFromBlockIf::compFeatureTimeStd(m_pfInput, 1000)).margin(1e-6F).epsilon(1e-6F));
 
         // square wave
         m_fSampleRate = 200;
-        CSynthesis::generateRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureTimeStd(m_pfInput, 1000)).margin(1e-3F).epsilon(1e-3F));
 
         // square wave with offset
@@ -348,12 +348,12 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // sine wave
         m_fSampleRate = 200;
-        CSynthesis::generateSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(19.F / 2000.F == Approx(CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(m_pfInput, 1000)).margin(1e-6F).epsilon(1e-6F));
 
         // square wave
         m_fSampleRate = 200;
-        CSynthesis::generateRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(19.F / 2000.F == Approx(CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(m_pfInput, 1000)).margin(1e-6F).epsilon(1e-6F));
     }
 
@@ -391,7 +391,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
             CHECK(Error_t::kNoError == CFeatureFromBlockIf::create(m_pCInstance, static_cast<CFeatureIf::Feature_t>(k), m_iBufferLength, m_fSampleRate));
             CHECK(m_pCInstance->getFeatureDimensions() >= 1);
             if (m_pCInstance->getFeatureDimensions() == 1)
-                CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+                CHECK(Error_t::kNoError == m_pCInstance->compFeature(&fResult, m_pfInput));
             CHECK(Error_t::kNoError == CFeatureFromBlockIf::destroy(m_pCInstance));
         }
     }
@@ -402,19 +402,19 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(Error_t::kNoError == CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureTimeMaxAcf, m_iBufferLength, m_fSampleRate));
 
         // ones
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(&fResult, m_pfInput));
         CHECK(fResult == Approx(1.F).margin(1e-6F).epsilon(1e-6F));
 
         // zeros
         CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(&fResult, m_pfInput));
         CHECK(fResult == Approx(0.F).margin(1e-6F).epsilon(1e-6F));
 
         // sine wave
         int eta = 500;
         m_fSampleRate = 1000;
-        CSynthesis::generateSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(&fResult, m_pfInput));
+        CSynthesis::genSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(&fResult, m_pfInput));
         CHECK((1.F - eta / 1000.F) == Approx(fResult).margin(1e-3F).epsilon(1e-3F));
     }
 
@@ -426,14 +426,14 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(12 == m_pCInstance->getFeatureDimensions());
 
         // ones
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(1.F == Approx(CVectorFloat::getSum(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
         CHECK(1.F / 12.F == Approx(CVectorFloat::getMax(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
         CHECK(1.F / 12.F == Approx(CVectorFloat::getMin(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
 
         // zeros
         CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(0.F == Approx(CVectorFloat::getSum(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
         CHECK(0.F == Approx(CVectorFloat::getMin(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
 
@@ -442,7 +442,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(Error_t::kNoError == CFeatureFromBlockIf::destroy(m_pCInstance));
         CHECK(Error_t::kNoError == CFeatureFromBlockIf::create(m_pCInstance, CFeatureIf::kFeatureSpectralPitchChroma, 1000, m_fSampleRate));
         m_pfInput[static_cast<int>(CConversion::convertFreq2Bin(440, 2000, m_fSampleRate))] = 1;
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(1.F == Approx(afResult[9]).margin(1e-6F).epsilon(1e-6F));
 
         // sine 
@@ -456,7 +456,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
             m_pfInput[(k + 1) * k0] = 1.F / std::sqrt(k + 1.F);
             fNorm += 1.F / std::sqrt(k + 1.F);
         }
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(afResult[9] == Approx(CVectorFloat::getMax(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
         CHECK(afResult[1] > 0);
         CHECK(afResult[4] > 0);
@@ -471,14 +471,14 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(13 == m_pCInstance->getFeatureDimensions());
 
         // ones
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(0.F == Approx(CVectorFloat::getSum(&afResult[1], 12)).margin(1e-2F).epsilon(1e-2F));
         CHECK(afResult[0] == Approx(CVectorFloat::getMin(afResult, 13)).margin(1e-6F).epsilon(1e-6F));
         CHECK(-7.55021658F == Approx(afResult[0]).margin(1e-6F).epsilon(1e-6F));
 
         // zeros
         CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(0.F == Approx(CVectorFloat::getMean(&afResult[1], 12)).margin(1e-6F).epsilon(1e-6F));
         CHECK(afResult[0] == Approx(CVectorFloat::getMin(afResult, 13)).margin(1e-6F).epsilon(1e-6F));
         CHECK(afResult[0] < -100);
@@ -493,7 +493,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
 
         // zeros
         CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(0.F == Approx(afResult[1]).margin(1e-6F).epsilon(1e-6F));
 
         // ones
@@ -501,7 +501,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
         for (auto n = 0; n < 2000; n++)
         {
-            CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+            CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
             CHECK(fTmp <= afResult[1]);
             fTmp = afResult[1];
         }
@@ -509,10 +509,10 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
 
         // zeros
         CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         float fAlpha = CSinglePoleLp::calcFilterParam(.3F, m_fSampleRate);
         CHECK(std::sqrt(fAlpha) == Approx(afResult[1]).margin(1e-4F).epsilon(1e-4F));
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(std::pow(fAlpha, m_iBufferLength / 2.) == Approx(afResult[1]).margin(1e-3F).epsilon(1e-3F));
     }
 
@@ -525,7 +525,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
 
         // zeros
         CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(0.F == Approx(afResult[1]).margin(1e-6F).epsilon(1e-6F));
 
         // ones
@@ -533,7 +533,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CVectorFloat::setValue(m_pfInput, 1.F, m_iBufferLength);
         for (auto n = 0; n < 2000; n++)
         {
-            CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+            CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
             CHECK(fTmp <= afResult[1]);
             fTmp = afResult[1];
         }
@@ -541,10 +541,10 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
 
         // zeros
         CVectorFloat::setZero(m_pfInput, m_iBufferLength);
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         float fAlpha = CSinglePoleLp::calcFilterParam(1.5F, m_fSampleRate);
         CHECK(fAlpha == Approx(afResult[1]).margin(1e-4F).epsilon(1e-4F));
-        CHECK(Error_t::kNoError == m_pCInstance->calcFeatureFromBlock(afResult, m_pfInput));
+        CHECK(Error_t::kNoError == m_pCInstance->compFeature(afResult, m_pfInput));
         CHECK(std::pow(fAlpha, m_iBufferLength) == Approx(afResult[1]).margin(1e-3F).epsilon(1e-3F));
     }
 
@@ -592,8 +592,8 @@ TEST_CASE("Features (per array)", "[FeaturesClass]")
             for (auto i = 0; i < aiDim[0]; i++)
                 ppfFeature[i] = new float[aiDim[1]];
 
-            CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->getFeature1Dim(0));
-            CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->getFeatureNDim(0));
+            CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->compFeature1Dim(0));
+            CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->compFeatureNDim(0));
 
 
             CHECK(Error_t::kNoError == CFeatureIf::destroy(m_pCInstance));

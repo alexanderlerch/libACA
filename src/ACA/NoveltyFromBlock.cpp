@@ -110,7 +110,7 @@ int CNoveltyFromBlockIf::getNoveltyDimension() const
     return 1;
 }
 
-Error_t CNoveltyFromBlockIf::calcNoveltyFromBlock(float* pfNovelty, const float* pfInput)
+Error_t CNoveltyFromBlockIf::compNovelty(float* pfNovelty, const float* pfInput)
 {
     *pfNovelty = m_DispatchMap.at(m_eNoveltyIdx)(pfInput, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
 

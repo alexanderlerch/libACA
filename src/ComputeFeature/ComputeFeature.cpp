@@ -92,9 +92,9 @@ int main(int argc, char* argv[])
     // compute feature
     cout << "\n1. computing feature..." << endl;
     if (aiFeatureDimensions[0] == 1)
-        pCInstance->getFeature1Dim(ppfFeature[0]);
+        pCInstance->compFeature1Dim(ppfFeature[0]);
     else
-        pCInstance->getFeatureNDim(ppfFeature);
+        pCInstance->compFeatureNDim(ppfFeature);
 
     cout << "\n feature computation done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
 

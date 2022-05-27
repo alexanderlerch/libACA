@@ -170,7 +170,7 @@ Error_t CFeatureIf::getFeatureTimeStamps(float* pfAxisTicks) const
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::getFeature1Dim(float* pfFeature)
+Error_t CFeatureIf::compFeature1Dim(float* pfFeature)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -193,18 +193,18 @@ Error_t CFeatureIf::getFeature1Dim(float* pfFeature)
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizePerBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
 
         if (isFeatureSpectral_(m_pCFeature->getFeatureIdx()))
             computeMagSpectrum_();
 
-        m_pCFeature->calcFeatureFromBlock(&pfFeature[n], m_pfProcessBuff1);
+        m_pCFeature->compFeature(&pfFeature[n], m_pfProcessBuff1);
     }
 
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::getFeatureNDim(float** ppfFeature)
+Error_t CFeatureIf::compFeatureNDim(float** ppfFeature)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -229,12 +229,12 @@ Error_t CFeatureIf::getFeatureNDim(float** ppfFeature)
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizePerBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
 
         if (isFeatureSpectral_(m_pCFeature->getFeatureIdx()))
             computeMagSpectrum_();
 
-        m_pCFeature->calcFeatureFromBlock(m_pfProcessBuff2, m_pfProcessBuff1);
+        m_pCFeature->compFeature(m_pfProcessBuff2, m_pfProcessBuff1);
 
         // copy to output buffer
         for (auto k = 0; k < iNumFeatures; k++)
@@ -310,7 +310,7 @@ void CFeatureIf::computeMagSpectrum_()
     assert(m_pCFft);
 
     // compute magnitude spectrum (hack
-    m_pCFft->doFft(m_pfProcessBuff2, m_pfProcessBuff1);
+    m_pCFft->compFft(m_pfProcessBuff2, m_pfProcessBuff1);
     m_pCFft->getMagnitude(m_pfProcessBuff1, m_pfProcessBuff2);
 
     CVectorFloat::mulC_I(m_pfProcessBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));

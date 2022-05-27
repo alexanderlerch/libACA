@@ -28,13 +28,13 @@ public:
     */
     Error_t reset ();
 
-    /*! computes cost and path w/o back-tracking
+    /*! computes cross correlation function
     \param pfInput1 (block of data to be correlated)
     \param pfInput2 (block of data to be correlated, equals pfInput1 when ACF)
     \param bNormalize flag whether the output is normalized
     \return Error_t
     */
-    Error_t calcCcf (const float* pfInput1, const float* pfInput2, bool bNormalize = true);
+    Error_t compCcf (const float* pfInput1, const float* pfInput2, bool bNormalize = true);
  
     /*! returns the length of the CCF result
     \return int

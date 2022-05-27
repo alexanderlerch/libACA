@@ -75,7 +75,7 @@ Error_t CBeatHistoIf::getNumBins(int& iLengthOfBeatHisto, BeatHisto_t eBeatHisto
 int CBeatHistoIf::getNumBins(BeatHisto_t eBeatHistoComp) const
 {
     int aiRangeIndices[2] = { 0,0 };
-    compHistoRange(aiRangeIndices[0], aiRangeIndices[1], eBeatHistoComp);
+    compHistoRange_(aiRangeIndices[0], aiRangeIndices[1], eBeatHistoComp);
     return aiRangeIndices[1] - aiRangeIndices[0] + 1;
 }
 
@@ -94,7 +94,7 @@ Error_t CBeatHistoIf::getBeatHistoAxisTicks(float* pfAxisTicks, BeatHisto_t eBea
     assert(m_fSampleRate > 0);
 
     int aiRangeIndices[2] = { 0,0 };
-    compHistoRange(aiRangeIndices[0], aiRangeIndices[1], eBeatHistoComp);
+    compHistoRange_(aiRangeIndices[0], aiRangeIndices[1], eBeatHistoComp);
     
     if (eBeatHistoComp == kBeatHistoFft)
     {
@@ -110,7 +110,7 @@ Error_t CBeatHistoIf::getBeatHistoAxisTicks(float* pfAxisTicks, BeatHisto_t eBea
     return Error_t::kNoError;
 }
 
-Error_t CBeatHistoIf::getBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoComp)
+Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoComp)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -125,7 +125,7 @@ Error_t CBeatHistoIf::getBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCom
 
     assert(iHopSize > 0);
 
-    m_pCNovelty->getNovelty(m_pfNovelty);
+    m_pCNovelty->compNovelty(m_pfNovelty);
 
     // create a blocking instance to use it on the Novelty function
     CBlockAudioIf::create(pCBlock, m_pfNovelty, m_pCNovelty->getNumBlocks(), m_iBeatHistoLength, iHopSize, m_fSampleRate / m_iHopLength);
@@ -146,7 +146,7 @@ Error_t CBeatHistoIf::getBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCom
             pCBlock->getNextBlock(m_pfProcessBuff);
 
             // compute magnitude spectrum
-            pCAcf->calcCcf(m_pfProcessBuff, m_pfProcessBuff);
+            pCAcf->compCcf(m_pfProcessBuff, m_pfProcessBuff);
             pCAcf->getCcf(m_pfProcessBuff, true);
 
             // accumulate average spectrum
@@ -173,7 +173,7 @@ Error_t CBeatHistoIf::getBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCom
             pCBlock->getNextBlock(m_pfProcessBuff);
 
             // compute magnitude spectrum
-            pCFft->doFft(m_pfProcessBuff, m_pfProcessBuff);
+            pCFft->compFft(m_pfProcessBuff, m_pfProcessBuff);
             pCFft->getMagnitude(m_pfProcessBuff, m_pfProcessBuff);
 
             // accumulate average spectrum
@@ -187,7 +187,7 @@ Error_t CBeatHistoIf::getBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCom
         return Error_t::kFunctionInvalidArgsError;
 
     // restrict output BPM to 30-200
-    compHistoRange(aiBeatHistoRange[0], aiBeatHistoRange[1], eBeatHistoComp);
+    compHistoRange_(aiBeatHistoRange[0], aiBeatHistoRange[1], eBeatHistoComp);
 
     // copy to output
     //CVectorFloat::moveInMem(m_pfBeatHisto, 0, aiBeatHistoRange[0], aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1);
@@ -197,7 +197,7 @@ Error_t CBeatHistoIf::getBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCom
     // create BPM axis labels
 
     // normalize result
-    CNormalizeAudio::normalizeWithinVec(pfBeatHisto, iBeatHistoLength);
+    CNormalizeAudio::normalizeSignal(pfBeatHisto, iBeatHistoLength);
 
     // cleanup
     CBlockAudioIf::destroy(pCBlock);
@@ -274,7 +274,7 @@ Error_t CBeatHistoIf::init_(const float* pfAudio, long long iNumFrames, float fS
 
 //int compBeatHistoLength_(long long iLengthNovelty) const;
 
-inline void CBeatHistoIf::compHistoRange(int& iStartIdx, int& iStopIdx, BeatHisto_t eBeatHistoComp) const
+inline void CBeatHistoIf::compHistoRange_(int& iStartIdx, int& iStopIdx, BeatHisto_t eBeatHistoComp) const
 {
     const float afBpmRange[2] = { 30.F, 200.F };
 

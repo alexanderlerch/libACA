@@ -19,7 +19,7 @@ TEST_CASE("RingBuffer", "[RingBuffer]")
 
     m_pCRingBuffer = new CRingBuffer<float>(m_iRingBuffLength);
     m_pfData = new float[m_iDataLength];
-    CSynthesis::generateSine(m_pfData, 20.F, fSampleFreq, m_iDataLength, .7F, static_cast<float>(M_PI_2));
+    CSynthesis::genSine(m_pfData, 20.F, fSampleFreq, m_iDataLength, .7F, static_cast<float>(M_PI_2));
 
 
 SECTION("RbDelay")

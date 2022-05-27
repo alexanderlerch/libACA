@@ -94,7 +94,7 @@ Error_t CFft::getWindow( float *pfWindow ) const
     return Error_t::kNoError;
 }
 
-Error_t CFft::doFft( complex_t *pfSpectrum, const float *pfInput )
+Error_t CFft::compFft( complex_t *pfSpectrum, const float *pfInput )
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -118,7 +118,7 @@ Error_t CFft::doFft( complex_t *pfSpectrum, const float *pfInput )
     return Error_t::kNoError;
 }
 
-Error_t CFft::doInvFft( float *pfOutput, const complex_t *pfSpectrum )
+Error_t CFft::compInvFft( float *pfOutput, const complex_t *pfSpectrum )
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;

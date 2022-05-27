@@ -177,7 +177,7 @@ Error_t CNoveltyIf::getNoveltyTimeStamps(float* pfAxisTicks) const
     return Error_t::kNoError;
 }
 
-Error_t CNoveltyIf::getNovelty(float* pfNovelty, bool* pbIsOnset)
+Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -195,7 +195,7 @@ Error_t CNoveltyIf::getNovelty(float* pfNovelty, bool* pbIsOnset)
     const float fThreshLpLenInS = 0.14F;
     auto iNumBlocks = m_pCBlockAudio->getNumBlocks();
 
-    float *pfThreshold = new float[iNumBlocks]; //!< memory allocation is ok since we process the whole signal at once
+    float *pfThreshold = new float[iNumBlocks]; //!< memory allocation is ok since we compDtw the whole signal at once
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
@@ -204,11 +204,11 @@ Error_t CNoveltyIf::getNovelty(float* pfNovelty, bool* pbIsOnset)
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizePerBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
 
         computeMagSpectrum_();
 
-        m_pCNovelty->calcNoveltyFromBlock(&pfNovelty[n], m_pfProcessBuff1);
+        m_pCNovelty->compNovelty(&pfNovelty[n], m_pfProcessBuff1);
     }
 
     // normalize
@@ -279,7 +279,7 @@ void CNoveltyIf::computeMagSpectrum_()
     assert(m_pCFft);
 
     // compute magnitude spectrum (hack
-    m_pCFft->doFft(m_pfProcessBuff2, m_pfProcessBuff1);
+    m_pCFft->compFft(m_pfProcessBuff2, m_pfProcessBuff1);
     m_pCFft->getMagnitude(m_pfProcessBuff1, m_pfProcessBuff2);
 
     CVectorFloat::mulC_I(m_pfProcessBuff1, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));

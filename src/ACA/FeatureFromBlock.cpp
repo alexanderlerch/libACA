@@ -337,7 +337,7 @@ public:
         m_pfPrevSpec = 0;
     };
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         *pfFeature = compFeatureSpectralFlux(pfInput, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
 
@@ -384,7 +384,7 @@ public:
         m_pfMelSpec = 0;
     }
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         assert(pfFeature);
         assert(pfInput);
@@ -542,7 +542,7 @@ public:
         m_ppfH = 0;
     };
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         assert(pfFeature);
         assert(pfInput);
@@ -644,7 +644,7 @@ public:
 
     virtual ~CFeatureSpectralRolloff() {};
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         *pfFeature = compFeatureSpectralRolloff(pfInput, m_iDataLength, m_fSampleRate, m_fKappa);
 
@@ -679,7 +679,7 @@ public:
 
     virtual ~CFeatureSpectralTonalPowerRatio() {};
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         *pfFeature = compFeatureSpectralTonalPowerRatio(pfInput, m_iDataLength, m_fSampleRate, m_fThresh);
 
@@ -714,7 +714,7 @@ public:
 
     virtual ~CFeatureTimeAcfCoeff() {};
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         *pfFeature = compFeatureTimeAcfCoeff(pfInput, m_iDataLength, m_fSampleRate, m_iEta);
 
@@ -762,14 +762,14 @@ public:
         m_pCCcf = 0;
     };
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         float fMinThresh = 0.35F;
 
         int iEta = 0,
             iEtaMin = static_cast<int>(m_fSampleRate / m_fMax);
 
-        m_pCCcf->calcCcf(pfInput, pfInput, true);
+        m_pCCcf->compCcf(pfInput, pfInput, true);
         m_pCCcf->getCcf(m_pfAcf, true);
 
         // avoid main lobe
@@ -835,7 +835,7 @@ public:
 
     virtual ~CFeatureTimePeakEnvelope() {};
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         pfFeature[kBlock] = compFeatureTimePeakEnvelope(pfInput, m_iDataLength, m_fSampleRate);
 
@@ -909,7 +909,7 @@ public:
         CSinglePoleLp::destroy(m_pCSinglePole);
     };
 
-    Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfInput) override
     {
         pfFeature[kBlock] = compFeatureTimeRms(pfInput, m_iDataLength, m_fSampleRate);
         
@@ -1043,7 +1043,7 @@ int CFeatureFromBlockIf::getFeatureDimensions() const
     return 1;
 }
 
-Error_t CFeatureFromBlockIf::calcFeatureFromBlock(float* pfFeature, const float* pfInput)
+Error_t CFeatureFromBlockIf::compFeature(float* pfFeature, const float* pfInput)
 {
     // default: use one of the static functions
     *pfFeature = m_DispatchMap.at(m_eFeatureIdx)(pfInput, m_iDataLength, m_fSampleRate);

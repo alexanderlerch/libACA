@@ -37,7 +37,7 @@ public:
     \param ppfDistanceMatrix (dimensions [rows][columns])
     \return Error_t
     */
-    Error_t process (float **ppfDistanceMatrix);
+    Error_t compDtw (float **ppfDistanceMatrix);
  
     /*! returns the length of the path
     \return int
@@ -93,7 +93,7 @@ private:
 
 
     bool m_bIsInitialized = false;                              //!< true if init has been called
-    bool m_bWasProcessed = false;                               //!< true if process has been called
+    bool m_bWasProcessed = false;                               //!< true if compDtw has been called
 
     float *m_apfCost[kNumVectors] = {0,0};                      //!< only allocate two rows instead of a whole matrix for the cost 
     float m_fOverallCost = 0;                                   //!< overall cost

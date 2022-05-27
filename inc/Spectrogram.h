@@ -72,7 +72,7 @@ public:
     \param ppfSpectrogram (user-allocated, to be written, dimensions from CSpectrogramIf::getSpectrogramDimensions)
     \return Error_t
     */
-    Error_t getSpectrogram(float** ppfSpectrogram);
+    Error_t compSpectrogram(float** ppfSpectrogram);
 
     struct MelSpectrogramConfig_t
     {
@@ -103,7 +103,7 @@ public:
     \param pMelSpecConfig parametrization of the mel spectrogram
     \return Error_t
     */
-    Error_t getMelSpectrogram(float** ppfMelSpectrogram, const MelSpectrogramConfig_t* pMelSpecConfig);
+    Error_t compMelSpectrogram(float** ppfMelSpectrogram, const MelSpectrogramConfig_t* pMelSpecConfig);
 
 protected:
     CSpectrogramIf();

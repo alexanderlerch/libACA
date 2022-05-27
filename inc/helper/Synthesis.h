@@ -22,7 +22,7 @@ public:
     \param fStartPhaseInRad starting phase in radiants
     \return Error_t
     */
-    static Error_t generateSine (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F, float fStartPhaseInRad = 0.F)
+    static Error_t genSine (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F, float fStartPhaseInRad = 0.F)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
@@ -43,7 +43,7 @@ public:
     \param fAmplitude amplitude of signal
     \return Error_t
     */
-    static Error_t generateRect (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F)
+    static Error_t genRect (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
@@ -73,7 +73,7 @@ public:
     \param fAmplitude amplitude of signal
    \return Error_t
    */
-    static Error_t generateSaw (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F)
+    static Error_t genSaw (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
@@ -94,7 +94,7 @@ public:
     \param fAmplitude amplitude of signal
     \return Error_t
     */
-    static Error_t generateDc (float *pfOutBuf, int iLength, float fAmplitude = 1.F)
+    static Error_t genDc (float *pfOutBuf, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
@@ -113,7 +113,7 @@ public:
     \param fAmplitude max amplitude of noise
     \return Error_t
     */
-    static Error_t generateNoise (float *pfOutBuf, int iLength, float fAmplitude = 1.F)
+    static Error_t genNoise (float *pfOutBuf, int iLength, float fAmplitude = 1.F)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;

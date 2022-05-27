@@ -89,13 +89,13 @@ public:
     \param ppfFeature (user-allocated, to be written, dimensions from CFeatureIf::getFeatureDimensions)
     \return Error_t
     */
-    Error_t getFeature1Dim(float* pfFeature);
+    Error_t compFeature1Dim(float* pfFeature);
 
     /*! performs the Feature computation for N dimensional features and writes the result
     \param ppfFeature (user-allocated, to be written, dimensions from CFeatureIf::getFeatureDimensions)
     \return Error_t
     */
-    Error_t getFeatureNDim(float** ppfFeature);
+    Error_t compFeatureNDim(float** ppfFeature);
 
     /*! returns feature name as string
     \param eFeatureIdx feature index

@@ -47,7 +47,7 @@ TEST_CASE("AudioIo", "[AudioIo]")
 
     for (int i = 0; i < m_iNumChannels; i++)
     {
-        CSynthesis::generateSine(m_ppfAudioData[i], 441.F, m_stFileSpec.fSampleRateInHz, m_iBuffLength, .6F, fPhase);
+        CSynthesis::genSine(m_ppfAudioData[i], 441.F, m_stFileSpec.fSampleRateInHz, m_iBuffLength, .6F, fPhase);
         fPhase += static_cast<float>(M_PI_2);
     }
 

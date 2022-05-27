@@ -48,7 +48,7 @@ public:
     \param pfInput input data of length iDataLength
     \return Error_t
     */
-    virtual Error_t calcFeatureFromBlock(float* pfFeature, const float* pfInput);
+    virtual Error_t compFeature(float* pfFeature, const float* pfInput);
 
     /*! returns true if there is an additional parameter
     \return bool

@@ -46,8 +46,8 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
         CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->getBeatHistoAxisTicks(0, CBeatHistoIf::kBeatHistoFft));
         CHECK(Error_t::kNoError == m_pCInstance->getBeatHistoAxisTicks(m_pfBeatTicks, CBeatHistoIf::kBeatHistoFft));
 
-        CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->getBeatHisto(0, CBeatHistoIf::kBeatHistoFft));
-        CHECK(Error_t::kNoError == m_pCInstance->getBeatHisto(m_pfBeatHisto, CBeatHistoIf::kBeatHistoFft));
+        CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->compBeatHisto(0, CBeatHistoIf::kBeatHistoFft));
+        CHECK(Error_t::kNoError == m_pCInstance->compBeatHisto(m_pfBeatHisto, CBeatHistoIf::kBeatHistoFft));
 
         CHECK(Error_t::kNoError == CBeatHistoIf::destroy(m_pCInstance));
     }
@@ -63,7 +63,7 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
         CHECK(Error_t::kNoError == CBeatHistoIf::create(m_pCInstance, m_pfInput, m_iBufferLength, m_fSampleRate));
         CHECK_FALSE(m_pCInstance == 0);
 
-        CHECK(Error_t::kNoError == m_pCInstance->getBeatHisto(m_pfBeatHisto));
+        CHECK(Error_t::kNoError == m_pCInstance->compBeatHisto(m_pfBeatHisto));
         CHECK(Error_t::kNoError == m_pCInstance->getBeatHistoAxisTicks(m_pfBeatTicks, CBeatHistoIf::kBeatHistoFft));
 
         float fMax = 0;
@@ -88,7 +88,7 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
         CHECK(Error_t::kNoError == CBeatHistoIf::create(m_pCInstance, m_pfInput, m_iBufferLength, m_fSampleRate));
         CHECK_FALSE(m_pCInstance == 0);
 
-        CHECK(Error_t::kNoError == m_pCInstance->getBeatHisto(m_pfBeatHisto, CBeatHistoIf::kBeatHistoCorr));
+        CHECK(Error_t::kNoError == m_pCInstance->compBeatHisto(m_pfBeatHisto, CBeatHistoIf::kBeatHistoCorr));
         CHECK(Error_t::kNoError == m_pCInstance->getBeatHistoAxisTicks(m_pfBeatTicks, CBeatHistoIf::kBeatHistoCorr));
 
         float fMax = 0;

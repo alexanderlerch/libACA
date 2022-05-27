@@ -78,7 +78,7 @@ public:
     \param pbIsOnset (user-allocated, to be written, true if onset)
     \return Error_t
     */
-    Error_t getNovelty(float* pfNovelty, bool* pbIsOnset = 0);
+    Error_t compNovelty(float* pfNovelty, bool* pbIsOnset = 0);
 
     /*! returns Novelty name as string
     \param eNoveltyIdx Novelty index

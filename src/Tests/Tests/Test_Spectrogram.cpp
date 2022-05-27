@@ -53,7 +53,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
 
         m_f0 = 400;
 
-        CSynthesis::generateSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
+        CSynthesis::genSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
 
         CHECK(Error_t::kNoError == CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength));
 
@@ -85,7 +85,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         m_iBlockLength = 1024;
         m_iHopLength = 512;
 
-        CSynthesis::generateSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
+        CSynthesis::genSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
 
         CHECK(Error_t::kNoError == CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength));
 
@@ -95,7 +95,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
             m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
 
-        m_pCSpecGram->getSpectrogram(m_ppfSpecGram);
+        m_pCSpecGram->compSpectrogram(m_ppfSpecGram);
 
         CHECK(m_ppfSpecGram[10][10] - m_ppfSpecGram[20][10] == Approx(m_ppfSpecGram[10][10]).margin(1e-4F).epsilon(1e-4F));
         CHECK(m_ppfSpecGram[115][10] == Approx(0).margin(1e-6F).epsilon(1e-6F));
@@ -112,7 +112,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         m_iBlockLength = 1024;
         m_iHopLength = 512;
 
-        CSynthesis::generateSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
+        CSynthesis::genSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
 
         CHECK(Error_t::kNoError == CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength));
 
@@ -122,7 +122,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
             m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
 
-        m_pCSpecGram->getSpectrogram(m_ppfSpecGram);
+        m_pCSpecGram->compSpectrogram(m_ppfSpecGram);
 
         CHECK(m_ppfSpecGram[10][10] - m_ppfSpecGram[11][10] == Approx(0).margin(1e-4F).epsilon(1e-4F));
 
@@ -141,7 +141,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         //reuse buffer for window setting
         CVectorFloat::setValue(m_pfTimeStamps, 1.F, m_iBlockLength);
 
-        CSynthesis::generateSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs), fAmp);
+        CSynthesis::genSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs), fAmp);
 
         CHECK(Error_t::kNoError == CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength, false, m_pfTimeStamps));
 
@@ -151,7 +151,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         for (auto k = 0; k < m_aiSpecGramDimension[0]; k++)
             m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
 
-        m_pCSpecGram->getSpectrogram(m_ppfSpecGram);
+        m_pCSpecGram->compSpectrogram(m_ppfSpecGram);
 
         CHECK(m_ppfSpecGram[4][0] == Approx(fAmp).margin(1e-6F).epsilon(1e-6F));
         CHECK(m_ppfSpecGram[0][0] == Approx(0).margin(1e-4F).epsilon(1e-4F));
@@ -159,7 +159,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         CHECK(Error_t::kNoError == CSpectrogramIf::destroy(m_pCSpecGram));
         CHECK(Error_t::kNoError == CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<int>(m_fs), m_fs, m_iBlockLength, m_iHopLength, true, m_pfTimeStamps));
 
-        m_pCSpecGram->getSpectrogram(m_ppfSpecGram);
+        m_pCSpecGram->compSpectrogram(m_ppfSpecGram);
 
         CHECK(m_ppfSpecGram[4][0] == Approx(1).margin(1e-6F).epsilon(1e-6F));
         CHECK(m_ppfSpecGram[0][0] == Approx(0).margin(1e-6F).epsilon(1e-6F));
@@ -184,7 +184,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         stMelSpecConfig.fMinFreqInHz = 0;
         stMelSpecConfig.iNumMelBins = 128;
 
-        CSynthesis::generateSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
+        CSynthesis::genSine(m_pfInput, m_f0, m_fs, static_cast<int>(m_fs));
 
         CHECK(Error_t::kNoError == CSpectrogramIf::create(m_pCSpecGram, m_pfInput, static_cast<long long>(m_fs), m_fs, m_iBlockLength, m_iHopLength));
 
@@ -206,7 +206,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
             m_ppfSpecGram[k] = new float[m_aiSpecGramDimension[1]];
 
         stMelSpecConfig.bIsLogarithmic = true;
-        m_pCSpecGram->getMelSpectrogram(m_ppfSpecGram, &stMelSpecConfig);
+        m_pCSpecGram->compMelSpectrogram(m_ppfSpecGram, &stMelSpecConfig);
 
         CHECK(-36.9F == Approx(m_ppfSpecGram[13][1]).margin(1e-1F).epsilon(1e-1F));
 

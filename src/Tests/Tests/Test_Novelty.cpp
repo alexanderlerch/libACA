@@ -203,7 +203,7 @@ TEST_CASE("Novelty (class interface per block)", "[NoveltyBlockClass]")
         {
             float fResult = 0;
             CHECK(Error_t::kNoError == CNoveltyFromBlockIf::create(m_pCInstance, static_cast<CNoveltyIf::Novelty_t>(k), m_iBufferLength, m_fSampleRate));
-            CHECK(Error_t::kNoError == m_pCInstance->calcNoveltyFromBlock(&fResult, m_pfInput));
+            CHECK(Error_t::kNoError == m_pCInstance->compNovelty(&fResult, m_pfInput));
             CHECK(Error_t::kNoError == CNoveltyFromBlockIf::destroy(m_pCInstance));
         }
     }
@@ -250,7 +250,7 @@ TEST_CASE("Novelty (per array)", "[NoveltyClass]")
             CHECK(Error_t::kNoError == m_pCInstance->getNumBlocks(iDim));
             CHECK(iDim == 188);
 
-            CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->getNovelty(0));
+            CHECK(Error_t::kFunctionInvalidArgsError == m_pCInstance->compNovelty(0));
 
             CHECK(Error_t::kNoError == CNoveltyIf::destroy(m_pCInstance));
 
@@ -265,7 +265,7 @@ TEST_CASE("Novelty (per array)", "[NoveltyClass]")
 
         CHECK(Error_t::kNoError == m_pCInstance->getNumBlocks(iDim));
 
-        CHECK(Error_t::kNoError == m_pCInstance->getNovelty(m_pfNovelty, m_pbOnset));
+        CHECK(Error_t::kNoError == m_pCInstance->compNovelty(m_pfNovelty, m_pbOnset));
 
         for (auto n = 0; n < iDim; n++)
         {

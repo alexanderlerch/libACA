@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // compute spectrogram
     cout << "\n1. computing Novelty..." << endl;
-    pCInstance->getNovelty(pfNovelty);
+    pCInstance->compNovelty(pfNovelty);
 
     cout << "\n Novelty computation done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
 
@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 
     cout << "\n2. writing output file..." << endl;
 
-    for (int n = 0; n < iNoveltyDimensions; n++)
+    for (auto n = 0; n < iNoveltyDimensions; n++)
     {
         hOutputFile << pfNovelty[n] << endl;
     }

@@ -63,7 +63,7 @@ Error_t CCcf::reset()
     return Error_t::kNoError;
 }
 
-Error_t CCcf::calcCcf(const float* pfInput1, const float* pfInput2, bool bNormalize)
+Error_t CCcf::compCcf(const float* pfInput1, const float* pfInput2, bool bNormalize)
 {
     if (!pfInput1 || !pfInput2)
         return Error_t::kFunctionInvalidArgsError;   
@@ -82,8 +82,8 @@ Error_t CCcf::calcCcf(const float* pfInput1, const float* pfInput2, bool bNormal
     }
 
     // compute the FFTs
-    m_pCFft->doFft(m_apfData[0], pfInput1);
-    m_pCFft->doFft(m_apfData[1], pfInput2);
+    m_pCFft->compFft(m_apfData[0], pfInput1);
+    m_pCFft->compFft(m_apfData[1], pfInput2);
 
     // conjugate complex multiply
     CVectorFloat::mulC_I(m_apfData[1], static_cast<float>(m_iFftLength), m_iFftLength);
@@ -94,7 +94,7 @@ Error_t CCcf::calcCcf(const float* pfInput1, const float* pfInput2, bool bNormal
     CVectorFloat::mulC_I(m_apfData[0], 1.F / (afStd[0] * afStd[1]), m_iFftLength);
 
     // inverse Fft
-    m_pCFft->doInvFft(m_apfData[0], m_apfData[0]);
+    m_pCFft->compInvFft(m_apfData[0], m_apfData[0]);
 
     // copy results
     CVectorFloat::copy(m_apfData[1], &m_apfData[0][m_iFftLength - m_iBlockLength + 1], m_iBlockLength - 1);

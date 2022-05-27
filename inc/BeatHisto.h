@@ -69,7 +69,7 @@ public:
     \param pbIsOnset (user-allocated, to be written, true if onset)
     \return Error_t
     */
-    Error_t getBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoComp = kBeatHistoFft);
+    Error_t compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoComp = kBeatHistoFft);
 
 protected:
     explicit CBeatHistoIf(int iBlockLength, int iHopLength, float fSampleRate) :m_iBlockLength(iBlockLength), m_iHopLength(iHopLength), m_fSampleRate(fSampleRate){};
@@ -80,7 +80,7 @@ protected:
     Error_t init_(const std::string& strAudioFilePath);//!< init configuration
     Error_t init_(const float* pfAudio, long long iNumFrames, float fSampleRate);//!< init configuration
     //int compBeatHistoLength_(long long iLengthNovelty) const;
-    void compHistoRange(int& iStartIdx, int& iStopIdx, BeatHisto_t eBeatHistoComp) const;
+    void compHistoRange_(int& iStartIdx, int& iStopIdx, BeatHisto_t eBeatHistoComp) const;
 
     CFft* m_pCFft = 0;                   //!< fft instance
     CCcf* m_pCCcf = 0;                  //!< correlation instance
