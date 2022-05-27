@@ -28,8 +28,8 @@ public:
     }
 
     /*! initializes the buffer to a specific value
-    \param pfDest pointer to memory to be initialized
-    \param fValue value to use
+    \param ptDest pointer to memory to be initialized
+    \param tValue value to use
     \param iLength number of elements to be set
     \return void
     */

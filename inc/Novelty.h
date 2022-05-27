@@ -32,6 +32,7 @@ public:
 
     /*! initializes a Novelty instance with file reading
     \param pCInstance pointer to instance to be written
+    \param eNoveltyIdx as defined in Novelty_t
     \param strAudioFilePath complete path to audio file
     \param iBlockLength: FFT block length in Frames
     \param iHopLength: hop length in Frames
@@ -41,6 +42,7 @@ public:
 
     /*! initializes a Novelty instance from audio data
     \param pCInstance pointer to instance to be written
+    \param eNoveltyIdx as defined in Novelty_t
     \param pfAudio complete audio data
     \param iNumFrames: length of pfAudio
     \param fSampleRate: sample rate in Hz

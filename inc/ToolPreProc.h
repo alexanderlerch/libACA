@@ -15,23 +15,23 @@ public:
     /*! downmixes multichannel audio (can be inplace
     \return void (no error returns b/c not user-facing)
     */
-    static void downmix (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumFrames)
+    static void downmix (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)
     {
         // sanity checks
         assert(pfOutput);
         assert(ppfInput);
         assert(ppfInput[0]);
         assert(iNumChannels > 0);
-        assert(iNumFrames > 0);
+        assert(iNumSamples > 0);
 
         // copy in case of not inplace processing
         if (pfOutput != ppfInput[0])
-            CVectorFloat::copy(pfOutput, ppfInput[0], iNumFrames);
+            CVectorFloat::copy(pfOutput, ppfInput[0], iNumSamples);
 
         // downmix
         for (auto c = 1; c < iNumChannels; c++)
-            CVectorFloat::add_I(pfOutput, ppfInput[c], iNumFrames);
-        CVectorFloat::mulC_I(pfOutput, 1.F / iNumChannels, iNumFrames);
+            CVectorFloat::add_I(pfOutput, ppfInput[c], iNumSamples);
+        CVectorFloat::mulC_I(pfOutput, 1.F / iNumChannels, iNumSamples);
 
         return;
     }
@@ -74,17 +74,17 @@ public:
         while (!pCAudioFile->isEof())
         {
             // set block length variable
-            long long iNumFrames = iBlockLength;
+            long long iNumSamples = iBlockLength;
             float fMax = 0;
 
             // read data (iNumOfFrames might be updated!)
-            pCAudioFile->readData(ppfAudioData, iNumFrames);
+            pCAudioFile->readData(ppfAudioData, iNumSamples);
 
             //downmix if multichannel
-            CPreProc::downmix(ppfAudioData[0], ppfAudioData, stFileSpec.iNumChannels, iNumFrames);
+            CPreProc::downmix(ppfAudioData[0], ppfAudioData, stFileSpec.iNumChannels, iNumSamples);
 
             // find max
-            fMax = CVectorFloat::getMax(ppfAudioData[0], iNumFrames, true);
+            fMax = CVectorFloat::getMax(ppfAudioData[0], iNumSamples, true);
             if (fMax > fGlobalMax)
                 fGlobalMax = fMax;
         }
@@ -113,32 +113,32 @@ public:
     virtual ~CNormalizeAudio() {};
 
     /*! performs the normalization on a buffer after previous file parsing to get the maximum
-    \param pfAudio audio data, to be over-written
-    \param  iNumFrames legnth of pfAudio
+    \param pfAudioBlock audio data, to be over-written
+    \param  iNumSamples legnth of pfAudio
     \return Error_t
     */
-    void normalizeBlock(float* pfAudioBlock, long long iNumFrames)
+    void normalizeBlock(float* pfAudioBlock, long long iNumSamples)
     {
         assert(pfAudioBlock);
-        assert(iNumFrames > 0);
+        assert(iNumSamples > 0);
 
-        CVectorFloat::mulC_I(pfAudioBlock, m_fScaleFactor, iNumFrames);
+        CVectorFloat::mulC_I(pfAudioBlock, m_fScaleFactor, iNumSamples);
     };
 
     /*! performs the normalization inplace on a buffer
     \param pfAudio audio data, to be over-written
-    \param  iNumFrames legnth of pfAudio
+    \param  iNumSamples legnth of pfAudio
     \return Error_t
     */
-    static void normalizeSignal(float* pfAudio, long long iNumFrames)
+    static void normalizeSignal(float* pfAudio, long long iNumSamples)
     {
         assert(pfAudio);
-        assert(iNumFrames > 0);
+        assert(iNumSamples > 0);
 
-        float fMax = CVectorFloat::getMax(pfAudio, iNumFrames, true);
+        float fMax = CVectorFloat::getMax(pfAudio, iNumSamples, true);
 
         if (fMax > 0)
-            CVectorFloat::mulC_I(pfAudio, 1.F / fMax, iNumFrames);
+            CVectorFloat::mulC_I(pfAudio, 1.F / fMax, iNumSamples);
 
         return;
     }

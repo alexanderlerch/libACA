@@ -51,52 +51,64 @@ public:
     */
     static Error_t destroy(CBeatHistoIf*& pCInstance);
 
-    /*! returns size of matrix to be allocated by user
-    \param iLengthOfBeatHisto (number of bins, to be written) 
+    /*! returns length of the frequency axis of the beat histogram
+    \param iNumBeatHistoBins (number of bins, to be written) 
+    \param eBeatHistoComp (computation method used in CBeatHistoIf::compBeatHisto)
     \return Error_t
     */
-    Error_t getNumBins(int& iLengthOfBeatHisto, BeatHisto_t eBeatHistoComp) const;
+    Error_t getNumBins(int& iNumBeatHistoBins, BeatHisto_t eBeatHistoComp) const;
+
+    /*! returns length of the frequency axis of the beat histogram
+    \param eBeatHistoComp (computation method used in CBeatHistoIf::compBeatHisto)
+    \return ing number bins
+    */
     int getNumBins(BeatHisto_t eBeatHistoComp) const;
 
     /*! returns axis ticks
     \param pfAxisTicks (to be written) in BPM, length equals iNumBins
+    \param eBeatHistoComp (computation method used in CBeatHistoIf::compBeatHisto)
     \return Error_t
     */
     Error_t getBeatHistoAxisTicks(float* pfAxisTicks, BeatHisto_t eBeatHistoComp) const;
 
     /*! performs the BeatHisto computation for 1 dimensional BeatHistos and writes the result
     \param pfBeatHisto (user-allocated, to be written, dimensions from CBeatHistoIf::getNumBins)
-    \param pbIsOnset (user-allocated, to be written, true if onset)
+    \param eBeatHistoComp computation method
     \return Error_t
     */
     Error_t compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoComp = kBeatHistoFft);
 
 protected:
-    explicit CBeatHistoIf(int iBlockLength, int iHopLength, float fSampleRate) :m_iBlockLength(iBlockLength), m_iHopLength(iHopLength), m_fSampleRate(fSampleRate){};
+    explicit CBeatHistoIf(int iBlockLength, int iHopLength, float fSampleRate) :
+        m_iBlockLength(iBlockLength), 
+        m_iHopLength(iHopLength), 
+        m_fSampleRate(fSampleRate)
+    {};
     virtual ~CBeatHistoIf();
     CBeatHistoIf(const CBeatHistoIf& that);
 
     Error_t reset_();                    //!< reset configuration
+
     Error_t init_(const std::string& strAudioFilePath);//!< init configuration
     Error_t init_(const float* pfAudio, long long iNumFrames, float fSampleRate);//!< init configuration
-    //int compBeatHistoLength_(long long iLengthNovelty) const;
+
     void compHistoRange_(int& iStartIdx, int& iStopIdx, BeatHisto_t eBeatHistoComp) const;
 
-    CFft* m_pCFft = 0;                   //!< fft instance
-    CCcf* m_pCCcf = 0;                  //!< correlation instance
+    CFft* m_pCFft = 0;  //!< fft instance
+    CCcf* m_pCCcf = 0;  //!< correlation instance
 
-    CNoveltyIf* m_pCNovelty = 0;
+    CNoveltyIf* m_pCNovelty = 0; //!< novelty function extraction instance
 
-    float* m_pfNovelty = 0;
-    float* m_pfProcessBuff = 0;
-    float* m_pfBeatHisto = 0;
+    float* m_pfNovelty = 0;  //!< buffer to hold extracted nvelty function
+    float* m_pfProcessBuff = 0; //!< temporary processing buffer
+    float* m_pfBeatHisto = 0; //!< result buffer
     
-    int m_iBlockLength = 0,             //!< fft length
-        m_iHopLength = 0;               //!< hop length
+    int m_iBlockLength = 0, //!< processing block length for novelty
+        m_iHopLength = 0;  //!< hop length for novelty
 
-    const int m_iBeatHistoLength = 65536;
+    const int m_iBeatHistoLength = 65536; //!< default length of FFT
 
-    float m_fSampleRate = 0;            //!< sample rate
+    float m_fSampleRate = 0;    //!< sample rate
 
     bool    m_bIsInitialized = false;   //!< true if initialized
 };

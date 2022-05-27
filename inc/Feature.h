@@ -48,6 +48,7 @@ public:
 
     /*! initializes a Feature instance with file reading
     \param pCInstance pointer to instance to be written
+    \param eFeatureIdx as defined in Feature_t
     \param strAudioFilePath complete path to audio file
     \param iBlockLength: FFT block length in Frames
     \param iHopLength: hop length in Frames
@@ -57,6 +58,7 @@ public:
 
     /*! initializes a Feature instance from audio data
     \param pCInstance pointer to instance to be written
+    \param eFeatureIdx as defined in Feature_t
     \param pfAudio complete audio data
     \param iNumFrames: length of pfAudio
     \param fSampleRate: sample rate in Hz
@@ -86,7 +88,7 @@ public:
     Error_t getFeatureTimeStamps(float* pfAxisTicks) const;
 
     /*! performs the Feature computation for 1 dimensional features and writes the result
-    \param ppfFeature (user-allocated, to be written, dimensions from CFeatureIf::getFeatureDimensions)
+    \param pfFeature (user-allocated, to be written, dimensions from CFeatureIf::getFeatureDimensions)
     \return Error_t
     */
     Error_t compFeature1Dim(float* pfFeature);

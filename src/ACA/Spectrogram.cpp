@@ -178,11 +178,12 @@ Error_t CSpectrogramIf::getSpectrogramAxisVectors(float* pfAxisTicks, AxisLabel_
     {
         int iNumFreqBins = (m_iBlockLength >> 1) + 1;
         for (auto k = 0; k < iNumFreqBins; k++)
-            pfAxisTicks[k] = k * m_fSampleRate / m_iBlockLength;
+            pfAxisTicks[k] = m_pCFft->bin2freq(k, m_fSampleRate);
     }
 
     return Error_t::kNoError;
 }
+
 
 Error_t CSpectrogramIf::compSpectrogram(float** ppfSpectrogram)
 {

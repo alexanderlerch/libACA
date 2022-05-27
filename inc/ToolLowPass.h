@@ -60,21 +60,22 @@ public:
     }
 
     /*! performs the SinglePoleLp computation
-    \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
-    \param pfInput input data of length iLengthOfBuffer
+    \param pfOutput filter result (user-allocated, to be written, length iNumSamples)
+    \param pfInput input data of length iNumSamples
+    \param iNumSamples length of buffers
     return Error_t
     */
-    Error_t process(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
+    Error_t process(float* pfOutput, const float* pfInput, long long iNumSamples)
     {
-        if (!pfOutput || !pfInput || iLengthOfBuffer <= 0)
+        if (!pfOutput || !pfInput || iNumSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
 
         pfOutput[0] = (1.F - m_fAlpha) * pfInput[0] + m_fAlpha * m_fPrevOut;
         
-        for (auto i = 1; i < iLengthOfBuffer; i++)
+        for (auto i = 1; i < iNumSamples; i++)
             pfOutput[i] = (1 - m_fAlpha) * pfInput[0] + m_fAlpha * pfOutput[i-1];
 
-        m_fPrevOut = pfOutput[iLengthOfBuffer - 1];
+        m_fPrevOut = pfOutput[iNumSamples - 1];
 
         return Error_t::kNoError;
     }
