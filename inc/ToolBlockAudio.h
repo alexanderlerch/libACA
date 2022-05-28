@@ -46,11 +46,19 @@ public:
     };
 
     /*! returns number of blocks
-    \return number of blocks for current audio 
+    \return number of blocks for current audio
     */
     long long getNumBlocks() const
     {
         return m_iNumBlocks;
+    };
+
+    /*! returns number of samples
+    \return number of samples for current audio
+    */
+    long long getLengthInSamples() const
+    {
+        return m_iAudioLength;
     };
 
     /*! returns time stamp in s for a given block index
