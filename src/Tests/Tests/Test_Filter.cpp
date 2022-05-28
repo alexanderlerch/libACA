@@ -78,6 +78,20 @@ TEST_CASE("Filter", "[Filter]")
 
         for(auto i = 0; i < 10; i++)
             CHECK(std::pow(-m_pfCoeffs[iNumCoeffs + 1], i) == Approx(m_pfOut[iDelay + i]).margin(1e-6F).epsilon(1e-6F));
+
+        CHECK(Error_t::kNoError == m_pCFilter->reset());
+        CVectorFloat::setZero(m_pfOut, m_iDataLength);
+
+        CHECK(Error_t::kNoError == m_pCFilter->init(&m_pfCoeffs[0], &m_pfCoeffs[iNumCoeffs], iNumCoeffs));
+
+        for (auto i = 0; i < m_iDataLength; i++)
+            CHECK(Error_t::kNoError == m_pCFilter->process(&m_pfOut[i], &m_pfIn[i], 1));
+
+        CHECK(0.F == Approx(CVectorFloat::getSum(m_pfOut, iDelay)).margin(1e-6F).epsilon(1e-6F));
+
+        for (auto i = 0; i < 10; i++)
+            CHECK(std::pow(-m_pfCoeffs[iNumCoeffs + 1], i) == Approx(m_pfOut[iDelay + i]).margin(1e-6F).epsilon(1e-6F));
+
     }
 
     delete[] m_pfIn;

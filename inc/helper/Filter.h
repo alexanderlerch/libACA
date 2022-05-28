@@ -76,7 +76,7 @@ public:
         return Error_t::kNoError;
     }
  
-    Error_t process(T* pfOut, const T* pfIn, int iNumSamples)
+    Error_t process(T* pfOut, const T* pfIn, long long iNumSamples)
     {
         if (!m_bIsInitialized)
             return Error_t::kFunctionIllegalCallError;
