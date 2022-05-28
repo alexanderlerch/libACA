@@ -78,9 +78,9 @@ public:
     /*! retrieves audio data for next block
     \param pfBlock (to be written) of length blocklength
     \param pfTimeStampInS (to be written, optional) for current time stamp
-    \return Error_t
+    \return int iNumFramesRead
     */
-    virtual Error_t getNextBlock(float* pfBlock, float *pfTimeStampInS = 0) = 0;
+    virtual int getNextBlock(float* pfBlock, float *pfTimeStampInS = 0) = 0;
 
 protected:
     CBlockAudioIf() {};

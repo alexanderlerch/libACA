@@ -55,18 +55,27 @@ public:
         return m_pCAudioFile->isEof();
     }
 
-    Error_t getNextBlock(float* pfBlock, float* pfTimeStamp) override
+    int getNextBlock(float* pfBlock, float* pfTimeStamp) override
     {
-        if (!m_pCAudioFile)
-            return Error_t::kFunctionIllegalCallError;
-        //if (m_pCAudioFile->isEof())
-        //    return Error_t::kFunctionIllegalCallError;
+        if (!m_pCAudioFile || !pfBlock)
+            return -1;
 
         // read from file to read buffer
         readFile2RingBuff();
 
+        int iNumFrames = m_iBlockLength;
+        if (m_pCAudioFile->isEof())
+            iNumFrames = m_pCRingBuffer->getNumValuesInBuffer();
+
         // get data from ringbuffer and increment read index
-        m_pCRingBuffer->get(pfBlock, m_iBlockLength);
+        m_pCRingBuffer->get(pfBlock, iNumFrames);
+        if (iNumFrames < m_iBlockLength)
+        {
+            for (int c = 0; c < m_iNumChannels; c++)
+                CVectorFloat::setZero(&pfBlock[iNumFrames], m_iBlockLength - iNumFrames);
+
+            iNumFrames = m_iHopLength;
+        }
         m_pCRingBuffer->setReadIdx(m_pCRingBuffer->getReadIdx() + m_iHopLength);
 
         if (pfTimeStamp)
@@ -74,7 +83,7 @@ public:
         
         m_iCurrBlock++;
 
-        return Error_t::kNoError;
+        return iNumFrames;
     }
 
 private:
@@ -146,25 +155,23 @@ public:
         return m_iAudioLength == m_iCurrIdx;
     }
 
-    Error_t getNextBlock(float* pfBlock, float *pfTimeStamp) override
+    int getNextBlock(float* pfBlock, float *pfTimeStamp) override
     {
         if (!m_pfAudioData)
-            return Error_t::kFunctionIllegalCallError;
-        if (IsEndOfData())
-            return Error_t::kFunctionIllegalCallError;
+            return -1;
 
-        long long iNumFrames = m_iAudioLength - m_iCurrIdx < m_iBlockLength ? m_iAudioLength - m_iCurrIdx : m_iBlockLength;
+        int iNumFramesInBlock = m_iAudioLength - m_iCurrIdx < m_iBlockLength ? static_cast<int>(m_iAudioLength - m_iCurrIdx) : m_iBlockLength;
 
-        CVectorFloat::copy(pfBlock, &m_pfAudioData[m_iCurrIdx], iNumFrames);
-        CVectorFloat::setZero(&pfBlock[iNumFrames], m_iBlockLength - iNumFrames);
+        CVectorFloat::copy(pfBlock, &m_pfAudioData[m_iCurrIdx], iNumFramesInBlock);
+        CVectorFloat::setZero(&pfBlock[iNumFramesInBlock], m_iBlockLength - iNumFramesInBlock);
 
         if (pfTimeStamp)
             *pfTimeStamp = getTimeStamp(m_iCurrBlock);
 
-        m_iCurrIdx += std::min(iNumFrames, static_cast<long long>(m_iHopLength));
+        m_iCurrIdx += std::min(iNumFramesInBlock, m_iHopLength);
         m_iCurrBlock++;
 
-        return Error_t::kNoError;
+        return iNumFramesInBlock;
     }
 
 private:
