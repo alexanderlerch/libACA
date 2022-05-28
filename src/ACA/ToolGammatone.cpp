@@ -105,7 +105,7 @@ void CGammatone::calcFilterCoeffs_(int iOrder)
 
         auto numerator = fScale *
             (num1 + num2 * (fCos - fSqrtS * fSin)) *
-            (num1 + num2 * (fCos - fSqrtS * fSin)) *
+            (num1 + num2 * (fCos + fSqrtS * fSin)) *
             (num1 + num2 * (fCos - fSqrtA * fSin)) *
             (num1 + num2 * (fCos + fSqrtA * fSin));
         auto denominator = denom * denom * denom * denom;
