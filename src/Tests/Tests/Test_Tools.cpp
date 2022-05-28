@@ -7,12 +7,13 @@
 #include "ToolCcf.h"
 #include "ToolBlockAudio.h"
 #include "ToolConversion.h"
+#include "ToolGammatone.h"
 #include "ToolLowPass.h"
 
 #include "catch.hpp"
 
 
-TEST_CASE("ToolsBlockAudio", "[ToolsSinglePole]")
+TEST_CASE("ToolsBlockAudio", "[ToolsBlockAudio]")
 {
     CBlockAudioIf* m_pCBlockAudio = 0;
 
@@ -358,6 +359,53 @@ TEST_CASE("ToolsConversion", "[ToolsConversion]")
     delete[] m_pfFreq;
     delete[] m_pfOut;
 }
+
+//TEST_CASE("ToolsGammatoneSingle", "[ToolsGammatone]")
+//{
+//    CGammatone* m_pCGammatone = new CGammatone();
+//
+//    float* m_pfIn = 0;
+//    float* m_pfOut = 0;
+//
+//    float m_fSampleRate = 0;
+//
+//    int/* m_iBlockLength = 0,
+//        m_iAudioLength = 0,*/
+//        m_iBufferLength = 40000;
+//
+//    m_pfIn = new float[m_iBufferLength];
+//    m_pfOut = new float[m_iBufferLength];
+//    for (auto i = 0; i < m_iBufferLength; i++)
+//        m_pfIn[i] = static_cast<float>(i);
+//
+//
+//
+// /*   SECTION("Api")
+//    {
+//        m_iBlockLength = 20;
+//        m_iHopLength = 10;
+//        m_fSampleRate = 1;
+//        m_iAudioLength = 101;
+//
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, 0, m_iAudioLength, m_iBlockLength, m_iHopLength, m_fSampleRate));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, 0, m_iBlockLength, m_iHopLength, m_fSampleRate));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, 0, m_iHopLength, m_fSampleRate));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, 0, m_fSampleRate));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, m_iHopLength, 0));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, -1, m_iBlockLength, m_iHopLength, m_fSampleRate));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, -1, m_iHopLength, m_fSampleRate));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, -1, m_fSampleRate));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, m_iHopLength, -1));
+//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, m_iBlockLength << 1, m_fSampleRate));
+//    }*/
+//
+//
+//    delete m_pCGammatone;
+//
+//    delete[] m_pfOut;
+//    delete[] m_pfIn;
+//
+//}
 
 TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
 {
