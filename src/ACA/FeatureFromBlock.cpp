@@ -349,6 +349,7 @@ public:
 private:
     CFeatureSpectralFlux() {};
     CFeatureSpectralFlux(const CFeatureSpectralFlux& that);     //!< disallow copy construction
+    CFeatureSpectralFlux& operator=(const CFeatureSpectralFlux& c);
 
     float* m_pfPrevSpec = 0;
 };
@@ -425,6 +426,7 @@ public:
 private:
     CFeatureSpectralMfccs() {};
     CFeatureSpectralMfccs(const CFeatureSpectralMfccs& that);     //!< disallow copy construction  
+    CFeatureSpectralMfccs& operator=(const CFeatureSpectralMfccs& c);
 
     void genMfccFilters_()
     {
@@ -592,6 +594,7 @@ public:
 private:
     CFeatureSpectralPitchChroma() {};
     CFeatureSpectralPitchChroma(const CFeatureSpectralPitchChroma& that);     //!< disallow copy construction
+    CFeatureSpectralPitchChroma& operator=(const CFeatureSpectralPitchChroma& c);
 
     void genPcFilters_()
     {
@@ -817,6 +820,7 @@ public:
 private:
     CFeatureTimeMaxAcf() {};
     CFeatureTimeMaxAcf(const CFeatureTimeMaxAcf& that);     //!< disallow copy construction
+    CFeatureTimeMaxAcf& operator=(const CFeatureTimeMaxAcf& c);
 
     CCcf *m_pCCcf = 0;
     float* m_pfAcf = 0;

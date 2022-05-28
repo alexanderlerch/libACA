@@ -133,6 +133,8 @@ public:
     void multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) const;
 
 private:
+    CFft(const CFft& that);
+    CFft& operator=(const CFft& c);
     Error_t allocMemory_ ();
     Error_t freeMemory_ ();
     Error_t computeWindow_ (WindowFunction_t eWindow);

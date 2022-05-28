@@ -203,6 +203,7 @@ public:
 private:
     CRingBuffer();
     CRingBuffer(const CRingBuffer& that);
+    CRingBuffer& operator=(const CRingBuffer& c);
 
     void incIdx(int& iIdx, int iOffset = 1)
     {

@@ -413,6 +413,8 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
         for (auto c = 0; c < iNumBands; c++)
             CHECK(0.F == CVectorFloat::getSum(m_ppfOut[c], m_iBufferLength, true));
 
+        CHECK(fStartFreq == m_pCGammatone->getCenterFreq(0));
+
         CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(m_pCGammatone));
     }
 
@@ -428,8 +430,10 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
 
         CHECK(Error_t::kNoError == m_pCGammatone->process(m_ppfOut));
 
-        for (auto c = 0; c < iNumBands; c++)
-            CHECK(0.F == CVectorFloat::getSum(m_ppfOut[c], m_iBufferLength, true));
+        CHECK(1.F == Approx(CVectorFloat::getMax(m_ppfOut[0], m_iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(-1.F == Approx(CVectorFloat::getMin(m_ppfOut[0], m_iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
+
+        CHECK(.01F > CVectorFloat::getMax(m_ppfOut[10], m_iBufferLength, false));
 
         CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(m_pCGammatone));
     }

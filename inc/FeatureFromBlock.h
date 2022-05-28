@@ -89,6 +89,7 @@ protected:
     CFeatureFromBlockIf(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : m_eFeatureIdx(eFeatureIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) {assert(iDataLength > 0);};
     virtual ~CFeatureFromBlockIf() {};
     CFeatureFromBlockIf(const CFeatureFromBlockIf& that);
+    CFeatureFromBlockIf& operator=(const CFeatureFromBlockIf& c);
 
     CFeatureIf::Feature_t m_eFeatureIdx = CFeatureIf::kNumFeatures;     //!< index of feature to extract
 

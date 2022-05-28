@@ -180,6 +180,7 @@ protected:
 
 private:
     CAudioFileIf(const CAudioFileIf& that);
+    CAudioFileIf& operator=(const CAudioFileIf& c);
     virtual Error_t initDefaults_ ();
 
     virtual long long int readDataIntern_ (float **ppfAudioData, long long int iLength) = 0;

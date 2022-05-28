@@ -86,6 +86,7 @@ protected:
     {};
     virtual ~CBeatHistoIf();
     CBeatHistoIf(const CBeatHistoIf& that);
+    CBeatHistoIf& operator=(const CBeatHistoIf& c);
 
     Error_t reset_();                    //!< reset configuration
 

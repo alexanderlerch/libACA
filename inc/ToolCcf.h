@@ -62,6 +62,7 @@ public:
 
 private:
     CCcf(const CCcf& that);     //!< disallow copy construction   
+    CCcf& operator=(const CCcf& c);
 
     bool m_bIsInitialized = false;  //!< true if init has been called
     bool m_bWasProcessed = false;   //!< true if process has been called

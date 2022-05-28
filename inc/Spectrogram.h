@@ -109,6 +109,7 @@ protected:
     CSpectrogramIf();
     virtual ~CSpectrogramIf();
     CSpectrogramIf(const CSpectrogramIf& that);
+    CSpectrogramIf& operator=(const CSpectrogramIf& c);
 
     Error_t reset_();                    //!< reset configuration
     Error_t init_(float* pfWindow);      //!< init configuration

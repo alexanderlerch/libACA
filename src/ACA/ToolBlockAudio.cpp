@@ -88,6 +88,8 @@ public:
 
 private:
     CBlockAudioFile(const CBlockAudioFile& that);     //!< disallow copy construction   
+    CBlockAudioFile& operator=(const CBlockAudioFile& c);
+    
     inline void readFile2RingBuff()
     {        
         // set file read length variable
@@ -176,7 +178,8 @@ public:
 
 private:
     CBlockAudioBuffer(const CBlockAudioBuffer& that);     //!< disallow copy construction   
-    
+    CBlockAudioBuffer& operator=(const CBlockAudioBuffer& c);
+
     long long m_iCurrIdx = 0;
     float* m_pfAudioData = 0;
 };

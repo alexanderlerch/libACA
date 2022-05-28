@@ -115,6 +115,7 @@ protected:
     CFeatureIf();
     virtual ~CFeatureIf();
     CFeatureIf(const CFeatureIf& that);
+    CFeatureIf& operator=(const CFeatureIf& c);
 
     Error_t reset_();                    //!< reset configuration
     Error_t init_(Feature_t eFeatureIdx);                     //!< init configuration

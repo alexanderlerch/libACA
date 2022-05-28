@@ -62,6 +62,7 @@ protected:
     virtual ~CNoveltyFromBlockIf();
 
     CNoveltyFromBlockIf(const CNoveltyFromBlockIf& that);
+    CNoveltyFromBlockIf& operator=(const CNoveltyFromBlockIf& c);
 
     CNoveltyIf::Novelty_t m_eNoveltyIdx = CNoveltyIf::kNumNoveltyFunctions;     //!< index of Novelty to extract
 

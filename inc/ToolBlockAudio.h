@@ -85,6 +85,8 @@ public:
 protected:
     CBlockAudioIf() {};
     virtual ~CBlockAudioIf() {};
+    CBlockAudioIf(const CBlockAudioIf& that);
+    CBlockAudioIf& operator=(const CBlockAudioIf& c);
 
     long long m_iNumBlocks = 0,     //!< number of blocks
         m_iCurrBlock = 0,           //!< current block index

@@ -56,7 +56,10 @@ public:
     Error_t getPath (int **ppiPathResult) const;
 
 private:
-    enum Directions_t  
+    CDtw(const CDtw& that);
+    CDtw& operator=(const CDtw& c);
+
+    enum Directions_t
     {
         kHoriz,         //!< move horizontally
         kVert,          //!< move vertically

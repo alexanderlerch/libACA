@@ -109,6 +109,7 @@ private:
     CSinglePoleLp() {};
     virtual ~CSinglePoleLp() {};
     CSinglePoleLp(const CSinglePoleLp& that);
+    CSinglePoleLp& operator=(const CSinglePoleLp& c);
 
     float m_fAlpha = 0.9F;      //!< filter coeff
 
@@ -266,7 +267,7 @@ public:
 
 
 private:
-    CMovingAverage() 
+    CMovingAverage()
     {
         reset();
     };
@@ -275,6 +276,7 @@ private:
         delete m_pCRingBuff;
     };
     CMovingAverage(const CMovingAverage& that);
+    CMovingAverage& operator=(const CMovingAverage& c);
 
     CRingBuffer<float>* m_pCRingBuff = new CRingBuffer<float>(65);
 

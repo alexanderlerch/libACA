@@ -22,8 +22,6 @@ int main(int argc, char* argv[])
     std::string             sInputFilePath,                 //!< file paths
         sOutputFilePath;
 
-    std::string sBeatHistoString; //!< string of the BeatHisto to be extracted
-
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
     int iBeatHistoDimension = 0;

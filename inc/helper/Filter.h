@@ -109,6 +109,8 @@ public:
     }
 
 private:
+    CFilter(const CFilter& that);
+    CFilter& operator=(const CFilter& c);
     enum FilterCoeffs_t
     {
         kFir,

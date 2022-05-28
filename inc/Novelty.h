@@ -98,6 +98,7 @@ protected:
     CNoveltyIf();
     virtual ~CNoveltyIf();
     CNoveltyIf(const CNoveltyIf& that);
+    CNoveltyIf& operator=(const CNoveltyIf& c);
 
     Error_t reset_();                    //!< reset configuration
     Error_t init_(Novelty_t eNoveltyIdx);//!< init configuration
