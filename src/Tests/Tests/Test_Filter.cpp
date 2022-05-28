@@ -68,7 +68,7 @@ TEST_CASE("Filter", "[Filter]")
         m_pfIn[iDelay] = 1;
         m_pfCoeffs[0] = 1;
         m_pfCoeffs[iNumCoeffs] = 1;
-        m_pfCoeffs[iNumCoeffs+1] = -.2F;
+        m_pfCoeffs[iNumCoeffs + 1] = -.2F;
 
         CHECK(Error_t::kNoError == m_pCFilter->init(&m_pfCoeffs[0], &m_pfCoeffs[iNumCoeffs], iNumCoeffs));
 
@@ -76,7 +76,7 @@ TEST_CASE("Filter", "[Filter]")
 
         CHECK(0.F == Approx(CVectorFloat::getSum(m_pfOut, iDelay)).margin(1e-6F).epsilon(1e-6F));
 
-        for(auto i = 0; i < 10; i++)
+        for (auto i = 0; i < 10; i++)
             CHECK(std::pow(-m_pfCoeffs[iNumCoeffs + 1], i) == Approx(m_pfOut[iDelay + i]).margin(1e-6F).epsilon(1e-6F));
 
         CHECK(Error_t::kNoError == m_pCFilter->reset());
@@ -91,7 +91,27 @@ TEST_CASE("Filter", "[Filter]")
 
         for (auto i = 0; i < 10; i++)
             CHECK(std::pow(-m_pfCoeffs[iNumCoeffs + 1], i) == Approx(m_pfOut[iDelay + i]).margin(1e-6F).epsilon(1e-6F));
+    }
+    SECTION("Double")
+    {
+        CFilter<double>* m_pCdFilter = new CFilter<double>();
+        double afB[3] = { 164225.696795232 , -170761.327326444 , 0 };
+        double afA[3] = { 1, -1.98546427012533, 0.985897137467758 };
+        int iNumCoeffs = 3;
 
+        double* m_pdIn = new double[1000];
+        double* m_pdOut = new double[1000];
+        CSynthesis::genSine<double>(m_pdIn, 100, 32000, 1000);
+        
+        CHECK(Error_t::kNoError == m_pCdFilter->init(&afB[0], &afA[0], iNumCoeffs));
+
+        CHECK(Error_t::kNoError == m_pCdFilter->process(m_pdOut, m_pdIn, 1000));
+
+        CHECK(1e20 > m_pdOut[999]);
+
+        delete m_pCdFilter;
+        delete[]m_pdIn;
+        delete[] m_pdOut;
     }
 
     delete[] m_pfIn;

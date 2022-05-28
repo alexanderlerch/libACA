@@ -75,7 +75,7 @@ public:
 
         return Error_t::kNoError;
     }
- 
+
     Error_t process(T* pfOut, const T* pfIn, long long iNumSamples)
     {
         if (!m_bIsInitialized)
@@ -92,7 +92,7 @@ public:
 
             // IIR part
             for (auto j = 1; j < m_iNumFilterCoeffs; j++)
-                fTmp -= m_apfCoeff[kIir][j] * m_pfProcBuffer[j - 1];
+                fTmp -= m_apfCoeff[kIir][j] * m_pfProcBuffer[m_iNumFilterCoeffs - 1 - j];
 
             //put new value into buffer
             m_pCFilterBuffer->putPostInc(fTmp);
@@ -100,7 +100,7 @@ public:
             // FIR part
             pfOut[i] = m_apfCoeff[kFir][0] * fTmp;
             for (auto j = 1; j < m_iNumFilterCoeffs; j++)
-                pfOut[i] += m_apfCoeff[kFir][j] * m_pfProcBuffer[j - 1];
+                pfOut[i] += m_apfCoeff[kFir][j] * m_pfProcBuffer[m_iNumFilterCoeffs - 1 - j];
 
             // increment read index
             m_pCFilterBuffer->getPostInc();
@@ -119,7 +119,7 @@ private:
 
     CRingBuffer<T>* m_pCFilterBuffer = 0;
     T* m_apfCoeff[kNumFilterDims] = { 0,0 };
-    float *m_pfProcBuffer = 0;
+    T *m_pfProcBuffer = 0;
 
     int m_iNumFilterCoeffs = 0;
 
