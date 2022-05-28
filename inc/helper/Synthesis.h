@@ -22,14 +22,15 @@ public:
     \param fStartPhaseInRad starting phase in radiants
     \return Error_t
     */
-    static Error_t genSine (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F, float fStartPhaseInRad = 0.F)
+    template <class T>
+    static Error_t genSine (T *pfOutBuf, T fFreqInHz, T fSampleRateInHz, int iLength, T fAmplitude = 1.F, T fStartPhaseInRad = 0.)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
 
         for (int i = 0; i < iLength; i++)
         {
-            pfOutBuf[i] = fAmplitude * static_cast<float>(sin (2*M_PI*fFreqInHz * i/fSampleRateInHz + fStartPhaseInRad));
+            pfOutBuf[i] = fAmplitude * static_cast<T>(sin (2*M_PI*fFreqInHz * i/fSampleRateInHz + fStartPhaseInRad));
         }
 
         return Error_t::kNoError;
@@ -43,16 +44,17 @@ public:
     \param fAmplitude amplitude of signal
     \return Error_t
     */
-    static Error_t genRect (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F)
+    template <class T>
+    static Error_t genRect (T*pfOutBuf, T fFreqInHz, T fSampleRateInHz, int iLength, T fAmplitude = 1.)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
 
-        float fPeriodLength = fSampleRateInHz / fFreqInHz;
+        T fPeriodLength = fSampleRateInHz / fFreqInHz;
         for (int i = 0; i < iLength; i++)
         {
             // this seems super inefficient
-            if (i%CUtil::float2int<int>(fPeriodLength) < .5F*fPeriodLength)
+            if (i % static_cast<int>(fPeriodLength) < .5*fPeriodLength)
             {            
                 pfOutBuf[i] = fAmplitude;
             }
@@ -73,7 +75,8 @@ public:
     \param fAmplitude amplitude of signal
    \return Error_t
    */
-    static Error_t genSaw (float *pfOutBuf, float fFreqInHz, float fSampleRateInHz, int iLength, float fAmplitude = 1.F)
+    template <class T>
+    static Error_t genSaw (T*pfOutBuf, T fFreqInHz, T fSampleRateInHz, int iLength, T fAmplitude = 1.)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
@@ -94,7 +97,8 @@ public:
     \param fAmplitude amplitude of signal
     \return Error_t
     */
-    static Error_t genDc (float *pfOutBuf, int iLength, float fAmplitude = 1.F)
+    template <class T>
+    static Error_t genDc (T*pfOutBuf, int iLength, T fAmplitude = 1.)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
@@ -113,7 +117,8 @@ public:
     \param fAmplitude max amplitude of noise
     \return Error_t
     */
-    static Error_t genNoise (float *pfOutBuf, int iLength, float fAmplitude = 1.F)
+    template <class T>
+    static Error_t genNoise (T *pfOutBuf, int iLength, T fAmplitude = 1.)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;

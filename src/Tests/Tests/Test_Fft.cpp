@@ -56,7 +56,7 @@ TEST_CASE("Fft", "[FFT]")
 
     SECTION("SimpleSine")
     {
-        CSynthesis::genSine(m_pfTime, 2.F, 1.F * m_iFftLength, m_iFftLength, 1.F, 0);
+        CSynthesis::genSine<float>(m_pfTime, 2.F, 1.F * m_iFftLength, m_iFftLength, 1.F, 0);
 
         m_pCFftInstance->compFft(m_pfFreq, m_pfTime);
 
@@ -101,7 +101,7 @@ TEST_CASE("Fft", "[FFT]")
 
     SECTION("SimpleCos")
     {
-        CSynthesis::genSine(m_pfTime, 2.F, 1.F * m_iFftLength, m_iFftLength, 1.F, static_cast<float>(M_PI_2));
+        CSynthesis::genSine<float>(m_pfTime, 2.F, 1.F * m_iFftLength, m_iFftLength, 1.F, static_cast<float>(M_PI_2));
 
         m_pCFftInstance->compFft(m_pfFreq, m_pfTime);
 

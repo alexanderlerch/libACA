@@ -178,7 +178,7 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         CHECK(0 == m_pCCcf->getCcfMaxIdx(true));
 
         // sine wave
-        CSynthesis::genSine(m_pfInput, 4, 512, m_iNumValues);
+        CSynthesis::genSine<float>(m_pfInput, 4, 512, m_iNumValues);
         CHECK(Error_t::kNoError == m_pCCcf->init(m_iNumValues));
         CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, false));
         CHECK(m_iNumValues == m_pCCcf->getCcfLength(true));
@@ -202,7 +202,7 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         int iBlockLength = 8;
 
         // sine wave w impulse
-        CSynthesis::genSine(m_pfInput, 1, 1.F*iBlockLength, iBlockLength);
+        CSynthesis::genSine<float>(m_pfInput, 1, 1.F*iBlockLength, iBlockLength);
         m_pfInput[iBlockLength] = 1;
         CHECK(Error_t::kNoError == m_pCCcf->init(iBlockLength));
         CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, &m_pfInput[iBlockLength], false));
@@ -212,7 +212,7 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
             CHECK(m_pfInput[i] == Approx(m_pfOut[iBlockLength - 1+i]).margin(1e-3F).epsilon(1e-3F));
 
         // impulse w sine wave 
-        CSynthesis::genSine(m_pfInput, 1, 1.F * iBlockLength, iBlockLength);
+        CSynthesis::genSine<float>(m_pfInput, 1, 1.F * iBlockLength, iBlockLength);
         m_pfInput[iBlockLength] = 1;
         CHECK(Error_t::kNoError == m_pCCcf->init(iBlockLength));
         CHECK(Error_t::kNoError == m_pCCcf->compCcf(&m_pfInput[iBlockLength], m_pfInput, false));
@@ -418,7 +418,7 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
 
     SECTION("SineInput")
     {
-        CSynthesis::genSine(m_pfIn, 100, 32000, m_iBufferLength);
+        CSynthesis::genSine<float>(m_pfIn, 100, 32000, m_iBufferLength);
 
         CHECK(Error_t::kNoError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
 

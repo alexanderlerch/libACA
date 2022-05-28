@@ -274,7 +274,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         // sine wave
         eta = 500;
         m_fSampleRate = 1000;
-        CSynthesis::genSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
+        CSynthesis::genSine<float>(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
         CHECK(500 * (1.F - eta / 1000.F) == Approx(CFeatureFromBlockIf::compFeatureTimeAcfCoeff(m_pfInput, 1000, m_fSampleRate, eta)).margin(1e-4F).epsilon(1e-4F));
     }
 
@@ -297,7 +297,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // sine wave
         m_fSampleRate = 200;
-        CSynthesis::genSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength, .7F);
+        CSynthesis::genSine<float>(m_pfInput, 1, m_fSampleRate, m_iBufferLength, .7F);
         CHECK(.7F == Approx(CFeatureFromBlockIf::compFeatureTimePeakEnvelope(m_pfInput, m_iBufferLength)).margin(1e-6F).epsilon(1e-6F));
     }
 
@@ -308,12 +308,12 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // sine wave
         m_fSampleRate = 200;
-        CSynthesis::genSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genSine<float>(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(1.F / std::sqrt(2.F) == Approx(CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000)).margin(1e-6F).epsilon(1e-6F));
 
         // square wave
         m_fSampleRate = 200;
-        CSynthesis::genRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genRect<float>(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureTimeRms(m_pfInput, 1000)).margin(1e-3F).epsilon(1e-3F));
 
         // square wave with offset
@@ -328,12 +328,12 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // sine wave
         m_fSampleRate = 200;
-        CSynthesis::genSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genSine<float>(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(1.F / std::sqrt(2.F) == Approx(CFeatureFromBlockIf::compFeatureTimeStd(m_pfInput, 1000)).margin(1e-6F).epsilon(1e-6F));
 
         // square wave
         m_fSampleRate = 200;
-        CSynthesis::genRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genRect<float>(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureTimeStd(m_pfInput, 1000)).margin(1e-3F).epsilon(1e-3F));
 
         // square wave with offset
@@ -348,12 +348,12 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // sine wave
         m_fSampleRate = 200;
-        CSynthesis::genSine(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genSine<float>(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(19.F / 2000.F == Approx(CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(m_pfInput, 1000)).margin(1e-6F).epsilon(1e-6F));
 
         // square wave
         m_fSampleRate = 200;
-        CSynthesis::genRect(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
+        CSynthesis::genRect<float>(m_pfInput, 1, m_fSampleRate, m_iBufferLength);
         CHECK(19.F / 2000.F == Approx(CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(m_pfInput, 1000)).margin(1e-6F).epsilon(1e-6F));
     }
 
@@ -413,7 +413,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         // sine wave
         int eta = 500;
         m_fSampleRate = 1000;
-        CSynthesis::genSine(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
+        CSynthesis::genSine<float>(m_pfInput, 2, m_fSampleRate, m_iBufferLength, 1.F);
         CHECK(Error_t::kNoError == m_pCInstance->compFeature(&fResult, m_pfInput));
         CHECK((1.F - eta / 1000.F) == Approx(fResult).margin(1e-3F).epsilon(1e-3F));
     }
