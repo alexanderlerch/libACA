@@ -360,52 +360,89 @@ TEST_CASE("ToolsConversion", "[ToolsConversion]")
     delete[] m_pfOut;
 }
 
-//TEST_CASE("ToolsGammatoneSingle", "[ToolsGammatone]")
-//{
-//    CGammatone* m_pCGammatone = new CGammatone();
-//
-//    float* m_pfIn = 0;
-//    float* m_pfOut = 0;
-//
-//    float m_fSampleRate = 0;
-//
-//    int/* m_iBlockLength = 0,
-//        m_iAudioLength = 0,*/
-//        m_iBufferLength = 40000;
-//
-//    m_pfIn = new float[m_iBufferLength];
-//    m_pfOut = new float[m_iBufferLength];
-//    for (auto i = 0; i < m_iBufferLength; i++)
-//        m_pfIn[i] = static_cast<float>(i);
-//
-//
-//
-// /*   SECTION("Api")
-//    {
-//        m_iBlockLength = 20;
-//        m_iHopLength = 10;
-//        m_fSampleRate = 1;
-//        m_iAudioLength = 101;
-//
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, 0, m_iAudioLength, m_iBlockLength, m_iHopLength, m_fSampleRate));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, 0, m_iBlockLength, m_iHopLength, m_fSampleRate));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, 0, m_iHopLength, m_fSampleRate));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, 0, m_fSampleRate));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, m_iHopLength, 0));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, -1, m_iBlockLength, m_iHopLength, m_fSampleRate));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, -1, m_iHopLength, m_fSampleRate));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, -1, m_fSampleRate));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, m_iHopLength, -1));
-//        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfIn, m_iAudioLength, m_iBlockLength, m_iBlockLength << 1, m_fSampleRate));
-//    }*/
-//
-//
-//    delete m_pCGammatone;
-//
-//    delete[] m_pfOut;
-//    delete[] m_pfIn;
-//
-//}
+TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
+{
+    CGammaToneFbIf* m_pCGammatone = 0;
+
+    float* m_pfIn = 0;
+    float** m_ppfOut = 0;
+
+    float m_fSampleRate = 32000,
+        fStartFreq = 100;
+
+    int/* m_iBlockLength = 0,
+        m_iAudioLength = 0,*/
+        m_iBufferLength = 40000,
+        iNumBands = 20;
+    long long aiDims[2] = { 0 };
+
+    m_pfIn = new float[m_iBufferLength];
+    CVectorFloat::setZero(m_pfIn, m_iBufferLength);
+    m_ppfOut = new float*[iNumBands];
+    for (auto k = 0; k < iNumBands; k++)
+        m_ppfOut[k] = new float[m_iBufferLength];
+
+    SECTION("Api")
+    {
+        m_iBufferLength = 1;
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, 0, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, 0, m_fSampleRate, iNumBands, fStartFreq));
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, 0, iNumBands, fStartFreq));
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, 0, fStartFreq));
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, 0));
+        CHECK(Error_t::kNoError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
+
+        CHECK(Error_t::kNoError == m_pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == m_pCGammatone->process(0));
+        CHECK(Error_t::kNoError == m_pCGammatone->process(m_ppfOut));
+
+        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(m_pCGammatone));
+    }
+
+    SECTION("ZeroInput")
+    {
+        CHECK(Error_t::kNoError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
+
+        CHECK(Error_t::kNoError == m_pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
+        CHECK(iNumBands == aiDims[0]);
+        CHECK(m_iBufferLength == aiDims[1]);
+
+        CHECK(Error_t::kNoError == m_pCGammatone->process(m_ppfOut));
+
+        for (auto c = 0; c < iNumBands; c++)
+            CHECK(0.F == CVectorFloat::getSum(m_ppfOut[c], m_iBufferLength, true));
+
+        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(m_pCGammatone));
+    }
+
+    SECTION("SineInput")
+    {
+        CSynthesis::genSine(m_pfIn, 100, 32000, m_iBufferLength);
+
+        CHECK(Error_t::kNoError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
+
+        CHECK(Error_t::kNoError == m_pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
+        CHECK(iNumBands == aiDims[0]);
+        CHECK(m_iBufferLength == aiDims[1]);
+
+        CHECK(Error_t::kNoError == m_pCGammatone->process(m_ppfOut));
+
+        for (auto c = 0; c < iNumBands; c++)
+            CHECK(0.F == CVectorFloat::getSum(m_ppfOut[c], m_iBufferLength, true));
+
+        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(m_pCGammatone));
+    }
+
+
+    CGammaToneFbIf::destroy(m_pCGammatone);
+
+    for (auto k = 0; k < iNumBands; k++)
+        delete[] m_ppfOut[k];
+    delete[] m_ppfOut;
+    delete[] m_pfIn;
+
+}
 
 TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
 {

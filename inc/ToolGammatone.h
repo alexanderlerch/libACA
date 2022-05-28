@@ -106,12 +106,19 @@ public:
     */
     Error_t getOutputDimensions(long long& iNumRows, long long& iNumColumns) const;
 
+    /*! returns size of matrix to be allocated by user
+    \param iNumRows (number of bands, to be written)
+    \param iNumCols (number of samples, to be written)
+    \return Error_t
+    */
+    float getCenterFreq(int iBandIdx) const;
+
     /*! performs the GammaToneFb computation for 1 dimensional GammaToneFbs and writes the result
     \param pfGammaToneFb (user-allocated, to be written, dimensions from CGammaToneFbIf::getNumBlocks)
     \param pbIsOnset (user-allocated, to be written, true if onset)
     \return Error_t
     */
-    Error_t process(float** ppfOutput, const float* pfInput);
+    Error_t process(float** ppfOutput);
 
 protected:
     CGammaToneFbIf();
@@ -119,8 +126,8 @@ protected:
     CGammaToneFbIf(const CGammaToneFbIf& that);
 
     Error_t reset_();                    //!< reset configuration
-    Error_t init_(float fStartInHz);//!< init configuration
-    float compMidFreqs_(float fFreqLow, float fFreqHigh, int k);
+    Error_t init_();//!< init configuration
+    float compMidFreqs_(float fFreqLow, float fFreqHigh, int k) const;
         
     CNormalizeAudio* m_pCNormalize = 0;  //!< instantiate if audio file normalization is wanted
 
@@ -132,6 +139,7 @@ protected:
     int m_iNumBands = 0;
 
     float m_fSampleRate = 0;            //!< sample rate
+    float m_fStartInHz = 0;
 
     float *m_pfProcessBuff = 0;
 
