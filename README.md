@@ -1,5 +1,7 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/alexanderlerch/libACA)
 ![GitHub issues](https://img.shields.io/github/issues-raw/alexanderlerch/libACA)
+[![Tests](https://github.com/alexanderlerch/libACA/actions/workflows/cmake.yml/badge.svg)](https://github.com/alexanderlerch/libACA/actions/workflows/cmake.yml)
+[![CodeQL](https://github.com/alexanderlerch/libACA/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/alexanderlerch/libACA/actions/workflows/codeql-analysis.yml)
 ![GitHub last commit](https://img.shields.io/github/last-commit/alexanderlerch/libACA)
 ![GitHub](https://img.shields.io/github/license/alexanderlerch/libACA)
 
