@@ -75,7 +75,7 @@ public:
 
         std::memcpy (&m_ptBuff[m_iWriteIdx], ptNewBuff, sizeof(T)*iNumValues2End);
         if ((iLength - iNumValues2End) > 0)
-            std::memcpy (m_ptBuff, &ptNewBuff[iNumValues2End], sizeof(T)*(iLength - iNumValues2End));
+            std::memcpy (m_ptBuff, &ptNewBuff[iNumValues2End], sizeof(T)*(static_cast<long long>(iLength) - iNumValues2End));
     }
 
     /*! return the value at the current read index and increment the read pointer
@@ -138,7 +138,7 @@ public:
 
         std::memcpy (ptBuff, &m_ptBuff[m_iReadIdx], sizeof(T)*iNumValues2End);
         if ((iLength - iNumValues2End)>0)
-            std::memcpy (&ptBuff[iNumValues2End], m_ptBuff, sizeof(T)*(iLength - iNumValues2End));
+            std::memcpy (&ptBuff[iNumValues2End], m_ptBuff, sizeof(T)*(static_cast<long long>(iLength) - iNumValues2End));
     }
 
     /*! set buffer content and indices to 0
