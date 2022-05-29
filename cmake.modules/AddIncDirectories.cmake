@@ -1,5 +1,0 @@
-function (add_inc_directories)
-    foreach(PATH ${PROJECT_INCLUDES})
-        include_directories(${PATH})
-    endforeach(PATH) 
-endfunction (add_inc_directories)
