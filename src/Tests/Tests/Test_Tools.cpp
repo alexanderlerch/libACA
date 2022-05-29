@@ -8,6 +8,7 @@
 #include "ToolBlockAudio.h"
 #include "ToolConversion.h"
 #include "ToolGammatone.h"
+#include "ToolInstFreq.h"
 #include "ToolLowPass.h"
 
 #include "catch.hpp"
@@ -121,7 +122,7 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
     m_pfOut = new float[2 * m_iNumValues];
 
     CVectorFloat::setZero(m_pfInput, m_iNumValues);
-    CVectorFloat::setZero(m_pfOut, 2 * m_iNumValues);
+    CVectorFloat::setZero(m_pfOut, 2 * static_cast<long long>(m_iNumValues));
 
     SECTION("Api")
     {
@@ -378,7 +379,7 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
 
     m_pfIn = new float[m_iBufferLength];
     CVectorFloat::setZero(m_pfIn, m_iBufferLength);
-    m_ppfOut = new float*[iNumBands];
+    m_ppfOut = new float* [iNumBands];
     for (auto k = 0; k < iNumBands; k++)
         m_ppfOut[k] = new float[m_iBufferLength];
 
@@ -445,6 +446,72 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
         delete[] m_ppfOut[k];
     delete[] m_ppfOut;
     delete[] m_pfIn;
+
+}
+
+TEST_CASE("ToolsInstFreq", "[ToolsInstFreq]")
+{
+    int iBlockLength = 1024;
+    int iHopLength = 128;
+    int iFreqLength = iBlockLength / 2 + 1;
+    float fSampleRate = 48000;
+    int iBuffLength = iBlockLength + 2 * iHopLength;
+
+    float* pfIn = new float[iBuffLength];
+    float* pfTmp = new float[iBuffLength];
+    float* pfOut = new float[iFreqLength];
+    CFft::complex_t* pfSpectrum = new float[iBuffLength];
+
+    CFft* pCFft = new CFft();
+    CInstFreq* pCInstFreq = new CInstFreq(iBlockLength, iHopLength, fSampleRate);
+
+    pCFft->init(iBlockLength);
+    CVectorFloat::setZero(pfIn, iBuffLength);
+    CVectorFloat::setZero(pfOut, iFreqLength);
+    CVectorFloat::setZero(pfSpectrum, iBlockLength);
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstFreq->process(0, pfIn));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstFreq->process(pfOut, 0));
+    }
+
+    SECTION("Sine")
+    {
+        int aiBins[3] = { 32, 8, 4 };
+        float afBinOffset[3] = { .5F, .25F, 0.F };
+        float afFreq[3] = { 0 };
+
+        // generate test signal with three sines
+        for (auto s = 0; s < 3; s++)
+        {
+            afFreq[s] = fSampleRate / iBlockLength * (aiBins[s] + afBinOffset[s]);
+            CSynthesis::genSine(pfTmp, afFreq[s], fSampleRate, iBuffLength);
+
+            CVectorFloat::add_I(pfIn, pfTmp, iBuffLength);
+        }
+
+        // compute FFTs
+        for (auto n = 0; n < 3; n++)
+        {
+            pCFft->compFft(pfSpectrum, &pfIn[n * iHopLength]);
+            pCInstFreq->process(pfOut, pfSpectrum);
+
+            if (n == 2)
+            {
+                for (auto s = 0; s < 3; s++)
+                    CHECK(afFreq[s] == Approx(pfOut[aiBins[s]]).margin(5e-1F).epsilon(5e-1F));
+            }
+        }
+    }
+
+    delete pCInstFreq;
+    delete pCFft;
+
+    delete[] pfSpectrum;
+    delete[] pfIn;
+    delete[] pfTmp;
+    delete[] pfOut;
 
 }
 

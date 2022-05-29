@@ -17,7 +17,6 @@ class CInstFreq
 public:
 
     explicit CInstFreq(int iFftLength, int iHopLength, float fSampleRate) :
-        m_iBlockLength(iFftLength),
         m_iHopLength(iHopLength),
         m_fSampleRate(fSampleRate)
     {
@@ -25,18 +24,18 @@ public:
         m_pCFft = new CFft();
         m_pCFft->init(iFftLength);
 
-        auto iPhaseLength = m_pCFft->getLength(CFft::kLengthPhase);
-        m_pfOmega = new float[iPhaseLength];
+        m_iPhaseLength = m_pCFft->getLength(CFft::kLengthPhase);
+        m_pfOmega = new float[m_iPhaseLength];
 
         // use one buffer with two pointers
-        m_pfSwapBuff = new float[2*iPhaseLength];
-        CVectorFloat::setZero(m_pfSwapBuff, 2 * iPhaseLength);
+        m_pfSwapBuff = new float[2* m_iPhaseLength];
+        CVectorFloat::setZero(m_pfSwapBuff, 2 * static_cast<long long>(m_iPhaseLength));
         m_apfPhase[0] = &m_pfSwapBuff[0];
-        m_apfPhase[1] = &m_pfSwapBuff[iPhaseLength];
+        m_apfPhase[1] = &m_pfSwapBuff[m_iPhaseLength];
 
         //init omega
-        for (auto k = 0; k < iPhaseLength; k++)
-            m_pfOmega[k] = k*m_iHopLength * 2*M_PI/ iPhaseLength;
+        for (auto k = 0; k < m_iPhaseLength; k++)
+            m_pfOmega[k] = static_cast<float>(k*m_iHopLength * 2*M_PI/ iFftLength);
 
     }
 
@@ -63,12 +62,13 @@ public:
         m_pCFft->getPhase(m_apfPhase[kPhaseCurr], pfSpectrum);
 
          //// calc instantaneous frequency
-        //zplfRealSub_I(m_apfPhase[kPhasePrev], m_apfPhase[kPhaseCurr], m_iFftLength >> 1);
-        //zplfRealAdd_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iFftLength >> 1);
-        //zplfRealMulC_I(m_apfPhase[kPhasePrev], -1.0F, m_iFftLength >> 1);
-        //zplfPrincArg(m_apfPhase[kPhasePrev], m_apfPhase[kPhasePrev], m_iFftLength >> 1);
-        //zplfRealAdd_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iFftLength >> 1);
-        //zplfRealMulC_I(m_apfPhase[kPhasePrev], 1.0F / (_2PI * static_cast<float>(m_iHopSize) / static_cast<float>(m_iFftLength)), m_iFftLength >> 1);
+        CVectorFloat::sub_I(m_apfPhase[kPhasePrev], m_apfPhase[kPhaseCurr], m_iPhaseLength);
+        CVectorFloat::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
+        CVectorFloat::mulC_I(m_apfPhase[kPhasePrev], -1.0F, m_iPhaseLength);
+        princArg_(m_apfPhase[kPhasePrev]);
+        CVectorFloat::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
+        CVectorFloat::copy(pfInstFreq, m_apfPhase[kPhasePrev], m_iPhaseLength);
+        CVectorFloat::mulC_I(pfInstFreq, static_cast<float>(m_fSampleRate / (m_iHopLength * 2 * M_PI)), m_iPhaseLength);
 
 
         // remember phase for next call but avoid copying
@@ -88,7 +88,17 @@ private:
     CInstFreq(const CInstFreq& that);
     CInstFreq& operator=(const CInstFreq& c);
 
-    int m_iBlockLength = 0,
+    void princArg_(float* pfSrcDestPhase)
+    {
+        assert(pfSrcDestPhase);
+
+        for (auto k = 0; k < m_iPhaseLength; k++)
+            pfSrcDestPhase[k] = static_cast<float>(std::fmod(pfSrcDestPhase[k] + M_PI, -2 * M_PI) + M_PI);
+
+        return;
+    }
+
+    int m_iPhaseLength = 0,
         m_iHopLength = 0;
     float m_fSampleRate = 0.F; 
 
