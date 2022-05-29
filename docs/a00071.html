@@ -56,7 +56,7 @@
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00134_source.html">Spectrogram.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00137_source.html">Spectrogram.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ComputeSpectrogram.cpp:</div>
 <div class="dyncontent">
@@ -67,9 +67,9 @@ Include dependency graph for ComputeSpectrogram.cpp:</div>
 <area shape="rect" title=" " alt="" coords="125,80,197,107"/>
 <area shape="rect" title=" " alt="" coords="221,80,287,107"/>
 <area shape="rect" title=" " alt="" coords="312,80,367,107"/>
-<area shape="rect" href="a00134.html" title=" " alt="" coords="391,80,498,107"/>
+<area shape="rect" href="a00137.html" title=" " alt="" coords="391,80,498,107"/>
 <area shape="rect" title=" " alt="" coords="372,155,427,181"/>
-<area shape="rect" href="a00104.html" title=" " alt="" coords="451,155,529,181"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="451,155,529,181"/>
 </map>
 </div>
 </div>
@@ -127,7 +127,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   25</span> </div>
 <div class="line"><span class="lineno">   26</span>    clock_t time = 0;</div>
 <div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>    <a class="code hl_class" href="a00291.html">CSpectrogramIf</a>* pCSpectrogram = 0; <span class="comment">//!&lt; instance to extract the spectrogram</span></div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_class" href="a00298.html">CSpectrogramIf</a>* pCSpectrogram = 0; <span class="comment">//!&lt; instance to extract the spectrogram</span></div>
 <div class="line"><span class="lineno">   29</span> </div>
 <div class="line"><span class="lineno">   30</span>    <span class="keywordtype">float</span>** ppfSpectrogram = 0; <span class="comment">//!&lt; resulting spectrogram</span></div>
 <div class="line"><span class="lineno">   31</span> </div>
@@ -153,8 +153,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   51</span><span class="comment"></span> </div>
 <div class="line"><span class="lineno">   52</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><span class="lineno">   53</span><span class="comment"></span>    <span class="comment">// initialize spectrogram instance</span></div>
-<div class="line"><span class="lineno">   54</span>    <a class="code hl_function" href="a00291.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a>(pCSpectrogram, sInputFilePath, iBlockLength, iHopLength);</div>
-<div class="line"><span class="lineno">   55</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00291.html#afb50af1070f5876b4706f5891879fcd8">getSpectrogramDimensions</a>(aiSpecGramDimensions[0], aiSpecGramDimensions[1]);</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_function" href="a00298.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a>(pCSpectrogram, sInputFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><span class="lineno">   55</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00298.html#afb50af1070f5876b4706f5891879fcd8">getSpectrogramDimensions</a>(aiSpecGramDimensions[0], aiSpecGramDimensions[1]);</div>
 <div class="line"><span class="lineno">   56</span><span class="comment"></span> </div>
 <div class="line"><span class="lineno">   57</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><span class="lineno">   58</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
@@ -162,7 +162,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   60</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
 <div class="line"><span class="lineno">   61</span>    {</div>
 <div class="line"><span class="lineno">   62</span>        cout &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
-<div class="line"><span class="lineno">   63</span>        <a class="code hl_function" href="a00291.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><span class="lineno">   63</span>        <a class="code hl_function" href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><span class="lineno">   64</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><span class="lineno">   65</span>    }</div>
 <div class="line"><span class="lineno">   66</span><span class="comment"></span> </div>
@@ -175,7 +175,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   73</span> </div>
 <div class="line"><span class="lineno">   74</span>    <span class="keywordflow">if</span> (!ppfSpectrogram )</div>
 <div class="line"><span class="lineno">   75</span>    {</div>
-<div class="line"><span class="lineno">   76</span>        <a class="code hl_function" href="a00291.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><span class="lineno">   76</span>        <a class="code hl_function" href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><span class="lineno">   77</span>        hOutputFile.close();</div>
 <div class="line"><span class="lineno">   78</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><span class="lineno">   79</span>    }</div>
@@ -185,7 +185,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   83</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><span class="lineno">   84</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
 <div class="line"><span class="lineno">   85</span>    cout &lt;&lt; <span class="stringliteral">&quot;\n1. computing spectrogram...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   86</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00291.html#ae041a770ec2b092761d9a88cc87946bb">compSpectrogram</a>(ppfSpectrogram);</div>
+<div class="line"><span class="lineno">   86</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00298.html#ae041a770ec2b092761d9a88cc87946bb">compSpectrogram</a>(ppfSpectrogram);</div>
 <div class="line"><span class="lineno">   87</span> </div>
 <div class="line"><span class="lineno">   88</span>    cout &lt;&lt; <span class="stringliteral">&quot;\n spectrogram computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><span class="lineno">   89</span> </div>
@@ -210,7 +210,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  108</span><span class="comment"></span> </div>
 <div class="line"><span class="lineno">  109</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><span class="lineno">  110</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
-<div class="line"><span class="lineno">  111</span>    <a class="code hl_function" href="a00291.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><span class="lineno">  111</span>    <a class="code hl_function" href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><span class="lineno">  112</span>    hOutputFile.close();</div>
 <div class="line"><span class="lineno">  113</span> </div>
 <div class="line"><span class="lineno">  114</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; aiSpecGramDimensions[0]; k++)</div>
@@ -223,11 +223,11 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  121</span> </div>
 <div class="line"><span class="lineno">  122</span>}</div>
 <div class="ttc" id="aa00071_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00071.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00125">ComputeSpectrogram.cpp:125</a></div></div>
-<div class="ttc" id="aa00291_html"><div class="ttname"><a href="a00291.html">CSpectrogramIf</a></div><div class="ttdoc">class for computation of a magnitude spectrogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00016">Spectrogram.h:17</a></div></div>
-<div class="ttc" id="aa00291_html_a6511fc72ef04be91a712ee5ef479bd7e"><div class="ttname"><a href="a00291.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CSpectrogramIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00133">Spectrogram.cpp:133</a></div></div>
-<div class="ttc" id="aa00291_html_acd73d8c1aaaed8b188de6b8bf2103139"><div class="ttname"><a href="a00291.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a></div><div class="ttdeci">static Error_t create(CSpectrogramIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, bool bNormalize=true, float *pfWindow=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00100">Spectrogram.cpp:100</a></div></div>
-<div class="ttc" id="aa00291_html_ae041a770ec2b092761d9a88cc87946bb"><div class="ttname"><a href="a00291.html#ae041a770ec2b092761d9a88cc87946bb">CSpectrogramIf::compSpectrogram</a></div><div class="ttdeci">Error_t compSpectrogram(float **ppfSpectrogram)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00188">Spectrogram.cpp:188</a></div></div>
-<div class="ttc" id="aa00291_html_afb50af1070f5876b4706f5891879fcd8"><div class="ttname"><a href="a00291.html#afb50af1070f5876b4706f5891879fcd8">CSpectrogramIf::getSpectrogramDimensions</a></div><div class="ttdeci">Error_t getSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols) const</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00141">Spectrogram.cpp:141</a></div></div>
+<div class="ttc" id="aa00298_html"><div class="ttname"><a href="a00298.html">CSpectrogramIf</a></div><div class="ttdoc">class for computation of a magnitude spectrogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00016">Spectrogram.h:17</a></div></div>
+<div class="ttc" id="aa00298_html_a6511fc72ef04be91a712ee5ef479bd7e"><div class="ttname"><a href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CSpectrogramIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00133">Spectrogram.cpp:133</a></div></div>
+<div class="ttc" id="aa00298_html_acd73d8c1aaaed8b188de6b8bf2103139"><div class="ttname"><a href="a00298.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a></div><div class="ttdeci">static Error_t create(CSpectrogramIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, bool bNormalize=true, float *pfWindow=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00100">Spectrogram.cpp:100</a></div></div>
+<div class="ttc" id="aa00298_html_ae041a770ec2b092761d9a88cc87946bb"><div class="ttname"><a href="a00298.html#ae041a770ec2b092761d9a88cc87946bb">CSpectrogramIf::compSpectrogram</a></div><div class="ttdeci">Error_t compSpectrogram(float **ppfSpectrogram)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00188">Spectrogram.cpp:188</a></div></div>
+<div class="ttc" id="aa00298_html_afb50af1070f5876b4706f5891879fcd8"><div class="ttname"><a href="a00298.html#afb50af1070f5876b4706f5891879fcd8">CSpectrogramIf::getSpectrogramDimensions</a></div><div class="ttdeci">Error_t getSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols) const</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00141">Spectrogram.cpp:141</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00005_source.html#l00188">CSpectrogramIf::compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00100">CSpectrogramIf::create()</a>, <a class="el" href="a00005_source.html#l00133">CSpectrogramIf::destroy()</a>, <a class="el" href="a00005_source.html#l00141">CSpectrogramIf::getSpectrogramDimensions()</a>, and <a class="el" href="a00071_source.html#l00125">showClInfo()</a>.</p>
 <div class="dynheader">
@@ -236,25 +236,25 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="a00071_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#aa00071_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="aa00071_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="aa00071_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
 <area shape="rect" title=" " alt="" coords="5,331,56,357"/>
-<area shape="rect" href="a00291.html#ae041a770ec2b092761d9a88cc87946bb" title=" " alt="" coords="104,213,329,240"/>
-<area shape="rect" href="a00291.html#acd73d8c1aaaed8b188de6b8bf2103139" title=" " alt="" coords="139,381,294,408"/>
-<area shape="rect" href="a00291.html#a6511fc72ef04be91a712ee5ef479bd7e" title=" " alt="" coords="136,331,297,357"/>
-<area shape="rect" href="a00291.html#afb50af1070f5876b4706f5891879fcd8" title=" " alt="" coords="111,265,322,306"/>
+<area shape="rect" href="a00298.html#ae041a770ec2b092761d9a88cc87946bb" title=" " alt="" coords="104,213,329,240"/>
+<area shape="rect" href="a00298.html#acd73d8c1aaaed8b188de6b8bf2103139" title=" " alt="" coords="139,381,294,408"/>
+<area shape="rect" href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e" title=" " alt="" coords="136,331,297,357"/>
+<area shape="rect" href="a00298.html#afb50af1070f5876b4706f5891879fcd8" title=" " alt="" coords="111,265,322,306"/>
 <area shape="rect" href="a00071.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="173,432,260,459"/>
-<area shape="rect" href="a00291.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="379,150,573,191"/>
-<area shape="rect" href="a00255.html#a9cb162394031e8b496f7a39b51c31d20" title=" " alt="" coords="421,216,531,243"/>
-<area shape="rect" href="a00299.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="377,271,575,297"/>
-<area shape="rect" href="a00255.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="667,56,768,83"/>
-<area shape="rect" href="a00255.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="652,107,783,133"/>
-<area shape="rect" href="a00299.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="623,157,812,184"/>
-<area shape="rect" href="a00279.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="861,245,1007,272"/>
-<area shape="rect" href="a00331.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="626,209,809,250"/>
-<area shape="rect" href="a00279.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="869,56,999,83"/>
-<area shape="rect" href="a00279.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="866,107,1002,133"/>
-<area shape="rect" href="a00279.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="860,5,1008,32"/>
-<area shape="rect" href="a00275.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="1064,56,1167,83"/>
-<area shape="rect" href="a00275.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1056,5,1175,32"/>
-<area shape="rect" href="a00271.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="419,381,533,408"/>
+<area shape="rect" href="a00298.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="379,150,573,191"/>
+<area shape="rect" href="a00258.html#a9cb162394031e8b496f7a39b51c31d20" title=" " alt="" coords="421,216,531,243"/>
+<area shape="rect" href="a00306.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="377,271,575,297"/>
+<area shape="rect" href="a00258.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="667,56,768,83"/>
+<area shape="rect" href="a00258.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="652,107,783,133"/>
+<area shape="rect" href="a00306.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="623,157,812,184"/>
+<area shape="rect" href="a00286.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="861,245,1007,272"/>
+<area shape="rect" href="a00338.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="626,209,809,250"/>
+<area shape="rect" href="a00286.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="869,56,999,83"/>
+<area shape="rect" href="a00286.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="866,107,1002,133"/>
+<area shape="rect" href="a00286.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="860,5,1008,32"/>
+<area shape="rect" href="a00282.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="1064,56,1167,83"/>
+<area shape="rect" href="a00282.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1056,5,1175,32"/>
+<area shape="rect" href="a00278.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="419,381,533,408"/>
 </map>
 </div>
 
@@ -301,7 +301,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 29 2022 18:02:03 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun May 29 2022 22:07:20 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

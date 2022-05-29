@@ -56,7 +56,7 @@
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00128_source.html">BeatHisto.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00131_source.html">BeatHisto.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ComputeBeatHisto.cpp:</div>
 <div class="dyncontent">
@@ -67,9 +67,9 @@ Include dependency graph for ComputeBeatHisto.cpp:</div>
 <area shape="rect" title=" " alt="" coords="125,80,197,107"/>
 <area shape="rect" title=" " alt="" coords="221,80,287,107"/>
 <area shape="rect" title=" " alt="" coords="312,80,367,107"/>
-<area shape="rect" href="a00128.html" title=" " alt="" coords="391,80,482,107"/>
+<area shape="rect" href="a00131.html" title=" " alt="" coords="391,80,482,107"/>
 <area shape="rect" title=" " alt="" coords="364,155,419,181"/>
-<area shape="rect" href="a00104.html" title=" " alt="" coords="443,155,521,181"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="443,155,521,181"/>
 </map>
 </div>
 </div>
@@ -125,8 +125,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   28</span> </div>
 <div class="line"><span class="lineno">   29</span>    clock_t time = 0;</div>
 <div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_class" href="a00243.html">CBeatHistoIf</a>* pCInstance = 0;</div>
-<div class="line"><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00243.html#a7aa666694543decf41aa7c27a0593db0">CBeatHistoIf::BeatHisto_t</a> eBeatHistoIdx = <a class="code hl_enumvalue" href="a00243.html#a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770">CBeatHistoIf::kBeatHistoFft</a>;</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_class" href="a00246.html">CBeatHistoIf</a>* pCInstance = 0;</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00246.html#a7aa666694543decf41aa7c27a0593db0">CBeatHistoIf::BeatHisto_t</a> eBeatHistoIdx = <a class="code hl_enumvalue" href="a00246.html#a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770">CBeatHistoIf::kBeatHistoFft</a>;</div>
 <div class="line"><span class="lineno">   33</span> </div>
 <div class="line"><span class="lineno">   34</span>    <span class="keywordtype">float</span>* pfBeatHisto = 0; <span class="comment">//!&lt; BeatHisto result</span></div>
 <div class="line"><span class="lineno">   35</span> </div>
@@ -152,8 +152,8 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   55</span><span class="comment"></span> </div>
 <div class="line"><span class="lineno">   56</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><span class="lineno">   57</span><span class="comment"></span>    <span class="comment">// initialize BeatHisto instance</span></div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_function" href="a00243.html#a9b3f72cb0d46466cf0aa38540b9980a5">CBeatHistoIf::create</a>(pCInstance, sInputFilePath, iBlockLength, iHopLength);</div>
-<div class="line"><span class="lineno">   59</span>    iBeatHistoDimension = pCInstance-&gt;<a class="code hl_function" href="a00243.html#a00497d8ae052a8ce7125421c9615c573">getNumBins</a>(eBeatHistoIdx);</div>
+<div class="line"><span class="lineno">   58</span>    <a class="code hl_function" href="a00246.html#a9b3f72cb0d46466cf0aa38540b9980a5">CBeatHistoIf::create</a>(pCInstance, sInputFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><span class="lineno">   59</span>    iBeatHistoDimension = pCInstance-&gt;<a class="code hl_function" href="a00246.html#a00497d8ae052a8ce7125421c9615c573">getNumBins</a>(eBeatHistoIdx);</div>
 <div class="line"><span class="lineno">   60</span><span class="comment"></span> </div>
 <div class="line"><span class="lineno">   61</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><span class="lineno">   62</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
@@ -161,7 +161,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
 <div class="line"><span class="lineno">   65</span>    {</div>
 <div class="line"><span class="lineno">   66</span>        cout &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
-<div class="line"><span class="lineno">   67</span>        <a class="code hl_function" href="a00243.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
+<div class="line"><span class="lineno">   67</span>        <a class="code hl_function" href="a00246.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
 <div class="line"><span class="lineno">   68</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><span class="lineno">   69</span>    }</div>
 <div class="line"><span class="lineno">   70</span><span class="comment"></span> </div>
@@ -172,7 +172,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   75</span> </div>
 <div class="line"><span class="lineno">   76</span>    <span class="keywordflow">if</span> (!pfBeatHisto)</div>
 <div class="line"><span class="lineno">   77</span>    {</div>
-<div class="line"><span class="lineno">   78</span>        <a class="code hl_function" href="a00243.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
+<div class="line"><span class="lineno">   78</span>        <a class="code hl_function" href="a00246.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
 <div class="line"><span class="lineno">   79</span>        hOutputFile.close();</div>
 <div class="line"><span class="lineno">   80</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><span class="lineno">   81</span>    }</div>
@@ -182,7 +182,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   85</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><span class="lineno">   86</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
 <div class="line"><span class="lineno">   87</span>    cout &lt;&lt; <span class="stringliteral">&quot;\n1. computing BeatHisto...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   88</span>    pCInstance-&gt;<a class="code hl_function" href="a00243.html#a58a9a3d685f448ced2e843a60028e472">compBeatHisto</a>(pfBeatHisto);</div>
+<div class="line"><span class="lineno">   88</span>    pCInstance-&gt;<a class="code hl_function" href="a00246.html#a58a9a3d685f448ced2e843a60028e472">compBeatHisto</a>(pfBeatHisto);</div>
 <div class="line"><span class="lineno">   89</span> </div>
 <div class="line"><span class="lineno">   90</span>    cout &lt;&lt; <span class="stringliteral">&quot;\n BeatHisto computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><span class="lineno">   91</span> </div>
@@ -202,7 +202,7 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  105</span><span class="comment"></span> </div>
 <div class="line"><span class="lineno">  106</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><span class="lineno">  107</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
-<div class="line"><span class="lineno">  108</span>    <a class="code hl_function" href="a00243.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
+<div class="line"><span class="lineno">  108</span>    <a class="code hl_function" href="a00246.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
 <div class="line"><span class="lineno">  109</span>    hOutputFile.close();</div>
 <div class="line"><span class="lineno">  110</span> </div>
 <div class="line"><span class="lineno">  111</span>    <span class="keyword">delete</span>[] pfBeatHisto;</div>
@@ -213,70 +213,70 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">  116</span> </div>
 <div class="line"><span class="lineno">  117</span>}</div>
 <div class="ttc" id="aa00062_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00062.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00062_source.html#l00120">ComputeBeatHisto.cpp:120</a></div></div>
-<div class="ttc" id="aa00243_html"><div class="ttname"><a href="a00243.html">CBeatHistoIf</a></div><div class="ttdoc">class for computation of a BeatHistogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00015">BeatHisto.h:16</a></div></div>
-<div class="ttc" id="aa00243_html_a00497d8ae052a8ce7125421c9615c573"><div class="ttname"><a href="a00243.html#a00497d8ae052a8ce7125421c9615c573">CBeatHistoIf::getNumBins</a></div><div class="ttdeci">Error_t getNumBins(int &amp;iNumBeatHistoBins, BeatHisto_t eBeatHistoComp) const</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00063">BeatHisto.cpp:63</a></div></div>
-<div class="ttc" id="aa00243_html_a58a9a3d685f448ced2e843a60028e472"><div class="ttname"><a href="a00243.html#a58a9a3d685f448ced2e843a60028e472">CBeatHistoIf::compBeatHisto</a></div><div class="ttdeci">Error_t compBeatHisto(float *pfBeatHisto, BeatHisto_t eBeatHistoComp=kBeatHistoFft)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00113">BeatHisto.cpp:113</a></div></div>
-<div class="ttc" id="aa00243_html_a5f773ad0baf325e182bd459c04ae7137"><div class="ttname"><a href="a00243.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CBeatHistoIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00055">BeatHisto.cpp:55</a></div></div>
-<div class="ttc" id="aa00243_html_a7aa666694543decf41aa7c27a0593db0"><div class="ttname"><a href="a00243.html#a7aa666694543decf41aa7c27a0593db0">CBeatHistoIf::BeatHisto_t</a></div><div class="ttdeci">BeatHisto_t</div><div class="ttdoc">enum to index all BeatHistogram computations</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00020">BeatHisto.h:21</a></div></div>
-<div class="ttc" id="aa00243_html_a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770"><div class="ttname"><a href="a00243.html#a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770">CBeatHistoIf::kBeatHistoFft</a></div><div class="ttdeci">@ kBeatHistoFft</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00023">BeatHisto.h:23</a></div></div>
-<div class="ttc" id="aa00243_html_a9b3f72cb0d46466cf0aa38540b9980a5"><div class="ttname"><a href="a00243.html#a9b3f72cb0d46466cf0aa38540b9980a5">CBeatHistoIf::create</a></div><div class="ttdeci">static Error_t create(CBeatHistoIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=1024, int iHopLength=8)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00019">BeatHisto.cpp:19</a></div></div>
+<div class="ttc" id="aa00246_html"><div class="ttname"><a href="a00246.html">CBeatHistoIf</a></div><div class="ttdoc">class for computation of a BeatHistogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00015">BeatHisto.h:16</a></div></div>
+<div class="ttc" id="aa00246_html_a00497d8ae052a8ce7125421c9615c573"><div class="ttname"><a href="a00246.html#a00497d8ae052a8ce7125421c9615c573">CBeatHistoIf::getNumBins</a></div><div class="ttdeci">Error_t getNumBins(int &amp;iNumBeatHistoBins, BeatHisto_t eBeatHistoComp) const</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00063">BeatHisto.cpp:63</a></div></div>
+<div class="ttc" id="aa00246_html_a58a9a3d685f448ced2e843a60028e472"><div class="ttname"><a href="a00246.html#a58a9a3d685f448ced2e843a60028e472">CBeatHistoIf::compBeatHisto</a></div><div class="ttdeci">Error_t compBeatHisto(float *pfBeatHisto, BeatHisto_t eBeatHistoComp=kBeatHistoFft)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00113">BeatHisto.cpp:113</a></div></div>
+<div class="ttc" id="aa00246_html_a5f773ad0baf325e182bd459c04ae7137"><div class="ttname"><a href="a00246.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CBeatHistoIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00055">BeatHisto.cpp:55</a></div></div>
+<div class="ttc" id="aa00246_html_a7aa666694543decf41aa7c27a0593db0"><div class="ttname"><a href="a00246.html#a7aa666694543decf41aa7c27a0593db0">CBeatHistoIf::BeatHisto_t</a></div><div class="ttdeci">BeatHisto_t</div><div class="ttdoc">enum to index all BeatHistogram computations</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00020">BeatHisto.h:21</a></div></div>
+<div class="ttc" id="aa00246_html_a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770"><div class="ttname"><a href="a00246.html#a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770">CBeatHistoIf::kBeatHistoFft</a></div><div class="ttdeci">@ kBeatHistoFft</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00023">BeatHisto.h:23</a></div></div>
+<div class="ttc" id="aa00246_html_a9b3f72cb0d46466cf0aa38540b9980a5"><div class="ttname"><a href="a00246.html#a9b3f72cb0d46466cf0aa38540b9980a5">CBeatHistoIf::create</a></div><div class="ttdeci">static Error_t create(CBeatHistoIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=1024, int iHopLength=8)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00019">BeatHisto.cpp:19</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00014_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00014_source.html#l00019">CBeatHistoIf::create()</a>, <a class="el" href="a00014_source.html#l00055">CBeatHistoIf::destroy()</a>, <a class="el" href="a00014_source.html#l00063">CBeatHistoIf::getNumBins()</a>, <a class="el" href="a00128_source.html#l00023">CBeatHistoIf::kBeatHistoFft</a>, and <a class="el" href="a00062_source.html#l00120">showClInfo()</a>.</p>
+<p class="reference">References <a class="el" href="a00014_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00014_source.html#l00019">CBeatHistoIf::create()</a>, <a class="el" href="a00014_source.html#l00055">CBeatHistoIf::destroy()</a>, <a class="el" href="a00014_source.html#l00063">CBeatHistoIf::getNumBins()</a>, <a class="el" href="a00131_source.html#l00023">CBeatHistoIf::kBeatHistoFft</a>, and <a class="el" href="a00062_source.html#l00120">showClInfo()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00062_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#aa00062_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="aa00062_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="aa00062_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
 <area shape="rect" title=" " alt="" coords="5,2104,56,2131"/>
-<area shape="rect" href="a00243.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,845,297,872"/>
-<area shape="rect" href="a00243.html#a00497d8ae052a8ce7125421c9615c573" title=" " alt="" coords="363,2053,538,2080"/>
-<area shape="rect" href="a00243.html#a9b3f72cb0d46466cf0aa38540b9980a5" title=" " alt="" coords="131,2104,270,2131"/>
-<area shape="rect" href="a00243.html#a5f773ad0baf325e182bd459c04ae7137" title=" " alt="" coords="128,2155,273,2181"/>
+<area shape="rect" href="a00246.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,845,297,872"/>
+<area shape="rect" href="a00246.html#a00497d8ae052a8ce7125421c9615c573" title=" " alt="" coords="363,2053,538,2080"/>
+<area shape="rect" href="a00246.html#a9b3f72cb0d46466cf0aa38540b9980a5" title=" " alt="" coords="131,2104,270,2131"/>
+<area shape="rect" href="a00246.html#a5f773ad0baf325e182bd459c04ae7137" title=" " alt="" coords="128,2155,273,2181"/>
 <area shape="rect" href="a00062.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="157,2205,244,2232"/>
-<area shape="rect" href="a00279.html#a8abbcfd075eabceada2f024773f11166" title=" " alt="" coords="383,208,519,235"/>
-<area shape="rect" href="a00303.html#a4d7d19dd39b24147d9a1fab5d7e05257" title=" " alt="" coords="396,537,505,564"/>
-<area shape="rect" href="a00255.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="915,613,1017,640"/>
-<area shape="rect" href="a00279.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="1135,436,1265,463"/>
-<area shape="rect" href="a00279.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="1126,1776,1274,1803"/>
-<area shape="rect" href="a00243.html#aab00ef7ee1267d939e78e6b27e86848e" title=" " alt="" coords="345,5,556,32"/>
-<area shape="rect" href="a00283.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="368,1263,533,1289"/>
-<area shape="rect" href="a00255.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="901,1212,1031,1239"/>
-<area shape="rect" href="a00299.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="623,1725,812,1752"/>
-<area shape="rect" href="a00299.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="1101,1979,1299,2005"/>
-<area shape="rect" href="a00299.html#a84f0c2bf28007ef7749ab0e90c8011d2" title=" " alt="" coords="377,56,524,83"/>
-<area shape="rect" href="a00299.html#a13d2bd6e36210dde0c64d188c1266b88" title=" " alt="" coords="374,107,527,133"/>
-<area shape="rect" href="a00275.html#a16455e414da1bc89417716b46b212ab9" title=" " alt="" coords="399,157,502,184"/>
-<area shape="rect" href="a00303.html#af98260f965391ca3adf75bd435601236" title=" " alt="" coords="919,335,1013,361"/>
-<area shape="rect" href="a00283.html#aa4193070cac8cac64ad8dc222fb612e8" title=" " alt="" coords="630,1979,805,2005"/>
-<area shape="rect" href="a00303.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="413,1827,488,1853"/>
-<area shape="rect" href="a00255.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="682,1928,753,1955"/>
-<area shape="rect" href="a00331.html#a9a0dbb8f97c757a13062370113d661c4" title=" " alt="" coords="359,867,542,909"/>
-<area shape="rect" href="a00255.html#a2d2fa880b32c7087973ed25628002129" title=" " alt="" coords="907,461,1025,488"/>
-<area shape="rect" href="a00255.html#ab6245bc0fdabc5e62ab910414eb4b923" title=" " alt="" coords="657,613,777,640"/>
-<area shape="rect" href="a00279.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="893,817,1039,844"/>
-<area shape="rect" href="a00279.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="636,360,799,387"/>
-<area shape="rect" href="a00255.html#a1d114960d5fc8ff4c328732adf638885" title=" " alt="" coords="663,512,771,539"/>
-<area shape="rect" href="a00279.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="1132,537,1268,564"/>
-<area shape="rect" href="a00275.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="1347,436,1449,463"/>
-<area shape="rect" href="a00307.html#ada82d84a69f4c77266835f1f06ca2ecb" title=" " alt="" coords="619,5,816,32"/>
-<area shape="rect" href="a00279.html#af10e45e34254ef453abff50282a8b746" title=" " alt="" coords="645,1456,790,1483"/>
-<area shape="rect" href="a00323.html#ac37c3eae6a41a393219aa4cbd39db211" title=" " alt="" coords="627,1507,807,1549"/>
-<area shape="rect" href="a00287.html#afb2032a0a8448d57c5faec119b63bb71" title=" " alt="" coords="893,974,1039,1015"/>
-<area shape="rect" href="a00283.html#a9018f2beabd03a9b41d90bde402aa227" title=" " alt="" coords="604,1237,831,1264"/>
-<area shape="rect" href="a00323.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="641,1573,794,1600"/>
-<area shape="rect" href="a00323.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="888,1599,1044,1625"/>
-<area shape="rect" href="a00323.html#a1a014af5490675e140d6069561b00eb1" title=" " alt="" coords="879,1398,1053,1439"/>
-<area shape="rect" href="a00279.html#acad30e028ad5639629a36820d6bb064b" title=" " alt="" coords="637,1136,798,1163"/>
-<area shape="rect" href="a00275.html#a4cf9544dd96801e3ee47fd1ef2049a1b" title=" " alt="" coords="903,1111,1029,1137"/>
-<area shape="rect" href="a00279.html#a8279b309edcfcac51d94b1e8f206a330" title=" " alt="" coords="644,867,791,893"/>
-<area shape="rect" href="a00279.html#a0ebcfe60eb5cda1ab45ae8157be0e64e" title=" " alt="" coords="640,1187,795,1213"/>
-<area shape="rect" href="a00331.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="626,969,809,1010"/>
-<area shape="rect" href="a00279.html#a0778309dd31c594ef11e7f811449228b" title=" " alt="" coords="625,1339,809,1381"/>
-<area shape="rect" href="a00279.html#acb3a5019161f218ad15e52d103a653f3" title=" " alt="" coords="649,1405,785,1432"/>
-<area shape="rect" href="a00283.html#a2957fc23663fb6b67fabb6ecda9ae0bd" title=" " alt="" coords="879,1979,1053,2005"/>
-<area shape="rect" href="a00271.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="909,1928,1023,1955"/>
-<area shape="rect" href="a00243.html#ae90a9b79467cccffa52077c24cd58bb0" title=" " alt="" coords="361,2155,540,2181"/>
-<area shape="rect" href="a00243.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="387,2104,514,2131"/>
+<area shape="rect" href="a00286.html#a8abbcfd075eabceada2f024773f11166" title=" " alt="" coords="383,208,519,235"/>
+<area shape="rect" href="a00310.html#a4d7d19dd39b24147d9a1fab5d7e05257" title=" " alt="" coords="396,537,505,564"/>
+<area shape="rect" href="a00258.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="915,613,1017,640"/>
+<area shape="rect" href="a00286.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="1135,436,1265,463"/>
+<area shape="rect" href="a00286.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="1126,1776,1274,1803"/>
+<area shape="rect" href="a00246.html#aab00ef7ee1267d939e78e6b27e86848e" title=" " alt="" coords="345,5,556,32"/>
+<area shape="rect" href="a00290.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="368,1263,533,1289"/>
+<area shape="rect" href="a00258.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="901,1212,1031,1239"/>
+<area shape="rect" href="a00306.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="623,1725,812,1752"/>
+<area shape="rect" href="a00306.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="1101,1979,1299,2005"/>
+<area shape="rect" href="a00306.html#a84f0c2bf28007ef7749ab0e90c8011d2" title=" " alt="" coords="377,56,524,83"/>
+<area shape="rect" href="a00306.html#a13d2bd6e36210dde0c64d188c1266b88" title=" " alt="" coords="374,107,527,133"/>
+<area shape="rect" href="a00282.html#a16455e414da1bc89417716b46b212ab9" title=" " alt="" coords="399,157,502,184"/>
+<area shape="rect" href="a00310.html#af98260f965391ca3adf75bd435601236" title=" " alt="" coords="919,335,1013,361"/>
+<area shape="rect" href="a00290.html#aa4193070cac8cac64ad8dc222fb612e8" title=" " alt="" coords="630,1979,805,2005"/>
+<area shape="rect" href="a00310.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="413,1827,488,1853"/>
+<area shape="rect" href="a00258.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="682,1928,753,1955"/>
+<area shape="rect" href="a00338.html#a9a0dbb8f97c757a13062370113d661c4" title=" " alt="" coords="359,867,542,909"/>
+<area shape="rect" href="a00258.html#a2d2fa880b32c7087973ed25628002129" title=" " alt="" coords="907,461,1025,488"/>
+<area shape="rect" href="a00258.html#ab6245bc0fdabc5e62ab910414eb4b923" title=" " alt="" coords="657,613,777,640"/>
+<area shape="rect" href="a00286.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="893,817,1039,844"/>
+<area shape="rect" href="a00286.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="636,360,799,387"/>
+<area shape="rect" href="a00258.html#a1d114960d5fc8ff4c328732adf638885" title=" " alt="" coords="663,512,771,539"/>
+<area shape="rect" href="a00286.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="1132,537,1268,564"/>
+<area shape="rect" href="a00282.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="1347,436,1449,463"/>
+<area shape="rect" href="a00314.html#ada82d84a69f4c77266835f1f06ca2ecb" title=" " alt="" coords="619,5,816,32"/>
+<area shape="rect" href="a00286.html#af10e45e34254ef453abff50282a8b746" title=" " alt="" coords="645,1456,790,1483"/>
+<area shape="rect" href="a00330.html#ac37c3eae6a41a393219aa4cbd39db211" title=" " alt="" coords="627,1507,807,1549"/>
+<area shape="rect" href="a00294.html#afb2032a0a8448d57c5faec119b63bb71" title=" " alt="" coords="893,974,1039,1015"/>
+<area shape="rect" href="a00290.html#a9018f2beabd03a9b41d90bde402aa227" title=" " alt="" coords="604,1237,831,1264"/>
+<area shape="rect" href="a00330.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="641,1573,794,1600"/>
+<area shape="rect" href="a00330.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="888,1599,1044,1625"/>
+<area shape="rect" href="a00330.html#a1a014af5490675e140d6069561b00eb1" title=" " alt="" coords="879,1398,1053,1439"/>
+<area shape="rect" href="a00286.html#acad30e028ad5639629a36820d6bb064b" title=" " alt="" coords="637,1136,798,1163"/>
+<area shape="rect" href="a00282.html#a4cf9544dd96801e3ee47fd1ef2049a1b" title=" " alt="" coords="903,1111,1029,1137"/>
+<area shape="rect" href="a00286.html#a8279b309edcfcac51d94b1e8f206a330" title=" " alt="" coords="644,867,791,893"/>
+<area shape="rect" href="a00286.html#a0ebcfe60eb5cda1ab45ae8157be0e64e" title=" " alt="" coords="640,1187,795,1213"/>
+<area shape="rect" href="a00338.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="626,969,809,1010"/>
+<area shape="rect" href="a00286.html#a0778309dd31c594ef11e7f811449228b" title=" " alt="" coords="625,1339,809,1381"/>
+<area shape="rect" href="a00286.html#acb3a5019161f218ad15e52d103a653f3" title=" " alt="" coords="649,1405,785,1432"/>
+<area shape="rect" href="a00290.html#a2957fc23663fb6b67fabb6ecda9ae0bd" title=" " alt="" coords="879,1979,1053,2005"/>
+<area shape="rect" href="a00278.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="909,1928,1023,1955"/>
+<area shape="rect" href="a00246.html#ae90a9b79467cccffa52077c24cd58bb0" title=" " alt="" coords="361,2155,540,2181"/>
+<area shape="rect" href="a00246.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="387,2104,514,2131"/>
 </map>
 </div>
 
@@ -323,7 +323,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 29 2022 18:02:03 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun May 29 2022 22:07:20 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
