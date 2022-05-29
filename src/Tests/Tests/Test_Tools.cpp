@@ -10,6 +10,7 @@
 #include "ToolGammatone.h"
 #include "ToolInstFreq.h"
 #include "ToolLowPass.h"
+#include "ToolResample.h"
 
 #include "catch.hpp"
 
@@ -627,6 +628,72 @@ TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
 
     delete[] m_pfInput;
     delete[] m_pfOut;
+}
+
+TEST_CASE("ToolsInterp", "[ToolsInterp]")
+{
+    int iInputLength = 10;
+    int iOutputLength = 32;
+    float* pfIn = new float[iInputLength];
+    float* pfOut = new float[iOutputLength];
+    float* pfOutIdx = new float[iOutputLength];
+
+    for (auto i = 0; i < iInputLength; i++)
+        pfIn[i] = i + 1.F;
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(0, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOutIdx, 0, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOutIdx, pfOut, 0, iOutputLength, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOutIdx, pfOut, pfIn, 0, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, 0));
+    }
+
+    SECTION("Zeros")
+    {
+        for (auto i = 0; i < iOutputLength; i++)
+            pfOutIdx[i] = i - 500.F;
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(0.F == CVectorFloat::getSum(pfOut, iOutputLength));
+
+        for (auto i = 0; i < iOutputLength; i++)
+            pfOutIdx[i] = i + 500.F;
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(0.F == CVectorFloat::getSum(pfOut, iOutputLength));
+
+        for (auto i = 0; i < iOutputLength; i++)
+            pfOutIdx[i] = i - 3.4F;
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(0.F == CVectorFloat::getSum(pfOut, 3));
+        CHECK(0.F == CVectorFloat::getSum(&pfOut[iInputLength + 4], iOutputLength - iInputLength - 4));
+
+        for (auto i = 3; i < iInputLength + 3; i++)
+            CHECK((i - 3) + .6F == Approx(pfOut[i]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(pfIn[iInputLength - 1] * (1 - .6F) == Approx(pfOut[iInputLength + 3]).margin(1e-6F).epsilon(1e-6F));
+    }
+
+    SECTION("Sine")
+    {
+        iOutputLength = 30;
+        float* pfSine = new float[iOutputLength];
+        CSynthesis::genSine(pfSine, 1.F, 1.F*iOutputLength, iOutputLength);
+
+        for (auto i = 0; i < iInputLength; i++)
+            pfIn[i] = pfSine[3*i];
+
+        for (auto i = 0; i < iOutputLength; i++)
+            pfOutIdx[i] = i / 3.F;
+
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+
+        for (auto i = 0; i < iOutputLength; i++)
+            CHECK(pfSine[i] == Approx(pfOut[i]).margin(1e-1F).epsilon(1e-1F));
+    }
+
+    delete[] pfIn;
+    delete[] pfOut;
+    delete[] pfOutIdx;
 }
 
 TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
