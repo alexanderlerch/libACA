@@ -21,7 +21,6 @@ public:
 
     /*! initializes a GammaToneFb instance with file reading
     \param pCInstance pointer to instance to be written
-    \param eGammaToneFbIdx as defined in GammaToneFb_t
     \param strAudioFilePath complete path to audio file
     \param iNumBands: number of gammatone bands
     \param fStartInHz: center frequency of the lowest band
@@ -31,7 +30,6 @@ public:
 
     /*! initializes a GammaToneFb instance from audio data
     \param pCInstance pointer to instance to be written
-    \param eGammaToneFbIdx as defined in GammaToneFb_t
     \param pfAudio complete audio data
     \param iNumSamples: length of pfAudio
     \param fSampleRate: sample rate in Hz
@@ -52,12 +50,11 @@ public:
     \param iNumCols (number of samples, to be written)
     \return Error_t
     */
-    Error_t getOutputDimensions(long long& iNumRows, long long& iNumColumns) const;
+    Error_t getOutputDimensions(long long& iNumRows, long long& iNumCols) const;
 
-    /*! returns size of matrix to be allocated by user
-    \param iNumRows (number of bands, to be written)
-    \param iNumCols (number of samples, to be written)
-    \return Error_t
+    /*! returns center frequency
+    \param iBandIdx index of band the frequency is request for
+    \return float
     */
     float getCenterFreq(int iBandIdx) const;
 
