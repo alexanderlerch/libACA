@@ -1,16 +1,13 @@
 #if !defined(__InstFreq_hdr__)
 #define __InstFreq_hdr__
 
-#define _USE_MATH_DEFINES
-#include <cmath>
-
 #include "Util.h"
 #include "Vector.h"
 #include "Fft.h"
 #include "ErrorDef.h"
 
 
-/*! \brief class for single-pole low pass filtering
+/*! \brief class for extracting the instantaneous frequency
 */
 class CInstFreq
 {
