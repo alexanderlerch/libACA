@@ -105,6 +105,7 @@ TEST_CASE("Matrix", "[Matrix]")
             CHECK(1.F == Approx(CVectorFloat::getSum(ppfResult[m], aiDims[1])).margin(1e-6F).epsilon(1e-6F));
             CHECK(1.F == Approx(ppfResult[m][m]).margin(1e-6F).epsilon(1e-6F));
         }
+        CMatrix::free(ppfInput, aiDims[0]);
         CMatrix::free(ppfResult, aiDims[0]);
     }
 

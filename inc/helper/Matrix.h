@@ -214,6 +214,8 @@ public:
                         inv_I(ppfTmp, iNumRows, iNumCols);
                         copy(ppfSrcDest, ppfTmp, iNumRows, iNumCols);
 
+                        CMatrix::free(ppfTmp, iNumRows);
+                        CMatrix::free(ppfEye, iNumRows);
                         return;
                     }
                 }
@@ -230,6 +232,8 @@ public:
         }
 
         copy(ppfSrcDest, ppfEye, iNumRows, iNumCols);
+        CMatrix::free(ppfTmp, iNumRows);
+        CMatrix::free(ppfEye, iNumRows);
     }
 };
 
