@@ -68,6 +68,31 @@ public:
                 pfDestColVec[n] += pfSrcRowVec[m] * ppfMatrix[m][n];
     }
 
+    static void mulMatMat(float** ppfDest, float** ppfSrc1, float** ppfSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)
+    {
+        assert(iNum1Rows > 0);
+        assert(iNum1Cols > 0);
+        assert(iNum2Rows > 0);
+        assert(iNum2Cols > 0);
+        assert(iNum1Cols == iNum2Rows);
+        assert(ppfDest);
+        assert(ppfDest[0]);
+        assert(ppfSrc1);
+        assert(ppfSrc1[0]);
+        assert(ppfSrc2);
+        assert(ppfSrc2[0]);
+
+        for (auto m = 0; m < iNum1Rows; m++)
+        {
+            for (auto n = 0; n < iNum2Cols; n++)
+            {
+                ppfDest[m][n] = 0.F;
+                for (auto k = 0; k < iNum1Cols; k++)
+                    ppfDest[m][n] += ppfSrc1[m][k] * ppfSrc2[k][n];
+            }
+        }
+    }
+
     static void setEye(float** ppfDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
