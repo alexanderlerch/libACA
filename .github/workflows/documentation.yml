@@ -24,7 +24,7 @@ jobs:
     - name: Doxygen
       uses: mattnotmitt/doxygen-action@edge
       with:
-        working-directory: ./
+        working-directory: ${{github.workspace}}
         doxyfile-path: build/docs/doxy.config
  
     # store the doc files
@@ -32,7 +32,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: doc-files
-        path: ./build/docs/html
+        path: ${{github.workspace}}/build/docs/html
         retention-days: 1 
         
   copy:
