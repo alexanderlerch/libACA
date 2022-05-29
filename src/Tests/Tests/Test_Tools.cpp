@@ -17,186 +17,186 @@
 
 TEST_CASE("ToolsBlockAudio", "[ToolsBlockAudio]")
 {
-    CBlockAudioIf* m_pCBlockAudio = 0;
+    CBlockAudioIf* pCBlockAudio = 0;
 
-    float* m_pfAudio = 0;
-    float* m_pfBlock = 0;
+    float* pfAudio = 0;
+    float* pfBlock = 0;
 
-    float m_fSampleRate = 0;
+    float fSampleRate = 0;
 
-    int m_iBlockLength = 0,
-        m_iHopLength = 0,
-        m_iAudioLength = 0,
-        m_iBufferLength = 40000;
+    int iBlockLength = 0,
+        iHopLength = 0,
+        iAudioLength = 0,
+        iBufferLength = 40000;
 
-    m_pfAudio = new float[m_iBufferLength];
-    m_pfBlock = new float[1024];
-    for (auto i = 0; i < m_iBufferLength; i++)
-        m_pfAudio[i] = static_cast<float>(i);
+    pfAudio = new float[iBufferLength];
+    pfBlock = new float[1024];
+    for (auto i = 0; i < iBufferLength; i++)
+        pfAudio[i] = static_cast<float>(i);
 
     SECTION("Dimensions")
     {
-        m_iBlockLength = 20;
-        m_iHopLength = 10;
-        m_fSampleRate = 1;
-        m_iAudioLength = 101;
+        iBlockLength = 20;
+        iHopLength = 10;
+        fSampleRate = 1;
+        iAudioLength = 101;
 
-        CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, m_iBlockLength, m_iHopLength, m_fSampleRate);
+        CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, iBlockLength, iHopLength, fSampleRate);
 
-        CHECK(m_pCBlockAudio->getNumBlocks() == m_iAudioLength / m_iHopLength + 1);
+        CHECK(pCBlockAudio->getNumBlocks() == iAudioLength / iHopLength + 1);
 
-        CBlockAudioIf::destroy(m_pCBlockAudio);
+        CBlockAudioIf::destroy(pCBlockAudio);
 
-        m_iBlockLength = 1024;
-        m_iHopLength = 512;
-        m_fSampleRate = 40000;
-        m_iAudioLength = 40000;
+        iBlockLength = 1024;
+        iHopLength = 512;
+        fSampleRate = 40000;
+        iAudioLength = 40000;
 
-        CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, m_iBlockLength, m_iHopLength, m_fSampleRate);
+        CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, iBlockLength, iHopLength, fSampleRate);
 
-        CHECK(79 == m_pCBlockAudio->getNumBlocks());
+        CHECK(79 == pCBlockAudio->getNumBlocks());
     }
 
     SECTION("Content")
     {
-        m_iBlockLength = 20;
-        m_iHopLength = 10;
-        m_fSampleRate = 1;
-        m_iAudioLength = 101;
+        iBlockLength = 20;
+        iHopLength = 10;
+        fSampleRate = 1;
+        iAudioLength = 101;
 
-        CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, m_iBlockLength, m_iHopLength, m_fSampleRate);
+        CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, iBlockLength, iHopLength, fSampleRate);
 
         // check block 9
         float fTestTimeStamp = 0,
-            fTargetTimeStamp = m_iBlockLength / m_fSampleRate * .5F;
+            fTargetTimeStamp = iBlockLength / fSampleRate * .5F;
         int iBlockIdx = 9;
         for (auto n = 0; n <= iBlockIdx; n++)
         {
-            m_pCBlockAudio->getNextBlock(m_pfBlock, &fTestTimeStamp);
+            pCBlockAudio->getNextBlock(pfBlock, &fTestTimeStamp);
             CHECK(fTestTimeStamp == Approx(fTargetTimeStamp).margin(1e-6F).epsilon(1e-6F));
-            fTargetTimeStamp += m_iHopLength / m_fSampleRate;
-            CHECK_FALSE( m_pCBlockAudio->IsEndOfData());
+            fTargetTimeStamp += iHopLength / fSampleRate;
+            CHECK_FALSE( pCBlockAudio->IsEndOfData());
         }
 
-        for (auto i = 0; i < m_iHopLength + 1; i++)
-            CHECK(m_pfBlock[i] == iBlockIdx* m_iHopLength + i);
+        for (auto i = 0; i < iHopLength + 1; i++)
+            CHECK(pfBlock[i] == iBlockIdx* iHopLength + i);
     }
 
 
     SECTION("Api")
     {
-        m_iBlockLength = 20;
-        m_iHopLength = 10;
-        m_fSampleRate = 1;
-        m_iAudioLength = 101;
+        iBlockLength = 20;
+        iHopLength = 10;
+        fSampleRate = 1;
+        iAudioLength = 101;
 
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, 0, m_iAudioLength, m_iBlockLength, m_iHopLength, m_fSampleRate));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, 0, m_iBlockLength, m_iHopLength, m_fSampleRate));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, 0, m_iHopLength, m_fSampleRate));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, m_iBlockLength, 0, m_fSampleRate));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, m_iBlockLength, m_iHopLength, 0));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, -1, m_iBlockLength, m_iHopLength, m_fSampleRate));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, -1, m_iHopLength, m_fSampleRate));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, m_iBlockLength, -1, m_fSampleRate));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, m_iBlockLength, m_iHopLength, -1));
-        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(m_pCBlockAudio, m_pfAudio, m_iAudioLength, m_iBlockLength, m_iBlockLength << 1, m_fSampleRate));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, 0, iAudioLength, iBlockLength, iHopLength, fSampleRate));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, 0, iBlockLength, iHopLength, fSampleRate));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, 0, iHopLength, fSampleRate));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, iBlockLength, 0, fSampleRate));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, iBlockLength, iHopLength, 0));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, -1, iBlockLength, iHopLength, fSampleRate));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, -1, iHopLength, fSampleRate));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, iBlockLength, -1, fSampleRate));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, iBlockLength, iHopLength, -1));
+        CHECK_FALSE(Error_t::kNoError == CBlockAudioIf::create(pCBlockAudio, pfAudio, iAudioLength, iBlockLength, iBlockLength << 1, fSampleRate));
     }
 
 
-    CBlockAudioIf::destroy(m_pCBlockAudio);
+    CBlockAudioIf::destroy(pCBlockAudio);
 
-    delete[] m_pfBlock;
-    delete[] m_pfAudio;
+    delete[] pfBlock;
+    delete[] pfAudio;
 
 }
 
 TEST_CASE("ToolsCcf", "[ToolsCcf]")
 {
 
-    CCcf* m_pCCcf = 0;
-    float* m_pfInput = 0,
-        * m_pfOut = 0;
-    int m_iNumValues = 1024;
+    CCcf* pCCcf = 0;
+    float* pfInput = 0,
+        * pfOut = 0;
+    int iNumValues = 1024;
 
-    m_pCCcf = new CCcf();
-    m_pfInput = new float[m_iNumValues];
-    m_pfOut = new float[2 * m_iNumValues];
+    pCCcf = new CCcf();
+    pfInput = new float[iNumValues];
+    pfOut = new float[2 * iNumValues];
 
-    CVectorFloat::setZero(m_pfInput, m_iNumValues);
-    CVectorFloat::setZero(m_pfOut, 2 * static_cast<long long>(m_iNumValues));
+    CVectorFloat::setZero(pfInput, iNumValues);
+    CVectorFloat::setZero(pfOut, 2 * static_cast<long long>(iNumValues));
 
     SECTION("Api")
     {
         // not initialized
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->init(-1));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->init(0));
-        CHECK(Error_t::kFunctionIllegalCallError ==m_pCCcf->compCcf(m_pfInput, m_pfInput));
-        CHECK(-1 == m_pCCcf->getCcfLength());
-        CHECK(Error_t::kFunctionIllegalCallError ==m_pCCcf->getCcf(m_pfOut));
-        CHECK(-1 == m_pCCcf->getCcfMax());
-        CHECK(-1 == m_pCCcf->getCcfMaxIdx());
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCCcf->init(-1));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCCcf->init(0));
+        CHECK(Error_t::kFunctionIllegalCallError ==pCCcf->compCcf(pfInput, pfInput));
+        CHECK(-1 == pCCcf->getCcfLength());
+        CHECK(Error_t::kFunctionIllegalCallError ==pCCcf->getCcf(pfOut));
+        CHECK(-1 == pCCcf->getCcfMax());
+        CHECK(-1 == pCCcf->getCcfMaxIdx());
 
         // initialized
-        CHECK(Error_t::kNoError == m_pCCcf->init(m_iNumValues));
-        CHECK(2 * m_iNumValues - 1 == m_pCCcf->getCcfLength());
-        CHECK(Error_t::kFunctionIllegalCallError ==m_pCCcf->getCcf(m_pfOut));
-        CHECK(-1 == m_pCCcf->getCcfMax());
-        CHECK(-1 == m_pCCcf->getCcfMaxIdx());
+        CHECK(Error_t::kNoError == pCCcf->init(iNumValues));
+        CHECK(2 * iNumValues - 1 == pCCcf->getCcfLength());
+        CHECK(Error_t::kFunctionIllegalCallError ==pCCcf->getCcf(pfOut));
+        CHECK(-1 == pCCcf->getCcfMax());
+        CHECK(-1 == pCCcf->getCcfMaxIdx());
 
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->compCcf(0, m_pfInput));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCCcf->compCcf(m_pfInput, 0));
-        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCCcf->compCcf(0, pfInput));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCCcf->compCcf(pfInput, 0));
+        CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, pfInput));
 
-        CHECK(Error_t::kNoError == m_pCCcf->reset());
+        CHECK(Error_t::kNoError == pCCcf->reset());
     }
 
     SECTION("Acf")
     {
         // zero
-        CHECK(Error_t::kNoError == m_pCCcf->init(6));
-        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput));
-        CHECK(11 == m_pCCcf->getCcfLength());
-        CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut));
-        CHECK(0 == CVectorFloat::getSum(m_pfOut, 6));
-        CHECK(0 == m_pCCcf->getCcfMax());
-        CHECK(0 == m_pCCcf->getCcfMaxIdx());
+        CHECK(Error_t::kNoError == pCCcf->init(6));
+        CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, pfInput));
+        CHECK(11 == pCCcf->getCcfLength());
+        CHECK(Error_t::kNoError == pCCcf->getCcf(pfOut));
+        CHECK(0 == CVectorFloat::getSum(pfOut, 6));
+        CHECK(0 == pCCcf->getCcfMax());
+        CHECK(0 == pCCcf->getCcfMaxIdx());
 
         // dc input
-        CVectorFloat::setValue(m_pfInput, 1.F, 16);
-        CHECK(Error_t::kNoError == m_pCCcf->init(16));
-        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, false));
-        CHECK(16 == m_pCCcf->getCcfLength(true));
-        CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, true));
-        CHECK(16.F == Approx(m_pCCcf->getCcfMax(true)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(16.F == Approx(m_pCCcf->getCcfMax(false)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(0 == m_pCCcf->getCcfMaxIdx(true));
-        CHECK(16 - 1 == Approx(m_pCCcf->getCcfMaxIdx(false)).margin(1e-6F).epsilon(1e-6F));
+        CVectorFloat::setValue(pfInput, 1.F, 16);
+        CHECK(Error_t::kNoError == pCCcf->init(16));
+        CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, pfInput, false));
+        CHECK(16 == pCCcf->getCcfLength(true));
+        CHECK(Error_t::kNoError == pCCcf->getCcf(pfOut, true));
+        CHECK(16.F == Approx(pCCcf->getCcfMax(true)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(16.F == Approx(pCCcf->getCcfMax(false)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0 == pCCcf->getCcfMaxIdx(true));
+        CHECK(16 - 1 == Approx(pCCcf->getCcfMaxIdx(false)).margin(1e-6F).epsilon(1e-6F));
 
         // normalized
-        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, true));
-        CHECK(16 == m_pCCcf->getCcfLength(true));
-        CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, true));
-        CHECK(1.F == Approx(m_pCCcf->getCcfMax(true)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(0 == m_pCCcf->getCcfMaxIdx(true));
+        CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, pfInput, true));
+        CHECK(16 == pCCcf->getCcfLength(true));
+        CHECK(Error_t::kNoError == pCCcf->getCcf(pfOut, true));
+        CHECK(1.F == Approx(pCCcf->getCcfMax(true)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0 == pCCcf->getCcfMaxIdx(true));
 
         // sine wave
-        CSynthesis::genSine<float>(m_pfInput, 4, 512, m_iNumValues);
-        CHECK(Error_t::kNoError == m_pCCcf->init(m_iNumValues));
-        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, false));
-        CHECK(m_iNumValues == m_pCCcf->getCcfLength(true));
-        CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, true));
-        CHECK(m_iNumValues / 2 == Approx(m_pCCcf->getCcfMax()).margin(1e-6F).epsilon(1e-6F));
-        CHECK(m_iNumValues - 1 ==  m_pCCcf->getCcfMaxIdx());
+        CSynthesis::genSine<float>(pfInput, 4, 512, iNumValues);
+        CHECK(Error_t::kNoError == pCCcf->init(iNumValues));
+        CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, pfInput, false));
+        CHECK(iNumValues == pCCcf->getCcfLength(true));
+        CHECK(Error_t::kNoError == pCCcf->getCcf(pfOut, true));
+        CHECK(iNumValues / 2 == Approx(pCCcf->getCcfMax()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(iNumValues - 1 ==  pCCcf->getCcfMaxIdx());
 
         // normalized
-        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, m_pfInput, true));
-        CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, true));
-        CHECK(1.F == Approx(m_pCCcf->getCcfMax()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, pfInput, true));
+        CHECK(Error_t::kNoError == pCCcf->getCcf(pfOut, true));
+        CHECK(1.F == Approx(pCCcf->getCcfMax()).margin(1e-6F).epsilon(1e-6F));
 
         // local maximum
-        CHECK((1024 - 128) / 1024.F == Approx(m_pfOut[128]).margin(1e-6F).epsilon(1e-6F));
-        CHECK(m_pfOut[128] > m_pfOut[127]);
-        CHECK(m_pfOut[128] > m_pfOut[129]);
+        CHECK((1024 - 128) / 1024.F == Approx(pfOut[128]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(pfOut[128] > pfOut[127]);
+        CHECK(pfOut[128] > pfOut[129]);
     }
     
     SECTION("Ccf")
@@ -204,46 +204,46 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         int iBlockLength = 8;
 
         // sine wave w impulse
-        CSynthesis::genSine<float>(m_pfInput, 1, 1.F*iBlockLength, iBlockLength);
-        m_pfInput[iBlockLength] = 1;
-        CHECK(Error_t::kNoError == m_pCCcf->init(iBlockLength));
-        CHECK(Error_t::kNoError == m_pCCcf->compCcf(m_pfInput, &m_pfInput[iBlockLength], false));
-        CHECK(2 * iBlockLength - 1 == m_pCCcf->getCcfLength(false));
-        CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, false));
+        CSynthesis::genSine<float>(pfInput, 1, 1.F*iBlockLength, iBlockLength);
+        pfInput[iBlockLength] = 1;
+        CHECK(Error_t::kNoError == pCCcf->init(iBlockLength));
+        CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, &pfInput[iBlockLength], false));
+        CHECK(2 * iBlockLength - 1 == pCCcf->getCcfLength(false));
+        CHECK(Error_t::kNoError == pCCcf->getCcf(pfOut, false));
         for (auto i = 0; i < iBlockLength; i++)
-            CHECK(m_pfInput[i] == Approx(m_pfOut[iBlockLength - 1+i]).margin(1e-3F).epsilon(1e-3F));
+            CHECK(pfInput[i] == Approx(pfOut[iBlockLength - 1+i]).margin(1e-3F).epsilon(1e-3F));
 
         // impulse w sine wave 
-        CSynthesis::genSine<float>(m_pfInput, 1, 1.F * iBlockLength, iBlockLength);
-        m_pfInput[iBlockLength] = 1;
-        CHECK(Error_t::kNoError == m_pCCcf->init(iBlockLength));
-        CHECK(Error_t::kNoError == m_pCCcf->compCcf(&m_pfInput[iBlockLength], m_pfInput, false));
-        CHECK(2 * iBlockLength - 1 == m_pCCcf->getCcfLength(false));
-        CHECK(Error_t::kNoError == m_pCCcf->getCcf(m_pfOut, false));
+        CSynthesis::genSine<float>(pfInput, 1, 1.F * iBlockLength, iBlockLength);
+        pfInput[iBlockLength] = 1;
+        CHECK(Error_t::kNoError == pCCcf->init(iBlockLength));
+        CHECK(Error_t::kNoError == pCCcf->compCcf(&pfInput[iBlockLength], pfInput, false));
+        CHECK(2 * iBlockLength - 1 == pCCcf->getCcfLength(false));
+        CHECK(Error_t::kNoError == pCCcf->getCcf(pfOut, false));
 
         for (int eta = 0, i = iBlockLength - 1; eta < iBlockLength; eta++, i--)
-            CHECK(m_pfOut[eta] == Approx(m_pfInput[i]).margin(1e-6F).epsilon(1e-6F));
+            CHECK(pfOut[eta] == Approx(pfInput[i]).margin(1e-6F).epsilon(1e-6F));
     }
 
-    delete m_pCCcf;
+    delete pCCcf;
 
-    delete[] m_pfInput;
-    delete[] m_pfOut;
+    delete[] pfInput;
+    delete[] pfOut;
 }
 
 TEST_CASE("ToolsConversion", "[ToolsConversion]")
 {
-    float* m_pfMel = 0,
-        * m_pfFreq = 0,
-        * m_pfOut = 0;
-    int m_iNumValues = 1024;
+    float* pfMel = 0,
+        * pfFreq = 0,
+        * pfOut = 0;
+    int iNumValues = 1024;
 
-    m_pfMel = new float[m_iNumValues];
-    m_pfFreq = new float[m_iNumValues];
-    m_pfOut = new float[m_iNumValues];
+    pfMel = new float[iNumValues];
+    pfFreq = new float[iNumValues];
+    pfOut = new float[iNumValues];
 
-    for (auto m = 0; m < m_iNumValues; m++)
-        m_pfMel[m] = static_cast<float>(m);
+    for (auto m = 0; m < iNumValues; m++)
+        pfMel[m] = static_cast<float>(m);
 
     SECTION("Freq2Mel2Freq")
     {
@@ -251,68 +251,68 @@ TEST_CASE("ToolsConversion", "[ToolsConversion]")
         CHECK(1000.F == Approx(CConversion::convertFreq2Mel(1000.F, CConversion::kFant)).margin(1e-6F).epsilon(1e-6F));
         CHECK(1000.F == Approx(CConversion::convertMel2Freq(1000.F)).margin(1e-6F).epsilon(1e-6F));
 
-        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kFant);
-        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kFant);
+        CConversion::convertMel2Freq(pfFreq, pfMel, iNumValues, CConversion::kFant);
+        CConversion::convertFreq2Mel(pfOut, pfFreq, iNumValues, CConversion::kFant);
 
-        for (auto i = 0; i < m_iNumValues; i++)
-            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+        for (auto i = 0; i < iNumValues; i++)
+            CHECK(pfMel[i] == Approx(pfOut[i]).margin(1e-3F).epsilon(1e-3F));
 
         // Mel (Shaughnessy)
         CHECK(1000.F == Approx(CConversion::convertFreq2Mel(1000.F, CConversion::kShaughnessy)).margin(1e-1F).epsilon(1e-1F));
         CHECK(1000.F == Approx(CConversion::convertMel2Freq(1000.F, CConversion::kShaughnessy)).margin(1e-1F).epsilon(1e-1F));
 
-        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kShaughnessy);
-        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kShaughnessy);
+        CConversion::convertMel2Freq(pfFreq, pfMel, iNumValues, CConversion::kShaughnessy);
+        CConversion::convertFreq2Mel(pfOut, pfFreq, iNumValues, CConversion::kShaughnessy);
 
-        for (auto i = 0; i < m_iNumValues; i++)
-            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+        for (auto i = 0; i < iNumValues; i++)
+            CHECK(pfMel[i] == Approx(pfOut[i]).margin(1e-3F).epsilon(1e-3F));
 
         // Mel (Umesh)
         CHECK(CConversion::convertFreq2Mel(1000.F, CConversion::kUmesh) - 1000.F <= 25.F);
         CHECK(1000.F - CConversion::convertMel2Freq(1000.F, CConversion::kUmesh) <= 25.F);
 
-        CConversion::convertMel2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kUmesh);
-        CConversion::convertFreq2Mel(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kUmesh);
+        CConversion::convertMel2Freq(pfFreq, pfMel, iNumValues, CConversion::kUmesh);
+        CConversion::convertFreq2Mel(pfOut, pfFreq, iNumValues, CConversion::kUmesh);
 
-        for (auto i = 0; i < m_iNumValues; i++)
-            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+        for (auto i = 0; i < iNumValues; i++)
+            CHECK(pfMel[i] == Approx(pfOut[i]).margin(1e-3F).epsilon(1e-3F));
     }
 
     SECTION("Freq2Bark2Freq")
     {
-        for (auto m = 1; m < m_iNumValues; m++)
-            m_pfMel[m] = m * 20.F /m_iNumValues;
-        m_pfMel[0] = m_pfMel[1];
+        for (auto m = 1; m < iNumValues; m++)
+            pfMel[m] = m * 20.F /iNumValues;
+        pfMel[0] = pfMel[1];
 
         // Bark (Schroeder)
         CHECK(8.51137148802024F == Approx(CConversion::convertFreq2Bark(1000.F, CConversion::kSchroeder)).margin(1e-6F).epsilon(1e-6F));
         CHECK(1000.F == Approx(CConversion::convertBark2Freq(8.51137148802024F, CConversion::kSchroeder)).margin(1e-6F).epsilon(1e-6F));
 
-        CConversion::convertBark2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kSchroeder);
-        CConversion::convertFreq2Bark(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kSchroeder);
+        CConversion::convertBark2Freq(pfFreq, pfMel, iNumValues, CConversion::kSchroeder);
+        CConversion::convertFreq2Bark(pfOut, pfFreq, iNumValues, CConversion::kSchroeder);
 
-        for (auto i = 0; i < m_iNumValues; i++)
-            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+        for (auto i = 0; i < iNumValues; i++)
+            CHECK(pfMel[i] == Approx(pfOut[i]).margin(1e-3F).epsilon(1e-3F));
 
         // Bark (kTerhardt)
         CHECK(8.55856474695068F == Approx(CConversion::convertFreq2Bark(1000.F, CConversion::kTerhardt)).margin(1e-1F).epsilon(1e-1F));
         CHECK(1000.F == Approx(CConversion::convertBark2Freq(8.55856474695068F, CConversion::kTerhardt)).margin(1e-1F).epsilon(1e-1F));
 
-        CConversion::convertBark2Freq(m_pfFreq, m_pfMel, 650, CConversion::kTerhardt);
-        CConversion::convertFreq2Bark(m_pfOut, m_pfFreq, 650, CConversion::kTerhardt);
+        CConversion::convertBark2Freq(pfFreq, pfMel, 650, CConversion::kTerhardt);
+        CConversion::convertFreq2Bark(pfOut, pfFreq, 650, CConversion::kTerhardt);
 
         for (auto i = 0; i < 650; i++)
-            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+            CHECK(pfMel[i] == Approx(pfOut[i]).margin(1e-3F).epsilon(1e-3F));
 
         // Bark (kTraunmuller)
         CHECK(8.52743243243243F == Approx(CConversion::convertFreq2Bark(1000.F, CConversion::kTraunmuller)).margin(1e-1F).epsilon(1e-1F));
         CHECK(1000.F == Approx( CConversion::convertBark2Freq(8.52743243243243F, CConversion::kTraunmuller)).margin(1e-1F).epsilon(1e-1F));
 
-        CConversion::convertBark2Freq(m_pfFreq, m_pfMel, m_iNumValues, CConversion::kTraunmuller);
-        CConversion::convertFreq2Bark(m_pfOut, m_pfFreq, m_iNumValues, CConversion::kTraunmuller);
+        CConversion::convertBark2Freq(pfFreq, pfMel, iNumValues, CConversion::kTraunmuller);
+        CConversion::convertFreq2Bark(pfOut, pfFreq, iNumValues, CConversion::kTraunmuller);
 
-        for (auto i = 0; i < m_iNumValues; i++)
-            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+        for (auto i = 0; i < iNumValues; i++)
+            CHECK(pfMel[i] == Approx(pfOut[i]).margin(1e-3F).epsilon(1e-3F));
 
         // Bark (Zwicker)
         CHECK(8.91224620539368F == Approx(CConversion::convertFreq2Bark(1000.F, CConversion::kZwicker)).margin(1e-1F).epsilon(1e-1F));
@@ -330,11 +330,11 @@ TEST_CASE("ToolsConversion", "[ToolsConversion]")
         CHECK(440.F == Approx(CConversion::convertMidi2Freq(81.F, 220.F)).margin(1e-6F).epsilon(1e-6F));
         CHECK(440.F == Approx(CConversion::convertMidi2Freq(70.F) / 1.0594630943593F).margin(1e-6F).epsilon(1e-6F));
 
-        CConversion::convertMidi2Freq(m_pfFreq, m_pfMel, 128);
-        CConversion::convertFreq2Midi(m_pfOut, m_pfFreq, 128);
+        CConversion::convertMidi2Freq(pfFreq, pfMel, 128);
+        CConversion::convertFreq2Midi(pfOut, pfFreq, 128);
 
         for (auto i = 0; i < 128; i++)
-            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+            CHECK(pfMel[i] == Approx(pfOut[i]).margin(1e-3F).epsilon(1e-3F));
     }
 
     SECTION("Freq2Bin2Freq")
@@ -350,103 +350,103 @@ TEST_CASE("ToolsConversion", "[ToolsConversion]")
         CHECK(fSampleRate / 2 == Approx(CConversion::convertBin2Freq(iFftLength / 2.F, iFftLength, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
         CHECK(fSampleRate / iFftLength == Approx(CConversion::convertBin2Freq(1.F, iFftLength, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
 
-        CConversion::convertBin2Freq(m_pfFreq, m_pfMel, iFftLength, iFftLength, fSampleRate);
-        CConversion::convertFreq2Bin(m_pfOut, m_pfFreq, iFftLength, iFftLength, fSampleRate);
+        CConversion::convertBin2Freq(pfFreq, pfMel, iFftLength, iFftLength, fSampleRate);
+        CConversion::convertFreq2Bin(pfOut, pfFreq, iFftLength, iFftLength, fSampleRate);
 
         for (auto i = 0; i < iFftLength; i++)
-            CHECK(m_pfMel[i] == Approx(m_pfOut[i]).margin(1e-3F).epsilon(1e-3F));
+            CHECK(pfMel[i] == Approx(pfOut[i]).margin(1e-3F).epsilon(1e-3F));
     }
 
-    delete[] m_pfMel;
-    delete[] m_pfFreq;
-    delete[] m_pfOut;
+    delete[] pfMel;
+    delete[] pfFreq;
+    delete[] pfOut;
 }
 
 TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
 {
-    CGammaToneFbIf* m_pCGammatone = 0;
+    CGammaToneFbIf* pCGammatone = 0;
 
-    float* m_pfIn = 0;
-    float** m_ppfOut = 0;
+    float* pfIn = 0;
+    float** ppfOut = 0;
 
-    float m_fSampleRate = 32000,
+    float fSampleRate = 32000,
         fStartFreq = 100;
 
-    int/* m_iBlockLength = 0,
-        m_iAudioLength = 0,*/
-        m_iBufferLength = 40000,
+    int/* iBlockLength = 0,
+        iAudioLength = 0,*/
+        iBufferLength = 40000,
         iNumBands = 20;
     long long aiDims[2] = { 0 };
 
-    m_pfIn = new float[m_iBufferLength];
-    CVectorFloat::setZero(m_pfIn, m_iBufferLength);
-    m_ppfOut = new float* [iNumBands];
+    pfIn = new float[iBufferLength];
+    CVectorFloat::setZero(pfIn, iBufferLength);
+    ppfOut = new float* [iNumBands];
     for (auto k = 0; k < iNumBands; k++)
-        m_ppfOut[k] = new float[m_iBufferLength];
+        ppfOut[k] = new float[iBufferLength];
 
     SECTION("Api")
     {
-        m_iBufferLength = 1;
-        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, 0, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
-        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, 0, m_fSampleRate, iNumBands, fStartFreq));
-        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, 0, iNumBands, fStartFreq));
-        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, 0, fStartFreq));
-        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, 0));
-        CHECK(Error_t::kNoError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
+        iBufferLength = 1;
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(pCGammatone, 0, iBufferLength, fSampleRate, iNumBands, fStartFreq));
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(pCGammatone, pfIn, 0, fSampleRate, iNumBands, fStartFreq));
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(pCGammatone, pfIn, iBufferLength, 0, iNumBands, fStartFreq));
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(pCGammatone, pfIn, iBufferLength, fSampleRate, 0, fStartFreq));
+        CHECK(Error_t::kFunctionInvalidArgsError == CGammaToneFbIf::create(pCGammatone, pfIn, iBufferLength, fSampleRate, iNumBands, 0));
+        CHECK(Error_t::kNoError == CGammaToneFbIf::create(pCGammatone, pfIn, iBufferLength, fSampleRate, iNumBands, fStartFreq));
 
-        CHECK(Error_t::kNoError == m_pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
+        CHECK(Error_t::kNoError == pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
 
-        CHECK(Error_t::kFunctionInvalidArgsError == m_pCGammatone->process(0));
-        CHECK(Error_t::kNoError == m_pCGammatone->process(m_ppfOut));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCGammatone->process(0));
+        CHECK(Error_t::kNoError == pCGammatone->process(ppfOut));
 
-        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(m_pCGammatone));
+        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(pCGammatone));
     }
 
     SECTION("ZeroInput")
     {
-        CHECK(Error_t::kNoError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
+        CHECK(Error_t::kNoError == CGammaToneFbIf::create(pCGammatone, pfIn, iBufferLength, fSampleRate, iNumBands, fStartFreq));
 
-        CHECK(Error_t::kNoError == m_pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
+        CHECK(Error_t::kNoError == pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
         CHECK(iNumBands == aiDims[0]);
-        CHECK(m_iBufferLength == aiDims[1]);
+        CHECK(iBufferLength == aiDims[1]);
 
-        CHECK(Error_t::kNoError == m_pCGammatone->process(m_ppfOut));
+        CHECK(Error_t::kNoError == pCGammatone->process(ppfOut));
 
         for (auto c = 0; c < iNumBands; c++)
-            CHECK(0.F == CVectorFloat::getSum(m_ppfOut[c], m_iBufferLength, true));
+            CHECK(0.F == CVectorFloat::getSum(ppfOut[c], iBufferLength, true));
 
-        CHECK(fStartFreq == m_pCGammatone->getCenterFreq(0));
+        CHECK(fStartFreq == pCGammatone->getCenterFreq(0));
 
-        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(m_pCGammatone));
+        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(pCGammatone));
     }
 
     SECTION("SineInput")
     {
-        CSynthesis::genSine<float>(m_pfIn, 100, 32000, m_iBufferLength);
+        CSynthesis::genSine<float>(pfIn, 100, 32000, iBufferLength);
 
-        CHECK(Error_t::kNoError == CGammaToneFbIf::create(m_pCGammatone, m_pfIn, m_iBufferLength, m_fSampleRate, iNumBands, fStartFreq));
+        CHECK(Error_t::kNoError == CGammaToneFbIf::create(pCGammatone, pfIn, iBufferLength, fSampleRate, iNumBands, fStartFreq));
 
-        CHECK(Error_t::kNoError == m_pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
+        CHECK(Error_t::kNoError == pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
         CHECK(iNumBands == aiDims[0]);
-        CHECK(m_iBufferLength == aiDims[1]);
+        CHECK(iBufferLength == aiDims[1]);
 
-        CHECK(Error_t::kNoError == m_pCGammatone->process(m_ppfOut));
+        CHECK(Error_t::kNoError == pCGammatone->process(ppfOut));
 
-        CHECK(1.F == Approx(CVectorFloat::getMax(m_ppfOut[0], m_iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
-        CHECK(-1.F == Approx(CVectorFloat::getMin(m_ppfOut[0], m_iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(1.F == Approx(CVectorFloat::getMax(ppfOut[0], iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(-1.F == Approx(CVectorFloat::getMin(ppfOut[0], iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
 
-        CHECK(.01F > CVectorFloat::getMax(m_ppfOut[10], m_iBufferLength, false));
+        CHECK(.01F > CVectorFloat::getMax(ppfOut[10], iBufferLength, false));
 
-        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(m_pCGammatone));
+        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(pCGammatone));
     }
 
 
-    CGammaToneFbIf::destroy(m_pCGammatone);
+    CGammaToneFbIf::destroy(pCGammatone);
 
     for (auto k = 0; k < iNumBands; k++)
-        delete[] m_ppfOut[k];
-    delete[] m_ppfOut;
-    delete[] m_pfIn;
+        delete[] ppfOut[k];
+    delete[] ppfOut;
+    delete[] pfIn;
 
 }
 
@@ -518,64 +518,64 @@ TEST_CASE("ToolsInstFreq", "[ToolsInstFreq]")
 
 TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
 {
-    CMovingAverage* m_pCLowPass = 0;
-    float* m_pfInput = 0,
-        * m_pfOut = 0;
-    int m_iNumValues = 1024;
+    CMovingAverage* pCLowPass = 0;
+    float* pfInput = 0,
+        * pfOut = 0;
+    int iNumValues = 1024;
 
-    CMovingAverage::create(m_pCLowPass);
-    m_pfInput = new float[m_iNumValues];
-    m_pfOut = new float[2 * m_iNumValues];
+    CMovingAverage::create(pCLowPass);
+    pfInput = new float[iNumValues];
+    pfOut = new float[2 * iNumValues];
 
-    CVectorFloat::setZero(m_pfInput, m_iNumValues);
-    CVectorFloat::setZero(m_pfOut, m_iNumValues);
+    CVectorFloat::setZero(pfInput, iNumValues);
+    CVectorFloat::setZero(pfOut, iNumValues);
 
     SECTION("Api")
     {
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->setFilterParam(0));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->setFilterParam(-5));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->setFilterParam(0));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->setFilterParam(-5));
 
-        CHECK(Error_t::kNoError == m_pCLowPass->reset());
+        CHECK(Error_t::kNoError == pCLowPass->reset());
 
-        CHECK(Error_t::kNoError == m_pCLowPass->setFilterParam(5));
-        CHECK(5.F == Approx(m_pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
-        CHECK(Error_t::kNoError == m_pCLowPass->setFilterParam(1000));
-        CHECK(1000.F == Approx(m_pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
-        CHECK(Error_t::kNoError == m_pCLowPass->setFilterParam(1));
-        CHECK(1.F == Approx(m_pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(Error_t::kNoError == pCLowPass->setFilterParam(5));
+        CHECK(5.F == Approx(pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(Error_t::kNoError == pCLowPass->setFilterParam(1000));
+        CHECK(1000.F == Approx(pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(Error_t::kNoError == pCLowPass->setFilterParam(1));
+        CHECK(1.F == Approx(pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
 
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->process(0, m_pfInput, m_iNumValues));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->process(m_pfOut, 0, m_iNumValues));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->process(m_pfOut, m_pfInput, 0));
-        CHECK(Error_t::kNoError == m_pCLowPass->process(m_pfOut, m_pfInput, m_iNumValues));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(0, pfInput, iNumValues));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(pfOut, 0, iNumValues));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(pfOut, pfInput, 0));
+        CHECK(Error_t::kNoError == pCLowPass->process(pfOut, pfInput, iNumValues));
     }
 
     SECTION("Process")
     {
         // zeros
-        for (auto i = 0; i < m_iNumValues; i++)
+        for (auto i = 0; i < iNumValues; i++)
         {
-            CHECK(Error_t::kNoError == m_pCLowPass->process(&m_pfOut[i], &m_pfInput[i], 1));
-            CHECK(0.F == Approx(m_pfOut[i]).margin(1e-6F).epsilon(1e-6F));
+            CHECK(Error_t::kNoError == pCLowPass->process(&pfOut[i], &pfInput[i], 1));
+            CHECK(0.F == Approx(pfOut[i]).margin(1e-6F).epsilon(1e-6F));
         }
 
         // ones
-        CVectorFloat::setValue(m_pfInput, 1.F, m_iNumValues);
-        m_pCLowPass->reset();
-        m_pCLowPass->setFilterParam(1);
-        CHECK(Error_t::kNoError == m_pCLowPass->process(m_pfOut, m_pfInput, m_iNumValues));
-        for (auto i = 0; i < m_iNumValues; i++)
-            CHECK(m_pfInput[i] == Approx(m_pfOut[i]).margin(1e-6F).epsilon(1e-6F));
+        CVectorFloat::setValue(pfInput, 1.F, iNumValues);
+        pCLowPass->reset();
+        pCLowPass->setFilterParam(1);
+        CHECK(Error_t::kNoError == pCLowPass->process(pfOut, pfInput, iNumValues));
+        for (auto i = 0; i < iNumValues; i++)
+            CHECK(pfInput[i] == Approx(pfOut[i]).margin(1e-6F).epsilon(1e-6F));
 
         for (auto c = 0; c < 10; c++)
         {
             int iLength = c * 10 + 2;
-            m_pCLowPass->reset();
-            m_pCLowPass->setFilterParam(iLength);
+            pCLowPass->reset();
+            pCLowPass->setFilterParam(iLength);
             for (auto i = 0; i < iLength; i++)
             {
-                CHECK(Error_t::kNoError == m_pCLowPass->process(&m_pfOut[i], &m_pfInput[i], 1));
-                CHECK((i + 1.F) / iLength == Approx(m_pfOut[i]).margin(1e-6F).epsilon(1e-6F));
+                CHECK(Error_t::kNoError == pCLowPass->process(&pfOut[i], &pfInput[i], 1));
+                CHECK((i + 1.F) / iLength == Approx(pfOut[i]).margin(1e-6F).epsilon(1e-6F));
             }
         }
     }
@@ -585,49 +585,49 @@ TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
         int iSignalLength = 16;
         int iFilterLength = 5;
         int iMaxIdx = 6;
-        m_pCLowPass->setFilterParam(iFilterLength);
+        pCLowPass->setFilterParam(iFilterLength);
 
-        m_pfInput[iMaxIdx] = 1;
+        pfInput[iMaxIdx] = 1;
 
-        m_pCLowPass->filtfilt(m_pfOut, m_pfInput, iSignalLength);
+        pCLowPass->filtfilt(pfOut, pfInput, iSignalLength);
         
-        CHECK(.2F == Approx(CVectorFloat::getMax(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(.2F == Approx(m_pfOut[iMaxIdx]).margin(1e-6F).epsilon(1e-6F));
-        CHECK(.0F == Approx(CVectorFloat::getMin(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.2F == Approx(CVectorFloat::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.2F == Approx(pfOut[iMaxIdx]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.0F == Approx(CVectorFloat::getMin(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
 
         for (auto i = iMaxIdx-iFilterLength+1; i <= iMaxIdx; i++)
-            CHECK(m_pfOut[i - 1] < m_pfOut[i]);
+            CHECK(pfOut[i - 1] < pfOut[i]);
         for (auto i = iMaxIdx; i < iMaxIdx + iFilterLength-1; i++)
-            CHECK(m_pfOut[i + 1] < m_pfOut[i]);
+            CHECK(pfOut[i + 1] < pfOut[i]);
 
         iFilterLength = 4;
-        m_pCLowPass->setFilterParam(iFilterLength);
+        pCLowPass->setFilterParam(iFilterLength);
 
-        m_pCLowPass->filtfilt(m_pfOut, m_pfInput, iSignalLength);
+        pCLowPass->filtfilt(pfOut, pfInput, iSignalLength);
 
-        CHECK(.25F == Approx(CVectorFloat::getMax(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(.25F == Approx(m_pfOut[iMaxIdx]).margin(1e-6F).epsilon(1e-6F));
-        CHECK(.0F == Approx(CVectorFloat::getMin(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.25F == Approx(CVectorFloat::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.25F == Approx(pfOut[iMaxIdx]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.0F == Approx(CVectorFloat::getMin(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
 
         for (auto i = iMaxIdx - iFilterLength + 1; i <= iMaxIdx; i++)
-            CHECK(m_pfOut[i - 1] < m_pfOut[i]);
+            CHECK(pfOut[i - 1] < pfOut[i]);
         for (auto i = iMaxIdx; i < iMaxIdx + iFilterLength - 1; i++)
-            CHECK(m_pfOut[i + 1] < m_pfOut[i]);
+            CHECK(pfOut[i + 1] < pfOut[i]);
 
 
         //DC input
         iFilterLength = 3;
-        m_pCLowPass->setFilterParam(iFilterLength);
-        CVectorFloat::setValue(m_pfInput, 1.F, iSignalLength);
-        m_pCLowPass->filtfilt(m_pfOut, m_pfInput, iSignalLength);
-        CHECK(1.F == Approx(CVectorFloat::getMax(m_pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(1.F == Approx(CVectorFloat::getMean(&m_pfOut[iFilterLength - 1], iSignalLength - 2 * (iFilterLength - 1))).margin(1e-6F).epsilon(1e-6F));
+        pCLowPass->setFilterParam(iFilterLength);
+        CVectorFloat::setValue(pfInput, 1.F, iSignalLength);
+        pCLowPass->filtfilt(pfOut, pfInput, iSignalLength);
+        CHECK(1.F == Approx(CVectorFloat::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(CVectorFloat::getMean(&pfOut[iFilterLength - 1], iSignalLength - 2 * (iFilterLength - 1))).margin(1e-6F).epsilon(1e-6F));
     }
 
-    CMovingAverage::destroy(m_pCLowPass);
+    CMovingAverage::destroy(pCLowPass);
 
-    delete[] m_pfInput;
-    delete[] m_pfOut;
+    delete[] pfInput;
+    delete[] pfOut;
 }
 
 TEST_CASE("ToolsInterp", "[ToolsInterp]")
@@ -699,59 +699,59 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
 TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
 {
 
-    CSinglePoleLp* m_pCLowPass = 0;
-    float* m_pfInput = 0,
-        * m_pfOut = 0;
-    int m_iNumValues = 1024;
+    CSinglePoleLp* pCLowPass = 0;
+    float* pfInput = 0,
+        * pfOut = 0;
+    int iNumValues = 1024;
 
-    CSinglePoleLp::create(m_pCLowPass);
-    m_pfInput = new float[m_iNumValues];
-    m_pfOut = new float[2 * m_iNumValues];
+    CSinglePoleLp::create(pCLowPass);
+    pfInput = new float[iNumValues];
+    pfOut = new float[2 * iNumValues];
 
-    CVectorFloat::setZero(m_pfInput, m_iNumValues);
-    CVectorFloat::setZero(m_pfOut, m_iNumValues);
+    CVectorFloat::setZero(pfInput, iNumValues);
+    CVectorFloat::setZero(pfOut, iNumValues);
 
     SECTION("Api")
     {
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->setFilterParam(-1.F));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->setFilterParam(1.F));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->setFilterParam(1.1F));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->setFilterParam(-1.F));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->setFilterParam(1.F));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->setFilterParam(1.1F));
 
-        CHECK(Error_t::kNoError == m_pCLowPass->reset());
+        CHECK(Error_t::kNoError == pCLowPass->reset());
 
-        CHECK(Error_t::kNoError == m_pCLowPass->setFilterParam(.01F));
-        CHECK(.01F == Approx(m_pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
-        CHECK(Error_t::kNoError == m_pCLowPass->setFilterParam(.5F));
-        CHECK(.5F == Approx(m_pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
-        CHECK(Error_t::kNoError == m_pCLowPass->setFilterParam(.99F));
-        CHECK(.99F == Approx(m_pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(Error_t::kNoError == pCLowPass->setFilterParam(.01F));
+        CHECK(.01F == Approx(pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(Error_t::kNoError == pCLowPass->setFilterParam(.5F));
+        CHECK(.5F == Approx(pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(Error_t::kNoError == pCLowPass->setFilterParam(.99F));
+        CHECK(.99F == Approx(pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
 
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->process(0, m_pfInput, m_iNumValues));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->process(m_pfOut, 0, m_iNumValues));
-        CHECK(Error_t::kFunctionInvalidArgsError ==m_pCLowPass->process(m_pfOut, m_pfInput, 0));
-        CHECK(Error_t::kNoError == m_pCLowPass->process(m_pfOut, m_pfInput, m_iNumValues));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(0, pfInput, iNumValues));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(pfOut, 0, iNumValues));
+        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(pfOut, pfInput, 0));
+        CHECK(Error_t::kNoError == pCLowPass->process(pfOut, pfInput, iNumValues));
     }
 
     SECTION("Process")
     {
         // zeros
-        for (auto i = 0; i < m_iNumValues; i++)
+        for (auto i = 0; i < iNumValues; i++)
         {
-            CHECK(Error_t::kNoError == m_pCLowPass->process(&m_pfOut[i], &m_pfInput[i], 1));
-            CHECK(0.F == Approx(m_pfOut[i]).margin(1e-6F).epsilon(1e-6F));
+            CHECK(Error_t::kNoError == pCLowPass->process(&pfOut[i], &pfInput[i], 1));
+            CHECK(0.F == Approx(pfOut[i]).margin(1e-6F).epsilon(1e-6F));
         }
 
         // ones
-        CVectorFloat::setValue(m_pfInput, 1.F, m_iNumValues);
+        CVectorFloat::setValue(pfInput, 1.F, iNumValues);
         for (auto c = 0; c < 10; c++)
         {
             float fAlpha = c / 10.1F;
-            m_pCLowPass->reset();
-            m_pCLowPass->setFilterParam(fAlpha);
-            for (auto i = 0; i < m_iNumValues; i++)
+            pCLowPass->reset();
+            pCLowPass->setFilterParam(fAlpha);
+            for (auto i = 0; i < iNumValues; i++)
             {
-                CHECK(Error_t::kNoError == m_pCLowPass->process(&m_pfOut[i], &m_pfInput[i], 1));
-                CHECK(1.F - std::pow(m_pCLowPass->getFilterParam(), i + 1) == Approx(m_pfOut[i]).margin(1e-6F).epsilon(1e-6F));
+                CHECK(Error_t::kNoError == pCLowPass->process(&pfOut[i], &pfInput[i], 1));
+                CHECK(1.F - std::pow(pCLowPass->getFilterParam(), i + 1) == Approx(pfOut[i]).margin(1e-6F).epsilon(1e-6F));
             }
         }
         CHECK(0 < CSinglePoleLp::calcFilterParam(0.1F, 48000));
@@ -759,10 +759,10 @@ TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
         CHECK(1.F == Approx(0 < CSinglePoleLp::calcFilterParam(1000000, 48000)).margin(1e-6F).epsilon(1e-6F));
 
     }
-    CSinglePoleLp::destroy(m_pCLowPass);
+    CSinglePoleLp::destroy(pCLowPass);
 
-    delete[] m_pfInput;
-    delete[] m_pfOut;
+    delete[] pfInput;
+    delete[] pfOut;
 
 }
 

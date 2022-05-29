@@ -21,33 +21,33 @@ namespace AudioIoTest
 
 TEST_CASE("AudioIo", "[AudioIo]")
 {
-    float** m_ppfAudioData = 0;
-    float** m_ppfTmp = 0;
-    CAudioFileIf* m_pCAudioFile = 0;
-    CAudioFileIf::FileSpec_t m_stFileSpec;
+    float** ppfAudioData = 0;
+    float** ppfTmp = 0;
+    CAudioFileIf* pCAudioFile = 0;
+    CAudioFileIf::FileSpec_t stFileSpec;
 
-    const int m_iBuffLength = 1027;
-    const int m_iBlockLength = 17;
-    const int m_iNumChannels = 2;
+    const int iBuffLength = 1027;
+    const int iBlockLength = 17;
+    const int iNumChannels = 2;
 
     float fPhase = 0;
 
-    m_stFileSpec.eBitStreamType = CAudioFileIf::kFileBitStreamInt16;
-    m_stFileSpec.eFormat = CAudioFileIf::kFileFormatRaw;
-    m_stFileSpec.fSampleRateInHz = 44100.F;
-    m_stFileSpec.iNumChannels = m_iNumChannels;
+    stFileSpec.eBitStreamType = CAudioFileIf::kFileBitStreamInt16;
+    stFileSpec.eFormat = CAudioFileIf::kFileFormatRaw;
+    stFileSpec.fSampleRateInHz = 44100.F;
+    stFileSpec.iNumChannels = iNumChannels;
 
-    CAudioFileIf::create(m_pCAudioFile);
-    m_ppfAudioData = 0;
-    m_ppfTmp = 0;
-    m_ppfAudioData = new float* [m_iNumChannels];
-    m_ppfTmp = new float* [m_iNumChannels];
-    for (int i = 0; i < m_iNumChannels; i++)
-        m_ppfAudioData[i] = new float[m_iBuffLength];
+    CAudioFileIf::create(pCAudioFile);
+    ppfAudioData = 0;
+    ppfTmp = 0;
+    ppfAudioData = new float* [iNumChannels];
+    ppfTmp = new float* [iNumChannels];
+    for (int i = 0; i < iNumChannels; i++)
+        ppfAudioData[i] = new float[iBuffLength];
 
-    for (int i = 0; i < m_iNumChannels; i++)
+    for (int i = 0; i < iNumChannels; i++)
     {
-        CSynthesis::genSine(m_ppfAudioData[i], 441.F, m_stFileSpec.fSampleRateInHz, m_iBuffLength, .6F, fPhase);
+        CSynthesis::genSine(ppfAudioData[i], 441.F, stFileSpec.fSampleRateInHz, iBuffLength, .6F, fPhase);
         fPhase += static_cast<float>(M_PI_2);
     }
 
@@ -58,31 +58,31 @@ TEST_CASE("AudioIo", "[AudioIo]")
             CHECK(false);
         }
         long long int iReadIdx = 0;
-        float** ppfReadData = new float* [m_iNumChannels];
-        for (int i = 0; i < m_iNumChannels; i++)
-            ppfReadData[i] = new float[m_iBuffLength];
+        float** ppfReadData = new float* [iNumChannels];
+        for (int i = 0; i < iNumChannels; i++)
+            ppfReadData[i] = new float[iBuffLength];
 
-        m_pCAudioFile->openFile(cTestDataDir + "/ref.pcm", CAudioFileIf::kFileRead, &m_stFileSpec);
+        pCAudioFile->openFile(cTestDataDir + "/ref.pcm", CAudioFileIf::kFileRead, &stFileSpec);
 
-        while (!m_pCAudioFile->isEof())
+        while (!pCAudioFile->isEof())
         {
-            long long int iNumRead = m_iBlockLength;
-            for (int i = 0; i < m_iNumChannels; i++)
-                m_ppfTmp[i] = &ppfReadData[i][iReadIdx];
+            long long int iNumRead = iBlockLength;
+            for (int i = 0; i < iNumChannels; i++)
+                ppfTmp[i] = &ppfReadData[i][iReadIdx];
 
-            m_pCAudioFile->readData(m_ppfTmp, iNumRead);
+            pCAudioFile->readData(ppfTmp, iNumRead);
             iReadIdx += iNumRead;
         }
 
         // check identity
-        for (int c = 0; c < m_iNumChannels; c++)
+        for (int c = 0; c < iNumChannels; c++)
         {
-            for (auto i = 0; i < m_iBuffLength; i++)
-                CHECK(m_ppfAudioData[c][i] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
+            for (auto i = 0; i < iBuffLength; i++)
+                CHECK(ppfAudioData[c][i] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
         }
 
         // free allocated memory
-        for (int i = 0; i < m_iNumChannels; i++)
+        for (int i = 0; i < iNumChannels; i++)
             delete[] ppfReadData[i];
         delete[] ppfReadData;
     }
@@ -91,33 +91,33 @@ TEST_CASE("AudioIo", "[AudioIo]")
     {
         const long long iOffset = 327;
         long long int iReadIdx = 0;
-        float** ppfReadData = new float* [m_iNumChannels];
-        for (int i = 0; i < m_iNumChannels; i++)
-            ppfReadData[i] = new float[m_iBuffLength];
+        float** ppfReadData = new float* [iNumChannels];
+        for (int i = 0; i < iNumChannels; i++)
+            ppfReadData[i] = new float[iBuffLength];
 
-        m_pCAudioFile->openFile(cTestDataDir + "/ref.pcm", CAudioFileIf::kFileRead, &m_stFileSpec);
+        pCAudioFile->openFile(cTestDataDir + "/ref.pcm", CAudioFileIf::kFileRead, &stFileSpec);
 
-        m_pCAudioFile->setPosition(iOffset);
+        pCAudioFile->setPosition(iOffset);
 
-        while (!m_pCAudioFile->isEof())
+        while (!pCAudioFile->isEof())
         {
-            long long int iNumRead = m_iBlockLength;
-            for (int i = 0; i < m_iNumChannels; i++)
-                m_ppfTmp[i] = &ppfReadData[i][iReadIdx];
+            long long int iNumRead = iBlockLength;
+            for (int i = 0; i < iNumChannels; i++)
+                ppfTmp[i] = &ppfReadData[i][iReadIdx];
 
-            m_pCAudioFile->readData(m_ppfTmp, iNumRead);
+            pCAudioFile->readData(ppfTmp, iNumRead);
             iReadIdx += iNumRead;
         }
 
         // check identity
-        for (int c = 0; c < m_iNumChannels; c++)
+        for (int c = 0; c < iNumChannels; c++)
         {
-            for (auto i = 0; i < m_iBuffLength - iOffset; i++)
-                CHECK(m_ppfAudioData[c][i+iOffset] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
+            for (auto i = 0; i < iBuffLength - iOffset; i++)
+                CHECK(ppfAudioData[c][i+iOffset] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
         }
 
         // free allocated memory
-        for (int i = 0; i < m_iNumChannels; i++)
+        for (int i = 0; i < iNumChannels; i++)
             delete[] ppfReadData[i];
         delete[] ppfReadData;
     }
@@ -127,85 +127,85 @@ TEST_CASE("AudioIo", "[AudioIo]")
         //note that the file length is longer than the internal read block size
         long long   iFileLength = 0;
         long long   iNumRead = 0;
-        float** ppfReadData = new float* [m_iNumChannels];
+        float** ppfReadData = new float* [iNumChannels];
 
-        for (int i = 0; i < m_iNumChannels; i++)
-            ppfReadData[i] = new float[m_iBuffLength];
+        for (int i = 0; i < iNumChannels; i++)
+            ppfReadData[i] = new float[iBuffLength];
 
-        m_pCAudioFile->openFile(cTestDataDir + "/ref.pcm", CAudioFileIf::kFileRead, &m_stFileSpec);
-        m_pCAudioFile->getLength(iFileLength);
+        pCAudioFile->openFile(cTestDataDir + "/ref.pcm", CAudioFileIf::kFileRead, &stFileSpec);
+        pCAudioFile->getLength(iFileLength);
         iNumRead = static_cast<int>(iFileLength);
 
-        m_pCAudioFile->readData(ppfReadData, iNumRead);
+        pCAudioFile->readData(ppfReadData, iNumRead);
 
         // check identity
         CHECK(iNumRead == iFileLength);
-        for (int c = 0; c < m_iNumChannels; c++)
+        for (int c = 0; c < iNumChannels; c++)
         {
-            for (auto i = 0; i < m_iBuffLength; i++)
-                CHECK(m_ppfAudioData[c][i] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
+            for (auto i = 0; i < iBuffLength; i++)
+                CHECK(ppfAudioData[c][i] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
         }
 
         // free allocated memory
-        for (int i = 0; i < m_iNumChannels; i++)
+        for (int i = 0; i < iNumChannels; i++)
             delete[] ppfReadData[i];
         delete[] ppfReadData;
     }
 
     SECTION("read write raw")
     {
-        int iNumRemainingFrames = m_iBuffLength;
+        int iNumRemainingFrames = iBuffLength;
         Error_t err = Error_t::kUnknownError;
 
-        err = m_pCAudioFile->openFile(cTestDataDir + "/test.pcm", CAudioFileIf::kFileWrite, &m_stFileSpec);
+        err = pCAudioFile->openFile(cTestDataDir + "/test.pcm", CAudioFileIf::kFileWrite, &stFileSpec);
         CHECK(err == Error_t::kNoError);
 
         // put data
         while (iNumRemainingFrames > 0)
         {
-            for (int i = 0; i < m_iNumChannels; i++)
-                m_ppfTmp[i] = &m_ppfAudioData[i][m_iBuffLength - iNumRemainingFrames];
-            int iPutFrames = std::min(m_iBlockLength, iNumRemainingFrames);
+            for (int i = 0; i < iNumChannels; i++)
+                ppfTmp[i] = &ppfAudioData[i][iBuffLength - iNumRemainingFrames];
+            int iPutFrames = std::min(iBlockLength, iNumRemainingFrames);
 
-            m_pCAudioFile->writeData(m_ppfTmp, iPutFrames);
+            pCAudioFile->writeData(ppfTmp, iPutFrames);
 
             iNumRemainingFrames -= iPutFrames;
         }
-        m_pCAudioFile->closeFile();
-        m_pCAudioFile->reset();
+        pCAudioFile->closeFile();
+        pCAudioFile->reset();
 
         // read the file and compare
         long long int iReadIdx = 0;
-        float** ppfReadData = new float* [m_iNumChannels];
-        for (int i = 0; i < m_iNumChannels; i++)
-            ppfReadData[i] = new float[m_iBuffLength];
+        float** ppfReadData = new float* [iNumChannels];
+        for (int i = 0; i < iNumChannels; i++)
+            ppfReadData[i] = new float[iBuffLength];
 
-        err = m_pCAudioFile->openFile(cTestDataDir + "/test.pcm", CAudioFileIf::kFileRead, &m_stFileSpec);
+        err = pCAudioFile->openFile(cTestDataDir + "/test.pcm", CAudioFileIf::kFileRead, &stFileSpec);
         CHECK(err == Error_t::kNoError);
 
-        while (!m_pCAudioFile->isEof())
+        while (!pCAudioFile->isEof())
         {
-            long long int iNumRead = m_iBlockLength;
-            for (int i = 0; i < m_iNumChannels; i++)
-                m_ppfTmp[i] = &ppfReadData[i][iReadIdx];
+            long long int iNumRead = iBlockLength;
+            for (int i = 0; i < iNumChannels; i++)
+                ppfTmp[i] = &ppfReadData[i][iReadIdx];
 
-            m_pCAudioFile->readData(m_ppfTmp, iNumRead);
+            pCAudioFile->readData(ppfTmp, iNumRead);
             iReadIdx += iNumRead;
         }
 
         // check identity
-        for (int c = 0; c < m_iNumChannels; c++)
+        for (int c = 0; c < iNumChannels; c++)
         {
-            for (auto i = 0; i < m_iBuffLength; i++)
-                CHECK(m_ppfAudioData[c][i] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
+            for (auto i = 0; i < iBuffLength; i++)
+                CHECK(ppfAudioData[c][i] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
         }
 
         // free allocated memory
-        for (int i = 0; i < m_iNumChannels; i++)
+        for (int i = 0; i < iNumChannels; i++)
             delete[] ppfReadData[i];
         delete[] ppfReadData;
 
-        m_pCAudioFile->closeFile();
+        pCAudioFile->closeFile();
 
 
         // cleanup
@@ -218,59 +218,59 @@ TEST_CASE("AudioIo", "[AudioIo]")
         const std::string cExt(".wav");
 
         // write wave file
-        int iNumRemainingFrames = m_iBuffLength;
+        int iNumRemainingFrames = iBuffLength;
 
-        m_stFileSpec.eFormat = CAudioFileIf::kFileFormatWav;
+        stFileSpec.eFormat = CAudioFileIf::kFileFormatWav;
 
-        err = m_pCAudioFile->openFile(cTestDataDir + "/test" + cExt, CAudioFileIf::kFileWrite, &m_stFileSpec);
+        err = pCAudioFile->openFile(cTestDataDir + "/test" + cExt, CAudioFileIf::kFileWrite, &stFileSpec);
         CHECK(err == Error_t::kNoError);
 
         // put data
         while (iNumRemainingFrames > 0)
         {
-            for (int i = 0; i < m_iNumChannels; i++)
-                m_ppfTmp[i] = &m_ppfAudioData[i][m_iBuffLength - iNumRemainingFrames];
-            int iPutFrames = std::min(m_iBlockLength, iNumRemainingFrames);
+            for (int i = 0; i < iNumChannels; i++)
+                ppfTmp[i] = &ppfAudioData[i][iBuffLength - iNumRemainingFrames];
+            int iPutFrames = std::min(iBlockLength, iNumRemainingFrames);
 
-            m_pCAudioFile->writeData(m_ppfTmp, iPutFrames);
+            pCAudioFile->writeData(ppfTmp, iPutFrames);
 
             iNumRemainingFrames -= iPutFrames;
         }
-        m_pCAudioFile->closeFile();
-        m_pCAudioFile->reset();
+        pCAudioFile->closeFile();
+        pCAudioFile->reset();
 
         // read the file and compare
         long long iReadIdx = 0;
-        float** ppfReadData = new float* [m_iNumChannels];
-        for (int i = 0; i < m_iNumChannels; i++)
-            ppfReadData[i] = new float[m_iBuffLength];
+        float** ppfReadData = new float* [iNumChannels];
+        for (int i = 0; i < iNumChannels; i++)
+            ppfReadData[i] = new float[iBuffLength];
 
-        err = m_pCAudioFile->openFile(cTestDataDir + "/test" + cExt, CAudioFileIf::kFileRead, &m_stFileSpec);
+        err = pCAudioFile->openFile(cTestDataDir + "/test" + cExt, CAudioFileIf::kFileRead, &stFileSpec);
         CHECK(err == Error_t::kNoError);
 
-        while (!m_pCAudioFile->isEof())
+        while (!pCAudioFile->isEof())
         {
-            long long iNumRead = m_iBlockLength;
-            for (int i = 0; i < m_iNumChannels; i++)
-                m_ppfTmp[i] = &ppfReadData[i][iReadIdx];
+            long long iNumRead = iBlockLength;
+            for (int i = 0; i < iNumChannels; i++)
+                ppfTmp[i] = &ppfReadData[i][iReadIdx];
 
-            m_pCAudioFile->readData(m_ppfTmp, iNumRead);
+            pCAudioFile->readData(ppfTmp, iNumRead);
             iReadIdx += iNumRead;
         }
 
         // check identity
-        for (int c = 0; c < m_iNumChannels; c++)
+        for (int c = 0; c < iNumChannels; c++)
         {
-            for (auto i = 0; i < m_iBuffLength; i++)
-                CHECK(m_ppfAudioData[c][i] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
+            for (auto i = 0; i < iBuffLength; i++)
+                CHECK(ppfAudioData[c][i] == Approx(ppfReadData[c][i]).margin(1e-3F).epsilon(1e-3F));
         }
 
         // free allocated memory
-        for (int i = 0; i < m_iNumChannels; i++)
+        for (int i = 0; i < iNumChannels; i++)
             delete[] ppfReadData[i];
         delete[] ppfReadData;
 
-        m_pCAudioFile->closeFile();
+        pCAudioFile->closeFile();
 
         // cleanup
         AudioIoTest::deleteFile(cExt);
@@ -278,54 +278,54 @@ TEST_CASE("AudioIo", "[AudioIo]")
 
     SECTION("file spec")
     {
-        CAudioFileIf::FileSpec_t stFileSpec;
+        //CAudioFileIf::FileSpec_t stFileSpec;
         const std::string cExt(".wav");
         Error_t err = Error_t::kUnknownError;
 
         // write wave file
-        int iNumRemainingFrames = m_iBuffLength;
+        int iNumRemainingFrames = iBuffLength;
 
-        m_stFileSpec.eFormat = CAudioFileIf::kFileFormatWav;
+        stFileSpec.eFormat = CAudioFileIf::kFileFormatWav;
 
-        err = m_pCAudioFile->openFile(cTestDataDir + "/test" + cExt, CAudioFileIf::kFileWrite, &m_stFileSpec);
+        err = pCAudioFile->openFile(cTestDataDir + "/test" + cExt, CAudioFileIf::kFileWrite, &stFileSpec);
         CHECK(err == Error_t::kNoError);
 
         // put data
         while (iNumRemainingFrames > 0)
         {
-            for (int i = 0; i < m_iNumChannels; i++)
-                m_ppfTmp[i] = &m_ppfAudioData[i][m_iBuffLength - iNumRemainingFrames];
-            int iPutFrames = std::min(m_iBlockLength, iNumRemainingFrames);
+            for (int i = 0; i < iNumChannels; i++)
+                ppfTmp[i] = &ppfAudioData[i][iBuffLength - iNumRemainingFrames];
+            int iPutFrames = std::min(iBlockLength, iNumRemainingFrames);
 
-            m_pCAudioFile->writeData(m_ppfTmp, iPutFrames);
+            pCAudioFile->writeData(ppfTmp, iPutFrames);
 
             iNumRemainingFrames -= iPutFrames;
         }
-        m_pCAudioFile->closeFile();
-        m_pCAudioFile->reset();
+        pCAudioFile->closeFile();
+        pCAudioFile->reset();
 
-        err = m_pCAudioFile->openFile(cTestDataDir + "/test" + cExt, CAudioFileIf::kFileRead);
+        err = pCAudioFile->openFile(cTestDataDir + "/test" + cExt, CAudioFileIf::kFileRead);
         CHECK(err == Error_t::kNoError);
 
-        m_pCAudioFile->getFileSpec(stFileSpec);
+        pCAudioFile->getFileSpec(stFileSpec);
 
         CHECK(44100 == stFileSpec.fSampleRateInHz);
         CHECK(CAudioFileIf::kFileFormatWav == stFileSpec.eFormat);
 
-        m_pCAudioFile->closeFile();
+        pCAudioFile->closeFile();
 
         // cleanup
         AudioIoTest::deleteFile(cExt);
     }
 
 
-    assert(m_ppfAudioData != 0);
-    for (int i = 0; i < m_iNumChannels; i++)
-        delete[] m_ppfAudioData[i];
-    delete[] m_ppfAudioData;
-    delete[] m_ppfTmp;
+    assert(ppfAudioData != 0);
+    for (int i = 0; i < iNumChannels; i++)
+        delete[] ppfAudioData[i];
+    delete[] ppfAudioData;
+    delete[] ppfTmp;
 
-    CAudioFileIf::destroy(m_pCAudioFile);
+    CAudioFileIf::destroy(pCAudioFile);
 
 }
 

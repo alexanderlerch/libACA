@@ -8,33 +8,33 @@
 
 TEST_CASE("RingBuffer", "[RingBuffer]")
 {
-    const int m_iRingBuffLength = 16;
-    const int m_iDataLength = 55;
-    const int m_iDelay = 9;
+    const int iRingBuffLength = 16;
+    const int iDataLength = 55;
+    const int iDelay = 9;
 
-    CRingBuffer<float>* m_pCRingBuffer = 0;
+    CRingBuffer<float>* pCRingBuffer = 0;
 
-    float* m_pfData = 0;
+    float* pfData = 0;
     const float fSampleFreq = 44100;
 
-    m_pCRingBuffer = new CRingBuffer<float>(m_iRingBuffLength);
-    m_pfData = new float[m_iDataLength];
-    CSynthesis::genSine(m_pfData, 20.F, fSampleFreq, m_iDataLength, .7F, static_cast<float>(M_PI_2));
+    pCRingBuffer = new CRingBuffer<float>(iRingBuffLength);
+    pfData = new float[iDataLength];
+    CSynthesis::genSine(pfData, 20.F, fSampleFreq, iDataLength, .7F, static_cast<float>(M_PI_2));
 
 
 SECTION("RbDelay")
     {
         // put initial values into ring buffer
-        for (int i = 0; i < m_iDelay; i++)
+        for (int i = 0; i < iDelay; i++)
         {
-            m_pCRingBuffer->putPostInc(m_pfData[i]);
+            pCRingBuffer->putPostInc(pfData[i]);
         }
 
-        for (int i = m_iDelay; i < m_iDataLength; i++)
+        for (int i = iDelay; i < iDataLength; i++)
         {
-            CHECK(m_iDelay == m_pCRingBuffer->getNumValuesInBuffer());
-            m_pCRingBuffer->getPostInc(); // just to increment - ignore the value
-            m_pCRingBuffer->putPostInc(m_pfData[i]);
+            CHECK(iDelay == pCRingBuffer->getNumValuesInBuffer());
+            pCRingBuffer->getPostInc(); // just to increment - ignore the value
+            pCRingBuffer->putPostInc(pfData[i]);
         }
     }
 
@@ -43,35 +43,35 @@ SECTION("RbDelay")
         int iDataBuffIdx = 0;
 
         // put initial values into ring buffer
-        for (int i = 0; i < m_iDelay; i++)
+        for (int i = 0; i < iDelay; i++)
         {
-            m_pCRingBuffer->putPostInc(m_pfData[i]);
+            pCRingBuffer->putPostInc(pfData[i]);
         }
 
-        for (int i = m_iDelay; i < m_iDataLength; i++, iDataBuffIdx++)
+        for (int i = iDelay; i < iDataLength; i++, iDataBuffIdx++)
         {
-            float fValue = m_pCRingBuffer->getPostInc();
-            CHECK(fValue == Approx(m_pfData[iDataBuffIdx]).margin(1e-3F).epsilon(1e-3F));
-            m_pCRingBuffer->putPostInc(m_pfData[i]);
+            float fValue = pCRingBuffer->getPostInc();
+            CHECK(fValue == Approx(pfData[iDataBuffIdx]).margin(1e-3F).epsilon(1e-3F));
+            pCRingBuffer->putPostInc(pfData[i]);
         }
     }
 
     SECTION("RbReset")
     {
         // put initial values into ring buffer
-        for (int i = 0; i < m_iDelay; i++)
+        for (int i = 0; i < iDelay; i++)
         {
-            m_pCRingBuffer->putPostInc(m_pfData[i]);
+            pCRingBuffer->putPostInc(pfData[i]);
         }
-        m_pCRingBuffer->reset();
-        CHECK(0 ==m_pCRingBuffer->getNumValuesInBuffer());
+        pCRingBuffer->reset();
+        CHECK(0 ==pCRingBuffer->getNumValuesInBuffer());
 
-        for (int i = 0; i < m_iRingBuffLength; i++)
+        for (int i = 0; i < iRingBuffLength; i++)
         {
-            float fValue = m_pCRingBuffer->getPostInc();
+            float fValue = pCRingBuffer->getPostInc();
             CHECK(0.F == Approx(fValue).margin(1e-6F).epsilon(1e-6F));
 
-            CHECK(m_iRingBuffLength - (i + 1) == m_pCRingBuffer->getNumValuesInBuffer());
+            CHECK(iRingBuffLength - (i + 1) == pCRingBuffer->getNumValuesInBuffer());
         }
     }
 
@@ -87,22 +87,22 @@ SECTION("RbDelay")
         float newValue = static_cast <float>(rand()) / static_cast <float>(RAND_MAX) * 2.F - 1.F;
 
         // set write index and put new value
-        m_pCRingBuffer->setWriteIdx(newIdx);
-        m_pCRingBuffer->put(newValue);
+        pCRingBuffer->setWriteIdx(newIdx);
+        pCRingBuffer->put(newValue);
 
         // test reading it
-        m_pCRingBuffer->setReadIdx(newIdx);
-        CHECK(newValue == m_pCRingBuffer->get());;
+        pCRingBuffer->setReadIdx(newIdx);
+        CHECK(newValue == pCRingBuffer->get());;
 
         // extra checking for the both index getters
-        CHECK(m_pCRingBuffer->getWriteIdx() == m_pCRingBuffer->getReadIdx());
+        CHECK(pCRingBuffer->getWriteIdx() == pCRingBuffer->getReadIdx());
     }
 
     SECTION("RbAccessors")
     {
-        m_pCRingBuffer->setReadIdx(rand() % 20);
-        m_pCRingBuffer->setWriteIdx(m_pCRingBuffer->getReadIdx());
-        CHECK(0 == m_pCRingBuffer->getNumValuesInBuffer());
+        pCRingBuffer->setReadIdx(rand() % 20);
+        pCRingBuffer->setWriteIdx(pCRingBuffer->getReadIdx());
+        CHECK(0 == pCRingBuffer->getNumValuesInBuffer());
 
     }
 
@@ -110,134 +110,134 @@ SECTION("RbDelay")
     {
         // put initial values into ring buffer
         int i = 0;
-        for (i = 0; i < m_iDelay; i++)
+        for (i = 0; i < iDelay; i++)
         {
-            m_pCRingBuffer->putPostInc(m_pfData[i]);
+            pCRingBuffer->putPostInc(pfData[i]);
         }
-        m_pCRingBuffer->setReadIdx(i - 1);
-        CHECK(m_pfData[i - 1] == m_pCRingBuffer->get());
+        pCRingBuffer->setReadIdx(i - 1);
+        CHECK(pfData[i - 1] == pCRingBuffer->get());
     }
 
     SECTION("RbGetSetIdx")
     {
         int test_Value = 10;
 
-        m_pCRingBuffer->setReadIdx(test_Value);
-        m_pCRingBuffer->setWriteIdx(test_Value);
+        pCRingBuffer->setReadIdx(test_Value);
+        pCRingBuffer->setWriteIdx(test_Value);
 
-        CHECK(test_Value ==m_pCRingBuffer->getReadIdx());
-        CHECK(test_Value ==m_pCRingBuffer->getWriteIdx());
+        CHECK(test_Value ==pCRingBuffer->getReadIdx());
+        CHECK(test_Value ==pCRingBuffer->getWriteIdx());
 
-        m_pCRingBuffer->put(static_cast<float>(test_Value));
-        m_pCRingBuffer->putPostInc(static_cast<float>(test_Value));
+        pCRingBuffer->put(static_cast<float>(test_Value));
+        pCRingBuffer->putPostInc(static_cast<float>(test_Value));
 
-        CHECK(static_cast<float>(test_Value) == m_pCRingBuffer->get());
-        CHECK(static_cast<float>(test_Value) == m_pCRingBuffer->getPostInc());
-        CHECK(static_cast<float>(test_Value) == m_pCRingBuffer->get(-1));
-        CHECK(0.F == Approx(m_pCRingBuffer->get()).margin(1e-6F).epsilon(1e-6F));
+        CHECK(static_cast<float>(test_Value) == pCRingBuffer->get());
+        CHECK(static_cast<float>(test_Value) == pCRingBuffer->getPostInc());
+        CHECK(static_cast<float>(test_Value) == pCRingBuffer->get(-1));
+        CHECK(0.F == Approx(pCRingBuffer->get()).margin(1e-6F).epsilon(1e-6F));
 
         //        Edge Cases
-        m_pCRingBuffer->setReadIdx(m_iRingBuffLength);
-        m_pCRingBuffer->setWriteIdx(m_iRingBuffLength);
+        pCRingBuffer->setReadIdx(iRingBuffLength);
+        pCRingBuffer->setWriteIdx(iRingBuffLength);
 
-        CHECK(0 == m_pCRingBuffer->getReadIdx());
-        CHECK(0 == m_pCRingBuffer->getWriteIdx());
+        CHECK(0 == pCRingBuffer->getReadIdx());
+        CHECK(0 == pCRingBuffer->getWriteIdx());
 
-        m_pCRingBuffer->setReadIdx(m_iRingBuffLength - 1);
-        m_pCRingBuffer->setWriteIdx(m_iRingBuffLength - 1);
+        pCRingBuffer->setReadIdx(iRingBuffLength - 1);
+        pCRingBuffer->setWriteIdx(iRingBuffLength - 1);
 
-        CHECK(m_iRingBuffLength - 1 == m_pCRingBuffer->getReadIdx());
-        CHECK(m_iRingBuffLength - 1 == m_pCRingBuffer->getWriteIdx());
+        CHECK(iRingBuffLength - 1 == pCRingBuffer->getReadIdx());
+        CHECK(iRingBuffLength - 1 == pCRingBuffer->getWriteIdx());
 
-        m_pCRingBuffer->put(static_cast<float>(std::numeric_limits<int>::max()));
-        m_pCRingBuffer->putPostInc(static_cast<float>(std::numeric_limits<int>::max()));
+        pCRingBuffer->put(static_cast<float>(std::numeric_limits<int>::max()));
+        pCRingBuffer->putPostInc(static_cast<float>(std::numeric_limits<int>::max()));
 
-        CHECK(static_cast<float>(std::numeric_limits<int>::max()) == m_pCRingBuffer->get());
-        CHECK(static_cast<float>(std::numeric_limits<int>::max()) == m_pCRingBuffer->getPostInc());
+        CHECK(static_cast<float>(std::numeric_limits<int>::max()) == pCRingBuffer->get());
+        CHECK(static_cast<float>(std::numeric_limits<int>::max()) == pCRingBuffer->getPostInc());
 
         //        negative indices
-        m_pCRingBuffer->setReadIdx(-1);
-        m_pCRingBuffer->setWriteIdx(-1);
-        CHECK(m_iRingBuffLength - 1 == m_pCRingBuffer->getReadIdx());
-        CHECK(m_iRingBuffLength - 1 == m_pCRingBuffer->getWriteIdx());
-        m_pCRingBuffer->setReadIdx(-m_iRingBuffLength + 1);
-        m_pCRingBuffer->setWriteIdx(-m_iRingBuffLength + 1);
-        CHECK(1 == m_pCRingBuffer->getReadIdx());
-        CHECK(1 == m_pCRingBuffer->getWriteIdx());
+        pCRingBuffer->setReadIdx(-1);
+        pCRingBuffer->setWriteIdx(-1);
+        CHECK(iRingBuffLength - 1 == pCRingBuffer->getReadIdx());
+        CHECK(iRingBuffLength - 1 == pCRingBuffer->getWriteIdx());
+        pCRingBuffer->setReadIdx(-iRingBuffLength + 1);
+        pCRingBuffer->setWriteIdx(-iRingBuffLength + 1);
+        CHECK(1 == pCRingBuffer->getReadIdx());
+        CHECK(1 == pCRingBuffer->getWriteIdx());
 
         // extreme indices
-        m_pCRingBuffer->setReadIdx(m_iRingBuffLength * 5 - 1);
-        m_pCRingBuffer->setWriteIdx(m_iRingBuffLength * 5 - 1);
-        CHECK(m_iRingBuffLength - 1 == m_pCRingBuffer->getReadIdx());
-        CHECK(m_iRingBuffLength - 1 == m_pCRingBuffer->getWriteIdx());
-        m_pCRingBuffer->setReadIdx(-m_iRingBuffLength * 5 - 1);
-        m_pCRingBuffer->setWriteIdx(-m_iRingBuffLength * 5 - 1);
-        CHECK(m_iRingBuffLength - 1 == m_pCRingBuffer->getReadIdx());
-        CHECK(m_iRingBuffLength - 1 == m_pCRingBuffer->getWriteIdx());
+        pCRingBuffer->setReadIdx(iRingBuffLength * 5 - 1);
+        pCRingBuffer->setWriteIdx(iRingBuffLength * 5 - 1);
+        CHECK(iRingBuffLength - 1 == pCRingBuffer->getReadIdx());
+        CHECK(iRingBuffLength - 1 == pCRingBuffer->getWriteIdx());
+        pCRingBuffer->setReadIdx(-iRingBuffLength * 5 - 1);
+        pCRingBuffer->setWriteIdx(-iRingBuffLength * 5 - 1);
+        CHECK(iRingBuffLength - 1 == pCRingBuffer->getReadIdx());
+        CHECK(iRingBuffLength - 1 == pCRingBuffer->getWriteIdx());
     }
 
     // Simple test to check for overflow
     SECTION("overflowTest")
     {
 
-        for (int i = 0; i < 2 * m_iRingBuffLength; i++)
+        for (int i = 0; i < 2 * iRingBuffLength; i++)
         {
-            m_pCRingBuffer->putPostInc(static_cast<float>(i));
+            pCRingBuffer->putPostInc(static_cast<float>(i));
         }
 
-        for (int i = 0; i < m_iRingBuffLength; i++)
+        for (int i = 0; i < iRingBuffLength; i++)
         {
-            CHECK(i + m_iRingBuffLength == m_pCRingBuffer->getPostInc());
+            CHECK(i + iRingBuffLength == pCRingBuffer->getPostInc());
         }
     }
 
     SECTION("RbReadBlock")
     {
-        for (int i = 0; i < 2 * m_iRingBuffLength; i++)
+        for (int i = 0; i < 2 * iRingBuffLength; i++)
         {
-            m_pCRingBuffer->putPostInc(static_cast<float>(i));
+            pCRingBuffer->putPostInc(static_cast<float>(i));
         }
-        m_pCRingBuffer->setReadIdx(5);
-        m_pCRingBuffer->getPostInc(m_pfData, m_iRingBuffLength);
+        pCRingBuffer->setReadIdx(5);
+        pCRingBuffer->getPostInc(pfData, iRingBuffLength);
 
-        for (int i = 0; i < m_iRingBuffLength; i++)
+        for (int i = 0; i < iRingBuffLength; i++)
         {
-            CHECK((i + 5) % m_iRingBuffLength + m_iRingBuffLength == m_pfData[i]);
+            CHECK((i + 5) % iRingBuffLength + iRingBuffLength == pfData[i]);
         }
     }
 
     SECTION("RbWriteBlock")
     {
-        m_pCRingBuffer->putPostInc(m_pfData, 11);
-        m_pCRingBuffer->putPostInc(&m_pfData[11], m_iRingBuffLength);
-        m_pCRingBuffer->setReadIdx(11);
+        pCRingBuffer->putPostInc(pfData, 11);
+        pCRingBuffer->putPostInc(&pfData[11], iRingBuffLength);
+        pCRingBuffer->setReadIdx(11);
 
-        for (int i = 11; i < 11 + m_iRingBuffLength; i++)
+        for (int i = 11; i < 11 + iRingBuffLength; i++)
         {
-            CHECK(m_pfData[i] == m_pCRingBuffer->getPostInc());
+            CHECK(pfData[i] == pCRingBuffer->getPostInc());
         }
     }
 
     SECTION("RbFracDelay")
     {
-        for (int i = 0; i < m_iRingBuffLength; i++)
-            m_pCRingBuffer->putPostInc(1.F * i);
+        for (int i = 0; i < iRingBuffLength; i++)
+            pCRingBuffer->putPostInc(1.F * i);
 
-        float fValue = m_pCRingBuffer->get(.7F);
+        float fValue = pCRingBuffer->get(.7F);
         CHECK(.7F == Approx(fValue).margin(1e-4F).epsilon(1e-4F));
 
-        fValue = m_pCRingBuffer->get(-.5F);
+        fValue = pCRingBuffer->get(-.5F);
         CHECK(7.5 == Approx(fValue).margin(1e-4F).epsilon(1e-4F));
 
-        fValue = m_pCRingBuffer->get(-1.8F);
+        fValue = pCRingBuffer->get(-1.8F);
         CHECK(14.2F == Approx(fValue).margin(1e-4F).epsilon(1e-4F));
 
-        m_pCRingBuffer->setReadIdx(1);
-        fValue = m_pCRingBuffer->get(-m_iRingBuffLength + 1.F);
+        pCRingBuffer->setReadIdx(1);
+        fValue = pCRingBuffer->get(-iRingBuffLength + 1.F);
         CHECK(2.F == Approx(fValue).margin(1e-4F).epsilon(1e-4F));
     }
-    delete[] m_pfData;
-    delete m_pCRingBuffer;
+    delete[] pfData;
+    delete pCRingBuffer;
 }
 
 #endif //WITH_TESTS
