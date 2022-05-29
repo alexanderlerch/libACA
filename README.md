@@ -12,7 +12,7 @@ compare:
 * [Matlab: ACA-Code](https://github.com/alexanderlerch/ACA-Code)
 * [Python: pyACA](https://github.com/alexanderlerch/pyACA)
 
-## Project Structure
+## Directory Structure
 ```console
 |_ 3rdparty: (3rd party dependencies)
   |_ Fft: simple Fft library
@@ -62,3 +62,6 @@ cd bld/
 ctest
 ```
 In the IDE, you can either build the ```RUN_TESTS``` or execute ```TestExec```.
+
+## Documentation
+The automatically generated [Doxygen](https://www.doxygen.nl) documentation can be found at [https://alexanderlerch.github.io/libACA](https://alexanderlerch.github.io/libACA).
