@@ -250,7 +250,7 @@ public:
         }
 
         // reverse tail
-        for (auto i = iLengthOfBuffer + 2L*iFilterLength - 1; i >= iLengthOfBuffer + iFilterLength; i--)
+        for (auto i = iLengthOfBuffer + 2*static_cast<long long>(iFilterLength) - 1; i >= iLengthOfBuffer + iFilterLength; i--)
         {
             float fZero = 0.F;
             this->process(&fZero, &pfTmpBuff[i], 1);

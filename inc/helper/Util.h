@@ -18,9 +18,9 @@ public:
     static T float2int (float fInput)
     {
         if (fInput >= 0.F)
-            return static_cast<T>(fInput + .5F);
+            return static_cast<T>(fInput + .5);
         else
-            return static_cast<T>(fInput - .5F);
+            return static_cast<T>(fInput - .5);
     }
     /*! converts a double to an int
     \param fInput double value

@@ -7,7 +7,7 @@
 
 #include "catch.hpp"
 
-TEST_CASE("dtw", "[Dtw]") 
+TEST_CASE("Dtw", "[Dtw]") 
 {
     CDtw* pCDtw = new CDtw();
 

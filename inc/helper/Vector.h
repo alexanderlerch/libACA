@@ -299,14 +299,24 @@ public:
     \param iLength number of element to be subtracted
     \return void
     */
-    static inline void sub_I (float *pfSrcDest, const float *pfSrc, long long int iLength)
+    static inline void sub_I(float* pfSrcDest, const float* pfSrc, long long int iLength)
     {
-        assert (iLength >= 0);
-        assert (pfSrcDest);
-        assert (pfSrc);
+        assert(iLength >= 0);
+        assert(pfSrcDest);
+        assert(pfSrc);
 
         for (auto i = 0; i < iLength; i++)
             pfSrcDest[i] -= pfSrc[i];
+    }
+
+    static inline void subW_I(float* pfSrcDest, const float* pfSrc, float fWeight, long long int iLength)
+    {
+        assert(iLength >= 0);
+        assert(pfSrcDest);
+        assert(pfSrc);
+
+        for (auto i = 0; i < iLength; i++)
+            pfSrcDest[i] -= fWeight*pfSrc[i];
     }
 
     /*! computes the sum of a vector
@@ -545,6 +555,22 @@ public:
                 iMin    = i;
             }
         }
+    }
+
+    static void alloc(float*& pfVec, int iLength)
+    {
+        assert(iLength > 0);
+
+        pfVec = new float [iLength];
+
+        assert(pfVec);
+    }
+
+    static void free(float*& pfVec)
+    {
+
+        delete[] pfVec;
+        pfVec = 0;
     }
 };
 #endif // __VectorFloat_hdr__

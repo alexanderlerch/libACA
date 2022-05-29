@@ -278,7 +278,6 @@ TEST_CASE("AudioIo", "[AudioIo]")
 
     SECTION("file spec")
     {
-        //CAudioFileIf::FileSpec_t stFileSpec;
         const std::string cExt(".wav");
         Error_t err = Error_t::kUnknownError;
 
