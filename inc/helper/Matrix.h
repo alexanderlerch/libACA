@@ -11,6 +11,12 @@ class CMatrix
 {
 public:
 
+    /*! allocates a float matrix and inits it with zeros
+    \param ppfMat (empty double pointer, to be allocated)
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return 
+    */
     static void alloc(float** &ppfMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
@@ -28,6 +34,11 @@ public:
         }
     }
 
+    /*! frees a float matrix 
+    \param ppfMat (empty double pointer, to be set to zero)
+    \param iNumRows number of rows
+    \return
+    */
     static void free(float**& ppfMat, int iNumRows)
     {
         assert(iNumRows > 0);
@@ -40,6 +51,14 @@ public:
         ppfMat = 0;
     }
 
+    /*! multiplies a matrix with a column vector (MAT * VEC)
+    \param pfDestColVec resulting (column) vector of length iNumMatRows (to be written, user allocated)
+    \param ppfMatrix matrix to be multiplied
+    \param pfSrcColVec (column) vector to be multiplied
+    \param iNumMatRows number of rows in the matrix
+    \param iNumMatCols number of columns in the matrix
+    \return
+    */
     static void mulMatColVec(float* pfDestColVec, float** ppfMatrix, const float* pfSrcColVec, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
@@ -53,21 +72,39 @@ public:
             pfDestColVec[m] = CVectorFloat::mulScalar(ppfMatrix[m], pfSrcColVec, iNumMatCols);
     }
 
-    static void mulRowVecMat(float* pfDestColVec, const float* pfSrcRowVec, float** ppfMatrix, int iNumMatRows, int iNumMatCols)
+    /*! multiplies a row vector with a matrix (VEC * MAT)
+    \param pfDestRowVec resulting (row) vector of length iNumMatCols (to be written, user allocated)
+    \param pfSrcRowVec (column) vector to be multiplied
+    \param ppfMatrix matrix to be multiplied
+    \param iNumMatRows number of rows in the matrix
+    \param iNumMatCols number of columns in the matrix
+    \return
+    */
+    static void mulRowVecMat(float* pfDestRowVec, const float* pfSrcRowVec, float** ppfMatrix, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
-        assert(pfDestColVec);
+        assert(pfDestRowVec);
         assert(pfSrcRowVec);
         assert(ppfMatrix);
         assert(ppfMatrix[0]);
 
-        CVectorFloat::setZero(pfDestColVec, iNumMatCols);
+        CVectorFloat::setZero(pfDestRowVec, iNumMatCols);
         for (auto n = 0; n < iNumMatCols; n++)
             for (auto m = 0; m < iNumMatRows; m++)
-                pfDestColVec[n] += pfSrcRowVec[m] * ppfMatrix[m][n];
+                pfDestRowVec[n] += pfSrcRowVec[m] * ppfMatrix[m][n];
     }
 
+    /*! multiplies a matrix with amatrix (MAT1 * MAT2)
+    \param ppfDest resulting matrix of dimension iNum1Rows x iNum2Cols (to be written, user allocated)
+    \param ppfSrc1 first matrix to be multiplied
+    \param ppfSrc2 second matrix to be multiplied
+    \param iNum1Rows number of rows in matrix 1
+    \param iNum1Cols number of columns in matrix 1 (has to equal iNum2Rows)
+    \param iNum2Rows number of rows in matrix 2 (has to equal iNum1Col)
+    \param iNum2Cols number of columns in matrix 2
+    \return
+    */
     static void mulMatMat(float** ppfDest, float** ppfSrc1, float** ppfSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)
     {
         assert(iNum1Rows > 0);
@@ -93,6 +130,12 @@ public:
         }
     }
 
+    /*! fills matrix with ones on the diagonal, zeros elsewhere
+    \param ppfDest resulting matrix of dimension iNumRows x iNumCols (to be written, user allocated)
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
     static void setEye(float** ppfDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
@@ -108,6 +151,15 @@ public:
 
     }
 
+
+    /*! swaps a matrix row with a column
+    \param ppfSrcDest resulting matrix (to be modified)
+    \param iRowIdx index of row
+    \param iColIdx index of columns
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
     static void swapRowCol(float** ppfSrcDest, int iRowIdx, int iColIdx, int iNumRows, int iNumCols)
     {
         assert(iRowIdx > 0);
@@ -126,6 +178,13 @@ public:
         }
     }
 
+    /*! copies a matrix 
+    \param ppfDest resulting matrix(to be written, user allocated)
+    \param ppfSrc first matrix to be multiplied
+    \param iNumRows number of rows in both matrices
+    \param iNumCols number of columns in both matrices
+    \return
+    */
     static void copy(float** ppfDest, float** ppfSrc, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
@@ -139,6 +198,12 @@ public:
             CVectorFloat::copy(ppfDest[m], ppfSrc[m], iNumCols);
     }
 
+    /*! computes inverse of square matrix
+    \param ppfSrcDest input and output matrix (to be modified, user allocated)
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
     static void inv_I (float **ppfSrcDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
@@ -183,7 +248,7 @@ public:
         {
             j = 0;
 
-            if (dDet < kSingularityThresh * kSingularityThresh)
+            if (dDet < kSingularityThresh *1.* kSingularityThresh)
                 dDet = 0;
 
             while (j < i)
