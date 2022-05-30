@@ -21,7 +21,7 @@ public:
     \param iNumInSamples length of pfIn
     \return Error_t
     */
-    static Error_t interp1d(float* pfOut, float* pfNewIdx, const float* pfIn, long long iNumOutSamples, long long iNumInSamples)
+    static Error_t interp1d(float* pfOut, const float* pfNewIdx, const float* pfIn, long long iNumOutSamples, long long iNumInSamples)
     {
         if (!pfNewIdx || !pfOut || !pfIn || iNumInSamples <= 0 || iNumOutSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;

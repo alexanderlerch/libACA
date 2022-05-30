@@ -654,17 +654,17 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
     {
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i - 500.F;
-        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kNoError == CResample::interp1d( pfOut, pfOutIdx,pfIn, iOutputLength, iInputLength));
         CHECK(0.F == CVectorFloat::getSum(pfOut, iOutputLength));
 
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i + 500.F;
-        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, iInputLength));
         CHECK(0.F == CVectorFloat::getSum(pfOut, iOutputLength));
 
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i - 3.4F;
-        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, iInputLength));
         CHECK(0.F == CVectorFloat::getSum(pfOut, 3));
         CHECK(0.F == CVectorFloat::getSum(&pfOut[iInputLength + 4], iOutputLength - iInputLength - 4));
 
@@ -685,7 +685,7 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i / 3.F;
 
-        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, iInputLength));
 
         for (auto i = 0; i < iOutputLength; i++)
             CHECK(pfSine[i] == Approx(pfOut[i]).margin(1e-1F).epsilon(1e-1F));
