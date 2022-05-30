@@ -25,7 +25,7 @@ public:
         m_pfOmega = new float[m_iPhaseLength];
 
         // use one buffer with two pointers
-        m_pfSwapBuff = new float[2 * m_iPhaseLength];
+        m_pfSwapBuff = new float[2 * static_cast<long long>(m_iPhaseLength)];
         CVectorFloat::setZero(m_pfSwapBuff, 2 * static_cast<long long>(m_iPhaseLength));
         m_apfPhase[0] = &m_pfSwapBuff[0];
         m_apfPhase[1] = &m_pfSwapBuff[m_iPhaseLength];
