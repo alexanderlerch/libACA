@@ -47,10 +47,11 @@ public:
         m_iNumFilterCoeffs = iNumCoeffs;
 
         // initialize other internal memory
-        m_pCFilterBuffer = new CRingBuffer<T>(iNumCoeffs);
-        m_pCFilterBuffer->setWriteIdx(iNumCoeffs - 1);
+        m_pCFilterBuff = new CRingBuffer<T>(iNumCoeffs);
+        m_pCFilterBuff->setWriteIdx(iNumCoeffs - 1);
 
-        m_ptProcBuffer = new T[iNumCoeffs-1];
+        m_ptProcBuff = new T[iNumCoeffs-1];
+        CVector::setZero(m_ptProcBuff, iNumCoeffs - 1);
 
         m_bIsInitialized = true;
 
@@ -75,24 +76,58 @@ public:
 
             m_iNumFilterCoeffs = 0;
 
-            delete m_pCFilterBuffer;
-            m_pCFilterBuffer = 0;
+            delete m_pCFilterBuff;
+            m_pCFilterBuff = 0;
 
-            delete[] m_ptProcBuffer;
-            m_ptProcBuffer = 0;
+            delete[] m_ptProcBuff;
+            m_ptProcBuff = 0;
 
             m_bIsInitialized = false;
         }
         else
         {
-            m_pCFilterBuffer->reset();
-            m_pCFilterBuffer->setWriteIdx(m_iNumFilterCoeffs - 1);
+            m_pCFilterBuff->reset();
+            m_pCFilterBuff->setWriteIdx(m_iNumFilterCoeffs - 1);
+            CVector::setZero(m_ptProcBuff, m_iNumFilterCoeffs - 1);
         }
 
         return Error_t::kNoError;
     }
 
+    /*! filters the signal (transposed direct form II implementation), can be called block by block
+     \param pfOut output signal (to be written, allocated by user)
+     \param pfIn input signal
+     \param iNumSamples length of both pfOut and pfIn
+     \return Error_t
+     */
     Error_t process(T* pfOut, const T* pfIn, long long iNumSamples)
+    {
+        if (!m_bIsInitialized)
+            return Error_t::kFunctionIllegalCallError;
+        if (!pfOut || !pfIn || iNumSamples <= 0)
+            return Error_t::kFunctionInvalidArgsError;
+
+        for (auto i = 0; i < iNumSamples; i++)
+        {
+            T fTmp = m_ptProcBuff[0] + m_aptCoeff[kFir][0] * pfIn[i];
+
+            for (auto j = 1; j < m_iNumFilterCoeffs - 1; j++)
+                m_ptProcBuff[j - 1] = m_ptProcBuff[j] - m_aptCoeff[kIir][j] * fTmp + m_aptCoeff[kFir][j] * pfIn[i];
+
+            m_ptProcBuff[m_iNumFilterCoeffs-2] = -m_aptCoeff[kIir][m_iNumFilterCoeffs - 1] * fTmp + m_aptCoeff[kFir][m_iNumFilterCoeffs-1] * pfIn[i];
+
+            pfOut[i] = fTmp;
+        }
+        return Error_t::kNoError;
+    }
+
+    /*! filters the signal (direct form II implementation, here as "informative" implementation)
+     \param pfOut output signal (to be written, allocated by user)
+     \param pfIn input signal
+     \param iNumSamples length of both pfOut and pfIn
+     \return Error_t
+     */
+    Error_t processDFII(T* pfOut, const T* pfIn, long long iNumSamples)
     {
         if (!m_bIsInitialized)
             return Error_t::kFunctionIllegalCallError;
@@ -104,26 +139,32 @@ public:
             T fTmp = pfIn[i];
 
             // get buffer values
-            m_pCFilterBuffer->get(m_ptProcBuffer, m_iNumFilterCoeffs - 1);
+            m_pCFilterBuff->get(m_ptProcBuff, m_iNumFilterCoeffs - 1);
 
             // IIR part
             for (auto j = 1; j < m_iNumFilterCoeffs; j++)
-                fTmp -= m_aptCoeff[kIir][j] * m_ptProcBuffer[m_iNumFilterCoeffs - 1 - j];
+                fTmp -= m_aptCoeff[kIir][j] * m_ptProcBuff[m_iNumFilterCoeffs - 1 - j];
 
             //put new value into buffer
-            m_pCFilterBuffer->putPostInc(fTmp);
+            m_pCFilterBuff->putPostInc(fTmp);
 
             // FIR part
             pfOut[i] = m_aptCoeff[kFir][0] * fTmp;
             for (auto j = 1; j < m_iNumFilterCoeffs; j++)
-                pfOut[i] += m_aptCoeff[kFir][j] * m_ptProcBuffer[m_iNumFilterCoeffs - 1 - j];
+                pfOut[i] += m_aptCoeff[kFir][j] * m_ptProcBuff[m_iNumFilterCoeffs - 1 - j];
 
             // increment read index
-            m_pCFilterBuffer->getPostInc();
+            m_pCFilterBuff->getPostInc();
         }
         return Error_t::kNoError;
     }
 
+    /*! zero phase filtering (can only be called with a complete signal, not block by block)
+     \param pfOut output signal (to be written, allocated by user)
+     \param pfIn input signal
+     \param iNumSamples length of both pfOut and pfIn
+     \return Error_t
+     */
     Error_t filtfilt(T* pfOut, const T* pfIn, long long iNumSamples)
     {
         if (!m_bIsInitialized)
@@ -135,20 +176,50 @@ public:
         this->reset(false);
 
         float* pfTmpBuff = 0;
-        CVectorFloat::alloc(pfTmpBuff, iNumSamples);
+        float* pfPadding = 0;
+        int iPadLength = 3 * (m_iNumFilterCoeffs - 1);
 
-        // set initial state and process forward path
-        this->setInitState();
+        if (iPadLength > iNumSamples)
+            return Error_t::kFunctionIllegalCallError;
+
+        // alloc necessary memory
+        CVectorFloat::alloc(pfTmpBuff, iNumSamples + iPadLength);
+        CVectorFloat::alloc(pfPadding, iPadLength);
+
+        for (auto i = 0; i < iPadLength; i++)
+            pfPadding[iPadLength - 1 - i] = 2 * pfIn[0] - pfIn[i + 1];
+
+        // set initial state
+        this->setInitState_(pfPadding[0]);
+
+        // front padding (discard results)
+        this->process(pfTmpBuff, pfPadding, iPadLength);
+        
+        // forward path
         this->process(pfTmpBuff, pfIn, iNumSamples);
+        
+        // back padding in forward path
+        for (auto i = 0; i < iPadLength; i++)
+            pfPadding[i] = 2 * pfIn[iNumSamples - 1] - pfIn[iNumSamples - 2 - i];
+        this->process(&pfTmpBuff[iNumSamples], pfPadding, iPadLength);
 
-        // set initial state and process backward path
-        this->setInitState();
+        // set initial state
+        this->setInitState_(pfTmpBuff[iNumSamples+iPadLength-1]);
+
+        // padded backward path (discard results)
+        for (auto i = iNumSamples + iPadLength - 1; i >= iNumSamples; i--)
+            this->process(pfOut, &pfTmpBuff[i], 1);
+        
+        // backward path
         for (auto i = iNumSamples - 1; i >= 0; i--)
             this->process(&pfOut[i], &pfTmpBuff[i], 1);
 
+        // reset filter but don't delete memory
         this->reset(false);
 
+        // free memory
         CVectorFloat::free(pfTmpBuff);
+        CVectorFloat::free(pfPadding);
 
         return Error_t::kNoError;
     }
@@ -166,16 +237,18 @@ private:
     };
 
     // see sadovsky, bartusek, optimisation of the transient response of a digital filter, radioengineering (9) no 2, 2000
-    void setInitState()
+    void setInitState_(float fWeight)
     {
         float** ppfA = 0;
         float* pfB = 0;
+        float* pfZi = 0;
 
         int iLengthOfCoeffBuffers = m_iNumFilterCoeffs - 1; 
 
         CVectorFloat::alloc(pfB, iLengthOfCoeffBuffers);
+        CVectorFloat::alloc(pfZi, iLengthOfCoeffBuffers);
         CMatrix::alloc(ppfA, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
- 
+
         for (auto i = 1; i < m_iNumFilterCoeffs; i++)
             pfB[i - 1] = m_aptCoeff[kFir][i] - m_aptCoeff[kFir][0] * m_aptCoeff[kIir][i];
 
@@ -183,29 +256,29 @@ private:
         {
             ppfA[m][m] = 1;
             ppfA[m][0] += m_aptCoeff[kIir][m + 1];
-            if (m < iLengthOfCoeffBuffers)
+            if (m < iLengthOfCoeffBuffers-1)
                 ppfA[m][m + 1] = -1;
         }
 
         // solve linear equation
         CMatrix::inv_I(ppfA, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
-        CMatrix::mulMatColVec(pfB, ppfA, pfB, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
+        CMatrix::mulMatColVec(pfZi, ppfA, pfB, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
 
         // set internal state
-        m_pCFilterBuffer->setWriteIdx(0);
         for (auto i = 0; i < iLengthOfCoeffBuffers; i++)
-            m_pCFilterBuffer->putPostInc(pfB[i]);
+            m_ptProcBuff[i] = fWeight * pfZi[i];
 
         // clean up
         CMatrix::free(ppfA, iLengthOfCoeffBuffers);
         CVectorFloat::free(pfB);
+        CVectorFloat::free(pfZi);
     }
 
-    CRingBuffer<T>* m_pCFilterBuffer = 0; //!< internal buffer for filter
+    CRingBuffer<T>* m_pCFilterBuff = 0; //!< internal ring buffer for filter (only used for direct form II implementation CFilter::processDFII)
     
     T* m_aptCoeff[kNumFilterDims] = { 0,0 }; //!< filter coefficients
     
-    T *m_ptProcBuffer = 0; //!< temp buffer for processing
+    T *m_ptProcBuff = 0; //!< temp buffer for processing
 
     int m_iNumFilterCoeffs = 0; //!< number of filter coefficients
 
