@@ -105,6 +105,22 @@ TEST_CASE("Matrix", "[Matrix]")
             CHECK(1.F == Approx(CVectorFloat::getSum(ppfResult[m], aiDims[1])).margin(1e-6F).epsilon(1e-6F));
             CHECK(1.F == Approx(ppfResult[m][m]).margin(1e-6F).epsilon(1e-6F));
         }
+
+        ppfMatrix[0][0] = 1.F; ppfMatrix[0][1] = -1.F; ppfMatrix[0][2] = 0.F;
+        ppfMatrix[1][0] = 0.F; ppfMatrix[1][1] = 1.F; ppfMatrix[1][2] = -1.F;
+        ppfMatrix[2][0] = 0.F; ppfMatrix[2][1] = 0.F; ppfMatrix[2][2] = 1.F;
+        CMatrix::inv_I(ppfMatrix, aiDims[0], aiDims[1]);
+
+        CHECK(1.F == Approx(ppfMatrix[0][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(ppfMatrix[0][1]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(ppfMatrix[0][2]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(ppfMatrix[1][1]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(ppfMatrix[1][2]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(ppfMatrix[2][2]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(ppfMatrix[1][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(ppfMatrix[2][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(ppfMatrix[2][1]).margin(1e-6F).epsilon(1e-6F));
+
         CMatrix::free(ppfInput, aiDims[0]);
         CMatrix::free(ppfResult, aiDims[0]);
     }
