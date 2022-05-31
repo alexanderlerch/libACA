@@ -10,6 +10,8 @@
 
 #include "ToolGammatone.h"
 
+//#define ACA_USE_DOUBLE
+
 /*! \brief class for a single gammtone filter
 */
 class CGammatone
@@ -56,28 +58,32 @@ private:
     float m_fFreqCenter = 0;  //!< center frequency of this filter
     float m_fSampleRate = 0; //!< sample rate in Hz
 
-    //double m_aafCoeffB[kNumFilters][kNumCoeffs] = { 0 };
-    //double m_aafCoeffA[kNumFilters][kNumCoeffs] = { 0 };
-    //CFilter<double>* m_apCFilter[kNumFilters] = { 0 };
-
+#ifdef ACA_USE_DOUBLE
+    double m_aafCoeffB[kNumFilters][kNumCoeffs] = { 0 };
+    double m_aafCoeffA[kNumFilters][kNumCoeffs] = { 0 };
+    CFilter<double>* m_apCFilter[kNumFilters] = { 0 };
+#else
     float m_aafCoeffB[kNumFilters][kNumCoeffs] = { 0 }; //!< FIR coefficients
     float m_aafCoeffA[kNumFilters][kNumCoeffs] = { 0 }; //!< IIR coefficients
     CFilter<float>* m_apCFilter[kNumFilters] = { 0 }; //!< number crunching (multiple instances b/c cascaded)
-
+#endif // ACA_USE_DOUBLE
     bool m_bIsInitialized = false; //!< flag indicating that this is initialized
 };
 
 
-//CGammatone::CGammatone()
-//{
-//    for (auto c = 0; c < kNumFilters; c++)
-//        m_apCFilter[c] = new CFilter<double>();
-//}
+#ifdef ACA_USE_DOUBLE
+CGammatone::CGammatone()
+{
+    for (auto c = 0; c < kNumFilters; c++)
+        m_apCFilter[c] = new CFilter<double>();
+}
+#else
 CGammatone::CGammatone()
 {
     for (auto c = 0; c < kNumFilters; c++)
         m_apCFilter[c] = new CFilter<float>();
 }
+#endif // ACA_USE_DOUBLE
 
 CGammatone::~CGammatone()
 {
@@ -105,19 +111,19 @@ Error_t CGammatone::process(float* pfOutput, const float* pfInput, long long iNu
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
 
+#ifdef ACA_USE_DOUBLE
+    for (auto i = 0; i < iNumSamples; i++)
+    {
+        double fTmp = pfInput[i];
+        for (auto c = 0; c < kNumFilters; c++)
+            m_apCFilter[c]->process(&fTmp, &fTmp, 1);
+        pfOutput[i] = static_cast<float>(fTmp);
+    }
+#else
     CVectorFloat::copy(pfOutput, pfInput, iNumSamples);
     for (auto c = 0; c < kNumFilters; c++)
         m_apCFilter[c]->process(pfOutput, pfOutput, iNumSamples);
-    //for (auto i = 0; i < iNumSamples; i++)
-    //{
-        //for (auto i = 0; i < iNumSamples; i++)
-        //{
-        //    double fTmp = pfInput[i];
-        //    for (auto c = 0; c < kNumFilters; c++)
-        //        m_apCFilter[c]->process(&fTmp, &fTmp, 1);
-        //    pfOutput[i] = static_cast<float>(fTmp);
-        //}
-    //}
+#endif // ACA_USE_DOUBLE
 
     return Error_t::kNoError;
 }
@@ -136,63 +142,65 @@ Error_t CGammatone::reset()
     return Error_t::kNoError;
 }
 
-//void CGammatone::calcFilterCoeffs_(int iOrder)
-//{
-//    assert(m_fSampleRate > 0);
-//    assert(m_fFreqCenter >= 0);
-//
-//    const double f2Pi = 2 * M_PI;
-//    const double fEarQ = 9.26449;
-//    const double fBandwidth = 24.7;
-//    const double B = 1.019 * f2Pi * std::pow(std::pow(m_fFreqCenter / fEarQ, iOrder) + std::pow(fBandwidth, iOrder), 1. / iOrder);
-//
-//    double fArg = f2Pi * m_fFreqCenter / m_fSampleRate;
-//    double fCos = std::cos(fArg);
-//    double fSin = std::sin(fArg);
-//    double fExp = std::exp(B / m_fSampleRate);
-//    double fSqrtA = 2 * std::sqrt(3. + std::pow(2., 1.5F));
-//    double fSqrtS = 2 * std::sqrt(3. - std::pow(2., 1.5F));
-//    double fGain = 0;
-//
-//    for (auto c = 0; c < kNumFilters; c++)
-//    {
-//        m_aafCoeffB[c][0] = 1. / m_fSampleRate;
-//        m_aafCoeffB[c][2] = 0.;
-//
-//        m_aafCoeffA[c][0] = 1.;
-//        m_aafCoeffA[c][1] = -2. * fCos / fExp;
-//        m_aafCoeffA[c][2] = std::exp(-2. * B / m_fSampleRate);
-//    }
-//
-//    m_aafCoeffB[0][1] = -(2. / m_fSampleRate * fCos / fExp + fSqrtA / m_fSampleRate * fSin / fExp) / 2.;
-//    m_aafCoeffB[1][1] = -(2. / m_fSampleRate * fCos / fExp - fSqrtA / m_fSampleRate * fSin / fExp) / 2.;
-//    m_aafCoeffB[2][1] = -(2. / m_fSampleRate * fCos / fExp + fSqrtS / m_fSampleRate * fSin / fExp) / 2.;
-//    m_aafCoeffB[3][1] = -(2. / m_fSampleRate * fCos / fExp - fSqrtS / m_fSampleRate * fSin / fExp) / 2.;
-//
-//    // apply gain to first cascade
-//    {
-//        fSqrtA *= .5;
-//        fSqrtS *= .5;
-//
-//        double fScale = 2 * 2 * 2 * 2 / (m_fSampleRate * m_fSampleRate * m_fSampleRate * m_fSampleRate);
-//        std::complex<double> num1(-std::cos(2. * fArg), -std::sin(2 * fArg));
-//        std::complex<double> num2(std::cos(fArg) * std::exp(-B / m_fSampleRate), std::sin(fArg) * std::exp(-B / m_fSampleRate));
-//        std::complex<double> denom(-2. / std::exp(2. * B / m_fSampleRate) + 2. / fExp + std::cos(2 * fArg) * (2. / fExp - 2.), std::sin(2 * fArg) * (2. / fExp - 2.));
-//
-//        auto numerator = fScale *
-//            (num1 + num2 * (fCos - fSqrtS * fSin)) *
-//            (num1 + num2 * (fCos + fSqrtS * fSin)) *
-//            (num1 + num2 * (fCos - fSqrtA * fSin)) *
-//            (num1 + num2 * (fCos + fSqrtA * fSin));
-//        auto denominator = denom * denom * denom * denom;
-//        fGain = std::abs(numerator / denominator);
-//    }
-//    for (auto k = 0; k < kNumCoeffs; k++)
-//        m_aafCoeffB[0][k] /= fGain;
-//
-//    for (auto c = 0; c < kNumFilters; c++)
-//        m_apCFilter[c]->init(m_aafCoeffB[c], m_aafCoeffA[c], 3);
-//}
+#ifdef ACA_USE_DOUBLE
+void CGammatone::calcFilterCoeffs_(int iOrder)
+{
+    assert(m_fSampleRate > 0);
+    assert(m_fFreqCenter >= 0);
+
+    const double f2Pi = 2 * M_PI;
+    const double fEarQ = 9.26449;
+    const double fBandwidth = 24.7;
+    const double B = 1.019 * f2Pi * std::pow(std::pow(m_fFreqCenter / fEarQ, iOrder) + std::pow(fBandwidth, iOrder), 1. / iOrder);
+
+    double fArg = f2Pi * m_fFreqCenter / m_fSampleRate;
+    double fCos = std::cos(fArg);
+    double fSin = std::sin(fArg);
+    double fExp = std::exp(B / m_fSampleRate);
+    double fSqrtA = 2 * std::sqrt(3. + std::pow(2., 1.5F));
+    double fSqrtS = 2 * std::sqrt(3. - std::pow(2., 1.5F));
+    double fGain = 0;
+
+    for (auto c = 0; c < kNumFilters; c++)
+    {
+        m_aafCoeffB[c][0] = 1. / m_fSampleRate;
+        m_aafCoeffB[c][2] = 0.;
+
+        m_aafCoeffA[c][0] = 1.;
+        m_aafCoeffA[c][1] = -2. * fCos / fExp;
+        m_aafCoeffA[c][2] = std::exp(-2. * B / m_fSampleRate);
+    }
+
+    m_aafCoeffB[0][1] = -(2. / m_fSampleRate * fCos / fExp + fSqrtA / m_fSampleRate * fSin / fExp) / 2.;
+    m_aafCoeffB[1][1] = -(2. / m_fSampleRate * fCos / fExp - fSqrtA / m_fSampleRate * fSin / fExp) / 2.;
+    m_aafCoeffB[2][1] = -(2. / m_fSampleRate * fCos / fExp + fSqrtS / m_fSampleRate * fSin / fExp) / 2.;
+    m_aafCoeffB[3][1] = -(2. / m_fSampleRate * fCos / fExp - fSqrtS / m_fSampleRate * fSin / fExp) / 2.;
+
+    // apply gain to first cascade
+    {
+        fSqrtA *= .5;
+        fSqrtS *= .5;
+
+        double fScale = 2 * 2 * 2 * 2 / (m_fSampleRate * m_fSampleRate * m_fSampleRate * m_fSampleRate);
+        std::complex<double> num1(-std::cos(2. * fArg), -std::sin(2 * fArg));
+        std::complex<double> num2(std::cos(fArg) * std::exp(-B / m_fSampleRate), std::sin(fArg) * std::exp(-B / m_fSampleRate));
+        std::complex<double> denom(-2. / std::exp(2. * B / m_fSampleRate) + 2. / fExp + std::cos(2 * fArg) * (2. / fExp - 2.), std::sin(2 * fArg) * (2. / fExp - 2.));
+
+        auto numerator = fScale *
+            (num1 + num2 * (fCos - fSqrtS * fSin)) *
+            (num1 + num2 * (fCos + fSqrtS * fSin)) *
+            (num1 + num2 * (fCos - fSqrtA * fSin)) *
+            (num1 + num2 * (fCos + fSqrtA * fSin));
+        auto denominator = denom * denom * denom * denom;
+        fGain = std::abs(numerator / denominator);
+    }
+    for (auto k = 0; k < kNumCoeffs; k++)
+        m_aafCoeffB[0][k] /= fGain;
+
+    for (auto c = 0; c < kNumFilters; c++)
+        m_apCFilter[c]->init(m_aafCoeffB[c], m_aafCoeffA[c], 3);
+}
+#else
 void CGammatone::calcFilterCoeffs_(int iOrder)
 {
     assert(m_fSampleRate > 0);
@@ -249,6 +257,7 @@ void CGammatone::calcFilterCoeffs_(int iOrder)
     for (auto c = 0; c < kNumFilters; c++)
         m_apCFilter[c]->init(m_aafCoeffB[c], m_aafCoeffA[c], 3);
 }
+#endif // ACA_USE_DOUBLE
 
 
 /////////////////////////////////////////////////////////////////////////////////

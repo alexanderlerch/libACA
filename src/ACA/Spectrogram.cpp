@@ -317,9 +317,6 @@ Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float* pfAxisTicks, AxisLab
     if (!pfAxisTicks || !pMelSpecConfig)
         return Error_t::kFunctionInvalidArgsError;
 
-    if (!pfAxisTicks)
-        return Error_t::kFunctionInvalidArgsError;
-
     assert(m_iBlockLength > 0);
     assert(m_iHopLength > 0);
     assert(m_fSampleRate > 0);

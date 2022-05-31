@@ -25,14 +25,14 @@ public:
         m_pfOmega = new float[m_iPhaseLength];
 
         // use one buffer with two pointers
-        m_pfSwapBuff = new float[2* m_iPhaseLength];
+        m_pfSwapBuff = new float[2 * static_cast<long long>(m_iPhaseLength)];
         CVectorFloat::setZero(m_pfSwapBuff, 2 * static_cast<long long>(m_iPhaseLength));
         m_apfPhase[0] = &m_pfSwapBuff[0];
         m_apfPhase[1] = &m_pfSwapBuff[m_iPhaseLength];
 
         //init omega
         for (auto k = 0; k < m_iPhaseLength; k++)
-            m_pfOmega[k] = static_cast<float>(k*m_iHopLength * 2*M_PI/ iFftLength);
+            m_pfOmega[k] = static_cast<float>(m_iHopLength * 2.* k * M_PI/ iFftLength);
 
     }
 
@@ -45,7 +45,7 @@ public:
     }
 
 
-    /*! performs the InstFreq computation
+    /*! performs the InstFreq computation on subsequent spectra
     \param pfInstFreq output vector containing the estimated frequencies (to be written), length iFftLength/2+1
     \param pfSpectrum current (complex) spectrum
     return Error_t
@@ -58,15 +58,16 @@ public:
         // get current phase
         m_pCFft->getPhase(m_apfPhase[kPhaseCurr], pfSpectrum);
 
-         //// calc instantaneous frequency
+        // calc instantaneous frequency
         CVectorFloat::sub_I(m_apfPhase[kPhasePrev], m_apfPhase[kPhaseCurr], m_iPhaseLength);
         CVectorFloat::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
         CVectorFloat::mulC_I(m_apfPhase[kPhasePrev], -1.0F, m_iPhaseLength);
+
         princArg_(m_apfPhase[kPhasePrev]);
+
         CVectorFloat::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
         CVectorFloat::copy(pfInstFreq, m_apfPhase[kPhasePrev], m_iPhaseLength);
         CVectorFloat::mulC_I(pfInstFreq, static_cast<float>(m_fSampleRate / (m_iHopLength * 2 * M_PI)), m_iPhaseLength);
-
 
         // remember phase for next call but avoid copying
         CUtil::swap(m_apfPhase[kPhasePrev], m_apfPhase[kPhaseCurr]);
@@ -95,15 +96,15 @@ private:
         return;
     }
 
-    int m_iPhaseLength = 0,
-        m_iHopLength = 0;
-    float m_fSampleRate = 0.F; 
+    int m_iPhaseLength = 0, //!< length of phase spectrum
+        m_iHopLength = 0; //!< hop length in samples
+    float m_fSampleRate = 0.F;  //!< sample rate in hz
 
-    float* m_apfPhase[kNumPhases] = { 0 };
-    float* m_pfSwapBuff = 0;
-    float* m_pfOmega = 0;
+    float* m_apfPhase[kNumPhases] = { 0 }; //!< pointers to buffer for storing the phase
+    float* m_pfSwapBuff = 0;  //!< temporary process buffer and storage of previous phase spectrum
+    float* m_pfOmega = 0; //!< constant offset
 
-    CFft *m_pCFft = 0;
+    CFft *m_pCFft = 0;  //!< fft instance for handling compex spectra
 };
 
 

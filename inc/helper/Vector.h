@@ -12,6 +12,34 @@
 class CVector
 {
 public:
+
+    /*! allocates a float buffer and inits it with zeros
+    \param pfVec (empty pointer, to be allocated)
+    \param iLength number of floats
+    \return
+    */
+    template<typename T>
+    static void alloc(T*& pfVec, long long iLength)
+    {
+        assert(iLength > 0);
+
+        pfVec = new T[iLength];
+
+        assert(pfVec);
+        setZero(pfVec, iLength);
+    }
+
+    /*! frees a float buffer and sets it to zero
+    \param pfVec (empty pointer, to be allocated)
+    \return
+    */
+    template<typename T>
+    static void free(T*& pfVec)
+    {
+        delete[] pfVec;
+        pfVec = 0;
+    }
+
     /*! sets a buffer to zero
     \param ptSrcDest pointer to memory to be modified
     \param iLength  buffer length
@@ -123,6 +151,31 @@ public:
 class CVectorFloat
 {
 public:
+
+    /*! allocates a float buffer and inits it with zeros
+    \param pfVec (empty pointer, to be allocated)
+    \param iLength number of floats
+    \return
+    */
+    static void alloc(float*& pfVec, long long iLength)
+    {
+        assert(iLength > 0);
+
+        pfVec = new float[iLength];
+
+        assert(pfVec);
+        setZero(pfVec, iLength);
+    }
+
+    /*! frees a float buffer and sets it to zero
+    \param pfVec (empty pointer, to be allocated)
+    \return
+    */
+    static void free(float*& pfVec)
+    {
+        delete[] pfVec;
+        pfVec = 0;
+    }
 
     /*! sets a buffer to zero
     \param pfSrcDest pointer to memory to be modified
@@ -555,22 +608,6 @@ public:
                 iMin    = i;
             }
         }
-    }
-
-    static void alloc(float*& pfVec, int iLength)
-    {
-        assert(iLength > 0);
-
-        pfVec = new float [iLength];
-
-        assert(pfVec);
-    }
-
-    static void free(float*& pfVec)
-    {
-
-        delete[] pfVec;
-        pfVec = 0;
     }
 };
 #endif // __VectorFloat_hdr__

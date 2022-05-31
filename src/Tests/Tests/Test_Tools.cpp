@@ -643,28 +643,28 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
 
     SECTION("Api")
     {
-        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(0, pfOut, pfIn, iOutputLength, iInputLength));
-        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOutIdx, 0, pfIn, iOutputLength, iInputLength));
-        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOutIdx, pfOut, 0, iOutputLength, iInputLength));
-        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOutIdx, pfOut, pfIn, 0, iInputLength));
-        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, 0));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(0, pfOutIdx, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOut, 0, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOut, pfOutIdx, 0, iOutputLength, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOut, pfOutIdx, pfIn, 0, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, 0));
     }
 
     SECTION("Zeros")
     {
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i - 500.F;
-        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kNoError == CResample::interp1d( pfOut, pfOutIdx,pfIn, iOutputLength, iInputLength));
         CHECK(0.F == CVectorFloat::getSum(pfOut, iOutputLength));
 
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i + 500.F;
-        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, iInputLength));
         CHECK(0.F == CVectorFloat::getSum(pfOut, iOutputLength));
 
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i - 3.4F;
-        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, iInputLength));
         CHECK(0.F == CVectorFloat::getSum(pfOut, 3));
         CHECK(0.F == CVectorFloat::getSum(&pfOut[iInputLength + 4], iOutputLength - iInputLength - 4));
 
@@ -676,7 +676,8 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
     SECTION("Sine")
     {
         iOutputLength = 30;
-        float* pfSine = new float[iOutputLength];
+        float* pfSine = 0;
+        CVectorFloat::alloc(pfSine, iOutputLength);
         CSynthesis::genSine(pfSine, 1.F, 1.F*iOutputLength, iOutputLength);
 
         for (auto i = 0; i < iInputLength; i++)
@@ -685,15 +686,76 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i / 3.F;
 
-        CHECK(Error_t::kNoError == CResample::interp1d(pfOutIdx, pfOut, pfIn, iOutputLength, iInputLength));
+        CHECK(Error_t::kNoError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, iInputLength));
 
         for (auto i = 0; i < iOutputLength; i++)
             CHECK(pfSine[i] == Approx(pfOut[i]).margin(1e-1F).epsilon(1e-1F));
+        CVectorFloat::free(pfSine);
     }
 
     delete[] pfIn;
     delete[] pfOut;
     delete[] pfOutIdx;
+}
+
+TEST_CASE("ToolsResample", "[ToolsResample]")
+{
+    int iInputLength = 1026;
+    int iOutputLength = 3*iInputLength;
+    float* pfIn = new float[iInputLength];
+    float* pfOut = new float[iOutputLength];
+
+    float fInSampleRate = 1;
+    float fOutSampleRate = 1.5;
+
+    CResample* pCResample = new CResample(fInSampleRate, fOutSampleRate);
+    
+    CVectorFloat::setZero(pfIn, iInputLength);
+    CVectorFloat::setZero(pfOut, iOutputLength);
+
+    SECTION("Api")
+    {
+        CHECK(0 == pCResample->getOutputLength(0));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCResample->process(0, pfIn, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCResample->process(pfOut, 0, iInputLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCResample->process(pfOut, pfIn, 0));
+    }
+
+    SECTION("Zeros")
+    {
+        CVectorFloat::setValue(pfOut, 1, iOutputLength);
+        CHECK(fOutSampleRate/fInSampleRate*iInputLength == pCResample->getOutputLength(iInputLength));
+        CHECK(Error_t::kNoError == pCResample->process(pfOut, pfIn, iInputLength));
+        CHECK(0.F == CVectorFloat::getSum(pfOut, pCResample->getOutputLength(iInputLength)));
+        CHECK(1.F == CVectorFloat::getMean(&pfOut[pCResample->getOutputLength(iInputLength)], iOutputLength - pCResample->getOutputLength(iInputLength)));
+    }
+
+    SECTION("Sine")
+    {
+        //iOutputLength = 30;
+        float* pfSine = 0;
+        float fSampleRateScale = 3.F;
+ 
+        delete pCResample;
+        pCResample = new CResample(1.F, fSampleRateScale);
+
+        CVectorFloat::alloc(pfSine, iOutputLength);
+        CSynthesis::genSine(pfSine, 1.F, 1.F * iOutputLength, iOutputLength);
+
+        for (auto i = 0; i < iInputLength; i++)
+            pfIn[i] = pfSine[static_cast<int>(fSampleRateScale * i)];
+
+         CHECK(Error_t::kNoError == pCResample->process(pfOut, pfIn, iInputLength));
+
+        for (auto i = 0; i < iOutputLength; i++)
+            CHECK(pfSine[i] == Approx(pfOut[i]).margin(1e-4F).epsilon(1e-4F));
+
+        CVectorFloat::free(pfSine);
+    }
+
+    delete pCResample;
+    delete[] pfIn;
+    delete[] pfOut;
 }
 
 TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")

@@ -238,7 +238,7 @@ public:
         this->reset();
         this->setFilterParam(iFilterLength);
 
-        float* pfTmpBuff = new float[iLengthOfBuffer + 2 * iFilterLength];
+        float* pfTmpBuff = new float[iLengthOfBuffer + 2 * static_cast<long long>(iFilterLength)];
 
         this->process(&pfTmpBuff[iFilterLength], pfInput, iLengthOfBuffer);
 
