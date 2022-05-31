@@ -383,7 +383,7 @@ private:
     }
 
     template<typename T>
-    static Error_t multBinomial(T* pfOut, T* pfIn, int iOrder)
+    static Error_t multBinomial(T* pfOut, const T* pfIn, int iOrder)
     {
         for (auto i = 0; i < iOrder; i++)
         {
