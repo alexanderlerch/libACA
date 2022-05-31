@@ -77,7 +77,7 @@
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    clock_t time = 0;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="a00298.html">CSpectrogramIf</a>* pCSpectrogram = 0; <span class="comment">//!&lt; instance to extract the spectrogram</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="a00302.html">CSpectrogramIf</a>* pCSpectrogram = 0; <span class="comment">//!&lt; instance to extract the spectrogram</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">float</span>** ppfSpectrogram = 0; <span class="comment">//!&lt; resulting spectrogram</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
@@ -103,8 +103,8 @@
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span>    <span class="comment">// initialize spectrogram instance</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="a00298.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a>(pCSpectrogram, sInputFilePath, iBlockLength, iHopLength);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00298.html#afb50af1070f5876b4706f5891879fcd8">getSpectrogramDimensions</a>(aiSpecGramDimensions[0], aiSpecGramDimensions[1]);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="a00302.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a>(pCSpectrogram, sInputFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00302.html#afb50af1070f5876b4706f5891879fcd8">getSpectrogramDimensions</a>(aiSpecGramDimensions[0], aiSpecGramDimensions[1]);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
@@ -112,7 +112,7 @@
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        cout &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_function" href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_function" href="a00302.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"></span> </div>
@@ -125,7 +125,7 @@
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">if</span> (!ppfSpectrogram )</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_function" href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_function" href="a00302.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        hOutputFile.close();</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
@@ -135,7 +135,7 @@
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    cout &lt;&lt; <span class="stringliteral">&quot;\n1. computing spectrogram...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00298.html#ae041a770ec2b092761d9a88cc87946bb">compSpectrogram</a>(ppfSpectrogram);</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00302.html#ae041a770ec2b092761d9a88cc87946bb">compSpectrogram</a>(ppfSpectrogram);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    cout &lt;&lt; <span class="stringliteral">&quot;\n spectrogram computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
@@ -160,7 +160,7 @@
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"></span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_function" href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_function" href="a00302.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    hOutputFile.close();</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; aiSpecGramDimensions[0]; k++)</div>
@@ -187,15 +187,15 @@
 <div class="ttc" id="aa00071_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="a00071.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00017">ComputeSpectrogram.cpp:17</a></div></div>
 <div class="ttc" id="aa00071_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00071.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00125">ComputeSpectrogram.cpp:125</a></div></div>
 <div class="ttc" id="aa00137_html"><div class="ttname"><a href="a00137.html">Spectrogram.h</a></div></div>
-<div class="ttc" id="aa00298_html"><div class="ttname"><a href="a00298.html">CSpectrogramIf</a></div><div class="ttdoc">class for computation of a magnitude spectrogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00016">Spectrogram.h:17</a></div></div>
-<div class="ttc" id="aa00298_html_a6511fc72ef04be91a712ee5ef479bd7e"><div class="ttname"><a href="a00298.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CSpectrogramIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00133">Spectrogram.cpp:133</a></div></div>
-<div class="ttc" id="aa00298_html_acd73d8c1aaaed8b188de6b8bf2103139"><div class="ttname"><a href="a00298.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a></div><div class="ttdeci">static Error_t create(CSpectrogramIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, bool bNormalize=true, float *pfWindow=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00100">Spectrogram.cpp:100</a></div></div>
-<div class="ttc" id="aa00298_html_ae041a770ec2b092761d9a88cc87946bb"><div class="ttname"><a href="a00298.html#ae041a770ec2b092761d9a88cc87946bb">CSpectrogramIf::compSpectrogram</a></div><div class="ttdeci">Error_t compSpectrogram(float **ppfSpectrogram)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00188">Spectrogram.cpp:188</a></div></div>
-<div class="ttc" id="aa00298_html_afb50af1070f5876b4706f5891879fcd8"><div class="ttname"><a href="a00298.html#afb50af1070f5876b4706f5891879fcd8">CSpectrogramIf::getSpectrogramDimensions</a></div><div class="ttdeci">Error_t getSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols) const</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00141">Spectrogram.cpp:141</a></div></div>
+<div class="ttc" id="aa00302_html"><div class="ttname"><a href="a00302.html">CSpectrogramIf</a></div><div class="ttdoc">class for computation of a magnitude spectrogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00016">Spectrogram.h:17</a></div></div>
+<div class="ttc" id="aa00302_html_a6511fc72ef04be91a712ee5ef479bd7e"><div class="ttname"><a href="a00302.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CSpectrogramIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00133">Spectrogram.cpp:133</a></div></div>
+<div class="ttc" id="aa00302_html_acd73d8c1aaaed8b188de6b8bf2103139"><div class="ttname"><a href="a00302.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a></div><div class="ttdeci">static Error_t create(CSpectrogramIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, bool bNormalize=true, float *pfWindow=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00100">Spectrogram.cpp:100</a></div></div>
+<div class="ttc" id="aa00302_html_ae041a770ec2b092761d9a88cc87946bb"><div class="ttname"><a href="a00302.html#ae041a770ec2b092761d9a88cc87946bb">CSpectrogramIf::compSpectrogram</a></div><div class="ttdeci">Error_t compSpectrogram(float **ppfSpectrogram)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00188">Spectrogram.cpp:188</a></div></div>
+<div class="ttc" id="aa00302_html_afb50af1070f5876b4706f5891879fcd8"><div class="ttname"><a href="a00302.html#afb50af1070f5876b4706f5891879fcd8">CSpectrogramIf::getSpectrogramDimensions</a></div><div class="ttdeci">Error_t getSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols) const</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00141">Spectrogram.cpp:141</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 29 2022 23:48:46 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue May 31 2022 16:49:12 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

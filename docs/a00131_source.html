@@ -59,8 +59,8 @@
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// forward declarations</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span><a class="code hl_class" href="a00258.html">CFft</a>;</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="a00310.html">CCcf</a>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="a00290.html">CNoveltyIf</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="a00314.html">CCcf</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="a00294.html">CNoveltyIf</a>;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment"></span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">/*! \brief class for computation of a BeatHistogram from either a file or a vector</span></div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment">*/</span></div>
@@ -148,9 +148,9 @@
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="a00246.html#aab00ef7ee1267d939e78e6b27e86848e">compHistoRange_</a>(<span class="keywordtype">int</span>&amp; iStartIdx, <span class="keywordtype">int</span>&amp; iStopIdx, <a class="code hl_enumeration" href="a00246.html#a7aa666694543decf41aa7c27a0593db0">BeatHisto_t</a> eBeatHistoComp) <span class="keyword">const</span>;</div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span> </div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno"><a class="line" href="a00246.html#ad8450929df77fce9b3792cba35040ae1">   98</a></span>    <a class="code hl_class" href="a00258.html">CFft</a>* <a class="code hl_variable" href="a00246.html#ad8450929df77fce9b3792cba35040ae1">m_pCFft</a> = 0;  <span class="comment">//!&lt; fft instance</span></div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="a00246.html#a23b9ad80b0361e06678d1d661b85b963">   99</a></span>    <a class="code hl_class" href="a00310.html">CCcf</a>* <a class="code hl_variable" href="a00246.html#a23b9ad80b0361e06678d1d661b85b963">m_pCCcf</a> = 0;  <span class="comment">//!&lt; correlation instance</span></div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno"><a class="line" href="a00246.html#a23b9ad80b0361e06678d1d661b85b963">   99</a></span>    <a class="code hl_class" href="a00314.html">CCcf</a>* <a class="code hl_variable" href="a00246.html#a23b9ad80b0361e06678d1d661b85b963">m_pCCcf</a> = 0;  <span class="comment">//!&lt; correlation instance</span></div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
-<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="a00246.html#a9738952cf5af0bff317560bc5e074c57">  101</a></span>    <a class="code hl_class" href="a00290.html">CNoveltyIf</a>* <a class="code hl_variable" href="a00246.html#a9738952cf5af0bff317560bc5e074c57">m_pCNovelty</a> = 0; <span class="comment">//!&lt; novelty function extraction instance</span></div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno"><a class="line" href="a00246.html#a9738952cf5af0bff317560bc5e074c57">  101</a></span>    <a class="code hl_class" href="a00294.html">CNoveltyIf</a>* <a class="code hl_variable" href="a00246.html#a9738952cf5af0bff317560bc5e074c57">m_pCNovelty</a> = 0; <span class="comment">//!&lt; novelty function extraction instance</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span> </div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno"><a class="line" href="a00246.html#af1432b150aab8520153aea2490f331b0">  103</a></span>    <span class="keywordtype">float</span>* <a class="code hl_variable" href="a00246.html#af1432b150aab8520153aea2490f331b0">m_pfNovelty</a> = 0;  <span class="comment">//!&lt; buffer to hold extracted nvelty function</span></div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno"><a class="line" href="a00246.html#a55206ff18aa3617308745c9e515cfa5c">  104</a></span>    <span class="keywordtype">float</span>* <a class="code hl_variable" href="a00246.html#a55206ff18aa3617308745c9e515cfa5c">m_pfProcessBuff</a> = 0; <span class="comment">//!&lt; temporary processing buffer</span></div>
@@ -201,12 +201,12 @@
 <div class="ttc" id="aa00246_html_af0731429bb1c7a5cb3ca22aa54bf163b"><div class="ttname"><a href="a00246.html#af0731429bb1c7a5cb3ca22aa54bf163b">CBeatHistoIf::operator=</a></div><div class="ttdeci">CBeatHistoIf &amp; operator=(const CBeatHistoIf &amp;c)</div></div>
 <div class="ttc" id="aa00246_html_af1432b150aab8520153aea2490f331b0"><div class="ttname"><a href="a00246.html#af1432b150aab8520153aea2490f331b0">CBeatHistoIf::m_pfNovelty</a></div><div class="ttdeci">float * m_pfNovelty</div><div class="ttdoc">buffer to hold extracted nvelty function</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00103">BeatHisto.h:103</a></div></div>
 <div class="ttc" id="aa00258_html"><div class="ttname"><a href="a00258.html">CFft</a></div><div class="ttdoc">class for FFT computation with windowing</div><div class="ttdef"><b>Definition:</b> <a href="a00083_source.html#l00008">Fft.h:9</a></div></div>
-<div class="ttc" id="aa00290_html"><div class="ttname"><a href="a00290.html">CNoveltyIf</a></div><div class="ttdoc">class for computation of a magnitude Novelty from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00018">Novelty.h:19</a></div></div>
-<div class="ttc" id="aa00310_html"><div class="ttname"><a href="a00310.html">CCcf</a></div><div class="ttdoc">computation of correlation (freq domain)</div><div class="ttdef"><b>Definition:</b> <a href="a00110_source.html#l00013">ToolCcf.h:14</a></div></div>
+<div class="ttc" id="aa00294_html"><div class="ttname"><a href="a00294.html">CNoveltyIf</a></div><div class="ttdoc">class for computation of a magnitude Novelty from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00018">Novelty.h:19</a></div></div>
+<div class="ttc" id="aa00314_html"><div class="ttname"><a href="a00314.html">CCcf</a></div><div class="ttdoc">computation of correlation (freq domain)</div><div class="ttdef"><b>Definition:</b> <a href="a00110_source.html#l00013">ToolCcf.h:14</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 29 2022 23:48:46 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue May 31 2022 16:49:12 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

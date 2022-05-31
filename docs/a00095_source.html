@@ -60,8 +60,8 @@
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="comment">// forward declarations</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">class </span><a class="code hl_class" href="a00238.html">CAudioFileIf</a>;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">class </span><a class="code hl_class" href="a00258.html">CFft</a>;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="a00338.html">CNormalizeAudio</a>;</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="a00306.html">CBlockAudioIf</a>;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">class </span><a class="code hl_class" href="a00342.html">CNormalizeAudio</a>;</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">class </span><a class="code hl_class" href="a00310.html">CBlockAudioIf</a>;</div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keyword">class </span><a class="code hl_class" href="a00254.html">CFeatureFromBlockIf</a>;</div>
 <div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"></span> </div>
 <div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/*! \brief class for computation of a magnitude Feature from either a file or a vector</span></div>
@@ -174,9 +174,9 @@
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <span class="keywordtype">bool</span> <a class="code hl_function" href="a00250.html#a2aac3d25c179044493ad1c96fa877709">isFeatureSpectral_</a>(<a class="code hl_enumeration" href="a00250.html#a47ca14941c604beb42d60164b3e5e6b3">Feature_t</a> eFeatureIdx);</div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="a00250.html#a7aef37fcf40e80cbace42fe663f47bbd">computeMagSpectrum_</a>();</div>
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
-<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="a00250.html#a4435f6e09b4e6a9a8ef68ffaa7c65d83">  125</a></span>    <a class="code hl_class" href="a00338.html">CNormalizeAudio</a>* <a class="code hl_variable" href="a00250.html#a4435f6e09b4e6a9a8ef68ffaa7c65d83">m_pCNormalize</a> = 0;  <span class="comment">//!&lt; instantiate if audio file normalization is wanted</span></div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="a00250.html#a4435f6e09b4e6a9a8ef68ffaa7c65d83">  125</a></span>    <a class="code hl_class" href="a00342.html">CNormalizeAudio</a>* <a class="code hl_variable" href="a00250.html#a4435f6e09b4e6a9a8ef68ffaa7c65d83">m_pCNormalize</a> = 0;  <span class="comment">//!&lt; instantiate if audio file normalization is wanted</span></div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span> </div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="a00250.html#a2910c6f2b2eb5ac8d635f712741a6c03">  127</a></span>    <a class="code hl_class" href="a00306.html">CBlockAudioIf</a>* <a class="code hl_variable" href="a00250.html#a2910c6f2b2eb5ac8d635f712741a6c03">m_pCBlockAudio</a> = 0;   <span class="comment">//!&lt; instantiate for blocking time domain signal</span></div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno"><a class="line" href="a00250.html#a2910c6f2b2eb5ac8d635f712741a6c03">  127</a></span>    <a class="code hl_class" href="a00310.html">CBlockAudioIf</a>* <a class="code hl_variable" href="a00250.html#a2910c6f2b2eb5ac8d635f712741a6c03">m_pCBlockAudio</a> = 0;   <span class="comment">//!&lt; instantiate for blocking time domain signal</span></div>
 <div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span> </div>
 <div class="line"><a id="l00129" name="l00129"></a><span class="lineno"><a class="line" href="a00250.html#ad043d5900423040b84f134faa6b94053">  129</a></span>    <a class="code hl_class" href="a00254.html">CFeatureFromBlockIf</a>* <a class="code hl_variable" href="a00250.html#ad043d5900423040b84f134faa6b94053">m_pCFeature</a> = 0;</div>
 <div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span> </div>
@@ -250,12 +250,12 @@
 <div class="ttc" id="aa00250_html_af5da45fe4709e1dd028638a533822c98"><div class="ttname"><a href="a00250.html#af5da45fe4709e1dd028638a533822c98">CFeatureIf::~CFeatureIf</a></div><div class="ttdeci">virtual ~CFeatureIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00008_source.html#l00091">Feature.cpp:91</a></div></div>
 <div class="ttc" id="aa00254_html"><div class="ttname"><a href="a00254.html">CFeatureFromBlockIf</a></div><div class="ttdoc">class for computation of a feature from a block of data (e.g., time or magnitude spectrum)</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00014">FeatureFromBlock.h:15</a></div></div>
 <div class="ttc" id="aa00258_html"><div class="ttname"><a href="a00258.html">CFft</a></div><div class="ttdoc">class for FFT computation with windowing</div><div class="ttdef"><b>Definition:</b> <a href="a00083_source.html#l00008">Fft.h:9</a></div></div>
-<div class="ttc" id="aa00306_html"><div class="ttname"><a href="a00306.html">CBlockAudioIf</a></div><div class="ttdoc">forward declaration</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00012">ToolBlockAudio.h:13</a></div></div>
-<div class="ttc" id="aa00338_html"><div class="ttname"><a href="a00338.html">CNormalizeAudio</a></div><div class="ttdoc">class for audio normalization offering three options</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.html#l00046">ToolPreProc.h:47</a></div></div>
+<div class="ttc" id="aa00310_html"><div class="ttname"><a href="a00310.html">CBlockAudioIf</a></div><div class="ttdoc">forward declaration</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00012">ToolBlockAudio.h:13</a></div></div>
+<div class="ttc" id="aa00342_html"><div class="ttname"><a href="a00342.html">CNormalizeAudio</a></div><div class="ttdoc">class for audio normalization offering three options</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.html#l00046">ToolPreProc.h:47</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun May 29 2022 23:48:46 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue May 31 2022 16:49:12 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
