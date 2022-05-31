@@ -21,8 +21,8 @@ TEST_CASE("Filter", "[Filter]")
     pfIn = new float[1000*iDataLength];
     pfOut = new float[1000*iDataLength];
     pfCoeffs = new float[iDataLength];
-    CVectorFloat::setZero(pfIn, 1000*iDataLength);
-    CVectorFloat::setZero(pfOut, 1000*iDataLength);
+    CVectorFloat::setZero(pfIn, static_cast<long long>(1000*iDataLength));
+    CVectorFloat::setZero(pfOut, static_cast<long long>(1000*iDataLength));
     CVectorFloat::setZero(pfCoeffs, iDataLength);
     //CSynthesis::genSine(pfData, 20.F, fSampleFreq, iDataLength, .7F, static_cast<float>(PI_2));
 
@@ -83,7 +83,7 @@ TEST_CASE("Filter", "[Filter]")
         CHECK(1.F/sqrt(2.F) == Approx(CVectorFloat::getMax(pfOut, 1000 * iDataLength)).margin(1e-1F).epsilon(1e-1F));
         CHECK(Error_t::kNoError == pCFilter->processDFII(pfIn, pfIn, 1000 * iDataLength));
         CHECK(1.F / sqrt(2.F) == Approx(CVectorFloat::getMax(pfIn, 1000 * iDataLength)).margin(1e-1F).epsilon(1e-1F));
-        CVectorFloat::sub_I(pfOut, pfIn, 1000 * iDataLength);
+        CVectorFloat::sub_I(pfOut, pfIn, static_cast<long long>(1000 * iDataLength));
         CHECK(0.F == Approx(CVectorFloat::getMax(pfOut, 1000 * iDataLength, true)).margin(1e-4F).epsilon(1e-4F));
     }
 
@@ -139,6 +139,21 @@ TEST_CASE("Filter", "[Filter]")
         delete pCdFilter;
         delete[]pdIn;
         delete[] pdOut;
+    }
+
+    SECTION("Butter")
+    {
+        int iNumCoeffs = 3;
+        pfCoeffs[0] = 0.0200833655642112F; pfCoeffs[1] = 0.0401667311284225F; pfCoeffs[2] = 0.0200833655642112F;
+        pfCoeffs[iNumCoeffs] = 1; pfCoeffs[iNumCoeffs + 1] = -1.56101807580072F; pfCoeffs[iNumCoeffs + 2] = 0.641351538057563F;
+ 
+        CVectorFloat::setValue(pfOut, 5, iDataLength);
+        CButterLp::calcCoeffs<float>(pfOut, &pfOut[iNumCoeffs], 2, 0.1F);
+
+        CVectorFloat::sub_I(pfCoeffs, pfOut, static_cast<long long>(2*iNumCoeffs));
+        CHECK(0.F == Approx(CVectorFloat::getSum(pfCoeffs, iNumCoeffs)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVectorFloat::getSum(&pfCoeffs[iNumCoeffs], iNumCoeffs)).margin(1e-6F).epsilon(1e-6F));
+
     }
 
     SECTION("FiltFilt1")

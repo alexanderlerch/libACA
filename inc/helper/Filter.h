@@ -285,6 +285,114 @@ private:
     bool m_bIsInitialized = false; //!< true if initialized
 };
 
+/*! \brief class providing a generic filter implementation
+* implementation inspired by src from https://exstrom.com/journal/sigproc/dsigproc.html
+*/
+class CButterLp
+{
+public:
+
+    /*! computes buttworth lowpass coefficients
+     \param pfB output signal (to be written, length iOrder+1, allocated by user)
+     \param pfA input signal (to be written, length iOrder+1, allocated by user)
+     \param iOrder number of poles
+     \param fCutOff normed cutoff between 0 and 1 (fs/2)
+     \return Error_t
+     */
+    template<typename T>
+    static Error_t calcCoeffs(T* pfB, T* pfA, int iOrder, T fCutOff)
+    {
+        CVectorFloat::setZero(pfB, static_cast<long long>(iOrder + 1));
+        CVectorFloat::setZero(pfA, static_cast<long long>(iOrder + 1));
+        calcB(pfB, iOrder, fCutOff);
+        calcA(pfA, iOrder, fCutOff);
+
+        return Error_t::kNoError;
+    }
+private:
+
+    template<typename T>
+    static Error_t calcB(T* pfB, int iOrder, T fCutOff)
+    {
+        pfB[0] = 1;
+        pfB[1] = static_cast<T>(iOrder);
+        for (auto j = 2; j <= iOrder / 2; ++j)
+        {
+            pfB[j] = (iOrder - j + 1) * pfB[j - 1] / j;
+            pfB[iOrder - j] = pfB[j];
+        }
+        pfB[iOrder - 1] = static_cast<T>(iOrder);
+        pfB[iOrder] = 1;
+
+        T fScale = calcScale(iOrder, fCutOff);
+
+        for (auto j = 0; j < iOrder + 1; j++)
+            pfB[j] *= fScale;
+
+        return Error_t::kNoError;
+    }
+
+    template<typename T>
+    static Error_t calcA(T* pfA, int iOrder, T fCutOff)
+    {
+        T* pfCoeff = 0;     // binomial coefficients
+
+        CVector::alloc<T>(pfCoeff, 2 * iOrder);
+
+        for (auto j = 0; j < iOrder; j++)
+        {
+            T fArg = static_cast<T>(M_PI * (2 * j + 1) / (2 * iOrder));
+            T fNorm = static_cast<T>(1 + std::sin(M_PI * fCutOff) * std::sin(fArg));
+            pfCoeff[2 * j] = static_cast<T>(-std::cos(M_PI * fCutOff) / fNorm);
+            pfCoeff[2 * j + 1] = static_cast<T>(-std::sin(M_PI * fCutOff) * std::cos(fArg) / fNorm);
+        }
+
+        multBinomial(pfA, pfCoeff, iOrder); 
+
+        pfA[1] = pfA[0];
+        pfA[0] = 1;
+            for (auto j = 3; j <= iOrder; ++j)
+            pfA[j] = pfA[2 * j - 2];
+
+        CVector::free<T>(pfCoeff);
+
+        return Error_t::kNoError;
+    }
+
+    template<typename T>
+    static T calcScale(int iOrder, T fCutOff)
+    {
+        T fPhase = static_cast<T>(M_PI / (2 * iOrder));
+        T fScale = 1;
+
+        for (auto j = 0; j < iOrder / 2; ++j)
+            fScale *= static_cast<T>(1 + std::sin(M_PI * fCutOff) * std::sin((2 * j + 1) * fPhase));
+
+        if (iOrder % 2)
+            fScale *= static_cast<T>(std::sin(M_PI * fCutOff / 2) + std::cos(M_PI * fCutOff / 2));
+        fScale = static_cast<T>(std::pow(std::sin(M_PI * fCutOff / 2), iOrder) / fScale);
+
+        return fScale;
+    }
+
+    template<typename T>
+    static Error_t multBinomial(T* pfOut, T* pfIn, int iOrder)
+    {
+        for (auto i = 0; i < iOrder; i++)
+        {
+            for (auto j = i; j > 0; j--)
+            {
+                pfOut[2 * j] += pfIn[2 * i] * pfOut[2 * (j - 1)] - pfIn[2 * i + 1] * pfOut[2 * (j - 1) + 1];
+                pfOut[2 * j + 1] += pfIn[2 * i] * pfOut[2 * (j - 1) + 1] + pfIn[2 * i + 1] * pfOut[2 * (j - 1)];
+            }
+            pfOut[0] += pfIn[2 * i];
+            pfOut[1] += pfIn[2 * i + 1];
+        }
+        return Error_t::kNoError;
+    }
+};
+
+
 #endif // #if !defined(__Filter_hdr__)
 
 
