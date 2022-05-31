@@ -24,7 +24,7 @@ public:
     /*! initializes the filter
     \param pfB numerator coefficients 
     \param pfA denominator coefficients (normalized: pfA[0] = 1)
-    \param length of both pfB, and pfA
+    \param iNumCoeffs length of both pfB, and pfA
     \return Error_t
     */
     Error_t init(const T* pfB, const T* pfA, int iNumCoeffs)
