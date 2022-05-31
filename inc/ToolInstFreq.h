@@ -32,7 +32,7 @@ public:
 
         //init omega
         for (auto k = 0; k < m_iPhaseLength; k++)
-            m_pfOmega[k] = static_cast<float>(k*m_iHopLength * 2*M_PI/ iFftLength);
+            m_pfOmega[k] = static_cast<float>(m_iHopLength * 2.* k * M_PI/ iFftLength);
 
     }
 

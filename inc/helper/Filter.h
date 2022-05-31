@@ -48,10 +48,10 @@ public:
 
         // initialize other internal memory
         m_pCFilterBuff = new CRingBuffer<T>(iNumCoeffs);
-        m_pCFilterBuff->setWriteIdx(iNumCoeffs - 1);
+        m_pCFilterBuff->setWriteIdx(static_cast<long long>(iNumCoeffs - 1));
 
-        m_ptProcBuff = new T[iNumCoeffs-1];
-        CVector::setZero(m_ptProcBuff, iNumCoeffs - 1);
+        m_ptProcBuff = new T[static_cast<long long>(iNumCoeffs-1)];
+        CVector::setZero(m_ptProcBuff, static_cast<long long>(iNumCoeffs - 1));
 
         m_bIsInitialized = true;
 
@@ -302,10 +302,17 @@ public:
     template<typename T>
     static Error_t calcCoeffs(T* pfB, T* pfA, int iOrder, T fCutOff)
     {
-        CVectorFloat::setZero(pfB, static_cast<long long>(iOrder + 1));
-        CVectorFloat::setZero(pfA, static_cast<long long>(iOrder + 1));
+        const long long iTmpOrder = static_cast<long long>(iOrder); // silly compiler warnings get annoying
+        float* pfTmpA = 0;
+        CVectorFloat::alloc(pfTmpA, 2 * iTmpOrder);
+        CVectorFloat::setZero(pfB, iTmpOrder + 1);
+        CVectorFloat::setZero(pfTmpA, 2 * iTmpOrder);
+
         calcB(pfB, iOrder, fCutOff);
-        calcA(pfA, iOrder, fCutOff);
+        calcA(pfTmpA, iOrder, fCutOff);
+        CVectorFloat::copy(pfA, pfTmpA, iTmpOrder + 1);
+
+        CVectorFloat::free(pfTmpA);
 
         return Error_t::kNoError;
     }
@@ -351,7 +358,7 @@ private:
 
         pfA[1] = pfA[0];
         pfA[0] = 1;
-            for (auto j = 3; j <= iOrder; ++j)
+            for (auto j = 3; j <= iOrder; j++)
             pfA[j] = pfA[2 * j - 2];
 
         CVector::free<T>(pfCoeff);
