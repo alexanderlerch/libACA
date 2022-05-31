@@ -155,7 +155,7 @@
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <span class="comment">// copy data to internal buffer</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    <a class="code hl_function" href="a00290.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(<a class="code hl_variable" href="a00258.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a>, pfInput, <a class="code hl_variable" href="a00258.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>);</div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="a00290.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(&amp;<a class="code hl_variable" href="a00258.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a>[<a class="code hl_variable" href="a00258.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>], <a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>-<a class="code hl_variable" href="a00258.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="a00290.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(&amp;<a class="code hl_variable" href="a00258.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a>[<a class="code hl_variable" href="a00258.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>)-<a class="code hl_variable" href="a00258.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span> </div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span>    <span class="comment">// apply window function</span></div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00258.html#a5510ca714c1001ea7099bbf5b99013aa">m_ePrePostWindowOpt</a> &amp; <a class="code hl_enumvalue" href="a00258.html#a76d891ae674880a00dc09d0d86aff31ea30ff31365d8881b8b8120cddec6571f6">kPreWindow</a>)</div>
@@ -241,7 +241,7 @@
 <div class="line"><a id="l00189" name="l00189"></a><span class="lineno">  189</span>    <span class="comment">// re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)</span></div>
 <div class="line"><a id="l00190" name="l00190"></a><span class="lineno">  190</span>    <span class="keywordtype">int</span> iNyq        = <a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>&gt;&gt;1;</div>
 <div class="line"><a id="l00191" name="l00191"></a><span class="lineno">  191</span> </div>
-<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <a class="code hl_function" href="a00290.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfReal, pfSpectrum, iNyq+1);</div>
+<div class="line"><a id="l00192" name="l00192"></a><span class="lineno">  192</span>    <a class="code hl_function" href="a00290.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfReal, pfSpectrum, <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iNyq)+1);</div>
 <div class="line"><a id="l00193" name="l00193"></a><span class="lineno">  193</span> </div>
 <div class="line"><a id="l00194" name="l00194"></a><span class="lineno">  194</span>    pfImag[0] = 0;</div>
 <div class="line"><a id="l00195" name="l00195"></a><span class="lineno">  195</span>    pfImag[iNyq] = 0;</div>
@@ -261,7 +261,7 @@
 <div class="line"><a id="l00209" name="l00209"></a><span class="lineno">  209</span>    <span class="comment">// re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)</span></div>
 <div class="line"><a id="l00210" name="l00210"></a><span class="lineno">  210</span>    <span class="keywordtype">int</span> iNyq        = <a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>&gt;&gt;1;</div>
 <div class="line"><a id="l00211" name="l00211"></a><span class="lineno">  211</span> </div>
-<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <a class="code hl_function" href="a00290.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfSpectrum, pfReal, iNyq+1);</div>
+<div class="line"><a id="l00212" name="l00212"></a><span class="lineno">  212</span>    <a class="code hl_function" href="a00290.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfSpectrum, pfReal, <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iNyq)+1);</div>
 <div class="line"><a id="l00213" name="l00213"></a><span class="lineno">  213</span> </div>
 <div class="line"><a id="l00214" name="l00214"></a><span class="lineno">  214</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1, iImag = <a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>-1; i &lt; iNyq; i++, iImag--)</div>
 <div class="line"><a id="l00215" name="l00215"></a><span class="lineno">  215</span>    {</div>
@@ -284,7 +284,7 @@
 <div class="line"><a id="l00232" name="l00232"></a><span class="lineno"><a class="line" href="a00258.html#ab6245bc0fdabc5e62ab910414eb4b923">  232</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00258.html#ab6245bc0fdabc5e62ab910414eb4b923">CFft::conjugate_I</a>(<a class="code hl_typedef" href="a00258.html#a38d9bec76877868db2240b5f5c7f941d">complex_t</a>* pfFftResult)<span class="keyword"> const</span></div>
 <div class="line"><a id="l00233" name="l00233"></a><span class="lineno">  233</span><span class="keyword"></span>{</div>
 <div class="line"><a id="l00234" name="l00234"></a><span class="lineno">  234</span>    <span class="comment">// re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)</span></div>
-<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <a class="code hl_function" href="a00290.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(&amp;pfFftResult[(<a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>&gt;&gt;1)+1], -1.F, (<a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>&gt;&gt;1)-1);</div>
+<div class="line"><a id="l00235" name="l00235"></a><span class="lineno">  235</span>    <a class="code hl_function" href="a00290.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(&amp;pfFftResult[(<a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>&gt;&gt;1)+1], -1.F, <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00258.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>&gt;&gt;1)-1);</div>
 <div class="line"><a id="l00236" name="l00236"></a><span class="lineno">  236</span>}</div>
 <div class="line"><a id="l00237" name="l00237"></a><span class="lineno">  237</span> </div>
 <div class="line"><a id="l00238" name="l00238"></a><span class="lineno"><a class="line" href="a00258.html#a1d114960d5fc8ff4c328732adf638885">  238</a></span><span class="keywordtype">void</span> <a class="code hl_function" href="a00258.html#a1d114960d5fc8ff4c328732adf638885">CFft::multiply_I</a>(<a class="code hl_typedef" href="a00258.html#a38d9bec76877868db2240b5f5c7f941d">complex_t</a>* pfFftSrc1Dest, <span class="keyword">const</span> <a class="code hl_typedef" href="a00258.html#a38d9bec76877868db2240b5f5c7f941d">complex_t</a>* pfFftSrc2)<span class="keyword"> const</span></div>
@@ -455,7 +455,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 17:34:16 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue May 31 2022 20:40:25 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
