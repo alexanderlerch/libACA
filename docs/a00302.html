@@ -361,52 +361,52 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00350">350</a> of file <a class="el" href="a00005_source.html">Spectrogram.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  351</span>{</div>
-<div class="line"><span class="lineno">  352</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00302.html#a92d816e5c53f69e15c9fef51876d771d">m_bIsInitialized</a>)</div>
-<div class="line"><span class="lineno">  353</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
-<div class="line"><span class="lineno">  354</span>    <span class="keywordflow">if</span> (!pMelSpecConfig)</div>
-<div class="line"><span class="lineno">  355</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  356</span>    <span class="keywordflow">if</span> (!ppfMelSpectrogram)</div>
-<div class="line"><span class="lineno">  357</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  358</span>    <span class="keywordflow">if</span> (!ppfMelSpectrogram[0])</div>
-<div class="line"><span class="lineno">  359</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  360</span> </div>
-<div class="line"><span class="lineno">  361</span>    assert(<a class="code hl_variable" href="a00302.html#a28a5478e7c2d69b9f9fb23042d2ec609">m_pfProcessBuff</a>);</div>
-<div class="line"><span class="lineno">  362</span>    assert(<a class="code hl_variable" href="a00302.html#a46220f31318fed176ec507649fae3e50">m_pfSpectrum</a>);</div>
-<div class="line"><span class="lineno">  363</span>    assert(<a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>);</div>
-<div class="line"><span class="lineno">  364</span> </div>
-<div class="line"><span class="lineno">  365</span>    <span class="comment">// initialize mel filterbank</span></div>
-<div class="line"><span class="lineno">  366</span>    <a class="code hl_function" href="a00302.html#a04d8f71d4562f2a4efc8a8537826d8c3">generateMelFb_</a>(pMelSpecConfig);</div>
-<div class="line"><span class="lineno">  367</span>    assert(<a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>);</div>
-<div class="line"><span class="lineno">  368</span> </div>
-<div class="line"><span class="lineno">  369</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumBlocks = <a class="code hl_variable" href="a00302.html#a8b0cd13bbb3570f6b87017b11ca10d63">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00310.html#a595b3a391e2540a1dc9e53edf8634494">getNumBlocks</a>();</div>
-<div class="line"><span class="lineno">  370</span> </div>
-<div class="line"><span class="lineno">  371</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
-<div class="line"><span class="lineno">  372</span>    {</div>
-<div class="line"><span class="lineno">  373</span>        <span class="keyword">auto</span> iLength = <a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a9cb162394031e8b496f7a39b51c31d20">getLength</a>(<a class="code hl_enumvalue" href="a00258.html#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">CFft::kLengthMagnitude</a>);</div>
-<div class="line"><span class="lineno">  374</span> </div>
-<div class="line"><span class="lineno">  375</span>        <a class="code hl_function" href="a00302.html#abe25089ec6ef77b0b9952c33a7a8d739">computeMagSpectrum_</a>(iLength);</div>
-<div class="line"><span class="lineno">  376</span> </div>
-<div class="line"><span class="lineno">  377</span>        <span class="comment">// copy to output buffer</span></div>
-<div class="line"><span class="lineno">  378</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; pMelSpecConfig-&gt;iNumMelBins; k++)</div>
-<div class="line"><span class="lineno">  379</span>        {</div>
-<div class="line"><span class="lineno">  380</span>            assert(<a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[k]);</div>
-<div class="line"><span class="lineno">  381</span>            ppfMelSpectrogram[k][n] = <a class="code hl_function" href="a00290.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(<a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[k], <a class="code hl_variable" href="a00302.html#a46220f31318fed176ec507649fae3e50">m_pfSpectrum</a>, iLength);</div>
-<div class="line"><span class="lineno">  382</span>        }</div>
-<div class="line"><span class="lineno">  383</span> </div>
-<div class="line"><span class="lineno">  384</span>        <span class="keywordflow">if</span> (pMelSpecConfig-&gt;bIsLogarithmic)</div>
-<div class="line"><span class="lineno">  385</span>        {</div>
-<div class="line"><span class="lineno">  386</span>            <span class="comment">// convert amplitude to level(dB)</span></div>
-<div class="line"><span class="lineno">  387</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; pMelSpecConfig-&gt;iNumMelBins; k++)</div>
-<div class="line"><span class="lineno">  388</span>                ppfMelSpectrogram[k][n] = 20.F * std::log10(ppfMelSpectrogram[k][n] + 1e-12F);</div>
-<div class="line"><span class="lineno">  389</span>        }</div>
-<div class="line"><span class="lineno">  390</span>    }</div>
-<div class="line"><span class="lineno">  391</span> </div>
-<div class="line"><span class="lineno">  392</span>    <a class="code hl_function" href="a00302.html#a00140b0dd45e87aef4561aed8ebc779a">destroyMelFb_</a>(pMelSpecConfig);</div>
-<div class="line"><span class="lineno">  393</span> </div>
-<div class="line"><span class="lineno">  394</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  395</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00347">347</a> of file <a class="el" href="a00005_source.html">Spectrogram.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  348</span>{</div>
+<div class="line"><span class="lineno">  349</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00302.html#a92d816e5c53f69e15c9fef51876d771d">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  350</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  351</span>    <span class="keywordflow">if</span> (!pMelSpecConfig)</div>
+<div class="line"><span class="lineno">  352</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  353</span>    <span class="keywordflow">if</span> (!ppfMelSpectrogram)</div>
+<div class="line"><span class="lineno">  354</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  355</span>    <span class="keywordflow">if</span> (!ppfMelSpectrogram[0])</div>
+<div class="line"><span class="lineno">  356</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  357</span> </div>
+<div class="line"><span class="lineno">  358</span>    assert(<a class="code hl_variable" href="a00302.html#a28a5478e7c2d69b9f9fb23042d2ec609">m_pfProcessBuff</a>);</div>
+<div class="line"><span class="lineno">  359</span>    assert(<a class="code hl_variable" href="a00302.html#a46220f31318fed176ec507649fae3e50">m_pfSpectrum</a>);</div>
+<div class="line"><span class="lineno">  360</span>    assert(<a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>);</div>
+<div class="line"><span class="lineno">  361</span> </div>
+<div class="line"><span class="lineno">  362</span>    <span class="comment">// initialize mel filterbank</span></div>
+<div class="line"><span class="lineno">  363</span>    <a class="code hl_function" href="a00302.html#a04d8f71d4562f2a4efc8a8537826d8c3">generateMelFb_</a>(pMelSpecConfig);</div>
+<div class="line"><span class="lineno">  364</span>    assert(<a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>);</div>
+<div class="line"><span class="lineno">  365</span> </div>
+<div class="line"><span class="lineno">  366</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumBlocks = <a class="code hl_variable" href="a00302.html#a8b0cd13bbb3570f6b87017b11ca10d63">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00310.html#a595b3a391e2540a1dc9e53edf8634494">getNumBlocks</a>();</div>
+<div class="line"><span class="lineno">  367</span> </div>
+<div class="line"><span class="lineno">  368</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
+<div class="line"><span class="lineno">  369</span>    {</div>
+<div class="line"><span class="lineno">  370</span>        <span class="keyword">auto</span> iLength = <a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a9cb162394031e8b496f7a39b51c31d20">getLength</a>(<a class="code hl_enumvalue" href="a00258.html#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">CFft::kLengthMagnitude</a>);</div>
+<div class="line"><span class="lineno">  371</span> </div>
+<div class="line"><span class="lineno">  372</span>        <a class="code hl_function" href="a00302.html#abe25089ec6ef77b0b9952c33a7a8d739">computeMagSpectrum_</a>(iLength);</div>
+<div class="line"><span class="lineno">  373</span> </div>
+<div class="line"><span class="lineno">  374</span>        <span class="comment">// copy to output buffer</span></div>
+<div class="line"><span class="lineno">  375</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; pMelSpecConfig-&gt;iNumMelBins; k++)</div>
+<div class="line"><span class="lineno">  376</span>        {</div>
+<div class="line"><span class="lineno">  377</span>            assert(<a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[k]);</div>
+<div class="line"><span class="lineno">  378</span>            ppfMelSpectrogram[k][n] = <a class="code hl_function" href="a00290.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(<a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[k], <a class="code hl_variable" href="a00302.html#a46220f31318fed176ec507649fae3e50">m_pfSpectrum</a>, iLength);</div>
+<div class="line"><span class="lineno">  379</span>        }</div>
+<div class="line"><span class="lineno">  380</span> </div>
+<div class="line"><span class="lineno">  381</span>        <span class="keywordflow">if</span> (pMelSpecConfig-&gt;bIsLogarithmic)</div>
+<div class="line"><span class="lineno">  382</span>        {</div>
+<div class="line"><span class="lineno">  383</span>            <span class="comment">// convert amplitude to level(dB)</span></div>
+<div class="line"><span class="lineno">  384</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; pMelSpecConfig-&gt;iNumMelBins; k++)</div>
+<div class="line"><span class="lineno">  385</span>                ppfMelSpectrogram[k][n] = 20.F * std::log10(ppfMelSpectrogram[k][n] + 1e-12F);</div>
+<div class="line"><span class="lineno">  386</span>        }</div>
+<div class="line"><span class="lineno">  387</span>    }</div>
+<div class="line"><span class="lineno">  388</span> </div>
+<div class="line"><span class="lineno">  389</span>    <a class="code hl_function" href="a00302.html#a00140b0dd45e87aef4561aed8ebc779a">destroyMelFb_</a>(pMelSpecConfig);</div>
+<div class="line"><span class="lineno">  390</span> </div>
+<div class="line"><span class="lineno">  391</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  392</span>}</div>
 <div class="ttc" id="aa00107_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
 <div class="ttc" id="aa00107_html_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
 <div class="ttc" id="aa00107_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
@@ -414,7 +414,7 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="aa00258_html_aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e"><div class="ttname"><a href="a00258.html#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">CFft::kLengthMagnitude</a></div><div class="ttdeci">@ kLengthMagnitude</div><div class="ttdoc">length of the magnitude spectrum</div><div class="ttdef"><b>Definition:</b> <a href="a00083_source.html#l00107">Fft.h:107</a></div></div>
 <div class="ttc" id="aa00290_html_ab572a4fece01255657935ed18afdeadd"><div class="ttname"><a href="a00290.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a></div><div class="ttdeci">static float mulScalar(const float *pfSrc1, const float *pfSrc2, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00286">Vector.h:286</a></div></div>
 <div class="ttc" id="aa00302_html_a00140b0dd45e87aef4561aed8ebc779a"><div class="ttname"><a href="a00302.html#a00140b0dd45e87aef4561aed8ebc779a">CSpectrogramIf::destroyMelFb_</a></div><div class="ttdeci">void destroyMelFb_(const MelSpectrogramConfig_t *pMelSpecConfig)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00233">Spectrogram.cpp:233</a></div></div>
-<div class="ttc" id="aa00302_html_a04d8f71d4562f2a4efc8a8537826d8c3"><div class="ttname"><a href="a00302.html#a04d8f71d4562f2a4efc8a8537826d8c3">CSpectrogramIf::generateMelFb_</a></div><div class="ttdeci">Error_t generateMelFb_(const MelSpectrogramConfig_t *pMelSpecConfig)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00397">Spectrogram.cpp:397</a></div></div>
+<div class="ttc" id="aa00302_html_a04d8f71d4562f2a4efc8a8537826d8c3"><div class="ttname"><a href="a00302.html#a04d8f71d4562f2a4efc8a8537826d8c3">CSpectrogramIf::generateMelFb_</a></div><div class="ttdeci">Error_t generateMelFb_(const MelSpectrogramConfig_t *pMelSpecConfig)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.html#l00394">Spectrogram.cpp:394</a></div></div>
 <div class="ttc" id="aa00302_html_a28a5478e7c2d69b9f9fb23042d2ec609"><div class="ttname"><a href="a00302.html#a28a5478e7c2d69b9f9fb23042d2ec609">CSpectrogramIf::m_pfProcessBuff</a></div><div class="ttdeci">float * m_pfProcessBuff</div><div class="ttdoc">temporary buffer</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00133">Spectrogram.h:133</a></div></div>
 <div class="ttc" id="aa00302_html_a46220f31318fed176ec507649fae3e50"><div class="ttname"><a href="a00302.html#a46220f31318fed176ec507649fae3e50">CSpectrogramIf::m_pfSpectrum</a></div><div class="ttdeci">float * m_pfSpectrum</div><div class="ttdoc">temporary buffer for current spectrum</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00132">Spectrogram.h:132</a></div></div>
 <div class="ttc" id="aa00302_html_a8b0cd13bbb3570f6b87017b11ca10d63"><div class="ttname"><a href="a00302.html#a8b0cd13bbb3570f6b87017b11ca10d63">CSpectrogramIf::m_pCBlockAudio</a></div><div class="ttdeci">CBlockAudioIf * m_pCBlockAudio</div><div class="ttdoc">instantiate for blocking time domain signal</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00123">Spectrogram.h:123</a></div></div>
@@ -424,7 +424,7 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="aa00302_html_af2d9ad1a7f19819df98a16a12910793b"><div class="ttname"><a href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">CSpectrogramIf::m_pCFft</a></div><div class="ttdeci">CFft * m_pCFft</div><div class="ttdoc">fft instance</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00125">Spectrogram.h:125</a></div></div>
 <div class="ttc" id="aa00310_html_a595b3a391e2540a1dc9e53edf8634494"><div class="ttname"><a href="a00310.html#a595b3a391e2540a1dc9e53edf8634494">CBlockAudioIf::getNumBlocks</a></div><div class="ttdeci">long long getNumBlocks() const</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00051">ToolBlockAudio.h:51</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00082">CSpectrogramIf::MelSpectrogramConfig_t::bIsLogarithmic</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00233">destroyMelFb_()</a>, <a class="el" href="a00005_source.html#l00397">generateMelFb_()</a>, <a class="el" href="a00032_source.html#l00329">CFft::getLength()</a>, <a class="el" href="a00098_source.html#l00051">CBlockAudioIf::getNumBlocks()</a>, <a class="el" href="a00137_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00083_source.html#l00107">CFft::kLengthMagnitude</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.html#l00135">m_bIsInitialized</a>, <a class="el" href="a00137_source.html#l00123">m_pCBlockAudio</a>, <a class="el" href="a00137_source.html#l00125">m_pCFft</a>, <a class="el" href="a00137_source.html#l00133">m_pfProcessBuff</a>, <a class="el" href="a00137_source.html#l00132">m_pfSpectrum</a>, <a class="el" href="a00137_source.html#l00138">m_ppfHMel</a>, and <a class="el" href="a00080_source.html#l00286">CVectorFloat::mulScalar()</a>.</p>
+<p class="reference">References <a class="el" href="a00137_source.html#l00082">CSpectrogramIf::MelSpectrogramConfig_t::bIsLogarithmic</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00233">destroyMelFb_()</a>, <a class="el" href="a00005_source.html#l00394">generateMelFb_()</a>, <a class="el" href="a00032_source.html#l00329">CFft::getLength()</a>, <a class="el" href="a00098_source.html#l00051">CBlockAudioIf::getNumBlocks()</a>, <a class="el" href="a00137_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00083_source.html#l00107">CFft::kLengthMagnitude</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.html#l00135">m_bIsInitialized</a>, <a class="el" href="a00137_source.html#l00123">m_pCBlockAudio</a>, <a class="el" href="a00137_source.html#l00125">m_pCFft</a>, <a class="el" href="a00137_source.html#l00133">m_pfProcessBuff</a>, <a class="el" href="a00137_source.html#l00132">m_pfSpectrum</a>, <a class="el" href="a00137_source.html#l00138">m_ppfHMel</a>, and <a class="el" href="a00080_source.html#l00286">CVectorFloat::mulScalar()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00044_source.html#l00017">main()</a>.</p>
 <div class="dynheader">
@@ -604,7 +604,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00032_source.html#l00097">CFft::compFft()</a>, <a class="el" href="a00032_source.html#l00142">CFft::getMagnitude()</a>, <a class="el" href="a00310.html#a531920b36b04ecdb562bfbb09dd2e856">CBlockAudioIf::getNextBlock()</a>, <a class="el" href="a00137_source.html#l00127">m_iBlockLength</a>, <a class="el" href="a00137_source.html#l00123">m_pCBlockAudio</a>, <a class="el" href="a00137_source.html#l00125">m_pCFft</a>, <a class="el" href="a00137_source.html#l00121">m_pCNormalize</a>, <a class="el" href="a00137_source.html#l00133">m_pfProcessBuff</a>, <a class="el" href="a00137_source.html#l00132">m_pfSpectrum</a>, <a class="el" href="a00080_source.html#l00255">CVectorFloat::mulC_I()</a>, and <a class="el" href="a00125_source.html#l00120">CNormalizeAudio::normalizeBlock()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, and <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, and <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -963,7 +963,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00137_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, <a class="el" href="a00137_source.html#l00139">m_pffcMel</a>, and <a class="el" href="a00137_source.html#l00138">m_ppfHMel</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, and <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, and <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1003,59 +1003,59 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p >&lt; normalization</p>
 
-<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00397">397</a> of file <a class="el" href="a00005_source.html">Spectrogram.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  398</span>{</div>
-<div class="line"><span class="lineno">  399</span>    assert(pMelSpecConfig);</div>
-<div class="line"><span class="lineno">  400</span> </div>
-<div class="line"><span class="lineno">  401</span>    <span class="keywordtype">int</span> iMagLength = <a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a9cb162394031e8b496f7a39b51c31d20">getLength</a>(<a class="code hl_enumvalue" href="a00258.html#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">CFft::kLengthMagnitude</a>);</div>
-<div class="line"><span class="lineno">  402</span> </div>
-<div class="line"><span class="lineno">  403</span>    <span class="comment">// configuration check</span></div>
-<div class="line"><span class="lineno">  404</span>    <span class="keywordflow">if</span> (pMelSpecConfig-&gt;fMinFreqInHz &lt; 0)</div>
-<div class="line"><span class="lineno">  405</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  406</span>    <span class="keywordflow">if</span> (pMelSpecConfig-&gt;fMaxFreqInHz &gt; <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a> / 2)</div>
-<div class="line"><span class="lineno">  407</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  408</span>    <span class="keywordflow">if</span> (pMelSpecConfig-&gt;iNumMelBins &lt;= 0 || pMelSpecConfig-&gt;iNumMelBins &gt; iMagLength)</div>
-<div class="line"><span class="lineno">  409</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  410</span> </div>
-<div class="line"><span class="lineno">  411</span>    <span class="comment">// allocate filter matrix and frequency matrix</span></div>
-<div class="line"><span class="lineno">  412</span>    <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[pMelSpecConfig-&gt;iNumMelBins + 2]; <span class="comment">// +2 for lower and upper bound</span></div>
-<div class="line"><span class="lineno">  413</span>    <a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>* [pMelSpecConfig-&gt;iNumMelBins];</div>
-<div class="line"><span class="lineno">  414</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; pMelSpecConfig-&gt;iNumMelBins; k++)</div>
-<div class="line"><span class="lineno">  415</span>    {</div>
-<div class="line"><span class="lineno">  416</span>        <a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[k] = <span class="keyword">new</span> <span class="keywordtype">float</span>[iMagLength];</div>
-<div class="line"><span class="lineno">  417</span>        <a class="code hl_function" href="a00290.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[k], iMagLength);</div>
-<div class="line"><span class="lineno">  418</span>    }</div>
-<div class="line"><span class="lineno">  419</span> </div>
-<div class="line"><span class="lineno">  420</span>    <span class="comment">// compute center band frequencies</span></div>
-<div class="line"><span class="lineno">  421</span>    <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[0] = <a class="code hl_function" href="a00318.html#ad0d26c7c6a5edaa81527e68fe0c0c46f">CConversion::convertFreq2Mel</a>(pMelSpecConfig-&gt;fMinFreqInHz);</div>
-<div class="line"><span class="lineno">  422</span>    <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[pMelSpecConfig-&gt;iNumMelBins + 1] = <a class="code hl_function" href="a00318.html#ad0d26c7c6a5edaa81527e68fe0c0c46f">CConversion::convertFreq2Mel</a>(pMelSpecConfig-&gt;fMaxFreqInHz);</div>
-<div class="line"><span class="lineno">  423</span>    <span class="keywordtype">float</span> fMelInc = (<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[pMelSpecConfig-&gt;iNumMelBins + 1] - <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[0]) / (pMelSpecConfig-&gt;iNumMelBins+1);</div>
-<div class="line"><span class="lineno">  424</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 1; k &lt; pMelSpecConfig-&gt;iNumMelBins + 1; k++)</div>
-<div class="line"><span class="lineno">  425</span>        <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[k] = <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[k - 1] + fMelInc;</div>
-<div class="line"><span class="lineno">  426</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; pMelSpecConfig-&gt;iNumMelBins + 2; k++)</div>
-<div class="line"><span class="lineno">  427</span>        <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[k] = <a class="code hl_function" href="a00318.html#adbcadd75a3a33ca9e9453a17a9336318">CConversion::convertMel2Freq</a>(<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[k]);</div>
-<div class="line"><span class="lineno">  428</span> </div>
-<div class="line"><span class="lineno">  429</span>    <span class="keywordtype">float</span>* pf_l = &amp;<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[0],</div>
-<div class="line"><span class="lineno">  430</span>        * pf_c = &amp;<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[1],</div>
-<div class="line"><span class="lineno">  431</span>        * pf_u = &amp;<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[2];</div>
-<div class="line"><span class="lineno">  432</span> </div>
-<div class="line"><span class="lineno">  433</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; pMelSpecConfig-&gt;iNumMelBins; m++)</div>
-<div class="line"><span class="lineno">  434</span>    {</div>
-<div class="line"><span class="lineno">  435</span>        <span class="keywordtype">float</span> fFilterMax = 2.F / (pf_u[m] - pf_l[m]); <span class="comment">//!&lt; normalization</span></div>
-<div class="line"><span class="lineno">  436</span> </div>
-<div class="line"><span class="lineno">  437</span>        <span class="keywordtype">int</span> iLowBin = 1 + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a22af988b424911d7750a0f9f381aa443">freq2bin</a>(pf_l[m], <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>));</div>
-<div class="line"><span class="lineno">  438</span>        <span class="keywordtype">int</span> iCenterBin = 1 + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a22af988b424911d7750a0f9f381aa443">freq2bin</a>(pf_c[m], <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>));</div>
-<div class="line"><span class="lineno">  439</span>        <span class="keywordtype">int</span> iUpBin = 1 + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a22af988b424911d7750a0f9f381aa443">freq2bin</a>(pf_u[m], <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>));</div>
-<div class="line"><span class="lineno">  440</span> </div>
-<div class="line"><span class="lineno">  441</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = iLowBin; k &lt; iCenterBin; k++)</div>
-<div class="line"><span class="lineno">  442</span>            <a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[m][k] = fFilterMax * (<a class="code hl_function" href="a00318.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(k), (iMagLength - 1) * 2, <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>) - pf_l[m]) / (pf_c[m] - pf_l[m]);</div>
-<div class="line"><span class="lineno">  443</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = iCenterBin; k &lt; iUpBin; k++)</div>
-<div class="line"><span class="lineno">  444</span>            <a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[m][k] = fFilterMax * (pf_u[m] - <a class="code hl_function" href="a00318.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(k), (iMagLength - 1) * 2, <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>)) / (pf_u[m] - pf_c[m]);</div>
-<div class="line"><span class="lineno">  445</span> </div>
-<div class="line"><span class="lineno">  446</span>    }</div>
-<div class="line"><span class="lineno">  447</span> </div>
-<div class="line"><span class="lineno">  448</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  449</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00005_source.html#l00394">394</a> of file <a class="el" href="a00005_source.html">Spectrogram.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  395</span>{</div>
+<div class="line"><span class="lineno">  396</span>    assert(pMelSpecConfig);</div>
+<div class="line"><span class="lineno">  397</span> </div>
+<div class="line"><span class="lineno">  398</span>    <span class="keywordtype">int</span> iMagLength = <a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a9cb162394031e8b496f7a39b51c31d20">getLength</a>(<a class="code hl_enumvalue" href="a00258.html#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">CFft::kLengthMagnitude</a>);</div>
+<div class="line"><span class="lineno">  399</span> </div>
+<div class="line"><span class="lineno">  400</span>    <span class="comment">// configuration check</span></div>
+<div class="line"><span class="lineno">  401</span>    <span class="keywordflow">if</span> (pMelSpecConfig-&gt;fMinFreqInHz &lt; 0)</div>
+<div class="line"><span class="lineno">  402</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  403</span>    <span class="keywordflow">if</span> (pMelSpecConfig-&gt;fMaxFreqInHz &gt; <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a> / 2)</div>
+<div class="line"><span class="lineno">  404</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  405</span>    <span class="keywordflow">if</span> (pMelSpecConfig-&gt;iNumMelBins &lt;= 0 || pMelSpecConfig-&gt;iNumMelBins &gt; iMagLength)</div>
+<div class="line"><span class="lineno">  406</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  407</span> </div>
+<div class="line"><span class="lineno">  408</span>    <span class="comment">// allocate filter matrix and frequency matrix</span></div>
+<div class="line"><span class="lineno">  409</span>    <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[pMelSpecConfig-&gt;iNumMelBins + 2]; <span class="comment">// +2 for lower and upper bound</span></div>
+<div class="line"><span class="lineno">  410</span>    <a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>* [pMelSpecConfig-&gt;iNumMelBins];</div>
+<div class="line"><span class="lineno">  411</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; pMelSpecConfig-&gt;iNumMelBins; k++)</div>
+<div class="line"><span class="lineno">  412</span>    {</div>
+<div class="line"><span class="lineno">  413</span>        <a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[k] = <span class="keyword">new</span> <span class="keywordtype">float</span>[iMagLength];</div>
+<div class="line"><span class="lineno">  414</span>        <a class="code hl_function" href="a00290.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[k], iMagLength);</div>
+<div class="line"><span class="lineno">  415</span>    }</div>
+<div class="line"><span class="lineno">  416</span> </div>
+<div class="line"><span class="lineno">  417</span>    <span class="comment">// compute center band frequencies</span></div>
+<div class="line"><span class="lineno">  418</span>    <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[0] = <a class="code hl_function" href="a00318.html#ad0d26c7c6a5edaa81527e68fe0c0c46f">CConversion::convertFreq2Mel</a>(pMelSpecConfig-&gt;fMinFreqInHz);</div>
+<div class="line"><span class="lineno">  419</span>    <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[pMelSpecConfig-&gt;iNumMelBins + 1] = <a class="code hl_function" href="a00318.html#ad0d26c7c6a5edaa81527e68fe0c0c46f">CConversion::convertFreq2Mel</a>(pMelSpecConfig-&gt;fMaxFreqInHz);</div>
+<div class="line"><span class="lineno">  420</span>    <span class="keywordtype">float</span> fMelInc = (<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[pMelSpecConfig-&gt;iNumMelBins + 1] - <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[0]) / (pMelSpecConfig-&gt;iNumMelBins+1);</div>
+<div class="line"><span class="lineno">  421</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 1; k &lt; pMelSpecConfig-&gt;iNumMelBins + 1; k++)</div>
+<div class="line"><span class="lineno">  422</span>        <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[k] = <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[k - 1] + fMelInc;</div>
+<div class="line"><span class="lineno">  423</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; pMelSpecConfig-&gt;iNumMelBins + 2; k++)</div>
+<div class="line"><span class="lineno">  424</span>        <a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[k] = <a class="code hl_function" href="a00318.html#adbcadd75a3a33ca9e9453a17a9336318">CConversion::convertMel2Freq</a>(<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[k]);</div>
+<div class="line"><span class="lineno">  425</span> </div>
+<div class="line"><span class="lineno">  426</span>    <span class="keywordtype">float</span>* pf_l = &amp;<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[0],</div>
+<div class="line"><span class="lineno">  427</span>        * pf_c = &amp;<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[1],</div>
+<div class="line"><span class="lineno">  428</span>        * pf_u = &amp;<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[2];</div>
+<div class="line"><span class="lineno">  429</span> </div>
+<div class="line"><span class="lineno">  430</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; pMelSpecConfig-&gt;iNumMelBins; m++)</div>
+<div class="line"><span class="lineno">  431</span>    {</div>
+<div class="line"><span class="lineno">  432</span>        <span class="keywordtype">float</span> fFilterMax = 2.F / (pf_u[m] - pf_l[m]); <span class="comment">//!&lt; normalization</span></div>
+<div class="line"><span class="lineno">  433</span> </div>
+<div class="line"><span class="lineno">  434</span>        <span class="keywordtype">int</span> iLowBin = 1 + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a22af988b424911d7750a0f9f381aa443">freq2bin</a>(pf_l[m], <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>));</div>
+<div class="line"><span class="lineno">  435</span>        <span class="keywordtype">int</span> iCenterBin = 1 + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a22af988b424911d7750a0f9f381aa443">freq2bin</a>(pf_c[m], <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>));</div>
+<div class="line"><span class="lineno">  436</span>        <span class="keywordtype">int</span> iUpBin = 1 + <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00302.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a>-&gt;<a class="code hl_function" href="a00258.html#a22af988b424911d7750a0f9f381aa443">freq2bin</a>(pf_u[m], <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>));</div>
+<div class="line"><span class="lineno">  437</span> </div>
+<div class="line"><span class="lineno">  438</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = iLowBin; k &lt; iCenterBin; k++)</div>
+<div class="line"><span class="lineno">  439</span>            <a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[m][k] = fFilterMax * (<a class="code hl_function" href="a00318.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(k), (iMagLength - 1) * 2, <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>) - pf_l[m]) / (pf_c[m] - pf_l[m]);</div>
+<div class="line"><span class="lineno">  440</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = iCenterBin; k &lt; iUpBin; k++)</div>
+<div class="line"><span class="lineno">  441</span>            <a class="code hl_variable" href="a00302.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a>[m][k] = fFilterMax * (pf_u[m] - <a class="code hl_function" href="a00318.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(k), (iMagLength - 1) * 2, <a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>)) / (pf_u[m] - pf_c[m]);</div>
+<div class="line"><span class="lineno">  442</span> </div>
+<div class="line"><span class="lineno">  443</span>    }</div>
+<div class="line"><span class="lineno">  444</span> </div>
+<div class="line"><span class="lineno">  445</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  446</span>}</div>
 <div class="ttc" id="aa00258_html_a22af988b424911d7750a0f9f381aa443"><div class="ttname"><a href="a00258.html#a22af988b424911d7750a0f9f381aa443">CFft::freq2bin</a></div><div class="ttdeci">float freq2bin(float fFreqInHz, float fSampleRateInHz) const</div><div class="ttdef"><b>Definition:</b> <a href="a00032_source.html#l00222">Fft.cpp:222</a></div></div>
 <div class="ttc" id="aa00290_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00290.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00185">Vector.h:185</a></div></div>
 <div class="ttc" id="aa00302_html_ad41fa79049fdd292778046629a62139f"><div class="ttname"><a href="a00302.html#ad41fa79049fdd292778046629a62139f">CSpectrogramIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00130">Spectrogram.h:130</a></div></div>
@@ -1065,7 +1065,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00122_source.html#l00205">CConversion::convertBin2Freq()</a>, <a class="el" href="a00020_source.html#l00018">CConversion::convertFreq2Mel()</a>, <a class="el" href="a00020_source.html#l00024">CConversion::convertMel2Freq()</a>, <a class="el" href="a00137_source.html#l00081">CSpectrogramIf::MelSpectrogramConfig_t::fMaxFreqInHz</a>, <a class="el" href="a00137_source.html#l00080">CSpectrogramIf::MelSpectrogramConfig_t::fMinFreqInHz</a>, <a class="el" href="a00032_source.html#l00222">CFft::freq2bin()</a>, <a class="el" href="a00032_source.html#l00329">CFft::getLength()</a>, <a class="el" href="a00137_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00083_source.html#l00107">CFft::kLengthMagnitude</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.html#l00130">m_fSampleRate</a>, <a class="el" href="a00137_source.html#l00125">m_pCFft</a>, <a class="el" href="a00137_source.html#l00139">m_pffcMel</a>, <a class="el" href="a00137_source.html#l00138">m_ppfHMel</a>, and <a class="el" href="a00080_source.html#l00185">CVectorFloat::setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, and <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, and <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1146,40 +1146,37 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  317</span>    <span class="keywordflow">if</span> (!pfAxisTicks || !pMelSpecConfig)</div>
 <div class="line"><span class="lineno">  318</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
 <div class="line"><span class="lineno">  319</span> </div>
-<div class="line"><span class="lineno">  320</span>    <span class="keywordflow">if</span> (!pfAxisTicks)</div>
-<div class="line"><span class="lineno">  321</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  322</span> </div>
-<div class="line"><span class="lineno">  323</span>    assert(<a class="code hl_variable" href="a00302.html#aeb9a67e20abef3f1028bb8db15022a0a">m_iBlockLength</a> &gt; 0);</div>
-<div class="line"><span class="lineno">  324</span>    assert(<a class="code hl_variable" href="a00302.html#a3520208ce92977729d22e1bbaa5b9532">m_iHopLength</a> &gt; 0);</div>
-<div class="line"><span class="lineno">  325</span>    assert(<a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a> &gt; 0);</div>
-<div class="line"><span class="lineno">  326</span> </div>
-<div class="line"><span class="lineno">  327</span> </div>
-<div class="line"><span class="lineno">  328</span>    <span class="keywordflow">if</span> (eAxisLabel == <a class="code hl_enumvalue" href="a00302.html#aadd5bf0e8b40d9ba74dd66ce28bafbcfa60478da724acf03bab5f69ae664dbe58">kTimeInS</a>)</div>
-<div class="line"><span class="lineno">  329</span>    {</div>
-<div class="line"><span class="lineno">  330</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumBlocks = <a class="code hl_variable" href="a00302.html#a8b0cd13bbb3570f6b87017b11ca10d63">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00310.html#a595b3a391e2540a1dc9e53edf8634494">getNumBlocks</a>();</div>
-<div class="line"><span class="lineno">  331</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
-<div class="line"><span class="lineno">  332</span>            pfAxisTicks[n] = <a class="code hl_variable" href="a00302.html#a8b0cd13bbb3570f6b87017b11ca10d63">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00310.html#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a>(n);</div>
-<div class="line"><span class="lineno">  333</span>    }</div>
-<div class="line"><span class="lineno">  334</span> </div>
-<div class="line"><span class="lineno">  335</span>    <span class="keywordflow">if</span> (eAxisLabel == <a class="code hl_enumvalue" href="a00302.html#aadd5bf0e8b40d9ba74dd66ce28bafbcfa0ae125df6dd5dd61b17eed69fc25c61d">kFrequencyInHz</a>)</div>
-<div class="line"><span class="lineno">  336</span>    {</div>
-<div class="line"><span class="lineno">  337</span>        <a class="code hl_function" href="a00302.html#a04d8f71d4562f2a4efc8a8537826d8c3">generateMelFb_</a>(pMelSpecConfig);</div>
-<div class="line"><span class="lineno">  338</span>        </div>
-<div class="line"><span class="lineno">  339</span>        assert(<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>);</div>
+<div class="line"><span class="lineno">  320</span>    assert(<a class="code hl_variable" href="a00302.html#aeb9a67e20abef3f1028bb8db15022a0a">m_iBlockLength</a> &gt; 0);</div>
+<div class="line"><span class="lineno">  321</span>    assert(<a class="code hl_variable" href="a00302.html#a3520208ce92977729d22e1bbaa5b9532">m_iHopLength</a> &gt; 0);</div>
+<div class="line"><span class="lineno">  322</span>    assert(<a class="code hl_variable" href="a00302.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a> &gt; 0);</div>
+<div class="line"><span class="lineno">  323</span> </div>
+<div class="line"><span class="lineno">  324</span> </div>
+<div class="line"><span class="lineno">  325</span>    <span class="keywordflow">if</span> (eAxisLabel == <a class="code hl_enumvalue" href="a00302.html#aadd5bf0e8b40d9ba74dd66ce28bafbcfa60478da724acf03bab5f69ae664dbe58">kTimeInS</a>)</div>
+<div class="line"><span class="lineno">  326</span>    {</div>
+<div class="line"><span class="lineno">  327</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumBlocks = <a class="code hl_variable" href="a00302.html#a8b0cd13bbb3570f6b87017b11ca10d63">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00310.html#a595b3a391e2540a1dc9e53edf8634494">getNumBlocks</a>();</div>
+<div class="line"><span class="lineno">  328</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
+<div class="line"><span class="lineno">  329</span>            pfAxisTicks[n] = <a class="code hl_variable" href="a00302.html#a8b0cd13bbb3570f6b87017b11ca10d63">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00310.html#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a>(n);</div>
+<div class="line"><span class="lineno">  330</span>    }</div>
+<div class="line"><span class="lineno">  331</span> </div>
+<div class="line"><span class="lineno">  332</span>    <span class="keywordflow">if</span> (eAxisLabel == <a class="code hl_enumvalue" href="a00302.html#aadd5bf0e8b40d9ba74dd66ce28bafbcfa0ae125df6dd5dd61b17eed69fc25c61d">kFrequencyInHz</a>)</div>
+<div class="line"><span class="lineno">  333</span>    {</div>
+<div class="line"><span class="lineno">  334</span>        <a class="code hl_function" href="a00302.html#a04d8f71d4562f2a4efc8a8537826d8c3">generateMelFb_</a>(pMelSpecConfig);</div>
+<div class="line"><span class="lineno">  335</span>        </div>
+<div class="line"><span class="lineno">  336</span>        assert(<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>);</div>
+<div class="line"><span class="lineno">  337</span> </div>
+<div class="line"><span class="lineno">  338</span>        <span class="comment">// note that we start with 1 to look at the center freqs only</span></div>
+<div class="line"><span class="lineno">  339</span>        <a class="code hl_function" href="a00290.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfAxisTicks, &amp;<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[1], pMelSpecConfig-&gt;iNumMelBins);</div>
 <div class="line"><span class="lineno">  340</span> </div>
-<div class="line"><span class="lineno">  341</span>        <span class="comment">// note that we start with 1 to look at the center freqs only</span></div>
-<div class="line"><span class="lineno">  342</span>        <a class="code hl_function" href="a00290.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfAxisTicks, &amp;<a class="code hl_variable" href="a00302.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a>[1], pMelSpecConfig-&gt;iNumMelBins);</div>
+<div class="line"><span class="lineno">  341</span>        <a class="code hl_function" href="a00302.html#a00140b0dd45e87aef4561aed8ebc779a">destroyMelFb_</a>(pMelSpecConfig);</div>
+<div class="line"><span class="lineno">  342</span>    }</div>
 <div class="line"><span class="lineno">  343</span> </div>
-<div class="line"><span class="lineno">  344</span>        <a class="code hl_function" href="a00302.html#a00140b0dd45e87aef4561aed8ebc779a">destroyMelFb_</a>(pMelSpecConfig);</div>
-<div class="line"><span class="lineno">  345</span>    }</div>
-<div class="line"><span class="lineno">  346</span> </div>
-<div class="line"><span class="lineno">  347</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  348</span>}</div>
+<div class="line"><span class="lineno">  344</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  345</span>}</div>
 <div class="ttc" id="aa00290_html_a0bf711bf2ed2dc87efeafe12db55570e"><div class="ttname"><a href="a00290.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a></div><div class="ttdeci">static void copy(float *pfDest, const float *pfSource, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00207">Vector.h:207</a></div></div>
 <div class="ttc" id="aa00302_html_a3520208ce92977729d22e1bbaa5b9532"><div class="ttname"><a href="a00302.html#a3520208ce92977729d22e1bbaa5b9532">CSpectrogramIf::m_iHopLength</a></div><div class="ttdeci">int m_iHopLength</div><div class="ttdoc">hop length</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00128">Spectrogram.h:128</a></div></div>
 <div class="ttc" id="aa00310_html_a95d0310c888433e7e45806538dc0d347"><div class="ttname"><a href="a00310.html#a95d0310c888433e7e45806538dc0d347">CBlockAudioIf::getTimeStamp</a></div><div class="ttdeci">float getTimeStamp(long long iBlockIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00068">ToolBlockAudio.h:68</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00080_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00005_source.html#l00233">destroyMelFb_()</a>, <a class="el" href="a00005_source.html#l00397">generateMelFb_()</a>, <a class="el" href="a00098_source.html#l00051">CBlockAudioIf::getNumBlocks()</a>, <a class="el" href="a00098_source.html#l00068">CBlockAudioIf::getTimeStamp()</a>, <a class="el" href="a00137_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, <a class="el" href="a00137_source.html#l00021">kFrequencyInHz</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.html#l00022">kTimeInS</a>, <a class="el" href="a00137_source.html#l00135">m_bIsInitialized</a>, <a class="el" href="a00137_source.html#l00130">m_fSampleRate</a>, <a class="el" href="a00137_source.html#l00127">m_iBlockLength</a>, <a class="el" href="a00137_source.html#l00128">m_iHopLength</a>, <a class="el" href="a00137_source.html#l00123">m_pCBlockAudio</a>, and <a class="el" href="a00137_source.html#l00139">m_pffcMel</a>.</p>
+<p class="reference">References <a class="el" href="a00080_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00005_source.html#l00233">destroyMelFb_()</a>, <a class="el" href="a00005_source.html#l00394">generateMelFb_()</a>, <a class="el" href="a00098_source.html#l00051">CBlockAudioIf::getNumBlocks()</a>, <a class="el" href="a00098_source.html#l00068">CBlockAudioIf::getTimeStamp()</a>, <a class="el" href="a00137_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, <a class="el" href="a00137_source.html#l00021">kFrequencyInHz</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.html#l00022">kTimeInS</a>, <a class="el" href="a00137_source.html#l00135">m_bIsInitialized</a>, <a class="el" href="a00137_source.html#l00130">m_fSampleRate</a>, <a class="el" href="a00137_source.html#l00127">m_iBlockLength</a>, <a class="el" href="a00137_source.html#l00128">m_iHopLength</a>, <a class="el" href="a00137_source.html#l00123">m_pCBlockAudio</a>, and <a class="el" href="a00137_source.html#l00139">m_pffcMel</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1648,7 +1645,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00137_source.html#l00135">135</a> of file <a class="el" href="a00137_source.html">Spectrogram.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00292">getMelSpectrogramDimensions()</a>, <a class="el" href="a00005_source.html#l00156">getSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00141">getSpectrogramDimensions()</a>, <a class="el" href="a00005_source.html#l00274">init_()</a>, and <a class="el" href="a00005_source.html#l00250">reset_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00292">getMelSpectrogramDimensions()</a>, <a class="el" href="a00005_source.html#l00156">getSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00141">getSpectrogramDimensions()</a>, <a class="el" href="a00005_source.html#l00274">init_()</a>, and <a class="el" href="a00005_source.html#l00250">reset_()</a>.</p>
 
 </div>
 </div>
@@ -1676,7 +1673,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00137_source.html#l00130">130</a> of file <a class="el" href="a00137_source.html">Spectrogram.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00037">CSpectrogramFromFile::CSpectrogramFromFile()</a>, <a class="el" href="a00005_source.html#l00070">CSpectrogramFromVector::CSpectrogramFromVector()</a>, <a class="el" href="a00005_source.html#l00397">generateMelFb_()</a>, <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>, and <a class="el" href="a00005_source.html#l00156">getSpectrogramAxisVectors()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00037">CSpectrogramFromFile::CSpectrogramFromFile()</a>, <a class="el" href="a00005_source.html#l00070">CSpectrogramFromVector::CSpectrogramFromVector()</a>, <a class="el" href="a00005_source.html#l00394">generateMelFb_()</a>, <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>, and <a class="el" href="a00005_source.html#l00156">getSpectrogramAxisVectors()</a>.</p>
 
 </div>
 </div>
@@ -1760,7 +1757,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00137_source.html#l00123">123</a> of file <a class="el" href="a00137_source.html">Spectrogram.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00037">CSpectrogramFromFile::CSpectrogramFromFile()</a>, <a class="el" href="a00005_source.html#l00070">CSpectrogramFromVector::CSpectrogramFromVector()</a>, <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00292">getMelSpectrogramDimensions()</a>, <a class="el" href="a00005_source.html#l00156">getSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00141">getSpectrogramDimensions()</a>, and <a class="el" href="a00005_source.html#l00250">reset_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00037">CSpectrogramFromFile::CSpectrogramFromFile()</a>, <a class="el" href="a00005_source.html#l00070">CSpectrogramFromVector::CSpectrogramFromVector()</a>, <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00292">getMelSpectrogramDimensions()</a>, <a class="el" href="a00005_source.html#l00156">getSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00141">getSpectrogramDimensions()</a>, and <a class="el" href="a00005_source.html#l00250">reset_()</a>.</p>
 
 </div>
 </div>
@@ -1788,7 +1785,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00137_source.html#l00125">125</a> of file <a class="el" href="a00137_source.html">Spectrogram.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00397">generateMelFb_()</a>, <a class="el" href="a00005_source.html#l00156">getSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00274">init_()</a>, and <a class="el" href="a00005_source.html#l00250">reset_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00394">generateMelFb_()</a>, <a class="el" href="a00005_source.html#l00156">getSpectrogramAxisVectors()</a>, <a class="el" href="a00005_source.html#l00274">init_()</a>, and <a class="el" href="a00005_source.html#l00250">reset_()</a>.</p>
 
 </div>
 </div>
@@ -1844,7 +1841,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00137_source.html#l00139">139</a> of file <a class="el" href="a00137_source.html">Spectrogram.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00233">destroyMelFb_()</a>, <a class="el" href="a00005_source.html#l00397">generateMelFb_()</a>, and <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00233">destroyMelFb_()</a>, <a class="el" href="a00005_source.html#l00394">generateMelFb_()</a>, and <a class="el" href="a00005_source.html#l00310">getMelSpectrogramAxisVectors()</a>.</p>
 
 </div>
 </div>
@@ -1872,7 +1869,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00137_source.html#l00133">133</a> of file <a class="el" href="a00137_source.html">Spectrogram.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00274">init_()</a>, <a class="el" href="a00005_source.html#l00250">reset_()</a>, and <a class="el" href="a00005_source.html#l00021">CSpectrogramFromFile::~CSpectrogramFromFile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00274">init_()</a>, <a class="el" href="a00005_source.html#l00250">reset_()</a>, and <a class="el" href="a00005_source.html#l00021">CSpectrogramFromFile::~CSpectrogramFromFile()</a>.</p>
 
 </div>
 </div>
@@ -1900,7 +1897,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00137_source.html#l00132">132</a> of file <a class="el" href="a00137_source.html">Spectrogram.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00274">init_()</a>, and <a class="el" href="a00005_source.html#l00250">reset_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00188">compSpectrogram()</a>, <a class="el" href="a00005_source.html#l00217">computeMagSpectrum_()</a>, <a class="el" href="a00005_source.html#l00274">init_()</a>, and <a class="el" href="a00005_source.html#l00250">reset_()</a>.</p>
 
 </div>
 </div>
@@ -1928,7 +1925,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00137_source.html#l00138">138</a> of file <a class="el" href="a00137_source.html">Spectrogram.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00350">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00233">destroyMelFb_()</a>, and <a class="el" href="a00005_source.html#l00397">generateMelFb_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.html#l00347">compMelSpectrogram()</a>, <a class="el" href="a00005_source.html#l00233">destroyMelFb_()</a>, and <a class="el" href="a00005_source.html#l00394">generateMelFb_()</a>.</p>
 
 </div>
 </div>
@@ -1939,7 +1936,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 16:49:13 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue May 31 2022 16:56:08 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

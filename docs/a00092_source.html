@@ -406,7 +406,7 @@
 <div class="line"><a id="l00354" name="l00354"></a><span class="lineno">  354</span>            pfCoeff[2 * j + 1] = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(-std::sin(M_PI * fCutOff) * std::cos(fArg) / fNorm);</div>
 <div class="line"><a id="l00355" name="l00355"></a><span class="lineno">  355</span>        }</div>
 <div class="line"><a id="l00356" name="l00356"></a><span class="lineno">  356</span> </div>
-<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        <a class="code hl_function" href="a00266.html#a1b85f0ca8b25b40e2cff52f1237501ad">multBinomial</a>(pfA, pfCoeff, iOrder); </div>
+<div class="line"><a id="l00357" name="l00357"></a><span class="lineno">  357</span>        <a class="code hl_function" href="a00266.html#ab4432f6b6d2f1bad850a13a0573615c4">multBinomial</a>(pfA, pfCoeff, iOrder); </div>
 <div class="line"><a id="l00358" name="l00358"></a><span class="lineno">  358</span> </div>
 <div class="line"><a id="l00359" name="l00359"></a><span class="lineno">  359</span>        pfA[1] = pfA[0];</div>
 <div class="line"><a id="l00360" name="l00360"></a><span class="lineno">  360</span>        pfA[0] = 1;</div>
@@ -435,7 +435,7 @@
 <div class="line"><a id="l00383" name="l00383"></a><span class="lineno">  383</span>    }</div>
 <div class="line"><a id="l00384" name="l00384"></a><span class="lineno">  384</span> </div>
 <div class="line"><a id="l00385" name="l00385"></a><span class="lineno">  385</span>    <span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</div>
-<div class="line"><a id="l00386" name="l00386"></a><span class="lineno"><a class="line" href="a00266.html#a1b85f0ca8b25b40e2cff52f1237501ad">  386</a></span>    <span class="keyword">static</span> <a class="code hl_enumeration" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="code hl_function" href="a00266.html#a1b85f0ca8b25b40e2cff52f1237501ad">multBinomial</a>(T* pfOut, T* pfIn, <span class="keywordtype">int</span> iOrder)</div>
+<div class="line"><a id="l00386" name="l00386"></a><span class="lineno"><a class="line" href="a00266.html#ab4432f6b6d2f1bad850a13a0573615c4">  386</a></span>    <span class="keyword">static</span> <a class="code hl_enumeration" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="code hl_function" href="a00266.html#ab4432f6b6d2f1bad850a13a0573615c4">multBinomial</a>(T* pfOut, <span class="keyword">const</span> T* pfIn, <span class="keywordtype">int</span> iOrder)</div>
 <div class="line"><a id="l00387" name="l00387"></a><span class="lineno">  387</span>    {</div>
 <div class="line"><a id="l00388" name="l00388"></a><span class="lineno">  388</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iOrder; i++)</div>
 <div class="line"><a id="l00389" name="l00389"></a><span class="lineno">  389</span>        {</div>
@@ -485,11 +485,11 @@
 <div class="ttc" id="aa00262_html_af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54"><div class="ttname"><a href="a00262.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">CFilter::kIir</a></div><div class="ttdeci">@ kIir</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00234">Filter.h:234</a></div></div>
 <div class="ttc" id="aa00262_html_afc3b70aa36740bc560377c7d43a358f2"><div class="ttname"><a href="a00262.html#afc3b70aa36740bc560377c7d43a358f2">CFilter::CFilter</a></div><div class="ttdeci">CFilter(const CFilter &amp;that)</div></div>
 <div class="ttc" id="aa00266_html"><div class="ttname"><a href="a00266.html">CButterLp</a></div><div class="ttdoc">class providing a generic filter implementation implementation inspired by src from https://exstrom....</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00291">Filter.h:292</a></div></div>
-<div class="ttc" id="aa00266_html_a1b85f0ca8b25b40e2cff52f1237501ad"><div class="ttname"><a href="a00266.html#a1b85f0ca8b25b40e2cff52f1237501ad">CButterLp::multBinomial</a></div><div class="ttdeci">static Error_t multBinomial(T *pfOut, T *pfIn, int iOrder)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00386">Filter.h:386</a></div></div>
 <div class="ttc" id="aa00266_html_a3878460603a6e6e1a64de6021b2bb73e"><div class="ttname"><a href="a00266.html#a3878460603a6e6e1a64de6021b2bb73e">CButterLp::calcCoeffs</a></div><div class="ttdeci">static Error_t calcCoeffs(T *pfB, T *pfA, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00303">Filter.h:303</a></div></div>
 <div class="ttc" id="aa00266_html_a4a70bdde7f075d2591fd03c52c16145c"><div class="ttname"><a href="a00266.html#a4a70bdde7f075d2591fd03c52c16145c">CButterLp::calcA</a></div><div class="ttdeci">static Error_t calcA(T *pfA, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00343">Filter.h:343</a></div></div>
 <div class="ttc" id="aa00266_html_a93b25bb8ef71fc7221ae53efe9212d67"><div class="ttname"><a href="a00266.html#a93b25bb8ef71fc7221ae53efe9212d67">CButterLp::calcScale</a></div><div class="ttdeci">static T calcScale(int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00370">Filter.h:370</a></div></div>
 <div class="ttc" id="aa00266_html_a9c08c0b6f891bb37fb4230088f94b0a0"><div class="ttname"><a href="a00266.html#a9c08c0b6f891bb37fb4230088f94b0a0">CButterLp::calcB</a></div><div class="ttdeci">static Error_t calcB(T *pfB, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00322">Filter.h:322</a></div></div>
+<div class="ttc" id="aa00266_html_ab4432f6b6d2f1bad850a13a0573615c4"><div class="ttname"><a href="a00266.html#ab4432f6b6d2f1bad850a13a0573615c4">CButterLp::multBinomial</a></div><div class="ttdeci">static Error_t multBinomial(T *pfOut, const T *pfIn, int iOrder)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00386">Filter.h:386</a></div></div>
 <div class="ttc" id="aa00270_html_a249402bac669759530634c6652900111"><div class="ttname"><a href="a00270.html#a249402bac669759530634c6652900111">CMatrix::free</a></div><div class="ttdeci">static void free(float **&amp;ppfMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00089_source.html#l00042">Matrix.h:42</a></div></div>
 <div class="ttc" id="aa00270_html_a2beb6cc20e6596997993a552b1bb4a70"><div class="ttname"><a href="a00270.html#a2beb6cc20e6596997993a552b1bb4a70">CMatrix::inv_I</a></div><div class="ttdeci">static void inv_I(float **ppfSrcDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00089_source.html#l00207">Matrix.h:207</a></div></div>
 <div class="ttc" id="aa00270_html_a4c26ffc8eb44086fb91972107056002a"><div class="ttname"><a href="a00270.html#a4c26ffc8eb44086fb91972107056002a">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(float **&amp;ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00089_source.html#l00020">Matrix.h:20</a></div></div>
@@ -504,7 +504,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 16:49:12 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue May 31 2022 16:56:07 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
