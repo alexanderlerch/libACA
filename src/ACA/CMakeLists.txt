@@ -2,7 +2,6 @@ set(CurrLib Aca)
 
 # get all source files
 file(GLOB ${CurrLib}_SOURCES RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} *.cpp;*.txt)
-file(GLOB TOOLS_SOURCES RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} ../Tools/*.cpp)
 file(GLOB 3RDPARTY_SOURCES RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} ../../3rdparty/Fft/*.cpp)
 file(GLOB ${CurrLib}_HEADERS RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} *.h;../../inc/*.h;../../3rdparty/Fft/*.h)
 file(GLOB HELPER_HEADERS RELATIVE ${CMAKE_SOURCE_DIR}/src/${CurrLib} ../../inc/helper/*.h)

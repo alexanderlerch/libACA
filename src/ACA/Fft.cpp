@@ -103,7 +103,7 @@ Error_t CFft::compFft( complex_t *pfSpectrum, const float *pfInput )
 
     // copy data to internal buffer
     CVectorFloat::copy(m_pfProcessBuff, pfInput, m_iDataLength);
-    CVectorFloat::setZero(&m_pfProcessBuff[m_iDataLength], m_iFftLength-m_iDataLength);
+    CVectorFloat::setZero(&m_pfProcessBuff[m_iDataLength], static_cast<long long>(m_iFftLength)-m_iDataLength);
 
     // apply window function
     if (m_ePrePostWindowOpt & kPreWindow)
@@ -189,7 +189,7 @@ Error_t CFft::splitRealImag( float *pfReal, float *pfImag, const complex_t *pfSp
     // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
     int iNyq        = m_iFftLength>>1;
 
-    CVectorFloat::copy(pfReal, pfSpectrum, iNyq+1);
+    CVectorFloat::copy(pfReal, pfSpectrum, static_cast<long long>(iNyq)+1);
 
     pfImag[0] = 0;
     pfImag[iNyq] = 0;
@@ -209,7 +209,7 @@ Error_t CFft::mergeRealImag( complex_t *pfSpectrum, const float *pfReal, const f
     // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
     int iNyq        = m_iFftLength>>1;
 
-    CVectorFloat::copy(pfSpectrum, pfReal, iNyq+1);
+    CVectorFloat::copy(pfSpectrum, pfReal, static_cast<long long>(iNyq)+1);
 
     for (int i = 1, iImag = m_iFftLength-1; i < iNyq; i++, iImag--)
     {
@@ -232,7 +232,7 @@ float CFft::bin2freq( int iBinIdx, float fSampleRateInHz ) const
 void CFft::conjugate_I(complex_t* pfFftResult) const
 {
     // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
-    CVectorFloat::mulC_I(&pfFftResult[(m_iFftLength>>1)+1], -1.F, (m_iFftLength>>1)-1);
+    CVectorFloat::mulC_I(&pfFftResult[(m_iFftLength>>1)+1], -1.F, static_cast<long long>(m_iFftLength>>1)-1);
 }
 
 void CFft::multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) const

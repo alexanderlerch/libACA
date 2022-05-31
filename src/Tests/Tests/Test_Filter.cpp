@@ -2,6 +2,7 @@
 
 #ifdef WITH_TESTS
 #include "Synthesis.h"
+#include "Vector.h"
 #include "Filter.h"
 
 #include "catch.hpp"
