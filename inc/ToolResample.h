@@ -75,10 +75,13 @@ public:
     {
         assert(m_fInSampleRate > 0);
         assert(m_fOutSampleRate > 0);
+
+        m_pCFilter = new CFilter<float>();
     }
 
     virtual ~CResample() 
     {
+        delete m_pCFilter;
     }
 
 
@@ -112,14 +115,14 @@ public:
             pfOutIdx[i] = i * m_fInSampleRate / m_fOutSampleRate;
 
         // compute butterworth low pass filter coefficients
-        float aafCoeffs[2][iOrder] = { 0 };
-        compButterCoeffs_(aafCoeffs[0], aafCoeffs[1], iOrder, .9F * fOmegaCutoff);
-        m_pCFilter->init(aafCoeffs[0], aafCoeffs[1], iOrder);
+        float aafCoeffs[2][iOrder+1] = { 0 };
+        CButterLp::calcCoeffs(aafCoeffs[0], aafCoeffs[1], iOrder, .9F * fOmegaCutoff);
+        m_pCFilter->init(aafCoeffs[0], aafCoeffs[1], iOrder+1);
 
         if (m_fOutSampleRate > m_fInSampleRate) // upsample
         {
             // interpolate
-            interp1d(pfOutIdx, pfOut, pfIn, iNumOutSamples, iNumInSamples);
+            interp1d(pfOut, pfOutIdx, pfIn, iNumOutSamples, iNumInSamples);
 
             // apply zero phase filter
             m_pCFilter->filtfilt(pfOut, pfOut, iNumOutSamples);
@@ -133,7 +136,7 @@ public:
             m_pCFilter->filtfilt(pfFiltered, pfIn, iNumInSamples);
 
             // interpolate
-            interp1d(pfOutIdx, pfOut, pfFiltered, iNumOutSamples, iNumInSamples);
+            interp1d(pfOut, pfOutIdx, pfFiltered, iNumOutSamples, iNumInSamples);
 
             CVectorFloat::free(pfFiltered);
         }
