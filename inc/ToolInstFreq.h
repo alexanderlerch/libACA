@@ -22,24 +22,22 @@ public:
         m_pCFft->init(iFftLength);
 
         m_iPhaseLength = m_pCFft->getLength(CFft::kLengthPhase);
-        m_pfOmega = new float[m_iPhaseLength];
+        CVector::alloc(m_pfOmega, m_iPhaseLength);
 
         // use one buffer with two pointers
-        m_pfSwapBuff = new float[2 * static_cast<long long>(m_iPhaseLength)];
-        CVectorFloat::setZero(m_pfSwapBuff, 2 * static_cast<long long>(m_iPhaseLength));
+        CVector::alloc(m_pfSwapBuff, 2 * static_cast<long long>(m_iPhaseLength));
         m_apfPhase[0] = &m_pfSwapBuff[0];
         m_apfPhase[1] = &m_pfSwapBuff[m_iPhaseLength];
 
         //init omega
         for (auto k = 0; k < m_iPhaseLength; k++)
             m_pfOmega[k] = static_cast<float>(m_iHopLength * 2.* k * M_PI/ iFftLength);
-
     }
 
     virtual ~CInstFreq() 
     {
-        delete[] m_pfOmega;
-        delete[] m_pfSwapBuff;
+       CVector::free(m_pfOmega);
+       CVector::free(m_pfSwapBuff);
 
         delete m_pCFft;
     }

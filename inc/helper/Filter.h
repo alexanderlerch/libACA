@@ -37,7 +37,7 @@ public:
         // alloc internal coefficients
         for (auto i = 0; i < kNumFilterDims; i++)
         {
-            m_aptCoeff[i] = new T[iNumCoeffs];
+            CVector::alloc(m_aptCoeff[i], iNumCoeffs);
             CVector::setZero(m_aptCoeff[i], iNumCoeffs);
         }
 
@@ -50,8 +50,7 @@ public:
         m_pCFilterBuff = new CRingBuffer<T>(iNumCoeffs);
         m_pCFilterBuff->setWriteIdx(static_cast<long long>(iNumCoeffs - 1));
 
-        m_ptProcBuff = new T[static_cast<long long>(iNumCoeffs-1)];
-        CVector::setZero(m_ptProcBuff, static_cast<long long>(iNumCoeffs - 1));
+        CVector::alloc(m_ptProcBuff, static_cast<long long>(iNumCoeffs)-1);
 
         m_bIsInitialized = true;
 
@@ -69,18 +68,14 @@ public:
         if (bFreeMem)
         {
             for (auto i = 0; i < kNumFilterDims; i++)
-            {
-                delete m_aptCoeff[i];
-                m_aptCoeff[i] = 0;
-            }
+                CVector::free(m_aptCoeff[i]);
 
             m_iNumFilterCoeffs = 0;
 
             delete m_pCFilterBuff;
             m_pCFilterBuff = 0;
 
-            delete[] m_ptProcBuff;
-            m_ptProcBuff = 0;
+            CVector::free(m_ptProcBuff);
 
             m_bIsInitialized = false;
         }
@@ -183,8 +178,8 @@ public:
             return Error_t::kFunctionIllegalCallError;
 
         // alloc necessary memory
-        CVectorFloat::alloc(pfTmpBuff, iNumSamples + iPadLength);
-        CVectorFloat::alloc(pfPadding, iPadLength);
+        CVector::alloc(pfTmpBuff, iNumSamples + iPadLength);
+        CVector::alloc(pfPadding, iPadLength);
 
         for (auto i = 0; i < iPadLength; i++)
             pfPadding[iPadLength - 1 - i] = 2 * pfIn[0] - pfIn[i + 1];
@@ -218,8 +213,8 @@ public:
         this->reset(false);
 
         // free memory
-        CVectorFloat::free(pfTmpBuff);
-        CVectorFloat::free(pfPadding);
+        CVector::free(pfTmpBuff);
+        CVector::free(pfPadding);
 
         return Error_t::kNoError;
     }
@@ -245,8 +240,8 @@ private:
 
         int iLengthOfCoeffBuffers = m_iNumFilterCoeffs - 1; 
 
-        CVectorFloat::alloc(pfB, iLengthOfCoeffBuffers);
-        CVectorFloat::alloc(pfZi, iLengthOfCoeffBuffers);
+        CVector::alloc(pfB, iLengthOfCoeffBuffers);
+        CVector::alloc(pfZi, iLengthOfCoeffBuffers);
         CMatrix::alloc(ppfA, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
 
         for (auto i = 1; i < m_iNumFilterCoeffs; i++)
@@ -270,8 +265,8 @@ private:
 
         // clean up
         CMatrix::free(ppfA, iLengthOfCoeffBuffers);
-        CVectorFloat::free(pfB);
-        CVectorFloat::free(pfZi);
+        CVector::free(pfB);
+        CVector::free(pfZi);
     }
 
     CRingBuffer<T>* m_pCFilterBuff = 0; //!< internal ring buffer for filter (only used for direct form II implementation CFilter::processDFII)
@@ -304,7 +299,7 @@ public:
     {
         const long long iTmpOrder = static_cast<long long>(iOrder); // silly compiler warnings get annoying
         float* pfTmpA = 0;
-        CVectorFloat::alloc(pfTmpA, 2 * iTmpOrder);
+        CVector::alloc(pfTmpA, 2 * iTmpOrder);
         CVectorFloat::setZero(pfB, iTmpOrder + 1);
         CVectorFloat::setZero(pfTmpA, 2 * iTmpOrder);
 
@@ -312,7 +307,7 @@ public:
         calcA(pfTmpA, iOrder, fCutOff);
         CVectorFloat::copy(pfA, pfTmpA, iTmpOrder + 1);
 
-        CVectorFloat::free(pfTmpA);
+        CVector::free(pfTmpA);
 
         return Error_t::kNoError;
     }

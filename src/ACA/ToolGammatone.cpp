@@ -434,8 +434,7 @@ Error_t CGammaToneFbIf::process(float** ppfOutput)
 
 Error_t CGammaToneFbIf::reset_()
 {
-    delete[] m_pfProcessBuff;
-    m_pfProcessBuff = 0;
+    CVector::free(m_pfProcessBuff);
 
     delete m_pCNormalize;
     m_pCNormalize = 0;
@@ -443,7 +442,7 @@ Error_t CGammaToneFbIf::reset_()
     CBlockAudioIf::destroy(m_pCBlockAudio);
     for (auto i = 0; i < m_iNumBands; i++)
         delete m_ppCGammatone[i];
-    delete[] m_ppCGammatone;
+    CVector::free(m_ppCGammatone);
 
     m_bIsInitialized = false;
 
@@ -453,9 +452,9 @@ Error_t CGammaToneFbIf::reset_()
 Error_t CGammaToneFbIf::init_()
 {
     // allocate processing memory
-    m_pfProcessBuff = new float[m_iBlockLength];
+    CVector::alloc(m_pfProcessBuff, m_iBlockLength);
 
-    m_ppCGammatone = new CGammatone* [m_iNumBands];
+    CVector::alloc(m_ppCGammatone, m_iNumBands);
     for (auto i = 0; i < m_iNumBands; i++)
     {
         m_ppCGammatone[i] = new CGammatone();

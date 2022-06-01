@@ -1,4 +1,5 @@
 #include "Vector.h"
+#include "Matrix.h"
 #include "RingBuffer.h"
 #include "AudioFileIf.h"
 #include "ToolPreProc.h"
@@ -30,9 +31,7 @@ public:
 
         // initialize read buffers
         m_pCRingBuffer = new CRingBuffer<float>(iBlockLength+1);
-        m_ppfAudioData = new float* [m_iNumChannels];
-        for (auto c = 0; c < m_iNumChannels; c++)
-            m_ppfAudioData[c] = new float[iHopLength];
+        CMatrix::alloc(m_ppfAudioData, m_iNumChannels, iHopLength);
         
         // prefill from file to read buffer
         while(m_pCRingBuffer->getNumValuesInBuffer() < m_pCRingBuffer->getLength() - m_iHopLength - 1)
@@ -41,13 +40,9 @@ public:
 
     virtual ~CBlockAudioFile()
     {
-        delete m_pCRingBuffer;
-        m_pCRingBuffer = 0;
+        CVector::free(m_pCRingBuffer);
 
-        for (auto c = 0; c < m_iNumChannels; c++)
-            delete[] m_ppfAudioData[c];
-        delete[] m_ppfAudioData;
-        m_ppfAudioData = 0;
+        CMatrix::free(m_ppfAudioData, m_iNumChannels);
     }
     bool IsEndOfData() const override
     {
@@ -72,7 +67,7 @@ public:
         if (iNumFrames < m_iBlockLength)
         {
             for (int c = 0; c < m_iNumChannels; c++)
-                CVectorFloat::setZero(&pfBlock[iNumFrames], m_iBlockLength - iNumFrames);
+                CVectorFloat::setZero(&pfBlock[iNumFrames], static_cast<long long>(m_iBlockLength) - iNumFrames);
 
             iNumFrames = m_iHopLength;
         }
@@ -139,14 +134,13 @@ public:
         m_iNumBlocks = m_iAudioLength / m_iHopLength + 1;
 
         // initialize read buffers
-        m_pfAudioData = new float[m_iAudioLength];
+        CVector::alloc(m_pfAudioData, m_iAudioLength);
         CVectorFloat::copy(m_pfAudioData, pfAudioBuff, m_iAudioLength);
     }
 
     virtual ~CBlockAudioBuffer()
     {
-        delete[] m_pfAudioData;
-        m_pfAudioData = 0;
+        CVector::free(m_pfAudioData);
 
         m_iAudioLength = 0;
         m_iCurrIdx = 0;
@@ -165,7 +159,7 @@ public:
         int iNumFramesInBlock = m_iAudioLength - m_iCurrIdx < m_iBlockLength ? static_cast<int>(m_iAudioLength - m_iCurrIdx) : m_iBlockLength;
 
         CVectorFloat::copy(pfBlock, &m_pfAudioData[m_iCurrIdx], iNumFramesInBlock);
-        CVectorFloat::setZero(&pfBlock[iNumFramesInBlock], m_iBlockLength - iNumFramesInBlock);
+        CVectorFloat::setZero(&pfBlock[iNumFramesInBlock], static_cast<long long>(m_iBlockLength) - iNumFramesInBlock);
 
         if (pfTimeStamp)
             *pfTimeStamp = getTimeStamp(m_iCurrBlock);

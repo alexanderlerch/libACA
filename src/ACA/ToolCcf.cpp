@@ -34,10 +34,7 @@ Error_t CCcf::init(int iBlockLength)
     m_pCFft->init(m_iBlockLength, 2, CFft::kWindowHann, CFft::kNoWindow);
 
     for (auto j = 0; j < 2; j++)
-    {
-        m_apfData[j] = new float[m_iFftLength];
-        CVectorFloat::setZero(m_apfData[0], m_iFftLength);
-    }
+        CVector::alloc(m_apfData[j], m_iFftLength);
 
     m_bIsInitialized = true;
 
@@ -53,8 +50,7 @@ Error_t CCcf::reset()
 
     for (auto j = 0; j < 2; j++)
     {
-        delete [] m_apfData[j];
-        m_apfData[j] = 0;
+        CVector::free(m_apfData[j]);
     }
     
     m_iFftLength = 0;
@@ -97,7 +93,7 @@ Error_t CCcf::compCcf(const float* pfInput1, const float* pfInput2, bool bNormal
     m_pCFft->compInvFft(m_apfData[0], m_apfData[0]);
 
     // copy results
-    CVectorFloat::copy(m_apfData[1], &m_apfData[0][m_iFftLength - m_iBlockLength + 1], m_iBlockLength - 1);
+    CVectorFloat::copy(m_apfData[1], &m_apfData[0][static_cast<long long>(m_iFftLength) - m_iBlockLength + 1], static_cast<long long>(m_iBlockLength) - 1);
     CVectorFloat::copy(&m_apfData[1][m_iBlockLength - 1], m_apfData[0], m_iBlockLength);
 
     m_bWasProcessed = true;
@@ -120,7 +116,7 @@ Error_t CCcf::getCcf(float* pfCcfResult, bool bIsAcf) const
         return Error_t::kFunctionInvalidArgsError;
 
     int iStartIdx = bIsAcf ? m_iBlockLength - 1 : 0;
-    CVectorFloat::copy(pfCcfResult, &m_apfData[1][iStartIdx], 2 * m_iBlockLength - 1 - iStartIdx);
+    CVectorFloat::copy(pfCcfResult, &m_apfData[1][iStartIdx], static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
 
     return Error_t::kNoError;
 }
@@ -131,7 +127,7 @@ float CCcf::getCcfMax(bool bIsAcf) const
         return -1.F;
 
     int iStartIdx = bIsAcf ? m_iBlockLength - 1 : 0;
-    return CVectorFloat::getMax(&m_apfData[1][iStartIdx], 2 * m_iBlockLength - 1 - iStartIdx);
+    return CVectorFloat::getMax(&m_apfData[1][iStartIdx], static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
 }
 
 int CCcf::getCcfMaxIdx(bool bIsAcf) const
@@ -142,7 +138,7 @@ int CCcf::getCcfMaxIdx(bool bIsAcf) const
     long long iMax = -1;
     int iStartIdx = bIsAcf ? m_iBlockLength - 1 : 0;
     
-    CVectorFloat::findMax(&m_apfData[1][iStartIdx], fMax, iMax, 2 * m_iBlockLength - 1 - iStartIdx);
+    CVectorFloat::findMax(&m_apfData[1][iStartIdx], fMax, iMax, static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
 
     return static_cast<int>(iMax);
 }

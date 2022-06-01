@@ -238,7 +238,8 @@ public:
         this->reset();
         this->setFilterParam(iFilterLength);
 
-        float* pfTmpBuff = new float[iLengthOfBuffer + 2 * static_cast<long long>(iFilterLength)];
+        float* pfTmpBuff = 0;
+        CVector::alloc(pfTmpBuff, iLengthOfBuffer + 2 * static_cast<long long>(iFilterLength));
 
         this->process(&pfTmpBuff[iFilterLength], pfInput, iLengthOfBuffer);
 
@@ -262,7 +263,7 @@ public:
         this->reset();
         this->setFilterParam(iFilterLength);
 
-        delete[] pfTmpBuff;
+        CVector::free(pfTmpBuff);
     }
 
 

@@ -60,9 +60,9 @@ public:
         float** ppfAudioData = 0;
 
         // alloc read buffer
-        ppfAudioData = new float *[stFileSpec.iNumChannels];
+        CVector::alloc(ppfAudioData, stFileSpec.iNumChannels);
         for (auto c = 0; c < stFileSpec.iNumChannels; c++)
-            ppfAudioData[c] = new float [iBlockLength];
+            CVector::alloc(ppfAudioData[c], iBlockLength);
 
         // store current file position for resetting later
         pCAudioFile->getPosition(iCurrPos);
@@ -96,9 +96,8 @@ public:
 
         //free internal memory
         for (auto c = 0; c < stFileSpec.iNumChannels; c++)
-            delete[] ppfAudioData[c];
-        delete[] ppfAudioData;
-        ppfAudioData = 0;
+            CVector::free(ppfAudioData[c]);
+        CVector::free(ppfAudioData);
     };
     CNormalizeAudio(const float* pfAudioBuff, long long iAudioLength) :
         m_fScaleFactor(1.F)

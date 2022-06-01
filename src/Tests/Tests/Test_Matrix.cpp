@@ -31,8 +31,8 @@ TEST_CASE("Matrix", "[Matrix]")
         aiDims[0] = 4;
         aiDims[1] = 3;
 
-        CVectorFloat::alloc(pfIn, aiDims[1]);
-        CVectorFloat::alloc(pfOut, aiDims[0]);
+        CVector::alloc(pfIn, aiDims[1]);
+        CVector::alloc(pfOut, aiDims[0]);
         CMatrix::alloc(ppfMatrix, aiDims[0], aiDims[1]);
 
         for (auto m = 0; m < aiDims[0]; m++)
@@ -47,8 +47,8 @@ TEST_CASE("Matrix", "[Matrix]")
         for (auto m = 0; m < aiDims[0]; m++)
             CHECK(m * aiDims[1] == pfOut[m]);
 
-        CVectorFloat::free(pfIn);
-        CVectorFloat::free(pfOut);
+        CVector::free(pfIn);
+        CVector::free(pfOut);
     }
 
     SECTION("mulrowmat")
@@ -58,8 +58,8 @@ TEST_CASE("Matrix", "[Matrix]")
         aiDims[0] = 3;
         aiDims[1] = 4;
 
-        CVectorFloat::alloc(pfIn, aiDims[0]);
-        CVectorFloat::alloc(pfOut, aiDims[1]);
+        CVector::alloc(pfIn, aiDims[0]);
+        CVector::alloc(pfOut, aiDims[1]);
         CMatrix::alloc(ppfMatrix, aiDims[0], aiDims[1]);
 
         for (auto m = 0; m < aiDims[0]; m++)
@@ -74,8 +74,8 @@ TEST_CASE("Matrix", "[Matrix]")
         for (auto m = 0; m < aiDims[0]; m++)
             CHECK(m * aiDims[0] == pfOut[m]);
 
-        CVectorFloat::free(pfIn);
-        CVectorFloat::free(pfOut);
+        CVector::free(pfIn);
+        CVector::free(pfOut);
     }
 
     SECTION("inv")

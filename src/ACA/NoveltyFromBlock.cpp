@@ -75,14 +75,12 @@ CNoveltyFromBlockIf::CNoveltyFromBlockIf(CNoveltyIf::Novelty_t eNoveltyIdx, int 
     assert(iDataLength > 0);
     assert(fSampleRate > 0);
 
-    m_pfPrevSpec = new float[m_iDataLength];
-    CVectorFloat::setZero(m_pfPrevSpec, m_iDataLength);
+    CVector::alloc(m_pfPrevSpec, m_iDataLength);
 }
 
 CNoveltyFromBlockIf::~CNoveltyFromBlockIf()
 {
-    delete[] m_pfPrevSpec;
-    m_pfPrevSpec = 0;
+    CVector::free(m_pfPrevSpec);
 }
 
 Error_t CNoveltyFromBlockIf::create(CNoveltyFromBlockIf*& pCInstance, CNoveltyIf::Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate)

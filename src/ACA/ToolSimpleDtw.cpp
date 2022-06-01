@@ -1,5 +1,6 @@
 
 #include "Vector.h"
+#include "Matrix.h"
 #include "Util.h"
 
 #include "ToolSimpleDtw.h"
@@ -41,11 +42,9 @@ Error_t CDtw::init( int iNumRows, int iNumCols )
 
     // allocate memory
     for (int i = 0; i < kNumVectors; i++)
-        m_apfCost[i] = new float [m_aiMatrixDimensions[kCol]];
+        CVector::alloc(m_apfCost[i], m_aiMatrixDimensions[kCol]);
 
-    m_ppePathIdx = new unsigned char * [m_aiMatrixDimensions[kRow]];
-    for (int i = 0; i < m_aiMatrixDimensions[kRow]; i++)
-        m_ppePathIdx[i] = new unsigned char [m_aiMatrixDimensions[kCol]];
+    CMatrix::alloc(m_ppePathIdx, m_aiMatrixDimensions[kRow], m_aiMatrixDimensions[kCol]);
 
     // all done here
     m_bIsInitialized    = true;
@@ -58,22 +57,11 @@ Error_t CDtw::reset()
     m_bIsInitialized    = false;
     m_bWasProcessed     = false;
 
-    if (m_ppePathIdx)
-    {
-        for (int i = 0; i < m_aiMatrixDimensions[kRow]; i++)
-        {
-            delete [] m_ppePathIdx[i];
-            m_ppePathIdx[i] = 0;
-        }
-    }
-    delete [] m_ppePathIdx;
-    m_ppePathIdx    = 0;
+    CMatrix::free(m_ppePathIdx, m_aiMatrixDimensions[kRow]);
 
     for (int i = 0; i < kNumVectors; i++)
-    {
-        delete [] m_apfCost[i];
-        m_apfCost[i]    = 0;
-    }
+        CVector::free(m_apfCost[i]);
+
     m_aiMatrixDimensions[kRow]  = 0;
     m_aiMatrixDimensions[kCol]  = 0;
     m_fOverallCost              = 0;

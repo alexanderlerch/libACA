@@ -262,9 +262,8 @@ void CFft::multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) cons
 
 Error_t CFft::allocMemory_()
 {
-
-    m_pfProcessBuff = new float [m_iFftLength];
-    m_pfWindowBuff  = new float [m_iDataLength];
+    CVector::alloc(m_pfProcessBuff, m_iFftLength);
+    CVector::alloc(m_pfWindowBuff, m_iDataLength);
 
     if (!m_pfProcessBuff || !m_pfWindowBuff)
         return Error_t::kMemError;
@@ -276,8 +275,8 @@ Error_t CFft::allocMemory_()
 
 Error_t CFft::freeMemory_()
 {
-    delete [] m_pfProcessBuff;
-    delete [] m_pfWindowBuff;
+    CVector::free(m_pfProcessBuff);
+    CVector::free(m_pfWindowBuff);
 
     m_pfProcessBuff = 0;
     m_pfWindowBuff  = 0;

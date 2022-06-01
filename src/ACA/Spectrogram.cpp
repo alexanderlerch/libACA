@@ -1,5 +1,6 @@
 
 #include "Util.h"
+#include "Matrix.h"
 #include "RingBuffer.h"
 #include "AudioFileIf.h"
 #include "Fft.h"
@@ -23,8 +24,7 @@ public:
         delete m_pCNormalize;
         m_pCNormalize = 0;
 
-        delete[] m_pfProcessBuff;
-        m_pfProcessBuff = 0;
+        CVector::free(m_pfProcessBuff);
 
         m_pCAudioFile->closeFile();
         CAudioFileIf::destroy(m_pCAudioFile);
@@ -232,28 +232,14 @@ void CSpectrogramIf::computeMagSpectrum_(int iLength)
 
 void CSpectrogramIf::destroyMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig)
 {
-    if (m_ppfHMel)
-    {
-        for (auto k = 0; k < pMelSpecConfig->iNumMelBins; k++)
-        {
-            delete[] m_ppfHMel[k];
-            m_ppfHMel[k] = 0;
-        }
-        delete[] m_ppfHMel;
-        m_ppfHMel = 0;
-    }
-
-    delete[] m_pffcMel;
-    m_pffcMel = 0;
+    CMatrix::free(m_ppfHMel, pMelSpecConfig->iNumMelBins);
 }
 
 Error_t CSpectrogramIf::reset_()
 {
-    delete[] m_pfProcessBuff;
-    m_pfProcessBuff = 0;
+    CVector::free(m_pfProcessBuff);
 
-    delete[] m_pfSpectrum;
-    m_pfSpectrum = 0;
+    CVector::free(m_pfSpectrum);
 
     delete m_pCFft;
     m_pCFft = 0;
@@ -280,8 +266,8 @@ Error_t CSpectrogramIf::init_(float* pfWindow)
         m_pCFft->overrideWindow(pfWindow);
 
     // allocate processing memory
-    m_pfSpectrum = new float[m_iBlockLength];
-    m_pfProcessBuff = new float[m_iBlockLength];
+    CVector::alloc(m_pfSpectrum, m_iBlockLength);
+    CVector::alloc(m_pfProcessBuff, m_iBlockLength);
 
     m_bIsInitialized = true;
 
@@ -406,13 +392,9 @@ Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t* pMelSpecCon
         return Error_t::kFunctionInvalidArgsError;
 
     // allocate filter matrix and frequency matrix
-    m_pffcMel = new float[pMelSpecConfig->iNumMelBins + 2]; // +2 for lower and upper bound
-    m_ppfHMel = new float* [pMelSpecConfig->iNumMelBins];
-    for (auto k = 0; k < pMelSpecConfig->iNumMelBins; k++)
-    {
-        m_ppfHMel[k] = new float[iMagLength];
-        CVectorFloat::setZero(m_ppfHMel[k], iMagLength);
-    }
+    CVector::alloc(m_pffcMel, static_cast<long long>(pMelSpecConfig->iNumMelBins) + 2); // +2 for lower and upper bound
+    CMatrix::alloc(m_ppfHMel, pMelSpecConfig->iNumMelBins, iMagLength);
+    
 
     // compute center band frequencies
     m_pffcMel[0] = CConversion::convertFreq2Mel(pMelSpecConfig->fMinFreqInHz);

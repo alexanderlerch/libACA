@@ -1,5 +1,6 @@
 
 #include "Vector.h"
+#include "Matrix.h"
 #include "Util.h"
 
 #include "ToolConversion.h"
@@ -273,7 +274,7 @@ float CFeatureFromBlockIf::compFeatureTimeAcfCoeff(const float* pfSamples, int i
     assert(iDataLength > iEta);
     assert(iEta >= 0);
 
-    return CVectorFloat::mulScalar(pfSamples, &pfSamples[iEta], iDataLength - iEta);
+    return CVectorFloat::mulScalar(pfSamples, &pfSamples[iEta], static_cast<long long>(iDataLength) - iEta);
 }
 
 float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
@@ -327,14 +328,13 @@ class CFeatureSpectralFlux : public CFeatureFromBlockIf
 public:
     CFeatureSpectralFlux(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
-        m_pfPrevSpec = new float[m_iDataLength];
+        CVector::alloc(m_pfPrevSpec, m_iDataLength);
         CVectorFloat::setZero(m_pfPrevSpec, m_iDataLength);
     };
 
     virtual ~CFeatureSpectralFlux() 
     {
-        delete[] m_pfPrevSpec;
-        m_pfPrevSpec = 0;
+        CVector::free(m_pfPrevSpec);
     };
 
     Error_t compFeature(float* pfFeature, const float* pfInput) override
@@ -360,29 +360,21 @@ public:
     CFeatureSpectralMfccs(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         // alloc transfer function memory
-        m_ppfH = new float* [m_iNumBands];
-        for (auto p = 0; p < m_iNumBands; p++)
-        {
-            m_ppfH[p] = new float[iDataLength];
-            CVectorFloat::setZero(m_ppfH[p], iDataLength);
-        }
+        CMatrix::alloc(m_ppfH, m_iNumBands, iDataLength);
+
         genMfccFilters_();
         genDctMat_(m_iNumMfcCoeffs);
 
-        m_pfMelSpec = new float [m_iNumBands];
+        CVector::alloc(m_pfMelSpec, m_iNumBands);
     }
 
     virtual ~CFeatureSpectralMfccs()
     {
-        for (auto p = 0; p < m_iNumBands; p++)
-            delete[] m_ppfH[p];
-        delete[] m_ppfH;
-        m_ppfH = 0;
+        CMatrix::free(m_ppfH, m_iNumBands);
 
         deleteDctMat_();
 
-        delete [] m_pfMelSpec;
-        m_pfMelSpec = 0;
+        CVector::free(m_pfMelSpec);
     }
 
     Error_t compFeature(float* pfFeature, const float* pfInput) override
@@ -497,19 +489,11 @@ private:
         if (m_ppfDct)
             deleteDctMat_();
 
-        m_ppfDct = new float* [iNumCoeffs];
-        for (auto c = 0; c < iNumCoeffs; c++)
-        {
-            m_ppfDct[c] = new float[m_iNumBands];
-            CVectorFloat::setZero(m_ppfDct[c], m_iNumBands);
-        }
+        CMatrix::alloc(m_ppfDct, iNumCoeffs, m_iNumBands);
     }
     void deleteDctMat_()
     {
-        for (auto c = 0; c < m_iNumMfcCoeffs; c++)
-            delete[] m_ppfDct[c];
-        delete[] m_ppfDct;
-        m_ppfDct = 0;
+        CMatrix::free(m_ppfDct, m_iNumMfcCoeffs);
     }
 
     const int m_iNumBands = 40;
@@ -526,22 +510,14 @@ public:
     CFeatureSpectralPitchChroma(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         // alloc transfer function memory
-        m_ppfH = new float* [m_iNumPitchClasses];
-        for (auto p = 0; p < m_iNumPitchClasses; p++)
-        {
-            m_ppfH[p] = new float[iDataLength];
-            CVectorFloat::setZero(m_ppfH[p], iDataLength);
-        }
+        CMatrix::alloc(m_ppfH, m_iNumPitchClasses, iDataLength);
 
         genPcFilters_();
     };
 
     virtual ~CFeatureSpectralPitchChroma()
     {
-        for (auto p = 0; p < m_iNumPitchClasses; p++)
-            delete[] m_ppfH[p];
-        delete[] m_ppfH;
-        m_ppfH = 0;
+        CMatrix::free(m_ppfH, m_iNumPitchClasses);
     };
 
     Error_t compFeature(float* pfFeature, const float* pfInput) override
@@ -620,7 +596,7 @@ private:
                     static_cast<int>(CConversion::convertFreq2Bin(afBoundFreqs[1], (m_iDataLength - 1) * 2, m_fSampleRate)) };
 
                 // set transfer function
-                CVectorFloat::setValue(&m_ppfH[p][aiBoundIdx[0]], 1.F / (aiBoundIdx[1] - aiBoundIdx[0] + 1), aiBoundIdx[1] - aiBoundIdx[0] + 1);
+                CVectorFloat::setValue(&m_ppfH[p][aiBoundIdx[0]], 1.F / (aiBoundIdx[1] - aiBoundIdx[0] + 1), static_cast<long long>(aiBoundIdx[1]) - aiBoundIdx[0] + 1);
 
                 // proceed to next octave
                 for (auto i = 0; i < 2; i++)
@@ -753,13 +729,12 @@ public:
         m_pCCcf = new CCcf();
         m_pCCcf->init(iDataLength);
 
-        m_pfAcf = new float[m_pCCcf->getCcfLength(true)];
+        CVector::alloc(m_pfAcf , m_pCCcf->getCcfLength(true));
     };
 
     virtual ~CFeatureTimeMaxAcf() 
     {
-        delete[] m_pfAcf;
-        m_pfAcf = 0;
+        CVector::free(m_pfAcf);
 
         delete m_pCCcf;
         m_pCCcf = 0;
@@ -797,7 +772,7 @@ public:
             iEtaMin = iEta;
 
         // get the maximum given the constraints above
-        *pfFeature = CVectorFloat::getMax(&m_pfAcf[iEtaMin], m_iDataLength - iEtaMin);
+        *pfFeature = CVectorFloat::getMax(&m_pfAcf[iEtaMin], static_cast<long long>(m_iDataLength) - iEtaMin);
 
         return Error_t::kNoError;
     };

@@ -677,7 +677,7 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
     {
         iOutputLength = 30;
         float* pfSine = 0;
-        CVectorFloat::alloc(pfSine, iOutputLength);
+        CVector::alloc(pfSine, iOutputLength);
         CSynthesis::genSine(pfSine, 1.F, 1.F*iOutputLength, iOutputLength);
 
         for (auto i = 0; i < iInputLength; i++)
@@ -690,7 +690,7 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
 
         for (auto i = 0; i < iOutputLength; i++)
             CHECK(pfSine[i] == Approx(pfOut[i]).margin(1e-1F).epsilon(1e-1F));
-        CVectorFloat::free(pfSine);
+        CVector::free(pfSine);
     }
 
     delete[] pfIn;
@@ -739,7 +739,7 @@ TEST_CASE("ToolsResample", "[ToolsResample]")
         delete pCResample;
         pCResample = new CResample(1.F, fSampleRateScale);
 
-        CVectorFloat::alloc(pfSine, iOutputLength);
+        CVector::alloc(pfSine, iOutputLength);
         CSynthesis::genSine(pfSine, 1.F, 1.F * iOutputLength, iOutputLength);
 
         for (auto i = 0; i < iInputLength; i++)
@@ -750,7 +750,7 @@ TEST_CASE("ToolsResample", "[ToolsResample]")
         for (auto i = 0; i < iOutputLength; i++)
             CHECK(pfSine[i] == Approx(pfOut[i]).margin(1e-4F).epsilon(1e-4F));
 
-        CVectorFloat::free(pfSine);
+        CVector::free(pfSine);
     }
 
     delete pCResample;

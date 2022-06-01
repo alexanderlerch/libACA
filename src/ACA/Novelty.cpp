@@ -22,8 +22,7 @@ public:
         delete m_pCNormalize;
         m_pCNormalize = 0;
 
-        delete[] m_pfProcessBuff1;
-        m_pfProcessBuff1 = 0;
+        CVector::free(m_pfProcessBuff1);
 
         m_pCAudioFile->closeFile();
         CAudioFileIf::destroy(m_pCAudioFile);
@@ -195,7 +194,8 @@ Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
     const float fThreshLpLenInS = 0.14F;
     auto iNumBlocks = m_pCBlockAudio->getNumBlocks();
 
-    float *pfThreshold = new float[iNumBlocks]; //!< memory allocation is ok since we compDtw the whole signal at once
+    float *pfThreshold = 0; //!< memory allocation is ok since we compDtw the whole signal at once
+    CVector::alloc(pfThreshold, iNumBlocks);
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
@@ -241,7 +241,7 @@ Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
     }
 
     // clean up memory
-    delete[] pfThreshold;
+    CVector::free(pfThreshold);
 
     return Error_t::kNoError;
 }
@@ -288,11 +288,9 @@ void CNoveltyIf::computeMagSpectrum_()
 
 Error_t CNoveltyIf::reset_()
 {
-    delete[] m_pfProcessBuff1;
-    m_pfProcessBuff1 = 0;
+    CVector::free(m_pfProcessBuff1);
 
-    delete[] m_pfProcessBuff2;
-    m_pfProcessBuff2 = 0;
+    CVector::free(m_pfProcessBuff2);
 
     delete m_pCFft;
     m_pCFft = 0;
@@ -319,8 +317,8 @@ Error_t CNoveltyIf::init_(Novelty_t eNoveltyIdx)
     m_pCFft = new CFft();
     m_pCFft->init(m_iBlockLength);
     // allocate processing memory
-    m_pfProcessBuff1 = new float[m_pCFft->getLength(CFft::kLengthFft)];
-    m_pfProcessBuff2 = new float[m_pCFft->getLength(CFft::kLengthFft)];
+    CVector::alloc(m_pfProcessBuff1, m_pCFft->getLength(CFft::kLengthFft));
+    CVector::alloc(m_pfProcessBuff2, m_pCFft->getLength(CFft::kLengthFft));
     
     CNoveltyFromBlockIf::create(m_pCNovelty, eNoveltyIdx, m_pCFft->getLength(CFft::kLengthMagnitude), m_fSampleRate);
     CMovingAverage::create(m_pCLpFilter);

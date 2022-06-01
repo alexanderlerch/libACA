@@ -17,21 +17,17 @@ public:
     \param iNumCols number of columns
     \return 
     */
-    static void alloc(float** &ppfMat, int iNumRows, int iNumCols)
+    template<typename T>
+    static void alloc(T** &ppfMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
 
-        ppfMat = new float* [iNumRows];
+        CVector::alloc(ppfMat, iNumRows);
         assert(ppfMat);
  
         for (auto m = 0; m < iNumRows; m++)
-        {
-            ppfMat[m] = new float[iNumCols];
-            assert(ppfMat[m]);
-
-            CVectorFloat::setZero(ppfMat[m], iNumCols);
-        }
+            CVector::alloc(ppfMat[m], iNumCols);
     }
 
     /*! frees a float matrix 
@@ -39,15 +35,16 @@ public:
     \param iNumRows number of rows
     \return
     */
-    static void free(float**& ppfMat, int iNumRows)
+    template<typename T>
+    static void free(T**& ppfMat, int iNumRows)
     {
-        assert(iNumRows > 0);
         if (!ppfMat) return;
+        assert(iNumRows > 0);
 
         for (auto m = 0; m < iNumRows; m++)
-            delete[] ppfMat[m];
+            CVector::free(ppfMat[m]);
 
-        delete[] ppfMat;
+        CVector::free(ppfMat);
         ppfMat = 0;
     }
 

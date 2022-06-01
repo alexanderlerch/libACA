@@ -209,14 +209,9 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
 
 Error_t CBeatHistoIf::reset_()
 {
-    delete[] m_pfNovelty;
-    m_pfNovelty = 0;
-
-    delete[] m_pfProcessBuff;
-    m_pfProcessBuff = 0;
-
-    delete[] m_pfBeatHisto;
-    m_pfBeatHisto = 0;
+    CVector::free(m_pfNovelty);
+    CVector::free(m_pfProcessBuff);
+    CVector::free(m_pfBeatHisto);
 
     m_iBlockLength = 0;
     m_iHopLength = 0;
@@ -236,14 +231,14 @@ Error_t CBeatHistoIf::init_(const std::string& strAudioFilePath)
         int iNumBlocks = 0;
         m_pCNovelty->getNumBlocks(iNumBlocks);
         assert(iNumBlocks > 2);
-        m_pfNovelty = new float[iNumBlocks];
+        CVector::alloc(m_pfNovelty, iNumBlocks);
 
         m_pCNovelty->getNoveltyTimeStamps(m_pfNovelty);
         m_fSampleRate = m_iHopLength / (m_pfNovelty[1] - m_pfNovelty[0]);
 
-        m_pfProcessBuff = new float[m_iBeatHistoLength * 2];
+        CVector::alloc(m_pfProcessBuff, static_cast<long long>(m_iBeatHistoLength) * 2);
 
-        m_pfBeatHisto = new float[m_iBeatHistoLength + 1];
+        CVector::alloc(m_pfBeatHisto, static_cast<long long>(m_iBeatHistoLength) + 1);
 
         m_bIsInitialized = true;
         return Error_t::kNoError;
@@ -259,11 +254,11 @@ Error_t CBeatHistoIf::init_(const float* pfAudio, long long iNumFrames, float fS
         int iNumBlocks = 0;
         m_pCNovelty->getNumBlocks(iNumBlocks);
         assert(iNumBlocks > 2);
-        m_pfNovelty = new float[iNumBlocks];
+        CVector::alloc(m_pfNovelty, iNumBlocks);
 
-        m_pfProcessBuff = new float[m_iBeatHistoLength * 2];
+        CVector::alloc(m_pfProcessBuff, static_cast<long long>(m_iBeatHistoLength) * 2);
 
-        m_pfBeatHisto = new float[m_iBeatHistoLength+1];
+        CVector::alloc(m_pfBeatHisto, static_cast<long long>(m_iBeatHistoLength) + 1);
 
         m_bIsInitialized = true;
         return Error_t::kNoError;
@@ -271,8 +266,6 @@ Error_t CBeatHistoIf::init_(const float* pfAudio, long long iNumFrames, float fS
     else
         return Error_t::kMemError;
 }
-
-//int compBeatHistoLength_(long long iLengthNovelty) const;
 
 inline void CBeatHistoIf::compHistoRange_(int& iStartIdx, int& iStopIdx, BeatHisto_t eBeatHistoComp) const
 {

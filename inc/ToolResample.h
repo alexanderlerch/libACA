@@ -110,7 +110,7 @@ public:
         // compute index axis
         long long iNumOutSamples = getOutputLength(iNumInSamples);
         float* pfOutIdx = 0;
-        CVectorFloat::alloc(pfOutIdx, iNumOutSamples);
+        CVector::alloc(pfOutIdx, iNumOutSamples);
         for (auto i = 0; i < iNumOutSamples; i++)
             pfOutIdx[i] = i * m_fInSampleRate / m_fOutSampleRate;
 
@@ -130,7 +130,7 @@ public:
         else // downsample
         {
             float* pfFiltered = 0;
-            CVectorFloat::alloc(pfFiltered, iNumInSamples);
+            CVector::alloc(pfFiltered, iNumInSamples);
 
             // apply zero phase filter
             m_pCFilter->filtfilt(pfFiltered, pfIn, iNumInSamples);
@@ -138,11 +138,11 @@ public:
             // interpolate
             interp1d(pfOut, pfOutIdx, pfFiltered, iNumOutSamples, iNumInSamples);
 
-            CVectorFloat::free(pfFiltered);
+            CVector::free(pfFiltered);
         }
 
         // free internal memory
-        CVectorFloat::free(pfOutIdx);
+        CVector::free(pfOutIdx);
 
         return Error_t::kNoError;
     }

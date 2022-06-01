@@ -21,8 +21,7 @@ public:
         delete m_pCNormalize;
         m_pCNormalize = 0;
 
-        delete[] m_pfProcessBuff1;
-        m_pfProcessBuff1 = 0;
+        CVector::free(m_pfProcessBuff1);
 
         m_pCAudioFile->closeFile();
         CAudioFileIf::destroy(m_pCAudioFile);
@@ -319,11 +318,9 @@ void CFeatureIf::computeMagSpectrum_()
 
 Error_t CFeatureIf::reset_()
 {
-    delete[] m_pfProcessBuff1;
-    m_pfProcessBuff1 = 0;
+    CVector::free(m_pfProcessBuff1);
 
-    delete[] m_pfProcessBuff2;
-    m_pfProcessBuff2 = 0;
+    CVector::free(m_pfProcessBuff2);
 
     delete m_pCFft;
     m_pCFft = 0;
@@ -350,14 +347,14 @@ Error_t CFeatureIf::init_(Feature_t eFeatureIdx)
         m_pCFft = new CFft();
         m_pCFft->init(m_iBlockLength);
         // allocate processing memory
-        m_pfProcessBuff1 = new float[m_pCFft->getLength(CFft::kLengthFft)];
-        m_pfProcessBuff2 = new float[m_pCFft->getLength(CFft::kLengthFft)];
+        CVector::alloc(m_pfProcessBuff1, m_pCFft->getLength(CFft::kLengthFft));
+        CVector::alloc(m_pfProcessBuff2, m_pCFft->getLength(CFft::kLengthFft));
         CFeatureFromBlockIf::create(m_pCFeature, eFeatureIdx, m_pCFft->getLength(CFft::kLengthMagnitude), m_fSampleRate);
     }
     else
     {
         // allocate processing memory
-        m_pfProcessBuff1 = new float[m_iBlockLength];
+        CVector::alloc(m_pfProcessBuff1, m_iBlockLength);
         CFeatureFromBlockIf::create(m_pCFeature, eFeatureIdx, m_iBlockLength, m_fSampleRate);
     }
     m_bIsInitialized = true;
