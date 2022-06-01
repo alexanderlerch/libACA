@@ -344,6 +344,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="5,5,84,32"/>
 <area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="132,5,215,32"/>
 <area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="263,5,391,32"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="439,5,536,32"/>
 </map>
 </div>
 
@@ -386,6 +387,7 @@ Here is the call graph for this function:</div>
 <area shape="rect" title=" " alt="" coords="5,5,91,32"/>
 <area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="139,5,221,32"/>
 <area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="269,5,397,32"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="445,5,543,32"/>
 </map>
 </div>
 
@@ -443,23 +445,33 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00041_source.html#l00263">263</a> of file <a class="el" href="a00041_source.html">Fft.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  264</span>{</div>
-<div class="line"><span class="lineno">  265</span> </div>
-<div class="line"><span class="lineno">  266</span>    <a class="code hl_variable" href="a00331.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a> = <span class="keyword">new</span> <span class="keywordtype">float</span> [<a class="code hl_variable" href="a00331.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>];</div>
-<div class="line"><span class="lineno">  267</span>    <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>  = <span class="keyword">new</span> <span class="keywordtype">float</span> [<a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>];</div>
-<div class="line"><span class="lineno">  268</span> </div>
-<div class="line"><span class="lineno">  269</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00331.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a> || !<a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>)</div>
-<div class="line"><span class="lineno">  270</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">Error_t::kMemError</a>;</div>
-<div class="line"><span class="lineno">  271</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  272</span>    {</div>
-<div class="line"><span class="lineno">  273</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  274</span>    }</div>
-<div class="line"><span class="lineno">  275</span>}</div>
+<div class="line"><span class="lineno">  265</span>    <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00331.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a>, <a class="code hl_variable" href="a00331.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>);</div>
+<div class="line"><span class="lineno">  266</span>    <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>, <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>);</div>
+<div class="line"><span class="lineno">  267</span> </div>
+<div class="line"><span class="lineno">  268</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00331.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a> || !<a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>)</div>
+<div class="line"><span class="lineno">  269</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">Error_t::kMemError</a>;</div>
+<div class="line"><span class="lineno">  270</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  271</span>    {</div>
+<div class="line"><span class="lineno">  272</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  273</span>    }</div>
+<div class="line"><span class="lineno">  274</span>}</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">Error_t::kMemError</a></div><div class="ttdeci">@ kMemError</div></div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">kMemError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>, <a class="el" href="a00089_source.html#l00142">m_pfProcessBuff</a>, and <a class="el" href="a00089_source.html#l00143">m_pfWindowBuff</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">kMemError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>, <a class="el" href="a00089_source.html#l00142">m_pfProcessBuff</a>, and <a class="el" href="a00089_source.html#l00143">m_pfWindowBuff</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00041_source.html#l00030">init()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00331_adf2bc81be5029515f69907765ecc2476_cgraph.png" border="0" usemap="#aa00331_adf2bc81be5029515f69907765ecc2476_cgraph" alt=""/></div>
+<map name="aa00331_adf2bc81be5029515f69907765ecc2476_cgraph" id="aa00331_adf2bc81be5029515f69907765ecc2476_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,139,32"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="187,5,289,32"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="337,5,456,32"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -613,7 +625,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">kNotInitializedError</a>, <a class="el" href="a00089_source.html#l00026">kPreWindow</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, <a class="el" href="a00089_source.html#l00148">m_ePrePostWindowOpt</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>, <a class="el" href="a00089_source.html#l00142">m_pfProcessBuff</a>, <a class="el" href="a00089_source.html#l00143">m_pfWindowBuff</a>, <a class="el" href="a00086_source.html#l00270">CVectorFloat::mul_I()</a>, <a class="el" href="a00155_source.html#l00668">LaszloFft::realfft_split()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00047_source.html#l00066">CCcf::compCcf()</a>, <a class="el" href="a00017_source.html#l00308">CFeatureIf::computeMagSpectrum_()</a>, <a class="el" href="a00032_source.html#l00277">CNoveltyIf::computeMagSpectrum_()</a>, and <a class="el" href="a00014_source.html#l00217">CSpectrogramIf::computeMagSpectrum_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00047_source.html#l00062">CCcf::compCcf()</a>, <a class="el" href="a00017_source.html#l00307">CFeatureIf::computeMagSpectrum_()</a>, <a class="el" href="a00032_source.html#l00277">CNoveltyIf::computeMagSpectrum_()</a>, and <a class="el" href="a00014_source.html#l00217">CSpectrogramIf::computeMagSpectrum_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -720,7 +732,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00155_source.html#l00838">LaszloFft::irealfft_split()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">kNotInitializedError</a>, <a class="el" href="a00089_source.html#l00027">kPostWindow</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, <a class="el" href="a00089_source.html#l00148">m_ePrePostWindowOpt</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>, <a class="el" href="a00089_source.html#l00142">m_pfProcessBuff</a>, <a class="el" href="a00089_source.html#l00143">m_pfWindowBuff</a>, and <a class="el" href="a00086_source.html#l00270">CVectorFloat::mul_I()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00066">CCcf::compCcf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00062">CCcf::compCcf()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -772,46 +784,46 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00288">288</a> of file <a class="el" href="a00041_source.html">Fft.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  289</span>{</div>
-<div class="line"><span class="lineno">  290</span>    <span class="keywordtype">int</span> i;</div>
-<div class="line"><span class="lineno">  291</span> </div>
-<div class="line"><span class="lineno">  292</span>    <span class="comment">// note that these windows are periodic, not symmetric</span></div>
-<div class="line"><span class="lineno">  293</span>    <span class="keywordflow">switch</span> (eWindow)</div>
-<div class="line"><span class="lineno">  294</span>    {</div>
-<div class="line"><span class="lineno">  295</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84aca36813c28d65dd1dafb589348aeff1a">kWindowSine</a>:</div>
-<div class="line"><span class="lineno">  296</span>    {</div>
-<div class="line"><span class="lineno">  297</span>        <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>; i++)</div>
-<div class="line"><span class="lineno">  298</span>        {</div>
-<div class="line"><span class="lineno">  299</span>            <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>[i] = sinf((i * <a class="code hl_variable" href="a00331.html#aaa7754c5f2f7ea35e945a86ab952fcc2">m_Pi</a>) / (<a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a> + 1));</div>
-<div class="line"><span class="lineno">  300</span>        }</div>
-<div class="line"><span class="lineno">  301</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  302</span>    }</div>
-<div class="line"><span class="lineno">  303</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84a197866057d0b408d209e05c687389a07">kWindowHann</a>:</div>
-<div class="line"><span class="lineno">  304</span>    {</div>
-<div class="line"><span class="lineno">  305</span>        <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>; i++)</div>
-<div class="line"><span class="lineno">  306</span>        {</div>
-<div class="line"><span class="lineno">  307</span>            <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>[i] = .5F * (1.F - cosf((i * 2.F * <a class="code hl_variable" href="a00331.html#aaa7754c5f2f7ea35e945a86ab952fcc2">m_Pi</a>) / (<a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a> + 1)));</div>
-<div class="line"><span class="lineno">  308</span>        }</div>
-<div class="line"><span class="lineno">  309</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  310</span>    }</div>
-<div class="line"><span class="lineno">  311</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84a8207abf712cdbd38095cf68718751791">kWindowHamming</a>:</div>
-<div class="line"><span class="lineno">  312</span>    {</div>
-<div class="line"><span class="lineno">  313</span>        <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>; i++)</div>
-<div class="line"><span class="lineno">  314</span>        {</div>
-<div class="line"><span class="lineno">  315</span>            <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>[i] = .54F - .46F * cosf((i * 2.F * <a class="code hl_variable" href="a00331.html#aaa7754c5f2f7ea35e945a86ab952fcc2">m_Pi</a>) / (<a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a> + 1));</div>
-<div class="line"><span class="lineno">  316</span>        }</div>
-<div class="line"><span class="lineno">  317</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  318</span>    }</div>
-<div class="line"><span class="lineno">  319</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  320</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84ada1484b6ada5228f91dbec75d1c04ce5">kNumWindows</a>:</div>
-<div class="line"><span class="lineno">  321</span>    {</div>
-<div class="line"><span class="lineno">  322</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00287">287</a> of file <a class="el" href="a00041_source.html">Fft.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  288</span>{</div>
+<div class="line"><span class="lineno">  289</span>    <span class="keywordtype">int</span> i;</div>
+<div class="line"><span class="lineno">  290</span> </div>
+<div class="line"><span class="lineno">  291</span>    <span class="comment">// note that these windows are periodic, not symmetric</span></div>
+<div class="line"><span class="lineno">  292</span>    <span class="keywordflow">switch</span> (eWindow)</div>
+<div class="line"><span class="lineno">  293</span>    {</div>
+<div class="line"><span class="lineno">  294</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84aca36813c28d65dd1dafb589348aeff1a">kWindowSine</a>:</div>
+<div class="line"><span class="lineno">  295</span>    {</div>
+<div class="line"><span class="lineno">  296</span>        <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>; i++)</div>
+<div class="line"><span class="lineno">  297</span>        {</div>
+<div class="line"><span class="lineno">  298</span>            <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>[i] = sinf((i * <a class="code hl_variable" href="a00331.html#aaa7754c5f2f7ea35e945a86ab952fcc2">m_Pi</a>) / (<a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a> + 1));</div>
+<div class="line"><span class="lineno">  299</span>        }</div>
+<div class="line"><span class="lineno">  300</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  301</span>    }</div>
+<div class="line"><span class="lineno">  302</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84a197866057d0b408d209e05c687389a07">kWindowHann</a>:</div>
+<div class="line"><span class="lineno">  303</span>    {</div>
+<div class="line"><span class="lineno">  304</span>        <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>; i++)</div>
+<div class="line"><span class="lineno">  305</span>        {</div>
+<div class="line"><span class="lineno">  306</span>            <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>[i] = .5F * (1.F - cosf((i * 2.F * <a class="code hl_variable" href="a00331.html#aaa7754c5f2f7ea35e945a86ab952fcc2">m_Pi</a>) / (<a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a> + 1)));</div>
+<div class="line"><span class="lineno">  307</span>        }</div>
+<div class="line"><span class="lineno">  308</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  309</span>    }</div>
+<div class="line"><span class="lineno">  310</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84a8207abf712cdbd38095cf68718751791">kWindowHamming</a>:</div>
+<div class="line"><span class="lineno">  311</span>    {</div>
+<div class="line"><span class="lineno">  312</span>        <span class="keywordflow">for</span> (i = 0; i &lt; <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>; i++)</div>
+<div class="line"><span class="lineno">  313</span>        {</div>
+<div class="line"><span class="lineno">  314</span>            <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>[i] = .54F - .46F * cosf((i * 2.F * <a class="code hl_variable" href="a00331.html#aaa7754c5f2f7ea35e945a86ab952fcc2">m_Pi</a>) / (<a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a> + 1));</div>
+<div class="line"><span class="lineno">  315</span>        }</div>
+<div class="line"><span class="lineno">  316</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  317</span>    }</div>
+<div class="line"><span class="lineno">  318</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  319</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84ada1484b6ada5228f91dbec75d1c04ce5">kNumWindows</a>:</div>
+<div class="line"><span class="lineno">  320</span>    {</div>
+<div class="line"><span class="lineno">  321</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  322</span>    }</div>
 <div class="line"><span class="lineno">  323</span>    }</div>
-<div class="line"><span class="lineno">  324</span>    }</div>
-<div class="line"><span class="lineno">  325</span> </div>
-<div class="line"><span class="lineno">  326</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  327</span>}</div>
+<div class="line"><span class="lineno">  324</span> </div>
+<div class="line"><span class="lineno">  325</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  326</span>}</div>
 <div class="ttc" id="aa00331_html_aaa7754c5f2f7ea35e945a86ab952fcc2"><div class="ttname"><a href="a00331.html#aaa7754c5f2f7ea35e945a86ab952fcc2">CFft::m_Pi</a></div><div class="ttdeci">static const float m_Pi</div><div class="ttdef"><b>Definition:</b> <a href="a00089_source.html#l00152">Fft.h:152</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00021">kNumWindows</a>, <a class="el" href="a00089_source.html#l00019">kWindowHamming</a>, <a class="el" href="a00089_source.html#l00018">kWindowHann</a>, <a class="el" href="a00089_source.html#l00017">kWindowSine</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, <a class="el" href="a00089_source.html#l00143">m_pfWindowBuff</a>, and <a class="el" href="a00089_source.html#l00152">m_Pi</a>.</p>
@@ -868,7 +880,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>, and <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00066">CCcf::compCcf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00062">CCcf::compCcf()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -916,20 +928,30 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00277">277</a> of file <a class="el" href="a00041_source.html">Fft.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  278</span>{</div>
-<div class="line"><span class="lineno">  279</span>    <span class="keyword">delete</span> [] <a class="code hl_variable" href="a00331.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a>;</div>
-<div class="line"><span class="lineno">  280</span>    <span class="keyword">delete</span> [] <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>;</div>
-<div class="line"><span class="lineno">  281</span> </div>
-<div class="line"><span class="lineno">  282</span>    <a class="code hl_variable" href="a00331.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a> = 0;</div>
-<div class="line"><span class="lineno">  283</span>    <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>  = 0;</div>
-<div class="line"><span class="lineno">  284</span> </div>
-<div class="line"><span class="lineno">  285</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  286</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00276">276</a> of file <a class="el" href="a00041_source.html">Fft.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  277</span>{</div>
+<div class="line"><span class="lineno">  278</span>    <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00331.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a>);</div>
+<div class="line"><span class="lineno">  279</span>    <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>);</div>
+<div class="line"><span class="lineno">  280</span> </div>
+<div class="line"><span class="lineno">  281</span>    <a class="code hl_variable" href="a00331.html#a8772f17ddcc11166a088b2b21cc73d4e">m_pfProcessBuff</a> = 0;</div>
+<div class="line"><span class="lineno">  282</span>    <a class="code hl_variable" href="a00331.html#aa8801a4fb658676c7b21b92283c35cf1">m_pfWindowBuff</a>  = 0;</div>
+<div class="line"><span class="lineno">  283</span> </div>
+<div class="line"><span class="lineno">  284</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  285</span>}</div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00142">m_pfProcessBuff</a>, and <a class="el" href="a00089_source.html#l00143">m_pfWindowBuff</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00142">m_pfProcessBuff</a>, and <a class="el" href="a00089_source.html#l00143">m_pfWindowBuff</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00041_source.html#l00059">reset()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00331_af48c6112f4a0d28b5badd8f317f4d191_cgraph.png" border="0" usemap="#aa00331_af48c6112f4a0d28b5badd8f317f4d191_cgraph" alt=""/></div>
+<map name="aa00331_af48c6112f4a0d28b5badd8f317f4d191_cgraph" id="aa00331_af48c6112f4a0d28b5badd8f317f4d191_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,133,32"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="181,5,279,32"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1002,7 +1024,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00014_source.html#l00394">CSpectrogramIf::generateMelFb_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00014_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1041,26 +1063,26 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00329">329</a> of file <a class="el" href="a00041_source.html">Fft.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  330</span>{</div>
-<div class="line"><span class="lineno">  331</span>    <span class="keywordflow">switch</span> (eLengthIdx)</div>
-<div class="line"><span class="lineno">  332</span>    {</div>
-<div class="line"><span class="lineno">  333</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33aae7f8e9cc1d7b43fa0239ce2122d4d6a">kLengthFft</a>:</div>
-<div class="line"><span class="lineno">  334</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00331.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>;</div>
-<div class="line"><span class="lineno">  335</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33a1926f84b6c21d5dccd2f520278e23a8f">kLengthData</a>:</div>
-<div class="line"><span class="lineno">  336</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>;</div>
-<div class="line"><span class="lineno">  337</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">kLengthMagnitude</a>:</div>
-<div class="line"><span class="lineno">  338</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33a57ff9f33bbbae562e26879c4256917c8">kLengthPhase</a>:</div>
-<div class="line"><span class="lineno">  339</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00331.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>/2+1;</div>
-<div class="line"><span class="lineno">  340</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  341</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33a71b19fb39e78bd7a6ad197e57ef972cb">kNumLengths</a>:</div>
-<div class="line"><span class="lineno">  342</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  343</span>    }</div>
-<div class="line"><span class="lineno">  344</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00328">328</a> of file <a class="el" href="a00041_source.html">Fft.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  329</span>{</div>
+<div class="line"><span class="lineno">  330</span>    <span class="keywordflow">switch</span> (eLengthIdx)</div>
+<div class="line"><span class="lineno">  331</span>    {</div>
+<div class="line"><span class="lineno">  332</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33aae7f8e9cc1d7b43fa0239ce2122d4d6a">kLengthFft</a>:</div>
+<div class="line"><span class="lineno">  333</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00331.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>;</div>
+<div class="line"><span class="lineno">  334</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33a1926f84b6c21d5dccd2f520278e23a8f">kLengthData</a>:</div>
+<div class="line"><span class="lineno">  335</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00331.html#a237d083103fc0d0b0f5e9416755ada74">m_iDataLength</a>;</div>
+<div class="line"><span class="lineno">  336</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">kLengthMagnitude</a>:</div>
+<div class="line"><span class="lineno">  337</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33a57ff9f33bbbae562e26879c4256917c8">kLengthPhase</a>:</div>
+<div class="line"><span class="lineno">  338</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00331.html#afb880ed147852905811582c2907b55a1">m_iFftLength</a>/2+1;</div>
+<div class="line"><span class="lineno">  339</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  340</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00331.html#aaeae67c99cd6e689243892e429a66e33a71b19fb39e78bd7a6ad197e57ef972cb">kNumLengths</a>:</div>
+<div class="line"><span class="lineno">  341</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  342</span>    }</div>
+<div class="line"><span class="lineno">  343</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00089_source.html#l00106">kLengthData</a>, <a class="el" href="a00089_source.html#l00105">kLengthFft</a>, <a class="el" href="a00089_source.html#l00107">kLengthMagnitude</a>, <a class="el" href="a00089_source.html#l00108">kLengthPhase</a>, <a class="el" href="a00089_source.html#l00110">kNumLengths</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, and <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00016">CInstFreq::CInstFreq()</a>, <a class="el" href="a00014_source.html#l00347">CSpectrogramIf::compMelSpectrogram()</a>, <a class="el" href="a00014_source.html#l00188">CSpectrogramIf::compSpectrogram()</a>, <a class="el" href="a00017_source.html#l00308">CFeatureIf::computeMagSpectrum_()</a>, <a class="el" href="a00032_source.html#l00277">CNoveltyIf::computeMagSpectrum_()</a>, <a class="el" href="a00014_source.html#l00394">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00017_source.html#l00345">CFeatureIf::init_()</a>, and <a class="el" href="a00032_source.html#l00316">CNoveltyIf::init_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00016">CInstFreq::CInstFreq()</a>, <a class="el" href="a00014_source.html#l00333">CSpectrogramIf::compMelSpectrogram()</a>, <a class="el" href="a00014_source.html#l00188">CSpectrogramIf::compSpectrogram()</a>, <a class="el" href="a00017_source.html#l00307">CFeatureIf::computeMagSpectrum_()</a>, <a class="el" href="a00032_source.html#l00277">CNoveltyIf::computeMagSpectrum_()</a>, <a class="el" href="a00014_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00017_source.html#l00342">CFeatureIf::init_()</a>, and <a class="el" href="a00032_source.html#l00314">CNoveltyIf::init_()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1157,7 +1179,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">kNotInitializedError</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, and <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00017_source.html#l00308">CFeatureIf::computeMagSpectrum_()</a>, <a class="el" href="a00032_source.html#l00277">CNoveltyIf::computeMagSpectrum_()</a>, and <a class="el" href="a00014_source.html#l00217">CSpectrogramIf::computeMagSpectrum_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00017_source.html#l00307">CFeatureIf::computeMagSpectrum_()</a>, <a class="el" href="a00032_source.html#l00277">CNoveltyIf::computeMagSpectrum_()</a>, and <a class="el" href="a00014_source.html#l00217">CSpectrogramIf::computeMagSpectrum_()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1249,7 +1271,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">kNotInitializedError</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>, <a class="el" href="a00089_source.html#l00152">m_Pi</a>, and <a class="el" href="a00089_source.html#l00153">m_Pi2</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00053">CInstFreq::process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00051">CInstFreq::process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1389,14 +1411,14 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> rErr;</div>
 <div class="line"><span class="lineno">   57</span>}</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7f"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a></div><div class="ttdeci">Error_t</div><div class="ttdef"><b>Definition:</b> <a href="a00113_source.html#l00004">ErrorDef.h:5</a></div></div>
-<div class="ttc" id="aa00331_html_aa5fffd68919cea17741c9fe69209bce6"><div class="ttname"><a href="a00331.html#aa5fffd68919cea17741c9fe69209bce6">CFft::computeWindow_</a></div><div class="ttdeci">Error_t computeWindow_(WindowFunction_t eWindow)</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00288">Fft.cpp:288</a></div></div>
+<div class="ttc" id="aa00331_html_aa5fffd68919cea17741c9fe69209bce6"><div class="ttname"><a href="a00331.html#aa5fffd68919cea17741c9fe69209bce6">CFft::computeWindow_</a></div><div class="ttdeci">Error_t computeWindow_(WindowFunction_t eWindow)</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00287">Fft.cpp:287</a></div></div>
 <div class="ttc" id="aa00331_html_adf2bc81be5029515f69907765ecc2476"><div class="ttname"><a href="a00331.html#adf2bc81be5029515f69907765ecc2476">CFft::allocMemory_</a></div><div class="ttdeci">Error_t allocMemory_()</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00263">Fft.cpp:263</a></div></div>
 <div class="ttc" id="aa00355_html_a0fd55429d52515a9efb2fe602ce8f9ed"><div class="ttname"><a href="a00355.html#a0fd55429d52515a9efb2fe602ce8f9ed">CUtil::nextPowOf2</a></div><div class="ttdeci">static int nextPowOf2(int n)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00051">Util.h:51</a></div></div>
 <div class="ttc" id="aa00355_html_a6d0e75b0bcbbb243b7141cfc0126e443"><div class="ttname"><a href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443">CUtil::isPowOf2</a></div><div class="ttdeci">static bool isPowOf2(int n)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00042">Util.h:42</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00288">computeWindow_()</a>, <a class="el" href="a00080_source.html#l00042">CUtil::isPowOf2()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, <a class="el" href="a00089_source.html#l00148">m_ePrePostWindowOpt</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>, <a class="el" href="a00080_source.html#l00051">CUtil::nextPowOf2()</a>, and <a class="el" href="a00041_source.html#l00059">reset()</a>.</p>
+<p class="reference">References <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00287">computeWindow_()</a>, <a class="el" href="a00080_source.html#l00042">CUtil::isPowOf2()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, <a class="el" href="a00089_source.html#l00148">m_ePrePostWindowOpt</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>, <a class="el" href="a00080_source.html#l00051">CUtil::nextPowOf2()</a>, and <a class="el" href="a00041_source.html#l00059">reset()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00016">CInstFreq::CInstFreq()</a>, <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00047_source.html#l00020">CCcf::init()</a>, <a class="el" href="a00017_source.html#l00345">CFeatureIf::init_()</a>, <a class="el" href="a00014_source.html#l00274">CSpectrogramIf::init_()</a>, and <a class="el" href="a00032_source.html#l00316">CNoveltyIf::init_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00016">CInstFreq::CInstFreq()</a>, <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00047_source.html#l00020">CCcf::init()</a>, <a class="el" href="a00017_source.html#l00342">CFeatureIf::init_()</a>, <a class="el" href="a00014_source.html#l00260">CSpectrogramIf::init_()</a>, and <a class="el" href="a00032_source.html#l00314">CNoveltyIf::init_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1408,7 +1430,10 @@ Here is the call graph for this function:</div>
 <area shape="rect" href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="145,107,259,133"/>
 <area shape="rect" href="a00355.html#a0fd55429d52515a9efb2fe602ce8f9ed" title=" " alt="" coords="138,157,266,184"/>
 <area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="161,208,243,235"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="341,5,443,32"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="504,5,623,32"/>
 <area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="328,208,456,235"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="515,208,612,235"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1575,7 +1600,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00066">CCcf::compCcf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00062">CCcf::compCcf()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1655,7 +1680,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">kNotInitializedError</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, and <a class="el" href="a00089_source.html#l00143">m_pfWindowBuff</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00014_source.html#l00274">CSpectrogramIf::init_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00014_source.html#l00260">CSpectrogramIf::init_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1709,11 +1734,11 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
 <div class="line"><span class="lineno">   70</span> </div>
 <div class="line"><span class="lineno">   71</span>}</div>
-<div class="ttc" id="aa00331_html_af48c6112f4a0d28b5badd8f317f4d191"><div class="ttname"><a href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191">CFft::freeMemory_</a></div><div class="ttdeci">Error_t freeMemory_()</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00277">Fft.cpp:277</a></div></div>
+<div class="ttc" id="aa00331_html_af48c6112f4a0d28b5badd8f317f4d191"><div class="ttname"><a href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191">CFft::freeMemory_</a></div><div class="ttdeci">Error_t freeMemory_()</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00276">Fft.cpp:276</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00041_source.html#l00277">freeMemory_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00025">kNoWindow</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, <a class="el" href="a00089_source.html#l00148">m_ePrePostWindowOpt</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, and <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>.</p>
+<p class="reference">References <a class="el" href="a00041_source.html#l00276">freeMemory_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00025">kNoWindow</a>, <a class="el" href="a00089_source.html#l00150">m_bIsInitialized</a>, <a class="el" href="a00089_source.html#l00148">m_ePrePostWindowOpt</a>, <a class="el" href="a00089_source.html#l00145">m_iDataLength</a>, and <a class="el" href="a00089_source.html#l00146">m_iFftLength</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00014">CFft()</a>, <a class="el" href="a00041_source.html#l00030">init()</a>, <a class="el" href="a00047_source.html#l00047">CCcf::reset()</a>, and <a class="el" href="a00041_source.html#l00025">~CFft()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00014">CFft()</a>, <a class="el" href="a00041_source.html#l00030">init()</a>, <a class="el" href="a00047_source.html#l00044">CCcf::reset()</a>, and <a class="el" href="a00041_source.html#l00025">~CFft()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1721,6 +1746,7 @@ Here is the call graph for this function:</div>
 <map name="aa00331_a0a0053b6ce93161553b573a16c77387a_cgraph" id="aa00331_a0a0053b6ce93161553b573a16c77387a_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,88,32"/>
 <area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="136,5,264,32"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="312,5,409,32"/>
 </map>
 </div>
 <div class="dynheader">
@@ -1916,7 +1942,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00089_source.html#l00145">145</a> of file <a class="el" href="a00089_source.html">Fft.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00097">compFft()</a>, <a class="el" href="a00041_source.html#l00121">compInvFft()</a>, <a class="el" href="a00041_source.html#l00288">computeWindow_()</a>, <a class="el" href="a00041_source.html#l00329">getLength()</a>, <a class="el" href="a00041_source.html#l00085">getWindow()</a>, <a class="el" href="a00041_source.html#l00030">init()</a>, <a class="el" href="a00041_source.html#l00073">overrideWindow()</a>, and <a class="el" href="a00041_source.html#l00059">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00097">compFft()</a>, <a class="el" href="a00041_source.html#l00121">compInvFft()</a>, <a class="el" href="a00041_source.html#l00287">computeWindow_()</a>, <a class="el" href="a00041_source.html#l00328">getLength()</a>, <a class="el" href="a00041_source.html#l00085">getWindow()</a>, <a class="el" href="a00041_source.html#l00030">init()</a>, <a class="el" href="a00041_source.html#l00073">overrideWindow()</a>, and <a class="el" href="a00041_source.html#l00059">reset()</a>.</p>
 
 </div>
 </div>
@@ -1942,7 +1968,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00089_source.html#l00146">146</a> of file <a class="el" href="a00089_source.html">Fft.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00227">bin2freq()</a>, <a class="el" href="a00041_source.html#l00097">compFft()</a>, <a class="el" href="a00041_source.html#l00121">compInvFft()</a>, <a class="el" href="a00041_source.html#l00232">conjugate_I()</a>, <a class="el" href="a00041_source.html#l00222">freq2bin()</a>, <a class="el" href="a00041_source.html#l00329">getLength()</a>, <a class="el" href="a00041_source.html#l00142">getMagnitude()</a>, <a class="el" href="a00041_source.html#l00162">getPhase()</a>, <a class="el" href="a00041_source.html#l00030">init()</a>, <a class="el" href="a00041_source.html#l00204">mergeRealImag()</a>, <a class="el" href="a00041_source.html#l00238">multiply_I()</a>, <a class="el" href="a00041_source.html#l00059">reset()</a>, and <a class="el" href="a00041_source.html#l00184">splitRealImag()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00227">bin2freq()</a>, <a class="el" href="a00041_source.html#l00097">compFft()</a>, <a class="el" href="a00041_source.html#l00121">compInvFft()</a>, <a class="el" href="a00041_source.html#l00232">conjugate_I()</a>, <a class="el" href="a00041_source.html#l00222">freq2bin()</a>, <a class="el" href="a00041_source.html#l00328">getLength()</a>, <a class="el" href="a00041_source.html#l00142">getMagnitude()</a>, <a class="el" href="a00041_source.html#l00162">getPhase()</a>, <a class="el" href="a00041_source.html#l00030">init()</a>, <a class="el" href="a00041_source.html#l00204">mergeRealImag()</a>, <a class="el" href="a00041_source.html#l00238">multiply_I()</a>, <a class="el" href="a00041_source.html#l00059">reset()</a>, and <a class="el" href="a00041_source.html#l00184">splitRealImag()</a>.</p>
 
 </div>
 </div>
@@ -1968,7 +1994,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00089_source.html#l00142">142</a> of file <a class="el" href="a00089_source.html">Fft.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00097">compFft()</a>, <a class="el" href="a00041_source.html#l00121">compInvFft()</a>, and <a class="el" href="a00041_source.html#l00277">freeMemory_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00097">compFft()</a>, <a class="el" href="a00041_source.html#l00121">compInvFft()</a>, and <a class="el" href="a00041_source.html#l00276">freeMemory_()</a>.</p>
 
 </div>
 </div>
@@ -1994,7 +2020,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00089_source.html#l00143">143</a> of file <a class="el" href="a00089_source.html">Fft.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00097">compFft()</a>, <a class="el" href="a00041_source.html#l00121">compInvFft()</a>, <a class="el" href="a00041_source.html#l00288">computeWindow_()</a>, <a class="el" href="a00041_source.html#l00277">freeMemory_()</a>, <a class="el" href="a00041_source.html#l00085">getWindow()</a>, and <a class="el" href="a00041_source.html#l00073">overrideWindow()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00263">allocMemory_()</a>, <a class="el" href="a00041_source.html#l00097">compFft()</a>, <a class="el" href="a00041_source.html#l00121">compInvFft()</a>, <a class="el" href="a00041_source.html#l00287">computeWindow_()</a>, <a class="el" href="a00041_source.html#l00276">freeMemory_()</a>, <a class="el" href="a00041_source.html#l00085">getWindow()</a>, and <a class="el" href="a00041_source.html#l00073">overrideWindow()</a>.</p>
 
 </div>
 </div>
@@ -2020,7 +2046,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00089_source.html#l00152">152</a> of file <a class="el" href="a00089_source.html">Fft.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00288">computeWindow_()</a>, and <a class="el" href="a00041_source.html#l00162">getPhase()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00287">computeWindow_()</a>, and <a class="el" href="a00041_source.html#l00162">getPhase()</a>.</p>
 
 </div>
 </div>
@@ -2057,7 +2083,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

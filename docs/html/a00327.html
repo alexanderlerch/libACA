@@ -203,7 +203,7 @@ Protected Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="a00107_source.html#l00088">88</a> of file <a class="el" href="a00107_source.html">FeatureFromBlock.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   88</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00973">create()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00948">create()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -366,19 +366,19 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="a00231.html#a7708c61b60debf97d717d637677fc36f">CFeatureSpectralFlux</a>, <a class="el" href="a00235.html#a92ff3ebff9377acf3573f6b4d87a4bcd">CFeatureSpectralMfccs</a>, <a class="el" href="a00239.html#a049a6c2d11108c7d14111790447f5d84">CFeatureSpectralPitchChroma</a>, <a class="el" href="a00243.html#a05fb25d2482c0add358ab03042df55d2">CFeatureSpectralRolloff</a>, <a class="el" href="a00247.html#a082f6b5f0e32c5ea667437398bbfc8df">CFeatureSpectralTonalPowerRatio</a>, <a class="el" href="a00251.html#abc5455e83eba5a49954ae64833d1d084">CFeatureTimeAcfCoeff</a>, <a class="el" href="a00255.html#af20724e23d18c1126e2edf4186cc8005">CFeatureTimeMaxAcf</a>, <a class="el" href="a00259.html#a238861a45b720d2b5a4974ea2dde9bad">CFeatureTimePeakEnvelope</a>, and <a class="el" href="a00263.html#a0d5c1ad84a07183a43397c5666489733">CFeatureTimeRms</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01050">1050</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1051</span>{</div>
-<div class="line"><span class="lineno"> 1052</span>    <span class="comment">// default: use one of the static functions</span></div>
-<div class="line"><span class="lineno"> 1053</span>    *pfFeature = <a class="code hl_variable" href="a00327.html#a21d3edee07a3b9f4d0af407479591a6c">m_DispatchMap</a>.at(<a class="code hl_variable" href="a00327.html#a3cdaa6a50139576cf1aaa73f4b0d3b6f">m_eFeatureIdx</a>)(pfInput, <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
-<div class="line"><span class="lineno"> 1054</span> </div>
-<div class="line"><span class="lineno"> 1055</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno"> 1056</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01025">1025</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1026</span>{</div>
+<div class="line"><span class="lineno"> 1027</span>    <span class="comment">// default: use one of the static functions</span></div>
+<div class="line"><span class="lineno"> 1028</span>    *pfFeature = <a class="code hl_variable" href="a00327.html#a21d3edee07a3b9f4d0af407479591a6c">m_DispatchMap</a>.at(<a class="code hl_variable" href="a00327.html#a3cdaa6a50139576cf1aaa73f4b0d3b6f">m_eFeatureIdx</a>)(pfInput, <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno"> 1029</span> </div>
+<div class="line"><span class="lineno"> 1030</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno"> 1031</span>}</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
 <div class="ttc" id="aa00327_html_a21d3edee07a3b9f4d0af407479591a6c"><div class="ttname"><a href="a00327.html#a21d3edee07a3b9f4d0af407479591a6c">CFeatureFromBlockIf::m_DispatchMap</a></div><div class="ttdeci">const std::map&lt; CFeatureIf::Feature_t, std::function&lt; float(const float *, int, float)&gt; &gt; m_DispatchMap</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00101">FeatureFromBlock.h:102</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00107_source.html#l00102">m_DispatchMap</a>, <a class="el" href="a00107_source.html#l00094">m_eFeatureIdx</a>, <a class="el" href="a00107_source.html#l00098">m_fSampleRate</a>, and <a class="el" href="a00107_source.html#l00096">m_iDataLength</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00173">CFeatureIf::compFeature1Dim()</a>, and <a class="el" href="a00017_source.html#l00207">CFeatureIf::compFeatureNDim()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00172">CFeatureIf::compFeature1Dim()</a>, and <a class="el" href="a00017_source.html#l00206">CFeatureIf::compFeatureNDim()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -433,32 +433,32 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00015">15</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>{</div>
-<div class="line"><span class="lineno">   17</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">   18</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   19</span>    assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">   20</span> </div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
-<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">float</span> fvsc = 0;</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">   25</span>    {</div>
-<div class="line"><span class="lineno">   26</span>        fNorm += pfMagSpec[k];</div>
-<div class="line"><span class="lineno">   27</span>        fvsc += k * pfMagSpec[k];</div>
-<div class="line"><span class="lineno">   28</span>    }</div>
-<div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">   31</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>    <span class="comment">// convert from index to Hz</span></div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">return</span> fvsc * fSampleRate / (2.F * fNorm * (iDataLength - 1));</div>
-<div class="line"><span class="lineno">   35</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00016">16</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>{</div>
+<div class="line"><span class="lineno">   18</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">   19</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">   20</span>    assert(fSampleRate &gt; 0);</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordtype">float</span> fvsc = 0;</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
+<div class="line"><span class="lineno">   26</span>    {</div>
+<div class="line"><span class="lineno">   27</span>        fNorm += pfMagSpec[k];</div>
+<div class="line"><span class="lineno">   28</span>        fvsc += k * pfMagSpec[k];</div>
+<div class="line"><span class="lineno">   29</span>    }</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    <span class="comment">// convert from index to Hz</span></div>
+<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">return</span> fvsc * fSampleRate / (2.F * fNorm * (iDataLength - 1));</div>
+<div class="line"><span class="lineno">   36</span>}</div>
 <div class="ttc" id="aa00327_html_a23b1d6639637a13587d5529a57f3bf78"><div class="ttname"><a href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">CFeatureFromBlockIf::m_kfFloatThresh</a></div><div class="ttdeci">static const float m_kfFloatThresh</div><div class="ttdoc">below this we just assume it's zero</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00084">FeatureFromBlock.h:84</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00129">compFeatureSpectralKurtosis()</a>, <a class="el" href="a00038_source.html#l00184">compFeatureSpectralSkewness()</a>, <a class="el" href="a00038_source.html#l00211">compFeatureSpectralSlope()</a>, and <a class="el" href="a00038_source.html#l00105">compFeatureSpectralSpread()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00130">compFeatureSpectralKurtosis()</a>, <a class="el" href="a00038_source.html#l00185">compFeatureSpectralSkewness()</a>, <a class="el" href="a00038_source.html#l00212">compFeatureSpectralSlope()</a>, and <a class="el" href="a00038_source.html#l00106">compFeatureSpectralSpread()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -514,18 +514,18 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00037">37</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   38</span>{</div>
-<div class="line"><span class="lineno">   39</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">   40</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordtype">float</span> fNorm = <a class="code hl_function" href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(pfMagSpec, iDataLength);</div>
-<div class="line"><span class="lineno">   43</span> </div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(pfMagSpec, iDataLength) / fNorm;</div>
-<div class="line"><span class="lineno">   48</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00038">38</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>{</div>
+<div class="line"><span class="lineno">   40</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">   41</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">   42</span> </div>
+<div class="line"><span class="lineno">   43</span>    <span class="keywordtype">float</span> fNorm = <a class="code hl_function" href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(pfMagSpec, iDataLength);</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(pfMagSpec, iDataLength) / fNorm;</div>
+<div class="line"><span class="lineno">   49</span>}</div>
 <div class="ttc" id="aa00363_html_a7972e4c31df79a32bbc5396e07d2ca9e"><div class="ttname"><a href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a></div><div class="ttdeci">static float getSum(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00381">Vector.h:381</a></div></div>
 <div class="ttc" id="aa00363_html_a8279b309edcfcac51d94b1e8f206a330"><div class="ttname"><a href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a></div><div class="ttdeci">static float getMax(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00496">Vector.h:496</a></div></div>
 </div><!-- fragment -->
@@ -584,25 +584,25 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00050">50</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>{</div>
-<div class="line"><span class="lineno">   52</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">   53</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   54</span> </div>
-<div class="line"><span class="lineno">   55</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordtype">float</span> fvsd = 0;</div>
-<div class="line"><span class="lineno">   57</span> </div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 1; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">   59</span>    {</div>
-<div class="line"><span class="lineno">   60</span>        fNorm += pfMagSpec[k];</div>
-<div class="line"><span class="lineno">   61</span>        fvsd += (pfMagSpec[k] - pfMagSpec[0]) / k;</div>
-<div class="line"><span class="lineno">   62</span>    }</div>
-<div class="line"><span class="lineno">   63</span> </div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   66</span> </div>
-<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">return</span> fvsd / fNorm;</div>
-<div class="line"><span class="lineno">   68</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00051">51</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>{</div>
+<div class="line"><span class="lineno">   53</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">   54</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
+<div class="line"><span class="lineno">   57</span>    <span class="keywordtype">float</span> fvsd = 0;</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 1; k &lt; iDataLength; k++)</div>
+<div class="line"><span class="lineno">   60</span>    {</div>
+<div class="line"><span class="lineno">   61</span>        fNorm += pfMagSpec[k];</div>
+<div class="line"><span class="lineno">   62</span>        fvsd += (pfMagSpec[k] - pfMagSpec[0]) / k;</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   67</span> </div>
+<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">return</span> fvsd / fNorm;</div>
+<div class="line"><span class="lineno">   69</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
 
@@ -648,24 +648,24 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00070">70</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
-<div class="line"><span class="lineno">   72</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">   73</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordtype">float</span> fNorm = <a class="code hl_function" href="a00363.html#a0ebcfe60eb5cda1ab45ae8157be0e64e">CVectorFloat::getMean</a>(pfMagSpec, iDataLength);</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordtype">float</span> fGeoMean = 0;</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <span class="comment">// avoid unnecessary complications</span></div>
-<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a> || <a class="code hl_function" href="a00363.html#a5c336e4bb302b1140096f2f1f1aa2ad3">CVectorFloat::getMin</a>(pfMagSpec, iDataLength) &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">   81</span> </div>
-<div class="line"><span class="lineno">   82</span>    <span class="comment">// compute geometric mean through log</span></div>
-<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">   84</span>        fGeoMean += std::log(pfMagSpec[k]);</div>
-<div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>    <span class="keywordflow">return</span> std::exp(fGeoMean / iDataLength) / fNorm;</div>
-<div class="line"><span class="lineno">   87</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00071">71</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   72</span>{</div>
+<div class="line"><span class="lineno">   73</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">   74</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordtype">float</span> fNorm = <a class="code hl_function" href="a00363.html#a0ebcfe60eb5cda1ab45ae8157be0e64e">CVectorFloat::getMean</a>(pfMagSpec, iDataLength);</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordtype">float</span> fGeoMean = 0;</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>    <span class="comment">// avoid unnecessary complications</span></div>
+<div class="line"><span class="lineno">   80</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a> || <a class="code hl_function" href="a00363.html#a5c336e4bb302b1140096f2f1f1aa2ad3">CVectorFloat::getMin</a>(pfMagSpec, iDataLength) &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>    <span class="comment">// compute geometric mean through log</span></div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
+<div class="line"><span class="lineno">   85</span>        fGeoMean += std::log(pfMagSpec[k]);</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordflow">return</span> std::exp(fGeoMean / iDataLength) / fNorm;</div>
+<div class="line"><span class="lineno">   88</span>}</div>
 <div class="ttc" id="aa00363_html_a0ebcfe60eb5cda1ab45ae8157be0e64e"><div class="ttname"><a href="a00363.html#a0ebcfe60eb5cda1ab45ae8157be0e64e">CVectorFloat::getMean</a></div><div class="ttdeci">static float getMean(const float *pfSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00420">Vector.h:420</a></div></div>
 <div class="ttc" id="aa00363_html_a5c336e4bb302b1140096f2f1f1aa2ad3"><div class="ttname"><a href="a00363.html#a5c336e4bb302b1140096f2f1f1aa2ad3">CVectorFloat::getMin</a></div><div class="ttdeci">static float getMin(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00547">Vector.h:547</a></div></div>
 </div><!-- fragment -->
@@ -731,21 +731,21 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00089">89</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   90</span>{</div>
-<div class="line"><span class="lineno">   91</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">   92</span>    assert(pfPrevSpec);</div>
-<div class="line"><span class="lineno">   93</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   94</span> </div>
-<div class="line"><span class="lineno">   95</span>    <span class="keywordtype">float</span> fSum = 0;</div>
-<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">   97</span>    {</div>
-<div class="line"><span class="lineno">   98</span>        <span class="keywordtype">float</span> fDiff = pfMagSpec[k] - pfPrevSpec[k];</div>
-<div class="line"><span class="lineno">   99</span>        fSum += fDiff * fDiff;</div>
-<div class="line"><span class="lineno">  100</span>    }</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> std::sqrt(fSum) / iDataLength;</div>
-<div class="line"><span class="lineno">  103</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00090">90</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{</div>
+<div class="line"><span class="lineno">   92</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">   93</span>    assert(pfPrevSpec);</div>
+<div class="line"><span class="lineno">   94</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">   95</span> </div>
+<div class="line"><span class="lineno">   96</span>    <span class="keywordtype">float</span> fSum = 0;</div>
+<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
+<div class="line"><span class="lineno">   98</span>    {</div>
+<div class="line"><span class="lineno">   99</span>        <span class="keywordtype">float</span> fDiff = pfMagSpec[k] - pfPrevSpec[k];</div>
+<div class="line"><span class="lineno">  100</span>        fSum += fDiff * fDiff;</div>
+<div class="line"><span class="lineno">  101</span>    }</div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">return</span> std::sqrt(fSum) / iDataLength;</div>
+<div class="line"><span class="lineno">  104</span>}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="a00038_source.html#l00340">CFeatureSpectralFlux::compFeature()</a>.</p>
 <div class="dynheader">
@@ -800,37 +800,37 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00129">129</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  130</span>{</div>
-<div class="line"><span class="lineno">  131</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">  132</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  133</span>    assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
-<div class="line"><span class="lineno">  136</span>    <span class="keywordtype">float</span> fvsk = 0;</div>
-<div class="line"><span class="lineno">  137</span>    <span class="keywordtype">float</span> fvsc = <a class="code hl_function" href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
-<div class="line"><span class="lineno">  138</span>    <span class="keywordtype">float</span> fvss = <a class="code hl_function" href="a00327.html#aa97614c73430e57facec7a88bee49c9f">compFeatureSpectralSpread</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
-<div class="line"><span class="lineno">  139</span> </div>
-<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">if</span> (fvsc &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a> || fvss &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  141</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">  144</span>    {</div>
-<div class="line"><span class="lineno">  145</span>        <span class="keywordtype">float</span> fAgg = (k - fvsc) * (k - fvsc);</div>
-<div class="line"><span class="lineno">  146</span>        fAgg *= fAgg;</div>
-<div class="line"><span class="lineno">  147</span>        fNorm += pfMagSpec[k];</div>
-<div class="line"><span class="lineno">  148</span>        fvsk += fAgg * pfMagSpec[k];</div>
-<div class="line"><span class="lineno">  149</span>    }</div>
-<div class="line"><span class="lineno">  150</span> </div>
-<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  152</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  153</span> </div>
-<div class="line"><span class="lineno">  154</span>    <span class="keywordflow">return</span> fvsk / (fvss * fvss * fvss * fvss * fNorm) - 3;</div>
-<div class="line"><span class="lineno">  155</span>}</div>
-<div class="ttc" id="aa00327_html_a880a58f05522dfd1f0f16f26c34703db"><div class="ttname"><a href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">CFeatureFromBlockIf::compFeatureSpectralCentroid</a></div><div class="ttdeci">static float compFeatureSpectralCentroid(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00015">FeatureFromBlock.cpp:15</a></div></div>
-<div class="ttc" id="aa00327_html_aa97614c73430e57facec7a88bee49c9f"><div class="ttname"><a href="a00327.html#aa97614c73430e57facec7a88bee49c9f">CFeatureFromBlockIf::compFeatureSpectralSpread</a></div><div class="ttdeci">static float compFeatureSpectralSpread(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00105">FeatureFromBlock.cpp:105</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00130">130</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  131</span>{</div>
+<div class="line"><span class="lineno">  132</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">  133</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  134</span>    assert(fSampleRate &gt; 0);</div>
+<div class="line"><span class="lineno">  135</span> </div>
+<div class="line"><span class="lineno">  136</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
+<div class="line"><span class="lineno">  137</span>    <span class="keywordtype">float</span> fvsk = 0;</div>
+<div class="line"><span class="lineno">  138</span>    <span class="keywordtype">float</span> fvsc = <a class="code hl_function" href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
+<div class="line"><span class="lineno">  139</span>    <span class="keywordtype">float</span> fvss = <a class="code hl_function" href="a00327.html#aa97614c73430e57facec7a88bee49c9f">compFeatureSpectralSpread</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
+<div class="line"><span class="lineno">  140</span> </div>
+<div class="line"><span class="lineno">  141</span>    <span class="keywordflow">if</span> (fvsc &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a> || fvss &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
+<div class="line"><span class="lineno">  145</span>    {</div>
+<div class="line"><span class="lineno">  146</span>        <span class="keywordtype">float</span> fAgg = (k - fvsc) * (k - fvsc);</div>
+<div class="line"><span class="lineno">  147</span>        fAgg *= fAgg;</div>
+<div class="line"><span class="lineno">  148</span>        fNorm += pfMagSpec[k];</div>
+<div class="line"><span class="lineno">  149</span>        fvsk += fAgg * pfMagSpec[k];</div>
+<div class="line"><span class="lineno">  150</span>    }</div>
+<div class="line"><span class="lineno">  151</span> </div>
+<div class="line"><span class="lineno">  152</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  153</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  154</span> </div>
+<div class="line"><span class="lineno">  155</span>    <span class="keywordflow">return</span> fvsk / (fvss * fvss * fvss * fvss * fNorm) - 3;</div>
+<div class="line"><span class="lineno">  156</span>}</div>
+<div class="ttc" id="aa00327_html_a880a58f05522dfd1f0f16f26c34703db"><div class="ttname"><a href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">CFeatureFromBlockIf::compFeatureSpectralCentroid</a></div><div class="ttdeci">static float compFeatureSpectralCentroid(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00016">FeatureFromBlock.cpp:16</a></div></div>
+<div class="ttc" id="aa00327_html_aa97614c73430e57facec7a88bee49c9f"><div class="ttname"><a href="a00327.html#aa97614c73430e57facec7a88bee49c9f">CFeatureFromBlockIf::compFeatureSpectralSpread</a></div><div class="ttdeci">static float compFeatureSpectralSpread(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00106">FeatureFromBlock.cpp:106</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00015">compFeatureSpectralCentroid()</a>, <a class="el" href="a00038_source.html#l00105">compFeatureSpectralSpread()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00016">compFeatureSpectralCentroid()</a>, <a class="el" href="a00038_source.html#l00106">compFeatureSpectralSpread()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -890,36 +890,36 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00157">157</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  158</span>{</div>
-<div class="line"><span class="lineno">  159</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">  160</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  161</span>    assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  162</span>    assert(fKappa &gt; 0 &amp;&amp; fKappa &lt;= 1);</div>
-<div class="line"><span class="lineno">  163</span> </div>
-<div class="line"><span class="lineno">  164</span>    <span class="keywordtype">float</span> fNorm = <a class="code hl_function" href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(pfMagSpec, iDataLength);</div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordtype">float</span> fSum = 0;</div>
-<div class="line"><span class="lineno">  166</span>    <span class="keywordtype">int</span> k = 0;</div>
-<div class="line"><span class="lineno">  167</span> </div>
-<div class="line"><span class="lineno">  168</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  169</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  170</span> </div>
-<div class="line"><span class="lineno">  171</span>    fNorm *= fKappa;</div>
-<div class="line"><span class="lineno">  172</span>    <span class="keywordflow">while</span> (fSum &lt;= fNorm)</div>
-<div class="line"><span class="lineno">  173</span>    {</div>
-<div class="line"><span class="lineno">  174</span>        fSum += pfMagSpec[k];</div>
-<div class="line"><span class="lineno">  175</span>        k++;</div>
-<div class="line"><span class="lineno">  176</span> </div>
-<div class="line"><span class="lineno">  177</span>        assert(k &lt; iDataLength);</div>
-<div class="line"><span class="lineno">  178</span>    }</div>
-<div class="line"><span class="lineno">  179</span> </div>
-<div class="line"><span class="lineno">  180</span>    <span class="comment">// convert from index to Hz</span></div>
-<div class="line"><span class="lineno">  181</span>    <span class="keywordflow">return</span> (k - 1) * fSampleRate / (2.F * (iDataLength - 1));</div>
-<div class="line"><span class="lineno">  182</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00158">158</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  159</span>{</div>
+<div class="line"><span class="lineno">  160</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">  161</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  162</span>    assert(fSampleRate &gt; 0);</div>
+<div class="line"><span class="lineno">  163</span>    assert(fKappa &gt; 0 &amp;&amp; fKappa &lt;= 1);</div>
+<div class="line"><span class="lineno">  164</span> </div>
+<div class="line"><span class="lineno">  165</span>    <span class="keywordtype">float</span> fNorm = <a class="code hl_function" href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(pfMagSpec, iDataLength);</div>
+<div class="line"><span class="lineno">  166</span>    <span class="keywordtype">float</span> fSum = 0;</div>
+<div class="line"><span class="lineno">  167</span>    <span class="keywordtype">int</span> k = 0;</div>
+<div class="line"><span class="lineno">  168</span> </div>
+<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  171</span> </div>
+<div class="line"><span class="lineno">  172</span>    fNorm *= fKappa;</div>
+<div class="line"><span class="lineno">  173</span>    <span class="keywordflow">while</span> (fSum &lt;= fNorm)</div>
+<div class="line"><span class="lineno">  174</span>    {</div>
+<div class="line"><span class="lineno">  175</span>        fSum += pfMagSpec[k];</div>
+<div class="line"><span class="lineno">  176</span>        k++;</div>
+<div class="line"><span class="lineno">  177</span> </div>
+<div class="line"><span class="lineno">  178</span>        assert(k &lt; iDataLength);</div>
+<div class="line"><span class="lineno">  179</span>    }</div>
+<div class="line"><span class="lineno">  180</span> </div>
+<div class="line"><span class="lineno">  181</span>    <span class="comment">// convert from index to Hz</span></div>
+<div class="line"><span class="lineno">  182</span>    <span class="keywordflow">return</span> (k - 1) * fSampleRate / (2.F * (iDataLength - 1));</div>
+<div class="line"><span class="lineno">  183</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00381">CVectorFloat::getSum()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00650">CFeatureSpectralRolloff::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00626">CFeatureSpectralRolloff::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -981,34 +981,34 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00184">184</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  185</span>{</div>
-<div class="line"><span class="lineno">  186</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">  187</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  188</span>    assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  189</span> </div>
-<div class="line"><span class="lineno">  190</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
-<div class="line"><span class="lineno">  191</span>    <span class="keywordtype">float</span> fvssk = 0;</div>
-<div class="line"><span class="lineno">  192</span>    <span class="keywordtype">float</span> fvsc = <a class="code hl_function" href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
-<div class="line"><span class="lineno">  193</span>    <span class="keywordtype">float</span> fvss = <a class="code hl_function" href="a00327.html#aa97614c73430e57facec7a88bee49c9f">compFeatureSpectralSpread</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
-<div class="line"><span class="lineno">  194</span> </div>
-<div class="line"><span class="lineno">  195</span>    <span class="keywordflow">if</span> (fvsc &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a> || fvss &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  197</span> </div>
-<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">  199</span>    {</div>
-<div class="line"><span class="lineno">  200</span>        <span class="keywordtype">float</span> fAgg = (k - fvsc) * (k - fvsc) * (k - fvsc);</div>
-<div class="line"><span class="lineno">  201</span>        fNorm += pfMagSpec[k];</div>
-<div class="line"><span class="lineno">  202</span>        fvssk += fAgg * pfMagSpec[k];</div>
-<div class="line"><span class="lineno">  203</span>    }</div>
-<div class="line"><span class="lineno">  204</span> </div>
-<div class="line"><span class="lineno">  205</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  206</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  207</span> </div>
-<div class="line"><span class="lineno">  208</span>    <span class="keywordflow">return</span> fvssk / (fvss * fvss * fvss * fNorm);</div>
-<div class="line"><span class="lineno">  209</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00185">185</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  186</span>{</div>
+<div class="line"><span class="lineno">  187</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">  188</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  189</span>    assert(fSampleRate &gt; 0);</div>
+<div class="line"><span class="lineno">  190</span> </div>
+<div class="line"><span class="lineno">  191</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
+<div class="line"><span class="lineno">  192</span>    <span class="keywordtype">float</span> fvssk = 0;</div>
+<div class="line"><span class="lineno">  193</span>    <span class="keywordtype">float</span> fvsc = <a class="code hl_function" href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
+<div class="line"><span class="lineno">  194</span>    <span class="keywordtype">float</span> fvss = <a class="code hl_function" href="a00327.html#aa97614c73430e57facec7a88bee49c9f">compFeatureSpectralSpread</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
+<div class="line"><span class="lineno">  195</span> </div>
+<div class="line"><span class="lineno">  196</span>    <span class="keywordflow">if</span> (fvsc &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a> || fvss &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  197</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  198</span> </div>
+<div class="line"><span class="lineno">  199</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
+<div class="line"><span class="lineno">  200</span>    {</div>
+<div class="line"><span class="lineno">  201</span>        <span class="keywordtype">float</span> fAgg = (k - fvsc) * (k - fvsc) * (k - fvsc);</div>
+<div class="line"><span class="lineno">  202</span>        fNorm += pfMagSpec[k];</div>
+<div class="line"><span class="lineno">  203</span>        fvssk += fAgg * pfMagSpec[k];</div>
+<div class="line"><span class="lineno">  204</span>    }</div>
+<div class="line"><span class="lineno">  205</span> </div>
+<div class="line"><span class="lineno">  206</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  207</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  208</span> </div>
+<div class="line"><span class="lineno">  209</span>    <span class="keywordflow">return</span> fvssk / (fvss * fvss * fvss * fNorm);</div>
+<div class="line"><span class="lineno">  210</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00015">compFeatureSpectralCentroid()</a>, <a class="el" href="a00038_source.html#l00105">compFeatureSpectralSpread()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00016">compFeatureSpectralCentroid()</a>, <a class="el" href="a00038_source.html#l00106">compFeatureSpectralSpread()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1062,34 +1062,34 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00211">211</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  212</span>{</div>
-<div class="line"><span class="lineno">  213</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">  214</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  215</span>    assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  216</span> </div>
-<div class="line"><span class="lineno">  217</span>    <span class="comment">// compute mean</span></div>
-<div class="line"><span class="lineno">  218</span>    <span class="keywordtype">float</span> fvsc = <a class="code hl_function" href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
-<div class="line"><span class="lineno">  219</span>    <span class="keywordtype">float</span> fvssl = 0;</div>
-<div class="line"><span class="lineno">  220</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
-<div class="line"><span class="lineno">  221</span> </div>
-<div class="line"><span class="lineno">  222</span>    <span class="keywordflow">if</span> (fvsc &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  223</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  224</span> </div>
-<div class="line"><span class="lineno">  225</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">  226</span>    {</div>
-<div class="line"><span class="lineno">  227</span>        <span class="keywordtype">float</span> fk = k - (iDataLength + 1) / 2.F;</div>
-<div class="line"><span class="lineno">  228</span>        fvssl += fk * (pfMagSpec[k] - fvsc);</div>
-<div class="line"><span class="lineno">  229</span>        fNorm += fk * fk;</div>
-<div class="line"><span class="lineno">  230</span>    }</div>
-<div class="line"><span class="lineno">  231</span> </div>
-<div class="line"><span class="lineno">  232</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  233</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  234</span> </div>
-<div class="line"><span class="lineno">  235</span>    <span class="keywordflow">return</span> fvssl / fNorm;</div>
-<div class="line"><span class="lineno">  236</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00212">212</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  213</span>{</div>
+<div class="line"><span class="lineno">  214</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">  215</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  216</span>    assert(fSampleRate &gt; 0);</div>
+<div class="line"><span class="lineno">  217</span> </div>
+<div class="line"><span class="lineno">  218</span>    <span class="comment">// compute mean</span></div>
+<div class="line"><span class="lineno">  219</span>    <span class="keywordtype">float</span> fvsc = <a class="code hl_function" href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
+<div class="line"><span class="lineno">  220</span>    <span class="keywordtype">float</span> fvssl = 0;</div>
+<div class="line"><span class="lineno">  221</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
+<div class="line"><span class="lineno">  222</span> </div>
+<div class="line"><span class="lineno">  223</span>    <span class="keywordflow">if</span> (fvsc &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  224</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  225</span> </div>
+<div class="line"><span class="lineno">  226</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
+<div class="line"><span class="lineno">  227</span>    {</div>
+<div class="line"><span class="lineno">  228</span>        <span class="keywordtype">float</span> fk = k - (iDataLength + 1) / 2.F;</div>
+<div class="line"><span class="lineno">  229</span>        fvssl += fk * (pfMagSpec[k] - fvsc);</div>
+<div class="line"><span class="lineno">  230</span>        fNorm += fk * fk;</div>
+<div class="line"><span class="lineno">  231</span>    }</div>
+<div class="line"><span class="lineno">  232</span> </div>
+<div class="line"><span class="lineno">  233</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  234</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  235</span> </div>
+<div class="line"><span class="lineno">  236</span>    <span class="keywordflow">return</span> fvssl / fNorm;</div>
+<div class="line"><span class="lineno">  237</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00015">compFeatureSpectralCentroid()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00016">compFeatureSpectralCentroid()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1142,33 +1142,33 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00105">105</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
-<div class="line"><span class="lineno">  107</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">  108</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  109</span>    assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
-<div class="line"><span class="lineno">  112</span>    <span class="keywordtype">float</span> fvss = 0;</div>
-<div class="line"><span class="lineno">  113</span>    <span class="keywordtype">float</span> fvsc = <a class="code hl_function" href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (fvsc &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  117</span> </div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">  119</span>    {</div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordtype">float</span> fAgg = (k - fvsc) * (k - fvsc);</div>
-<div class="line"><span class="lineno">  121</span>        fNorm += pfMagSpec[k];</div>
-<div class="line"><span class="lineno">  122</span>        fvss += fAgg * pfMagSpec[k];</div>
-<div class="line"><span class="lineno">  123</span>    }</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>    <span class="comment">// convert from index to Hz</span></div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">return</span> std::sqrt(fvss / fNorm) * fSampleRate / (2.F * (iDataLength - 1));</div>
-<div class="line"><span class="lineno">  127</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00106">106</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
+<div class="line"><span class="lineno">  108</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">  109</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  110</span>    assert(fSampleRate &gt; 0);</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>    <span class="keywordtype">float</span> fNorm = 0;</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordtype">float</span> fvss = 0;</div>
+<div class="line"><span class="lineno">  114</span>    <span class="keywordtype">float</span> fvsc = <a class="code hl_function" href="a00327.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a>(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);</div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">if</span> (fvsc &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  117</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  118</span> </div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
+<div class="line"><span class="lineno">  120</span>    {</div>
+<div class="line"><span class="lineno">  121</span>        <span class="keywordtype">float</span> fAgg = (k - fvsc) * (k - fvsc);</div>
+<div class="line"><span class="lineno">  122</span>        fNorm += pfMagSpec[k];</div>
+<div class="line"><span class="lineno">  123</span>        fvss += fAgg * pfMagSpec[k];</div>
+<div class="line"><span class="lineno">  124</span>    }</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>    <span class="comment">// convert from index to Hz</span></div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">return</span> std::sqrt(fvss / fNorm) * fSampleRate / (2.F * (iDataLength - 1));</div>
+<div class="line"><span class="lineno">  128</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00015">compFeatureSpectralCentroid()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00016">compFeatureSpectralCentroid()</a>, and <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00129">compFeatureSpectralKurtosis()</a>, and <a class="el" href="a00038_source.html#l00184">compFeatureSpectralSkewness()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00130">compFeatureSpectralKurtosis()</a>, and <a class="el" href="a00038_source.html#l00185">compFeatureSpectralSkewness()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1237,42 +1237,42 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00237">237</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  238</span>{</div>
-<div class="line"><span class="lineno">  239</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">  240</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  241</span> </div>
-<div class="line"><span class="lineno">  242</span>    <span class="comment">// initialize</span></div>
-<div class="line"><span class="lineno">  243</span>    <span class="keywordtype">float</span> fvtpr = 0;</div>
-<div class="line"><span class="lineno">  244</span>    <span class="keywordtype">float</span> fNorm = pfMagSpec[0] * pfMagSpec[0] + pfMagSpec[iDataLength - 1] * pfMagSpec[iDataLength - 1];</div>
-<div class="line"><span class="lineno">  245</span> </div>
-<div class="line"><span class="lineno">  246</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 1; k &lt; iDataLength - 1; k++)</div>
-<div class="line"><span class="lineno">  247</span>    {</div>
-<div class="line"><span class="lineno">  248</span>        <span class="keywordtype">float</span> fSquare = pfMagSpec[k] * pfMagSpec[k];</div>
-<div class="line"><span class="lineno">  249</span>        fNorm += fSquare;</div>
-<div class="line"><span class="lineno">  250</span> </div>
-<div class="line"><span class="lineno">  251</span>        <span class="comment">// search for local maxima</span></div>
-<div class="line"><span class="lineno">  252</span>        <span class="keywordflow">if</span> (pfMagSpec[k] &lt;= pfMagSpec[k - 1] || pfMagSpec[k] &lt;= pfMagSpec[k + 1] || pfMagSpec[k] &lt;= fThresh)</div>
-<div class="line"><span class="lineno">  253</span>            <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  254</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  255</span>        {</div>
-<div class="line"><span class="lineno">  256</span>            fvtpr += fSquare;</div>
-<div class="line"><span class="lineno">  257</span> </div>
-<div class="line"><span class="lineno">  258</span>            <span class="comment">// increment because the next bin cannot be a local max but don&#39;t forget fNorm</span></div>
-<div class="line"><span class="lineno">  259</span>            fNorm += pfMagSpec[k + 1] * pfMagSpec[k + 1];</div>
-<div class="line"><span class="lineno">  260</span>            k++; </div>
-<div class="line"><span class="lineno">  261</span>        }</div>
-<div class="line"><span class="lineno">  262</span>    }</div>
-<div class="line"><span class="lineno">  263</span> </div>
-<div class="line"><span class="lineno">  264</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
-<div class="line"><span class="lineno">  265</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  266</span> </div>
-<div class="line"><span class="lineno">  267</span>    <span class="keywordflow">return</span> fvtpr / fNorm;</div>
-<div class="line"><span class="lineno">  268</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00238">238</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  239</span>{</div>
+<div class="line"><span class="lineno">  240</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">  241</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  242</span> </div>
+<div class="line"><span class="lineno">  243</span>    <span class="comment">// initialize</span></div>
+<div class="line"><span class="lineno">  244</span>    <span class="keywordtype">float</span> fvtpr = 0;</div>
+<div class="line"><span class="lineno">  245</span>    <span class="keywordtype">float</span> fNorm = pfMagSpec[0] * pfMagSpec[0] + pfMagSpec[iDataLength - 1] * pfMagSpec[iDataLength - 1];</div>
+<div class="line"><span class="lineno">  246</span> </div>
+<div class="line"><span class="lineno">  247</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 1; k &lt; iDataLength - 1; k++)</div>
+<div class="line"><span class="lineno">  248</span>    {</div>
+<div class="line"><span class="lineno">  249</span>        <span class="keywordtype">float</span> fSquare = pfMagSpec[k] * pfMagSpec[k];</div>
+<div class="line"><span class="lineno">  250</span>        fNorm += fSquare;</div>
+<div class="line"><span class="lineno">  251</span> </div>
+<div class="line"><span class="lineno">  252</span>        <span class="comment">// search for local maxima</span></div>
+<div class="line"><span class="lineno">  253</span>        <span class="keywordflow">if</span> (pfMagSpec[k] &lt;= pfMagSpec[k - 1] || pfMagSpec[k] &lt;= pfMagSpec[k + 1] || pfMagSpec[k] &lt;= fThresh)</div>
+<div class="line"><span class="lineno">  254</span>            <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  255</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  256</span>        {</div>
+<div class="line"><span class="lineno">  257</span>            fvtpr += fSquare;</div>
+<div class="line"><span class="lineno">  258</span> </div>
+<div class="line"><span class="lineno">  259</span>            <span class="comment">// increment because the next bin cannot be a local max but don&#39;t forget fNorm</span></div>
+<div class="line"><span class="lineno">  260</span>            fNorm += pfMagSpec[k + 1] * pfMagSpec[k + 1];</div>
+<div class="line"><span class="lineno">  261</span>            k++; </div>
+<div class="line"><span class="lineno">  262</span>        }</div>
+<div class="line"><span class="lineno">  263</span>    }</div>
+<div class="line"><span class="lineno">  264</span> </div>
+<div class="line"><span class="lineno">  265</span>    <span class="keywordflow">if</span> (fNorm &lt; <a class="code hl_variable" href="a00327.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a>)</div>
+<div class="line"><span class="lineno">  266</span>        <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  267</span> </div>
+<div class="line"><span class="lineno">  268</span>    <span class="keywordflow">return</span> fvtpr / fNorm;</div>
+<div class="line"><span class="lineno">  269</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00107_source.html#l00084">m_kfFloatThresh</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00685">CFeatureSpectralTonalPowerRatio::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00661">CFeatureSpectralTonalPowerRatio::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1331,19 +1331,19 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00270">270</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  271</span>{</div>
-<div class="line"><span class="lineno">  272</span>    assert(pfSamples);</div>
-<div class="line"><span class="lineno">  273</span>    assert(iDataLength &gt; iEta);</div>
-<div class="line"><span class="lineno">  274</span>    assert(iEta &gt;= 0);</div>
-<div class="line"><span class="lineno">  275</span> </div>
-<div class="line"><span class="lineno">  276</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(pfSamples, &amp;pfSamples[iEta], iDataLength - iEta);</div>
-<div class="line"><span class="lineno">  277</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00271">271</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  272</span>{</div>
+<div class="line"><span class="lineno">  273</span>    assert(pfSamples);</div>
+<div class="line"><span class="lineno">  274</span>    assert(iDataLength &gt; iEta);</div>
+<div class="line"><span class="lineno">  275</span>    assert(iEta &gt;= 0);</div>
+<div class="line"><span class="lineno">  276</span> </div>
+<div class="line"><span class="lineno">  277</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(pfSamples, &amp;pfSamples[iEta], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iDataLength) - iEta);</div>
+<div class="line"><span class="lineno">  278</span>}</div>
 <div class="ttc" id="aa00363_html_ab572a4fece01255657935ed18afdeadd"><div class="ttname"><a href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a></div><div class="ttdeci">static float mulScalar(const float *pfSrc1, const float *pfSrc2, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00286">Vector.h:286</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00286">CVectorFloat::mulScalar()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00720">CFeatureTimeAcfCoeff::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00696">CFeatureTimeAcfCoeff::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1405,17 +1405,17 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00279">279</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  280</span>{</div>
-<div class="line"><span class="lineno">  281</span>    assert(pfSamples);</div>
-<div class="line"><span class="lineno">  282</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  283</span> </div>
-<div class="line"><span class="lineno">  284</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(pfSamples, iDataLength);</div>
-<div class="line"><span class="lineno">  285</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00280">280</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  281</span>{</div>
+<div class="line"><span class="lineno">  282</span>    assert(pfSamples);</div>
+<div class="line"><span class="lineno">  283</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  284</span> </div>
+<div class="line"><span class="lineno">  285</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(pfSamples, iDataLength);</div>
+<div class="line"><span class="lineno">  286</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00496">CVectorFloat::getMax()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00842">CFeatureTimePeakEnvelope::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00817">CFeatureTimePeakEnvelope::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1478,18 +1478,18 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00295">295</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  296</span>{</div>
-<div class="line"><span class="lineno">  297</span>    assert(pfSamples);</div>
-<div class="line"><span class="lineno">  298</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  299</span> </div>
-<div class="line"><span class="lineno">  300</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#acb8403fcec4943418492c547a7c59153">CVectorFloat::getStd</a>(pfSamples, iDataLength, 0.F);</div>
-<div class="line"><span class="lineno">  301</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00296">296</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  297</span>{</div>
+<div class="line"><span class="lineno">  298</span>    assert(pfSamples);</div>
+<div class="line"><span class="lineno">  299</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  300</span> </div>
+<div class="line"><span class="lineno">  301</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#acb8403fcec4943418492c547a7c59153">CVectorFloat::getStd</a>(pfSamples, iDataLength, 0.F);</div>
+<div class="line"><span class="lineno">  302</span>}</div>
 <div class="ttc" id="aa00363_html_acb8403fcec4943418492c547a7c59153"><div class="ttname"><a href="a00363.html#acb8403fcec4943418492c547a7c59153">CVectorFloat::getStd</a></div><div class="ttdeci">static float getStd(const float *pfSrc, long long int iLength, float fMean=std::numeric_limits&lt; float &gt;::max())</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00440">Vector.h:440</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00440">CVectorFloat::getStd()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00916">CFeatureTimeRms::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00891">CFeatureTimeRms::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1553,13 +1553,13 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00287">287</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  288</span>{</div>
-<div class="line"><span class="lineno">  289</span>    assert(pfSamples);</div>
-<div class="line"><span class="lineno">  290</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  291</span> </div>
-<div class="line"><span class="lineno">  292</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#acb8403fcec4943418492c547a7c59153">CVectorFloat::getStd</a>(pfSamples, iDataLength);</div>
-<div class="line"><span class="lineno">  293</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00288">288</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  289</span>{</div>
+<div class="line"><span class="lineno">  290</span>    assert(pfSamples);</div>
+<div class="line"><span class="lineno">  291</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  292</span> </div>
+<div class="line"><span class="lineno">  293</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#acb8403fcec4943418492c547a7c59153">CVectorFloat::getStd</a>(pfSamples, iDataLength);</div>
+<div class="line"><span class="lineno">  294</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00440">CVectorFloat::getStd()</a>.</p>
 <div class="dynheader">
@@ -1616,24 +1616,24 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00303">303</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  304</span>{</div>
-<div class="line"><span class="lineno">  305</span>    assert(pfSamples);</div>
-<div class="line"><span class="lineno">  306</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">  307</span> </div>
-<div class="line"><span class="lineno">  308</span>    <span class="keywordtype">float</span> fvzc = 0;</div>
-<div class="line"><span class="lineno">  309</span> </div>
-<div class="line"><span class="lineno">  310</span>    <span class="keywordtype">float</span> fPrevSign = 0;</div>
-<div class="line"><span class="lineno">  311</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iDataLength; i++)</div>
-<div class="line"><span class="lineno">  312</span>    {</div>
-<div class="line"><span class="lineno">  313</span>        <span class="keywordtype">float</span> fCurrSign = <a class="code hl_function" href="a00355.html#a8d740c45e33ce98f9415bdcf78174600">CUtil::sign</a>(pfSamples[i]);</div>
-<div class="line"><span class="lineno">  314</span>        fvzc += std::abs(fCurrSign - fPrevSign);</div>
-<div class="line"><span class="lineno">  315</span>        fPrevSign = fCurrSign;</div>
-<div class="line"><span class="lineno">  316</span>    }</div>
-<div class="line"><span class="lineno">  317</span> </div>
-<div class="line"><span class="lineno">  318</span>    <span class="comment">// standardize feature </span></div>
-<div class="line"><span class="lineno">  319</span>    <span class="keywordflow">return</span> fvzc / (2 * iDataLength);</div>
-<div class="line"><span class="lineno">  320</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00304">304</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  305</span>{</div>
+<div class="line"><span class="lineno">  306</span>    assert(pfSamples);</div>
+<div class="line"><span class="lineno">  307</span>    assert(iDataLength &gt; 0);</div>
+<div class="line"><span class="lineno">  308</span> </div>
+<div class="line"><span class="lineno">  309</span>    <span class="keywordtype">float</span> fvzc = 0;</div>
+<div class="line"><span class="lineno">  310</span> </div>
+<div class="line"><span class="lineno">  311</span>    <span class="keywordtype">float</span> fPrevSign = 0;</div>
+<div class="line"><span class="lineno">  312</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iDataLength; i++)</div>
+<div class="line"><span class="lineno">  313</span>    {</div>
+<div class="line"><span class="lineno">  314</span>        <span class="keywordtype">float</span> fCurrSign = <a class="code hl_function" href="a00355.html#a8d740c45e33ce98f9415bdcf78174600">CUtil::sign</a>(pfSamples[i]);</div>
+<div class="line"><span class="lineno">  315</span>        fvzc += std::abs(fCurrSign - fPrevSign);</div>
+<div class="line"><span class="lineno">  316</span>        fPrevSign = fCurrSign;</div>
+<div class="line"><span class="lineno">  317</span>    }</div>
+<div class="line"><span class="lineno">  318</span> </div>
+<div class="line"><span class="lineno">  319</span>    <span class="comment">// standardize feature </span></div>
+<div class="line"><span class="lineno">  320</span>    <span class="keywordflow">return</span> fvzc / (2 * iDataLength);</div>
+<div class="line"><span class="lineno">  321</span>}</div>
 <div class="ttc" id="aa00355_html_a8d740c45e33ce98f9415bdcf78174600"><div class="ttname"><a href="a00355.html#a8d740c45e33ce98f9415bdcf78174600">CUtil::sign</a></div><div class="ttdeci">static float sign(float fValue)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00085">Util.h:85</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00080_source.html#l00085">CUtil::sign()</a>.</p>
@@ -1705,77 +1705,77 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00973">973</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  974</span>{</div>
-<div class="line"><span class="lineno">  975</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
-<div class="line"><span class="lineno">  976</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00948">948</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  949</span>{</div>
+<div class="line"><span class="lineno">  950</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
+<div class="line"><span class="lineno">  951</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  952</span> </div>
+<div class="line"><span class="lineno">  953</span> </div>
+<div class="line"><span class="lineno">  954</span>    <span class="keywordflow">switch</span> (eFeatureIdx)</div>
+<div class="line"><span class="lineno">  955</span>    {</div>
+<div class="line"><span class="lineno">  956</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  957</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3af835ba1196c45135d5b2c14bd71765fe">CFeatureIf::kFeatureSpectralCentroid</a>:</div>
+<div class="line"><span class="lineno">  958</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a56e83df863061d4093933f57dc036fd0">CFeatureIf::kFeatureSpectralCrestFactor</a>:</div>
+<div class="line"><span class="lineno">  959</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a73840e0ec4ffc58aac491b51add4ebae">CFeatureIf::kFeatureSpectralDecrease</a>:</div>
+<div class="line"><span class="lineno">  960</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3abe659e5b25086d04ed78c40d7411b71d">CFeatureIf::kFeatureSpectralFlatness</a>:</div>
+<div class="line"><span class="lineno">  961</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3aa0fa60f5d1741a50b4e018ae35c53084">CFeatureIf::kFeatureSpectralKurtosis</a>:</div>
+<div class="line"><span class="lineno">  962</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3adc99879506ae42b73740c06987993d6b">CFeatureIf::kFeatureSpectralSkewness</a>:</div>
+<div class="line"><span class="lineno">  963</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3ab48b0af125a41eb628e2867f53248828">CFeatureIf::kFeatureSpectralSlope</a>:</div>
+<div class="line"><span class="lineno">  964</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a2e51955c0f5d4edf37bb8b0c0b7af6f5">CFeatureIf::kFeatureSpectralSpread</a>:</div>
+<div class="line"><span class="lineno">  965</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3aa7fcbc742fe20a02ec32aa842ef5d9ac">CFeatureIf::kFeatureTimeStd</a>:</div>
+<div class="line"><span class="lineno">  966</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a4358b37321d69645738c1494bb94b925">CFeatureIf::kFeatureTimeZeroCrossingRate</a>:</div>
+<div class="line"><span class="lineno">  967</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  968</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  969</span> </div>
+<div class="line"><span class="lineno">  970</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3ababfc8ce9c5b272fd805b5e8a1fb5ff6">CFeatureIf::kFeatureSpectralFlux</a>:</div>
+<div class="line"><span class="lineno">  971</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00231.html">CFeatureSpectralFlux</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  972</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  973</span> </div>
+<div class="line"><span class="lineno">  974</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a47c4f31d2c8d477f955da1281c8bda85">CFeatureIf::kFeatureSpectralMfccs</a>:</div>
+<div class="line"><span class="lineno">  975</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00235.html">CFeatureSpectralMfccs</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  976</span>        <span class="keywordflow">break</span>;</div>
 <div class="line"><span class="lineno">  977</span> </div>
-<div class="line"><span class="lineno">  978</span> </div>
-<div class="line"><span class="lineno">  979</span>    <span class="keywordflow">switch</span> (eFeatureIdx)</div>
-<div class="line"><span class="lineno">  980</span>    {</div>
-<div class="line"><span class="lineno">  981</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  982</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3af835ba1196c45135d5b2c14bd71765fe">CFeatureIf::kFeatureSpectralCentroid</a>:</div>
-<div class="line"><span class="lineno">  983</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a56e83df863061d4093933f57dc036fd0">CFeatureIf::kFeatureSpectralCrestFactor</a>:</div>
-<div class="line"><span class="lineno">  984</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a73840e0ec4ffc58aac491b51add4ebae">CFeatureIf::kFeatureSpectralDecrease</a>:</div>
-<div class="line"><span class="lineno">  985</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3abe659e5b25086d04ed78c40d7411b71d">CFeatureIf::kFeatureSpectralFlatness</a>:</div>
-<div class="line"><span class="lineno">  986</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3aa0fa60f5d1741a50b4e018ae35c53084">CFeatureIf::kFeatureSpectralKurtosis</a>:</div>
-<div class="line"><span class="lineno">  987</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3adc99879506ae42b73740c06987993d6b">CFeatureIf::kFeatureSpectralSkewness</a>:</div>
-<div class="line"><span class="lineno">  988</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3ab48b0af125a41eb628e2867f53248828">CFeatureIf::kFeatureSpectralSlope</a>:</div>
-<div class="line"><span class="lineno">  989</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a2e51955c0f5d4edf37bb8b0c0b7af6f5">CFeatureIf::kFeatureSpectralSpread</a>:</div>
-<div class="line"><span class="lineno">  990</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3aa7fcbc742fe20a02ec32aa842ef5d9ac">CFeatureIf::kFeatureTimeStd</a>:</div>
-<div class="line"><span class="lineno">  991</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a4358b37321d69645738c1494bb94b925">CFeatureIf::kFeatureTimeZeroCrossingRate</a>:</div>
-<div class="line"><span class="lineno">  992</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  993</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  994</span> </div>
-<div class="line"><span class="lineno">  995</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3ababfc8ce9c5b272fd805b5e8a1fb5ff6">CFeatureIf::kFeatureSpectralFlux</a>:</div>
-<div class="line"><span class="lineno">  996</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00231.html">CFeatureSpectralFlux</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  997</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  998</span> </div>
-<div class="line"><span class="lineno">  999</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a47c4f31d2c8d477f955da1281c8bda85">CFeatureIf::kFeatureSpectralMfccs</a>:</div>
-<div class="line"><span class="lineno"> 1000</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00235.html">CFeatureSpectralMfccs</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1001</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1002</span> </div>
-<div class="line"><span class="lineno"> 1003</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a6cca75d6d116b2284ae19d2b75093198">CFeatureIf::kFeatureSpectralPitchChroma</a>:</div>
-<div class="line"><span class="lineno"> 1004</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00239.html">CFeatureSpectralPitchChroma</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1005</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  978</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a6cca75d6d116b2284ae19d2b75093198">CFeatureIf::kFeatureSpectralPitchChroma</a>:</div>
+<div class="line"><span class="lineno">  979</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00239.html">CFeatureSpectralPitchChroma</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  980</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  981</span> </div>
+<div class="line"><span class="lineno">  982</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a0fe1e0e5caf8fd22c48abcde74028c8f">CFeatureIf::kFeatureSpectralRolloff</a>:</div>
+<div class="line"><span class="lineno">  983</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00243.html">CFeatureSpectralRolloff</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  984</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  985</span> </div>
+<div class="line"><span class="lineno">  986</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3ab91719fe00fbcbbd34b7b5b0e7631dfd">CFeatureIf::kFeatureSpectralTonalPowerRatio</a>:</div>
+<div class="line"><span class="lineno">  987</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00247.html">CFeatureSpectralTonalPowerRatio</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  988</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  989</span> </div>
+<div class="line"><span class="lineno">  990</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3ab6c784d49502082864d1ff9170564dcd">CFeatureIf::kFeatureTimeAcfCoeff</a>:</div>
+<div class="line"><span class="lineno">  991</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00251.html">CFeatureTimeAcfCoeff</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  992</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  993</span> </div>
+<div class="line"><span class="lineno">  994</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a1fcad202a3cfc949aed26a5ff806a180">CFeatureIf::kFeatureTimeMaxAcf</a>:</div>
+<div class="line"><span class="lineno">  995</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00255.html">CFeatureTimeMaxAcf</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  996</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  997</span> </div>
+<div class="line"><span class="lineno">  998</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a138118ff8341d41558cd0b32a85eafd3">CFeatureIf::kFeatureTimePeakEnvelope</a>:</div>
+<div class="line"><span class="lineno">  999</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00259.html">CFeatureTimePeakEnvelope</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1000</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1001</span> </div>
+<div class="line"><span class="lineno"> 1002</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3aedb0c71ed62a6df3eb21f53cad93682a">CFeatureIf::kFeatureTimeRms</a>:</div>
+<div class="line"><span class="lineno"> 1003</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00263.html">CFeatureTimeRms</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1004</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1005</span>    }</div>
 <div class="line"><span class="lineno"> 1006</span> </div>
-<div class="line"><span class="lineno"> 1007</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a0fe1e0e5caf8fd22c48abcde74028c8f">CFeatureIf::kFeatureSpectralRolloff</a>:</div>
-<div class="line"><span class="lineno"> 1008</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00243.html">CFeatureSpectralRolloff</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1009</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1010</span> </div>
-<div class="line"><span class="lineno"> 1011</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3ab91719fe00fbcbbd34b7b5b0e7631dfd">CFeatureIf::kFeatureSpectralTonalPowerRatio</a>:</div>
-<div class="line"><span class="lineno"> 1012</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00247.html">CFeatureSpectralTonalPowerRatio</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1013</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1014</span> </div>
-<div class="line"><span class="lineno"> 1015</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3ab6c784d49502082864d1ff9170564dcd">CFeatureIf::kFeatureTimeAcfCoeff</a>:</div>
-<div class="line"><span class="lineno"> 1016</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00251.html">CFeatureTimeAcfCoeff</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1017</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1018</span> </div>
-<div class="line"><span class="lineno"> 1019</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a1fcad202a3cfc949aed26a5ff806a180">CFeatureIf::kFeatureTimeMaxAcf</a>:</div>
-<div class="line"><span class="lineno"> 1020</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00255.html">CFeatureTimeMaxAcf</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1021</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1022</span> </div>
-<div class="line"><span class="lineno"> 1023</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a138118ff8341d41558cd0b32a85eafd3">CFeatureIf::kFeatureTimePeakEnvelope</a>:</div>
-<div class="line"><span class="lineno"> 1024</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00259.html">CFeatureTimePeakEnvelope</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1025</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1026</span> </div>
-<div class="line"><span class="lineno"> 1027</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3aedb0c71ed62a6df3eb21f53cad93682a">CFeatureIf::kFeatureTimeRms</a>:</div>
-<div class="line"><span class="lineno"> 1028</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00263.html">CFeatureTimeRms</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1029</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1030</span>    }</div>
-<div class="line"><span class="lineno"> 1031</span> </div>
-<div class="line"><span class="lineno"> 1032</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno"> 1033</span>}</div>
+<div class="line"><span class="lineno"> 1007</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno"> 1008</span>}</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00231_html"><div class="ttname"><a href="a00231.html">CFeatureSpectralFlux</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00325">FeatureFromBlock.cpp:326</a></div></div>
+<div class="ttc" id="aa00231_html"><div class="ttname"><a href="a00231.html">CFeatureSpectralFlux</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00326">FeatureFromBlock.cpp:327</a></div></div>
 <div class="ttc" id="aa00235_html"><div class="ttname"><a href="a00235.html">CFeatureSpectralMfccs</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00357">FeatureFromBlock.cpp:358</a></div></div>
-<div class="ttc" id="aa00239_html"><div class="ttname"><a href="a00239.html">CFeatureSpectralPitchChroma</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00523">FeatureFromBlock.cpp:524</a></div></div>
-<div class="ttc" id="aa00243_html"><div class="ttname"><a href="a00243.html">CFeatureSpectralRolloff</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00643">FeatureFromBlock.cpp:644</a></div></div>
-<div class="ttc" id="aa00247_html"><div class="ttname"><a href="a00247.html">CFeatureSpectralTonalPowerRatio</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00678">FeatureFromBlock.cpp:679</a></div></div>
-<div class="ttc" id="aa00251_html"><div class="ttname"><a href="a00251.html">CFeatureTimeAcfCoeff</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00713">FeatureFromBlock.cpp:714</a></div></div>
-<div class="ttc" id="aa00255_html"><div class="ttname"><a href="a00255.html">CFeatureTimeMaxAcf</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00748">FeatureFromBlock.cpp:749</a></div></div>
-<div class="ttc" id="aa00259_html"><div class="ttname"><a href="a00259.html">CFeatureTimePeakEnvelope</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00831">FeatureFromBlock.cpp:832</a></div></div>
-<div class="ttc" id="aa00263_html"><div class="ttname"><a href="a00263.html">CFeatureTimeRms</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00902">FeatureFromBlock.cpp:903</a></div></div>
+<div class="ttc" id="aa00239_html"><div class="ttname"><a href="a00239.html">CFeatureSpectralPitchChroma</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00507">FeatureFromBlock.cpp:508</a></div></div>
+<div class="ttc" id="aa00243_html"><div class="ttname"><a href="a00243.html">CFeatureSpectralRolloff</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00619">FeatureFromBlock.cpp:620</a></div></div>
+<div class="ttc" id="aa00247_html"><div class="ttname"><a href="a00247.html">CFeatureSpectralTonalPowerRatio</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00654">FeatureFromBlock.cpp:655</a></div></div>
+<div class="ttc" id="aa00251_html"><div class="ttname"><a href="a00251.html">CFeatureTimeAcfCoeff</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00689">FeatureFromBlock.cpp:690</a></div></div>
+<div class="ttc" id="aa00255_html"><div class="ttname"><a href="a00255.html">CFeatureTimeMaxAcf</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00724">FeatureFromBlock.cpp:725</a></div></div>
+<div class="ttc" id="aa00259_html"><div class="ttname"><a href="a00259.html">CFeatureTimePeakEnvelope</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00806">FeatureFromBlock.cpp:807</a></div></div>
+<div class="ttc" id="aa00263_html"><div class="ttname"><a href="a00263.html">CFeatureTimeRms</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00877">FeatureFromBlock.cpp:878</a></div></div>
 <div class="ttc" id="aa00323_html_a47ca14941c604beb42d60164b3e5e6b3a0fe1e0e5caf8fd22c48abcde74028c8f"><div class="ttname"><a href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a0fe1e0e5caf8fd22c48abcde74028c8f">CFeatureIf::kFeatureSpectralRolloff</a></div><div class="ttdeci">@ kFeatureSpectralRolloff</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00033">Feature.h:33</a></div></div>
 <div class="ttc" id="aa00323_html_a47ca14941c604beb42d60164b3e5e6b3a138118ff8341d41558cd0b32a85eafd3"><div class="ttname"><a href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a138118ff8341d41558cd0b32a85eafd3">CFeatureIf::kFeatureTimePeakEnvelope</a></div><div class="ttdeci">@ kFeatureTimePeakEnvelope</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00041">Feature.h:41</a></div></div>
 <div class="ttc" id="aa00323_html_a47ca14941c604beb42d60164b3e5e6b3a1fcad202a3cfc949aed26a5ff806a180"><div class="ttname"><a href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a1fcad202a3cfc949aed26a5ff806a180">CFeatureIf::kFeatureTimeMaxAcf</a></div><div class="ttdeci">@ kFeatureTimeMaxAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00040">Feature.h:40</a></div></div>
@@ -1799,7 +1799,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00107_source.html#l00088">CFeatureFromBlockIf()</a>, <a class="el" href="a00101_source.html#l00025">CFeatureIf::kFeatureSpectralCentroid</a>, <a class="el" href="a00101_source.html#l00026">CFeatureIf::kFeatureSpectralCrestFactor</a>, <a class="el" href="a00101_source.html#l00027">CFeatureIf::kFeatureSpectralDecrease</a>, <a class="el" href="a00101_source.html#l00028">CFeatureIf::kFeatureSpectralFlatness</a>, <a class="el" href="a00101_source.html#l00029">CFeatureIf::kFeatureSpectralFlux</a>, <a class="el" href="a00101_source.html#l00030">CFeatureIf::kFeatureSpectralKurtosis</a>, <a class="el" href="a00101_source.html#l00031">CFeatureIf::kFeatureSpectralMfccs</a>, <a class="el" href="a00101_source.html#l00032">CFeatureIf::kFeatureSpectralPitchChroma</a>, <a class="el" href="a00101_source.html#l00033">CFeatureIf::kFeatureSpectralRolloff</a>, <a class="el" href="a00101_source.html#l00034">CFeatureIf::kFeatureSpectralSkewness</a>, <a class="el" href="a00101_source.html#l00035">CFeatureIf::kFeatureSpectralSlope</a>, <a class="el" href="a00101_source.html#l00036">CFeatureIf::kFeatureSpectralSpread</a>, <a class="el" href="a00101_source.html#l00037">CFeatureIf::kFeatureSpectralTonalPowerRatio</a>, <a class="el" href="a00101_source.html#l00039">CFeatureIf::kFeatureTimeAcfCoeff</a>, <a class="el" href="a00101_source.html#l00040">CFeatureIf::kFeatureTimeMaxAcf</a>, <a class="el" href="a00101_source.html#l00041">CFeatureIf::kFeatureTimePeakEnvelope</a>, <a class="el" href="a00101_source.html#l00042">CFeatureIf::kFeatureTimeRms</a>, <a class="el" href="a00101_source.html#l00043">CFeatureIf::kFeatureTimeStd</a>, <a class="el" href="a00101_source.html#l00044">CFeatureIf::kFeatureTimeZeroCrossingRate</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00345">CFeatureIf::init_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00342">CFeatureIf::init_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1854,18 +1854,18 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01035">1035</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1036</span>{</div>
-<div class="line"><span class="lineno"> 1037</span>    <span class="keyword">delete</span> pCInstance;</div>
-<div class="line"><span class="lineno"> 1038</span> </div>
-<div class="line"><span class="lineno"> 1039</span>    pCInstance = 0;</div>
-<div class="line"><span class="lineno"> 1040</span> </div>
-<div class="line"><span class="lineno"> 1041</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno"> 1042</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01010">1010</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1011</span>{</div>
+<div class="line"><span class="lineno"> 1012</span>    <span class="keyword">delete</span> pCInstance;</div>
+<div class="line"><span class="lineno"> 1013</span> </div>
+<div class="line"><span class="lineno"> 1014</span>    pCInstance = 0;</div>
+<div class="line"><span class="lineno"> 1015</span> </div>
+<div class="line"><span class="lineno"> 1016</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno"> 1017</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00320">CFeatureIf::reset_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00319">CFeatureIf::reset_()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1907,13 +1907,13 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="a00235.html#a8cf08736ea318aa731360a217eba5340">CFeatureSpectralMfccs</a>, <a class="el" href="a00239.html#a3da23c0c38b2876adb5e302419817592">CFeatureSpectralPitchChroma</a>, <a class="el" href="a00259.html#a55891d1e487afbe095399d19ab078469">CFeatureTimePeakEnvelope</a>, and <a class="el" href="a00263.html#a69b3e227ffcbca082fbe0aac97a8e267">CFeatureTimeRms</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01044">1044</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1045</span>{</div>
-<div class="line"><span class="lineno"> 1046</span>    <span class="comment">// default: 1 value per block</span></div>
-<div class="line"><span class="lineno"> 1047</span>    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno"> 1048</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01019">1019</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1020</span>{</div>
+<div class="line"><span class="lineno"> 1021</span>    <span class="comment">// default: 1 value per block</span></div>
+<div class="line"><span class="lineno"> 1022</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno"> 1023</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00207">CFeatureIf::compFeatureNDim()</a>, and <a class="el" href="a00017_source.html#l00137">CFeatureIf::getFeatureDimensions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00206">CFeatureIf::compFeatureNDim()</a>, and <a class="el" href="a00017_source.html#l00136">CFeatureIf::getFeatureDimensions()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1959,7 +1959,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00107_source.html#l00094">m_eFeatureIdx</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00173">CFeatureIf::compFeature1Dim()</a>, and <a class="el" href="a00017_source.html#l00207">CFeatureIf::compFeatureNDim()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00172">CFeatureIf::compFeature1Dim()</a>, and <a class="el" href="a00017_source.html#l00206">CFeatureIf::compFeatureNDim()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2000,11 +2000,11 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="a00235.html#ab3adc3df302d75ed8be5918eb18a52ab">CFeatureSpectralMfccs</a>, <a class="el" href="a00239.html#acc84644f16e3d4518062e2843ab896e5">CFeatureSpectralPitchChroma</a>, <a class="el" href="a00243.html#aace9db3eee49887a8fae69c07475fe19">CFeatureSpectralRolloff</a>, <a class="el" href="a00247.html#abbf784ac24f69555002f2bae7fec93bf">CFeatureSpectralTonalPowerRatio</a>, <a class="el" href="a00251.html#a799b62c99e4e4ab09aae77e73f85a1af">CFeatureTimeAcfCoeff</a>, <a class="el" href="a00255.html#a03964245e9d7da47e512283728da4cd4">CFeatureTimeMaxAcf</a>, and <a class="el" href="a00263.html#a0ac27ca50b3a6e88b08536fdcdd2b466">CFeatureTimeRms</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01058">1058</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1059</span>{</div>
-<div class="line"><span class="lineno"> 1060</span>    <span class="comment">// default: feature doesn&#39;t need any additional parameters</span></div>
-<div class="line"><span class="lineno"> 1061</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno"> 1062</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01033">1033</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1034</span>{</div>
+<div class="line"><span class="lineno"> 1035</span>    <span class="comment">// default: feature doesn&#39;t need any additional parameters</span></div>
+<div class="line"><span class="lineno"> 1036</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 1037</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2067,11 +2067,11 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="a00235.html#a6ffd2585db71bf5b44aedc15223525e6">CFeatureSpectralMfccs</a>, <a class="el" href="a00239.html#a6b4b3032eb9b09d9f64811613448c994">CFeatureSpectralPitchChroma</a>, <a class="el" href="a00243.html#ae0c52ddeb125740c60dd33c003e6b257">CFeatureSpectralRolloff</a>, <a class="el" href="a00247.html#a0f92352db0347a6295d817ddc2a5d5db">CFeatureSpectralTonalPowerRatio</a>, <a class="el" href="a00251.html#a6c123f32dc4ddf5b63ff41d03ea574a2">CFeatureTimeAcfCoeff</a>, <a class="el" href="a00255.html#ad08d755145fa0227b7e489000703ee30">CFeatureTimeMaxAcf</a>, and <a class="el" href="a00263.html#af460352621ac7a18676d0a361c1df51e">CFeatureTimeRms</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01064">1064</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1065</span>{</div>
-<div class="line"><span class="lineno"> 1066</span>    <span class="comment">// default: setting a parameter that doesn&#39;t exist</span></div>
-<div class="line"><span class="lineno"> 1067</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
-<div class="line"><span class="lineno"> 1068</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l01039">1039</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1040</span>{</div>
+<div class="line"><span class="lineno"> 1041</span>    <span class="comment">// default: setting a parameter that doesn&#39;t exist</span></div>
+<div class="line"><span class="lineno"> 1042</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno"> 1043</span>}</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>.</p>
@@ -2110,18 +2110,18 @@ Here is the caller graph for this function:</div>
 <div class="line">            {<a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3aa7fcbc742fe20a02ec32aa842ef5d9ac">CFeatureIf::kFeatureTimeStd</a>, &amp;<a class="code hl_function" href="a00327.html#a4eca7f209c771fb5008fa08facffd598">compFeatureTimeStd</a>},</div>
 <div class="line">            {<a class="code hl_enumvalue" href="a00323.html#a47ca14941c604beb42d60164b3e5e6b3a4358b37321d69645738c1494bb94b925">CFeatureIf::kFeatureTimeZeroCrossingRate</a>, &amp;<a class="code hl_function" href="a00327.html#add9e6742349500c1323607b2508d311d">compFeatureTimeZeroCrossingRate</a>}</div>
 <div class="line">    }</div>
-<div class="ttc" id="aa00327_html_a15df133306497e4f85929692354f378a"><div class="ttname"><a href="a00327.html#a15df133306497e4f85929692354f378a">CFeatureFromBlockIf::compFeatureSpectralCrestFactor</a></div><div class="ttdeci">static float compFeatureSpectralCrestFactor(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00037">FeatureFromBlock.cpp:37</a></div></div>
-<div class="ttc" id="aa00327_html_a361ef81afe12623645546fbbeab30b14"><div class="ttname"><a href="a00327.html#a361ef81afe12623645546fbbeab30b14">CFeatureFromBlockIf::compFeatureSpectralFlatness</a></div><div class="ttdeci">static float compFeatureSpectralFlatness(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00070">FeatureFromBlock.cpp:70</a></div></div>
-<div class="ttc" id="aa00327_html_a4eca7f209c771fb5008fa08facffd598"><div class="ttname"><a href="a00327.html#a4eca7f209c771fb5008fa08facffd598">CFeatureFromBlockIf::compFeatureTimeStd</a></div><div class="ttdeci">static float compFeatureTimeStd(const float *pfSamples, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00287">FeatureFromBlock.cpp:287</a></div></div>
-<div class="ttc" id="aa00327_html_a8c8ded721d053ed4f34565a1392993fc"><div class="ttname"><a href="a00327.html#a8c8ded721d053ed4f34565a1392993fc">CFeatureFromBlockIf::compFeatureSpectralSlope</a></div><div class="ttdeci">static float compFeatureSpectralSlope(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00211">FeatureFromBlock.cpp:211</a></div></div>
-<div class="ttc" id="aa00327_html_a9e03b3181d7ff9d8a9b0eaedabff9899"><div class="ttname"><a href="a00327.html#a9e03b3181d7ff9d8a9b0eaedabff9899">CFeatureFromBlockIf::compFeatureSpectralDecrease</a></div><div class="ttdeci">static float compFeatureSpectralDecrease(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00050">FeatureFromBlock.cpp:50</a></div></div>
-<div class="ttc" id="aa00327_html_add9e6742349500c1323607b2508d311d"><div class="ttname"><a href="a00327.html#add9e6742349500c1323607b2508d311d">CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate</a></div><div class="ttdeci">static float compFeatureTimeZeroCrossingRate(const float *pfSamples, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00303">FeatureFromBlock.cpp:303</a></div></div>
-<div class="ttc" id="aa00327_html_af130d46bb6a964262acb138fc7b7b9fd"><div class="ttname"><a href="a00327.html#af130d46bb6a964262acb138fc7b7b9fd">CFeatureFromBlockIf::compFeatureSpectralSkewness</a></div><div class="ttdeci">static float compFeatureSpectralSkewness(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00184">FeatureFromBlock.cpp:184</a></div></div>
-<div class="ttc" id="aa00327_html_aff5ebe0708311c49ba85c03c4546b6cf"><div class="ttname"><a href="a00327.html#aff5ebe0708311c49ba85c03c4546b6cf">CFeatureFromBlockIf::compFeatureSpectralKurtosis</a></div><div class="ttdeci">static float compFeatureSpectralKurtosis(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00129">FeatureFromBlock.cpp:129</a></div></div>
+<div class="ttc" id="aa00327_html_a15df133306497e4f85929692354f378a"><div class="ttname"><a href="a00327.html#a15df133306497e4f85929692354f378a">CFeatureFromBlockIf::compFeatureSpectralCrestFactor</a></div><div class="ttdeci">static float compFeatureSpectralCrestFactor(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00038">FeatureFromBlock.cpp:38</a></div></div>
+<div class="ttc" id="aa00327_html_a361ef81afe12623645546fbbeab30b14"><div class="ttname"><a href="a00327.html#a361ef81afe12623645546fbbeab30b14">CFeatureFromBlockIf::compFeatureSpectralFlatness</a></div><div class="ttdeci">static float compFeatureSpectralFlatness(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00071">FeatureFromBlock.cpp:71</a></div></div>
+<div class="ttc" id="aa00327_html_a4eca7f209c771fb5008fa08facffd598"><div class="ttname"><a href="a00327.html#a4eca7f209c771fb5008fa08facffd598">CFeatureFromBlockIf::compFeatureTimeStd</a></div><div class="ttdeci">static float compFeatureTimeStd(const float *pfSamples, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00288">FeatureFromBlock.cpp:288</a></div></div>
+<div class="ttc" id="aa00327_html_a8c8ded721d053ed4f34565a1392993fc"><div class="ttname"><a href="a00327.html#a8c8ded721d053ed4f34565a1392993fc">CFeatureFromBlockIf::compFeatureSpectralSlope</a></div><div class="ttdeci">static float compFeatureSpectralSlope(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00212">FeatureFromBlock.cpp:212</a></div></div>
+<div class="ttc" id="aa00327_html_a9e03b3181d7ff9d8a9b0eaedabff9899"><div class="ttname"><a href="a00327.html#a9e03b3181d7ff9d8a9b0eaedabff9899">CFeatureFromBlockIf::compFeatureSpectralDecrease</a></div><div class="ttdeci">static float compFeatureSpectralDecrease(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00051">FeatureFromBlock.cpp:51</a></div></div>
+<div class="ttc" id="aa00327_html_add9e6742349500c1323607b2508d311d"><div class="ttname"><a href="a00327.html#add9e6742349500c1323607b2508d311d">CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate</a></div><div class="ttdeci">static float compFeatureTimeZeroCrossingRate(const float *pfSamples, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00304">FeatureFromBlock.cpp:304</a></div></div>
+<div class="ttc" id="aa00327_html_af130d46bb6a964262acb138fc7b7b9fd"><div class="ttname"><a href="a00327.html#af130d46bb6a964262acb138fc7b7b9fd">CFeatureFromBlockIf::compFeatureSpectralSkewness</a></div><div class="ttdeci">static float compFeatureSpectralSkewness(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00185">FeatureFromBlock.cpp:185</a></div></div>
+<div class="ttc" id="aa00327_html_aff5ebe0708311c49ba85c03c4546b6cf"><div class="ttname"><a href="a00327.html#aff5ebe0708311c49ba85c03c4546b6cf">CFeatureFromBlockIf::compFeatureSpectralKurtosis</a></div><div class="ttdeci">static float compFeatureSpectralKurtosis(const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00130">FeatureFromBlock.cpp:130</a></div></div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="a00107_source.html#l00101">101</a> of file <a class="el" href="a00107_source.html">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l01050">compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l01025">compFeature()</a>.</p>
 
 </div>
 </div>
@@ -2149,7 +2149,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00107_source.html#l00094">94</a> of file <a class="el" href="a00107_source.html">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l01050">compFeature()</a>, and <a class="el" href="a00107_source.html#l00041">getFeatureIdx()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l01025">compFeature()</a>, and <a class="el" href="a00107_source.html#l00041">getFeatureIdx()</a>.</p>
 
 </div>
 </div>
@@ -2177,7 +2177,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00107_source.html#l00098">98</a> of file <a class="el" href="a00107_source.html">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l01050">compFeature()</a>, <a class="el" href="a00038_source.html#l00340">CFeatureSpectralFlux::compFeature()</a>, <a class="el" href="a00038_source.html#l00650">CFeatureSpectralRolloff::compFeature()</a>, <a class="el" href="a00038_source.html#l00685">CFeatureSpectralTonalPowerRatio::compFeature()</a>, <a class="el" href="a00038_source.html#l00720">CFeatureTimeAcfCoeff::compFeature()</a>, <a class="el" href="a00038_source.html#l00768">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.html#l00842">CFeatureTimePeakEnvelope::compFeature()</a>, <a class="el" href="a00038_source.html#l00916">CFeatureTimeRms::compFeature()</a>, <a class="el" href="a00038_source.html#l00431">CFeatureSpectralMfccs::genMfccFilters_()</a>, <a class="el" href="a00038_source.html#l00599">CFeatureSpectralPitchChroma::genPcFilters_()</a>, and <a class="el" href="a00038_source.html#l00810">CFeatureTimeMaxAcf::setAdditionalParam()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l01025">compFeature()</a>, <a class="el" href="a00038_source.html#l00340">CFeatureSpectralFlux::compFeature()</a>, <a class="el" href="a00038_source.html#l00626">CFeatureSpectralRolloff::compFeature()</a>, <a class="el" href="a00038_source.html#l00661">CFeatureSpectralTonalPowerRatio::compFeature()</a>, <a class="el" href="a00038_source.html#l00696">CFeatureTimeAcfCoeff::compFeature()</a>, <a class="el" href="a00038_source.html#l00743">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.html#l00817">CFeatureTimePeakEnvelope::compFeature()</a>, <a class="el" href="a00038_source.html#l00891">CFeatureTimeRms::compFeature()</a>, <a class="el" href="a00038_source.html#l00423">CFeatureSpectralMfccs::genMfccFilters_()</a>, <a class="el" href="a00038_source.html#l00575">CFeatureSpectralPitchChroma::genPcFilters_()</a>, and <a class="el" href="a00038_source.html#l00785">CFeatureTimeMaxAcf::setAdditionalParam()</a>.</p>
 
 </div>
 </div>
@@ -2205,7 +2205,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00107_source.html#l00096">96</a> of file <a class="el" href="a00107_source.html">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00328">CFeatureSpectralFlux::CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.html#l01050">compFeature()</a>, <a class="el" href="a00038_source.html#l00340">CFeatureSpectralFlux::compFeature()</a>, <a class="el" href="a00038_source.html#l00388">CFeatureSpectralMfccs::compFeature()</a>, <a class="el" href="a00038_source.html#l00547">CFeatureSpectralPitchChroma::compFeature()</a>, <a class="el" href="a00038_source.html#l00650">CFeatureSpectralRolloff::compFeature()</a>, <a class="el" href="a00038_source.html#l00685">CFeatureSpectralTonalPowerRatio::compFeature()</a>, <a class="el" href="a00038_source.html#l00720">CFeatureTimeAcfCoeff::compFeature()</a>, <a class="el" href="a00038_source.html#l00768">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.html#l00842">CFeatureTimePeakEnvelope::compFeature()</a>, <a class="el" href="a00038_source.html#l00916">CFeatureTimeRms::compFeature()</a>, <a class="el" href="a00038_source.html#l00431">CFeatureSpectralMfccs::genMfccFilters_()</a>, and <a class="el" href="a00038_source.html#l00599">CFeatureSpectralPitchChroma::genPcFilters_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00329">CFeatureSpectralFlux::CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.html#l01025">compFeature()</a>, <a class="el" href="a00038_source.html#l00340">CFeatureSpectralFlux::compFeature()</a>, <a class="el" href="a00038_source.html#l00380">CFeatureSpectralMfccs::compFeature()</a>, <a class="el" href="a00038_source.html#l00523">CFeatureSpectralPitchChroma::compFeature()</a>, <a class="el" href="a00038_source.html#l00626">CFeatureSpectralRolloff::compFeature()</a>, <a class="el" href="a00038_source.html#l00661">CFeatureSpectralTonalPowerRatio::compFeature()</a>, <a class="el" href="a00038_source.html#l00696">CFeatureTimeAcfCoeff::compFeature()</a>, <a class="el" href="a00038_source.html#l00743">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.html#l00817">CFeatureTimePeakEnvelope::compFeature()</a>, <a class="el" href="a00038_source.html#l00891">CFeatureTimeRms::compFeature()</a>, <a class="el" href="a00038_source.html#l00423">CFeatureSpectralMfccs::genMfccFilters_()</a>, and <a class="el" href="a00038_source.html#l00575">CFeatureSpectralPitchChroma::genPcFilters_()</a>.</p>
 
 </div>
 </div>
@@ -2233,7 +2233,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00107_source.html#l00084">84</a> of file <a class="el" href="a00107_source.html">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00015">compFeatureSpectralCentroid()</a>, <a class="el" href="a00038_source.html#l00037">compFeatureSpectralCrestFactor()</a>, <a class="el" href="a00038_source.html#l00050">compFeatureSpectralDecrease()</a>, <a class="el" href="a00038_source.html#l00070">compFeatureSpectralFlatness()</a>, <a class="el" href="a00038_source.html#l00129">compFeatureSpectralKurtosis()</a>, <a class="el" href="a00038_source.html#l00157">compFeatureSpectralRolloff()</a>, <a class="el" href="a00038_source.html#l00184">compFeatureSpectralSkewness()</a>, <a class="el" href="a00038_source.html#l00211">compFeatureSpectralSlope()</a>, <a class="el" href="a00038_source.html#l00105">compFeatureSpectralSpread()</a>, and <a class="el" href="a00038_source.html#l00237">compFeatureSpectralTonalPowerRatio()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00016">compFeatureSpectralCentroid()</a>, <a class="el" href="a00038_source.html#l00038">compFeatureSpectralCrestFactor()</a>, <a class="el" href="a00038_source.html#l00051">compFeatureSpectralDecrease()</a>, <a class="el" href="a00038_source.html#l00071">compFeatureSpectralFlatness()</a>, <a class="el" href="a00038_source.html#l00130">compFeatureSpectralKurtosis()</a>, <a class="el" href="a00038_source.html#l00158">compFeatureSpectralRolloff()</a>, <a class="el" href="a00038_source.html#l00185">compFeatureSpectralSkewness()</a>, <a class="el" href="a00038_source.html#l00212">compFeatureSpectralSlope()</a>, <a class="el" href="a00038_source.html#l00106">compFeatureSpectralSpread()</a>, and <a class="el" href="a00038_source.html#l00238">compFeatureSpectralTonalPowerRatio()</a>.</p>
 
 </div>
 </div>
@@ -2244,7 +2244,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

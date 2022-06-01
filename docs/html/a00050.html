@@ -229,49 +229,53 @@ Functions</h2></td></tr>
 <div class="ttc" id="aa00375_html"><div class="ttname"><a href="a00375.html">CSpectrogramIf</a></div><div class="ttdoc">class for computation of a magnitude spectrogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00016">Spectrogram.h:17</a></div></div>
 <div class="ttc" id="aa00375_html_a6511fc72ef04be91a712ee5ef479bd7e"><div class="ttname"><a href="a00375.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CSpectrogramIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00133">Spectrogram.cpp:133</a></div></div>
 <div class="ttc" id="aa00375_html_acd73d8c1aaaed8b188de6b8bf2103139"><div class="ttname"><a href="a00375.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a></div><div class="ttdeci">static Error_t create(CSpectrogramIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, bool bNormalize=true, float *pfWindow=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00100">Spectrogram.cpp:100</a></div></div>
-<div class="ttc" id="aa00375_html_ae89af275cdd54029bbf7f0f25ddf7945"><div class="ttname"><a href="a00375.html#ae89af275cdd54029bbf7f0f25ddf7945">CSpectrogramIf::compMelSpectrogram</a></div><div class="ttdeci">Error_t compMelSpectrogram(float **ppfMelSpectrogram, const MelSpectrogramConfig_t *pMelSpecConfig)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00347">Spectrogram.cpp:347</a></div></div>
-<div class="ttc" id="aa00375_html_af50a3669266ad696a1159b1bb80b1c8a"><div class="ttname"><a href="a00375.html#af50a3669266ad696a1159b1bb80b1c8a">CSpectrogramIf::getMelSpectrogramDimensions</a></div><div class="ttdeci">Error_t getMelSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols, const MelSpectrogramConfig_t *pMelSpecConfig) const</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00292">Spectrogram.cpp:292</a></div></div>
+<div class="ttc" id="aa00375_html_ae89af275cdd54029bbf7f0f25ddf7945"><div class="ttname"><a href="a00375.html#ae89af275cdd54029bbf7f0f25ddf7945">CSpectrogramIf::compMelSpectrogram</a></div><div class="ttdeci">Error_t compMelSpectrogram(float **ppfMelSpectrogram, const MelSpectrogramConfig_t *pMelSpecConfig)</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00333">Spectrogram.cpp:333</a></div></div>
+<div class="ttc" id="aa00375_html_af50a3669266ad696a1159b1bb80b1c8a"><div class="ttname"><a href="a00375.html#af50a3669266ad696a1159b1bb80b1c8a">CSpectrogramIf::getMelSpectrogramDimensions</a></div><div class="ttdeci">Error_t getMelSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols, const MelSpectrogramConfig_t *pMelSpecConfig) const</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00278">Spectrogram.cpp:278</a></div></div>
 <div class="ttc" id="aa00379_html"><div class="ttname"><a href="a00379.html">CSpectrogramIf::MelSpectrogramConfig_t</a></div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00077">Spectrogram.h:78</a></div></div>
 <div class="ttc" id="aa00379_html_a6bd6c66e6b6fd17afa94128330ac6896"><div class="ttname"><a href="a00379.html#a6bd6c66e6b6fd17afa94128330ac6896">CSpectrogramIf::MelSpectrogramConfig_t::fMaxFreqInHz</a></div><div class="ttdeci">float fMaxFreqInHz</div><div class="ttdoc">minimum frequency</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00081">Spectrogram.h:81</a></div></div>
 <div class="ttc" id="aa00379_html_aa6921e032cc949020a697469322ab926"><div class="ttname"><a href="a00379.html#aa6921e032cc949020a697469322ab926">CSpectrogramIf::MelSpectrogramConfig_t::fMinFreqInHz</a></div><div class="ttdeci">float fMinFreqInHz</div><div class="ttdoc">maximum frequency</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00080">Spectrogram.h:80</a></div></div>
 <div class="ttc" id="aa00379_html_ad6663bc74095b6d299849a4ddb5bdb88"><div class="ttname"><a href="a00379.html#ad6663bc74095b6d299849a4ddb5bdb88">CSpectrogramIf::MelSpectrogramConfig_t::bIsLogarithmic</a></div><div class="ttdeci">bool bIsLogarithmic</div><div class="ttdoc">true for logarithmic amplitude</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00082">Spectrogram.h:82</a></div></div>
 <div class="ttc" id="aa00379_html_aef36317d41163f339227bd84d417b74e"><div class="ttname"><a href="a00379.html#aef36317d41163f339227bd84d417b74e">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a></div><div class="ttdeci">int iNumMelBins</div><div class="ttdoc">number of frequency bins</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00079">Spectrogram.h:79</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00143_source.html#l00082">CSpectrogramIf::MelSpectrogramConfig_t::bIsLogarithmic</a>, <a class="el" href="a00014_source.html#l00347">CSpectrogramIf::compMelSpectrogram()</a>, <a class="el" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00014_source.html#l00100">CSpectrogramIf::create()</a>, <a class="el" href="a00014_source.html#l00133">CSpectrogramIf::destroy()</a>, <a class="el" href="a00143_source.html#l00081">CSpectrogramIf::MelSpectrogramConfig_t::fMaxFreqInHz</a>, <a class="el" href="a00143_source.html#l00080">CSpectrogramIf::MelSpectrogramConfig_t::fMinFreqInHz</a>, <a class="el" href="a00014_source.html#l00292">CSpectrogramIf::getMelSpectrogramDimensions()</a>, <a class="el" href="a00143_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, and <a class="el" href="a00050_source.html#l00132">showClInfo()</a>.</p>
+<p class="reference">References <a class="el" href="a00143_source.html#l00082">CSpectrogramIf::MelSpectrogramConfig_t::bIsLogarithmic</a>, <a class="el" href="a00014_source.html#l00333">CSpectrogramIf::compMelSpectrogram()</a>, <a class="el" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00014_source.html#l00100">CSpectrogramIf::create()</a>, <a class="el" href="a00014_source.html#l00133">CSpectrogramIf::destroy()</a>, <a class="el" href="a00143_source.html#l00081">CSpectrogramIf::MelSpectrogramConfig_t::fMaxFreqInHz</a>, <a class="el" href="a00143_source.html#l00080">CSpectrogramIf::MelSpectrogramConfig_t::fMinFreqInHz</a>, <a class="el" href="a00014_source.html#l00278">CSpectrogramIf::getMelSpectrogramDimensions()</a>, <a class="el" href="a00143_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, and <a class="el" href="a00050_source.html#l00132">showClInfo()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00050_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#aa00050_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="aa00050_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="aa00050_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title=" " alt="" coords="5,557,56,584"/>
-<area shape="rect" href="a00375.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="104,368,351,395"/>
-<area shape="rect" href="a00203.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="457,659,544,685"/>
-<area shape="rect" href="a00375.html#acd73d8c1aaaed8b188de6b8bf2103139" title=" " alt="" coords="150,532,305,559"/>
-<area shape="rect" href="a00375.html#a6511fc72ef04be91a712ee5ef479bd7e" title=" " alt="" coords="147,583,308,609"/>
-<area shape="rect" href="a00375.html#af50a3669266ad696a1159b1bb80b1c8a" title=" " alt="" coords="111,466,343,507"/>
-<area shape="rect" href="a00050.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="184,633,271,660"/>
-<area shape="rect" href="a00375.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="403,361,598,402"/>
-<area shape="rect" href="a00375.html#a00140b0dd45e87aef4561aed8ebc779a" title=" " alt="" coords="399,427,603,453"/>
-<area shape="rect" href="a00375.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="416,150,585,191"/>
-<area shape="rect" href="a00331.html#a9cb162394031e8b496f7a39b51c31d20" title=" " alt="" coords="695,259,805,285"/>
-<area shape="rect" href="a00383.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="402,477,599,504"/>
-<area shape="rect" href="a00363.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="419,309,582,336"/>
-<area shape="rect" href="a00331.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="699,309,801,336"/>
-<area shape="rect" href="a00331.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="685,360,815,387"/>
-<area shape="rect" href="a00383.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="655,411,845,437"/>
-<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="899,499,1044,525"/>
-<area shape="rect" href="a00415.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="659,462,841,503"/>
-<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="906,309,1037,336"/>
-<area shape="rect" href="a00363.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="903,360,1039,387"/>
-<area shape="rect" href="a00218.html#a32fc71031e721d003fd1dc07f771351d" title=" " alt="" coords="914,243,1029,285"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="897,124,1045,151"/>
-<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="1101,309,1204,336"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1093,124,1212,151"/>
+<area shape="rect" title=" " alt="" coords="5,640,56,667"/>
+<area shape="rect" href="a00375.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="104,451,351,477"/>
+<area shape="rect" href="a00203.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="457,741,544,768"/>
+<area shape="rect" href="a00375.html#acd73d8c1aaaed8b188de6b8bf2103139" title=" " alt="" coords="150,615,305,641"/>
+<area shape="rect" href="a00375.html#a6511fc72ef04be91a712ee5ef479bd7e" title=" " alt="" coords="147,665,308,692"/>
+<area shape="rect" href="a00375.html#af50a3669266ad696a1159b1bb80b1c8a" title=" " alt="" coords="111,549,343,590"/>
+<area shape="rect" href="a00050.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="184,716,271,743"/>
+<area shape="rect" href="a00375.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="403,443,598,485"/>
+<area shape="rect" href="a00375.html#a00140b0dd45e87aef4561aed8ebc779a" title=" " alt="" coords="399,509,603,536"/>
+<area shape="rect" href="a00375.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="416,175,585,217"/>
+<area shape="rect" href="a00331.html#a9cb162394031e8b496f7a39b51c31d20" title=" " alt="" coords="695,309,805,336"/>
+<area shape="rect" href="a00383.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="402,560,599,587"/>
+<area shape="rect" href="a00363.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="419,392,582,419"/>
+<area shape="rect" href="a00331.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="699,360,801,387"/>
+<area shape="rect" href="a00331.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="685,461,815,488"/>
+<area shape="rect" href="a00383.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="655,512,845,539"/>
+<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="899,531,1044,557"/>
+<area shape="rect" href="a00415.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="659,563,841,605"/>
+<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="906,389,1037,416"/>
+<area shape="rect" href="a00363.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="903,440,1039,467"/>
+<area shape="rect" href="a00218.html#a32fc71031e721d003fd1dc07f771351d" title=" " alt="" coords="914,323,1029,365"/>
+<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="897,272,1045,299"/>
+<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="1101,389,1204,416"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1093,247,1212,273"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="703,629,797,656"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="923,629,1020,656"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="920,221,1023,248"/>
+<area shape="rect" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="701,259,799,285"/>
 <area shape="rect" href="a00391.html#aebe59f905b1dd02058cccbb062de6507" title=" " alt="" coords="651,107,849,133"/>
 <area shape="rect" href="a00391.html#ad0d26c7c6a5edaa81527e68fe0c0c46f" title=" " alt="" coords="651,157,849,184"/>
 <area shape="rect" href="a00391.html#adbcadd75a3a33ca9e9453a17a9336318" title=" " alt="" coords="651,208,849,235"/>
 <area shape="rect" href="a00331.html#a22af988b424911d7750a0f9f381aa443" title=" " alt="" coords="701,5,799,32"/>
-<area shape="rect" href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="443,532,558,559"/>
+<area shape="rect" href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="443,615,558,641"/>
 </map>
 </div>
 
@@ -329,7 +333,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

@@ -162,7 +162,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00009">9</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00010">10</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ae12716ee8473becf462624698243f761" name="ae12716ee8473becf462624698243f761"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae12716ee8473becf462624698243f761">&#9670;&nbsp;</a></span>CBlockAudioFile() <span class="overload">[1/2]</span></h2>
@@ -204,45 +204,44 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00012">12</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   12</span>                                                                                 :</div>
-<div class="line"><span class="lineno">   13</span>        <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>(pCAudioFile),</div>
-<div class="line"><span class="lineno">   14</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>(0),</div>
-<div class="line"><span class="lineno">   15</span>        <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>(0)</div>
-<div class="line"><span class="lineno">   16</span>    {</div>
-<div class="line"><span class="lineno">   17</span>        <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a> = iBlockLength;</div>
-<div class="line"><span class="lineno">   18</span>        <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> = iHopLength;</div>
-<div class="line"><span class="lineno">   19</span>            </div>
-<div class="line"><span class="lineno">   20</span>        <a class="code hl_struct" href="a00315.html">CAudioFileIf::FileSpec_t</a> stFileSpec;</div>
-<div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>        <span class="comment">// get length of audio file</span></div>
-<div class="line"><span class="lineno">   23</span>        <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#a91a9d6008340a10ce10ac254b815fd00">getLength</a>(<a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a>);</div>
-<div class="line"><span class="lineno">   24</span>        <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#a7ddbbf5f828e61db7fd75dbf47a33832">getFileSpec</a>(stFileSpec);</div>
-<div class="line"><span class="lineno">   25</span>        <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a> = stFileSpec.<a class="code hl_variable" href="a00315.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>;</div>
-<div class="line"><span class="lineno">   26</span>        <a class="code hl_variable" href="a00383.html#ace027af2234bb8a5abff65743385f1ee">m_fSampleRate</a> = stFileSpec.<a class="code hl_variable" href="a00315.html#a396cfc91903815b64eff8131b33a86d9">fSampleRateInHz</a>;</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>        <span class="comment">// compute number of blocks</span></div>
-<div class="line"><span class="lineno">   29</span>        <a class="code hl_variable" href="a00383.html#a1c97a35fe0a4e37aeebc8e809eed64d7">m_iNumBlocks</a> = <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> / <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> + 1;</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>        <span class="comment">// initialize read buffers</span></div>
-<div class="line"><span class="lineno">   32</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00347.html">CRingBuffer&lt;float&gt;</a>(iBlockLength+1);</div>
-<div class="line"><span class="lineno">   33</span>        <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>* [<a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>];</div>
-<div class="line"><span class="lineno">   34</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>; c++)</div>
-<div class="line"><span class="lineno">   35</span>            <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>[c] = <span class="keyword">new</span> <span class="keywordtype">float</span>[iHopLength];</div>
-<div class="line"><span class="lineno">   36</span>        </div>
-<div class="line"><span class="lineno">   37</span>        <span class="comment">// prefill from file to read buffer</span></div>
-<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">while</span>(<a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d">getNumValuesInBuffer</a>() &lt; <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e">getLength</a>() - <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> - 1)</div>
-<div class="line"><span class="lineno">   39</span>            <a class="code hl_function" href="a00283.html#ac77d15abc29183765326f7212dd523a1">readFile2RingBuff</a>();</div>
-<div class="line"><span class="lineno">   40</span>    }</div>
-<div class="ttc" id="aa00283_html_a3304dc3f4c33e336414cb8a8d36ed4e3"><div class="ttname"><a href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">CBlockAudioFile::m_pCAudioFile</a></div><div class="ttdeci">CAudioFileIf * m_pCAudioFile</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00117">ToolBlockAudio.cpp:117</a></div></div>
-<div class="ttc" id="aa00283_html_a95d866eea97a4159fd1b95083b462053"><div class="ttname"><a href="a00283.html#a95d866eea97a4159fd1b95083b462053">CBlockAudioFile::m_pCRingBuffer</a></div><div class="ttdeci">CRingBuffer&lt; float &gt; * m_pCRingBuffer</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00118">ToolBlockAudio.cpp:118</a></div></div>
-<div class="ttc" id="aa00283_html_ac77d15abc29183765326f7212dd523a1"><div class="ttname"><a href="a00283.html#ac77d15abc29183765326f7212dd523a1">CBlockAudioFile::readFile2RingBuff</a></div><div class="ttdeci">void readFile2RingBuff()</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00093">ToolBlockAudio.cpp:93</a></div></div>
-<div class="ttc" id="aa00283_html_ad2e4f8f16b8c4b6997bbb52411bdbd6e"><div class="ttname"><a href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">CBlockAudioFile::m_ppfAudioData</a></div><div class="ttdeci">float ** m_ppfAudioData</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00119">ToolBlockAudio.cpp:119</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00013">13</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>                                                                                 :</div>
+<div class="line"><span class="lineno">   14</span>        <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>(pCAudioFile),</div>
+<div class="line"><span class="lineno">   15</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>(0),</div>
+<div class="line"><span class="lineno">   16</span>        <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>(0)</div>
+<div class="line"><span class="lineno">   17</span>    {</div>
+<div class="line"><span class="lineno">   18</span>        <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a> = iBlockLength;</div>
+<div class="line"><span class="lineno">   19</span>        <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> = iHopLength;</div>
+<div class="line"><span class="lineno">   20</span>            </div>
+<div class="line"><span class="lineno">   21</span>        <a class="code hl_struct" href="a00315.html">CAudioFileIf::FileSpec_t</a> stFileSpec;</div>
+<div class="line"><span class="lineno">   22</span> </div>
+<div class="line"><span class="lineno">   23</span>        <span class="comment">// get length of audio file</span></div>
+<div class="line"><span class="lineno">   24</span>        <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#a91a9d6008340a10ce10ac254b815fd00">getLength</a>(<a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a>);</div>
+<div class="line"><span class="lineno">   25</span>        <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#a7ddbbf5f828e61db7fd75dbf47a33832">getFileSpec</a>(stFileSpec);</div>
+<div class="line"><span class="lineno">   26</span>        <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a> = stFileSpec.<a class="code hl_variable" href="a00315.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>;</div>
+<div class="line"><span class="lineno">   27</span>        <a class="code hl_variable" href="a00383.html#ace027af2234bb8a5abff65743385f1ee">m_fSampleRate</a> = stFileSpec.<a class="code hl_variable" href="a00315.html#a396cfc91903815b64eff8131b33a86d9">fSampleRateInHz</a>;</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>        <span class="comment">// compute number of blocks</span></div>
+<div class="line"><span class="lineno">   30</span>        <a class="code hl_variable" href="a00383.html#a1c97a35fe0a4e37aeebc8e809eed64d7">m_iNumBlocks</a> = <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> / <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> + 1;</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>        <span class="comment">// initialize read buffers</span></div>
+<div class="line"><span class="lineno">   33</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00347.html">CRingBuffer&lt;float&gt;</a>(iBlockLength+1);</div>
+<div class="line"><span class="lineno">   34</span>        <a class="code hl_function" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>, <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>, iHopLength);</div>
+<div class="line"><span class="lineno">   35</span>        </div>
+<div class="line"><span class="lineno">   36</span>        <span class="comment">// prefill from file to read buffer</span></div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">while</span>(<a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d">getNumValuesInBuffer</a>() &lt; <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e">getLength</a>() - <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> - 1)</div>
+<div class="line"><span class="lineno">   38</span>            <a class="code hl_function" href="a00283.html#ac77d15abc29183765326f7212dd523a1">readFile2RingBuff</a>();</div>
+<div class="line"><span class="lineno">   39</span>    }</div>
+<div class="ttc" id="aa00283_html_a3304dc3f4c33e336414cb8a8d36ed4e3"><div class="ttname"><a href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">CBlockAudioFile::m_pCAudioFile</a></div><div class="ttdeci">CAudioFileIf * m_pCAudioFile</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00112">ToolBlockAudio.cpp:112</a></div></div>
+<div class="ttc" id="aa00283_html_a95d866eea97a4159fd1b95083b462053"><div class="ttname"><a href="a00283.html#a95d866eea97a4159fd1b95083b462053">CBlockAudioFile::m_pCRingBuffer</a></div><div class="ttdeci">CRingBuffer&lt; float &gt; * m_pCRingBuffer</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00113">ToolBlockAudio.cpp:113</a></div></div>
+<div class="ttc" id="aa00283_html_ac77d15abc29183765326f7212dd523a1"><div class="ttname"><a href="a00283.html#ac77d15abc29183765326f7212dd523a1">CBlockAudioFile::readFile2RingBuff</a></div><div class="ttdeci">void readFile2RingBuff()</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00088">ToolBlockAudio.cpp:88</a></div></div>
+<div class="ttc" id="aa00283_html_ad2e4f8f16b8c4b6997bbb52411bdbd6e"><div class="ttname"><a href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">CBlockAudioFile::m_ppfAudioData</a></div><div class="ttdeci">float ** m_ppfAudioData</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00114">ToolBlockAudio.cpp:114</a></div></div>
 <div class="ttc" id="aa00311_html_a7ddbbf5f828e61db7fd75dbf47a33832"><div class="ttname"><a href="a00311.html#a7ddbbf5f828e61db7fd75dbf47a33832">CAudioFileIf::getFileSpec</a></div><div class="ttdeci">Error_t getFileSpec(FileSpec_t &amp;sFileSpec)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00152">AudioFileIf.cpp:152</a></div></div>
 <div class="ttc" id="aa00311_html_a91a9d6008340a10ce10ac254b815fd00"><div class="ttname"><a href="a00311.html#a91a9d6008340a10ce10ac254b815fd00">CAudioFileIf::getLength</a></div><div class="ttdeci">Error_t getLength(long long &amp;iLengthInFrames)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00189">AudioFileIf.cpp:189</a></div></div>
 <div class="ttc" id="aa00315_html"><div class="ttname"><a href="a00315.html">CAudioFileIf::FileSpec_t</a></div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00038">AudioFileIf.h:39</a></div></div>
 <div class="ttc" id="aa00315_html_a396cfc91903815b64eff8131b33a86d9"><div class="ttname"><a href="a00315.html#a396cfc91903815b64eff8131b33a86d9">CAudioFileIf::FileSpec_t::fSampleRateInHz</a></div><div class="ttdeci">float fSampleRateInHz</div><div class="ttdoc">sample rate in Hz</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00043">AudioFileIf.h:43</a></div></div>
 <div class="ttc" id="aa00315_html_a6bde1a697754401008208afbde6f368e"><div class="ttname"><a href="a00315.html#a6bde1a697754401008208afbde6f368e">CAudioFileIf::FileSpec_t::iNumChannels</a></div><div class="ttdeci">int iNumChannels</div><div class="ttdoc">number of audio channels</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00042">AudioFileIf.h:42</a></div></div>
+<div class="ttc" id="aa00343_html_ae669c592fc063391aeb77e07cbc9d4bc"><div class="ttname"><a href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00021">Matrix.h:21</a></div></div>
 <div class="ttc" id="aa00347_html"><div class="ttname"><a href="a00347.html">CRingBuffer&lt; float &gt;</a></div></div>
 <div class="ttc" id="aa00347_html_a0ec2bd62a49e5078d3ca0a03fa123c9e"><div class="ttname"><a href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e">CRingBuffer::getLength</a></div><div class="ttdeci">int getLength() const</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00199">RingBuffer.h:199</a></div></div>
 <div class="ttc" id="aa00347_html_aa04a6cb30d486a6ddd5f7929db1eef9d"><div class="ttname"><a href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d">CRingBuffer::getNumValuesInBuffer</a></div><div class="ttdeci">int getNumValuesInBuffer() const</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00191">RingBuffer.h:191</a></div></div>
@@ -253,33 +252,35 @@ Additional Inherited Members</h2></td></tr>
 <div class="ttc" id="aa00383_html_ace027af2234bb8a5abff65743385f1ee"><div class="ttname"><a href="a00383.html#ace027af2234bb8a5abff65743385f1ee">CBlockAudioIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00099">ToolBlockAudio.h:99</a></div></div>
 <div class="ttc" id="aa00383_html_adda73bca9caf7deefed613cac1d8363c"><div class="ttname"><a href="a00383.html#adda73bca9caf7deefed613cac1d8363c">CBlockAudioIf::m_iHopLength</a></div><div class="ttdeci">int m_iHopLength</div><div class="ttdoc">hop length</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00097">ToolBlockAudio.h:97</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00043">CAudioFileIf::FileSpec_t::fSampleRateInHz</a>, <a class="el" href="a00065_source.html#l00152">CAudioFileIf::getFileSpec()</a>, <a class="el" href="a00092_source.html#l00199">CRingBuffer&lt; T &gt;::getLength()</a>, <a class="el" href="a00065_source.html#l00189">CAudioFileIf::getLength()</a>, <a class="el" href="a00092_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, <a class="el" href="a00146_source.html#l00042">CAudioFileIf::FileSpec_t::iNumChannels</a>, <a class="el" href="a00104_source.html#l00099">CBlockAudioIf::m_fSampleRate</a>, <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, <a class="el" href="a00104_source.html#l00095">CBlockAudioIf::m_iBlockLength</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00104_source.html#l00091">CBlockAudioIf::m_iNumBlocks</a>, <a class="el" href="a00104_source.html#l00096">CBlockAudioIf::m_iNumChannels</a>, <a class="el" href="a00026_source.html#l00117">m_pCAudioFile</a>, <a class="el" href="a00026_source.html#l00118">m_pCRingBuffer</a>, <a class="el" href="a00026_source.html#l00119">m_ppfAudioData</a>, and <a class="el" href="a00026_source.html#l00093">readFile2RingBuff()</a>.</p>
+<p class="reference">References <a class="el" href="a00095_source.html#l00021">CMatrix::alloc()</a>, <a class="el" href="a00146_source.html#l00043">CAudioFileIf::FileSpec_t::fSampleRateInHz</a>, <a class="el" href="a00065_source.html#l00152">CAudioFileIf::getFileSpec()</a>, <a class="el" href="a00092_source.html#l00199">CRingBuffer&lt; T &gt;::getLength()</a>, <a class="el" href="a00065_source.html#l00189">CAudioFileIf::getLength()</a>, <a class="el" href="a00092_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, <a class="el" href="a00146_source.html#l00042">CAudioFileIf::FileSpec_t::iNumChannels</a>, <a class="el" href="a00104_source.html#l00099">CBlockAudioIf::m_fSampleRate</a>, <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, <a class="el" href="a00104_source.html#l00095">CBlockAudioIf::m_iBlockLength</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00104_source.html#l00091">CBlockAudioIf::m_iNumBlocks</a>, <a class="el" href="a00104_source.html#l00096">CBlockAudioIf::m_iNumChannels</a>, <a class="el" href="a00026_source.html#l00112">m_pCAudioFile</a>, <a class="el" href="a00026_source.html#l00113">m_pCRingBuffer</a>, <a class="el" href="a00026_source.html#l00114">m_ppfAudioData</a>, and <a class="el" href="a00026_source.html#l00088">readFile2RingBuff()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00283_ae12716ee8473becf462624698243f761_cgraph.png" border="0" usemap="#aa00283_ae12716ee8473becf462624698243f761_cgraph" alt=""/></div>
 <map name="aa00283_ae12716ee8473becf462624698243f761_cgraph" id="aa00283_ae12716ee8473becf462624698243f761_cgraph">
-<area shape="rect" title=" " alt="" coords="5,200,225,227"/>
-<area shape="rect" href="a00311.html#a7ddbbf5f828e61db7fd75dbf47a33832" title=" " alt="" coords="281,99,449,125"/>
-<area shape="rect" href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e" title=" " alt="" coords="287,149,442,176"/>
-<area shape="rect" href="a00311.html#a91a9d6008340a10ce10ac254b815fd00" title=" " alt="" coords="505,69,663,96"/>
-<area shape="rect" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d" title=" " alt="" coords="273,317,456,358"/>
-<area shape="rect" href="a00283.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="276,251,453,293"/>
-<area shape="rect" href="a00311.html#ae2bd8bd21bd04b0b9e9b8716bddfb7e1" title=" " alt="" coords="712,5,909,32"/>
-<area shape="rect" href="a00311.html#a01d2aae56dd6295aee8ad10088f2cb27" title=" " alt="" coords="729,56,892,83"/>
-<area shape="rect" href="a00311.html#a7d946177a6591600dc03a423feb38cb3" title=" " alt="" coords="741,107,881,133"/>
-<area shape="rect" href="a00411.html#af7639b7368293c01c130192067fe0f4b" title=" " alt="" coords="517,259,651,285"/>
-<area shape="rect" href="a00347.html#a2bd848181a662312600bc590b9040d2a" title=" " alt="" coords="504,360,664,387"/>
-<area shape="rect" href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4" title=" " alt="" coords="509,145,659,172"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="510,436,658,463"/>
-<area shape="rect" href="a00363.html#a8abbcfd075eabceada2f024773f11166" title=" " alt="" coords="743,208,879,235"/>
-<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="745,259,876,285"/>
-<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="738,309,883,336"/>
-<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="957,259,1060,285"/>
-<area shape="rect" href="a00347.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="745,360,876,387"/>
-<area shape="rect" href="a00347.html#a702eb6314380082795f735df74a816c9" title=" " alt="" coords="753,411,868,437"/>
-<area shape="rect" href="a00311.html#aa8d6db73dae5cc9bf7c0beb15b36bea4" title=" " alt="" coords="715,157,906,184"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="751,461,870,488"/>
+<area shape="rect" title=" " alt="" coords="5,267,225,293"/>
+<area shape="rect" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="315,68,414,95"/>
+<area shape="rect" href="a00311.html#a7ddbbf5f828e61db7fd75dbf47a33832" title=" " alt="" coords="281,292,449,319"/>
+<area shape="rect" href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e" title=" " alt="" coords="287,343,442,369"/>
+<area shape="rect" href="a00311.html#a91a9d6008340a10ce10ac254b815fd00" title=" " alt="" coords="505,335,663,361"/>
+<area shape="rect" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d" title=" " alt="" coords="273,394,456,435"/>
+<area shape="rect" href="a00283.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="276,175,453,217"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="533,12,635,39"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="751,5,870,32"/>
+<area shape="rect" href="a00311.html#ae2bd8bd21bd04b0b9e9b8716bddfb7e1" title=" " alt="" coords="712,309,909,336"/>
+<area shape="rect" href="a00311.html#a01d2aae56dd6295aee8ad10088f2cb27" title=" " alt="" coords="729,360,892,387"/>
+<area shape="rect" href="a00311.html#a7d946177a6591600dc03a423feb38cb3" title=" " alt="" coords="741,411,881,437"/>
+<area shape="rect" href="a00411.html#af7639b7368293c01c130192067fe0f4b" title=" " alt="" coords="517,132,651,159"/>
+<area shape="rect" href="a00347.html#a2bd848181a662312600bc590b9040d2a" title=" " alt="" coords="504,208,664,235"/>
+<area shape="rect" href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4" title=" " alt="" coords="509,385,659,412"/>
+<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="510,69,658,96"/>
+<area shape="rect" href="a00363.html#a8abbcfd075eabceada2f024773f11166" title=" " alt="" coords="743,56,879,83"/>
+<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="745,107,876,133"/>
+<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="738,157,883,184"/>
+<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="957,107,1060,133"/>
+<area shape="rect" href="a00347.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="745,208,876,235"/>
+<area shape="rect" href="a00347.html#a702eb6314380082795f735df74a816c9" title=" " alt="" coords="753,259,868,285"/>
+<area shape="rect" href="a00311.html#aa8d6db73dae5cc9bf7c0beb15b36bea4" title=" " alt="" coords="715,461,906,488"/>
 </map>
 </div>
 
@@ -308,18 +309,26 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00042">42</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   43</span>    {</div>
-<div class="line"><span class="lineno">   44</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>;</div>
-<div class="line"><span class="lineno">   45</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a> = 0;</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>; c++)</div>
-<div class="line"><span class="lineno">   48</span>            <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>[c];</div>
-<div class="line"><span class="lineno">   49</span>        <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>;</div>
-<div class="line"><span class="lineno">   50</span>        <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a> = 0;</div>
-<div class="line"><span class="lineno">   51</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00041">41</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   42</span>    {</div>
+<div class="line"><span class="lineno">   43</span>        <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>);</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>        <a class="code hl_function" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>, <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>);</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="ttc" id="aa00343_html_afbf24cb4ce4f9b46456419d939eab052"><div class="ttname"><a href="a00343.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;ppfMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00039">Matrix.h:39</a></div></div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00104_source.html#l00096">CBlockAudioIf::m_iNumChannels</a>, <a class="el" href="a00026_source.html#l00118">m_pCRingBuffer</a>, and <a class="el" href="a00026_source.html#l00119">m_ppfAudioData</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, <a class="el" href="a00095_source.html#l00039">CMatrix::free()</a>, <a class="el" href="a00104_source.html#l00096">CBlockAudioIf::m_iNumChannels</a>, <a class="el" href="a00026_source.html#l00113">m_pCRingBuffer</a>, and <a class="el" href="a00026_source.html#l00114">m_ppfAudioData</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00283_a6781748e7339d8a7f5b35be2daca6052_cgraph.png" border="0" usemap="#aa00283_a6781748e7339d8a7f5b35be2daca6052_cgraph" alt=""/></div>
+<map name="aa00283_a6781748e7339d8a7f5b35be2daca6052_cgraph" id="aa00283_a6781748e7339d8a7f5b35be2daca6052_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,179,47"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="369,13,467,39"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="227,38,321,65"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -397,36 +406,36 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="a00383.html#a531920b36b04ecdb562bfbb09dd2e856">CBlockAudioIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00058">58</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   59</span>    {</div>
-<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a> || !pfBlock)</div>
-<div class="line"><span class="lineno">   61</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>        <span class="comment">// read from file to read buffer</span></div>
-<div class="line"><span class="lineno">   64</span>        <a class="code hl_function" href="a00283.html#ac77d15abc29183765326f7212dd523a1">readFile2RingBuff</a>();</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>        <span class="keywordtype">int</span> iNumFrames = <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a>;</div>
-<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">isEof</a>())</div>
-<div class="line"><span class="lineno">   68</span>            iNumFrames = <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d">getNumValuesInBuffer</a>();</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>        <span class="comment">// get data from ringbuffer and increment read index</span></div>
-<div class="line"><span class="lineno">   71</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#a23d9877584d712c17811a9833835605e">get</a>(pfBlock, iNumFrames);</div>
-<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">if</span> (iNumFrames &lt; <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a>)</div>
-<div class="line"><span class="lineno">   73</span>        {</div>
-<div class="line"><span class="lineno">   74</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> c = 0; c &lt; <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>; c++)</div>
-<div class="line"><span class="lineno">   75</span>                <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(&amp;pfBlock[iNumFrames], <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a> - iNumFrames);</div>
-<div class="line"><span class="lineno">   76</span> </div>
-<div class="line"><span class="lineno">   77</span>            iNumFrames = <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>;</div>
-<div class="line"><span class="lineno">   78</span>        }</div>
-<div class="line"><span class="lineno">   79</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#af265a6322c4b1584c880def00d31e663">setReadIdx</a>(<a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#ab18fac37cac4e8bde0419fe04845ac9d">getReadIdx</a>() + <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>);</div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00053">53</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   54</span>    {</div>
+<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a> || !pfBlock)</div>
+<div class="line"><span class="lineno">   56</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>        <span class="comment">// read from file to read buffer</span></div>
+<div class="line"><span class="lineno">   59</span>        <a class="code hl_function" href="a00283.html#ac77d15abc29183765326f7212dd523a1">readFile2RingBuff</a>();</div>
+<div class="line"><span class="lineno">   60</span> </div>
+<div class="line"><span class="lineno">   61</span>        <span class="keywordtype">int</span> iNumFrames = <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a>;</div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">isEof</a>())</div>
+<div class="line"><span class="lineno">   63</span>            iNumFrames = <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d">getNumValuesInBuffer</a>();</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>        <span class="comment">// get data from ringbuffer and increment read index</span></div>
+<div class="line"><span class="lineno">   66</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#a23d9877584d712c17811a9833835605e">get</a>(pfBlock, iNumFrames);</div>
+<div class="line"><span class="lineno">   67</span>        <span class="keywordflow">if</span> (iNumFrames &lt; <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a>)</div>
+<div class="line"><span class="lineno">   68</span>        {</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> c = 0; c &lt; <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>; c++)</div>
+<div class="line"><span class="lineno">   70</span>                <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(&amp;pfBlock[iNumFrames], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a>) - iNumFrames);</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>            iNumFrames = <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>;</div>
+<div class="line"><span class="lineno">   73</span>        }</div>
+<div class="line"><span class="lineno">   74</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#af265a6322c4b1584c880def00d31e663">setReadIdx</a>(<a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#ab18fac37cac4e8bde0419fe04845ac9d">getReadIdx</a>() + <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>);</div>
+<div class="line"><span class="lineno">   75</span> </div>
+<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">if</span> (pfTimeStamp)</div>
+<div class="line"><span class="lineno">   77</span>            *pfTimeStamp = <a class="code hl_function" href="a00383.html#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a>(<a class="code hl_variable" href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a>);</div>
+<div class="line"><span class="lineno">   78</span>        </div>
+<div class="line"><span class="lineno">   79</span>        <a class="code hl_variable" href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a>++;</div>
 <div class="line"><span class="lineno">   80</span> </div>
-<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">if</span> (pfTimeStamp)</div>
-<div class="line"><span class="lineno">   82</span>            *pfTimeStamp = <a class="code hl_function" href="a00383.html#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a>(<a class="code hl_variable" href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a>);</div>
-<div class="line"><span class="lineno">   83</span>        </div>
-<div class="line"><span class="lineno">   84</span>        <a class="code hl_variable" href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a>++;</div>
-<div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">return</span> iNumFrames;</div>
-<div class="line"><span class="lineno">   87</span>    }</div>
+<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">return</span> iNumFrames;</div>
+<div class="line"><span class="lineno">   82</span>    }</div>
 <div class="ttc" id="aa00311_html_a02a1c69fa0fc5b9aa8cb275315697be4"><div class="ttname"><a href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof</a></div><div class="ttdeci">virtual bool isEof()=0</div></div>
 <div class="ttc" id="aa00347_html_a23d9877584d712c17811a9833835605e"><div class="ttname"><a href="a00347.html#a23d9877584d712c17811a9833835605e">CRingBuffer::get</a></div><div class="ttdeci">T get(float fOffset=0) const</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00106">RingBuffer.h:106</a></div></div>
 <div class="ttc" id="aa00347_html_ab18fac37cac4e8bde0419fe04845ac9d"><div class="ttname"><a href="a00347.html#ab18fac37cac4e8bde0419fe04845ac9d">CRingBuffer::getReadIdx</a></div><div class="ttdeci">int getReadIdx() const</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00174">RingBuffer.h:174</a></div></div>
@@ -435,7 +444,7 @@ Here is the call graph for this function:</div>
 <div class="ttc" id="aa00383_html_a95d0310c888433e7e45806538dc0d347"><div class="ttname"><a href="a00383.html#a95d0310c888433e7e45806538dc0d347">CBlockAudioIf::getTimeStamp</a></div><div class="ttdeci">float getTimeStamp(long long iBlockIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00068">ToolBlockAudio.h:68</a></div></div>
 <div class="ttc" id="aa00383_html_a9728cd91204bd050e5eff0e4e209e653"><div class="ttname"><a href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">CBlockAudioIf::m_iCurrBlock</a></div><div class="ttdeci">long long m_iCurrBlock</div><div class="ttdoc">current block index</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00092">ToolBlockAudio.h:92</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00092_source.html#l00106">CRingBuffer&lt; T &gt;::get()</a>, <a class="el" href="a00092_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, <a class="el" href="a00092_source.html#l00174">CRingBuffer&lt; T &gt;::getReadIdx()</a>, <a class="el" href="a00104_source.html#l00068">CBlockAudioIf::getTimeStamp()</a>, <a class="el" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof()</a>, <a class="el" href="a00104_source.html#l00095">CBlockAudioIf::m_iBlockLength</a>, <a class="el" href="a00104_source.html#l00092">CBlockAudioIf::m_iCurrBlock</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00104_source.html#l00096">CBlockAudioIf::m_iNumChannels</a>, <a class="el" href="a00026_source.html#l00117">m_pCAudioFile</a>, <a class="el" href="a00026_source.html#l00118">m_pCRingBuffer</a>, <a class="el" href="a00026_source.html#l00093">readFile2RingBuff()</a>, <a class="el" href="a00092_source.html#l00183">CRingBuffer&lt; T &gt;::setReadIdx()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00092_source.html#l00106">CRingBuffer&lt; T &gt;::get()</a>, <a class="el" href="a00092_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, <a class="el" href="a00092_source.html#l00174">CRingBuffer&lt; T &gt;::getReadIdx()</a>, <a class="el" href="a00104_source.html#l00068">CBlockAudioIf::getTimeStamp()</a>, <a class="el" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof()</a>, <a class="el" href="a00104_source.html#l00095">CBlockAudioIf::m_iBlockLength</a>, <a class="el" href="a00104_source.html#l00092">CBlockAudioIf::m_iCurrBlock</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00104_source.html#l00096">CBlockAudioIf::m_iNumChannels</a>, <a class="el" href="a00026_source.html#l00112">m_pCAudioFile</a>, <a class="el" href="a00026_source.html#l00113">m_pCRingBuffer</a>, <a class="el" href="a00026_source.html#l00088">readFile2RingBuff()</a>, <a class="el" href="a00092_source.html#l00183">CRingBuffer&lt; T &gt;::setReadIdx()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -494,13 +503,13 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="a00383.html#aeb97b95bec6d4cbeaab928febab59baa">CBlockAudioIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00052">52</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   53</span>    {</div>
-<div class="line"><span class="lineno">   54</span>        assert(<a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>);</div>
-<div class="line"><span class="lineno">   55</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">isEof</a>();</div>
-<div class="line"><span class="lineno">   56</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00047">47</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   48</span>    {</div>
+<div class="line"><span class="lineno">   49</span>        assert(<a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>);</div>
+<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">isEof</a>();</div>
+<div class="line"><span class="lineno">   51</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof()</a>, and <a class="el" href="a00026_source.html#l00117">m_pCAudioFile</a>.</p>
+<p class="reference">References <a class="el" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof()</a>, and <a class="el" href="a00026_source.html#l00112">m_pCAudioFile</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -562,37 +571,37 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00093">93</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   94</span>    {        </div>
-<div class="line"><span class="lineno">   95</span>        <span class="comment">// set file read length variable</span></div>
-<div class="line"><span class="lineno">   96</span>        <span class="comment">//long long iNumFrames = std::min(m_iHopLength, m_pCRingBuffer-&gt;getLength() - m_pCRingBuffer-&gt;getNumValuesInBuffer() + 1);</span></div>
-<div class="line"><span class="lineno">   97</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumFrames = <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>;</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>        <span class="comment">// read data (iNumOfFrames might be updated!)</span></div>
-<div class="line"><span class="lineno">  100</span>        <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4">readData</a>(<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>, iNumFrames);</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>        <span class="comment">// set buffer to zero if not written (EOF)</span></div>
-<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">if</span> (iNumFrames &lt; <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>)</div>
-<div class="line"><span class="lineno">  104</span>        {</div>
-<div class="line"><span class="lineno">  105</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> c = 0; c &lt; <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>; c++)</div>
-<div class="line"><span class="lineno">  106</span>                <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(&amp;<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>[c][iNumFrames], <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> - iNumFrames);</div>
-<div class="line"><span class="lineno">  107</span>            </div>
-<div class="line"><span class="lineno">  108</span>            iNumFrames = <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>;</div>
-<div class="line"><span class="lineno">  109</span>        }</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>        <span class="comment">// downmix in case of multichannel</span></div>
-<div class="line"><span class="lineno">  112</span>        <a class="code hl_function" href="a00411.html#af7639b7368293c01c130192067fe0f4b">CPreProc::downmix</a>(<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>[0], <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>, <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>, iNumFrames);</div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>        <span class="comment">// write data into inputbuffer</span></div>
-<div class="line"><span class="lineno">  115</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#a2bd848181a662312600bc590b9040d2a">putPostInc</a>(<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>[0], <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>);</div>
-<div class="line"><span class="lineno">  116</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00088">88</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   89</span>    {        </div>
+<div class="line"><span class="lineno">   90</span>        <span class="comment">// set file read length variable</span></div>
+<div class="line"><span class="lineno">   91</span>        <span class="comment">//long long iNumFrames = std::min(m_iHopLength, m_pCRingBuffer-&gt;getLength() - m_pCRingBuffer-&gt;getNumValuesInBuffer() + 1);</span></div>
+<div class="line"><span class="lineno">   92</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumFrames = <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>;</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>        <span class="comment">// read data (iNumOfFrames might be updated!)</span></div>
+<div class="line"><span class="lineno">   95</span>        <a class="code hl_variable" href="a00283.html#a3304dc3f4c33e336414cb8a8d36ed4e3">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4">readData</a>(<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>, iNumFrames);</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>        <span class="comment">// set buffer to zero if not written (EOF)</span></div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">if</span> (iNumFrames &lt; <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>)</div>
+<div class="line"><span class="lineno">   99</span>        {</div>
+<div class="line"><span class="lineno">  100</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> c = 0; c &lt; <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>; c++)</div>
+<div class="line"><span class="lineno">  101</span>                <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(&amp;<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>[c][iNumFrames], <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> - iNumFrames);</div>
+<div class="line"><span class="lineno">  102</span>            </div>
+<div class="line"><span class="lineno">  103</span>            iNumFrames = <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>;</div>
+<div class="line"><span class="lineno">  104</span>        }</div>
+<div class="line"><span class="lineno">  105</span> </div>
+<div class="line"><span class="lineno">  106</span>        <span class="comment">// downmix in case of multichannel</span></div>
+<div class="line"><span class="lineno">  107</span>        <a class="code hl_function" href="a00411.html#af7639b7368293c01c130192067fe0f4b">CPreProc::downmix</a>(<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>[0], <a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>, <a class="code hl_variable" href="a00383.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a>, iNumFrames);</div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>        <span class="comment">// write data into inputbuffer</span></div>
+<div class="line"><span class="lineno">  110</span>        <a class="code hl_variable" href="a00283.html#a95d866eea97a4159fd1b95083b462053">m_pCRingBuffer</a>-&gt;<a class="code hl_function" href="a00347.html#a2bd848181a662312600bc590b9040d2a">putPostInc</a>(<a class="code hl_variable" href="a00283.html#ad2e4f8f16b8c4b6997bbb52411bdbd6e">m_ppfAudioData</a>[0], <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>);</div>
+<div class="line"><span class="lineno">  111</span>    }</div>
 <div class="ttc" id="aa00311_html_ad86676f86c5a0c1fb23617b5e00014c4"><div class="ttname"><a href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4">CAudioFileIf::readData</a></div><div class="ttdeci">virtual Error_t readData(float **ppfAudioData, long long int &amp;iNumFrames)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00097">AudioFileIf.cpp:97</a></div></div>
 <div class="ttc" id="aa00347_html_a2bd848181a662312600bc590b9040d2a"><div class="ttname"><a href="a00347.html#a2bd848181a662312600bc590b9040d2a">CRingBuffer::putPostInc</a></div><div class="ttdeci">void putPostInc(T tNewValue)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00038">RingBuffer.h:38</a></div></div>
 <div class="ttc" id="aa00411_html_af7639b7368293c01c130192067fe0f4b"><div class="ttname"><a href="a00411.html#af7639b7368293c01c130192067fe0f4b">CPreProc::downmix</a></div><div class="ttdeci">static void downmix(float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00018">ToolPreProc.h:18</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00131_source.html#l00018">CPreProc::downmix()</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00104_source.html#l00096">CBlockAudioIf::m_iNumChannels</a>, <a class="el" href="a00026_source.html#l00117">m_pCAudioFile</a>, <a class="el" href="a00026_source.html#l00118">m_pCRingBuffer</a>, <a class="el" href="a00026_source.html#l00119">m_ppfAudioData</a>, <a class="el" href="a00092_source.html#l00038">CRingBuffer&lt; T &gt;::putPostInc()</a>, <a class="el" href="a00065_source.html#l00097">CAudioFileIf::readData()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00131_source.html#l00018">CPreProc::downmix()</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00104_source.html#l00096">CBlockAudioIf::m_iNumChannels</a>, <a class="el" href="a00026_source.html#l00112">m_pCAudioFile</a>, <a class="el" href="a00026_source.html#l00113">m_pCRingBuffer</a>, <a class="el" href="a00026_source.html#l00114">m_ppfAudioData</a>, <a class="el" href="a00092_source.html#l00038">CRingBuffer&lt; T &gt;::putPostInc()</a>, <a class="el" href="a00065_source.html#l00097">CAudioFileIf::readData()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00012">CBlockAudioFile()</a>, and <a class="el" href="a00026_source.html#l00058">getNextBlock()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00013">CBlockAudioFile()</a>, and <a class="el" href="a00026_source.html#l00053">getNextBlock()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -649,9 +658,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00117">117</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00112">112</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00012">CBlockAudioFile()</a>, <a class="el" href="a00026_source.html#l00058">getNextBlock()</a>, <a class="el" href="a00026_source.html#l00052">IsEndOfData()</a>, and <a class="el" href="a00026_source.html#l00093">readFile2RingBuff()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00013">CBlockAudioFile()</a>, <a class="el" href="a00026_source.html#l00053">getNextBlock()</a>, <a class="el" href="a00026_source.html#l00047">IsEndOfData()</a>, and <a class="el" href="a00026_source.html#l00088">readFile2RingBuff()</a>.</p>
 
 </div>
 </div>
@@ -675,9 +684,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00118">118</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00113">113</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00012">CBlockAudioFile()</a>, <a class="el" href="a00026_source.html#l00058">getNextBlock()</a>, <a class="el" href="a00026_source.html#l00093">readFile2RingBuff()</a>, and <a class="el" href="a00026_source.html#l00042">~CBlockAudioFile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00013">CBlockAudioFile()</a>, <a class="el" href="a00026_source.html#l00053">getNextBlock()</a>, <a class="el" href="a00026_source.html#l00088">readFile2RingBuff()</a>, and <a class="el" href="a00026_source.html#l00041">~CBlockAudioFile()</a>.</p>
 
 </div>
 </div>
@@ -701,9 +710,9 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00119">119</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00114">114</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00012">CBlockAudioFile()</a>, <a class="el" href="a00026_source.html#l00093">readFile2RingBuff()</a>, and <a class="el" href="a00026_source.html#l00042">~CBlockAudioFile()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00013">CBlockAudioFile()</a>, <a class="el" href="a00026_source.html#l00088">readFile2RingBuff()</a>, and <a class="el" href="a00026_source.html#l00041">~CBlockAudioFile()</a>.</p>
 
 </div>
 </div>
@@ -713,7 +722,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

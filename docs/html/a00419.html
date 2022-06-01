@@ -545,7 +545,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  110</span>        <span class="comment">// compute index axis</span></div>
 <div class="line"><span class="lineno">  111</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumOutSamples = <a class="code hl_function" href="a00419.html#a1fa6003e640ba66531236277eddc5158">getOutputLength</a>(iNumInSamples);</div>
 <div class="line"><span class="lineno">  112</span>        <span class="keywordtype">float</span>* pfOutIdx = 0;</div>
-<div class="line"><span class="lineno">  113</span>        <a class="code hl_function" href="a00363.html#a377e1e1adf5e7ea77060eb039b509166">CVectorFloat::alloc</a>(pfOutIdx, iNumOutSamples);</div>
+<div class="line"><span class="lineno">  113</span>        <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(pfOutIdx, iNumOutSamples);</div>
 <div class="line"><span class="lineno">  114</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iNumOutSamples; i++)</div>
 <div class="line"><span class="lineno">  115</span>            pfOutIdx[i] = i * <a class="code hl_variable" href="a00419.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> / <a class="code hl_variable" href="a00419.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a>;</div>
 <div class="line"><span class="lineno">  116</span> </div>
@@ -565,7 +565,7 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  130</span>        <span class="keywordflow">else</span> <span class="comment">// downsample</span></div>
 <div class="line"><span class="lineno">  131</span>        {</div>
 <div class="line"><span class="lineno">  132</span>            <span class="keywordtype">float</span>* pfFiltered = 0;</div>
-<div class="line"><span class="lineno">  133</span>            <a class="code hl_function" href="a00363.html#a377e1e1adf5e7ea77060eb039b509166">CVectorFloat::alloc</a>(pfFiltered, iNumInSamples);</div>
+<div class="line"><span class="lineno">  133</span>            <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(pfFiltered, iNumInSamples);</div>
 <div class="line"><span class="lineno">  134</span> </div>
 <div class="line"><span class="lineno">  135</span>            <span class="comment">// apply zero phase filter</span></div>
 <div class="line"><span class="lineno">  136</span>            <a class="code hl_variable" href="a00419.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>-&gt;<a class="code hl_function" href="a00335.html#a04bf94ff97e5e270210954864025ea06">filtfilt</a>(pfFiltered, pfIn, iNumInSamples);</div>
@@ -573,57 +573,57 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  138</span>            <span class="comment">// interpolate</span></div>
 <div class="line"><span class="lineno">  139</span>            <a class="code hl_function" href="a00419.html#a02a81c6177894649b0524b684118839e">interp1d</a>(pfOut, pfOutIdx, pfFiltered, iNumOutSamples, iNumInSamples);</div>
 <div class="line"><span class="lineno">  140</span> </div>
-<div class="line"><span class="lineno">  141</span>            <a class="code hl_function" href="a00363.html#a769161836788b3e3885ef91f85d579d9">CVectorFloat::free</a>(pfFiltered);</div>
+<div class="line"><span class="lineno">  141</span>            <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(pfFiltered);</div>
 <div class="line"><span class="lineno">  142</span>        }</div>
 <div class="line"><span class="lineno">  143</span> </div>
 <div class="line"><span class="lineno">  144</span>        <span class="comment">// free internal memory</span></div>
-<div class="line"><span class="lineno">  145</span>        <a class="code hl_function" href="a00363.html#a769161836788b3e3885ef91f85d579d9">CVectorFloat::free</a>(pfOutIdx);</div>
+<div class="line"><span class="lineno">  145</span>        <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(pfOutIdx);</div>
 <div class="line"><span class="lineno">  146</span> </div>
 <div class="line"><span class="lineno">  147</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
 <div class="line"><span class="lineno">  148</span>    }</div>
-<div class="ttc" id="aa00335_html_a04bf94ff97e5e270210954864025ea06"><div class="ttname"><a href="a00335.html#a04bf94ff97e5e270210954864025ea06">CFilter::filtfilt</a></div><div class="ttdeci">Error_t filtfilt(T *pfOut, const T *pfIn, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00168">Filter.h:168</a></div></div>
+<div class="ttc" id="aa00335_html_a04bf94ff97e5e270210954864025ea06"><div class="ttname"><a href="a00335.html#a04bf94ff97e5e270210954864025ea06">CFilter::filtfilt</a></div><div class="ttdeci">Error_t filtfilt(T *pfOut, const T *pfIn, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00163">Filter.h:163</a></div></div>
 <div class="ttc" id="aa00335_html_add0db9a0cf605eb3f57c80b52d2bda0e"><div class="ttname"><a href="a00335.html#add0db9a0cf605eb3f57c80b52d2bda0e">CFilter::init</a></div><div class="ttdeci">Error_t init(const T *pfB, const T *pfA, int iNumCoeffs)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00030">Filter.h:30</a></div></div>
-<div class="ttc" id="aa00339_html_a3878460603a6e6e1a64de6021b2bb73e"><div class="ttname"><a href="a00339.html#a3878460603a6e6e1a64de6021b2bb73e">CButterLp::calcCoeffs</a></div><div class="ttdeci">static Error_t calcCoeffs(T *pfB, T *pfA, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00303">Filter.h:303</a></div></div>
-<div class="ttc" id="aa00363_html_a377e1e1adf5e7ea77060eb039b509166"><div class="ttname"><a href="a00363.html#a377e1e1adf5e7ea77060eb039b509166">CVectorFloat::alloc</a></div><div class="ttdeci">static void alloc(float *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00160">Vector.h:160</a></div></div>
-<div class="ttc" id="aa00363_html_a769161836788b3e3885ef91f85d579d9"><div class="ttname"><a href="a00363.html#a769161836788b3e3885ef91f85d579d9">CVectorFloat::free</a></div><div class="ttdeci">static void free(float *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00174">Vector.h:174</a></div></div>
+<div class="ttc" id="aa00339_html_a3878460603a6e6e1a64de6021b2bb73e"><div class="ttname"><a href="a00339.html#a3878460603a6e6e1a64de6021b2bb73e">CButterLp::calcCoeffs</a></div><div class="ttdeci">static Error_t calcCoeffs(T *pfB, T *pfA, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00298">Filter.h:298</a></div></div>
+<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 <div class="ttc" id="aa00419_html_a02a81c6177894649b0524b684118839e"><div class="ttname"><a href="a00419.html#a02a81c6177894649b0524b684118839e">CResample::interp1d</a></div><div class="ttdeci">static Error_t interp1d(float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00024">ToolResample.h:24</a></div></div>
 <div class="ttc" id="aa00419_html_a1fa6003e640ba66531236277eddc5158"><div class="ttname"><a href="a00419.html#a1fa6003e640ba66531236277eddc5158">CResample::getOutputLength</a></div><div class="ttdeci">long long getOutputLength(long long iNumInSamples) const</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00091">ToolResample.h:91</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086_source.html#l00160">CVectorFloat::alloc()</a>, <a class="el" href="a00098_source.html#l00303">CButterLp::calcCoeffs()</a>, <a class="el" href="a00098_source.html#l00168">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00086_source.html#l00174">CVectorFloat::free()</a>, <a class="el" href="a00122_source.html#l00091">getOutputLength()</a>, <a class="el" href="a00098_source.html#l00030">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00122_source.html#l00024">interp1d()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00122_source.html#l00162">m_fInSampleRate</a>, <a class="el" href="a00122_source.html#l00163">m_fOutSampleRate</a>, and <a class="el" href="a00122_source.html#l00165">m_pCFilter</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00098_source.html#l00298">CButterLp::calcCoeffs()</a>, <a class="el" href="a00098_source.html#l00163">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, <a class="el" href="a00122_source.html#l00091">getOutputLength()</a>, <a class="el" href="a00098_source.html#l00030">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00122_source.html#l00024">interp1d()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00122_source.html#l00162">m_fInSampleRate</a>, <a class="el" href="a00122_source.html#l00163">m_fOutSampleRate</a>, and <a class="el" href="a00122_source.html#l00165">m_pCFilter</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00419_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph.png" border="0" usemap="#aa00419_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph" alt=""/></div>
 <map name="aa00419_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph" id="aa00419_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph">
-<area shape="rect" title=" " alt="" coords="5,355,147,381"/>
-<area shape="rect" href="a00363.html#a377e1e1adf5e7ea77060eb039b509166" title=" " alt="" coords="644,391,775,417"/>
-<area shape="rect" href="a00339.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="435,569,583,596"/>
-<area shape="rect" href="a00363.html#a769161836788b3e3885ef91f85d579d9" title=" " alt="" coords="646,113,773,140"/>
-<area shape="rect" href="a00335.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="245,228,337,255"/>
-<area shape="rect" href="a00419.html#a1fa6003e640ba66531236277eddc5158" title=" " alt="" coords="195,405,387,432"/>
-<area shape="rect" href="a00335.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="876,5,959,32"/>
-<area shape="rect" href="a00419.html#a02a81c6177894649b0524b684118839e" title=" " alt="" coords="220,507,361,533"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="1047,215,1195,241"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1243,81,1361,108"/>
-<area shape="rect" href="a00339.html#a4a70bdde7f075d2591fd03c52c16145c" title=" " alt="" coords="649,620,769,647"/>
-<area shape="rect" href="a00339.html#a9c08c0b6f891bb37fb4230088f94b0a0" title=" " alt="" coords="649,671,769,697"/>
-<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="1055,417,1186,444"/>
-<area shape="rect" href="a00339.html#ab4432f6b6d2f1bad850a13a0573615c4" title=" " alt="" coords="836,620,999,647"/>
-<area shape="rect" href="a00339.html#a93b25bb8ef71fc7221ae53efe9212d67" title=" " alt="" coords="845,671,989,697"/>
-<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="1251,259,1353,285"/>
-<area shape="rect" href="a00335.html#a1c35f3511dcdc32517db3cea9c327ae8" title=" " alt="" coords="453,203,565,229"/>
-<area shape="rect" href="a00335.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="1073,81,1168,108"/>
-<area shape="rect" href="a00335.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="439,253,579,280"/>
-<area shape="rect" href="a00343.html#a4c26ffc8eb44086fb91972107056002a" title=" " alt="" coords="868,113,967,140"/>
-<area shape="rect" href="a00343.html#a249402bac669759530634c6652900111" title=" " alt="" coords="870,164,965,191"/>
-<area shape="rect" href="a00343.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="659,289,759,316"/>
-<area shape="rect" href="a00343.html#ab714a555729264f7fc4ef0f48065d7fe" title=" " alt="" coords="631,340,788,367"/>
-<area shape="rect" href="a00343.html#aa2683e4f8bccb4f145b534bd0c54f38f" title=" " alt="" coords="868,417,967,444"/>
-<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="845,265,990,292"/>
-<area shape="rect" href="a00343.html#ac471bc59a137aa4fdccb56b2297ab95d" title=" " alt="" coords="862,215,973,241"/>
-<area shape="rect" href="a00363.html#a6dc46873ff8f2f3e2d697399f78c81c0" title=" " alt="" coords="843,316,991,343"/>
-<area shape="rect" href="a00343.html#a73dafcf8d734d245809aa9563f3fe2d4" title=" " alt="" coords="843,367,991,393"/>
-<area shape="rect" href="a00363.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="836,468,999,495"/>
+<area shape="rect" title=" " alt="" coords="5,752,147,779"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="1061,651,1164,677"/>
+<area shape="rect" href="a00339.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="835,195,983,221"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="1064,107,1161,133"/>
+<area shape="rect" href="a00335.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="245,575,337,601"/>
+<area shape="rect" href="a00419.html#a1fa6003e640ba66531236277eddc5158" title=" " alt="" coords="195,803,387,829"/>
+<area shape="rect" href="a00335.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="660,853,743,880"/>
+<area shape="rect" href="a00419.html#a02a81c6177894649b0524b684118839e" title=" " alt="" coords="220,904,361,931"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1257,625,1375,652"/>
+<area shape="rect" href="a00339.html#a4a70bdde7f075d2591fd03c52c16145c" title=" " alt="" coords="1053,220,1173,247"/>
+<area shape="rect" href="a00339.html#a9c08c0b6f891bb37fb4230088f94b0a0" title=" " alt="" coords="1053,169,1173,196"/>
+<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="1047,499,1178,525"/>
+<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="1039,296,1187,323"/>
+<area shape="rect" href="a00339.html#ab4432f6b6d2f1bad850a13a0573615c4" title=" " alt="" coords="1235,220,1397,247"/>
+<area shape="rect" href="a00339.html#a93b25bb8ef71fc7221ae53efe9212d67" title=" " alt="" coords="1244,169,1388,196"/>
+<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="1265,803,1367,829"/>
+<area shape="rect" href="a00335.html#a1c35f3511dcdc32517db3cea9c327ae8" title=" " alt="" coords="449,549,561,576"/>
+<area shape="rect" href="a00335.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="862,600,957,627"/>
+<area shape="rect" href="a00335.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="435,397,575,424"/>
+<area shape="rect" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="860,549,959,576"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="862,144,957,171"/>
+<area shape="rect" href="a00343.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="651,397,751,424"/>
+<area shape="rect" href="a00343.html#ab714a555729264f7fc4ef0f48065d7fe" title=" " alt="" coords="623,284,780,311"/>
+<area shape="rect" href="a00343.html#aa2683e4f8bccb4f145b534bd0c54f38f" title=" " alt="" coords="860,499,959,525"/>
+<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="837,448,982,475"/>
+<area shape="rect" href="a00343.html#ac471bc59a137aa4fdccb56b2297ab95d" title=" " alt="" coords="854,296,965,323"/>
+<area shape="rect" href="a00363.html#a6dc46873ff8f2f3e2d697399f78c81c0" title=" " alt="" coords="835,347,983,373"/>
+<area shape="rect" href="a00343.html#a73dafcf8d734d245809aa9563f3fe2d4" title=" " alt="" coords="835,397,983,424"/>
+<area shape="rect" href="a00363.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="828,245,991,272"/>
 </map>
 </div>
 
@@ -720,7 +720,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

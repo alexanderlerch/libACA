@@ -151,7 +151,7 @@ Protected Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="a00119_source.html#l00060">60</a> of file <a class="el" href="a00119_source.html">NoveltyFromBlock.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   60</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00088">create()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00086">create()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -216,24 +216,23 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">   75</span>    assert(iDataLength &gt; 0);</div>
 <div class="line"><span class="lineno">   76</span>    assert(fSampleRate &gt; 0);</div>
 <div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[<a class="code hl_variable" href="a00371.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>];</div>
-<div class="line"><span class="lineno">   79</span>    <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00371.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>);</div>
-<div class="line"><span class="lineno">   80</span>}</div>
-<div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
+<div class="line"><span class="lineno">   78</span>    <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00371.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>);</div>
+<div class="line"><span class="lineno">   79</span>}</div>
+<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
 <div class="ttc" id="aa00371_html_a1edfefa2d3fbd4b3d85eab24ec8d0abf"><div class="ttname"><a href="a00371.html#a1edfefa2d3fbd4b3d85eab24ec8d0abf">CNoveltyFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00071">NoveltyFromBlock.h:71</a></div></div>
 <div class="ttc" id="aa00371_html_a70cf68afc431f61abec9a8e95e49a14f"><div class="ttname"><a href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">CNoveltyFromBlockIf::m_pfPrevSpec</a></div><div class="ttdeci">float * m_pfPrevSpec</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00073">NoveltyFromBlock.h:73</a></div></div>
 <div class="ttc" id="aa00371_html_acd6ab16d268e644c7e141761feede22f"><div class="ttname"><a href="a00371.html#acd6ab16d268e644c7e141761feede22f">CNoveltyFromBlockIf::m_eNoveltyIdx</a></div><div class="ttdeci">CNoveltyIf::Novelty_t m_eNoveltyIdx</div><div class="ttdoc">index of Novelty to extract</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00067">NoveltyFromBlock.h:67</a></div></div>
 <div class="ttc" id="aa00371_html_ad66c8512f67023f27e1eeac3d1c8e5d8"><div class="ttname"><a href="a00371.html#ad66c8512f67023f27e1eeac3d1c8e5d8">CNoveltyFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00069">NoveltyFromBlock.h:69</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00119_source.html#l00069">m_iDataLength</a>, <a class="el" href="a00119_source.html#l00073">m_pfPrevSpec</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00119_source.html#l00069">m_iDataLength</a>, and <a class="el" href="a00119_source.html#l00073">m_pfPrevSpec</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00371_a9bd729b91b67944f16547f85090b9eae_cgraph.png" border="0" usemap="#aa00371_a9bd729b91b67944f16547f85090b9eae_cgraph" alt=""/></div>
 <map name="aa00371_a9bd729b91b67944f16547f85090b9eae_cgraph" id="aa00371_a9bd729b91b67944f16547f85090b9eae_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,157,47"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="205,13,353,39"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="401,13,520,39"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="205,13,308,39"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="356,13,475,39"/>
 </map>
 </div>
 
@@ -262,13 +261,22 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00082">82</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
-<div class="line"><span class="lineno">   84</span>    <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>;</div>
-<div class="line"><span class="lineno">   85</span>    <a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a> = 0;</div>
-<div class="line"><span class="lineno">   86</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00081">81</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>{</div>
+<div class="line"><span class="lineno">   83</span>    <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>);</div>
+<div class="line"><span class="lineno">   84</span>}</div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00119_source.html#l00073">m_pfPrevSpec</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, and <a class="el" href="a00119_source.html#l00073">m_pfPrevSpec</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00371_a0a3ab1625c7603b3e922573dc2354bf9_cgraph.png" border="0" usemap="#aa00371_a0a3ab1625c7603b3e922573dc2354bf9_cgraph" alt=""/></div>
+<map name="aa00371_a0a3ab1625c7603b3e922573dc2354bf9_cgraph" id="aa00371_a0a3ab1625c7603b3e922573dc2354bf9_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,164,47"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="212,13,309,39"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -341,21 +349,21 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00113">113</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  114</span>{</div>
-<div class="line"><span class="lineno">  115</span>    *pfNovelty = <a class="code hl_variable" href="a00371.html#a7684ddb179de94eeae1f53469d903e22">m_DispatchMap</a>.at(<a class="code hl_variable" href="a00371.html#acd6ab16d268e644c7e141761feede22f">m_eNoveltyIdx</a>)(pfInput, <a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00371.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>, <a class="code hl_variable" href="a00371.html#a1edfefa2d3fbd4b3d85eab24ec8d0abf">m_fSampleRate</a>);</div>
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00111">111</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>{</div>
+<div class="line"><span class="lineno">  113</span>    *pfNovelty = <a class="code hl_variable" href="a00371.html#a7684ddb179de94eeae1f53469d903e22">m_DispatchMap</a>.at(<a class="code hl_variable" href="a00371.html#acd6ab16d268e644c7e141761feede22f">m_eNoveltyIdx</a>)(pfInput, <a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00371.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>, <a class="code hl_variable" href="a00371.html#a1edfefa2d3fbd4b3d85eab24ec8d0abf">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(<a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, pfInput, <a class="code hl_variable" href="a00371.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>);</div>
 <div class="line"><span class="lineno">  116</span> </div>
-<div class="line"><span class="lineno">  117</span>    <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(<a class="code hl_variable" href="a00371.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, pfInput, <a class="code hl_variable" href="a00371.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>);</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  120</span>}</div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  118</span>}</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
 <div class="ttc" id="aa00363_html_a0bf711bf2ed2dc87efeafe12db55570e"><div class="ttname"><a href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a></div><div class="ttdeci">static void copy(float *pfDest, const float *pfSource, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00207">Vector.h:207</a></div></div>
 <div class="ttc" id="aa00371_html_a7684ddb179de94eeae1f53469d903e22"><div class="ttname"><a href="a00371.html#a7684ddb179de94eeae1f53469d903e22">CNoveltyFromBlockIf::m_DispatchMap</a></div><div class="ttdeci">const std::map&lt; CNoveltyIf::Novelty_t, std::function&lt; float(const float *, const float *, int, float)&gt; &gt; m_DispatchMap</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00076">NoveltyFromBlock.h:77</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00119_source.html#l00077">m_DispatchMap</a>, <a class="el" href="a00119_source.html#l00067">m_eNoveltyIdx</a>, <a class="el" href="a00119_source.html#l00071">m_fSampleRate</a>, <a class="el" href="a00119_source.html#l00069">m_iDataLength</a>, and <a class="el" href="a00119_source.html#l00073">m_pfPrevSpec</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00180">CNoveltyIf::compNovelty()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00179">CNoveltyIf::compNovelty()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -635,21 +643,21 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00088">88</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   89</span>{</div>
-<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
-<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00086">86</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>{</div>
+<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00371.html#a55adbc3ecfeffbeb621875bb56f3bf7f">CNoveltyFromBlockIf</a>(eNoveltyIdx, iDataLength, fSampleRate);</div>
 <div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00371.html#a55adbc3ecfeffbeb621875bb56f3bf7f">CNoveltyFromBlockIf</a>(eNoveltyIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">   94</span> </div>
-<div class="line"><span class="lineno">   95</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   96</span>}</div>
+<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   94</span>}</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
 <div class="ttc" id="aa00371_html_a55adbc3ecfeffbeb621875bb56f3bf7f"><div class="ttname"><a href="a00371.html#a55adbc3ecfeffbeb621875bb56f3bf7f">CNoveltyFromBlockIf::CNoveltyFromBlockIf</a></div><div class="ttdeci">CNoveltyFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00060">NoveltyFromBlock.h:60</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00119_source.html#l00060">CNoveltyFromBlockIf()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00316">CNoveltyIf::init_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00314">CNoveltyIf::init_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -704,14 +712,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00098">98</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   99</span>{</div>
-<div class="line"><span class="lineno">  100</span>    <span class="keyword">delete</span> pCInstance;</div>
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00096">96</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   97</span>{</div>
+<div class="line"><span class="lineno">   98</span>    <span class="keyword">delete</span> pCInstance;</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>    pCInstance = 0;</div>
 <div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>    pCInstance = 0;</div>
-<div class="line"><span class="lineno">  103</span> </div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  105</span>}</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  103</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
@@ -755,11 +763,11 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p >returns size of output Novelty (1 in all currently implemented cases) </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00107">107</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  108</span>{</div>
-<div class="line"><span class="lineno">  109</span>    <span class="comment">// default: 1 value per block</span></div>
-<div class="line"><span class="lineno">  110</span>    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">  111</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00035_source.html#l00105">105</a> of file <a class="el" href="a00035_source.html">NoveltyFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
+<div class="line"><span class="lineno">  107</span>    <span class="comment">// default: 1 value per block</span></div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno">  109</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -856,7 +864,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="a00119_source.html#l00076">76</a> of file <a class="el" href="a00119_source.html">NoveltyFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00113">compNovelty()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00111">compNovelty()</a>.</p>
 
 </div>
 </div>
@@ -884,7 +892,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00119_source.html#l00067">67</a> of file <a class="el" href="a00119_source.html">NoveltyFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00113">compNovelty()</a>, and <a class="el" href="a00119_source.html#l00040">getNoveltyIdx()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00111">compNovelty()</a>, and <a class="el" href="a00119_source.html#l00040">getNoveltyIdx()</a>.</p>
 
 </div>
 </div>
@@ -912,7 +920,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00119_source.html#l00071">71</a> of file <a class="el" href="a00119_source.html">NoveltyFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00113">compNovelty()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00111">compNovelty()</a>.</p>
 
 </div>
 </div>
@@ -940,7 +948,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00119_source.html#l00069">69</a> of file <a class="el" href="a00119_source.html">NoveltyFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00070">CNoveltyFromBlockIf()</a>, and <a class="el" href="a00035_source.html#l00113">compNovelty()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00070">CNoveltyFromBlockIf()</a>, and <a class="el" href="a00035_source.html#l00111">compNovelty()</a>.</p>
 
 </div>
 </div>
@@ -966,7 +974,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00119_source.html#l00073">73</a> of file <a class="el" href="a00119_source.html">NoveltyFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00070">CNoveltyFromBlockIf()</a>, <a class="el" href="a00035_source.html#l00113">compNovelty()</a>, and <a class="el" href="a00035_source.html#l00082">~CNoveltyFromBlockIf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00035_source.html#l00070">CNoveltyFromBlockIf()</a>, <a class="el" href="a00035_source.html#l00111">compNovelty()</a>, and <a class="el" href="a00035_source.html#l00081">~CNoveltyFromBlockIf()</a>.</p>
 
 </div>
 </div>
@@ -977,7 +985,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

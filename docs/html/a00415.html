@@ -149,9 +149,9 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   60</span>        <span class="keywordtype">float</span>** ppfAudioData = 0;</div>
 <div class="line"><span class="lineno">   61</span> </div>
 <div class="line"><span class="lineno">   62</span>        <span class="comment">// alloc read buffer</span></div>
-<div class="line"><span class="lineno">   63</span>        ppfAudioData = <span class="keyword">new</span> <span class="keywordtype">float</span> *[stFileSpec.<a class="code hl_variable" href="a00315.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>];</div>
+<div class="line"><span class="lineno">   63</span>        <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(ppfAudioData, stFileSpec.<a class="code hl_variable" href="a00315.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>);</div>
 <div class="line"><span class="lineno">   64</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; stFileSpec.<a class="code hl_variable" href="a00315.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>; c++)</div>
-<div class="line"><span class="lineno">   65</span>            ppfAudioData[c] = <span class="keyword">new</span> <span class="keywordtype">float</span> [iBlockLength];</div>
+<div class="line"><span class="lineno">   65</span>            <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(ppfAudioData[c], iBlockLength);</div>
 <div class="line"><span class="lineno">   66</span> </div>
 <div class="line"><span class="lineno">   67</span>        <span class="comment">// store current file position for resetting later</span></div>
 <div class="line"><span class="lineno">   68</span>        pCAudioFile-&gt;<a class="code hl_function" href="a00311.html#a498e98b28fe76b712ef266faabce1b51">getPosition</a>(iCurrPos);</div>
@@ -185,10 +185,9 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   96</span> </div>
 <div class="line"><span class="lineno">   97</span>        <span class="comment">//free internal memory</span></div>
 <div class="line"><span class="lineno">   98</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; stFileSpec.<a class="code hl_variable" href="a00315.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>; c++)</div>
-<div class="line"><span class="lineno">   99</span>            <span class="keyword">delete</span>[] ppfAudioData[c];</div>
-<div class="line"><span class="lineno">  100</span>        <span class="keyword">delete</span>[] ppfAudioData;</div>
-<div class="line"><span class="lineno">  101</span>        ppfAudioData = 0;</div>
-<div class="line"><span class="lineno">  102</span>    };</div>
+<div class="line"><span class="lineno">   99</span>            <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(ppfAudioData[c]);</div>
+<div class="line"><span class="lineno">  100</span>        <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(ppfAudioData);</div>
+<div class="line"><span class="lineno">  101</span>    };</div>
 <div class="ttc" id="aa00311_html_a02a1c69fa0fc5b9aa8cb275315697be4"><div class="ttname"><a href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof</a></div><div class="ttdeci">virtual bool isEof()=0</div></div>
 <div class="ttc" id="aa00311_html_a498e98b28fe76b712ef266faabce1b51"><div class="ttname"><a href="a00311.html#a498e98b28fe76b712ef266faabce1b51">CAudioFileIf::getPosition</a></div><div class="ttdeci">Error_t getPosition(long long &amp;iFrame)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00206">AudioFileIf.cpp:206</a></div></div>
 <div class="ttc" id="aa00311_html_a6f8c0aace3c8825c11a4ef106bc53ce1"><div class="ttname"><a href="a00311.html#a6f8c0aace3c8825c11a4ef106bc53ce1">CAudioFileIf::setPosition</a></div><div class="ttdeci">virtual Error_t setPosition(long long iFrame=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00165">AudioFileIf.cpp:165</a></div></div>
@@ -196,34 +195,39 @@ Private Attributes</h2></td></tr>
 <div class="ttc" id="aa00311_html_ad86676f86c5a0c1fb23617b5e00014c4"><div class="ttname"><a href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4">CAudioFileIf::readData</a></div><div class="ttdeci">virtual Error_t readData(float **ppfAudioData, long long int &amp;iNumFrames)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00097">AudioFileIf.cpp:97</a></div></div>
 <div class="ttc" id="aa00315_html"><div class="ttname"><a href="a00315.html">CAudioFileIf::FileSpec_t</a></div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00038">AudioFileIf.h:39</a></div></div>
 <div class="ttc" id="aa00315_html_a6bde1a697754401008208afbde6f368e"><div class="ttname"><a href="a00315.html#a6bde1a697754401008208afbde6f368e">CAudioFileIf::FileSpec_t::iNumChannels</a></div><div class="ttdeci">int iNumChannels</div><div class="ttdoc">number of audio channels</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00042">AudioFileIf.h:42</a></div></div>
+<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 <div class="ttc" id="aa00363_html_a8279b309edcfcac51d94b1e8f206a330"><div class="ttname"><a href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a></div><div class="ttdeci">static float getMax(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00496">Vector.h:496</a></div></div>
 <div class="ttc" id="aa00411_html_af7639b7368293c01c130192067fe0f4b"><div class="ttname"><a href="a00411.html#af7639b7368293c01c130192067fe0f4b">CPreProc::downmix</a></div><div class="ttdeci">static void downmix(float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00018">ToolPreProc.h:18</a></div></div>
-<div class="ttc" id="aa00415_html_a34d6ccbfca0389641039b4eab35b32c4"><div class="ttname"><a href="a00415.html#a34d6ccbfca0389641039b4eab35b32c4">CNormalizeAudio::m_fScaleFactor</a></div><div class="ttdeci">float m_fScaleFactor</div><div class="ttdoc">factor to normalize</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00149">ToolPreProc.h:149</a></div></div>
+<div class="ttc" id="aa00415_html_a34d6ccbfca0389641039b4eab35b32c4"><div class="ttname"><a href="a00415.html#a34d6ccbfca0389641039b4eab35b32c4">CNormalizeAudio::m_fScaleFactor</a></div><div class="ttdeci">float m_fScaleFactor</div><div class="ttdoc">factor to normalize</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00148">ToolPreProc.h:148</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00131_source.html#l00018">CPreProc::downmix()</a>, <a class="el" href="a00065_source.html#l00152">CAudioFileIf::getFileSpec()</a>, <a class="el" href="a00086_source.html#l00496">CVectorFloat::getMax()</a>, <a class="el" href="a00065_source.html#l00206">CAudioFileIf::getPosition()</a>, <a class="el" href="a00146_source.html#l00042">CAudioFileIf::FileSpec_t::iNumChannels</a>, <a class="el" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof()</a>, <a class="el" href="a00131_source.html#l00149">m_fScaleFactor</a>, <a class="el" href="a00065_source.html#l00097">CAudioFileIf::readData()</a>, and <a class="el" href="a00065_source.html#l00165">CAudioFileIf::setPosition()</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00131_source.html#l00018">CPreProc::downmix()</a>, <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, <a class="el" href="a00065_source.html#l00152">CAudioFileIf::getFileSpec()</a>, <a class="el" href="a00086_source.html#l00496">CVectorFloat::getMax()</a>, <a class="el" href="a00065_source.html#l00206">CAudioFileIf::getPosition()</a>, <a class="el" href="a00146_source.html#l00042">CAudioFileIf::FileSpec_t::iNumChannels</a>, <a class="el" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof()</a>, <a class="el" href="a00131_source.html#l00148">m_fScaleFactor</a>, <a class="el" href="a00065_source.html#l00097">CAudioFileIf::readData()</a>, and <a class="el" href="a00065_source.html#l00165">CAudioFileIf::setPosition()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00415_a0f2e96a9c1a1ab0b85e1410b00f0aa8e_cgraph.png" border="0" usemap="#aa00415_a0f2e96a9c1a1ab0b85e1410b00f0aa8e_cgraph" alt=""/></div>
 <map name="aa00415_a0f2e96a9c1a1ab0b85e1410b00f0aa8e_cgraph" id="aa00415_a0f2e96a9c1a1ab0b85e1410b00f0aa8e_cgraph">
-<area shape="rect" title=" " alt="" coords="5,247,200,289"/>
-<area shape="rect" href="a00411.html#af7639b7368293c01c130192067fe0f4b" title=" " alt="" coords="265,81,399,108"/>
-<area shape="rect" href="a00311.html#a7ddbbf5f828e61db7fd75dbf47a33832" title=" " alt="" coords="248,153,416,180"/>
-<area shape="rect" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330" title=" " alt="" coords="259,204,405,231"/>
-<area shape="rect" href="a00311.html#a498e98b28fe76b712ef266faabce1b51" title=" " alt="" coords="250,255,414,281"/>
-<area shape="rect" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4" title=" " alt="" coords="268,407,396,433"/>
-<area shape="rect" href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4" title=" " alt="" coords="257,305,407,332"/>
-<area shape="rect" href="a00311.html#a6f8c0aace3c8825c11a4ef106bc53ce1" title=" " alt="" coords="250,356,414,383"/>
-<area shape="rect" href="a00363.html#a8abbcfd075eabceada2f024773f11166" title=" " alt="" coords="495,5,631,32"/>
-<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="497,56,628,83"/>
-<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="490,107,635,133"/>
-<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="709,56,812,83"/>
-<area shape="rect" href="a00363.html#a66a451d1a0992e33a73c01b09566eea0" title=" " alt="" coords="489,157,637,184"/>
-<area shape="rect" href="a00311.html#afa4e52309d9c05cabe46dbb6f13b819a" title=" " alt="" coords="481,209,645,250"/>
-<area shape="rect" href="a00311.html#a01d2aae56dd6295aee8ad10088f2cb27" title=" " alt="" coords="481,275,644,301"/>
-<area shape="rect" href="a00311.html#a7d946177a6591600dc03a423feb38cb3" title=" " alt="" coords="493,325,633,352"/>
-<area shape="rect" href="a00311.html#aa8d6db73dae5cc9bf7c0beb15b36bea4" title=" " alt="" coords="467,376,658,403"/>
-<area shape="rect" href="a00311.html#ae2bd8bd21bd04b0b9e9b8716bddfb7e1" title=" " alt="" coords="464,427,661,453"/>
+<area shape="rect" title=" " alt="" coords="5,251,200,293"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="281,31,383,57"/>
+<area shape="rect" href="a00411.html#af7639b7368293c01c130192067fe0f4b" title=" " alt="" coords="265,107,399,133"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="283,157,381,184"/>
+<area shape="rect" href="a00311.html#a7ddbbf5f828e61db7fd75dbf47a33832" title=" " alt="" coords="248,208,416,235"/>
+<area shape="rect" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330" title=" " alt="" coords="259,259,405,285"/>
+<area shape="rect" href="a00311.html#a498e98b28fe76b712ef266faabce1b51" title=" " alt="" coords="250,309,414,336"/>
+<area shape="rect" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4" title=" " alt="" coords="268,461,396,488"/>
+<area shape="rect" href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4" title=" " alt="" coords="257,360,407,387"/>
+<area shape="rect" href="a00311.html#a6f8c0aace3c8825c11a4ef106bc53ce1" title=" " alt="" coords="250,411,414,437"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="503,5,622,32"/>
+<area shape="rect" href="a00363.html#a8abbcfd075eabceada2f024773f11166" title=" " alt="" coords="495,56,631,83"/>
+<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="497,107,628,133"/>
+<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="490,157,635,184"/>
+<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="709,107,812,133"/>
+<area shape="rect" href="a00363.html#a66a451d1a0992e33a73c01b09566eea0" title=" " alt="" coords="489,208,637,235"/>
+<area shape="rect" href="a00311.html#afa4e52309d9c05cabe46dbb6f13b819a" title=" " alt="" coords="481,259,645,301"/>
+<area shape="rect" href="a00311.html#a01d2aae56dd6295aee8ad10088f2cb27" title=" " alt="" coords="481,325,644,352"/>
+<area shape="rect" href="a00311.html#a7d946177a6591600dc03a423feb38cb3" title=" " alt="" coords="493,376,633,403"/>
+<area shape="rect" href="a00311.html#aa8d6db73dae5cc9bf7c0beb15b36bea4" title=" " alt="" coords="467,427,658,453"/>
+<area shape="rect" href="a00311.html#ae2bd8bd21bd04b0b9e9b8716bddfb7e1" title=" " alt="" coords="464,544,661,571"/>
 <area shape="rect" href="a00311.html#a2c22b805d8b0aefafc5436b1e275f832" title=" " alt="" coords="481,478,645,519"/>
 </map>
 </div>
@@ -264,19 +268,19 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00103">103</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>                                                                      :</div>
-<div class="line"><span class="lineno">  104</span>        <a class="code hl_variable" href="a00415.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a>(1.F)</div>
-<div class="line"><span class="lineno">  105</span>    {</div>
-<div class="line"><span class="lineno">  106</span>        assert(pfAudioBuff);</div>
-<div class="line"><span class="lineno">  107</span>        assert(iAudioLength &gt; 0);</div>
-<div class="line"><span class="lineno">  108</span> </div>
-<div class="line"><span class="lineno">  109</span>        <span class="keywordtype">float</span> fGlobalMax = <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(pfAudioBuff, iAudioLength, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  110</span>        <span class="keywordflow">if</span> (fGlobalMax &gt; 0)</div>
-<div class="line"><span class="lineno">  111</span>            <a class="code hl_variable" href="a00415.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a> = 1.F / fGlobalMax;</div>
-<div class="line"><span class="lineno">  112</span>    };</div>
+<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00102">102</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  102</span>                                                                      :</div>
+<div class="line"><span class="lineno">  103</span>        <a class="code hl_variable" href="a00415.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a>(1.F)</div>
+<div class="line"><span class="lineno">  104</span>    {</div>
+<div class="line"><span class="lineno">  105</span>        assert(pfAudioBuff);</div>
+<div class="line"><span class="lineno">  106</span>        assert(iAudioLength &gt; 0);</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>        <span class="keywordtype">float</span> fGlobalMax = <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(pfAudioBuff, iAudioLength, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">if</span> (fGlobalMax &gt; 0)</div>
+<div class="line"><span class="lineno">  110</span>            <a class="code hl_variable" href="a00415.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a> = 1.F / fGlobalMax;</div>
+<div class="line"><span class="lineno">  111</span>    };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086_source.html#l00496">CVectorFloat::getMax()</a>, and <a class="el" href="a00131_source.html#l00149">m_fScaleFactor</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00496">CVectorFloat::getMax()</a>, and <a class="el" href="a00131_source.html#l00148">m_fScaleFactor</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -313,8 +317,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00113">113</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  113</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00112">112</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>{};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -412,18 +416,18 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00120">120</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  121</span>    {</div>
-<div class="line"><span class="lineno">  122</span>        assert(pfAudioBlock);</div>
-<div class="line"><span class="lineno">  123</span>        assert(iNumSamples &gt; 0);</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>        <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(pfAudioBlock, <a class="code hl_variable" href="a00415.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a>, iNumSamples);</div>
-<div class="line"><span class="lineno">  126</span>    };</div>
+<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00119">119</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  120</span>    {</div>
+<div class="line"><span class="lineno">  121</span>        assert(pfAudioBlock);</div>
+<div class="line"><span class="lineno">  122</span>        assert(iNumSamples &gt; 0);</div>
+<div class="line"><span class="lineno">  123</span> </div>
+<div class="line"><span class="lineno">  124</span>        <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(pfAudioBlock, <a class="code hl_variable" href="a00415.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a>, iNumSamples);</div>
+<div class="line"><span class="lineno">  125</span>    };</div>
 <div class="ttc" id="aa00363_html_afc9a413a88b0c7143252dac95050af33"><div class="ttname"><a href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a></div><div class="ttdeci">static void mulC_I(float *pfSrcDest, float fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00255">Vector.h:255</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00131_source.html#l00149">m_fScaleFactor</a>, and <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>.</p>
+<p class="reference">References <a class="el" href="a00131_source.html#l00148">m_fScaleFactor</a>, and <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00173">CFeatureIf::compFeature1Dim()</a>, <a class="el" href="a00017_source.html#l00207">CFeatureIf::compFeatureNDim()</a>, <a class="el" href="a00032_source.html#l00180">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00014_source.html#l00217">CSpectrogramIf::computeMagSpectrum_()</a>, and <a class="el" href="a00020_source.html#l00402">CGammaToneFbIf::process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00017_source.html#l00172">CFeatureIf::compFeature1Dim()</a>, <a class="el" href="a00017_source.html#l00206">CFeatureIf::compFeatureNDim()</a>, <a class="el" href="a00032_source.html#l00179">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00014_source.html#l00217">CSpectrogramIf::computeMagSpectrum_()</a>, and <a class="el" href="a00020_source.html#l00402">CGammaToneFbIf::process()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -499,18 +503,18 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00133">133</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  134</span>    {</div>
-<div class="line"><span class="lineno">  135</span>        assert(pfAudio);</div>
-<div class="line"><span class="lineno">  136</span>        assert(iNumSamples &gt; 0);</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>        <span class="keywordtype">float</span> fMax = <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(pfAudio, iNumSamples, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  139</span> </div>
-<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">if</span> (fMax &gt; 0)</div>
-<div class="line"><span class="lineno">  141</span>            <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(pfAudio, 1.F / fMax, iNumSamples);</div>
-<div class="line"><span class="lineno">  142</span> </div>
-<div class="line"><span class="lineno">  143</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  144</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00132">132</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  133</span>    {</div>
+<div class="line"><span class="lineno">  134</span>        assert(pfAudio);</div>
+<div class="line"><span class="lineno">  135</span>        assert(iNumSamples &gt; 0);</div>
+<div class="line"><span class="lineno">  136</span> </div>
+<div class="line"><span class="lineno">  137</span>        <span class="keywordtype">float</span> fMax = <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(pfAudio, iNumSamples, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>        <span class="keywordflow">if</span> (fMax &gt; 0)</div>
+<div class="line"><span class="lineno">  140</span>            <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(pfAudio, 1.F / fMax, iNumSamples);</div>
+<div class="line"><span class="lineno">  141</span> </div>
+<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  143</span>    }</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00496">CVectorFloat::getMax()</a>, and <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>.</p>
 
@@ -588,9 +592,9 @@ Here is the caller graph for this function:</div>
 
 <p>factor to normalize </p>
 
-<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00149">149</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00131_source.html#l00148">148</a> of file <a class="el" href="a00131_source.html">ToolPreProc.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00131_source.html#l00049">CNormalizeAudio()</a>, and <a class="el" href="a00131_source.html#l00120">normalizeBlock()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00131_source.html#l00049">CNormalizeAudio()</a>, and <a class="el" href="a00131_source.html#l00119">normalizeBlock()</a>.</p>
 
 </div>
 </div>
@@ -600,7 +604,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

@@ -154,7 +154,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00125">125</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00120">120</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="ab670104b0f9ebde805e9219ae21cc6a9" name="ab670104b0f9ebde805e9219ae21cc6a9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab670104b0f9ebde805e9219ae21cc6a9">&#9670;&nbsp;</a></span>CBlockAudioBuffer() <span class="overload">[1/2]</span></h2>
@@ -208,26 +208,27 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00128">128</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  128</span>                                                                                                                             :</div>
-<div class="line"><span class="lineno">  129</span>        <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a>(0),</div>
-<div class="line"><span class="lineno">  130</span>        <a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>(0)</div>
-<div class="line"><span class="lineno">  131</span>    {</div>
-<div class="line"><span class="lineno">  132</span>        <a class="code hl_variable" href="a00383.html#ace027af2234bb8a5abff65743385f1ee">m_fSampleRate</a> = fSampleRate;</div>
-<div class="line"><span class="lineno">  133</span> </div>
-<div class="line"><span class="lineno">  134</span>        <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a> = iBlockLength;</div>
-<div class="line"><span class="lineno">  135</span>        <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> = iHopLength;</div>
-<div class="line"><span class="lineno">  136</span>        <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> = iAudioLength;</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>        <span class="comment">// compute number of blocks</span></div>
-<div class="line"><span class="lineno">  139</span>        <a class="code hl_variable" href="a00383.html#a1c97a35fe0a4e37aeebc8e809eed64d7">m_iNumBlocks</a> = <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> / <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> + 1;</div>
-<div class="line"><span class="lineno">  140</span> </div>
-<div class="line"><span class="lineno">  141</span>        <span class="comment">// initialize read buffers</span></div>
-<div class="line"><span class="lineno">  142</span>        <a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[<a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a>];</div>
-<div class="line"><span class="lineno">  143</span>        <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(<a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>, pfAudioBuff, <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a>);</div>
-<div class="line"><span class="lineno">  144</span>    }</div>
-<div class="ttc" id="aa00287_html_a91077d529c9ee0dc7e42efefb2106351"><div class="ttname"><a href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">CBlockAudioBuffer::m_iCurrIdx</a></div><div class="ttdeci">long long m_iCurrIdx</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00183">ToolBlockAudio.cpp:183</a></div></div>
-<div class="ttc" id="aa00287_html_aba739a9942cb7618256ce11e5f367de5"><div class="ttname"><a href="a00287.html#aba739a9942cb7618256ce11e5f367de5">CBlockAudioBuffer::m_pfAudioData</a></div><div class="ttdeci">float * m_pfAudioData</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00184">ToolBlockAudio.cpp:184</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00123">123</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  123</span>                                                                                                                             :</div>
+<div class="line"><span class="lineno">  124</span>        <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a>(0),</div>
+<div class="line"><span class="lineno">  125</span>        <a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>(0)</div>
+<div class="line"><span class="lineno">  126</span>    {</div>
+<div class="line"><span class="lineno">  127</span>        <a class="code hl_variable" href="a00383.html#ace027af2234bb8a5abff65743385f1ee">m_fSampleRate</a> = fSampleRate;</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>        <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a> = iBlockLength;</div>
+<div class="line"><span class="lineno">  130</span>        <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> = iHopLength;</div>
+<div class="line"><span class="lineno">  131</span>        <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> = iAudioLength;</div>
+<div class="line"><span class="lineno">  132</span> </div>
+<div class="line"><span class="lineno">  133</span>        <span class="comment">// compute number of blocks</span></div>
+<div class="line"><span class="lineno">  134</span>        <a class="code hl_variable" href="a00383.html#a1c97a35fe0a4e37aeebc8e809eed64d7">m_iNumBlocks</a> = <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> / <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> + 1;</div>
+<div class="line"><span class="lineno">  135</span> </div>
+<div class="line"><span class="lineno">  136</span>        <span class="comment">// initialize read buffers</span></div>
+<div class="line"><span class="lineno">  137</span>        <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>, <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a>);</div>
+<div class="line"><span class="lineno">  138</span>        <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(<a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>, pfAudioBuff, <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a>);</div>
+<div class="line"><span class="lineno">  139</span>    }</div>
+<div class="ttc" id="aa00287_html_a91077d529c9ee0dc7e42efefb2106351"><div class="ttname"><a href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">CBlockAudioBuffer::m_iCurrIdx</a></div><div class="ttdeci">long long m_iCurrIdx</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00177">ToolBlockAudio.cpp:177</a></div></div>
+<div class="ttc" id="aa00287_html_aba739a9942cb7618256ce11e5f367de5"><div class="ttname"><a href="a00287.html#aba739a9942cb7618256ce11e5f367de5">CBlockAudioBuffer::m_pfAudioData</a></div><div class="ttdeci">float * m_pfAudioData</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00178">ToolBlockAudio.cpp:178</a></div></div>
+<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
 <div class="ttc" id="aa00363_html_a0bf711bf2ed2dc87efeafe12db55570e"><div class="ttname"><a href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a></div><div class="ttdeci">static void copy(float *pfDest, const float *pfSource, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00207">Vector.h:207</a></div></div>
 <div class="ttc" id="aa00383_html_a1c97a35fe0a4e37aeebc8e809eed64d7"><div class="ttname"><a href="a00383.html#a1c97a35fe0a4e37aeebc8e809eed64d7">CBlockAudioIf::m_iNumBlocks</a></div><div class="ttdeci">long long m_iNumBlocks</div><div class="ttdoc">number of blocks</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00091">ToolBlockAudio.h:91</a></div></div>
 <div class="ttc" id="aa00383_html_a610f9e4b612d573aba67d0c67fe19628"><div class="ttname"><a href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">CBlockAudioIf::m_iBlockLength</a></div><div class="ttdeci">int m_iBlockLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00095">ToolBlockAudio.h:95</a></div></div>
@@ -235,15 +236,17 @@ Additional Inherited Members</h2></td></tr>
 <div class="ttc" id="aa00383_html_ace027af2234bb8a5abff65743385f1ee"><div class="ttname"><a href="a00383.html#ace027af2234bb8a5abff65743385f1ee">CBlockAudioIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00099">ToolBlockAudio.h:99</a></div></div>
 <div class="ttc" id="aa00383_html_adda73bca9caf7deefed613cac1d8363c"><div class="ttname"><a href="a00383.html#adda73bca9caf7deefed613cac1d8363c">CBlockAudioIf::m_iHopLength</a></div><div class="ttdeci">int m_iHopLength</div><div class="ttdoc">hop length</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00097">ToolBlockAudio.h:97</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00104_source.html#l00099">CBlockAudioIf::m_fSampleRate</a>, <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, <a class="el" href="a00104_source.html#l00095">CBlockAudioIf::m_iBlockLength</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00104_source.html#l00091">CBlockAudioIf::m_iNumBlocks</a>, and <a class="el" href="a00026_source.html#l00184">m_pfAudioData</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00104_source.html#l00099">CBlockAudioIf::m_fSampleRate</a>, <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, <a class="el" href="a00104_source.html#l00095">CBlockAudioIf::m_iBlockLength</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00104_source.html#l00091">CBlockAudioIf::m_iNumBlocks</a>, and <a class="el" href="a00026_source.html#l00178">m_pfAudioData</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00287_ab670104b0f9ebde805e9219ae21cc6a9_cgraph.png" border="0" usemap="#aa00287_ab670104b0f9ebde805e9219ae21cc6a9_cgraph" alt=""/></div>
 <map name="aa00287_ab670104b0f9ebde805e9219ae21cc6a9_cgraph" id="aa00287_ab670104b0f9ebde805e9219ae21cc6a9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,143,47"/>
-<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="191,13,321,39"/>
-<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="369,13,472,39"/>
+<area shape="rect" title=" " alt="" coords="5,23,143,65"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="205,5,307,32"/>
+<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="191,56,321,83"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="369,5,488,32"/>
+<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="377,56,480,83"/>
 </map>
 </div>
 
@@ -272,16 +275,25 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00146">146</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  147</span>    {</div>
-<div class="line"><span class="lineno">  148</span>        <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>;</div>
-<div class="line"><span class="lineno">  149</span>        <a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a> = 0;</div>
-<div class="line"><span class="lineno">  150</span> </div>
-<div class="line"><span class="lineno">  151</span>        <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> = 0;</div>
-<div class="line"><span class="lineno">  152</span>        <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a> = 0;</div>
-<div class="line"><span class="lineno">  153</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00141">141</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  142</span>    {</div>
+<div class="line"><span class="lineno">  143</span>        <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>);</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>        <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> = 0;</div>
+<div class="line"><span class="lineno">  146</span>        <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a> = 0;</div>
+<div class="line"><span class="lineno">  147</span>    }</div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, <a class="el" href="a00026_source.html#l00183">m_iCurrIdx</a>, and <a class="el" href="a00026_source.html#l00184">m_pfAudioData</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, <a class="el" href="a00026_source.html#l00177">m_iCurrIdx</a>, and <a class="el" href="a00026_source.html#l00178">m_pfAudioData</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00287_a92783fdc7fc8ac84ee0b11076852c4c8_cgraph.png" border="0" usemap="#aa00287_a92783fdc7fc8ac84ee0b11076852c4c8_cgraph" alt=""/></div>
+<map name="aa00287_a92783fdc7fc8ac84ee0b11076852c4c8_cgraph" id="aa00287_a92783fdc7fc8ac84ee0b11076852c4c8_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,144,47"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="192,13,289,39"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -359,29 +371,29 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="a00383.html#a531920b36b04ecdb562bfbb09dd2e856">CBlockAudioIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00160">160</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  161</span>    {</div>
-<div class="line"><span class="lineno">  162</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>)</div>
-<div class="line"><span class="lineno">  163</span>            <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  164</span> </div>
-<div class="line"><span class="lineno">  165</span>        <span class="keywordtype">int</span> iNumFramesInBlock = <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> - m_iCurrIdx &lt; m_iBlockLength ? static_cast&lt;int&gt;(<a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> - <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a>) : <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a>;</div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00154">154</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  155</span>    {</div>
+<div class="line"><span class="lineno">  156</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>)</div>
+<div class="line"><span class="lineno">  157</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  158</span> </div>
+<div class="line"><span class="lineno">  159</span>        <span class="keywordtype">int</span> iNumFramesInBlock = <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> - m_iCurrIdx &lt; m_iBlockLength ? static_cast&lt;int&gt;(<a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> - <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a>) : <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a>;</div>
+<div class="line"><span class="lineno">  160</span> </div>
+<div class="line"><span class="lineno">  161</span>        <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfBlock, &amp;<a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>[<a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a>], iNumFramesInBlock);</div>
+<div class="line"><span class="lineno">  162</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(&amp;pfBlock[iNumFramesInBlock], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a>) - iNumFramesInBlock);</div>
+<div class="line"><span class="lineno">  163</span> </div>
+<div class="line"><span class="lineno">  164</span>        <span class="keywordflow">if</span> (pfTimeStamp)</div>
+<div class="line"><span class="lineno">  165</span>            *pfTimeStamp = <a class="code hl_function" href="a00383.html#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a>(<a class="code hl_variable" href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a>);</div>
 <div class="line"><span class="lineno">  166</span> </div>
-<div class="line"><span class="lineno">  167</span>        <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfBlock, &amp;<a class="code hl_variable" href="a00287.html#aba739a9942cb7618256ce11e5f367de5">m_pfAudioData</a>[<a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a>], iNumFramesInBlock);</div>
-<div class="line"><span class="lineno">  168</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(&amp;pfBlock[iNumFramesInBlock], <a class="code hl_variable" href="a00383.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a> - iNumFramesInBlock);</div>
+<div class="line"><span class="lineno">  167</span>        <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a> += std::min(iNumFramesInBlock, <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>);</div>
+<div class="line"><span class="lineno">  168</span>        <a class="code hl_variable" href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a>++;</div>
 <div class="line"><span class="lineno">  169</span> </div>
-<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">if</span> (pfTimeStamp)</div>
-<div class="line"><span class="lineno">  171</span>            *pfTimeStamp = <a class="code hl_function" href="a00383.html#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a>(<a class="code hl_variable" href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a>);</div>
-<div class="line"><span class="lineno">  172</span> </div>
-<div class="line"><span class="lineno">  173</span>        <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a> += std::min(iNumFramesInBlock, <a class="code hl_variable" href="a00383.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>);</div>
-<div class="line"><span class="lineno">  174</span>        <a class="code hl_variable" href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a>++;</div>
-<div class="line"><span class="lineno">  175</span> </div>
-<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> iNumFramesInBlock;</div>
-<div class="line"><span class="lineno">  177</span>    }</div>
+<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">return</span> iNumFramesInBlock;</div>
+<div class="line"><span class="lineno">  171</span>    }</div>
 <div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
 <div class="ttc" id="aa00383_html_a95d0310c888433e7e45806538dc0d347"><div class="ttname"><a href="a00383.html#a95d0310c888433e7e45806538dc0d347">CBlockAudioIf::getTimeStamp</a></div><div class="ttdeci">float getTimeStamp(long long iBlockIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00068">ToolBlockAudio.h:68</a></div></div>
 <div class="ttc" id="aa00383_html_a9728cd91204bd050e5eff0e4e209e653"><div class="ttname"><a href="a00383.html#a9728cd91204bd050e5eff0e4e209e653">CBlockAudioIf::m_iCurrBlock</a></div><div class="ttdeci">long long m_iCurrBlock</div><div class="ttdoc">current block index</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00092">ToolBlockAudio.h:92</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00104_source.html#l00068">CBlockAudioIf::getTimeStamp()</a>, <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, <a class="el" href="a00104_source.html#l00095">CBlockAudioIf::m_iBlockLength</a>, <a class="el" href="a00104_source.html#l00092">CBlockAudioIf::m_iCurrBlock</a>, <a class="el" href="a00026_source.html#l00183">m_iCurrIdx</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00026_source.html#l00184">m_pfAudioData</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00104_source.html#l00068">CBlockAudioIf::getTimeStamp()</a>, <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, <a class="el" href="a00104_source.html#l00095">CBlockAudioIf::m_iBlockLength</a>, <a class="el" href="a00104_source.html#l00092">CBlockAudioIf::m_iCurrBlock</a>, <a class="el" href="a00026_source.html#l00177">m_iCurrIdx</a>, <a class="el" href="a00104_source.html#l00097">CBlockAudioIf::m_iHopLength</a>, <a class="el" href="a00026_source.html#l00178">m_pfAudioData</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -424,12 +436,12 @@ Here is the call graph for this function:</div>
 
 <p>Implements <a class="el" href="a00383.html#aeb97b95bec6d4cbeaab928febab59baa">CBlockAudioIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00155">155</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  156</span>    {</div>
-<div class="line"><span class="lineno">  157</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> == <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a>;</div>
-<div class="line"><span class="lineno">  158</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00149">149</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  150</span>    {</div>
+<div class="line"><span class="lineno">  151</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00383.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> == <a class="code hl_variable" href="a00287.html#a91077d529c9ee0dc7e42efefb2106351">m_iCurrIdx</a>;</div>
+<div class="line"><span class="lineno">  152</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, and <a class="el" href="a00026_source.html#l00183">m_iCurrIdx</a>.</p>
+<p class="reference">References <a class="el" href="a00104_source.html#l00093">CBlockAudioIf::m_iAudioLength</a>, and <a class="el" href="a00026_source.html#l00177">m_iCurrIdx</a>.</p>
 
 </div>
 </div>
@@ -480,9 +492,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00183">183</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00177">177</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00160">getNextBlock()</a>, <a class="el" href="a00026_source.html#l00155">IsEndOfData()</a>, and <a class="el" href="a00026_source.html#l00146">~CBlockAudioBuffer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00154">getNextBlock()</a>, <a class="el" href="a00026_source.html#l00149">IsEndOfData()</a>, and <a class="el" href="a00026_source.html#l00141">~CBlockAudioBuffer()</a>.</p>
 
 </div>
 </div>
@@ -506,9 +518,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00184">184</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00026_source.html#l00178">178</a> of file <a class="el" href="a00026_source.html">ToolBlockAudio.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00128">CBlockAudioBuffer()</a>, <a class="el" href="a00026_source.html#l00160">getNextBlock()</a>, and <a class="el" href="a00026_source.html#l00146">~CBlockAudioBuffer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00026_source.html#l00123">CBlockAudioBuffer()</a>, <a class="el" href="a00026_source.html#l00154">getNextBlock()</a>, and <a class="el" href="a00026_source.html#l00141">~CBlockAudioBuffer()</a>.</p>
 
 </div>
 </div>
@@ -518,7 +530,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

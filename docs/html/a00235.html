@@ -246,42 +246,42 @@ Additional Inherited Members</h2></td></tr>
 <div class="fragment"><div class="line"><span class="lineno">  360</span>                                                                                               : <a class="code hl_function" href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate)</div>
 <div class="line"><span class="lineno">  361</span>    {</div>
 <div class="line"><span class="lineno">  362</span>        <span class="comment">// alloc transfer function memory</span></div>
-<div class="line"><span class="lineno">  363</span>        <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>* [<a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>];</div>
-<div class="line"><span class="lineno">  364</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>; p++)</div>
-<div class="line"><span class="lineno">  365</span>        {</div>
-<div class="line"><span class="lineno">  366</span>            <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[p] = <span class="keyword">new</span> <span class="keywordtype">float</span>[iDataLength];</div>
-<div class="line"><span class="lineno">  367</span>            <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[p], iDataLength);</div>
-<div class="line"><span class="lineno">  368</span>        }</div>
-<div class="line"><span class="lineno">  369</span>        <a class="code hl_function" href="a00235.html#a2123af520406a1b09fcf2437043c3b92">genMfccFilters_</a>();</div>
-<div class="line"><span class="lineno">  370</span>        <a class="code hl_function" href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc">genDctMat_</a>(<a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>);</div>
-<div class="line"><span class="lineno">  371</span> </div>
-<div class="line"><span class="lineno">  372</span>        <a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a> = <span class="keyword">new</span> <span class="keywordtype">float</span> [<a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>];</div>
-<div class="line"><span class="lineno">  373</span>    }</div>
-<div class="ttc" id="aa00235_html_a2123af520406a1b09fcf2437043c3b92"><div class="ttname"><a href="a00235.html#a2123af520406a1b09fcf2437043c3b92">CFeatureSpectralMfccs::genMfccFilters_</a></div><div class="ttdeci">void genMfccFilters_()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00431">FeatureFromBlock.cpp:431</a></div></div>
-<div class="ttc" id="aa00235_html_a4fd7b7171c56ba1be8191ca660f6fbcc"><div class="ttname"><a href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc">CFeatureSpectralMfccs::genDctMat_</a></div><div class="ttdeci">void genDctMat_(int iNumCoeffs)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00480">FeatureFromBlock.cpp:480</a></div></div>
-<div class="ttc" id="aa00235_html_ab929d28489bf815a6b685c0348410422"><div class="ttname"><a href="a00235.html#ab929d28489bf815a6b685c0348410422">CFeatureSpectralMfccs::m_pfMelSpec</a></div><div class="ttdeci">float * m_pfMelSpec</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00521">FeatureFromBlock.cpp:521</a></div></div>
-<div class="ttc" id="aa00235_html_acc5746c538c81cbbbc91b4c4558f7dd5"><div class="ttname"><a href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">CFeatureSpectralMfccs::m_iNumMfcCoeffs</a></div><div class="ttdeci">int m_iNumMfcCoeffs</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00516">FeatureFromBlock.cpp:516</a></div></div>
-<div class="ttc" id="aa00235_html_ad58efcd5d0eebe8e956ff1e07a0edc17"><div class="ttname"><a href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">CFeatureSpectralMfccs::m_ppfH</a></div><div class="ttdeci">float ** m_ppfH</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00518">FeatureFromBlock.cpp:518</a></div></div>
-<div class="ttc" id="aa00235_html_ad8bac3da17b240643991fc6bf5840f32"><div class="ttname"><a href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">CFeatureSpectralMfccs::m_iNumBands</a></div><div class="ttdeci">const int m_iNumBands</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00515">FeatureFromBlock.cpp:515</a></div></div>
+<div class="line"><span class="lineno">  363</span>        <a class="code hl_function" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>, <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>, iDataLength);</div>
+<div class="line"><span class="lineno">  364</span> </div>
+<div class="line"><span class="lineno">  365</span>        <a class="code hl_function" href="a00235.html#a2123af520406a1b09fcf2437043c3b92">genMfccFilters_</a>();</div>
+<div class="line"><span class="lineno">  366</span>        <a class="code hl_function" href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc">genDctMat_</a>(<a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>);</div>
+<div class="line"><span class="lineno">  367</span> </div>
+<div class="line"><span class="lineno">  368</span>        <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a>, <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
+<div class="line"><span class="lineno">  369</span>    }</div>
+<div class="ttc" id="aa00235_html_a2123af520406a1b09fcf2437043c3b92"><div class="ttname"><a href="a00235.html#a2123af520406a1b09fcf2437043c3b92">CFeatureSpectralMfccs::genMfccFilters_</a></div><div class="ttdeci">void genMfccFilters_()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00423">FeatureFromBlock.cpp:423</a></div></div>
+<div class="ttc" id="aa00235_html_a4fd7b7171c56ba1be8191ca660f6fbcc"><div class="ttname"><a href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc">CFeatureSpectralMfccs::genDctMat_</a></div><div class="ttdeci">void genDctMat_(int iNumCoeffs)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00472">FeatureFromBlock.cpp:472</a></div></div>
+<div class="ttc" id="aa00235_html_ab929d28489bf815a6b685c0348410422"><div class="ttname"><a href="a00235.html#ab929d28489bf815a6b685c0348410422">CFeatureSpectralMfccs::m_pfMelSpec</a></div><div class="ttdeci">float * m_pfMelSpec</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00505">FeatureFromBlock.cpp:505</a></div></div>
+<div class="ttc" id="aa00235_html_acc5746c538c81cbbbc91b4c4558f7dd5"><div class="ttname"><a href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">CFeatureSpectralMfccs::m_iNumMfcCoeffs</a></div><div class="ttdeci">int m_iNumMfcCoeffs</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00500">FeatureFromBlock.cpp:500</a></div></div>
+<div class="ttc" id="aa00235_html_ad58efcd5d0eebe8e956ff1e07a0edc17"><div class="ttname"><a href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">CFeatureSpectralMfccs::m_ppfH</a></div><div class="ttdeci">float ** m_ppfH</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00502">FeatureFromBlock.cpp:502</a></div></div>
+<div class="ttc" id="aa00235_html_ad8bac3da17b240643991fc6bf5840f32"><div class="ttname"><a href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">CFeatureSpectralMfccs::m_iNumBands</a></div><div class="ttdeci">const int m_iNumBands</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00499">FeatureFromBlock.cpp:499</a></div></div>
 <div class="ttc" id="aa00327_html_a483bca508e2817799a3173a6180d245e"><div class="ttname"><a href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf::CFeatureFromBlockIf</a></div><div class="ttdeci">CFeatureFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00088">FeatureFromBlock.h:88</a></div></div>
-<div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
+<div class="ttc" id="aa00343_html_ae669c592fc063391aeb77e07cbc9d4bc"><div class="ttname"><a href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00021">Matrix.h:21</a></div></div>
+<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00480">genDctMat_()</a>, <a class="el" href="a00038_source.html#l00431">genMfccFilters_()</a>, <a class="el" href="a00038_source.html#l00515">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00516">m_iNumMfcCoeffs</a>, <a class="el" href="a00038_source.html#l00521">m_pfMelSpec</a>, <a class="el" href="a00038_source.html#l00518">m_ppfH</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00095_source.html#l00021">CMatrix::alloc()</a>, <a class="el" href="a00038_source.html#l00472">genDctMat_()</a>, <a class="el" href="a00038_source.html#l00423">genMfccFilters_()</a>, <a class="el" href="a00038_source.html#l00499">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00500">m_iNumMfcCoeffs</a>, <a class="el" href="a00038_source.html#l00505">m_pfMelSpec</a>, and <a class="el" href="a00038_source.html#l00502">m_ppfH</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00235_a4ffe272900bf3ba5bbab219262506455_cgraph.png" border="0" usemap="#aa00235_a4ffe272900bf3ba5bbab219262506455_cgraph" alt=""/></div>
 <map name="aa00235_a4ffe272900bf3ba5bbab219262506455_cgraph" id="aa00235_a4ffe272900bf3ba5bbab219262506455_cgraph">
-<area shape="rect" title=" " alt="" coords="5,115,171,156"/>
-<area shape="rect" href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc" title=" " alt="" coords="219,56,377,97"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="676,97,824,123"/>
-<area shape="rect" href="a00235.html#a2123af520406a1b09fcf2437043c3b92" title=" " alt="" coords="219,173,377,215"/>
-<area shape="rect" href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="445,5,603,47"/>
-<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="451,71,597,98"/>
-<area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="671,5,829,47"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="877,97,996,123"/>
-<area shape="rect" href="a00391.html#aebe59f905b1dd02058cccbb062de6507" title=" " alt="" coords="425,177,623,203"/>
-<area shape="rect" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb" title=" " alt="" coords="425,227,623,254"/>
+<area shape="rect" title=" " alt="" coords="5,53,171,94"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="877,5,980,32"/>
+<area shape="rect" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="701,31,799,57"/>
+<area shape="rect" href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc" title=" " alt="" coords="219,82,377,123"/>
+<area shape="rect" href="a00235.html#a2123af520406a1b09fcf2437043c3b92" title=" " alt="" coords="219,191,377,233"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1028,5,1147,32"/>
+<area shape="rect" href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="445,82,603,123"/>
+<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="451,148,597,175"/>
+<area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="671,82,829,123"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="881,89,976,116"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="1039,89,1136,116"/>
+<area shape="rect" href="a00391.html#aebe59f905b1dd02058cccbb062de6507" title=" " alt="" coords="425,199,623,225"/>
+<area shape="rect" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb" title=" " alt="" coords="425,249,623,276"/>
 </map>
 </div>
 
@@ -310,28 +310,28 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00375">375</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  376</span>    {</div>
-<div class="line"><span class="lineno">  377</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>; p++)</div>
-<div class="line"><span class="lineno">  378</span>            <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[p];</div>
-<div class="line"><span class="lineno">  379</span>        <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>;</div>
-<div class="line"><span class="lineno">  380</span>        <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a> = 0;</div>
-<div class="line"><span class="lineno">  381</span> </div>
-<div class="line"><span class="lineno">  382</span>        <a class="code hl_function" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4">deleteDctMat_</a>();</div>
-<div class="line"><span class="lineno">  383</span> </div>
-<div class="line"><span class="lineno">  384</span>        <span class="keyword">delete</span> [] <a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a>;</div>
-<div class="line"><span class="lineno">  385</span>        <a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a> = 0;</div>
-<div class="line"><span class="lineno">  386</span>    }</div>
-<div class="ttc" id="aa00235_html_a9ad8bb5ff88bbbfe48231eab00e5e1d4"><div class="ttname"><a href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4">CFeatureSpectralMfccs::deleteDctMat_</a></div><div class="ttdeci">void deleteDctMat_()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00507">FeatureFromBlock.cpp:507</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00371">371</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  372</span>    {</div>
+<div class="line"><span class="lineno">  373</span>        <a class="code hl_function" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>, <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
+<div class="line"><span class="lineno">  374</span> </div>
+<div class="line"><span class="lineno">  375</span>        <a class="code hl_function" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4">deleteDctMat_</a>();</div>
+<div class="line"><span class="lineno">  376</span> </div>
+<div class="line"><span class="lineno">  377</span>        <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a>);</div>
+<div class="line"><span class="lineno">  378</span>    }</div>
+<div class="ttc" id="aa00235_html_a9ad8bb5ff88bbbfe48231eab00e5e1d4"><div class="ttname"><a href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4">CFeatureSpectralMfccs::deleteDctMat_</a></div><div class="ttdeci">void deleteDctMat_()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00494">FeatureFromBlock.cpp:494</a></div></div>
+<div class="ttc" id="aa00343_html_afbf24cb4ce4f9b46456419d939eab052"><div class="ttname"><a href="a00343.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;ppfMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00039">Matrix.h:39</a></div></div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00507">deleteDctMat_()</a>, <a class="el" href="a00038_source.html#l00515">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00521">m_pfMelSpec</a>, and <a class="el" href="a00038_source.html#l00518">m_ppfH</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00494">deleteDctMat_()</a>, <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, <a class="el" href="a00095_source.html#l00039">CMatrix::free()</a>, <a class="el" href="a00038_source.html#l00499">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00505">m_pfMelSpec</a>, and <a class="el" href="a00038_source.html#l00502">m_ppfH</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00235_abc120e956529cb5d1f6bf881d151bf19_cgraph.png" border="0" usemap="#aa00235_abc120e956529cb5d1f6bf881d151bf19_cgraph" alt=""/></div>
 <map name="aa00235_abc120e956529cb5d1f6bf881d151bf19_cgraph" id="aa00235_abc120e956529cb5d1f6bf881d151bf19_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,177,47"/>
+<area shape="rect" title=" " alt="" coords="5,64,177,105"/>
 <area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="225,5,384,47"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="432,71,527,98"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="575,97,672,123"/>
 </map>
 </div>
 
@@ -360,8 +360,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00427">427</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  427</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00419">419</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  419</span>{};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -419,32 +419,30 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00495">495</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  496</span>    {</div>
-<div class="line"><span class="lineno">  497</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>)</div>
-<div class="line"><span class="lineno">  498</span>            <a class="code hl_function" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4">deleteDctMat_</a>();</div>
-<div class="line"><span class="lineno">  499</span> </div>
-<div class="line"><span class="lineno">  500</span>        <a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>* [iNumCoeffs];</div>
-<div class="line"><span class="lineno">  501</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; iNumCoeffs; c++)</div>
-<div class="line"><span class="lineno">  502</span>        {</div>
-<div class="line"><span class="lineno">  503</span>            <a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[c] = <span class="keyword">new</span> <span class="keywordtype">float</span>[<a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>];</div>
-<div class="line"><span class="lineno">  504</span>            <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[c], <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
-<div class="line"><span class="lineno">  505</span>        }</div>
-<div class="line"><span class="lineno">  506</span>    }</div>
-<div class="ttc" id="aa00235_html_a5db1108b35d1c58451ae1eb617cf8591"><div class="ttname"><a href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">CFeatureSpectralMfccs::m_ppfDct</a></div><div class="ttdeci">float ** m_ppfDct</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00519">FeatureFromBlock.cpp:519</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00487">487</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  488</span>    {</div>
+<div class="line"><span class="lineno">  489</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>)</div>
+<div class="line"><span class="lineno">  490</span>            <a class="code hl_function" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4">deleteDctMat_</a>();</div>
+<div class="line"><span class="lineno">  491</span> </div>
+<div class="line"><span class="lineno">  492</span>        <a class="code hl_function" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>, iNumCoeffs, <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
+<div class="line"><span class="lineno">  493</span>    }</div>
+<div class="ttc" id="aa00235_html_a5db1108b35d1c58451ae1eb617cf8591"><div class="ttname"><a href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">CFeatureSpectralMfccs::m_ppfDct</a></div><div class="ttdeci">float ** m_ppfDct</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00503">FeatureFromBlock.cpp:503</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00507">deleteDctMat_()</a>, <a class="el" href="a00038_source.html#l00515">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00519">m_ppfDct</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00095_source.html#l00021">CMatrix::alloc()</a>, <a class="el" href="a00038_source.html#l00494">deleteDctMat_()</a>, <a class="el" href="a00038_source.html#l00499">m_iNumBands</a>, and <a class="el" href="a00038_source.html#l00503">m_ppfDct</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00480">genDctMat_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00472">genDctMat_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00235_a939a14f9a0c6b6a7ac974b2899b57e95_cgraph.png" border="0" usemap="#aa00235_a939a14f9a0c6b6a7ac974b2899b57e95_cgraph" alt=""/></div>
 <map name="aa00235_a939a14f9a0c6b6a7ac974b2899b57e95_cgraph" id="aa00235_a939a14f9a0c6b6a7ac974b2899b57e95_cgraph">
-<area shape="rect" title=" " alt="" coords="5,35,164,76"/>
-<area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="212,5,371,47"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="217,71,365,98"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="419,71,537,98"/>
+<area shape="rect" title=" " alt="" coords="5,27,164,69"/>
+<area shape="rect" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="242,5,341,32"/>
+<area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="212,57,371,98"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="419,5,521,32"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="569,5,688,32"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="423,64,517,91"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="580,64,677,91"/>
 </map>
 </div>
 <div class="dynheader">
@@ -505,28 +503,29 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00327.html#aefd1cebf296212209ba41f38939e07bf">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00388">388</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  389</span>    {</div>
-<div class="line"><span class="lineno">  390</span>        assert(pfFeature);</div>
-<div class="line"><span class="lineno">  391</span>        assert(pfInput);</div>
-<div class="line"><span class="lineno">  392</span> </div>
-<div class="line"><span class="lineno">  393</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfFeature, <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>);</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00380">380</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  381</span>    {</div>
+<div class="line"><span class="lineno">  382</span>        assert(pfFeature);</div>
+<div class="line"><span class="lineno">  383</span>        assert(pfInput);</div>
+<div class="line"><span class="lineno">  384</span> </div>
+<div class="line"><span class="lineno">  385</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfFeature, <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>);</div>
+<div class="line"><span class="lineno">  386</span> </div>
+<div class="line"><span class="lineno">  387</span>        <span class="comment">// compute mel spectrum</span></div>
+<div class="line"><span class="lineno">  388</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>; c++)</div>
+<div class="line"><span class="lineno">  389</span>            <a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a>[c] = std::log10(<a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c], pfInput, <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>) + 1e-20F);</div>
+<div class="line"><span class="lineno">  390</span> </div>
+<div class="line"><span class="lineno">  391</span>        <span class="comment">// compute dct</span></div>
+<div class="line"><span class="lineno">  392</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>; j++)</div>
+<div class="line"><span class="lineno">  393</span>            pfFeature[j] = <a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[j], <a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a>, <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
 <div class="line"><span class="lineno">  394</span> </div>
-<div class="line"><span class="lineno">  395</span>        <span class="comment">// compute mel spectrum</span></div>
-<div class="line"><span class="lineno">  396</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>; c++)</div>
-<div class="line"><span class="lineno">  397</span>            <a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a>[c] = std::log10(<a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c], pfInput, <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>) + 1e-20F);</div>
-<div class="line"><span class="lineno">  398</span> </div>
-<div class="line"><span class="lineno">  399</span>        <span class="comment">// compute dct</span></div>
-<div class="line"><span class="lineno">  400</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>; j++)</div>
-<div class="line"><span class="lineno">  401</span>            pfFeature[j] = <a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[j], <a class="code hl_variable" href="a00235.html#ab929d28489bf815a6b685c0348410422">m_pfMelSpec</a>, <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
-<div class="line"><span class="lineno">  402</span> </div>
-<div class="line"><span class="lineno">  403</span>         <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  404</span>    };</div>
+<div class="line"><span class="lineno">  395</span>         <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  396</span>    };</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
 <div class="ttc" id="aa00327_html_a2fefdb1b1217edd46c2b4e9336fa2aed"><div class="ttname"><a href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">CFeatureFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00096">FeatureFromBlock.h:96</a></div></div>
+<div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
 <div class="ttc" id="aa00363_html_ab572a4fece01255657935ed18afdeadd"><div class="ttname"><a href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a></div><div class="ttdeci">static float mulScalar(const float *pfSrc1, const float *pfSrc2, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00286">Vector.h:286</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00515">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00516">m_iNumMfcCoeffs</a>, <a class="el" href="a00038_source.html#l00521">m_pfMelSpec</a>, <a class="el" href="a00038_source.html#l00519">m_ppfDct</a>, <a class="el" href="a00038_source.html#l00518">m_ppfH</a>, <a class="el" href="a00086_source.html#l00286">CVectorFloat::mulScalar()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00499">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00500">m_iNumMfcCoeffs</a>, <a class="el" href="a00038_source.html#l00505">m_pfMelSpec</a>, <a class="el" href="a00038_source.html#l00503">m_ppfDct</a>, <a class="el" href="a00038_source.html#l00502">m_ppfH</a>, <a class="el" href="a00086_source.html#l00286">CVectorFloat::mulScalar()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -564,17 +563,24 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00507">507</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  508</span>    {</div>
-<div class="line"><span class="lineno">  509</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>; c++)</div>
-<div class="line"><span class="lineno">  510</span>            <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[c];</div>
-<div class="line"><span class="lineno">  511</span>        <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>;</div>
-<div class="line"><span class="lineno">  512</span>        <a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a> = 0;</div>
-<div class="line"><span class="lineno">  513</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00494">494</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  495</span>    {</div>
+<div class="line"><span class="lineno">  496</span>        <a class="code hl_function" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>, <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>);</div>
+<div class="line"><span class="lineno">  497</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00516">m_iNumMfcCoeffs</a>, and <a class="el" href="a00038_source.html#l00519">m_ppfDct</a>.</p>
+<p class="reference">References <a class="el" href="a00095_source.html#l00039">CMatrix::free()</a>, <a class="el" href="a00038_source.html#l00500">m_iNumMfcCoeffs</a>, and <a class="el" href="a00038_source.html#l00503">m_ppfDct</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00495">allocDctMat_()</a>, and <a class="el" href="a00038_source.html#l00375">~CFeatureSpectralMfccs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00487">allocDctMat_()</a>, and <a class="el" href="a00038_source.html#l00371">~CFeatureSpectralMfccs()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00235_a9ad8bb5ff88bbbfe48231eab00e5e1d4_cgraph.png" border="0" usemap="#aa00235_a9ad8bb5ff88bbbfe48231eab00e5e1d4_cgraph" alt=""/></div>
+<map name="aa00235_a9ad8bb5ff88bbbfe48231eab00e5e1d4_cgraph" id="aa00235_a9ad8bb5ff88bbbfe48231eab00e5e1d4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,164,47"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="212,13,307,39"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="355,13,452,39"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -615,39 +621,42 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00480">480</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  481</span>    {</div>
-<div class="line"><span class="lineno">  482</span>        <a class="code hl_function" href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95">allocDctMat_</a>(iNumCoeffs);</div>
-<div class="line"><span class="lineno">  483</span> </div>
-<div class="line"><span class="lineno">  484</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; iNumCoeffs; c++)</div>
-<div class="line"><span class="lineno">  485</span>        {</div>
-<div class="line"><span class="lineno">  486</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> b = 0; b &lt; <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>; b++)</div>
-<div class="line"><span class="lineno">  487</span>                <a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[c][b] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(std::cos(c * (2 * b + 1) * <a class="code hl_define" href="a00179.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 2. / <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>));</div>
-<div class="line"><span class="lineno">  488</span> </div>
-<div class="line"><span class="lineno">  489</span>            <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[c], 1/std::sqrt(<a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a> / 2.F), <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
-<div class="line"><span class="lineno">  490</span>        }</div>
-<div class="line"><span class="lineno">  491</span>        <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[0], 1.F / std::sqrt(2.f), <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
-<div class="line"><span class="lineno">  492</span> </div>
-<div class="line"><span class="lineno">  493</span>        <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a> = iNumCoeffs;</div>
-<div class="line"><span class="lineno">  494</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00472">472</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  473</span>    {</div>
+<div class="line"><span class="lineno">  474</span>        <a class="code hl_function" href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95">allocDctMat_</a>(iNumCoeffs);</div>
+<div class="line"><span class="lineno">  475</span> </div>
+<div class="line"><span class="lineno">  476</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; iNumCoeffs; c++)</div>
+<div class="line"><span class="lineno">  477</span>        {</div>
+<div class="line"><span class="lineno">  478</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> b = 0; b &lt; <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>; b++)</div>
+<div class="line"><span class="lineno">  479</span>                <a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[c][b] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(std::cos(c * (2 * b + 1) * <a class="code hl_define" href="a00179.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 2. / <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>));</div>
+<div class="line"><span class="lineno">  480</span> </div>
+<div class="line"><span class="lineno">  481</span>            <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[c], 1/std::sqrt(<a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a> / 2.F), <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
+<div class="line"><span class="lineno">  482</span>        }</div>
+<div class="line"><span class="lineno">  483</span>        <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(<a class="code hl_variable" href="a00235.html#a5db1108b35d1c58451ae1eb617cf8591">m_ppfDct</a>[0], 1.F / std::sqrt(2.f), <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>);</div>
+<div class="line"><span class="lineno">  484</span> </div>
+<div class="line"><span class="lineno">  485</span>        <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a> = iNumCoeffs;</div>
+<div class="line"><span class="lineno">  486</span>    }</div>
 <div class="ttc" id="aa00179_html_ae71449b1cc6e6250b91f539153a7a0d3"><div class="ttname"><a href="a00179.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a></div><div class="ttdeci">#define M_PI</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.html#l00018">_sndlib.h:18</a></div></div>
-<div class="ttc" id="aa00235_html_a939a14f9a0c6b6a7ac974b2899b57e95"><div class="ttname"><a href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95">CFeatureSpectralMfccs::allocDctMat_</a></div><div class="ttdeci">void allocDctMat_(int iNumCoeffs)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00495">FeatureFromBlock.cpp:495</a></div></div>
+<div class="ttc" id="aa00235_html_a939a14f9a0c6b6a7ac974b2899b57e95"><div class="ttname"><a href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95">CFeatureSpectralMfccs::allocDctMat_</a></div><div class="ttdeci">void allocDctMat_(int iNumCoeffs)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00487">FeatureFromBlock.cpp:487</a></div></div>
 <div class="ttc" id="aa00363_html_afc9a413a88b0c7143252dac95050af33"><div class="ttname"><a href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a></div><div class="ttdeci">static void mulC_I(float *pfSrcDest, float fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00255">Vector.h:255</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00495">allocDctMat_()</a>, <a class="el" href="a00038_source.html#l00515">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00516">m_iNumMfcCoeffs</a>, <a class="el" href="a00179_source.html#l00018">M_PI</a>, <a class="el" href="a00038_source.html#l00519">m_ppfDct</a>, and <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00487">allocDctMat_()</a>, <a class="el" href="a00038_source.html#l00499">m_iNumBands</a>, <a class="el" href="a00038_source.html#l00500">m_iNumMfcCoeffs</a>, <a class="el" href="a00179_source.html#l00018">M_PI</a>, <a class="el" href="a00038_source.html#l00503">m_ppfDct</a>, and <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, and <a class="el" href="a00038_source.html#l00417">setAdditionalParam()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, and <a class="el" href="a00038_source.html#l00409">setAdditionalParam()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00235_a4fd7b7171c56ba1be8191ca660f6fbcc_cgraph.png" border="0" usemap="#aa00235_a4fd7b7171c56ba1be8191ca660f6fbcc_cgraph" alt=""/></div>
 <map name="aa00235_a4fd7b7171c56ba1be8191ca660f6fbcc_cgraph" id="aa00235_a4fd7b7171c56ba1be8191ca660f6fbcc_cgraph">
-<area shape="rect" title=" " alt="" coords="5,64,164,105"/>
-<area shape="rect" href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="212,35,371,76"/>
-<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="219,101,364,127"/>
-<area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="419,5,577,47"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="424,71,572,98"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="625,71,744,98"/>
+<area shape="rect" title=" " alt="" coords="5,57,164,98"/>
+<area shape="rect" href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="212,27,371,69"/>
+<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="219,93,364,120"/>
+<area shape="rect" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="449,5,547,32"/>
+<area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="419,57,577,98"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="625,5,728,32"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="776,5,895,32"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="629,64,724,91"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="787,64,884,91"/>
 </map>
 </div>
 <div class="dynheader">
@@ -687,59 +696,59 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p >&lt; Check me</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00431">431</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  432</span>    {</div>
-<div class="line"><span class="lineno">  433</span>        <span class="keyword">const</span> <span class="keywordtype">double</span> dFreq = 400. / 3.; </div>
-<div class="line"><span class="lineno">  434</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> iNumLinFilters = 13;</div>
-<div class="line"><span class="lineno">  435</span>        <span class="keyword">const</span> <span class="keywordtype">double</span> dLinSpacing = 200. / 3.,</div>
-<div class="line"><span class="lineno">  436</span>            dLogSpacing = 1.0711703; <span class="comment">// note sure where this mel resolution comes from exactly</span></div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00423">423</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  424</span>    {</div>
+<div class="line"><span class="lineno">  425</span>        <span class="keyword">const</span> <span class="keywordtype">double</span> dFreq = 400. / 3.; </div>
+<div class="line"><span class="lineno">  426</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> iNumLinFilters = 13;</div>
+<div class="line"><span class="lineno">  427</span>        <span class="keyword">const</span> <span class="keywordtype">double</span> dLinSpacing = 200. / 3.,</div>
+<div class="line"><span class="lineno">  428</span>            dLogSpacing = 1.0711703; <span class="comment">// note sure where this mel resolution comes from exactly</span></div>
+<div class="line"><span class="lineno">  429</span> </div>
+<div class="line"><span class="lineno">  430</span>        assert(<a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a> &gt; iNumLinFilters);</div>
+<div class="line"><span class="lineno">  431</span>        <span class="keywordtype">double</span> adBoundFreqs[3] = { dFreq, </div>
+<div class="line"><span class="lineno">  432</span>            dFreq + dLinSpacing,</div>
+<div class="line"><span class="lineno">  433</span>            dFreq + 2. * dLinSpacing};</div>
+<div class="line"><span class="lineno">  434</span>        <span class="keywordtype">int</span> aiBoundIdx[3] = { <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(adBoundFreqs[0]), (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>)),</div>
+<div class="line"><span class="lineno">  435</span>            <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(adBoundFreqs[1]), (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>)),</div>
+<div class="line"><span class="lineno">  436</span>            <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(adBoundFreqs[2]), (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>))};</div>
 <div class="line"><span class="lineno">  437</span> </div>
-<div class="line"><span class="lineno">  438</span>        assert(<a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a> &gt; iNumLinFilters);</div>
-<div class="line"><span class="lineno">  439</span>        <span class="keywordtype">double</span> adBoundFreqs[3] = { dFreq, </div>
-<div class="line"><span class="lineno">  440</span>            dFreq + dLinSpacing,</div>
-<div class="line"><span class="lineno">  441</span>            dFreq + 2. * dLinSpacing};</div>
-<div class="line"><span class="lineno">  442</span>        <span class="keywordtype">int</span> aiBoundIdx[3] = { <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(adBoundFreqs[0]), (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>)),</div>
-<div class="line"><span class="lineno">  443</span>            <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(adBoundFreqs[1]), (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>)),</div>
-<div class="line"><span class="lineno">  444</span>            <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(adBoundFreqs[2]), (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>))};</div>
-<div class="line"><span class="lineno">  445</span> </div>
-<div class="line"><span class="lineno">  446</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>; c++)</div>
-<div class="line"><span class="lineno">  447</span>        {</div>
-<div class="line"><span class="lineno">  448</span>            <span class="keywordtype">double</span> dFilterAmp = 2. / (adBoundFreqs[2] - adBoundFreqs[0]);</div>
-<div class="line"><span class="lineno">  449</span> </div>
-<div class="line"><span class="lineno">  450</span>            <span class="comment">// upward slope</span></div>
-<div class="line"><span class="lineno">  451</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = aiBoundIdx[0]; k &lt;= aiBoundIdx[1]; k++)</div>
-<div class="line"><span class="lineno">  452</span>            {</div>
-<div class="line"><span class="lineno">  453</span>                <span class="keywordtype">float</span> fFreqk = <a class="code hl_function" href="a00391.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a>(1.F * k, (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
-<div class="line"><span class="lineno">  454</span>                <span class="keywordflow">if</span> ((fFreqk - adBoundFreqs[0]) &lt;= 0.F)</div>
-<div class="line"><span class="lineno">  455</span>                    <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  456</span>                <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c][k] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(dFilterAmp * (fFreqk - adBoundFreqs[0]) / (adBoundFreqs[1] - adBoundFreqs[0]));</div>
-<div class="line"><span class="lineno">  457</span>                assert(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c][k] &gt;= 0);</div>
-<div class="line"><span class="lineno">  458</span>            }</div>
-<div class="line"><span class="lineno">  459</span> </div>
-<div class="line"><span class="lineno">  460</span>            <span class="comment">// downward slope</span></div>
-<div class="line"><span class="lineno">  461</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = aiBoundIdx[1]+1; k &lt;= aiBoundIdx[2]; k++)</div>
-<div class="line"><span class="lineno">  462</span>            {</div>
-<div class="line"><span class="lineno">  463</span>                <span class="keywordtype">float</span> fFreqk = <a class="code hl_function" href="a00391.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a>(1.F * k, (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
-<div class="line"><span class="lineno">  464</span>                <span class="comment">//if ((afBoundFreqs[2] - fFreqk) &lt; 0.F)</span></div>
-<div class="line"><span class="lineno">  465</span>                <span class="comment">//    continue;</span></div>
-<div class="line"><span class="lineno">  466</span>                <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c][k] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(dFilterAmp * (adBoundFreqs[2] - fFreqk) / (adBoundFreqs[2] - adBoundFreqs[1]));</div>
-<div class="line"><span class="lineno">  467</span>                assert(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c][k] &gt;= 0);</div>
-<div class="line"><span class="lineno">  468</span>            }</div>
-<div class="line"><span class="lineno">  469</span> </div>
-<div class="line"><span class="lineno">  470</span>            <span class="comment">// proceed to next band</span></div>
-<div class="line"><span class="lineno">  471</span>            adBoundFreqs[0] = adBoundFreqs[1];</div>
-<div class="line"><span class="lineno">  472</span>            adBoundFreqs[1] = adBoundFreqs[2];</div>
-<div class="line"><span class="lineno">  473</span>            adBoundFreqs[2] = (c &lt; iNumLinFilters-3) ? adBoundFreqs[1] + dLinSpacing : adBoundFreqs[2] * dLogSpacing; <span class="comment">//!&lt; Check me</span></div>
-<div class="line"><span class="lineno">  474</span>            aiBoundIdx[0] = aiBoundIdx[1];</div>
-<div class="line"><span class="lineno">  475</span>            aiBoundIdx[1] = aiBoundIdx[2];</div>
-<div class="line"><span class="lineno">  476</span>            aiBoundIdx[2] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(adBoundFreqs[2]), (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>));</div>
-<div class="line"><span class="lineno">  477</span>        }</div>
-<div class="line"><span class="lineno">  478</span>    }</div>
+<div class="line"><span class="lineno">  438</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; <a class="code hl_variable" href="a00235.html#ad8bac3da17b240643991fc6bf5840f32">m_iNumBands</a>; c++)</div>
+<div class="line"><span class="lineno">  439</span>        {</div>
+<div class="line"><span class="lineno">  440</span>            <span class="keywordtype">double</span> dFilterAmp = 2. / (adBoundFreqs[2] - adBoundFreqs[0]);</div>
+<div class="line"><span class="lineno">  441</span> </div>
+<div class="line"><span class="lineno">  442</span>            <span class="comment">// upward slope</span></div>
+<div class="line"><span class="lineno">  443</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = aiBoundIdx[0]; k &lt;= aiBoundIdx[1]; k++)</div>
+<div class="line"><span class="lineno">  444</span>            {</div>
+<div class="line"><span class="lineno">  445</span>                <span class="keywordtype">float</span> fFreqk = <a class="code hl_function" href="a00391.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a>(1.F * k, (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno">  446</span>                <span class="keywordflow">if</span> ((fFreqk - adBoundFreqs[0]) &lt;= 0.F)</div>
+<div class="line"><span class="lineno">  447</span>                    <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  448</span>                <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c][k] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(dFilterAmp * (fFreqk - adBoundFreqs[0]) / (adBoundFreqs[1] - adBoundFreqs[0]));</div>
+<div class="line"><span class="lineno">  449</span>                assert(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c][k] &gt;= 0);</div>
+<div class="line"><span class="lineno">  450</span>            }</div>
+<div class="line"><span class="lineno">  451</span> </div>
+<div class="line"><span class="lineno">  452</span>            <span class="comment">// downward slope</span></div>
+<div class="line"><span class="lineno">  453</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = aiBoundIdx[1]+1; k &lt;= aiBoundIdx[2]; k++)</div>
+<div class="line"><span class="lineno">  454</span>            {</div>
+<div class="line"><span class="lineno">  455</span>                <span class="keywordtype">float</span> fFreqk = <a class="code hl_function" href="a00391.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a>(1.F * k, (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno">  456</span>                <span class="comment">//if ((afBoundFreqs[2] - fFreqk) &lt; 0.F)</span></div>
+<div class="line"><span class="lineno">  457</span>                <span class="comment">//    continue;</span></div>
+<div class="line"><span class="lineno">  458</span>                <a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c][k] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(dFilterAmp * (adBoundFreqs[2] - fFreqk) / (adBoundFreqs[2] - adBoundFreqs[1]));</div>
+<div class="line"><span class="lineno">  459</span>                assert(<a class="code hl_variable" href="a00235.html#ad58efcd5d0eebe8e956ff1e07a0edc17">m_ppfH</a>[c][k] &gt;= 0);</div>
+<div class="line"><span class="lineno">  460</span>            }</div>
+<div class="line"><span class="lineno">  461</span> </div>
+<div class="line"><span class="lineno">  462</span>            <span class="comment">// proceed to next band</span></div>
+<div class="line"><span class="lineno">  463</span>            adBoundFreqs[0] = adBoundFreqs[1];</div>
+<div class="line"><span class="lineno">  464</span>            adBoundFreqs[1] = adBoundFreqs[2];</div>
+<div class="line"><span class="lineno">  465</span>            adBoundFreqs[2] = (c &lt; iNumLinFilters-3) ? adBoundFreqs[1] + dLinSpacing : adBoundFreqs[2] * dLogSpacing; <span class="comment">//!&lt; Check me</span></div>
+<div class="line"><span class="lineno">  466</span>            aiBoundIdx[0] = aiBoundIdx[1];</div>
+<div class="line"><span class="lineno">  467</span>            aiBoundIdx[1] = aiBoundIdx[2];</div>
+<div class="line"><span class="lineno">  468</span>            aiBoundIdx[2] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(adBoundFreqs[2]), (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>));</div>
+<div class="line"><span class="lineno">  469</span>        }</div>
+<div class="line"><span class="lineno">  470</span>    }</div>
 <div class="ttc" id="aa00327_html_a75ac4ef94667058662a8100bb1c1e1cd"><div class="ttname"><a href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">CFeatureFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00098">FeatureFromBlock.h:98</a></div></div>
 <div class="ttc" id="aa00391_html_ada82d84a69f4c77266835f1f06ca2ecb"><div class="ttname"><a href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a></div><div class="ttdeci">static float convertFreq2Bin(float fInHz, int iFftLength, float fSampleRate=44100.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00169">ToolConversion.h:169</a></div></div>
 <div class="ttc" id="aa00391_html_aebe59f905b1dd02058cccbb062de6507"><div class="ttname"><a href="a00391.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a></div><div class="ttdeci">static float convertBin2Freq(float fBin, int iFftLength, float fSampleRate=44100.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00205">ToolConversion.h:205</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00128_source.html#l00205">CConversion::convertBin2Freq()</a>, <a class="el" href="a00128_source.html#l00169">CConversion::convertFreq2Bin()</a>, <a class="el" href="a00107_source.html#l00098">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00515">m_iNumBands</a>, and <a class="el" href="a00038_source.html#l00518">m_ppfH</a>.</p>
+<p class="reference">References <a class="el" href="a00128_source.html#l00205">CConversion::convertBin2Freq()</a>, <a class="el" href="a00128_source.html#l00169">CConversion::convertFreq2Bin()</a>, <a class="el" href="a00107_source.html#l00098">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00499">m_iNumBands</a>, and <a class="el" href="a00038_source.html#l00502">m_ppfH</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>.</p>
 <div class="dynheader">
@@ -790,12 +799,12 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00327.html#a8bf822f58aa66fc4787c5528352575c0">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00407">407</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  408</span>    {</div>
-<div class="line"><span class="lineno">  409</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>;</div>
-<div class="line"><span class="lineno">  410</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00399">399</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  400</span>    {</div>
+<div class="line"><span class="lineno">  401</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00235.html#acc5746c538c81cbbbc91b4c4558f7dd5">m_iNumMfcCoeffs</a>;</div>
+<div class="line"><span class="lineno">  402</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00516">m_iNumMfcCoeffs</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00500">m_iNumMfcCoeffs</a>.</p>
 
 </div>
 </div>
@@ -825,10 +834,10 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00327.html#a41daabd1afa9c2307c64b431fcf8da62">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00412">412</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  413</span>    {</div>
-<div class="line"><span class="lineno">  414</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  415</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00404">404</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  405</span>    {</div>
+<div class="line"><span class="lineno">  406</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  407</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -891,30 +900,33 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00327.html#a7f3f62f3787b0ddc4c8938f5d54170af">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00417">417</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  418</span>    {</div>
-<div class="line"><span class="lineno">  419</span>        <span class="keywordflow">if</span> (fParamValue &lt;= 0)</div>
-<div class="line"><span class="lineno">  420</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  421</span> </div>
-<div class="line"><span class="lineno">  422</span>        <a class="code hl_function" href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc">genDctMat_</a>(CUtil::float2int&lt;int&gt;(fParamValue));</div>
-<div class="line"><span class="lineno">  423</span> </div>
-<div class="line"><span class="lineno">  424</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  425</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00409">409</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  410</span>    {</div>
+<div class="line"><span class="lineno">  411</span>        <span class="keywordflow">if</span> (fParamValue &lt;= 0)</div>
+<div class="line"><span class="lineno">  412</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  413</span> </div>
+<div class="line"><span class="lineno">  414</span>        <a class="code hl_function" href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc">genDctMat_</a>(CUtil::float2int&lt;int&gt;(fParamValue));</div>
+<div class="line"><span class="lineno">  415</span> </div>
+<div class="line"><span class="lineno">  416</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  417</span>    }</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00480">genDctMat_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00472">genDctMat_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00235_a6ffd2585db71bf5b44aedc15223525e6_cgraph.png" border="0" usemap="#aa00235_a6ffd2585db71bf5b44aedc15223525e6_cgraph" alt=""/></div>
 <map name="aa00235_a6ffd2585db71bf5b44aedc15223525e6_cgraph" id="aa00235_a6ffd2585db71bf5b44aedc15223525e6_cgraph">
-<area shape="rect" title=" " alt="" coords="5,64,164,105"/>
-<area shape="rect" href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc" title=" " alt="" coords="212,64,371,105"/>
-<area shape="rect" href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="419,35,577,76"/>
-<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="425,101,571,127"/>
-<area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="625,5,784,47"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="631,71,779,98"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="832,71,951,98"/>
+<area shape="rect" title=" " alt="" coords="5,57,164,98"/>
+<area shape="rect" href="a00235.html#a4fd7b7171c56ba1be8191ca660f6fbcc" title=" " alt="" coords="212,57,371,98"/>
+<area shape="rect" href="a00235.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="419,27,577,69"/>
+<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="425,93,571,120"/>
+<area shape="rect" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="655,5,754,32"/>
+<area shape="rect" href="a00235.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="625,57,784,98"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="832,5,935,32"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="983,5,1101,32"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="836,64,931,91"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="993,64,1091,91"/>
 </map>
 </div>
 
@@ -941,9 +953,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00515">515</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00499">499</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00495">allocDctMat_()</a>, <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00388">compFeature()</a>, <a class="el" href="a00038_source.html#l00480">genDctMat_()</a>, <a class="el" href="a00038_source.html#l00431">genMfccFilters_()</a>, and <a class="el" href="a00038_source.html#l00375">~CFeatureSpectralMfccs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00487">allocDctMat_()</a>, <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00380">compFeature()</a>, <a class="el" href="a00038_source.html#l00472">genDctMat_()</a>, <a class="el" href="a00038_source.html#l00423">genMfccFilters_()</a>, and <a class="el" href="a00038_source.html#l00371">~CFeatureSpectralMfccs()</a>.</p>
 
 </div>
 </div>
@@ -967,9 +979,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00516">516</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00500">500</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00388">compFeature()</a>, <a class="el" href="a00038_source.html#l00507">deleteDctMat_()</a>, <a class="el" href="a00038_source.html#l00480">genDctMat_()</a>, and <a class="el" href="a00038_source.html#l00407">getFeatureDimensions()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00380">compFeature()</a>, <a class="el" href="a00038_source.html#l00494">deleteDctMat_()</a>, <a class="el" href="a00038_source.html#l00472">genDctMat_()</a>, and <a class="el" href="a00038_source.html#l00399">getFeatureDimensions()</a>.</p>
 
 </div>
 </div>
@@ -993,9 +1005,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00521">521</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00505">505</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00388">compFeature()</a>, and <a class="el" href="a00038_source.html#l00375">~CFeatureSpectralMfccs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00380">compFeature()</a>, and <a class="el" href="a00038_source.html#l00371">~CFeatureSpectralMfccs()</a>.</p>
 
 </div>
 </div>
@@ -1019,9 +1031,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00519">519</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00503">503</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00495">allocDctMat_()</a>, <a class="el" href="a00038_source.html#l00388">compFeature()</a>, <a class="el" href="a00038_source.html#l00507">deleteDctMat_()</a>, and <a class="el" href="a00038_source.html#l00480">genDctMat_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00487">allocDctMat_()</a>, <a class="el" href="a00038_source.html#l00380">compFeature()</a>, <a class="el" href="a00038_source.html#l00494">deleteDctMat_()</a>, and <a class="el" href="a00038_source.html#l00472">genDctMat_()</a>.</p>
 
 </div>
 </div>
@@ -1045,9 +1057,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00518">518</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00502">502</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00388">compFeature()</a>, <a class="el" href="a00038_source.html#l00431">genMfccFilters_()</a>, and <a class="el" href="a00038_source.html#l00375">~CFeatureSpectralMfccs()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00380">compFeature()</a>, <a class="el" href="a00038_source.html#l00423">genMfccFilters_()</a>, and <a class="el" href="a00038_source.html#l00371">~CFeatureSpectralMfccs()</a>.</p>
 
 </div>
 </div>
@@ -1057,7 +1069,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

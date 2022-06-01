@@ -177,7 +177,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00325">325</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00326">326</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a1a45f132f54b2f2f3d63f0827dc8300f" name="a1a45f132f54b2f2f3d63f0827dc8300f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a1a45f132f54b2f2f3d63f0827dc8300f">&#9670;&nbsp;</a></span>CFeatureSpectralFlux() <span class="overload">[1/3]</span></h2>
@@ -219,26 +219,28 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00328">328</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  328</span>                                                                                              : <a class="code hl_function" href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate)</div>
-<div class="line"><span class="lineno">  329</span>    {</div>
-<div class="line"><span class="lineno">  330</span>        <a class="code hl_variable" href="a00231.html#a0e7559e5ea0ca227f148f06aaa8edc06">m_pfPrevSpec</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>[<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>];</div>
-<div class="line"><span class="lineno">  331</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00231.html#a0e7559e5ea0ca227f148f06aaa8edc06">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>);</div>
-<div class="line"><span class="lineno">  332</span>    };</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00329">329</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  329</span>                                                                                              : <a class="code hl_function" href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate)</div>
+<div class="line"><span class="lineno">  330</span>    {</div>
+<div class="line"><span class="lineno">  331</span>        <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00231.html#a0e7559e5ea0ca227f148f06aaa8edc06">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>);</div>
+<div class="line"><span class="lineno">  332</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00231.html#a0e7559e5ea0ca227f148f06aaa8edc06">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>);</div>
+<div class="line"><span class="lineno">  333</span>    };</div>
 <div class="ttc" id="aa00231_html_a0e7559e5ea0ca227f148f06aaa8edc06"><div class="ttname"><a href="a00231.html#a0e7559e5ea0ca227f148f06aaa8edc06">CFeatureSpectralFlux::m_pfPrevSpec</a></div><div class="ttdeci">float * m_pfPrevSpec</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00354">FeatureFromBlock.cpp:354</a></div></div>
 <div class="ttc" id="aa00327_html_a2fefdb1b1217edd46c2b4e9336fa2aed"><div class="ttname"><a href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">CFeatureFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00096">FeatureFromBlock.h:96</a></div></div>
 <div class="ttc" id="aa00327_html_a483bca508e2817799a3173a6180d245e"><div class="ttname"><a href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf::CFeatureFromBlockIf</a></div><div class="ttdeci">CFeatureFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00088">FeatureFromBlock.h:88</a></div></div>
+<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
 <div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00354">m_pfPrevSpec</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00354">m_pfPrevSpec</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00231_a1a45f132f54b2f2f3d63f0827dc8300f_cgraph.png" border="0" usemap="#aa00231_a1a45f132f54b2f2f3d63f0827dc8300f_cgraph" alt=""/></div>
 <map name="aa00231_a1a45f132f54b2f2f3d63f0827dc8300f_cgraph" id="aa00231_a1a45f132f54b2f2f3d63f0827dc8300f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,159,47"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="207,13,355,39"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="403,13,521,39"/>
+<area shape="rect" title=" " alt="" coords="5,23,159,65"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="229,5,332,32"/>
+<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="207,56,355,83"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="403,31,521,57"/>
 </map>
 </div>
 
@@ -267,13 +269,22 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00334">334</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  335</span>    {</div>
-<div class="line"><span class="lineno">  336</span>        <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00231.html#a0e7559e5ea0ca227f148f06aaa8edc06">m_pfPrevSpec</a>;</div>
-<div class="line"><span class="lineno">  337</span>        <a class="code hl_variable" href="a00231.html#a0e7559e5ea0ca227f148f06aaa8edc06">m_pfPrevSpec</a> = 0;</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00335">335</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  336</span>    {</div>
+<div class="line"><span class="lineno">  337</span>        <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00231.html#a0e7559e5ea0ca227f148f06aaa8edc06">m_pfPrevSpec</a>);</div>
 <div class="line"><span class="lineno">  338</span>    };</div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00354">m_pfPrevSpec</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, and <a class="el" href="a00038_source.html#l00354">m_pfPrevSpec</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00231_a3c5685b11c974c54df140122f7cbae9d_cgraph.png" border="0" usemap="#aa00231_a3c5685b11c974c54df140122f7cbae9d_cgraph" alt=""/></div>
+<map name="aa00231_a3c5685b11c974c54df140122f7cbae9d_cgraph" id="aa00231_a3c5685b11c974c54df140122f7cbae9d_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,165,47"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="213,13,311,39"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -387,11 +398,11 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">  346</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
 <div class="line"><span class="lineno">  347</span>    };</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
-<div class="ttc" id="aa00327_html_a42b11faa0f65881702ad7dcc1398ec5f"><div class="ttname"><a href="a00327.html#a42b11faa0f65881702ad7dcc1398ec5f">CFeatureFromBlockIf::compFeatureSpectralFlux</a></div><div class="ttdeci">static float compFeatureSpectralFlux(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00089">FeatureFromBlock.cpp:89</a></div></div>
+<div class="ttc" id="aa00327_html_a42b11faa0f65881702ad7dcc1398ec5f"><div class="ttname"><a href="a00327.html#a42b11faa0f65881702ad7dcc1398ec5f">CFeatureFromBlockIf::compFeatureSpectralFlux</a></div><div class="ttdeci">static float compFeatureSpectralFlux(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00090">FeatureFromBlock.cpp:90</a></div></div>
 <div class="ttc" id="aa00327_html_a75ac4ef94667058662a8100bb1c1e1cd"><div class="ttname"><a href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">CFeatureFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00098">FeatureFromBlock.h:98</a></div></div>
 <div class="ttc" id="aa00363_html_a0bf711bf2ed2dc87efeafe12db55570e"><div class="ttname"><a href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a></div><div class="ttdeci">static void copy(float *pfDest, const float *pfSource, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00207">Vector.h:207</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00089">CFeatureFromBlockIf::compFeatureSpectralFlux()</a>, <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00107_source.html#l00098">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, and <a class="el" href="a00038_source.html#l00354">m_pfPrevSpec</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00090">CFeatureFromBlockIf::compFeatureSpectralFlux()</a>, <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00107_source.html#l00098">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, and <a class="el" href="a00038_source.html#l00354">m_pfPrevSpec</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -455,7 +466,7 @@ Here is the call graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00038_source.html#l00354">354</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00328">CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.html#l00340">compFeature()</a>, and <a class="el" href="a00038_source.html#l00334">~CFeatureSpectralFlux()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00329">CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.html#l00340">compFeature()</a>, and <a class="el" href="a00038_source.html#l00335">~CFeatureSpectralFlux()</a>.</p>
 
 </div>
 </div>
@@ -465,7 +476,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

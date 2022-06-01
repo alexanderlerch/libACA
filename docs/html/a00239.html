@@ -191,7 +191,7 @@ Additional Inherited Members</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00523">523</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00507">507</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a388f9c7dd2074706d723e31b421f16fa" name="a388f9c7dd2074706d723e31b421f16fa"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a388f9c7dd2074706d723e31b421f16fa">&#9670;&nbsp;</a></span>CFeatureSpectralPitchChroma() <span class="overload">[1/3]</span></h2>
@@ -233,38 +233,34 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00526">526</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  526</span>                                                                                                     : <a class="code hl_function" href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate)</div>
-<div class="line"><span class="lineno">  527</span>    {</div>
-<div class="line"><span class="lineno">  528</span>        <span class="comment">// alloc transfer function memory</span></div>
-<div class="line"><span class="lineno">  529</span>        <a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a> = <span class="keyword">new</span> <span class="keywordtype">float</span>* [<a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>];</div>
-<div class="line"><span class="lineno">  530</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>; p++)</div>
-<div class="line"><span class="lineno">  531</span>        {</div>
-<div class="line"><span class="lineno">  532</span>            <a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>[p] = <span class="keyword">new</span> <span class="keywordtype">float</span>[iDataLength];</div>
-<div class="line"><span class="lineno">  533</span>            <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>[p], iDataLength);</div>
-<div class="line"><span class="lineno">  534</span>        }</div>
-<div class="line"><span class="lineno">  535</span> </div>
-<div class="line"><span class="lineno">  536</span>        <a class="code hl_function" href="a00239.html#a88b4352ab8251a177a5351c638ad5b3c">genPcFilters_</a>();</div>
-<div class="line"><span class="lineno">  537</span>    };</div>
-<div class="ttc" id="aa00239_html_a143343cbcd9f206e5c22a9af056c5d66"><div class="ttname"><a href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">CFeatureSpectralPitchChroma::m_iNumPitchClasses</a></div><div class="ttdeci">const int m_iNumPitchClasses</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00635">FeatureFromBlock.cpp:635</a></div></div>
-<div class="ttc" id="aa00239_html_a88b4352ab8251a177a5351c638ad5b3c"><div class="ttname"><a href="a00239.html#a88b4352ab8251a177a5351c638ad5b3c">CFeatureSpectralPitchChroma::genPcFilters_</a></div><div class="ttdeci">void genPcFilters_()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00599">FeatureFromBlock.cpp:599</a></div></div>
-<div class="ttc" id="aa00239_html_a8fbd2f0b1785563f6aceb78c067718c0"><div class="ttname"><a href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">CFeatureSpectralPitchChroma::m_ppfH</a></div><div class="ttdeci">float ** m_ppfH</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00640">FeatureFromBlock.cpp:640</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00510">510</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  510</span>                                                                                                     : <a class="code hl_function" href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate)</div>
+<div class="line"><span class="lineno">  511</span>    {</div>
+<div class="line"><span class="lineno">  512</span>        <span class="comment">// alloc transfer function memory</span></div>
+<div class="line"><span class="lineno">  513</span>        <a class="code hl_function" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>, <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>, iDataLength);</div>
+<div class="line"><span class="lineno">  514</span> </div>
+<div class="line"><span class="lineno">  515</span>        <a class="code hl_function" href="a00239.html#a88b4352ab8251a177a5351c638ad5b3c">genPcFilters_</a>();</div>
+<div class="line"><span class="lineno">  516</span>    };</div>
+<div class="ttc" id="aa00239_html_a143343cbcd9f206e5c22a9af056c5d66"><div class="ttname"><a href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">CFeatureSpectralPitchChroma::m_iNumPitchClasses</a></div><div class="ttdeci">const int m_iNumPitchClasses</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00611">FeatureFromBlock.cpp:611</a></div></div>
+<div class="ttc" id="aa00239_html_a88b4352ab8251a177a5351c638ad5b3c"><div class="ttname"><a href="a00239.html#a88b4352ab8251a177a5351c638ad5b3c">CFeatureSpectralPitchChroma::genPcFilters_</a></div><div class="ttdeci">void genPcFilters_()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00575">FeatureFromBlock.cpp:575</a></div></div>
+<div class="ttc" id="aa00239_html_a8fbd2f0b1785563f6aceb78c067718c0"><div class="ttname"><a href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">CFeatureSpectralPitchChroma::m_ppfH</a></div><div class="ttdeci">float ** m_ppfH</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00616">FeatureFromBlock.cpp:616</a></div></div>
 <div class="ttc" id="aa00327_html_a483bca508e2817799a3173a6180d245e"><div class="ttname"><a href="a00327.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf::CFeatureFromBlockIf</a></div><div class="ttdeci">CFeatureFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00088">FeatureFromBlock.h:88</a></div></div>
-<div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
+<div class="ttc" id="aa00343_html_ae669c592fc063391aeb77e07cbc9d4bc"><div class="ttname"><a href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00021">Matrix.h:21</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00599">genPcFilters_()</a>, <a class="el" href="a00038_source.html#l00635">m_iNumPitchClasses</a>, <a class="el" href="a00038_source.html#l00640">m_ppfH</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00095_source.html#l00021">CMatrix::alloc()</a>, <a class="el" href="a00038_source.html#l00575">genPcFilters_()</a>, <a class="el" href="a00038_source.html#l00611">m_iNumPitchClasses</a>, and <a class="el" href="a00038_source.html#l00616">m_ppfH</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00239_a388f9c7dd2074706d723e31b421f16fa_cgraph.png" border="0" usemap="#aa00239_a388f9c7dd2074706d723e31b421f16fa_cgraph" alt=""/></div>
 <map name="aa00239_a388f9c7dd2074706d723e31b421f16fa_cgraph" id="aa00239_a388f9c7dd2074706d723e31b421f16fa_cgraph">
-<area shape="rect" title=" " alt="" coords="5,99,209,141"/>
-<area shape="rect" href="a00239.html#a88b4352ab8251a177a5351c638ad5b3c" title=" " alt="" coords="257,59,456,101"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="283,136,431,163"/>
-<area shape="rect" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb" title=" " alt="" coords="507,5,704,32"/>
-<area shape="rect" href="a00391.html#a3461898be6be7ae7059904860f5231e1" title=" " alt="" coords="504,56,707,83"/>
-<area shape="rect" href="a00363.html#a35da686af8fe05cbd3681dc8ee9ea093" title=" " alt="" coords="528,107,683,133"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="546,157,665,184"/>
+<area shape="rect" title=" " alt="" coords="5,49,209,90"/>
+<area shape="rect" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="307,16,406,43"/>
+<area shape="rect" href="a00239.html#a88b4352ab8251a177a5351c638ad5b3c" title=" " alt="" coords="257,78,456,119"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="554,5,657,32"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="755,5,873,32"/>
+<area shape="rect" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb" title=" " alt="" coords="507,56,704,83"/>
+<area shape="rect" href="a00391.html#a3461898be6be7ae7059904860f5231e1" title=" " alt="" coords="504,107,707,133"/>
+<area shape="rect" href="a00363.html#a35da686af8fe05cbd3681dc8ee9ea093" title=" " alt="" coords="528,157,683,184"/>
 </map>
 </div>
 
@@ -293,15 +289,23 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00539">539</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  540</span>    {</div>
-<div class="line"><span class="lineno">  541</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>; p++)</div>
-<div class="line"><span class="lineno">  542</span>            <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>[p];</div>
-<div class="line"><span class="lineno">  543</span>        <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>;</div>
-<div class="line"><span class="lineno">  544</span>        <a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a> = 0;</div>
-<div class="line"><span class="lineno">  545</span>    };</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00518">518</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  519</span>    {</div>
+<div class="line"><span class="lineno">  520</span>        <a class="code hl_function" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>, <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>);</div>
+<div class="line"><span class="lineno">  521</span>    };</div>
+<div class="ttc" id="aa00343_html_afbf24cb4ce4f9b46456419d939eab052"><div class="ttname"><a href="a00343.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;ppfMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00095_source.html#l00039">Matrix.h:39</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00635">m_iNumPitchClasses</a>, and <a class="el" href="a00038_source.html#l00640">m_ppfH</a>.</p>
+<p class="reference">References <a class="el" href="a00095_source.html#l00039">CMatrix::free()</a>, <a class="el" href="a00038_source.html#l00611">m_iNumPitchClasses</a>, and <a class="el" href="a00038_source.html#l00616">m_ppfH</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00239_a2a538aa6aba4b54cc8968b0a757c3996_cgraph.png" border="0" usemap="#aa00239_a2a538aa6aba4b54cc8968b0a757c3996_cgraph" alt=""/></div>
+<map name="aa00239_a2a538aa6aba4b54cc8968b0a757c3996_cgraph" id="aa00239_a2a538aa6aba4b54cc8968b0a757c3996_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,216,47"/>
+<area shape="rect" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="264,13,359,39"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="407,13,504,39"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -328,8 +332,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00595">595</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  595</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00571">571</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  571</span>{};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -406,35 +410,36 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00327.html#aefd1cebf296212209ba41f38939e07bf">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00547">547</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  548</span>    {</div>
-<div class="line"><span class="lineno">  549</span>        assert(pfFeature);</div>
-<div class="line"><span class="lineno">  550</span>        assert(pfInput);</div>
-<div class="line"><span class="lineno">  551</span> </div>
-<div class="line"><span class="lineno">  552</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfFeature, <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">  553</span> </div>
-<div class="line"><span class="lineno">  554</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>; p++)</div>
-<div class="line"><span class="lineno">  555</span>        {</div>
-<div class="line"><span class="lineno">  556</span>            <span class="comment">// we could do this nicer with CVectorFloat::mulScalar if we allocated memory</span></div>
-<div class="line"><span class="lineno">  557</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>; k++)</div>
-<div class="line"><span class="lineno">  558</span>            {</div>
-<div class="line"><span class="lineno">  559</span>                pfFeature[p] += <a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>[p][k] * (pfInput[k] * pfInput[k]);</div>
-<div class="line"><span class="lineno">  560</span>            }</div>
-<div class="line"><span class="lineno">  561</span>        }</div>
-<div class="line"><span class="lineno">  562</span> </div>
-<div class="line"><span class="lineno">  563</span>        <span class="keywordtype">float</span> fSum = <a class="code hl_function" href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(pfFeature, <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">  564</span> </div>
-<div class="line"><span class="lineno">  565</span>        <span class="keywordflow">if</span> (fSum &gt; 0)</div>
-<div class="line"><span class="lineno">  566</span>            <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(pfFeature, 1.F/fSum, <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">  567</span> </div>
-<div class="line"><span class="lineno">  568</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  569</span>    };</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00523">523</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  524</span>    {</div>
+<div class="line"><span class="lineno">  525</span>        assert(pfFeature);</div>
+<div class="line"><span class="lineno">  526</span>        assert(pfInput);</div>
+<div class="line"><span class="lineno">  527</span> </div>
+<div class="line"><span class="lineno">  528</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfFeature, <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>);</div>
+<div class="line"><span class="lineno">  529</span> </div>
+<div class="line"><span class="lineno">  530</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>; p++)</div>
+<div class="line"><span class="lineno">  531</span>        {</div>
+<div class="line"><span class="lineno">  532</span>            <span class="comment">// we could do this nicer with CVectorFloat::mulScalar if we allocated memory</span></div>
+<div class="line"><span class="lineno">  533</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; <a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>; k++)</div>
+<div class="line"><span class="lineno">  534</span>            {</div>
+<div class="line"><span class="lineno">  535</span>                pfFeature[p] += <a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>[p][k] * (pfInput[k] * pfInput[k]);</div>
+<div class="line"><span class="lineno">  536</span>            }</div>
+<div class="line"><span class="lineno">  537</span>        }</div>
+<div class="line"><span class="lineno">  538</span> </div>
+<div class="line"><span class="lineno">  539</span>        <span class="keywordtype">float</span> fSum = <a class="code hl_function" href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(pfFeature, <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>);</div>
+<div class="line"><span class="lineno">  540</span> </div>
+<div class="line"><span class="lineno">  541</span>        <span class="keywordflow">if</span> (fSum &gt; 0)</div>
+<div class="line"><span class="lineno">  542</span>            <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(pfFeature, 1.F/fSum, <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>);</div>
+<div class="line"><span class="lineno">  543</span> </div>
+<div class="line"><span class="lineno">  544</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  545</span>    };</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
 <div class="ttc" id="aa00327_html_a2fefdb1b1217edd46c2b4e9336fa2aed"><div class="ttname"><a href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">CFeatureFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00096">FeatureFromBlock.h:96</a></div></div>
+<div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
 <div class="ttc" id="aa00363_html_a7972e4c31df79a32bbc5396e07d2ca9e"><div class="ttname"><a href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a></div><div class="ttdeci">static float getSum(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00381">Vector.h:381</a></div></div>
 <div class="ttc" id="aa00363_html_afc9a413a88b0c7143252dac95050af33"><div class="ttname"><a href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a></div><div class="ttdeci">static void mulC_I(float *pfSrcDest, float fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00255">Vector.h:255</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086_source.html#l00381">CVectorFloat::getSum()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00635">m_iNumPitchClasses</a>, <a class="el" href="a00038_source.html#l00640">m_ppfH</a>, <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00381">CVectorFloat::getSum()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00611">m_iNumPitchClasses</a>, <a class="el" href="a00038_source.html#l00616">m_ppfH</a>, <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -474,51 +479,51 @@ Here is the call graph for this function:</div>
 </div><div class="memdoc">
 <p >&lt; C4</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00599">599</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  600</span>    {</div>
-<div class="line"><span class="lineno">  601</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> fStartPitch = 60; <span class="comment">//!&lt; C4</span></div>
-<div class="line"><span class="lineno">  602</span>        <span class="keywordtype">float</span> fMid = <a class="code hl_function" href="a00391.html#a3461898be6be7ae7059904860f5231e1">CConversion::convertMidi2Freq</a>(fStartPitch, <a class="code hl_variable" href="a00239.html#afed3f9bf0d871cd19bcb9a936b9343d8">m_fA4</a>);</div>
-<div class="line"><span class="lineno">  603</span> </div>
-<div class="line"><span class="lineno">  604</span>        <span class="comment">//sanity check: reduce number of octaves if highest freq is higher than half fs</span></div>
-<div class="line"><span class="lineno">  605</span>        <span class="keywordflow">while</span> (fMid * std::exp2(<a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a>) &gt; <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a> / 2)</div>
-<div class="line"><span class="lineno">  606</span>            <a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a>--;</div>
-<div class="line"><span class="lineno">  607</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a> &lt;= 0)</div>
-<div class="line"><span class="lineno">  608</span>            <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  609</span> </div>
-<div class="line"><span class="lineno">  610</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>; p++)</div>
-<div class="line"><span class="lineno">  611</span>        {</div>
-<div class="line"><span class="lineno">  612</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> fQuarterToneRatio = 1.02930223664349F;</div>
-<div class="line"><span class="lineno">  613</span>            <span class="keywordtype">float</span> afBoundFreqs[2] = { fMid / fQuarterToneRatio,</div>
-<div class="line"><span class="lineno">  614</span>                fMid * fQuarterToneRatio };</div>
-<div class="line"><span class="lineno">  615</span> </div>
-<div class="line"><span class="lineno">  616</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> o = 0; o &lt; <a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a>; o++)</div>
-<div class="line"><span class="lineno">  617</span>            {</div>
-<div class="line"><span class="lineno">  618</span>                <span class="comment">// get indices from freqs</span></div>
-<div class="line"><span class="lineno">  619</span>                <span class="keyword">const</span> <span class="keywordtype">int</span> aiBoundIdx[2] = { <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(afBoundFreqs[0], (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>)) + 1,</div>
-<div class="line"><span class="lineno">  620</span>                    <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(afBoundFreqs[1], (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>)) };</div>
-<div class="line"><span class="lineno">  621</span> </div>
-<div class="line"><span class="lineno">  622</span>                <span class="comment">// set transfer function</span></div>
-<div class="line"><span class="lineno">  623</span>                <a class="code hl_function" href="a00363.html#a35da686af8fe05cbd3681dc8ee9ea093">CVectorFloat::setValue</a>(&amp;<a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>[p][aiBoundIdx[0]], 1.F / (aiBoundIdx[1] - aiBoundIdx[0] + 1), aiBoundIdx[1] - aiBoundIdx[0] + 1);</div>
-<div class="line"><span class="lineno">  624</span> </div>
-<div class="line"><span class="lineno">  625</span>                <span class="comment">// proceed to next octave</span></div>
-<div class="line"><span class="lineno">  626</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 2; i++)</div>
-<div class="line"><span class="lineno">  627</span>                    afBoundFreqs[i] *= 2.F;</div>
-<div class="line"><span class="lineno">  628</span>            }</div>
-<div class="line"><span class="lineno">  629</span> </div>
-<div class="line"><span class="lineno">  630</span>            <span class="comment">// proceed to next pitch class</span></div>
-<div class="line"><span class="lineno">  631</span>            fMid *= fQuarterToneRatio * fQuarterToneRatio;</div>
-<div class="line"><span class="lineno">  632</span>        }</div>
-<div class="line"><span class="lineno">  633</span>    }</div>
-<div class="ttc" id="aa00239_html_a775238351566f33d88f8b5a4b01792c2"><div class="ttname"><a href="a00239.html#a775238351566f33d88f8b5a4b01792c2">CFeatureSpectralPitchChroma::m_iNumOctaves</a></div><div class="ttdeci">int m_iNumOctaves</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00638">FeatureFromBlock.cpp:638</a></div></div>
-<div class="ttc" id="aa00239_html_afed3f9bf0d871cd19bcb9a936b9343d8"><div class="ttname"><a href="a00239.html#afed3f9bf0d871cd19bcb9a936b9343d8">CFeatureSpectralPitchChroma::m_fA4</a></div><div class="ttdeci">const float m_fA4</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00637">FeatureFromBlock.cpp:637</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00575">575</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  576</span>    {</div>
+<div class="line"><span class="lineno">  577</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> fStartPitch = 60; <span class="comment">//!&lt; C4</span></div>
+<div class="line"><span class="lineno">  578</span>        <span class="keywordtype">float</span> fMid = <a class="code hl_function" href="a00391.html#a3461898be6be7ae7059904860f5231e1">CConversion::convertMidi2Freq</a>(fStartPitch, <a class="code hl_variable" href="a00239.html#afed3f9bf0d871cd19bcb9a936b9343d8">m_fA4</a>);</div>
+<div class="line"><span class="lineno">  579</span> </div>
+<div class="line"><span class="lineno">  580</span>        <span class="comment">//sanity check: reduce number of octaves if highest freq is higher than half fs</span></div>
+<div class="line"><span class="lineno">  581</span>        <span class="keywordflow">while</span> (fMid * std::exp2(<a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a>) &gt; <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a> / 2)</div>
+<div class="line"><span class="lineno">  582</span>            <a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a>--;</div>
+<div class="line"><span class="lineno">  583</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a> &lt;= 0)</div>
+<div class="line"><span class="lineno">  584</span>            <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  585</span> </div>
+<div class="line"><span class="lineno">  586</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>; p++)</div>
+<div class="line"><span class="lineno">  587</span>        {</div>
+<div class="line"><span class="lineno">  588</span>            <span class="keyword">const</span> <span class="keywordtype">float</span> fQuarterToneRatio = 1.02930223664349F;</div>
+<div class="line"><span class="lineno">  589</span>            <span class="keywordtype">float</span> afBoundFreqs[2] = { fMid / fQuarterToneRatio,</div>
+<div class="line"><span class="lineno">  590</span>                fMid * fQuarterToneRatio };</div>
+<div class="line"><span class="lineno">  591</span> </div>
+<div class="line"><span class="lineno">  592</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> o = 0; o &lt; <a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a>; o++)</div>
+<div class="line"><span class="lineno">  593</span>            {</div>
+<div class="line"><span class="lineno">  594</span>                <span class="comment">// get indices from freqs</span></div>
+<div class="line"><span class="lineno">  595</span>                <span class="keyword">const</span> <span class="keywordtype">int</span> aiBoundIdx[2] = { <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(afBoundFreqs[0], (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>)) + 1,</div>
+<div class="line"><span class="lineno">  596</span>                    <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(afBoundFreqs[1], (<a class="code hl_variable" href="a00327.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> - 1) * 2, <a class="code hl_variable" href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>)) };</div>
+<div class="line"><span class="lineno">  597</span> </div>
+<div class="line"><span class="lineno">  598</span>                <span class="comment">// set transfer function</span></div>
+<div class="line"><span class="lineno">  599</span>                <a class="code hl_function" href="a00363.html#a35da686af8fe05cbd3681dc8ee9ea093">CVectorFloat::setValue</a>(&amp;<a class="code hl_variable" href="a00239.html#a8fbd2f0b1785563f6aceb78c067718c0">m_ppfH</a>[p][aiBoundIdx[0]], 1.F / (aiBoundIdx[1] - aiBoundIdx[0] + 1), <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(aiBoundIdx[1]) - aiBoundIdx[0] + 1);</div>
+<div class="line"><span class="lineno">  600</span> </div>
+<div class="line"><span class="lineno">  601</span>                <span class="comment">// proceed to next octave</span></div>
+<div class="line"><span class="lineno">  602</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; 2; i++)</div>
+<div class="line"><span class="lineno">  603</span>                    afBoundFreqs[i] *= 2.F;</div>
+<div class="line"><span class="lineno">  604</span>            }</div>
+<div class="line"><span class="lineno">  605</span> </div>
+<div class="line"><span class="lineno">  606</span>            <span class="comment">// proceed to next pitch class</span></div>
+<div class="line"><span class="lineno">  607</span>            fMid *= fQuarterToneRatio * fQuarterToneRatio;</div>
+<div class="line"><span class="lineno">  608</span>        }</div>
+<div class="line"><span class="lineno">  609</span>    }</div>
+<div class="ttc" id="aa00239_html_a775238351566f33d88f8b5a4b01792c2"><div class="ttname"><a href="a00239.html#a775238351566f33d88f8b5a4b01792c2">CFeatureSpectralPitchChroma::m_iNumOctaves</a></div><div class="ttdeci">int m_iNumOctaves</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00614">FeatureFromBlock.cpp:614</a></div></div>
+<div class="ttc" id="aa00239_html_afed3f9bf0d871cd19bcb9a936b9343d8"><div class="ttname"><a href="a00239.html#afed3f9bf0d871cd19bcb9a936b9343d8">CFeatureSpectralPitchChroma::m_fA4</a></div><div class="ttdeci">const float m_fA4</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00613">FeatureFromBlock.cpp:613</a></div></div>
 <div class="ttc" id="aa00327_html_a75ac4ef94667058662a8100bb1c1e1cd"><div class="ttname"><a href="a00327.html#a75ac4ef94667058662a8100bb1c1e1cd">CFeatureFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00098">FeatureFromBlock.h:98</a></div></div>
 <div class="ttc" id="aa00363_html_a35da686af8fe05cbd3681dc8ee9ea093"><div class="ttname"><a href="a00363.html#a35da686af8fe05cbd3681dc8ee9ea093">CVectorFloat::setValue</a></div><div class="ttdeci">static void setValue(float *pfDest, float fValue, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00240">Vector.h:240</a></div></div>
 <div class="ttc" id="aa00391_html_a3461898be6be7ae7059904860f5231e1"><div class="ttname"><a href="a00391.html#a3461898be6be7ae7059904860f5231e1">CConversion::convertMidi2Freq</a></div><div class="ttdeci">static float convertMidi2Freq(float fMidi, float fA4InHz=440.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00137">ToolConversion.h:137</a></div></div>
 <div class="ttc" id="aa00391_html_ada82d84a69f4c77266835f1f06ca2ecb"><div class="ttname"><a href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a></div><div class="ttdeci">static float convertFreq2Bin(float fInHz, int iFftLength, float fSampleRate=44100.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00169">ToolConversion.h:169</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00128_source.html#l00169">CConversion::convertFreq2Bin()</a>, <a class="el" href="a00128_source.html#l00137">CConversion::convertMidi2Freq()</a>, <a class="el" href="a00038_source.html#l00637">m_fA4</a>, <a class="el" href="a00107_source.html#l00098">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00638">m_iNumOctaves</a>, <a class="el" href="a00038_source.html#l00635">m_iNumPitchClasses</a>, <a class="el" href="a00038_source.html#l00640">m_ppfH</a>, and <a class="el" href="a00086_source.html#l00240">CVectorFloat::setValue()</a>.</p>
+<p class="reference">References <a class="el" href="a00128_source.html#l00169">CConversion::convertFreq2Bin()</a>, <a class="el" href="a00128_source.html#l00137">CConversion::convertMidi2Freq()</a>, <a class="el" href="a00038_source.html#l00613">m_fA4</a>, <a class="el" href="a00107_source.html#l00098">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00107_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.html#l00614">m_iNumOctaves</a>, <a class="el" href="a00038_source.html#l00611">m_iNumPitchClasses</a>, <a class="el" href="a00038_source.html#l00616">m_ppfH</a>, and <a class="el" href="a00086_source.html#l00240">CVectorFloat::setValue()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00526">CFeatureSpectralPitchChroma()</a>, and <a class="el" href="a00038_source.html#l00582">setAdditionalParam()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00510">CFeatureSpectralPitchChroma()</a>, and <a class="el" href="a00038_source.html#l00558">setAdditionalParam()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -569,12 +574,12 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00327.html#a8bf822f58aa66fc4787c5528352575c0">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00572">572</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  573</span>    {</div>
-<div class="line"><span class="lineno">  574</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>;</div>
-<div class="line"><span class="lineno">  575</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00548">548</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  549</span>    {</div>
+<div class="line"><span class="lineno">  550</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00239.html#a143343cbcd9f206e5c22a9af056c5d66">m_iNumPitchClasses</a>;</div>
+<div class="line"><span class="lineno">  551</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00635">m_iNumPitchClasses</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00611">m_iNumPitchClasses</a>.</p>
 
 </div>
 </div>
@@ -604,10 +609,10 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00327.html#a41daabd1afa9c2307c64b431fcf8da62">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00577">577</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  578</span>    {</div>
-<div class="line"><span class="lineno">  579</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  580</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00553">553</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  554</span>    {</div>
+<div class="line"><span class="lineno">  555</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  556</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -670,21 +675,21 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00327.html#a7f3f62f3787b0ddc4c8938f5d54170af">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00582">582</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  583</span>    {</div>
-<div class="line"><span class="lineno">  584</span>        <span class="keywordflow">if</span> (fParamValue &lt;= 0)</div>
-<div class="line"><span class="lineno">  585</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  586</span> </div>
-<div class="line"><span class="lineno">  587</span>        <a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a> = CUtil::float2int&lt;int&gt;(fParamValue);</div>
-<div class="line"><span class="lineno">  588</span> </div>
-<div class="line"><span class="lineno">  589</span>        <span class="comment">// recompute transformation matrix</span></div>
-<div class="line"><span class="lineno">  590</span>        <a class="code hl_function" href="a00239.html#a88b4352ab8251a177a5351c638ad5b3c">genPcFilters_</a>();</div>
-<div class="line"><span class="lineno">  591</span> </div>
-<div class="line"><span class="lineno">  592</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  593</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00558">558</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  559</span>    {</div>
+<div class="line"><span class="lineno">  560</span>        <span class="keywordflow">if</span> (fParamValue &lt;= 0)</div>
+<div class="line"><span class="lineno">  561</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  562</span> </div>
+<div class="line"><span class="lineno">  563</span>        <a class="code hl_variable" href="a00239.html#a775238351566f33d88f8b5a4b01792c2">m_iNumOctaves</a> = CUtil::float2int&lt;int&gt;(fParamValue);</div>
+<div class="line"><span class="lineno">  564</span> </div>
+<div class="line"><span class="lineno">  565</span>        <span class="comment">// recompute transformation matrix</span></div>
+<div class="line"><span class="lineno">  566</span>        <a class="code hl_function" href="a00239.html#a88b4352ab8251a177a5351c638ad5b3c">genPcFilters_</a>();</div>
+<div class="line"><span class="lineno">  567</span> </div>
+<div class="line"><span class="lineno">  568</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  569</span>    }</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00599">genPcFilters_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, and <a class="el" href="a00038_source.html#l00638">m_iNumOctaves</a>.</p>
+<p class="reference">References <a class="el" href="a00038_source.html#l00575">genPcFilters_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, and <a class="el" href="a00038_source.html#l00614">m_iNumOctaves</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -721,9 +726,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00637">637</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00613">613</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00599">genPcFilters_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00575">genPcFilters_()</a>.</p>
 
 </div>
 </div>
@@ -747,9 +752,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00638">638</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00614">614</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00599">genPcFilters_()</a>, and <a class="el" href="a00038_source.html#l00582">setAdditionalParam()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00575">genPcFilters_()</a>, and <a class="el" href="a00038_source.html#l00558">setAdditionalParam()</a>.</p>
 
 </div>
 </div>
@@ -773,9 +778,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00635">635</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00611">611</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00526">CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00038_source.html#l00547">compFeature()</a>, <a class="el" href="a00038_source.html#l00599">genPcFilters_()</a>, <a class="el" href="a00038_source.html#l00572">getFeatureDimensions()</a>, and <a class="el" href="a00038_source.html#l00539">~CFeatureSpectralPitchChroma()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00510">CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00038_source.html#l00523">compFeature()</a>, <a class="el" href="a00038_source.html#l00575">genPcFilters_()</a>, <a class="el" href="a00038_source.html#l00548">getFeatureDimensions()</a>, and <a class="el" href="a00038_source.html#l00518">~CFeatureSpectralPitchChroma()</a>.</p>
 
 </div>
 </div>
@@ -799,9 +804,9 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00640">640</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00616">616</a> of file <a class="el" href="a00038_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00526">CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00038_source.html#l00547">compFeature()</a>, <a class="el" href="a00038_source.html#l00599">genPcFilters_()</a>, and <a class="el" href="a00038_source.html#l00539">~CFeatureSpectralPitchChroma()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00510">CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00038_source.html#l00523">compFeature()</a>, <a class="el" href="a00038_source.html#l00575">genPcFilters_()</a>, and <a class="el" href="a00038_source.html#l00518">~CFeatureSpectralPitchChroma()</a>.</p>
 
 </div>
 </div>
@@ -811,7 +816,7 @@ Here is the call graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

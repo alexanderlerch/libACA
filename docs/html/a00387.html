@@ -182,9 +182,9 @@ Private Attributes</h2></td></tr>
 <div class="line"><span class="lineno">   16</span> </div>
 <div class="line"><span class="lineno">   17</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>;</div>
 <div class="line"><span class="lineno">   18</span>}</div>
-<div class="ttc" id="aa00387_html_a6edce7be75bf0b89dcc4a20e491ad8d8"><div class="ttname"><a href="a00387.html#a6edce7be75bf0b89dcc4a20e491ad8d8">CCcf::reset</a></div><div class="ttdeci">Error_t reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00047_source.html#l00047">ToolCcf.cpp:47</a></div></div>
+<div class="ttc" id="aa00387_html_a6edce7be75bf0b89dcc4a20e491ad8d8"><div class="ttname"><a href="a00387.html#a6edce7be75bf0b89dcc4a20e491ad8d8">CCcf::reset</a></div><div class="ttdeci">Error_t reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00047_source.html#l00044">ToolCcf.cpp:44</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00116_source.html#l00071">m_pCFft</a>, and <a class="el" href="a00047_source.html#l00047">reset()</a>.</p>
+<p class="reference">References <a class="el" href="a00116_source.html#l00071">m_pCFft</a>, and <a class="el" href="a00047_source.html#l00044">reset()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -192,8 +192,9 @@ Here is the call graph for this function:</div>
 <map name="aa00387_add051d7bf13a84ed1fa5e18627e5e2b9_cgraph" id="aa00387_add051d7bf13a84ed1fa5e18627e5e2b9_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,99,32"/>
 <area shape="rect" href="a00387.html#a6edce7be75bf0b89dcc4a20e491ad8d8" title=" " alt="" coords="147,5,233,32"/>
-<area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="281,5,364,32"/>
-<area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="412,5,540,32"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="588,5,685,32"/>
+<area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="281,31,364,57"/>
+<area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="412,31,540,57"/>
 </map>
 </div>
 
@@ -270,46 +271,46 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00066">66</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>{</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">if</span> (!pfInput1 || !pfInput2)</div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;   </div>
-<div class="line"><span class="lineno">   70</span> </div>
-<div class="line"><span class="lineno">   71</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a>)</div>
-<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
-<div class="line"><span class="lineno">   73</span>    </div>
-<div class="line"><span class="lineno">   74</span>    <span class="comment">// extract standard deviation for normalization</span></div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordtype">float</span> afStd[2] = { 1.F, 1.F };</div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">if</span> (bNormalize)</div>
-<div class="line"><span class="lineno">   77</span>    {</div>
-<div class="line"><span class="lineno">   78</span>        <span class="keywordtype">float</span> fPower = std::sqrt(<a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(pfInput1, pfInput1, <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a>));</div>
-<div class="line"><span class="lineno">   79</span>        afStd[0] = fPower &gt; 0 ? fPower : 1.F;</div>
-<div class="line"><span class="lineno">   80</span>        fPower = std::sqrt(<a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(pfInput2, pfInput2, <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a>));</div>
-<div class="line"><span class="lineno">   81</span>        afStd[1] = fPower &gt; 0 ? fPower : 1.F;</div>
-<div class="line"><span class="lineno">   82</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00062">62</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{</div>
+<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (!pfInput1 || !pfInput2)</div>
+<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;   </div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">   69</span>    </div>
+<div class="line"><span class="lineno">   70</span>    <span class="comment">// extract standard deviation for normalization</span></div>
+<div class="line"><span class="lineno">   71</span>    <span class="keywordtype">float</span> afStd[2] = { 1.F, 1.F };</div>
+<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">if</span> (bNormalize)</div>
+<div class="line"><span class="lineno">   73</span>    {</div>
+<div class="line"><span class="lineno">   74</span>        <span class="keywordtype">float</span> fPower = std::sqrt(<a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(pfInput1, pfInput1, <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a>));</div>
+<div class="line"><span class="lineno">   75</span>        afStd[0] = fPower &gt; 0 ? fPower : 1.F;</div>
+<div class="line"><span class="lineno">   76</span>        fPower = std::sqrt(<a class="code hl_function" href="a00363.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(pfInput2, pfInput2, <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a>));</div>
+<div class="line"><span class="lineno">   77</span>        afStd[1] = fPower &gt; 0 ? fPower : 1.F;</div>
+<div class="line"><span class="lineno">   78</span>    }</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>    <span class="comment">// compute the FFTs</span></div>
+<div class="line"><span class="lineno">   81</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a3cae73896785c2f12ba979e15de48087">compFft</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], pfInput1);</div>
+<div class="line"><span class="lineno">   82</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a3cae73896785c2f12ba979e15de48087">compFft</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1], pfInput2);</div>
 <div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>    <span class="comment">// compute the FFTs</span></div>
-<div class="line"><span class="lineno">   85</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a3cae73896785c2f12ba979e15de48087">compFft</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], pfInput1);</div>
-<div class="line"><span class="lineno">   86</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a3cae73896785c2f12ba979e15de48087">compFft</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1], pfInput2);</div>
-<div class="line"><span class="lineno">   87</span> </div>
-<div class="line"><span class="lineno">   88</span>    <span class="comment">// conjugate complex multiply</span></div>
-<div class="line"><span class="lineno">   89</span>    <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1], <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>), <a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>);</div>
-<div class="line"><span class="lineno">   90</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#ab6245bc0fdabc5e62ab910414eb4b923">conjugate_I</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1]);</div>
-<div class="line"><span class="lineno">   91</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a1d114960d5fc8ff4c328732adf638885">multiply_I</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1]);</div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>    <span class="comment">// normalization</span></div>
-<div class="line"><span class="lineno">   94</span>    <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], 1.F / (afStd[0] * afStd[1]), <a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>);</div>
-<div class="line"><span class="lineno">   95</span> </div>
-<div class="line"><span class="lineno">   96</span>    <span class="comment">// inverse Fft</span></div>
-<div class="line"><span class="lineno">   97</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a2d2fa880b32c7087973ed25628002129">compInvFft</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0]);</div>
+<div class="line"><span class="lineno">   84</span>    <span class="comment">// conjugate complex multiply</span></div>
+<div class="line"><span class="lineno">   85</span>    <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1], <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>), <a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>);</div>
+<div class="line"><span class="lineno">   86</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#ab6245bc0fdabc5e62ab910414eb4b923">conjugate_I</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1]);</div>
+<div class="line"><span class="lineno">   87</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a1d114960d5fc8ff4c328732adf638885">multiply_I</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1]);</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>    <span class="comment">// normalization</span></div>
+<div class="line"><span class="lineno">   90</span>    <a class="code hl_function" href="a00363.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], 1.F / (afStd[0] * afStd[1]), <a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>);</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>    <span class="comment">// inverse Fft</span></div>
+<div class="line"><span class="lineno">   93</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a2d2fa880b32c7087973ed25628002129">compInvFft</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0]);</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>    <span class="comment">// copy results</span></div>
+<div class="line"><span class="lineno">   96</span>    <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1], &amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0][<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>) - <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> + 1], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a>) - 1);</div>
+<div class="line"><span class="lineno">   97</span>    <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(&amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1][<a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1], <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a>);</div>
 <div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>    <span class="comment">// copy results</span></div>
-<div class="line"><span class="lineno">  100</span>    <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1], &amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0][<a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a> - <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> + 1], <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1);</div>
-<div class="line"><span class="lineno">  101</span>    <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(&amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1][<a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1], <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a>);</div>
-<div class="line"><span class="lineno">  102</span> </div>
-<div class="line"><span class="lineno">  103</span>    <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  105</span>}</div>
+<div class="line"><span class="lineno">   99</span>    <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  100</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  101</span>}</div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
 <div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
@@ -328,7 +329,7 @@ Here is the call graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00041_source.html#l00097">CFft::compFft()</a>, <a class="el" href="a00041_source.html#l00121">CFft::compInvFft()</a>, <a class="el" href="a00041_source.html#l00232">CFft::conjugate_I()</a>, <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00116_source.html#l00070">m_apfData</a>, <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, <a class="el" href="a00116_source.html#l00068">m_bWasProcessed</a>, <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>, <a class="el" href="a00116_source.html#l00074">m_iFftLength</a>, <a class="el" href="a00116_source.html#l00071">m_pCFft</a>, <a class="el" href="a00086_source.html#l00255">CVectorFloat::mulC_I()</a>, <a class="el" href="a00086_source.html#l00286">CVectorFloat::mulScalar()</a>, and <a class="el" href="a00041_source.html#l00238">CFft::multiply_I()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, and <a class="el" href="a00038_source.html#l00768">CFeatureTimeMaxAcf::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, and <a class="el" href="a00038_source.html#l00743">CFeatureTimeMaxAcf::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -398,22 +399,22 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00115">115</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  116</span>{</div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">if</span> (!(<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> &amp;&amp; <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a>))</div>
-<div class="line"><span class="lineno">  118</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">if</span> (!pfCcfResult)</div>
-<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>    <span class="keywordtype">int</span> iStartIdx = bIsAcf ? <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 : 0;</div>
-<div class="line"><span class="lineno">  123</span>    <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfCcfResult, &amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1][iStartIdx], 2 * <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 - iStartIdx);</div>
-<div class="line"><span class="lineno">  124</span> </div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  126</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00111">111</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>{</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">if</span> (!(<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> &amp;&amp; <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a>))</div>
+<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">if</span> (!pfCcfResult)</div>
+<div class="line"><span class="lineno">  116</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="keywordtype">int</span> iStartIdx = bIsAcf ? <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 : 0;</div>
+<div class="line"><span class="lineno">  119</span>    <a class="code hl_function" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e">CVectorFloat::copy</a>(pfCcfResult, &amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1][iStartIdx], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(2) * <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 - iStartIdx);</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  122</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00207">CVectorFloat::copy()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00116_source.html#l00070">m_apfData</a>, <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, <a class="el" href="a00116_source.html#l00068">m_bWasProcessed</a>, and <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, and <a class="el" href="a00038_source.html#l00768">CFeatureTimeMaxAcf::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, and <a class="el" href="a00038_source.html#l00743">CFeatureTimeMaxAcf::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -455,17 +456,17 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p >returns the length of the CCF result </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00107">107</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  108</span>{</div>
-<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a>)</div>
-<div class="line"><span class="lineno">  110</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  111</span> </div>
-<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">return</span> bIsAcf ? <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> : 2 * <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1;</div>
-<div class="line"><span class="lineno">  113</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00103">103</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  104</span>{</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">return</span> bIsAcf ? <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> : 2 * <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1;</div>
+<div class="line"><span class="lineno">  109</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, and <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00751">CFeatureTimeMaxAcf::CFeatureTimeMaxAcf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00727">CFeatureTimeMaxAcf::CFeatureTimeMaxAcf()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -501,14 +502,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00128">128</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  129</span>{</div>
-<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (!(<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> &amp;&amp; <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a>))</div>
-<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">return</span> -1.F;</div>
-<div class="line"><span class="lineno">  132</span> </div>
-<div class="line"><span class="lineno">  133</span>    <span class="keywordtype">int</span> iStartIdx = bIsAcf ? <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 : 0;</div>
-<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(&amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1][iStartIdx], 2 * <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 - iStartIdx);</div>
-<div class="line"><span class="lineno">  135</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00124">124</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  125</span>{</div>
+<div class="line"><span class="lineno">  126</span>    <span class="keywordflow">if</span> (!(<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> &amp;&amp; <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a>))</div>
+<div class="line"><span class="lineno">  127</span>        <span class="keywordflow">return</span> -1.F;</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>    <span class="keywordtype">int</span> iStartIdx = bIsAcf ? <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 : 0;</div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(&amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1][iStartIdx], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(2) * <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 - iStartIdx);</div>
+<div class="line"><span class="lineno">  131</span>}</div>
 <div class="ttc" id="aa00363_html_a8279b309edcfcac51d94b1e8f206a330"><div class="ttname"><a href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a></div><div class="ttdeci">static float getMax(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00496">Vector.h:496</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00496">CVectorFloat::getMax()</a>, <a class="el" href="a00116_source.html#l00070">m_apfData</a>, <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, <a class="el" href="a00116_source.html#l00068">m_bWasProcessed</a>, and <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>.</p>
@@ -548,18 +549,18 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00137">137</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  138</span>{</div>
-<div class="line"><span class="lineno">  139</span>    <span class="keywordflow">if</span> (!(<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> &amp;&amp; <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a>))</div>
-<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">  141</span>    <span class="keywordtype">float</span> fMax = -1.F;</div>
-<div class="line"><span class="lineno">  142</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iMax = -1;</div>
-<div class="line"><span class="lineno">  143</span>    <span class="keywordtype">int</span> iStartIdx = bIsAcf ? <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 : 0;</div>
-<div class="line"><span class="lineno">  144</span>    </div>
-<div class="line"><span class="lineno">  145</span>    <a class="code hl_function" href="a00363.html#a66a451d1a0992e33a73c01b09566eea0">CVectorFloat::findMax</a>(&amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1][iStartIdx], fMax, iMax, 2 * <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 - iStartIdx);</div>
-<div class="line"><span class="lineno">  146</span> </div>
-<div class="line"><span class="lineno">  147</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(iMax);</div>
-<div class="line"><span class="lineno">  148</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00133">133</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  134</span>{</div>
+<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">if</span> (!(<a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> &amp;&amp; <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a>))</div>
+<div class="line"><span class="lineno">  136</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">  137</span>    <span class="keywordtype">float</span> fMax = -1.F;</div>
+<div class="line"><span class="lineno">  138</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iMax = -1;</div>
+<div class="line"><span class="lineno">  139</span>    <span class="keywordtype">int</span> iStartIdx = bIsAcf ? <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 : 0;</div>
+<div class="line"><span class="lineno">  140</span>    </div>
+<div class="line"><span class="lineno">  141</span>    <a class="code hl_function" href="a00363.html#a66a451d1a0992e33a73c01b09566eea0">CVectorFloat::findMax</a>(&amp;<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[1][iStartIdx], fMax, iMax, <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(2) * <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> - 1 - iStartIdx);</div>
+<div class="line"><span class="lineno">  142</span> </div>
+<div class="line"><span class="lineno">  143</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(iMax);</div>
+<div class="line"><span class="lineno">  144</span>}</div>
 <div class="ttc" id="aa00363_html_a66a451d1a0992e33a73c01b09566eea0"><div class="ttname"><a href="a00363.html#a66a451d1a0992e33a73c01b09566eea0">CVectorFloat::findMax</a></div><div class="ttdeci">static void findMax(const float *pfSrc, float &amp;fMax, long long &amp;iMax, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00565">Vector.h:565</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00086_source.html#l00565">CVectorFloat::findMax()</a>, <a class="el" href="a00116_source.html#l00070">m_apfData</a>, <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, <a class="el" href="a00116_source.html#l00068">m_bWasProcessed</a>, and <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>.</p>
@@ -615,41 +616,39 @@ Here is the call graph for this function:</div>
 <div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#adea9b0cecccfdb5a3da3218da6f683dd">init</a>(<a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a>, 2, <a class="code hl_enumvalue" href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84a197866057d0b408d209e05c687389a07">CFft::kWindowHann</a>, <a class="code hl_enumvalue" href="a00331.html#a76d891ae674880a00dc09d0d86aff31ea5535e62c1ffea869f26081217ac36614">CFft::kNoWindow</a>);</div>
 <div class="line"><span class="lineno">   35</span> </div>
 <div class="line"><span class="lineno">   36</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 2; j++)</div>
-<div class="line"><span class="lineno">   37</span>    {</div>
-<div class="line"><span class="lineno">   38</span>        <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[j] = <span class="keyword">new</span> <span class="keywordtype">float</span>[<a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>];</div>
-<div class="line"><span class="lineno">   39</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[0], <a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>);</div>
-<div class="line"><span class="lineno">   40</span>    }</div>
-<div class="line"><span class="lineno">   41</span> </div>
-<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   43</span> </div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   45</span>}</div>
+<div class="line"><span class="lineno">   37</span>        <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[j], <a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a>);</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   42</span>}</div>
 <div class="ttc" id="aa00331_html_a76d891ae674880a00dc09d0d86aff31ea5535e62c1ffea869f26081217ac36614"><div class="ttname"><a href="a00331.html#a76d891ae674880a00dc09d0d86aff31ea5535e62c1ffea869f26081217ac36614">CFft::kNoWindow</a></div><div class="ttdeci">@ kNoWindow</div><div class="ttdoc">do not apply any window</div><div class="ttdef"><b>Definition:</b> <a href="a00089_source.html#l00025">Fft.h:25</a></div></div>
 <div class="ttc" id="aa00331_html_a8eb1a5f3e9aaca08421479d2438dac84a197866057d0b408d209e05c687389a07"><div class="ttname"><a href="a00331.html#a8eb1a5f3e9aaca08421479d2438dac84a197866057d0b408d209e05c687389a07">CFft::kWindowHann</a></div><div class="ttdeci">@ kWindowHann</div><div class="ttdoc">von-Hann window</div><div class="ttdef"><b>Definition:</b> <a href="a00089_source.html#l00018">Fft.h:18</a></div></div>
 <div class="ttc" id="aa00331_html_adea9b0cecccfdb5a3da3218da6f683dd"><div class="ttname"><a href="a00331.html#adea9b0cecccfdb5a3da3218da6f683dd">CFft::init</a></div><div class="ttdeci">Error_t init(int iBlockLength, int iZeroPadFactor=1, WindowFunction_t eWindow=kWindowHann, Windowing_t eWindowing=kPreWindow)</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00030">Fft.cpp:30</a></div></div>
 <div class="ttc" id="aa00355_html_a0fd55429d52515a9efb2fe602ce8f9ed"><div class="ttname"><a href="a00355.html#a0fd55429d52515a9efb2fe602ce8f9ed">CUtil::nextPowOf2</a></div><div class="ttdeci">static int nextPowOf2(int n)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00051">Util.h:51</a></div></div>
 <div class="ttc" id="aa00355_html_a6d0e75b0bcbbb243b7141cfc0126e443"><div class="ttname"><a href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443">CUtil::isPowOf2</a></div><div class="ttdeci">static bool isPowOf2(int n)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00042">Util.h:42</a></div></div>
-<div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
+<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00041_source.html#l00030">CFft::init()</a>, <a class="el" href="a00080_source.html#l00042">CUtil::isPowOf2()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00025">CFft::kNoWindow</a>, <a class="el" href="a00089_source.html#l00018">CFft::kWindowHann</a>, <a class="el" href="a00116_source.html#l00070">m_apfData</a>, <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>, <a class="el" href="a00116_source.html#l00074">m_iFftLength</a>, <a class="el" href="a00116_source.html#l00071">m_pCFft</a>, <a class="el" href="a00080_source.html#l00051">CUtil::nextPowOf2()</a>, <a class="el" href="a00047_source.html#l00047">reset()</a>, and <a class="el" href="a00086_source.html#l00185">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00041_source.html#l00030">CFft::init()</a>, <a class="el" href="a00080_source.html#l00042">CUtil::isPowOf2()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00089_source.html#l00025">CFft::kNoWindow</a>, <a class="el" href="a00089_source.html#l00018">CFft::kWindowHann</a>, <a class="el" href="a00116_source.html#l00070">m_apfData</a>, <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>, <a class="el" href="a00116_source.html#l00074">m_iFftLength</a>, <a class="el" href="a00116_source.html#l00071">m_pCFft</a>, <a class="el" href="a00080_source.html#l00051">CUtil::nextPowOf2()</a>, and <a class="el" href="a00047_source.html#l00044">reset()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00751">CFeatureTimeMaxAcf::CFeatureTimeMaxAcf()</a>, and <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.html#l00727">CFeatureTimeMaxAcf::CFeatureTimeMaxAcf()</a>, and <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00387_af683b1b5e37ca2039424af02f4bfb3c5_cgraph.png" border="0" usemap="#aa00387_af683b1b5e37ca2039424af02f4bfb3c5_cgraph" alt=""/></div>
 <map name="aa00387_af683b1b5e37ca2039424af02f4bfb3c5_cgraph" id="aa00387_af683b1b5e37ca2039424af02f4bfb3c5_cgraph">
-<area shape="rect" title=" " alt="" coords="5,157,80,184"/>
-<area shape="rect" href="a00331.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="167,107,237,133"/>
-<area shape="rect" href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="345,5,459,32"/>
-<area shape="rect" href="a00355.html#a0fd55429d52515a9efb2fe602ce8f9ed" title=" " alt="" coords="338,157,466,184"/>
-<area shape="rect" href="a00387.html#a6edce7be75bf0b89dcc4a20e491ad8d8" title=" " alt="" coords="159,208,245,235"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="128,259,276,285"/>
-<area shape="rect" href="a00331.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="335,56,469,83"/>
-<area shape="rect" href="a00331.html#aa5fffd68919cea17741c9fe69209bce6" title=" " alt="" coords="324,107,480,133"/>
-<area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="361,208,443,235"/>
-<area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="528,208,656,235"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="343,259,461,285"/>
+<area shape="rect" title=" " alt="" coords="5,130,80,157"/>
+<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="479,54,582,81"/>
+<area shape="rect" href="a00331.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="136,130,207,157"/>
+<area shape="rect" href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="283,29,398,55"/>
+<area shape="rect" href="a00355.html#a0fd55429d52515a9efb2fe602ce8f9ed" title=" " alt="" coords="277,181,405,207"/>
+<area shape="rect" href="a00387.html#a6edce7be75bf0b89dcc4a20e491ad8d8" title=" " alt="" coords="128,231,215,258"/>
+<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="643,54,761,81"/>
+<area shape="rect" href="a00331.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="274,130,407,157"/>
+<area shape="rect" href="a00331.html#aa5fffd68919cea17741c9fe69209bce6" title=" " alt="" coords="263,79,419,106"/>
+<area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="299,231,382,258"/>
+<area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="467,231,595,258"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="653,257,751,283"/>
 </map>
 </div>
 <div class="dynheader">
@@ -708,27 +707,27 @@ Here is the caller graph for this function:</div>
 </div><div class="memdoc">
 <p >resets all internal class members </p><dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00047">47</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   48</span>{</div>
-<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   51</span> </div>
-<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a0a0053b6ce93161553b573a16c77387a">reset</a>();</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 2; j++)</div>
-<div class="line"><span class="lineno">   55</span>    {</div>
-<div class="line"><span class="lineno">   56</span>        <span class="keyword">delete</span> [] <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[j];</div>
-<div class="line"><span class="lineno">   57</span>        <a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[j] = 0;</div>
-<div class="line"><span class="lineno">   58</span>    }</div>
-<div class="line"><span class="lineno">   59</span>    </div>
-<div class="line"><span class="lineno">   60</span>    <a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a> = 0;</div>
-<div class="line"><span class="lineno">   61</span>    <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> = 0;</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   64</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00047_source.html#l00044">44</a> of file <a class="el" href="a00047_source.html">ToolCcf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="a00387.html#a245d68ee43cdd28bab6701bf0d6b3974">m_bWasProcessed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="a00387.html#a9dd23e9688d57262ae7b7b8d03a4c918">m_bIsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_variable" href="a00387.html#a8474a655b6e148c237aa7ba9ecee7d47">m_pCFft</a>-&gt;<a class="code hl_function" href="a00331.html#a0a0053b6ce93161553b573a16c77387a">reset</a>();</div>
+<div class="line"><span class="lineno">   50</span> </div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; 2; j++)</div>
+<div class="line"><span class="lineno">   52</span>    {</div>
+<div class="line"><span class="lineno">   53</span>        <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00387.html#aa8cad7d3e5fa2685d3504ab813cc2ce7">m_apfData</a>[j]);</div>
+<div class="line"><span class="lineno">   54</span>    }</div>
+<div class="line"><span class="lineno">   55</span>    </div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_variable" href="a00387.html#a3172706be7e3ec2182b40669ef468c00">m_iFftLength</a> = 0;</div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="a00387.html#aa3513c5e5bfa407a3d9f09f5775696a5">m_iBlockLength</a> = 0;</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   60</span>}</div>
 <div class="ttc" id="aa00331_html_a0a0053b6ce93161553b573a16c77387a"><div class="ttname"><a href="a00331.html#a0a0053b6ce93161553b573a16c77387a">CFft::reset</a></div><div class="ttdeci">Error_t reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00059">Fft.cpp:59</a></div></div>
+<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00116_source.html#l00070">m_apfData</a>, <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, <a class="el" href="a00116_source.html#l00068">m_bWasProcessed</a>, <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>, <a class="el" href="a00116_source.html#l00074">m_iFftLength</a>, <a class="el" href="a00116_source.html#l00071">m_pCFft</a>, and <a class="el" href="a00041_source.html#l00059">CFft::reset()</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00116_source.html#l00070">m_apfData</a>, <a class="el" href="a00116_source.html#l00067">m_bIsInitialized</a>, <a class="el" href="a00116_source.html#l00068">m_bWasProcessed</a>, <a class="el" href="a00116_source.html#l00073">m_iBlockLength</a>, <a class="el" href="a00116_source.html#l00074">m_iFftLength</a>, <a class="el" href="a00116_source.html#l00071">m_pCFft</a>, and <a class="el" href="a00041_source.html#l00059">CFft::reset()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00013">~CCcf()</a>.</p>
 <div class="dynheader">
@@ -737,8 +736,9 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="a00387_a6edce7be75bf0b89dcc4a20e491ad8d8_cgraph.png" border="0" usemap="#aa00387_a6edce7be75bf0b89dcc4a20e491ad8d8_cgraph" alt=""/></div>
 <map name="aa00387_a6edce7be75bf0b89dcc4a20e491ad8d8_cgraph" id="aa00387_a6edce7be75bf0b89dcc4a20e491ad8d8_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,92,32"/>
-<area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="140,5,223,32"/>
-<area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="271,5,399,32"/>
+<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="447,5,544,32"/>
+<area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="140,31,223,57"/>
+<area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="271,31,399,57"/>
 </map>
 </div>
 <div class="dynheader">
@@ -782,7 +782,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00116_source.html#l00070">70</a> of file <a class="el" href="a00116_source.html">ToolCcf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00066">compCcf()</a>, <a class="el" href="a00047_source.html#l00115">getCcf()</a>, <a class="el" href="a00047_source.html#l00128">getCcfMax()</a>, <a class="el" href="a00047_source.html#l00137">getCcfMaxIdx()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00047">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00062">compCcf()</a>, <a class="el" href="a00047_source.html#l00111">getCcf()</a>, <a class="el" href="a00047_source.html#l00124">getCcfMax()</a>, <a class="el" href="a00047_source.html#l00133">getCcfMaxIdx()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00044">reset()</a>.</p>
 
 </div>
 </div>
@@ -810,7 +810,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00116_source.html#l00067">67</a> of file <a class="el" href="a00116_source.html">ToolCcf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00066">compCcf()</a>, <a class="el" href="a00047_source.html#l00115">getCcf()</a>, <a class="el" href="a00047_source.html#l00107">getCcfLength()</a>, <a class="el" href="a00047_source.html#l00128">getCcfMax()</a>, <a class="el" href="a00047_source.html#l00137">getCcfMaxIdx()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00047">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00062">compCcf()</a>, <a class="el" href="a00047_source.html#l00111">getCcf()</a>, <a class="el" href="a00047_source.html#l00103">getCcfLength()</a>, <a class="el" href="a00047_source.html#l00124">getCcfMax()</a>, <a class="el" href="a00047_source.html#l00133">getCcfMaxIdx()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00044">reset()</a>.</p>
 
 </div>
 </div>
@@ -838,7 +838,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00116_source.html#l00068">68</a> of file <a class="el" href="a00116_source.html">ToolCcf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00066">compCcf()</a>, <a class="el" href="a00047_source.html#l00115">getCcf()</a>, <a class="el" href="a00047_source.html#l00128">getCcfMax()</a>, <a class="el" href="a00047_source.html#l00137">getCcfMaxIdx()</a>, and <a class="el" href="a00047_source.html#l00047">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00062">compCcf()</a>, <a class="el" href="a00047_source.html#l00111">getCcf()</a>, <a class="el" href="a00047_source.html#l00124">getCcfMax()</a>, <a class="el" href="a00047_source.html#l00133">getCcfMaxIdx()</a>, and <a class="el" href="a00047_source.html#l00044">reset()</a>.</p>
 
 </div>
 </div>
@@ -866,7 +866,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00116_source.html#l00073">73</a> of file <a class="el" href="a00116_source.html">ToolCcf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00066">compCcf()</a>, <a class="el" href="a00047_source.html#l00115">getCcf()</a>, <a class="el" href="a00047_source.html#l00107">getCcfLength()</a>, <a class="el" href="a00047_source.html#l00128">getCcfMax()</a>, <a class="el" href="a00047_source.html#l00137">getCcfMaxIdx()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00047">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00062">compCcf()</a>, <a class="el" href="a00047_source.html#l00111">getCcf()</a>, <a class="el" href="a00047_source.html#l00103">getCcfLength()</a>, <a class="el" href="a00047_source.html#l00124">getCcfMax()</a>, <a class="el" href="a00047_source.html#l00133">getCcfMaxIdx()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00044">reset()</a>.</p>
 
 </div>
 </div>
@@ -894,7 +894,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00116_source.html#l00074">74</a> of file <a class="el" href="a00116_source.html">ToolCcf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00066">compCcf()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00047">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00062">compCcf()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, and <a class="el" href="a00047_source.html#l00044">reset()</a>.</p>
 
 </div>
 </div>
@@ -922,7 +922,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00116_source.html#l00071">71</a> of file <a class="el" href="a00116_source.html">ToolCcf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00008">CCcf()</a>, <a class="el" href="a00047_source.html#l00066">compCcf()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, <a class="el" href="a00047_source.html#l00047">reset()</a>, and <a class="el" href="a00047_source.html#l00013">~CCcf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00008">CCcf()</a>, <a class="el" href="a00047_source.html#l00062">compCcf()</a>, <a class="el" href="a00047_source.html#l00020">init()</a>, <a class="el" href="a00047_source.html#l00044">reset()</a>, and <a class="el" href="a00047_source.html#l00013">~CCcf()</a>.</p>
 
 </div>
 </div>
@@ -933,7 +933,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

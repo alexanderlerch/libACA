@@ -205,30 +205,30 @@
 <div class="line"><a id="l00152" name="l00152"></a><span class="lineno">  152</span>{</div>
 <div class="line"><a id="l00153" name="l00153"></a><span class="lineno">  153</span><span class="keyword">public</span>:</div>
 <div class="line"><a id="l00154" name="l00154"></a><span class="lineno">  154</span><span class="comment"></span> </div>
-<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">    /*! allocates a float buffer and inits it with zeros</span></div>
-<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment">    \param pfVec (empty pointer, to be allocated)</span></div>
-<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span><span class="comment">    \param iLength number of floats</span></div>
-<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span><span class="comment">    \return</span></div>
-<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00160" name="l00160"></a><span class="lineno"><a class="line" href="a00363.html#a377e1e1adf5e7ea77060eb039b509166">  160</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00363.html#a377e1e1adf5e7ea77060eb039b509166">alloc</a>(<span class="keywordtype">float</span>*&amp; pfVec, <span class="keywordtype">long</span> <span class="keywordtype">long</span> iLength)</div>
-<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    {</div>
-<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>        assert(iLength &gt; 0);</div>
+<div class="line"><a id="l00155" name="l00155"></a><span class="lineno">  155</span><span class="comment">    ///*! allocates a float buffer and inits it with zeros</span></div>
+<div class="line"><a id="l00156" name="l00156"></a><span class="lineno">  156</span><span class="comment"></span>    <span class="comment">//\param pfVec (empty pointer, to be allocated)</span></div>
+<div class="line"><a id="l00157" name="l00157"></a><span class="lineno">  157</span>    <span class="comment">//\param iLength number of floats</span></div>
+<div class="line"><a id="l00158" name="l00158"></a><span class="lineno">  158</span>    <span class="comment">//\return</span></div>
+<div class="line"><a id="l00159" name="l00159"></a><span class="lineno">  159</span>    <span class="comment">//*/</span></div>
+<div class="line"><a id="l00160" name="l00160"></a><span class="lineno">  160</span>    <span class="comment">//static void alloc(float*&amp; pfVec, long long iLength)</span></div>
+<div class="line"><a id="l00161" name="l00161"></a><span class="lineno">  161</span>    <span class="comment">//{</span></div>
+<div class="line"><a id="l00162" name="l00162"></a><span class="lineno">  162</span>    <span class="comment">//    assert(iLength &gt; 0);</span></div>
 <div class="line"><a id="l00163" name="l00163"></a><span class="lineno">  163</span> </div>
-<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>        pfVec = <span class="keyword">new</span> <span class="keywordtype">float</span>[iLength];</div>
+<div class="line"><a id="l00164" name="l00164"></a><span class="lineno">  164</span>    <span class="comment">//    pfVec = new float[iLength];</span></div>
 <div class="line"><a id="l00165" name="l00165"></a><span class="lineno">  165</span> </div>
-<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>        assert(pfVec);</div>
-<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>        <a class="code hl_function" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">setZero</a>(pfVec, iLength);</div>
-<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    }</div>
+<div class="line"><a id="l00166" name="l00166"></a><span class="lineno">  166</span>    <span class="comment">//    assert(pfVec);</span></div>
+<div class="line"><a id="l00167" name="l00167"></a><span class="lineno">  167</span>    <span class="comment">//    setZero(pfVec, iLength);</span></div>
+<div class="line"><a id="l00168" name="l00168"></a><span class="lineno">  168</span>    <span class="comment">//}</span></div>
 <div class="line"><a id="l00169" name="l00169"></a><span class="lineno">  169</span><span class="comment"></span> </div>
-<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">    /*! frees a float buffer and sets it to zero</span></div>
-<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment">    \param pfVec (empty pointer, to be allocated)</span></div>
-<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span><span class="comment">    \return</span></div>
-<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00174" name="l00174"></a><span class="lineno"><a class="line" href="a00363.html#a769161836788b3e3885ef91f85d579d9">  174</a></span>    <span class="keyword">static</span> <span class="keywordtype">void</span> <a class="code hl_function" href="a00363.html#a769161836788b3e3885ef91f85d579d9">free</a>(<span class="keywordtype">float</span>*&amp; pfVec)</div>
-<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    {</div>
-<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>        <span class="keyword">delete</span>[] pfVec;</div>
-<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>        pfVec = 0;</div>
-<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    }</div>
+<div class="line"><a id="l00170" name="l00170"></a><span class="lineno">  170</span><span class="comment">    ///*! frees a float buffer and sets it to zero</span></div>
+<div class="line"><a id="l00171" name="l00171"></a><span class="lineno">  171</span><span class="comment"></span>    <span class="comment">//\param pfVec (empty pointer, to be allocated)</span></div>
+<div class="line"><a id="l00172" name="l00172"></a><span class="lineno">  172</span>    <span class="comment">//\return</span></div>
+<div class="line"><a id="l00173" name="l00173"></a><span class="lineno">  173</span>    <span class="comment">//*/</span></div>
+<div class="line"><a id="l00174" name="l00174"></a><span class="lineno">  174</span>    <span class="comment">//static void free(float*&amp; pfVec)</span></div>
+<div class="line"><a id="l00175" name="l00175"></a><span class="lineno">  175</span>    <span class="comment">//{</span></div>
+<div class="line"><a id="l00176" name="l00176"></a><span class="lineno">  176</span>    <span class="comment">//    delete[] pfVec;</span></div>
+<div class="line"><a id="l00177" name="l00177"></a><span class="lineno">  177</span>    <span class="comment">//    pfVec = 0;</span></div>
+<div class="line"><a id="l00178" name="l00178"></a><span class="lineno">  178</span>    <span class="comment">//}</span></div>
 <div class="line"><a id="l00179" name="l00179"></a><span class="lineno">  179</span><span class="comment"></span> </div>
 <div class="line"><a id="l00180" name="l00180"></a><span class="lineno">  180</span><span class="comment">    /*! sets a buffer to zero</span></div>
 <div class="line"><a id="l00181" name="l00181"></a><span class="lineno">  181</span><span class="comment">    \param pfSrcDest pointer to memory to be modified</span></div>
@@ -680,14 +680,12 @@
 <div class="ttc" id="aa00363_html_a0ebcfe60eb5cda1ab45ae8157be0e64e"><div class="ttname"><a href="a00363.html#a0ebcfe60eb5cda1ab45ae8157be0e64e">CVectorFloat::getMean</a></div><div class="ttdeci">static float getMean(const float *pfSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00420">Vector.h:420</a></div></div>
 <div class="ttc" id="aa00363_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00185">Vector.h:185</a></div></div>
 <div class="ttc" id="aa00363_html_a35da686af8fe05cbd3681dc8ee9ea093"><div class="ttname"><a href="a00363.html#a35da686af8fe05cbd3681dc8ee9ea093">CVectorFloat::setValue</a></div><div class="ttdeci">static void setValue(float *pfDest, float fValue, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00240">Vector.h:240</a></div></div>
-<div class="ttc" id="aa00363_html_a377e1e1adf5e7ea77060eb039b509166"><div class="ttname"><a href="a00363.html#a377e1e1adf5e7ea77060eb039b509166">CVectorFloat::alloc</a></div><div class="ttdeci">static void alloc(float *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00160">Vector.h:160</a></div></div>
 <div class="ttc" id="aa00363_html_a46b380667a11bdeea9255e5370bd5a78"><div class="ttname"><a href="a00363.html#a46b380667a11bdeea9255e5370bd5a78">CVectorFloat::mul_I</a></div><div class="ttdeci">static void mul_I(float *pfSrcDest, const float *pfSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00270">Vector.h:270</a></div></div>
 <div class="ttc" id="aa00363_html_a4939c8901691ccaacf558dee2a2e3ea4"><div class="ttname"><a href="a00363.html#a4939c8901691ccaacf558dee2a2e3ea4">CVectorFloat::flip_I</a></div><div class="ttdeci">static void flip_I(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00217">Vector.h:217</a></div></div>
 <div class="ttc" id="aa00363_html_a538360782e08af350628af239a87ed74"><div class="ttname"><a href="a00363.html#a538360782e08af350628af239a87ed74">CVectorFloat::isEqual</a></div><div class="ttdeci">static bool isEqual(const float *pfSrc1, const float *pfSrc2, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00406">Vector.h:406</a></div></div>
 <div class="ttc" id="aa00363_html_a5c336e4bb302b1140096f2f1f1aa2ad3"><div class="ttname"><a href="a00363.html#a5c336e4bb302b1140096f2f1f1aa2ad3">CVectorFloat::getMin</a></div><div class="ttdeci">static float getMin(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00547">Vector.h:547</a></div></div>
 <div class="ttc" id="aa00363_html_a66a451d1a0992e33a73c01b09566eea0"><div class="ttname"><a href="a00363.html#a66a451d1a0992e33a73c01b09566eea0">CVectorFloat::findMax</a></div><div class="ttdeci">static void findMax(const float *pfSrc, float &amp;fMax, long long &amp;iMax, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00565">Vector.h:565</a></div></div>
 <div class="ttc" id="aa00363_html_a6dc46873ff8f2f3e2d697399f78c81c0"><div class="ttname"><a href="a00363.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a></div><div class="ttdeci">static void subW_I(float *pfSrcDest, const float *pfSrc, float fWeight, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00365">Vector.h:365</a></div></div>
-<div class="ttc" id="aa00363_html_a769161836788b3e3885ef91f85d579d9"><div class="ttname"><a href="a00363.html#a769161836788b3e3885ef91f85d579d9">CVectorFloat::free</a></div><div class="ttdeci">static void free(float *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00174">Vector.h:174</a></div></div>
 <div class="ttc" id="aa00363_html_a7972e4c31df79a32bbc5396e07d2ca9e"><div class="ttname"><a href="a00363.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a></div><div class="ttdeci">static float getSum(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00381">Vector.h:381</a></div></div>
 <div class="ttc" id="aa00363_html_a8279b309edcfcac51d94b1e8f206a330"><div class="ttname"><a href="a00363.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a></div><div class="ttdeci">static float getMax(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00496">Vector.h:496</a></div></div>
 <div class="ttc" id="aa00363_html_a8abbcfd075eabceada2f024773f11166"><div class="ttname"><a href="a00363.html#a8abbcfd075eabceada2f024773f11166">CVectorFloat::add_I</a></div><div class="ttdeci">static void add_I(float *pfSrcDest, const float *pfSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00324">Vector.h:324</a></div></div>
@@ -703,7 +701,7 @@
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue May 31 2022 21:12:52 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Wed Jun 1 2022 22:05:05 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
