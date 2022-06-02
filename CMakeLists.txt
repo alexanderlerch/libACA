@@ -1,6 +1,6 @@
-cmake_minimum_required (VERSION 3.0)
+cmake_minimum_required (VERSION 3.6)
 project (ACA
-        VERSION 0.1.1)
+        VERSION 0.2.0)
 
 #######################################################################################################
 ## includes
@@ -39,7 +39,7 @@ list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFeature)
 #list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeKey)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeMelSpectrogram)   
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeNoveltyFunction)       
-#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputePitch)       
+list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputePitch)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeSpectrogram)   
 
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/AudioFileIO) 
@@ -80,6 +80,7 @@ if (WITH_TESTS)
     add_test(Fft ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Fft*)
     add_test(Matrix ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Matrix*)
     add_test(Novelty ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Novelty*)
+    add_test(RingBuff ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Pitch*)
     add_test(RingBuff ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec RingBuff*)
     add_test(Spectrogram ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Spectrogram*)
     add_test(Tools ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Tools*)
