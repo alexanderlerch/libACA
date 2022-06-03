@@ -312,7 +312,7 @@ public:
     virtual ~CGammaToneFbFromVector() {};
 };
 
-CGammaToneFbFromVector::CGammaToneFbFromVector(const float* pfAudio, long long iNumFrames, float fSampleRate, int iNumBands, float fStartInHz) 
+CGammaToneFbFromVector::CGammaToneFbFromVector(const float* pfAudio, long long iNumFrames, float fSampleRate, int iNumBands, float fStartInHz)
 {
     m_iNumBands = iNumBands;
     m_fSampleRate = fSampleRate;
@@ -321,6 +321,24 @@ CGammaToneFbFromVector::CGammaToneFbFromVector(const float* pfAudio, long long i
     CBlockAudioIf::create(m_pCBlockAudio, pfAudio, iNumFrames, m_iBlockLength, m_iBlockLength, m_fSampleRate);
 
     m_pCNormalize = new CNormalizeAudio(pfAudio, iNumFrames);
+
+    init_();
+}
+
+/////////////////////////////////////////////////////////////////////////////////
+// block by block extraction
+class CGammaToneFbRealTime : public CGammaToneFbIf
+{
+public:
+    CGammaToneFbRealTime(float fSampleRate, int iNumBands, float fStartInHz);
+    virtual ~CGammaToneFbRealTime() {};
+};
+
+CGammaToneFbRealTime::CGammaToneFbRealTime(float fSampleRate, int iNumBands, float fStartInHz)
+{
+    m_iNumBands = iNumBands;
+    m_fSampleRate = fSampleRate;
+    m_fStartInHz = fStartInHz;
 
     init_();
 }
@@ -363,10 +381,24 @@ Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const float* pfAudio
         return Error_t::kFunctionInvalidArgsError;
     if (iNumBands <= 0)
         return Error_t::kFunctionInvalidArgsError;
-    if (fStartInHz <= 0 || fStartInHz >= fSampleRate/2)
+    if (fStartInHz <= 0 || fStartInHz >= fSampleRate / 2)
         return Error_t::kFunctionInvalidArgsError;
 
-    pCInstance = new CGammaToneFbFromVector( pfAudio, iNumFrames, fSampleRate, iNumBands, fStartInHz);
+    pCInstance = new CGammaToneFbFromVector(pfAudio, iNumFrames, fSampleRate, iNumBands, fStartInHz);
+
+    return Error_t::kNoError;
+}
+
+Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, float fSampleRate, int iNumBands, float fStartInHz)
+{
+    if (fSampleRate <= 0)
+        return Error_t::kFunctionInvalidArgsError;
+    if (iNumBands <= 0)
+        return Error_t::kFunctionInvalidArgsError;
+    if (fStartInHz <= 0 || fStartInHz >= fSampleRate / 2)
+        return Error_t::kFunctionInvalidArgsError;
+
+    pCInstance = new CGammaToneFbRealTime(fSampleRate, iNumBands, fStartInHz);
 
     return Error_t::kNoError;
 }
@@ -399,7 +431,7 @@ float CGammaToneFbIf::getCenterFreq(int iBandIdx) const
     return compMidFreqs_(m_fStartInHz, m_fSampleRate/2, iBandIdx);
 }
 
-Error_t CGammaToneFbIf::process(float** ppfOutput)
+Error_t CGammaToneFbIf::process(float** ppfOutput, const float* pfInput /*= 0*/, long long iNumSamples /*= 0*/)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -408,8 +440,19 @@ Error_t CGammaToneFbIf::process(float** ppfOutput)
     if (!ppfOutput[0])
         return Error_t::kFunctionInvalidArgsError;
 
+    // special case of block by block processing - no normalization, no blocking
+    if (pfInput)
+    {
+        assert(iNumSamples > 0);
+        for (auto i = 0; i < m_iNumBands; i++)
+        {
+            assert(ppfOutput[i]);
+            m_ppCGammatone[i]->process(ppfOutput[i], pfInput, iNumSamples);
+        }
+        return Error_t::kNoError;
+    }
+
     assert(m_pCBlockAudio);
-    assert(m_pCNormalize);
 
     auto iNumBlocks = m_pCBlockAudio->getNumBlocks();
 
