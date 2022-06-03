@@ -23,17 +23,17 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
 
     SECTION("Api")
     {
-        for (auto j = 0; j < CPitchFromBlockIf::kNumPitchExtractors; j++)
+        for (auto j = 0; j < CPitchIf::kNumPitchExtractors; j++)
         {
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchFromBlockIf::create(pCInstance, static_cast<CPitchFromBlockIf::PitchExtractors_t>(j), 0, fSampleRate));
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchFromBlockIf::create(pCInstance, static_cast<CPitchFromBlockIf::PitchExtractors_t>(j), -1, fSampleRate));
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchFromBlockIf::create(pCInstance, static_cast<CPitchFromBlockIf::PitchExtractors_t>(j), iBlockLength, 0));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchFromBlockIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(j), 0, fSampleRate));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchFromBlockIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(j), -1, fSampleRate));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchFromBlockIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(j), iBlockLength, 0));
 
-            CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, static_cast<CPitchFromBlockIf::PitchExtractors_t>(j), iBlockLength, fSampleRate));
+            CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(j), iBlockLength, fSampleRate));
 
             CHECK_FALSE(pCInstance == 0);
 
-            CHECK(static_cast<CPitchFromBlockIf::PitchExtractors_t>(j) == pCInstance->getPitchExtractorIdx());
+            CHECK(static_cast<CPitchIf::PitchExtractors_t>(j) == pCInstance->getPitchExtractorIdx());
 
             CHECK(Error_t::kNoError == CPitchFromBlockIf::destroy(pCInstance));
         }
@@ -43,7 +43,7 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
     {
         fSampleRate = 48000;
         iBlockLength = 2049;
-        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchFromBlockIf::kPitchSpectralAcf, iBlockLength, fSampleRate));
+        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, iBlockLength, fSampleRate));
 
         // zero input
         CHECK(0.F == pCInstance->compF0(pfInput));
@@ -66,7 +66,7 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
     {
         fSampleRate = 48000;
         iBlockLength = 2049;
-        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchFromBlockIf::kPitchSpectralHps, iBlockLength, fSampleRate));
+        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchSpectralHps, iBlockLength, fSampleRate));
 
         // zero input
         CHECK(0.F == pCInstance->compF0(pfInput));
@@ -87,7 +87,7 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
 
     SECTION("TimeAcf")
     {
-        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchFromBlockIf::kPitchTimeAcf, iBlockLength, fSampleRate));
+        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchTimeAcf, iBlockLength, fSampleRate));
 
         // zero input
         CHECK(0.F == pCInstance->compF0(pfInput));
@@ -108,7 +108,7 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
     SECTION("TimeAmdf")
     {
         fSampleRate = 40960;
-        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchFromBlockIf::kPitchTimeAmdf, iBlockLength, fSampleRate));
+        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchTimeAmdf, iBlockLength, fSampleRate));
 
         // zero input
         CHECK(0.F == pCInstance->compF0(pfInput));
@@ -125,7 +125,7 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
     SECTION("TimeZeroCrossings")
     {
         fSampleRate = 40960;
-        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchFromBlockIf::kPitchTimeZeroCrossings, iBlockLength, fSampleRate));
+        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchTimeZeroCrossings, iBlockLength, fSampleRate));
 
         // zero input
         CHECK(0.F == pCInstance->compF0(pfInput));
@@ -142,13 +142,123 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
     CVector::free(pfInput);
 }
 
+
 TEST_CASE("Pitch (per array)", "[PitchClass]")
 {
+    CPitchIf* pCInstance = 0;
+    float* pfInput = 0;
+    float* pfPitch = 0;
+    float fSampleRate = 44100;
+    int iBlockLength = 4096,
+        iHopLength = 512,
+        iBufferLength = 96000;
+    int iDim = 0;
+
+    CVector::alloc(pfPitch, 188);
+    CVector::alloc(pfInput, iBufferLength);
 
     SECTION("Api")
     {
+        for (auto f = 0; f < CPitchIf::kNumPitchExtractors; f++)
+        {
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), 0, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, 0, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, -1, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, iBufferLength, 0, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, iBufferLength, fSampleRate, 0, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, iBufferLength, fSampleRate, iBlockLength, 0));
+
+            CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+
+            CHECK_FALSE(pCInstance == 0);
+
+            CHECK(188 == pCInstance->getNumBlocks());
+            CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
+            CHECK(188 == iDim);
+
+            CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compF0(0));
+
+            CHECK(Error_t::kNoError == CPitchIf::destroy(pCInstance));
+
+        }
     }
 
+    SECTION("TimeAcf")
+    {
+        float fFreq = 441.F;
+        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBufferLength);
+
+        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchTimeAcf, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK_FALSE(pCInstance == 0);
+
+        CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
+
+        CHECK(Error_t::kNoError == pCInstance->compF0(pfPitch));
+
+        for (auto n = 0; n < iDim; n++)
+            CHECK(fFreq == Approx(pfPitch[n]).margin(1e-6F).epsilon(1e-6F));
+    }
+
+    //SECTION("TimeAmdf")
+    //{
+    //    float fFreq = 441.F;
+    //    CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBufferLength);
+
+    //    CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchTimeAmdf, pfInput, iBufferLength, fSampleRate));
+    //    CHECK_FALSE(pCInstance == 0);
+
+    //    CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
+
+    //    CHECK(Error_t::kNoError == pCInstance->compF0(pfPitch));
+
+    //    for (auto n = 0; n < iDim; n++)
+    //        CHECK(fFreq == Approx(pfPitch[n]).margin(1e-6F).epsilon(1e-6F));
+    //}
+
+    SECTION("SpectralAcf")
+    {
+        float fFreq = 441.43F;
+        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBufferLength);
+
+        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK_FALSE(pCInstance == 0);
+
+        CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
+
+        CHECK(Error_t::kNoError == pCInstance->compF0(pfPitch));
+
+        for (auto n = 0; n < iDim-5; n++)
+            CHECK(fFreq == Approx(pfPitch[n]).margin(1e-3F).epsilon(1e-3F));
+    }
+
+    SECTION("SpectralHps")
+    {
+        float fFreq = 441.43F;
+        float* pfTmp = 0;
+        CVector::alloc(pfTmp, iBufferLength);
+
+        for (auto k = 1; k <= 4; k++)
+        {
+            CSynthesis::genSine(pfTmp, k*fFreq, fSampleRate, iBufferLength, 1.F/k);
+            CVectorFloat::add_I(pfInput, pfTmp, iBufferLength);
+        }
+
+        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK_FALSE(pCInstance == 0);
+
+        CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
+
+        CHECK(Error_t::kNoError == pCInstance->compF0(pfPitch));
+
+        for (auto n = 0; n < iDim-5; n++)
+            CHECK(fFreq == Approx(pfPitch[n]).margin(1e-3F).epsilon(1e-3F));
+
+        CVector::free(pfTmp);
+    }
+
+    CVector::free(pfInput);
+    CVector::free(pfPitch);
+    CHECK(Error_t::kNoError == CPitchIf::destroy(pCInstance));
 }
 
 #endif //WITH_TESTS

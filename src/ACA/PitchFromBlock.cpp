@@ -10,14 +10,12 @@
 
 #include "PitchFromBlock.h"
 
-//const float CPitchFromBlockIf::m_kfFloatThresh = 1e-30F;      //!< below this we just assume it's zero
-
 ///////////////////////////////////////////////////////////////////
 // Pitchs that need "memory" so can't easily work as static functions
 class CPitchSpectralAcf : public CPitchFromBlockIf
 {
 public:
-    CPitchSpectralAcf(PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
+    CPitchSpectralAcf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
     {
         m_pCCcf = new CCcf();
         m_pCCcf->init((m_iDataLength-1)*2);
@@ -58,10 +56,13 @@ public:
         for (auto k = iMin-1; k < m_iDataLength; k++)
         {
             if (m_pfAcf[k + 1] < m_pfAcf[k])
+            {
+                iMin--;
                 break;
+            }
             iMin++;
         }
-
+        
         // sanity check
         if (iMin >= m_iDataLength - 2)
             return 0.F;
@@ -87,7 +88,7 @@ private:
 class CPitchSpectralHps : public CPitchFromBlockIf
 {
 public:
-    CPitchSpectralHps(PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
+    CPitchSpectralHps(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
     {
         CVector::alloc(m_pfProcBuff, m_iDataLength);
     }
@@ -136,7 +137,7 @@ private:
 class CPitchTimeAcf : public CPitchFromBlockIf
 {
 public:
-    CPitchTimeAcf(PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
+    CPitchTimeAcf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
     {
         m_pCCcf = new CCcf();
         m_pCCcf->init(iDataLength);
@@ -210,7 +211,7 @@ private:
 class CPitchTimeAmdf : public CPitchFromBlockIf
 {
 public:
-    CPitchTimeAmdf(PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate) {    };
+    CPitchTimeAmdf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate) {    };
 
     virtual ~CPitchTimeAmdf() {    };
 
@@ -265,7 +266,7 @@ private:
 class CPitchTimeZeroCrossings : public CPitchFromBlockIf
 {
 public:
-    CPitchTimeZeroCrossings(PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate) {};
+    CPitchTimeZeroCrossings(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate) {};
 
     virtual ~CPitchTimeZeroCrossings() {};
 
@@ -303,7 +304,7 @@ private:
 
 ///////////////////////////////////////////////////////////////////
 // normal member functions
-Error_t CPitchFromBlockIf::create(CPitchFromBlockIf*& pCInstance, PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate)
+Error_t CPitchFromBlockIf::create(CPitchFromBlockIf*& pCInstance, CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate)
 {
     if (iDataLength <= 0 || fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -312,28 +313,28 @@ Error_t CPitchFromBlockIf::create(CPitchFromBlockIf*& pCInstance, PitchExtractor
     switch (ePitchIdx)
     {
     default:
-    case kPitchTimeAcf:
+    case CPitchIf::kPitchTimeAcf:
         pCInstance = new CPitchTimeAcf(ePitchIdx, iDataLength, fSampleRate);
         break;
 
-    case kPitchTimeZeroCrossings:
+    case CPitchIf::kPitchTimeZeroCrossings:
         pCInstance = new CPitchTimeZeroCrossings(ePitchIdx, iDataLength, fSampleRate);
         break;
 
-    //case kPitchTimeAuditory:
+    //case CPitchIf::kPitchTimeAuditory:
     //    pCInstance = new CPitchTimeAuditory(ePitchIdx, iDataLength, fSampleRate);
     //    break;
 
-    case kPitchTimeAmdf:
+    case CPitchIf::kPitchTimeAmdf:
         pCInstance = new CPitchTimeAmdf(ePitchIdx, iDataLength, fSampleRate);
         break;
 
 
-    case kPitchSpectralHps:
+    case CPitchIf::kPitchSpectralHps:
         pCInstance = new CPitchSpectralHps(ePitchIdx, iDataLength, fSampleRate);
         break;
 
-    case kPitchSpectralAcf:
+    case CPitchIf::kPitchSpectralAcf:
         pCInstance = new CPitchSpectralAcf(ePitchIdx, iDataLength, fSampleRate);
         break;
     }
