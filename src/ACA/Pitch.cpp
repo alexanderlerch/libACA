@@ -229,7 +229,7 @@ std::string CPitchIf::getPitchString(PitchExtractors_t ePitchIdx)
 
             {kPitchTimeAcf, "TimeAcf"},
             {kPitchTimeAmdf, "TimeAmdf"},
-            //{kPitchTimeAuditory, "TimeAuditory,"},
+            {kPitchTimeAuditory, "TimeAuditory,"},
             {kPitchTimeZeroCrossings, "TimeZeroCrossings"}
     };
 
@@ -245,7 +245,7 @@ CPitchIf::PitchExtractors_t CPitchIf::getPitchIdxFromString(std::string sPitchSt
 
             {"TimeAcf", kPitchTimeAcf},
             {"TimeAmdf", kPitchTimeAmdf},
-            //{"TimeAuditory", kPitchTimeAuditory},
+            {"TimeAuditory", kPitchTimeAuditory},
             {"TimeZeroCrossings", kPitchTimeZeroCrossings}
     };
     auto search = PitchMap.find(sPitchString);

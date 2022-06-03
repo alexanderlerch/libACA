@@ -11,6 +11,7 @@ class CFft;
 class CNormalizeAudio;
 class CBlockAudioIf;
 class CPitchFromBlockIf;
+class CPitchAuditory;
 
 /*! \brief class for computation of a magnitude Pitch from either a file or a vector
 */
@@ -26,7 +27,7 @@ public:
 
         kPitchTimeAcf,
         kPitchTimeAmdf,
-        //kPitchTimeAuditory,
+        kPitchTimeAuditory,
         kPitchTimeZeroCrossings,
 
         kNumPitchExtractors
@@ -61,8 +62,7 @@ public:
     static Error_t destroy(CPitchIf*& pCInstance);
 
     /*! returns size of vector to be allocated by user
-    \param iNumRows (number of rows, to be written) equals number of Pitch values per time stamp
-    \param iNumCols (number of columns, to be written) equals number of blocks
+    \param iNumBlocks (number of blocks, to be written) 
     \return Error_t
     */
     Error_t getNumBlocks(int& iNumBlocks) const;
@@ -112,6 +112,8 @@ protected:
     CBlockAudioIf* m_pCBlockAudio = 0;   //!< instantiate for blocking time domain signal
 
     CPitchFromBlockIf* m_pCPitch = 0;
+
+    CPitchAuditory* m_pCAuditory = 0;
 
     CFft* m_pCFft = 0;                   //!< fft instance
 

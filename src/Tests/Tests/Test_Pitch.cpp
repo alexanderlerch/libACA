@@ -122,6 +122,26 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
             (fFreq / 3 == pCInstance->compF0(pfInput))));
     }
 
+    SECTION("TimeAuditory")
+    {
+        CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchTimeAuditory, iBlockLength, fSampleRate));
+
+        // zero input
+        CHECK(0.F == pCInstance->compF0(pfInput));
+
+        // sine 
+        float fFreq = 16.F;
+        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBlockLength);
+
+        CHECK(fFreq == pCInstance->compF0(pfInput));
+
+        // T0 between bins (T0 = 511.5)
+        fFreq = 8.0078201369F;
+        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBlockLength);
+
+        CHECK(((fSampleRate / 511 == pCInstance->compF0(pfInput)) || (fSampleRate / 512 == pCInstance->compF0(pfInput))));
+    }
+
     SECTION("TimeZeroCrossings")
     {
         fSampleRate = 40960;
@@ -199,21 +219,21 @@ TEST_CASE("Pitch (per array)", "[PitchClass]")
             CHECK(fFreq == Approx(pfPitch[n]).margin(1e-6F).epsilon(1e-6F));
     }
 
-    //SECTION("TimeAmdf")
-    //{
-    //    float fFreq = 441.F;
-    //    CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBufferLength);
+    SECTION("TimeAuditory")
+    {
+        float fFreq = 441.F;
+        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBufferLength);
 
-    //    CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchTimeAmdf, pfInput, iBufferLength, fSampleRate));
-    //    CHECK_FALSE(pCInstance == 0);
+        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchTimeAuditory, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK_FALSE(pCInstance == 0);
 
-    //    CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
+        CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
 
-    //    CHECK(Error_t::kNoError == pCInstance->compF0(pfPitch));
+        CHECK(Error_t::kNoError == pCInstance->compF0(pfPitch));
 
-    //    for (auto n = 0; n < iDim; n++)
-    //        CHECK(fFreq == Approx(pfPitch[n]).margin(1e-6F).epsilon(1e-6F));
-    //}
+        for (auto n = 0; n < iDim; n++)
+            CHECK(fFreq == Approx(pfPitch[n]).margin(1e-6F).epsilon(1e-6F));
+    }
 
     SECTION("SpectralAcf")
     {

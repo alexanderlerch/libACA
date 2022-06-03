@@ -1,8 +1,9 @@
+#define _USE_MATH_DEFINES
 #include <limits>
 
+#include "Filter.h"
 #include "Vector.h"
 #include "Util.h"
-#include "Filter.h"
 
 #include "ToolConversion.h"
 #include "ToolCcf.h"
@@ -134,6 +135,7 @@ private:
     int m_iOrder = 4;
     float m_fMin = 300.F;
 };
+
 class CPitchTimeAcf : public CPitchFromBlockIf
 {
 public:
@@ -204,6 +206,130 @@ private:
     float* m_pfAcf = 0;
 
     float m_fMax = 2000.F;
+    const float m_fMinThresh = 0.35F;
+
+};
+
+class CPitchTimeAuditory : public CPitchFromBlockIf
+{
+public:
+    CPitchTimeAuditory(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
+    {
+        float afA[3] = { 0 };
+        float afB[3] = { 0 };
+        CButterLp::calcCoeffs(afB, afA, 2, m_fSmoothLpCutoff);
+
+        m_pCCcf = new CCcf();
+        m_pCCcf->init(iDataLength);
+
+        CVector::alloc(m_pfAcf, m_pCCcf->getCcfLength(true));
+        CVector::alloc(m_pfSumAcf, m_pCCcf->getCcfLength(true));
+        CMatrix::alloc(m_ppfProcBuff, m_iNumBands, iDataLength);
+
+        for (auto c = 0; c < m_iNumBands; c++)
+        {
+            m_apCFilter[c] = new CFilter<float>();
+            m_apCFilter[c]->init(afB, afA, 3);
+        }
+
+        CGammaToneFbIf::create(m_pCFilterBank, fSampleRate, m_iNumBands);
+
+    };
+
+    virtual ~CPitchTimeAuditory()
+    {
+        CVector::free(m_pfAcf);
+        CVector::free(m_pfSumAcf);
+        CMatrix::free(m_ppfProcBuff, m_iNumBands);
+
+        for (auto c = 0; c < m_iNumBands; c++)
+            delete m_apCFilter[c];
+
+        delete m_pCCcf;
+        m_pCCcf = 0;
+
+        CGammaToneFbIf::destroy(m_pCFilterBank);
+    };
+
+    float compF0(const float* pfInput) override
+    {
+        assert(pfInput);
+
+        CVectorFloat::setZero(m_pfSumAcf, m_iDataLength);
+
+        m_pCFilterBank->process(m_ppfProcBuff, pfInput, m_iDataLength);
+        
+        for (auto c = 0; c < m_iNumBands; c++)
+        {
+            // smooth
+            m_apCFilter[c]->process(m_ppfProcBuff[c], m_ppfProcBuff[c], m_iDataLength);
+
+            // compute acf
+            m_pCCcf->compCcf(m_ppfProcBuff[c], m_ppfProcBuff[c], true);
+            m_pCCcf->getCcf(m_pfAcf, true);
+
+            // compute sum of acfs
+            CVectorFloat::add_I(m_pfSumAcf, m_pfAcf, m_iDataLength);
+        }
+
+        int iEta = getAcfMax_(m_pfSumAcf);
+        return m_fSampleRate / iEta;    
+    }
+
+
+private:
+    CPitchTimeAuditory() {};
+    CPitchTimeAuditory(const CPitchTimeAuditory& that);     //!< disallow copy construction
+    CPitchTimeAuditory& operator=(const CPitchTimeAuditory& c);
+
+    int getAcfMax_(const float* pfInput)
+    {
+        int iEta = 0,
+            iEtaMin = static_cast<int>(m_fSampleRate / m_fMax);
+
+        // avoid main lobe
+        while (pfInput[iEta] > m_fMinThresh)
+            iEta++;
+        if (iEtaMin < iEta)
+            iEtaMin = iEta;
+
+        // only look after first minimum
+        iEta = 0;
+        while (pfInput[iEta] > pfInput[iEta + 1])
+        {
+            iEta++;
+            if (iEta >= m_iDataLength)
+                break;
+        }
+
+        if (iEta >= m_iDataLength)
+            iEtaMin = 0;
+        else if (iEtaMin < iEta)
+            iEtaMin = iEta;
+
+        // get the maximum given the constraints above
+        float fMax = 0;
+        long long iMax = -1;
+        CVectorFloat::findMax(&pfInput[iEtaMin], fMax, iMax, static_cast<long long>(m_iDataLength) - iEtaMin);
+
+        if (fMax <= 0)
+            return 0;
+
+        return static_cast<int>(iMax + iEtaMin);
+    };
+
+    CCcf* m_pCCcf = 0;
+    float* m_pfAcf = 0;
+    float* m_pfSumAcf = 0;
+    float** m_ppfProcBuff = 0;
+
+    static const int m_iNumBands = 20;
+    CFilter<float>* m_apCFilter[m_iNumBands] = { 0 };
+    CGammaToneFbIf* m_pCFilterBank = 0;
+
+
+    float m_fMax = 2000.F;
+    const float m_fSmoothLpCutoff = 0.02F;
     const float m_fMinThresh = 0.35F;
 
 };
