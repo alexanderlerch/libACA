@@ -1,6 +1,9 @@
 #if !defined(__Filter_hdr__)
 #define __Filter_hdr__
 
+#define _USE_MATH_DEFINES
+#include <cmath>
+
 #include "ErrorDef.h"
 
 #include "Vector.h"
@@ -83,7 +86,7 @@ public:
         {
             m_pCFilterBuff->reset();
             m_pCFilterBuff->setWriteIdx(m_iNumFilterCoeffs - 1);
-            CVector::setZero(m_ptProcBuff, m_iNumFilterCoeffs - 1);
+            CVector::setZero(m_ptProcBuff, m_iNumFilterCoeffs - static_cast<long long>(1));
         }
 
         return Error_t::kNoError;

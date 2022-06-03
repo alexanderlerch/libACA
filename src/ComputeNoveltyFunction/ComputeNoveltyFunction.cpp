@@ -26,7 +26,7 @@ int main(int argc, char* argv[])
 
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
-    int iNoveltyDimensions = 0;
+    int iNumBlocks = 0; //!< number of blocks
 
     clock_t time = 0;
 
@@ -60,7 +60,7 @@ int main(int argc, char* argv[])
     // initialize novelty instance
     eNoveltyIdx = CNoveltyIf::getNoveltyIdxFromString(sNoveltyString);
     CNoveltyIf::create(pCInstance, eNoveltyIdx, sInputFilePath, iBlockLength, iHopLength);
-    pCInstance->getNumBlocks(iNoveltyDimensions);
+    pCInstance->getNumBlocks(iNumBlocks);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
 
     //////////////////////////////////////////////////////////////////////////////
     // allocate memory
-    pfNovelty = new float [iNoveltyDimensions];
+    pfNovelty = new float [iNumBlocks];
 
 
     if (!pfNovelty)
@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 
     cout << "\n2. writing output file..." << endl;
 
-    for (auto n = 0; n < iNoveltyDimensions; n++)
+    for (auto n = 0; n < iNumBlocks; n++)
     {
         hOutputFile << pfNovelty[n] << endl;
     }
