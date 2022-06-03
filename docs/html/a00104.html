@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: ToolBlockAudio.h File Reference</title>
+<title>ACA: Filter.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -44,39 +44,47 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="dir_0aca768bfdcf5d30136701ca31d18db0.html">helper</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">ToolBlockAudio.h File Reference</div></div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">Filter.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00113_source.html">ErrorDef.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00086_source.html">ErrorDef.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00107_source.html">Vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00101_source.html">Matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00116_source.html">RingBuffer.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ToolBlockAudio.h:</div>
+Include dependency graph for Filter.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00105.png" border="0" usemap="#aToolBlockAudio_8h" alt=""/></div>
-<map name="aToolBlockAudio_8h" id="aToolBlockAudio_8h">
-<area shape="rect" title=" " alt="" coords="25,5,147,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,71,107"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="95,80,173,107"/>
+<div class="center"><img src="a00105.png" border="0" usemap="#aFilter_8h" alt=""/></div>
+<map name="aFilter_8h" id="aFilter_8h">
+<area shape="rect" title=" " alt="" coords="165,5,227,32"/>
+<area shape="rect" title=" " alt="" coords="83,229,141,256"/>
+<area shape="rect" href="a00086.html" title=" " alt="" coords="325,80,403,107"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="110,155,181,181"/>
+<area shape="rect" href="a00101.html" title=" " alt="" coords="233,80,300,107"/>
+<area shape="rect" href="a00116.html" title=" " alt="" coords="205,155,297,181"/>
+<area shape="rect" title=" " alt="" coords="251,229,317,256"/>
+<area shape="rect" title=" " alt="" coords="165,229,227,256"/>
+<area shape="rect" title=" " alt="" coords="5,229,59,256"/>
+<area shape="rect" title=" " alt="" coords="341,229,416,256"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00106.png" border="0" usemap="#aToolBlockAudio_8hdep" alt=""/></div>
-<map name="aToolBlockAudio_8hdep" id="aToolBlockAudio_8hdep">
-<area shape="rect" title=" " alt="" coords="296,5,419,32"/>
-<area shape="rect" href="a00023.html" title=" " alt="" coords="5,80,109,107"/>
-<area shape="rect" href="a00017.html" title=" " alt="" coords="133,80,224,107"/>
-<area shape="rect" href="a00032.html" title=" " alt="" coords="248,80,339,107"/>
-<area shape="rect" href="a00014.html" title=" " alt="" coords="363,80,483,107"/>
-<area shape="rect" href="a00026.html" title=" " alt="" coords="507,80,645,107"/>
-<area shape="rect" href="a00020.html" title=" " alt="" coords="669,80,811,107"/>
+<div class="center"><img src="a00106.png" border="0" usemap="#aFilter_8hdep" alt=""/></div>
+<map name="aFilter_8hdep" id="aFilter_8hdep">
+<area shape="rect" title=" " alt="" coords="209,5,271,32"/>
+<area shape="rect" href="a00071.html" title=" " alt="" coords="5,80,144,107"/>
+<area shape="rect" href="a00077.html" title=" " alt="" coords="169,80,311,107"/>
+<area shape="rect" href="a00149.html" title=" " alt="" coords="336,80,451,107"/>
 </map>
 </div>
 </div>
@@ -84,14 +92,39 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00383.html">CBlockAudioIf</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">forward declaration  <a href="a00383.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00383.html">CFilter&lt; T &gt;</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class providing a generic filter implementation  <a href="a00383.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00387.html">CButterLp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class providing a generic filter implementation implementation inspired by src from <a href="https://exstrom.com/journal/sigproc/dsigproc.html">https://exstrom.com/journal/sigproc/dsigproc.html</a>  <a href="a00387.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a525335710b53cb064ca56b936120431e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00104.html#a525335710b53cb064ca56b936120431e">_USE_MATH_DEFINES</a></td></tr>
+<tr class="separator:a525335710b53cb064ca56b936120431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a525335710b53cb064ca56b936120431e" name="a525335710b53cb064ca56b936120431e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525335710b53cb064ca56b936120431e">&#9670;&nbsp;</a></span>_USE_MATH_DEFINES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _USE_MATH_DEFINES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00104_source.html#l00004">4</a> of file <a class="el" href="a00104_source.html">Filter.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:47 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

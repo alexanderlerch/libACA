@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CAudioFileRaw Class Reference</title>
+<title>ACA: CPitchTimeAcf Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -51,232 +51,100 @@
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="a00300.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CAudioFileRaw Class Reference</div></div>
+  <div class="headertitle"><div class="title">CPitchTimeAcf Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
-
-<p>open, read, and write raw audio files in 16 bit integer little endian format.  
- <a href="a00303.html#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00062_source.html">AudioFile.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for CAudioFileRaw:</div>
+Inheritance diagram for CPitchTimeAcf:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00302.png" border="0" usemap="#aCAudioFileRaw_inherit__map" alt="Inheritance graph"/></div>
-<map name="aCAudioFileRaw_inherit__map" id="aCAudioFileRaw_inherit__map">
-<area shape="rect" title="open, read, and write raw audio files in 16 bit integer little endian format." alt="" coords="29,717,172,1029"/>
-<area shape="rect" href="a00311.html" title="open, read, and write audio files" alt="" coords="5,5,196,669"/>
+<div class="center"><img src="a00302.png" border="0" usemap="#aCPitchTimeAcf_inherit__map" alt="Inheritance graph"/></div>
+<map name="aCPitchTimeAcf_inherit__map" id="aCPitchTimeAcf_inherit__map">
+<area shape="rect" title=" " alt="" coords="16,277,152,472"/>
+<area shape="rect" href="a00427.html" title="class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,5,163,229"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for CAudioFileRaw:</div>
+Collaboration diagram for CPitchTimeAcf:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00301.png" border="0" usemap="#aCAudioFileRaw_coll__map" alt="Collaboration graph"/></div>
-<map name="aCAudioFileRaw_coll__map" id="aCAudioFileRaw_coll__map">
-<area shape="rect" title="open, read, and write raw audio files in 16 bit integer little endian format." alt="" coords="29,888,172,1200"/>
-<area shape="rect" href="a00311.html" title="open, read, and write audio files" alt="" coords="5,189,196,839"/>
-<area shape="rect" href="a00315.html" title=" " alt="" coords="20,5,181,127"/>
+<div class="center"><img src="a00301.png" border="0" usemap="#aCPitchTimeAcf_coll__map" alt="Collaboration graph"/></div>
+<map name="aCPitchTimeAcf_coll__map" id="aCPitchTimeAcf_coll__map">
+<area shape="rect" title=" " alt="" coords="37,813,173,993"/>
+<area shape="rect" href="a00427.html" title="class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,497,163,721"/>
+<area shape="rect" href="a00443.html" title="computation of correlation (freq domain)" alt="" coords="187,468,330,751"/>
+<area shape="rect" href="a00379.html" title="class for FFT computation with windowing" alt="" coords="175,5,343,405"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0ebcef6b814032ce6548b06fa4ed3cd4"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a0ebcef6b814032ce6548b06fa4ed3cd4">CAudioFileRaw</a> ()</td></tr>
-<tr class="separator:a0ebcef6b814032ce6548b06fa4ed3cd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a364e7c7ea00669a797e2b537eb2671f3"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a364e7c7ea00669a797e2b537eb2671f3">~CAudioFileRaw</a> ()</td></tr>
-<tr class="separator:a364e7c7ea00669a797e2b537eb2671f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3e0ef78b8e6ff49a3138d0a153906253"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a3e0ef78b8e6ff49a3138d0a153906253">openFile</a> (std::string cAudioFileName, <a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99">FileIoType_t</a> eIoType, <a class="el" href="a00315.html">FileSpec_t</a> const *psFileSpec=0) override</td></tr>
-<tr class="separator:a3e0ef78b8e6ff49a3138d0a153906253"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5d678d9ff6ccd1a3b196c34979572e7f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a5d678d9ff6ccd1a3b196c34979572e7f">closeFile</a> () override</td></tr>
-<tr class="separator:a5d678d9ff6ccd1a3b196c34979572e7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a60893760e85db822cde577a40509e9ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a60893760e85db822cde577a40509e9ef">isEof</a> () override</td></tr>
-<tr class="separator:a60893760e85db822cde577a40509e9ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad37de78b503da0145f73767c142f5c18"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#ad37de78b503da0145f73767c142f5c18">isOpen</a> () override</td></tr>
-<tr class="separator:ad37de78b503da0145f73767c142f5c18"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00311"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00311')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00311.html">CAudioFileIf</a></td></tr>
-<tr class="memitem:afd69456f1bc1e58632348f8ac9b70aa1 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1">reset</a> (<a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a> bFreeMemory=<a class="el" href="a00176.html#a65e9886d74aaee76545e83dd09011727">false</a>)</td></tr>
-<tr class="separator:afd69456f1bc1e58632348f8ac9b70aa1 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac845c2e45bc7bab904b73d432b00a05b inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#ac845c2e45bc7bab904b73d432b00a05b">openFile</a> (std::string cAudioFileName, <a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99">FileIoType_t</a> eIoType, <a class="el" href="a00315.html">FileSpec_t</a> const *psFileSpec=0)=0</td></tr>
-<tr class="separator:ac845c2e45bc7bab904b73d432b00a05b inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b8022f870f94a4b8c5a1f25cf24d2f9 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a9b8022f870f94a4b8c5a1f25cf24d2f9">closeFile</a> ()=0</td></tr>
-<tr class="separator:a9b8022f870f94a4b8c5a1f25cf24d2f9 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad86676f86c5a0c1fb23617b5e00014c4 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#ad86676f86c5a0c1fb23617b5e00014c4">readData</a> (float **ppfAudioData, long long int &amp;iNumFrames)</td></tr>
-<tr class="separator:ad86676f86c5a0c1fb23617b5e00014c4 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4a8d479f325ed92f0b40b88d7675535e inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a4a8d479f325ed92f0b40b88d7675535e">writeData</a> (float **ppfAudioData, long long int iNumFrames)</td></tr>
-<tr class="separator:a4a8d479f325ed92f0b40b88d7675535e inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7ddbbf5f828e61db7fd75dbf47a33832 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a7ddbbf5f828e61db7fd75dbf47a33832">getFileSpec</a> (<a class="el" href="a00315.html">FileSpec_t</a> &amp;sFileSpec)</td></tr>
-<tr class="separator:a7ddbbf5f828e61db7fd75dbf47a33832 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f8c0aace3c8825c11a4ef106bc53ce1 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a6f8c0aace3c8825c11a4ef106bc53ce1">setPosition</a> (long long iFrame=0)</td></tr>
-<tr class="separator:a6f8c0aace3c8825c11a4ef106bc53ce1 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa08c6c2af51203a5dcb5a46a67c4b814 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#aa08c6c2af51203a5dcb5a46a67c4b814">setPosition</a> (double dTimeInS=.0)</td></tr>
-<tr class="separator:aa08c6c2af51203a5dcb5a46a67c4b814 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62061887a3c7d40b03747011267ff5a3 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a62061887a3c7d40b03747011267ff5a3">setClippingEnabled</a> (<a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a> bIsEnabled=<a class="el" href="a00176.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a>)</td></tr>
-<tr class="separator:a62061887a3c7d40b03747011267ff5a3 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a56af13d52f1294e627d276f756edc780 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a56af13d52f1294e627d276f756edc780">isClippingEnabled</a> ()</td></tr>
-<tr class="separator:a56af13d52f1294e627d276f756edc780 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a498e98b28fe76b712ef266faabce1b51 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a498e98b28fe76b712ef266faabce1b51">getPosition</a> (long long &amp;iFrame)</td></tr>
-<tr class="separator:a498e98b28fe76b712ef266faabce1b51 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af3c2677492312af0a9ed988aee4fbcd9 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#af3c2677492312af0a9ed988aee4fbcd9">getPosition</a> (double &amp;dTimeInS)</td></tr>
-<tr class="separator:af3c2677492312af0a9ed988aee4fbcd9 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a9d6008340a10ce10ac254b815fd00 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a91a9d6008340a10ce10ac254b815fd00">getLength</a> (long long &amp;iLengthInFrames)</td></tr>
-<tr class="separator:a91a9d6008340a10ce10ac254b815fd00 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4d0a345774116c1dd0581603bd99a9a9 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a4d0a345774116c1dd0581603bd99a9a9">getLength</a> (double &amp;dLengthInSeconds)</td></tr>
-<tr class="separator:a4d0a345774116c1dd0581603bd99a9a9 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02a1c69fa0fc5b9aa8cb275315697be4 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">isEof</a> ()=0</td></tr>
-<tr class="separator:a02a1c69fa0fc5b9aa8cb275315697be4 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d946177a6591600dc03a423feb38cb3 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a7d946177a6591600dc03a423feb38cb3">isOpen</a> ()=0</td></tr>
-<tr class="separator:a7d946177a6591600dc03a423feb38cb3 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a01d2aae56dd6295aee8ad10088f2cb27 inherit pub_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a01d2aae56dd6295aee8ad10088f2cb27">isInitialized</a> ()</td></tr>
-<tr class="separator:a01d2aae56dd6295aee8ad10088f2cb27 inherit pub_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd4920798f76cfa56accd9ba28dad6ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#acd4920798f76cfa56accd9ba28dad6ae">CPitchTimeAcf</a> (<a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate)</td></tr>
+<tr class="separator:acd4920798f76cfa56accd9ba28dad6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0c7cdf1cb79c1e8395db89ba56d79cbc"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a0c7cdf1cb79c1e8395db89ba56d79cbc">~CPitchTimeAcf</a> ()</td></tr>
+<tr class="separator:a0c7cdf1cb79c1e8395db89ba56d79cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7b6c2a935434281c2e17352a3487c912"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a7b6c2a935434281c2e17352a3487c912">compF0</a> (const float *pfInput) override</td></tr>
+<tr class="separator:a7b6c2a935434281c2e17352a3487c912"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00427"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00427')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00427.html">CPitchFromBlockIf</a></td></tr>
+<tr class="memitem:ac7496d16e4dfc1ab55305dc118c2e6bf inherit pub_methods_a00427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac7496d16e4dfc1ab55305dc118c2e6bf">getPitchExtractorIdx</a> () const</td></tr>
+<tr class="separator:ac7496d16e4dfc1ab55305dc118c2e6bf inherit pub_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a680337ee1fcc59015ea679862cd8085c inherit pub_methods_a00427"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a680337ee1fcc59015ea679862cd8085c">compF0</a> (const float *pfInput)=0</td></tr>
+<tr class="separator:a680337ee1fcc59015ea679862cd8085c inherit pub_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a47a3f1072e430179e1479fbb52826694"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a47a3f1072e430179e1479fbb52826694">CAudioFileRaw</a> (const <a class="el" href="a00303.html">CAudioFileRaw</a> &amp;that)</td></tr>
-<tr class="separator:a47a3f1072e430179e1479fbb52826694"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afec2baaa8b5c5ca228a9aee3dd5b9838"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#afec2baaa8b5c5ca228a9aee3dd5b9838">freeMemory_</a> () override</td></tr>
-<tr class="separator:afec2baaa8b5c5ca228a9aee3dd5b9838"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a326a8699cda652412544ac2391326c64"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a326a8699cda652412544ac2391326c64">allocMemory_</a> () override</td></tr>
-<tr class="separator:a326a8699cda652412544ac2391326c64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a62ab9a934151001b1e87ea36fe8dbdbf"><td class="memItemLeft" align="right" valign="top">long long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a62ab9a934151001b1e87ea36fe8dbdbf">readDataIntern_</a> (float **ppfAudioData, long long int iNumFrames) override</td></tr>
-<tr class="separator:a62ab9a934151001b1e87ea36fe8dbdbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a952d2952b600db4db42ff5ad1a3fbbee"><td class="memItemLeft" align="right" valign="top">long long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a952d2952b600db4db42ff5ad1a3fbbee">writeDataIntern_</a> (float **ppfAudioData, long long int iLength) override</td></tr>
-<tr class="separator:a952d2952b600db4db42ff5ad1a3fbbee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a717073bbea221e58b273925538cf3ead"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a717073bbea221e58b273925538cf3ead">getLengthIntern_</a> () override</td></tr>
-<tr class="separator:a717073bbea221e58b273925538cf3ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26cabec2623a393091df9550886e398c"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a26cabec2623a393091df9550886e398c">getPositionIntern_</a> () override</td></tr>
-<tr class="separator:a26cabec2623a393091df9550886e398c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9597fb10fa453bb1441245c01f37178d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a9597fb10fa453bb1441245c01f37178d">setPositionIntern_</a> (long long iFrame) override</td></tr>
-<tr class="separator:a9597fb10fa453bb1441245c01f37178d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b2a01be9952441ead5aa47b6a49da26"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a8b2a01be9952441ead5aa47b6a49da26">scaleUp</a> (float fSample2Clip)</td></tr>
-<tr class="separator:a8b2a01be9952441ead5aa47b6a49da26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad549835e10abaec5cc4a60848e286f71"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#ad549835e10abaec5cc4a60848e286f71">scaleDown</a> (float fSample2Scale)</td></tr>
-<tr class="separator:ad549835e10abaec5cc4a60848e286f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af1810f62663b7dbd228a09198f3cf13a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#af1810f62663b7dbd228a09198f3cf13a">CPitchTimeAcf</a> ()</td></tr>
+<tr class="separator:af1810f62663b7dbd228a09198f3cf13a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58e2df14aeed930a1e41749d40e65c35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a58e2df14aeed930a1e41749d40e65c35">CPitchTimeAcf</a> (const <a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;that)</td></tr>
+<tr class="memdesc:a58e2df14aeed930a1e41749d40e65c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">disallow copy construction  <a href="a00303.html#a58e2df14aeed930a1e41749d40e65c35">More...</a><br /></td></tr>
+<tr class="separator:a58e2df14aeed930a1e41749d40e65c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9bc50b93b2afdc1782d8534fa7ed6c80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a9bc50b93b2afdc1782d8534fa7ed6c80">operator=</a> (const <a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;c)</td></tr>
+<tr class="separator:a9bc50b93b2afdc1782d8534fa7ed6c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a8fe7d4ce435e53d68a4707b813c77e42"><td class="memItemLeft" align="right" valign="top">std::fstream&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a></td></tr>
-<tr class="memdesc:a8fe7d4ce435e53d68a4707b813c77e42"><td class="mdescLeft">&#160;</td><td class="mdescRight">raw pcm file handle  <a href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">More...</a><br /></td></tr>
-<tr class="separator:a8fe7d4ce435e53d68a4707b813c77e42"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4df7d361fa74b78b4b3e4788eca9a2fc"><td class="memItemLeft" align="right" valign="top">short *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a></td></tr>
-<tr class="memdesc:a4df7d361fa74b78b4b3e4788eca9a2fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">temporary buffer for 16 bit integer values  <a href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">More...</a><br /></td></tr>
-<tr class="separator:a4df7d361fa74b78b4b3e4788eca9a2fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a20081d499cd0d70d8e61086f33b33365"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00443.html">CCcf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a> = 0</td></tr>
+<tr class="separator:a20081d499cd0d70d8e61086f33b33365"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55d9b28275bf425da7edcd5a56822247"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a> = 0</td></tr>
+<tr class="separator:a55d9b28275bf425da7edcd5a56822247"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7540d2f69db7b7da74ae54c8eacf458e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a7540d2f69db7b7da74ae54c8eacf458e">m_fMax</a> = 2000.F</td></tr>
+<tr class="separator:a7540d2f69db7b7da74ae54c8eacf458e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a667c865dba3fda2b4dfcb27d467029d8"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a667c865dba3fda2b4dfcb27d467029d8">m_fMinThresh</a> = 0.35F</td></tr>
+<tr class="separator:a667c865dba3fda2b4dfcb27d467029d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_a00311"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00311')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="a00311.html">CAudioFileIf</a></td></tr>
-<tr class="memitem:ad06ff073ba665b85c00694036aa31b99 inherit pub_types_a00311"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99">FileIoType_t</a> { <a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396">kFileRead</a> = 0x1L
-, <a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99a833b4efa141e34586b049a51dcbb8eb4">kFileWrite</a> = 0x2L
-, <a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99a09f7e9be0d84a0f658d85859af19adce">kNumFileOpenTypes</a> = 2
- }</td></tr>
-<tr class="separator:ad06ff073ba665b85c00694036aa31b99 inherit pub_types_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e12cd61fa927a710b77f0d945f480c5 inherit pub_types_a00311"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a4e12cd61fa927a710b77f0d945f480c5">FileFormat_t</a> { <br />
-&#160;&#160;<a class="el" href="a00311.html#a4e12cd61fa927a710b77f0d945f480c5a7d3c4208653417a5067c8f41e4008aac">kFileFormatRaw</a>
-, <a class="el" href="a00311.html#a4e12cd61fa927a710b77f0d945f480c5a3a60d81b69d6213ed918fba32695f826">kFileFormatWav</a>
-, <a class="el" href="a00311.html#a4e12cd61fa927a710b77f0d945f480c5ab0464b202e30cf19ae611b16e53fc754">kFileFormatAiff</a>
-, <a class="el" href="a00311.html#a4e12cd61fa927a710b77f0d945f480c5ad11e97b2b7d6ab9a48bee1b3186076a7">kFileFormatUnknown</a>
-, <br />
-&#160;&#160;<a class="el" href="a00311.html#a4e12cd61fa927a710b77f0d945f480c5ae8f1c20ee577958e0e2ec6e7f7332c29">kNumFileFormats</a>
-<br />
- }</td></tr>
-<tr class="separator:a4e12cd61fa927a710b77f0d945f480c5 inherit pub_types_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae5cbbfb5db8265f26b7116d38b6d3c59 inherit pub_types_a00311"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#ae5cbbfb5db8265f26b7116d38b6d3c59">BitStream_t</a> { <a class="el" href="a00311.html#ae5cbbfb5db8265f26b7116d38b6d3c59a08da746e0484d5fc8de3ecf9f3f2e18b">kFileBitStreamInt16</a>
-, <a class="el" href="a00311.html#ae5cbbfb5db8265f26b7116d38b6d3c59a21c5ccf69528daf9575711f272b935f3">kFileBitStreamFloat32</a>
-, <a class="el" href="a00311.html#ae5cbbfb5db8265f26b7116d38b6d3c59a1327b6726d327089cc28d9bd6f4c0000">kFileBitStreamUnknown</a>
-, <a class="el" href="a00311.html#ae5cbbfb5db8265f26b7116d38b6d3c59aec4eb594d7cdef0af60cc9653fe99d24">kNumWordLengths</a>
- }</td></tr>
-<tr class="separator:ae5cbbfb5db8265f26b7116d38b6d3c59 inherit pub_types_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_static_methods_a00311"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_a00311')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="a00311.html">CAudioFileIf</a></td></tr>
-<tr class="memitem:aab987b1a4ec96a8fc835b1733a1ee0c3 inherit pub_static_methods_a00311"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#aab987b1a4ec96a8fc835b1733a1ee0c3">create</a> (<a class="el" href="a00311.html">CAudioFileIf</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:aab987b1a4ec96a8fc835b1733a1ee0c3 inherit pub_static_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab490b9d06c7efa0e4da3596cf4e7bec4 inherit pub_static_methods_a00311"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#ab490b9d06c7efa0e4da3596cf4e7bec4">destroy</a> (<a class="el" href="a00311.html">CAudioFileIf</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:ab490b9d06c7efa0e4da3596cf4e7bec4 inherit pub_static_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_a00311"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00311')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00311.html">CAudioFileIf</a></td></tr>
-<tr class="memitem:a303a350a95e8af4cfbaaf61c1274b790 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a303a350a95e8af4cfbaaf61c1274b790">CAudioFileIf</a> ()</td></tr>
-<tr class="separator:a303a350a95e8af4cfbaaf61c1274b790 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a695149aae02dd1f2dd89d5535e69e822 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a695149aae02dd1f2dd89d5535e69e822">~CAudioFileIf</a> ()</td></tr>
-<tr class="separator:a695149aae02dd1f2dd89d5535e69e822 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aec3ce9851e3b2876ff4978a0cbff7a2b inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b">freeMemory_</a> ()</td></tr>
-<tr class="separator:aec3ce9851e3b2876ff4978a0cbff7a2b inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6ad6006cb8c07218340239ad837d029 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#af6ad6006cb8c07218340239ad837d029">allocMemory_</a> ()</td></tr>
-<tr class="separator:af6ad6006cb8c07218340239ad837d029 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada0ab1ffd0666fdc0db872ca7f8a309f inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#ada0ab1ffd0666fdc0db872ca7f8a309f">setInitialized_</a> (<a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a> bInitialized=<a class="el" href="a00176.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a>)</td></tr>
-<tr class="separator:ada0ab1ffd0666fdc0db872ca7f8a309f inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6ccc53d8d2c5113b5b2cba604e8a4510 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a6ccc53d8d2c5113b5b2cba604e8a4510">setIoType_</a> (<a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99">FileIoType_t</a> eIoType)</td></tr>
-<tr class="separator:a6ccc53d8d2c5113b5b2cba604e8a4510 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3cabee15ce397c28520648b1cd367b06 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99">FileIoType_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a3cabee15ce397c28520648b1cd367b06">getIoType_</a> () const</td></tr>
-<tr class="separator:a3cabee15ce397c28520648b1cd367b06 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a5ebd20e1a7daa8c8361234145bc7ad inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a2a5ebd20e1a7daa8c8361234145bc7ad">setFileSpec_</a> (const <a class="el" href="a00315.html">FileSpec_t</a> *pFileSpec)</td></tr>
-<tr class="separator:a2a5ebd20e1a7daa8c8361234145bc7ad inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8f40ad8df042735092624da261d5de85 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a8f40ad8df042735092624da261d5de85">getNumChannels_</a> () const</td></tr>
-<tr class="separator:a8f40ad8df042735092624da261d5de85 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0bd2f97afe63b5e50c3b2ce4011607a9 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9">convFrames2Bytes_</a> (long long iNumFrames)</td></tr>
-<tr class="separator:a0bd2f97afe63b5e50c3b2ce4011607a9 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a74a50bd2e71e8c5886e6f9f2cd3df323 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a74a50bd2e71e8c5886e6f9f2cd3df323">convBytes2Frames_</a> (long long iNumFrames)</td></tr>
-<tr class="separator:a74a50bd2e71e8c5886e6f9f2cd3df323 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa189e595e954ecccd06f04b510b26036 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#aa189e595e954ecccd06f04b510b26036">setNumBytesPerSample_</a> (int iNumBytes)</td></tr>
-<tr class="separator:aa189e595e954ecccd06f04b510b26036 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b6680178c72dfbae5f869ff4079605f inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a8b6680178c72dfbae5f869ff4079605f">getNumBytesPerSample_</a> () const</td></tr>
-<tr class="separator:a8b6680178c72dfbae5f869ff4079605f inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1a04689f74a88c77fa2cbfaacdb7b448 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a1a04689f74a88c77fa2cbfaacdb7b448">getNumBitsPerSample_</a> () const</td></tr>
-<tr class="separator:a1a04689f74a88c77fa2cbfaacdb7b448 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4fbb0a778b2b8113081d670fc8378031 inherit pro_methods_a00311"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a4fbb0a778b2b8113081d670fc8378031">clip2Range_</a> (float fSample2Clip, float fMin, float fMax)</td></tr>
-<tr class="separator:a4fbb0a778b2b8113081d670fc8378031 inherit pro_methods_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_static_attribs_a00311"><td colspan="2" onclick="javascript:toggleInherit('pro_static_attribs_a00311')"><img src="closed.png" alt="-"/>&#160;Static Protected Attributes inherited from <a class="el" href="a00311.html">CAudioFileIf</a></td></tr>
-<tr class="memitem:a72d0931a9927f4d770d3560e3624d51f inherit pro_static_attribs_a00311"><td class="memItemLeft" align="right" valign="top">static const long long int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00311.html#a72d0931a9927f4d770d3560e3624d51f">m_kiDefBlockLength</a> = 1024</td></tr>
-<tr class="memdesc:a72d0931a9927f4d770d3560e3624d51f inherit pro_static_attribs_a00311"><td class="mdescLeft">&#160;</td><td class="mdescRight">buffer length for read and write operations  <a href="a00311.html#a72d0931a9927f4d770d3560e3624d51f">More...</a><br /></td></tr>
-<tr class="separator:a72d0931a9927f4d770d3560e3624d51f inherit pro_static_attribs_a00311"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_methods_a00427"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_a00427')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="a00427.html">CPitchFromBlockIf</a></td></tr>
+<tr class="memitem:a1718a14a292a2a34ae92e8ce838456a3 inherit pub_static_methods_a00427"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a1718a14a292a2a34ae92e8ce838456a3">create</a> (<a class="el" href="a00427.html">CPitchFromBlockIf</a> *&amp;pCInstance, <a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a1718a14a292a2a34ae92e8ce838456a3 inherit pub_static_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adadb010b152c65dc26b08f56fa700e77 inherit pub_static_methods_a00427"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#adadb010b152c65dc26b08f56fa700e77">destroy</a> (<a class="el" href="a00427.html">CPitchFromBlockIf</a> *&amp;pCInstance)</td></tr>
+<tr class="separator:adadb010b152c65dc26b08f56fa700e77 inherit pub_static_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_a00427"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00427')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00427.html">CPitchFromBlockIf</a></td></tr>
+<tr class="memitem:a8d454d951956c464b883888196a0fe23 inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a8d454d951956c464b883888196a0fe23">CPitchFromBlockIf</a> ()</td></tr>
+<tr class="separator:a8d454d951956c464b883888196a0fe23 inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bf104764846e7531e2011312311c6ea inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a7bf104764846e7531e2011312311c6ea">CPitchFromBlockIf</a> (<a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate)</td></tr>
+<tr class="separator:a7bf104764846e7531e2011312311c6ea inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afbcd93d047e4d96fb117e764481c44bd inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#afbcd93d047e4d96fb117e764481c44bd">~CPitchFromBlockIf</a> ()</td></tr>
+<tr class="separator:afbcd93d047e4d96fb117e764481c44bd inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a02981a6e1aa3094a190b4bb6550b8053 inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a02981a6e1aa3094a190b4bb6550b8053">CPitchFromBlockIf</a> (const <a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;that)</td></tr>
+<tr class="separator:a02981a6e1aa3094a190b4bb6550b8053 inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8707778012c90162771312f62be77271 inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a8707778012c90162771312f62be77271">operator=</a> (const <a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;c)</td></tr>
+<tr class="separator:a8707778012c90162771312f62be77271 inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00427"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00427')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00427.html">CPitchFromBlockIf</a></td></tr>
+<tr class="memitem:ac90de810c2f977da52483d905119172e inherit pro_attribs_a00427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac90de810c2f977da52483d905119172e">m_ePitchIdx</a> = <a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></td></tr>
+<tr class="memdesc:ac90de810c2f977da52483d905119172e inherit pro_attribs_a00427"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of Pitch to extract  <a href="a00427.html#ac90de810c2f977da52483d905119172e">More...</a><br /></td></tr>
+<tr class="separator:ac90de810c2f977da52483d905119172e inherit pro_attribs_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab7cbf575cd81f196fdc75f226b61ab6 inherit pro_attribs_a00427"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a> = 0</td></tr>
+<tr class="memdesc:aab7cbf575cd81f196fdc75f226b61ab6 inherit pro_attribs_a00427"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">More...</a><br /></td></tr>
+<tr class="separator:aab7cbf575cd81f196fdc75f226b61ab6 inherit pro_attribs_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac4a3235dfd5c3919a7d1a290f92dfa80 inherit pro_attribs_a00427"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a> = 0</td></tr>
+<tr class="memdesc:ac4a3235dfd5c3919a7d1a290f92dfa80 inherit pro_attribs_a00427"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">More...</a><br /></td></tr>
+<tr class="separator:ac4a3235dfd5c3919a7d1a290f92dfa80 inherit pro_attribs_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >open, read, and write raw audio files in 16 bit integer little endian format. </p>
-
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00010">10</a> of file <a class="el" href="a00062_source.html">AudioFile.h</a>.</p>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00139">139</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0ebcef6b814032ce6548b06fa4ed3cd4" name="a0ebcef6b814032ce6548b06fa4ed3cd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ebcef6b814032ce6548b06fa4ed3cd4">&#9670;&nbsp;</a></span>CAudioFileRaw() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CAudioFileRaw::CAudioFileRaw </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00020">20</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>                            : <a class="code hl_function" href="a00311.html#a303a350a95e8af4cfbaaf61c1274b790">CAudioFileIf</a>() ,</div>
-<div class="line"><span class="lineno">   21</span>    <a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>(0)</div>
-<div class="line"><span class="lineno">   22</span>{</div>
-<div class="line"><span class="lineno">   23</span>    <a class="code hl_function" href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1">reset</a> (<span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   24</span>}</div>
-<div class="ttc" id="aa00303_html_a4df7d361fa74b78b4b3e4788eca9a2fc"><div class="ttname"><a href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">CAudioFileRaw::m_piTmpBuff</a></div><div class="ttdeci">short * m_piTmpBuff</div><div class="ttdoc">temporary buffer for 16 bit integer values</div><div class="ttdef"><b>Definition:</b> <a href="a00062_source.html#l00035">AudioFile.h:35</a></div></div>
-<div class="ttc" id="aa00311_html_a303a350a95e8af4cfbaaf61c1274b790"><div class="ttname"><a href="a00311.html#a303a350a95e8af4cfbaaf61c1274b790">CAudioFileIf::CAudioFileIf</a></div><div class="ttdeci">CAudioFileIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00037">AudioFileIf.cpp:37</a></div></div>
-<div class="ttc" id="aa00311_html_afd69456f1bc1e58632348f8ac9b70aa1"><div class="ttname"><a href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1">CAudioFileIf::reset</a></div><div class="ttdeci">virtual Error_t reset(bool bFreeMemory=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00050">AudioFileIf.cpp:50</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00050">CAudioFileIf::reset()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a0ebcef6b814032ce6548b06fa4ed3cd4_cgraph.png" border="0" usemap="#aa00303_a0ebcef6b814032ce6548b06fa4ed3cd4_cgraph" alt=""/></div>
-<map name="aa00303_a0ebcef6b814032ce6548b06fa4ed3cd4_cgraph" id="aa00303_a0ebcef6b814032ce6548b06fa4ed3cd4_cgraph">
-<area shape="rect" title=" " alt="" coords="5,56,212,83"/>
-<area shape="rect" href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1" title=" " alt="" coords="260,56,388,83"/>
-<area shape="rect" href="a00311.html#a9b8022f870f94a4b8c5a1f25cf24d2f9" title=" " alt="" coords="448,5,599,32"/>
-<area shape="rect" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b" title=" " alt="" coords="436,56,611,83"/>
-<area shape="rect" href="a00311.html#a9fcdd386ee5292b5a971c7077858274c" title=" " alt="" coords="438,107,609,133"/>
-<area shape="rect" href="a00311.html#a62061887a3c7d40b03747011267ff5a3" title=" " alt="" coords="667,41,829,82"/>
-<area shape="rect" href="a00311.html#ada0ab1ffd0666fdc0db872ca7f8a309f" title=" " alt="" coords="659,107,837,133"/>
-<area shape="rect" href="a00311.html#a6ccc53d8d2c5113b5b2cba604e8a4510" title=" " alt="" coords="667,157,829,184"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a364e7c7ea00669a797e2b537eb2671f3" name="a364e7c7ea00669a797e2b537eb2671f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a364e7c7ea00669a797e2b537eb2671f3">&#9670;&nbsp;</a></span>~CAudioFileRaw()</h2>
+<a id="acd4920798f76cfa56accd9ba28dad6ae" name="acd4920798f76cfa56accd9ba28dad6ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd4920798f76cfa56accd9ba28dad6ae">&#9670;&nbsp;</a></span>CPitchTimeAcf() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -285,7 +153,88 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CAudioFileRaw::~CAudioFileRaw </td>
+          <td class="memname">CPitchTimeAcf::CPitchTimeAcf </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td>
+          <td class="paramname"><em>ePitchIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iDataLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fSampleRate</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00142">142</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  142</span>                                                                                           : <a class="code hl_function" href="a00427.html#a8d454d951956c464b883888196a0fe23">CPitchFromBlockIf</a>(ePitchIdx, iDataLength, fSampleRate)</div>
+<div class="line"><span class="lineno">  143</span>    {</div>
+<div class="line"><span class="lineno">  144</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00443.html">CCcf</a>();</div>
+<div class="line"><span class="lineno">  145</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5">init</a>(iDataLength);</div>
+<div class="line"><span class="lineno">  146</span> </div>
+<div class="line"><span class="lineno">  147</span>        <a class="code hl_function" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>, <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00443.html#a837db3fbfbd8a3b5e27be2fe8f137c2c">getCcfLength</a>(<span class="keyword">true</span>));</div>
+<div class="line"><span class="lineno">  148</span>    };</div>
+<div class="ttc" id="aa00303_html_a20081d499cd0d70d8e61086f33b33365"><div class="ttname"><a href="a00303.html#a20081d499cd0d70d8e61086f33b33365">CPitchTimeAcf::m_pCCcf</a></div><div class="ttdeci">CCcf * m_pCCcf</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00205">PitchFromBlock.cpp:205</a></div></div>
+<div class="ttc" id="aa00303_html_a55d9b28275bf425da7edcd5a56822247"><div class="ttname"><a href="a00303.html#a55d9b28275bf425da7edcd5a56822247">CPitchTimeAcf::m_pfAcf</a></div><div class="ttdeci">float * m_pfAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00206">PitchFromBlock.cpp:206</a></div></div>
+<div class="ttc" id="aa00407_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00022">Vector.h:22</a></div></div>
+<div class="ttc" id="aa00427_html_a8d454d951956c464b883888196a0fe23"><div class="ttname"><a href="a00427.html#a8d454d951956c464b883888196a0fe23">CPitchFromBlockIf::CPitchFromBlockIf</a></div><div class="ttdeci">CPitchFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00052">PitchFromBlock.h:52</a></div></div>
+<div class="ttc" id="aa00443_html"><div class="ttname"><a href="a00443.html">CCcf</a></div><div class="ttdoc">computation of correlation (freq domain)</div><div class="ttdef"><b>Definition:</b> <a href="a00140_source.html#l00013">ToolCcf.h:14</a></div></div>
+<div class="ttc" id="aa00443_html_a837db3fbfbd8a3b5e27be2fe8f137c2c"><div class="ttname"><a href="a00443.html#a837db3fbfbd8a3b5e27be2fe8f137c2c">CCcf::getCcfLength</a></div><div class="ttdeci">int getCcfLength(bool bIsAcf=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00103">ToolCcf.cpp:103</a></div></div>
+<div class="ttc" id="aa00443_html_af683b1b5e37ca2039424af02f4bfb3c5"><div class="ttname"><a href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5">CCcf::init</a></div><div class="ttdeci">Error_t init(int iBlockLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00020">ToolCcf.cpp:20</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00107_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00074_source.html#l00103">CCcf::getCcfLength()</a>, <a class="el" href="a00074_source.html#l00020">CCcf::init()</a>, <a class="el" href="a00071_source.html#l00205">m_pCCcf</a>, and <a class="el" href="a00071_source.html#l00206">m_pfAcf</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00303_acd4920798f76cfa56accd9ba28dad6ae_cgraph.png" border="0" usemap="#aa00303_acd4920798f76cfa56accd9ba28dad6ae_cgraph" alt=""/></div>
+<map name="aa00303_acd4920798f76cfa56accd9ba28dad6ae_cgraph" id="aa00303_acd4920798f76cfa56accd9ba28dad6ae_cgraph">
+<area shape="rect" title=" " alt="" coords="5,132,209,159"/>
+<area shape="rect" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="791,5,894,32"/>
+<area shape="rect" href="a00443.html#a837db3fbfbd8a3b5e27be2fe8f137c2c" title=" " alt="" coords="257,183,392,209"/>
+<area shape="rect" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="287,132,362,159"/>
+<area shape="rect" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="955,5,1073,32"/>
+<area shape="rect" href="a00379.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="448,107,519,133"/>
+<area shape="rect" href="a00403.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="595,157,710,184"/>
+<area shape="rect" href="a00403.html#a0fd55429d52515a9efb2fe602ce8f9ed" title=" " alt="" coords="589,208,717,235"/>
+<area shape="rect" href="a00443.html#a6edce7be75bf0b89dcc4a20e491ad8d8" title=" " alt="" coords="440,259,527,285"/>
+<area shape="rect" href="a00379.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="586,56,719,83"/>
+<area shape="rect" href="a00379.html#aa5fffd68919cea17741c9fe69209bce6" title=" " alt="" coords="575,107,731,133"/>
+<area shape="rect" href="a00379.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="611,259,694,285"/>
+<area shape="rect" href="a00379.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="779,259,907,285"/>
+<area shape="rect" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="965,284,1063,311"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0c7cdf1cb79c1e8395db89ba56d79cbc" name="a0c7cdf1cb79c1e8395db89ba56d79cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c7cdf1cb79c1e8395db89ba56d79cbc">&#9670;&nbsp;</a></span>~CPitchTimeAcf()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CPitchTimeAcf::~CPitchTimeAcf </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -293,37 +242,35 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00026">26</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>{</div>
-<div class="line"><span class="lineno">   28</span>    <a class="code hl_function" href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1">reset</a> (<span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   29</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00150">150</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  151</span>    {</div>
+<div class="line"><span class="lineno">  152</span>        <a class="code hl_function" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>);</div>
+<div class="line"><span class="lineno">  153</span> </div>
+<div class="line"><span class="lineno">  154</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>;</div>
+<div class="line"><span class="lineno">  155</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a> = 0;</div>
+<div class="line"><span class="lineno">  156</span>    };</div>
+<div class="ttc" id="aa00407_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00050">CAudioFileIf::reset()</a>.</p>
+<p class="reference">References <a class="el" href="a00107_source.html#l00037">CVector::free()</a>, <a class="el" href="a00071_source.html#l00205">m_pCCcf</a>, and <a class="el" href="a00071_source.html#l00206">m_pfAcf</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00303_a364e7c7ea00669a797e2b537eb2671f3_cgraph.png" border="0" usemap="#aa00303_a364e7c7ea00669a797e2b537eb2671f3_cgraph" alt=""/></div>
-<map name="aa00303_a364e7c7ea00669a797e2b537eb2671f3_cgraph" id="aa00303_a364e7c7ea00669a797e2b537eb2671f3_cgraph">
-<area shape="rect" title=" " alt="" coords="5,56,219,83"/>
-<area shape="rect" href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1" title=" " alt="" coords="267,56,395,83"/>
-<area shape="rect" href="a00311.html#a9b8022f870f94a4b8c5a1f25cf24d2f9" title=" " alt="" coords="455,5,605,32"/>
-<area shape="rect" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b" title=" " alt="" coords="443,56,617,83"/>
-<area shape="rect" href="a00311.html#a9fcdd386ee5292b5a971c7077858274c" title=" " alt="" coords="445,107,615,133"/>
-<area shape="rect" href="a00311.html#a62061887a3c7d40b03747011267ff5a3" title=" " alt="" coords="673,41,836,82"/>
-<area shape="rect" href="a00311.html#ada0ab1ffd0666fdc0db872ca7f8a309f" title=" " alt="" coords="665,107,844,133"/>
-<area shape="rect" href="a00311.html#a6ccc53d8d2c5113b5b2cba604e8a4510" title=" " alt="" coords="673,157,836,184"/>
+<div class="center"><img src="a00303_a0c7cdf1cb79c1e8395db89ba56d79cbc_cgraph.png" border="0" usemap="#aa00303_a0c7cdf1cb79c1e8395db89ba56d79cbc_cgraph" alt=""/></div>
+<map name="aa00303_a0c7cdf1cb79c1e8395db89ba56d79cbc_cgraph" id="aa00303_a0c7cdf1cb79c1e8395db89ba56d79cbc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,216,32"/>
+<area shape="rect" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="264,5,361,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a47a3f1072e430179e1479fbb52826694" name="a47a3f1072e430179e1479fbb52826694"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47a3f1072e430179e1479fbb52826694">&#9670;&nbsp;</a></span>CAudioFileRaw() <span class="overload">[2/2]</span></h2>
+<a id="af1810f62663b7dbd228a09198f3cf13a" name="af1810f62663b7dbd228a09198f3cf13a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1810f62663b7dbd228a09198f3cf13a">&#9670;&nbsp;</a></span>CPitchTimeAcf() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -332,9 +279,37 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CAudioFileRaw::CAudioFileRaw </td>
+          <td class="memname">CPitchTimeAcf::CPitchTimeAcf </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00303.html">CAudioFileRaw</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00201">201</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  201</span>{};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a58e2df14aeed930a1e41749d40e65c35" name="a58e2df14aeed930a1e41749d40e65c35"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58e2df14aeed930a1e41749d40e65c35">&#9670;&nbsp;</a></span>CPitchTimeAcf() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CPitchTimeAcf::CPitchTimeAcf </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;&#160;</td>
           <td class="paramname"><em>that</em></td><td>)</td>
           <td></td>
         </tr>
@@ -346,11 +321,13 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
+<p>disallow copy construction </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a326a8699cda652412544ac2391326c64" name="a326a8699cda652412544ac2391326c64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a326a8699cda652412544ac2391326c64">&#9670;&nbsp;</a></span>allocMemory_()</h2>
+<a id="a7b6c2a935434281c2e17352a3487c912" name="a7b6c2a935434281c2e17352a3487c912"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7b6c2a935434281c2e17352a3487c912">&#9670;&nbsp;</a></span>compF0()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -359,867 +336,134 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CAudioFileRaw::allocMemory_ </td>
+          <td class="memname">float CPitchTimeAcf::compF0 </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>pfInput</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="a00311.html#af6ad6006cb8c07218340239ad837d029">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00043">43</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   44</span>{</div>
-<div class="line"><span class="lineno">   45</span>    <a class="code hl_function" href="a00303.html#afec2baaa8b5c5ca228a9aee3dd5b9838">freeMemory_</a> ();</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a> = <span class="keyword">new</span> <span class="keywordtype">short</span> [<span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00311.html#a72d0931a9927f4d770d3560e3624d51f">m_kiDefBlockLength</a>)];</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>)</div>
-<div class="line"><span class="lineno">   50</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">Error_t::kMemError</a>;</div>
-<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   53</span>}</div>
-<div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">Error_t::kMemError</a></div><div class="ttdeci">@ kMemError</div></div>
-<div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
-<div class="ttc" id="aa00303_html_afec2baaa8b5c5ca228a9aee3dd5b9838"><div class="ttname"><a href="a00303.html#afec2baaa8b5c5ca228a9aee3dd5b9838">CAudioFileRaw::freeMemory_</a></div><div class="ttdeci">Error_t freeMemory_() override</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00031">AudioFile.cpp:31</a></div></div>
-<div class="ttc" id="aa00311_html_a72d0931a9927f4d770d3560e3624d51f"><div class="ttname"><a href="a00311.html#a72d0931a9927f4d770d3560e3624d51f">CAudioFileIf::m_kiDefBlockLength</a></div><div class="ttdeci">static const long long int m_kiDefBlockLength</div><div class="ttdoc">buffer length for read and write operations</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00179">AudioFileIf.h:179</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00059_source.html#l00031">freeMemory_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">kMemError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00146_source.html#l00179">CAudioFileIf::m_kiDefBlockLength</a>, and <a class="el" href="a00062_source.html#l00035">m_piTmpBuff</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00055">openFile()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a326a8699cda652412544ac2391326c64_cgraph.png" border="0" usemap="#aa00303_a326a8699cda652412544ac2391326c64_cgraph" alt=""/></div>
-<map name="aa00303_a326a8699cda652412544ac2391326c64_cgraph" id="aa00303_a326a8699cda652412544ac2391326c64_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,203,32"/>
-<area shape="rect" href="a00303.html#afec2baaa8b5c5ca228a9aee3dd5b9838" title=" " alt="" coords="251,5,443,32"/>
-<area shape="rect" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b" title=" " alt="" coords="491,5,665,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a326a8699cda652412544ac2391326c64_icgraph.png" border="0" usemap="#aa00303_a326a8699cda652412544ac2391326c64_icgraph" alt=""/></div>
-<map name="aa00303_a326a8699cda652412544ac2391326c64_icgraph" id="aa00303_a326a8699cda652412544ac2391326c64_icgraph">
-<area shape="rect" title=" " alt="" coords="220,5,417,32"/>
-<area shape="rect" href="a00303.html#a3e0ef78b8e6ff49a3138d0a153906253" title=" " alt="" coords="5,5,172,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a5d678d9ff6ccd1a3b196c34979572e7f" name="a5d678d9ff6ccd1a3b196c34979572e7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5d678d9ff6ccd1a3b196c34979572e7f">&#9670;&nbsp;</a></span>closeFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CAudioFileRaw::closeFile </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >close the current file </p><dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p>Implements <a class="el" href="a00311.html#a9b8022f870f94a4b8c5a1f25cf24d2f9">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00082">82</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
-<div class="line"><span class="lineno">   84</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="a00303.html#ad37de78b503da0145f73767c142f5c18">isOpen</a>())</div>
-<div class="line"><span class="lineno">   85</span>    {</div>
-<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   87</span>    }    </div>
-<div class="line"><span class="lineno">   88</span> </div>
-<div class="line"><span class="lineno">   89</span>    <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.close ();</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>    <span class="comment">// free internal memory</span></div>
-<div class="line"><span class="lineno">   92</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00303.html#afec2baaa8b5c5ca228a9aee3dd5b9838">freeMemory_</a> ();</div>
-<div class="line"><span class="lineno">   93</span>}</div>
-<div class="ttc" id="aa00303_html_a8fe7d4ce435e53d68a4707b813c77e42"><div class="ttname"><a href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">CAudioFileRaw::m_File</a></div><div class="ttdeci">std::fstream m_File</div><div class="ttdoc">raw pcm file handle</div><div class="ttdef"><b>Definition:</b> <a href="a00062_source.html#l00034">AudioFile.h:34</a></div></div>
-<div class="ttc" id="aa00303_html_ad37de78b503da0145f73767c142f5c18"><div class="ttname"><a href="a00303.html#ad37de78b503da0145f73767c142f5c18">CAudioFileRaw::isOpen</a></div><div class="ttdeci">bool isOpen() override</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00100">AudioFile.cpp:100</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00059_source.html#l00031">freeMemory_()</a>, <a class="el" href="a00059_source.html#l00100">isOpen()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, and <a class="el" href="a00062_source.html#l00034">m_File</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a5d678d9ff6ccd1a3b196c34979572e7f_cgraph.png" border="0" usemap="#aa00303_a5d678d9ff6ccd1a3b196c34979572e7f_cgraph" alt=""/></div>
-<map name="aa00303_a5d678d9ff6ccd1a3b196c34979572e7f_cgraph" id="aa00303_a5d678d9ff6ccd1a3b196c34979572e7f_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,175,57"/>
-<area shape="rect" href="a00303.html#afec2baaa8b5c5ca228a9aee3dd5b9838" title=" " alt="" coords="223,5,415,32"/>
-<area shape="rect" href="a00303.html#ad37de78b503da0145f73767c142f5c18" title=" " alt="" coords="239,56,398,83"/>
-<area shape="rect" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b" title=" " alt="" coords="463,5,637,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="afec2baaa8b5c5ca228a9aee3dd5b9838" name="afec2baaa8b5c5ca228a9aee3dd5b9838"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afec2baaa8b5c5ca228a9aee3dd5b9838">&#9670;&nbsp;</a></span>freeMemory_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CAudioFileRaw::freeMemory_ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Reimplemented from <a class="el" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00031">31</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   32</span>{</div>
-<div class="line"><span class="lineno">   33</span>    <a class="code hl_function" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b">CAudioFileIf::freeMemory_</a> ();</div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>)</div>
-<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>    <span class="keyword">delete</span> [] <a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>;</div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>  = 0;</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   41</span>}</div>
-<div class="ttc" id="aa00311_html_aec3ce9851e3b2876ff4978a0cbff7a2b"><div class="ttname"><a href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b">CAudioFileIf::freeMemory_</a></div><div class="ttdeci">virtual Error_t freeMemory_()</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00070">AudioFileIf.cpp:70</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00070">CAudioFileIf::freeMemory_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, and <a class="el" href="a00062_source.html#l00035">m_piTmpBuff</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00043">allocMemory_()</a>, and <a class="el" href="a00059_source.html#l00082">closeFile()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_afec2baaa8b5c5ca228a9aee3dd5b9838_cgraph.png" border="0" usemap="#aa00303_afec2baaa8b5c5ca228a9aee3dd5b9838_cgraph" alt=""/></div>
-<map name="aa00303_afec2baaa8b5c5ca228a9aee3dd5b9838_cgraph" id="aa00303_afec2baaa8b5c5ca228a9aee3dd5b9838_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,197,32"/>
-<area shape="rect" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b" title=" " alt="" coords="245,5,420,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_afec2baaa8b5c5ca228a9aee3dd5b9838_icgraph.png" border="0" usemap="#aa00303_afec2baaa8b5c5ca228a9aee3dd5b9838_icgraph" alt=""/></div>
-<map name="aa00303_afec2baaa8b5c5ca228a9aee3dd5b9838_icgraph" id="aa00303_afec2baaa8b5c5ca228a9aee3dd5b9838_icgraph">
-<area shape="rect" title=" " alt="" coords="465,31,657,57"/>
-<area shape="rect" href="a00303.html#a326a8699cda652412544ac2391326c64" title=" " alt="" coords="220,5,417,32"/>
-<area shape="rect" href="a00303.html#a5d678d9ff6ccd1a3b196c34979572e7f" title=" " alt="" coords="234,56,403,83"/>
-<area shape="rect" href="a00303.html#a3e0ef78b8e6ff49a3138d0a153906253" title=" " alt="" coords="5,5,172,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a717073bbea221e58b273925538cf3ead" name="a717073bbea221e58b273925538cf3ead"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a717073bbea221e58b273925538cf3ead">&#9670;&nbsp;</a></span>getLengthIntern_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">long long CAudioFileRaw::getLengthIntern_ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="a00311.html#ae2bd8bd21bd04b0b9e9b8716bddfb7e1">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00207">207</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  208</span>{</div>
-<div class="line"><span class="lineno">  209</span>    assert(<a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>);</div>
-<div class="line"><span class="lineno">  210</span> </div>
-<div class="line"><span class="lineno">  211</span>    <span class="comment">//static const int    iNumOfBytesPerSample = 2;</span></div>
-<div class="line"><span class="lineno">  212</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iCurrPos  = <a class="code hl_function" href="a00303.html#a26cabec2623a393091df9550886e398c">getPositionIntern_</a>();</div>
-<div class="line"><span class="lineno">  213</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iLength   = 0;</div>
-<div class="line"><span class="lineno">  214</span> </div>
-<div class="line"><span class="lineno">  215</span>    <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.seekg (0, <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.end);</div>
-<div class="line"><span class="lineno">  216</span> </div>
-<div class="line"><span class="lineno">  217</span>    iLength = <a class="code hl_function" href="a00311.html#a74a50bd2e71e8c5886e6f9f2cd3df323">convBytes2Frames_</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.tellg()));</div>
-<div class="line"><span class="lineno">  218</span> </div>
-<div class="line"><span class="lineno">  219</span>    <a class="code hl_function" href="a00303.html#a9597fb10fa453bb1441245c01f37178d">setPositionIntern_</a>(iCurrPos);</div>
-<div class="line"><span class="lineno">  220</span> </div>
-<div class="line"><span class="lineno">  221</span>    <span class="keywordflow">return</span> iLength;</div>
-<div class="line"><span class="lineno">  222</span>}</div>
-<div class="ttc" id="aa00303_html_a26cabec2623a393091df9550886e398c"><div class="ttname"><a href="a00303.html#a26cabec2623a393091df9550886e398c">CAudioFileRaw::getPositionIntern_</a></div><div class="ttdeci">long long getPositionIntern_() override</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00224">AudioFile.cpp:224</a></div></div>
-<div class="ttc" id="aa00303_html_a9597fb10fa453bb1441245c01f37178d"><div class="ttname"><a href="a00303.html#a9597fb10fa453bb1441245c01f37178d">CAudioFileRaw::setPositionIntern_</a></div><div class="ttdeci">Error_t setPositionIntern_(long long iFrame) override</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00230">AudioFile.cpp:230</a></div></div>
-<div class="ttc" id="aa00311_html_a74a50bd2e71e8c5886e6f9f2cd3df323"><div class="ttname"><a href="a00311.html#a74a50bd2e71e8c5886e6f9f2cd3df323">CAudioFileIf::convBytes2Frames_</a></div><div class="ttdeci">long long convBytes2Frames_(long long iNumFrames)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00147">AudioFileIf.cpp:147</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00147">CAudioFileIf::convBytes2Frames_()</a>, <a class="el" href="a00059_source.html#l00224">getPositionIntern_()</a>, <a class="el" href="a00062_source.html#l00034">m_File</a>, and <a class="el" href="a00059_source.html#l00230">setPositionIntern_()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a717073bbea221e58b273925538cf3ead_cgraph.png" border="0" usemap="#aa00303_a717073bbea221e58b273925538cf3ead_cgraph" alt=""/></div>
-<map name="aa00303_a717073bbea221e58b273925538cf3ead_cgraph" id="aa00303_a717073bbea221e58b273925538cf3ead_cgraph">
-<area shape="rect" title=" " alt="" coords="5,25,180,67"/>
-<area shape="rect" href="a00311.html#a74a50bd2e71e8c5886e6f9f2cd3df323" title=" " alt="" coords="465,25,631,67"/>
-<area shape="rect" href="a00303.html#a26cabec2623a393091df9550886e398c" title=" " alt="" coords="228,25,411,67"/>
-<area shape="rect" href="a00303.html#a9597fb10fa453bb1441245c01f37178d" title=" " alt="" coords="228,91,411,132"/>
-<area shape="rect" href="a00311.html#a8f40ad8df042735092624da261d5de85" title=" " alt="" coords="685,66,892,93"/>
-<area shape="rect" href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9" title=" " alt="" coords="459,91,637,132"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a26cabec2623a393091df9550886e398c" name="a26cabec2623a393091df9550886e398c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a26cabec2623a393091df9550886e398c">&#9670;&nbsp;</a></span>getPositionIntern_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">long long CAudioFileRaw::getPositionIntern_ </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="a00311.html#afa4e52309d9c05cabe46dbb6f13b819a">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00224">224</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  225</span>{</div>
-<div class="line"><span class="lineno">  226</span>    assert(<a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>);</div>
-<div class="line"><span class="lineno">  227</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00311.html#a74a50bd2e71e8c5886e6f9f2cd3df323">convBytes2Frames_</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.tellg()));</div>
-<div class="line"><span class="lineno">  228</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00147">CAudioFileIf::convBytes2Frames_()</a>, and <a class="el" href="a00062_source.html#l00034">m_File</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00207">getLengthIntern_()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a26cabec2623a393091df9550886e398c_cgraph.png" border="0" usemap="#aa00303_a26cabec2623a393091df9550886e398c_cgraph" alt=""/></div>
-<map name="aa00303_a26cabec2623a393091df9550886e398c_cgraph" id="aa00303_a26cabec2623a393091df9550886e398c_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
-<area shape="rect" href="a00311.html#a74a50bd2e71e8c5886e6f9f2cd3df323" title=" " alt="" coords="236,5,403,47"/>
-<area shape="rect" href="a00311.html#a8f40ad8df042735092624da261d5de85" title=" " alt="" coords="451,13,657,39"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a26cabec2623a393091df9550886e398c_icgraph.png" border="0" usemap="#aa00303_a26cabec2623a393091df9550886e398c_icgraph" alt=""/></div>
-<map name="aa00303_a26cabec2623a393091df9550886e398c_icgraph" id="aa00303_a26cabec2623a393091df9550886e398c_icgraph">
-<area shape="rect" title=" " alt="" coords="228,5,411,47"/>
-<area shape="rect" href="a00303.html#a717073bbea221e58b273925538cf3ead" title=" " alt="" coords="5,5,180,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a60893760e85db822cde577a40509e9ef" name="a60893760e85db822cde577a40509e9ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a60893760e85db822cde577a40509e9ef">&#9670;&nbsp;</a></span>isEof()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a> CAudioFileRaw::isEof </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >check if EOF is true </p><dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
-
-<p>Implements <a class="el" href="a00311.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00095">95</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   96</span>{</div>
-<div class="line"><span class="lineno">   97</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.eof();</div>
-<div class="line"><span class="lineno">   98</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00062_source.html#l00034">m_File</a>.</p>
-
-</div>
-</div>
-<a id="ad37de78b503da0145f73767c142f5c18" name="ad37de78b503da0145f73767c142f5c18"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad37de78b503da0145f73767c142f5c18">&#9670;&nbsp;</a></span>isOpen()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a> CAudioFileRaw::isOpen </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >check if a file is opened </p><dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
-
-<p>Implements <a class="el" href="a00311.html#a7d946177a6591600dc03a423feb38cb3">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00100">100</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  101</span>{</div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.is_open ();</div>
-<div class="line"><span class="lineno">  103</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00062_source.html#l00034">m_File</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00082">closeFile()</a>, and <a class="el" href="a00059_source.html#l00055">openFile()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_ad37de78b503da0145f73767c142f5c18_icgraph.png" border="0" usemap="#aa00303_ad37de78b503da0145f73767c142f5c18_icgraph" alt=""/></div>
-<map name="aa00303_ad37de78b503da0145f73767c142f5c18_icgraph" id="aa00303_ad37de78b503da0145f73767c142f5c18_icgraph">
-<area shape="rect" title=" " alt="" coords="223,31,381,57"/>
-<area shape="rect" href="a00303.html#a5d678d9ff6ccd1a3b196c34979572e7f" title=" " alt="" coords="5,5,175,32"/>
-<area shape="rect" href="a00303.html#a3e0ef78b8e6ff49a3138d0a153906253" title=" " alt="" coords="7,56,173,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a3e0ef78b8e6ff49a3138d0a153906253" name="a3e0ef78b8e6ff49a3138d0a153906253"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3e0ef78b8e6ff49a3138d0a153906253">&#9670;&nbsp;</a></span>openFile()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CAudioFileRaw::openFile </td>
-          <td>(</td>
-          <td class="paramtype">std::string&#160;</td>
-          <td class="paramname"><em>cAudioFileName</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00311.html#ad06ff073ba665b85c00694036aa31b99">FileIoType_t</a>&#160;</td>
-          <td class="paramname"><em>eIoType</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00315.html">FileSpec_t</a> const *&#160;</td>
-          <td class="paramname"><em>psFileSpec</em> = <code>0</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >open a file for reading or writing </p><dl class="params"><dt>Parameters</dt><dd>
+<p >performs the PitchFromBlock computation </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">cAudioFileName</td><td></td></tr>
-    <tr><td class="paramname">eIoType</td><td></td></tr>
-    <tr><td class="paramname">psFileSpec</td><td></td></tr>
+    <tr><td class="paramname">pfInput</td><td>input data of length iDataLength </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>float fF0InHz </dd></dl>
 
-<p>Implements <a class="el" href="a00311.html#ac845c2e45bc7bab904b73d432b00a05b">CAudioFileIf</a>.</p>
+<p>Implements <a class="el" href="a00427.html#a680337ee1fcc59015ea679862cd8085c">CPitchFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00055">55</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">if</span> (cAudioFileName.empty())</div>
-<div class="line"><span class="lineno">   58</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa577135037b96126023d6baf36434c44d">Error_t::kFileOpenError</a>;</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>    <a class="code hl_function" href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1">reset</a> (<span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   61</span>    <a class="code hl_function" href="a00311.html#a6ccc53d8d2c5113b5b2cba604e8a4510">setIoType_</a>(eIoType);</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    <span class="comment">// set file spec (required for raw streams)</span></div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (psFileSpec)</div>
-<div class="line"><span class="lineno">   65</span>    {</div>
-<div class="line"><span class="lineno">   66</span>        <a class="code hl_function" href="a00311.html#a2a5ebd20e1a7daa8c8361234145bc7ad">setFileSpec_</a>(psFileSpec);</div>
-<div class="line"><span class="lineno">   67</span>        <a class="code hl_function" href="a00311.html#ada0ab1ffd0666fdc0db872ca7f8a309f">setInitialized_</a>(<span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   68</span>    }</div>
-<div class="line"><span class="lineno">   69</span>    <span class="comment">// open file</span></div>
-<div class="line"><span class="lineno">   70</span>    <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.open (cAudioFileName.c_str(), ios::binary | ((eIoType &amp; <a class="code hl_enumvalue" href="a00311.html#ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396">kFileRead</a>)? ios::in : ios::out));</div>
-<div class="line"><span class="lineno">   71</span> </div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">if</span> (!<a class="code hl_function" href="a00303.html#ad37de78b503da0145f73767c142f5c18">isOpen</a>())</div>
-<div class="line"><span class="lineno">   73</span>    {</div>
-<div class="line"><span class="lineno">   74</span>        <a class="code hl_function" href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1">reset</a> (<span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   75</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa577135037b96126023d6baf36434c44d">Error_t::kFileOpenError</a>;</div>
-<div class="line"><span class="lineno">   76</span>    }</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <span class="comment">// allocate internal memory</span></div>
-<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00303.html#a326a8699cda652412544ac2391326c64">allocMemory_</a> ();</div>
-<div class="line"><span class="lineno">   80</span>}</div>
-<div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa577135037b96126023d6baf36434c44d"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa577135037b96126023d6baf36434c44d">Error_t::kFileOpenError</a></div><div class="ttdeci">@ kFileOpenError</div></div>
-<div class="ttc" id="aa00303_html_a326a8699cda652412544ac2391326c64"><div class="ttname"><a href="a00303.html#a326a8699cda652412544ac2391326c64">CAudioFileRaw::allocMemory_</a></div><div class="ttdeci">Error_t allocMemory_() override</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00043">AudioFile.cpp:43</a></div></div>
-<div class="ttc" id="aa00311_html_a2a5ebd20e1a7daa8c8361234145bc7ad"><div class="ttname"><a href="a00311.html#a2a5ebd20e1a7daa8c8361234145bc7ad">CAudioFileIf::setFileSpec_</a></div><div class="ttdeci">Error_t setFileSpec_(const FileSpec_t *pFileSpec)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00279">AudioFileIf.cpp:279</a></div></div>
-<div class="ttc" id="aa00311_html_a6ccc53d8d2c5113b5b2cba604e8a4510"><div class="ttname"><a href="a00311.html#a6ccc53d8d2c5113b5b2cba604e8a4510">CAudioFileIf::setIoType_</a></div><div class="ttdeci">Error_t setIoType_(FileIoType_t eIoType)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00268">AudioFileIf.cpp:268</a></div></div>
-<div class="ttc" id="aa00311_html_ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396"><div class="ttname"><a href="a00311.html#ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396">CAudioFileIf::kFileRead</a></div><div class="ttdeci">@ kFileRead</div><div class="ttdoc">open file for reading</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00016">AudioFileIf.h:16</a></div></div>
-<div class="ttc" id="aa00311_html_ada0ab1ffd0666fdc0db872ca7f8a309f"><div class="ttname"><a href="a00311.html#ada0ab1ffd0666fdc0db872ca7f8a309f">CAudioFileIf::setInitialized_</a></div><div class="ttdeci">Error_t setInitialized_(bool bInitialized=true)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00261">AudioFileIf.cpp:261</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00059_source.html#l00043">allocMemory_()</a>, <a class="el" href="a00059_source.html#l00100">isOpen()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa577135037b96126023d6baf36434c44d">kFileOpenError</a>, <a class="el" href="a00146_source.html#l00016">CAudioFileIf::kFileRead</a>, <a class="el" href="a00062_source.html#l00034">m_File</a>, <a class="el" href="a00065_source.html#l00050">CAudioFileIf::reset()</a>, <a class="el" href="a00065_source.html#l00279">CAudioFileIf::setFileSpec_()</a>, <a class="el" href="a00065_source.html#l00261">CAudioFileIf::setInitialized_()</a>, and <a class="el" href="a00065_source.html#l00268">CAudioFileIf::setIoType_()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a3e0ef78b8e6ff49a3138d0a153906253_cgraph.png" border="0" usemap="#aa00303_a3e0ef78b8e6ff49a3138d0a153906253_cgraph" alt=""/></div>
-<map name="aa00303_a3e0ef78b8e6ff49a3138d0a153906253_cgraph" id="aa00303_a3e0ef78b8e6ff49a3138d0a153906253_cgraph">
-<area shape="rect" title=" " alt="" coords="5,233,172,260"/>
-<area shape="rect" href="a00303.html#a326a8699cda652412544ac2391326c64" title=" " alt="" coords="220,44,417,71"/>
-<area shape="rect" href="a00303.html#ad37de78b503da0145f73767c142f5c18" title=" " alt="" coords="239,309,398,336"/>
-<area shape="rect" href="a00311.html#afd69456f1bc1e58632348f8ac9b70aa1" title=" " alt="" coords="255,132,383,159"/>
-<area shape="rect" href="a00311.html#ada0ab1ffd0666fdc0db872ca7f8a309f" title=" " alt="" coords="705,208,884,235"/>
-<area shape="rect" href="a00311.html#a6ccc53d8d2c5113b5b2cba604e8a4510" title=" " alt="" coords="713,259,876,285"/>
-<area shape="rect" href="a00311.html#a2a5ebd20e1a7daa8c8361234145bc7ad" title=" " alt="" coords="231,360,406,387"/>
-<area shape="rect" href="a00303.html#afec2baaa8b5c5ca228a9aee3dd5b9838" title=" " alt="" coords="465,5,657,32"/>
-<area shape="rect" href="a00311.html#aec3ce9851e3b2876ff4978a0cbff7a2b" title=" " alt="" coords="707,31,882,57"/>
-<area shape="rect" href="a00311.html#a9b8022f870f94a4b8c5a1f25cf24d2f9" title=" " alt="" coords="486,107,637,133"/>
-<area shape="rect" href="a00311.html#a9fcdd386ee5292b5a971c7077858274c" title=" " alt="" coords="476,157,647,184"/>
-<area shape="rect" href="a00311.html#a62061887a3c7d40b03747011267ff5a3" title=" " alt="" coords="713,142,876,183"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a62ab9a934151001b1e87ea36fe8dbdbf" name="a62ab9a934151001b1e87ea36fe8dbdbf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a62ab9a934151001b1e87ea36fe8dbdbf">&#9670;&nbsp;</a></span>readDataIntern_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">long long int CAudioFileRaw::readDataIntern_ </td>
-          <td>(</td>
-          <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfAudioData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long int&#160;</td>
-          <td class="paramname"><em>iNumFrames</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="a00311.html#aa8d6db73dae5cc9bf7c0beb15b36bea4">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00122">122</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
-<div class="line"><span class="lineno">  124</span>    <span class="keywordtype">int</span> iNumChannels                = <a class="code hl_function" href="a00311.html#a8f40ad8df042735092624da261d5de85">getNumChannels_</a>();</div>
-<div class="line"><span class="lineno">  125</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> iNumFrames2Read   = min (iLength, <a class="code hl_variable" href="a00311.html#a72d0931a9927f4d770d3560e3624d51f">m_kiDefBlockLength</a>/iNumChannels);</div>
-<div class="line"><span class="lineno">  126</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> iNumFrames        = 0;</div>
-<div class="line"><span class="lineno">  127</span> </div>
-<div class="line"><span class="lineno">  128</span>    <span class="comment">// sanity check</span></div>
-<div class="line"><span class="lineno">  129</span>    assert(ppfAudioData);</div>
-<div class="line"><span class="lineno">  130</span>    assert (ppfAudioData[0]);</div>
-<div class="line"><span class="lineno">  131</span> </div>
-<div class="line"><span class="lineno">  132</span>    <span class="comment">// ugly hack</span></div>
-<div class="line"><span class="lineno">  133</span>    <span class="comment">// a) only for 16 bit input</span></div>
-<div class="line"><span class="lineno">  134</span>    <span class="comment">// b) only for little endian</span></div>
-<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">while</span> (iNumFrames2Read &gt; 0)</div>
-<div class="line"><span class="lineno">  136</span>    {</div>
-<div class="line"><span class="lineno">  137</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> iCurrFrames = iNumFrames2Read;</div>
-<div class="line"><span class="lineno">  138</span>        <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.read (<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>), <a class="code hl_function" href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9">convFrames2Bytes_</a>(iNumFrames2Read));</div>
-<div class="line"><span class="lineno">  139</span> </div>
-<div class="line"><span class="lineno">  140</span>        iNumFrames2Read = min (iLength-iCurrFrames, <a class="code hl_variable" href="a00311.html#a72d0931a9927f4d770d3560e3624d51f">m_kiDefBlockLength</a>/iNumChannels);</div>
-<div class="line"><span class="lineno">  141</span> </div>
-<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>)</div>
-<div class="line"><span class="lineno">  143</span>        {</div>
-<div class="line"><span class="lineno">  144</span>            iCurrFrames     = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00311.html#a74a50bd2e71e8c5886e6f9f2cd3df323">convBytes2Frames_</a>(<a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.gcount ()));</div>
-<div class="line"><span class="lineno">  145</span>            iNumFrames2Read = 0;</div>
-<div class="line"><span class="lineno">  146</span>        }</div>
-<div class="line"><span class="lineno">  147</span> </div>
-<div class="line"><span class="lineno">  148</span>        <span class="comment">// copy the data</span></div>
-<div class="line"><span class="lineno">  149</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iCh = 0; iCh &lt; iNumChannels; iCh++)</div>
-<div class="line"><span class="lineno">  150</span>        {</div>
-<div class="line"><span class="lineno">  151</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; iCurrFrames; i++)</div>
-<div class="line"><span class="lineno">  152</span>            {</div>
-<div class="line"><span class="lineno">  153</span>                ppfAudioData[iCh][iNumFrames+i] = <a class="code hl_function" href="a00303.html#ad549835e10abaec5cc4a60848e286f71">scaleDown</a>(<span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span> (<a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>[i*iNumChannels+iCh]));</div>
-<div class="line"><span class="lineno">  154</span>            }</div>
-<div class="line"><span class="lineno">  155</span> </div>
-<div class="line"><span class="lineno">  156</span>        }</div>
-<div class="line"><span class="lineno">  157</span>        <span class="comment">// update frame counters</span></div>
-<div class="line"><span class="lineno">  158</span>        iLength        -= iCurrFrames;</div>
-<div class="line"><span class="lineno">  159</span>        iNumFrames     += iCurrFrames;</div>
-<div class="line"><span class="lineno">  160</span> </div>
-<div class="line"><span class="lineno">  161</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  162</span>    }</div>
-<div class="line"><span class="lineno">  163</span> </div>
-<div class="line"><span class="lineno">  164</span>    <span class="comment">// update iLength to the number of frames actually read</span></div>
-<div class="line"><span class="lineno">  165</span>    <span class="keywordflow">return</span> iNumFrames;</div>
-<div class="line"><span class="lineno">  166</span> </div>
-<div class="line"><span class="lineno">  167</span>}</div>
-<div class="ttc" id="aa00303_html_ad549835e10abaec5cc4a60848e286f71"><div class="ttname"><a href="a00303.html#ad549835e10abaec5cc4a60848e286f71">CAudioFileRaw::scaleDown</a></div><div class="ttdeci">float scaleDown(float fSample2Scale)</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00116">AudioFile.cpp:116</a></div></div>
-<div class="ttc" id="aa00311_html_a0bd2f97afe63b5e50c3b2ce4011607a9"><div class="ttname"><a href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9">CAudioFileIf::convFrames2Bytes_</a></div><div class="ttdeci">long long convFrames2Bytes_(long long iNumFrames)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00142">AudioFileIf.cpp:142</a></div></div>
-<div class="ttc" id="aa00311_html_a8f40ad8df042735092624da261d5de85"><div class="ttname"><a href="a00311.html#a8f40ad8df042735092624da261d5de85">CAudioFileIf::getNumChannels_</a></div><div class="ttdeci">int getNumChannels_() const</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00285">AudioFileIf.cpp:285</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00147">CAudioFileIf::convBytes2Frames_()</a>, <a class="el" href="a00065_source.html#l00142">CAudioFileIf::convFrames2Bytes_()</a>, <a class="el" href="a00065_source.html#l00285">CAudioFileIf::getNumChannels_()</a>, <a class="el" href="a00062_source.html#l00034">m_File</a>, <a class="el" href="a00146_source.html#l00179">CAudioFileIf::m_kiDefBlockLength</a>, <a class="el" href="a00062_source.html#l00035">m_piTmpBuff</a>, and <a class="el" href="a00059_source.html#l00116">scaleDown()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a62ab9a934151001b1e87ea36fe8dbdbf_cgraph.png" border="0" usemap="#aa00303_a62ab9a934151001b1e87ea36fe8dbdbf_cgraph" alt=""/></div>
-<map name="aa00303_a62ab9a934151001b1e87ea36fe8dbdbf_cgraph" id="aa00303_a62ab9a934151001b1e87ea36fe8dbdbf_cgraph">
-<area shape="rect" title=" " alt="" coords="5,101,215,127"/>
-<area shape="rect" href="a00311.html#a74a50bd2e71e8c5886e6f9f2cd3df323" title=" " alt="" coords="270,5,437,47"/>
-<area shape="rect" href="a00311.html#a8f40ad8df042735092624da261d5de85" title=" " alt="" coords="492,71,699,98"/>
-<area shape="rect" href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9" title=" " alt="" coords="264,123,443,164"/>
-<area shape="rect" href="a00303.html#ad549835e10abaec5cc4a60848e286f71" title=" " alt="" coords="263,189,444,215"/>
-<area shape="rect" href="a00311.html#a1a04689f74a88c77fa2cbfaacdb7b448" title=" " alt="" coords="511,181,679,223"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ad549835e10abaec5cc4a60848e286f71" name="ad549835e10abaec5cc4a60848e286f71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad549835e10abaec5cc4a60848e286f71">&#9670;&nbsp;</a></span>scaleDown()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CAudioFileRaw::scaleDown </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSample2Scale</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00116">116</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  117</span>{</div>
-<div class="line"><span class="lineno">  118</span>    <span class="keywordtype">float</span> fScale        = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(1&lt;&lt;(<a class="code hl_function" href="a00311.html#a1a04689f74a88c77fa2cbfaacdb7b448">getNumBitsPerSample_</a>()-1));</div>
-<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">return</span> fSample2Scale/fScale;</div>
-<div class="line"><span class="lineno">  120</span>}</div>
-<div class="ttc" id="aa00311_html_a1a04689f74a88c77fa2cbfaacdb7b448"><div class="ttname"><a href="a00311.html#a1a04689f74a88c77fa2cbfaacdb7b448">CAudioFileIf::getNumBitsPerSample_</a></div><div class="ttdeci">int getNumBitsPerSample_() const</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00170">AudioFileIf.h:170</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00170">CAudioFileIf::getNumBitsPerSample_()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00122">readDataIntern_()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_ad549835e10abaec5cc4a60848e286f71_cgraph.png" border="0" usemap="#aa00303_ad549835e10abaec5cc4a60848e286f71_cgraph" alt=""/></div>
-<map name="aa00303_ad549835e10abaec5cc4a60848e286f71_cgraph" id="aa00303_ad549835e10abaec5cc4a60848e286f71_cgraph">
-<area shape="rect" title=" " alt="" coords="5,13,187,39"/>
-<area shape="rect" href="a00311.html#a1a04689f74a88c77fa2cbfaacdb7b448" title=" " alt="" coords="235,5,403,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_ad549835e10abaec5cc4a60848e286f71_icgraph.png" border="0" usemap="#aa00303_ad549835e10abaec5cc4a60848e286f71_icgraph" alt=""/></div>
-<map name="aa00303_ad549835e10abaec5cc4a60848e286f71_icgraph" id="aa00303_ad549835e10abaec5cc4a60848e286f71_icgraph">
-<area shape="rect" title=" " alt="" coords="263,5,444,32"/>
-<area shape="rect" href="a00303.html#a62ab9a934151001b1e87ea36fe8dbdbf" title=" " alt="" coords="5,5,215,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a8b2a01be9952441ead5aa47b6a49da26" name="a8b2a01be9952441ead5aa47b6a49da26"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8b2a01be9952441ead5aa47b6a49da26">&#9670;&nbsp;</a></span>scaleUp()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CAudioFileRaw::scaleUp </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSample2Clip</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00105">105</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
-<div class="line"><span class="lineno">  107</span>    <span class="keywordtype">float</span> fScale        = <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(1&lt;&lt;(<a class="code hl_function" href="a00311.html#a1a04689f74a88c77fa2cbfaacdb7b448">getNumBitsPerSample_</a>()-1));</div>
-<div class="line"><span class="lineno">  108</span>    fSample2Clip *= fScale;</div>
-<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="a00311.html#a56af13d52f1294e627d276f756edc780">isClippingEnabled</a>())</div>
-<div class="line"><span class="lineno">  110</span>    {</div>
-<div class="line"><span class="lineno">  111</span>        fSample2Clip = <a class="code hl_function" href="a00311.html#a4fbb0a778b2b8113081d670fc8378031">clip2Range_</a>(fSample2Clip, -fScale, fScale-1);</div>
-<div class="line"><span class="lineno">  112</span>    }</div>
-<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">return</span> fSample2Clip;</div>
-<div class="line"><span class="lineno">  114</span>}</div>
-<div class="ttc" id="aa00311_html_a4fbb0a778b2b8113081d670fc8378031"><div class="ttname"><a href="a00311.html#a4fbb0a778b2b8113081d670fc8378031">CAudioFileIf::clip2Range_</a></div><div class="ttdeci">float clip2Range_(float fSample2Clip, float fMin, float fMax)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00172">AudioFileIf.h:172</a></div></div>
-<div class="ttc" id="aa00311_html_a56af13d52f1294e627d276f756edc780"><div class="ttname"><a href="a00311.html#a56af13d52f1294e627d276f756edc780">CAudioFileIf::isClippingEnabled</a></div><div class="ttdeci">bool isClippingEnabled()</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00116">AudioFileIf.h:116</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00172">CAudioFileIf::clip2Range_()</a>, <a class="el" href="a00146_source.html#l00170">CAudioFileIf::getNumBitsPerSample_()</a>, and <a class="el" href="a00146_source.html#l00116">CAudioFileIf::isClippingEnabled()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00169">writeDataIntern_()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a8b2a01be9952441ead5aa47b6a49da26_cgraph.png" border="0" usemap="#aa00303_a8b2a01be9952441ead5aa47b6a49da26_cgraph" alt=""/></div>
-<map name="aa00303_a8b2a01be9952441ead5aa47b6a49da26_cgraph" id="aa00303_a8b2a01be9952441ead5aa47b6a49da26_cgraph">
-<area shape="rect" title=" " alt="" coords="5,64,171,91"/>
-<area shape="rect" href="a00311.html#a4fbb0a778b2b8113081d670fc8378031" title=" " alt="" coords="219,5,389,32"/>
-<area shape="rect" href="a00311.html#a1a04689f74a88c77fa2cbfaacdb7b448" title=" " alt="" coords="220,57,388,98"/>
-<area shape="rect" href="a00311.html#a56af13d52f1294e627d276f756edc780" title=" " alt="" coords="227,122,381,163"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a8b2a01be9952441ead5aa47b6a49da26_icgraph.png" border="0" usemap="#aa00303_a8b2a01be9952441ead5aa47b6a49da26_icgraph" alt=""/></div>
-<map name="aa00303_a8b2a01be9952441ead5aa47b6a49da26_icgraph" id="aa00303_a8b2a01be9952441ead5aa47b6a49da26_icgraph">
-<area shape="rect" title=" " alt="" coords="225,13,391,39"/>
-<area shape="rect" href="a00303.html#a952d2952b600db4db42ff5ad1a3fbbee" title=" " alt="" coords="5,5,177,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9597fb10fa453bb1441245c01f37178d" name="a9597fb10fa453bb1441245c01f37178d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9597fb10fa453bb1441245c01f37178d">&#9670;&nbsp;</a></span>setPositionIntern_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CAudioFileRaw::setPositionIntern_ </td>
-          <td>(</td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iFrame</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="a00311.html#a2c22b805d8b0aefafc5436b1e275f832">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00230">230</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  231</span>{</div>
-<div class="line"><span class="lineno">  232</span>    assert(<a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>);</div>
-<div class="line"><span class="lineno">  233</span>    assert(iFrame &gt;= 0);</div>
-<div class="line"><span class="lineno">  234</span> </div>
-<div class="line"><span class="lineno">  235</span>    <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.seekg (<a class="code hl_function" href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9">convFrames2Bytes_</a>(iFrame), <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.beg);</div>
-<div class="line"><span class="lineno">  236</span> </div>
-<div class="line"><span class="lineno">  237</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  238</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00142">CAudioFileIf::convFrames2Bytes_()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, and <a class="el" href="a00062_source.html#l00034">m_File</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00207">getLengthIntern_()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a9597fb10fa453bb1441245c01f37178d_cgraph.png" border="0" usemap="#aa00303_a9597fb10fa453bb1441245c01f37178d_cgraph" alt=""/></div>
-<map name="aa00303_a9597fb10fa453bb1441245c01f37178d_cgraph" id="aa00303_a9597fb10fa453bb1441245c01f37178d_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
-<area shape="rect" href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9" title=" " alt="" coords="236,5,415,47"/>
-<area shape="rect" href="a00311.html#a8f40ad8df042735092624da261d5de85" title=" " alt="" coords="463,13,669,39"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a9597fb10fa453bb1441245c01f37178d_icgraph.png" border="0" usemap="#aa00303_a9597fb10fa453bb1441245c01f37178d_icgraph" alt=""/></div>
-<map name="aa00303_a9597fb10fa453bb1441245c01f37178d_icgraph" id="aa00303_a9597fb10fa453bb1441245c01f37178d_icgraph">
-<area shape="rect" title=" " alt="" coords="228,5,411,47"/>
-<area shape="rect" href="a00303.html#a717073bbea221e58b273925538cf3ead" title=" " alt="" coords="5,5,180,47"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a952d2952b600db4db42ff5ad1a3fbbee" name="a952d2952b600db4db42ff5ad1a3fbbee"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a952d2952b600db4db42ff5ad1a3fbbee">&#9670;&nbsp;</a></span>writeDataIntern_()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">long long int CAudioFileRaw::writeDataIntern_ </td>
-          <td>(</td>
-          <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfAudioData</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long int&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">override</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implements <a class="el" href="a00311.html#a4c785e1a291cb6ee18a42ea5c2cde2b4">CAudioFileIf</a>.</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00169">169</a> of file <a class="el" href="a00059_source.html">AudioFile.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  170</span>{</div>
-<div class="line"><span class="lineno">  171</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> iIdx  = 0;</div>
-<div class="line"><span class="lineno">  172</span>    <span class="keywordtype">int</span> iNumChannels    = <a class="code hl_function" href="a00311.html#a8f40ad8df042735092624da261d5de85">getNumChannels_</a>();</div>
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00158">158</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  159</span>    {</div>
+<div class="line"><span class="lineno">  160</span>        assert(pfInput);</div>
+<div class="line"><span class="lineno">  161</span> </div>
+<div class="line"><span class="lineno">  162</span>        <span class="keywordtype">int</span> iEta = 0,</div>
+<div class="line"><span class="lineno">  163</span>            iEtaMin = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a> / <a class="code hl_variable" href="a00303.html#a7540d2f69db7b7da74ae54c8eacf458e">m_fMax</a>);</div>
+<div class="line"><span class="lineno">  164</span> </div>
+<div class="line"><span class="lineno">  165</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00443.html#a4d7d19dd39b24147d9a1fab5d7e05257">compCcf</a>(pfInput, pfInput, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  166</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00443.html#af98260f965391ca3adf75bd435601236">getCcf</a>(<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  167</span> </div>
+<div class="line"><span class="lineno">  168</span>        <span class="comment">// avoid main lobe</span></div>
+<div class="line"><span class="lineno">  169</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>[iEta] &gt; <a class="code hl_variable" href="a00303.html#a667c865dba3fda2b4dfcb27d467029d8">m_fMinThresh</a>)</div>
+<div class="line"><span class="lineno">  170</span>            iEta++;</div>
+<div class="line"><span class="lineno">  171</span>        <span class="keywordflow">if</span> (iEtaMin &lt; iEta)</div>
+<div class="line"><span class="lineno">  172</span>            iEtaMin = iEta;</div>
 <div class="line"><span class="lineno">  173</span> </div>
-<div class="line"><span class="lineno">  174</span>    <span class="comment">// sanity check</span></div>
-<div class="line"><span class="lineno">  175</span>    assert(ppfAudioData);</div>
-<div class="line"><span class="lineno">  176</span>    assert(ppfAudioData[0]);</div>
-<div class="line"><span class="lineno">  177</span> </div>
-<div class="line"><span class="lineno">  178</span>    <span class="comment">// very ugly hack</span></div>
-<div class="line"><span class="lineno">  179</span>    <span class="comment">// a) only for 16 bit output</span></div>
-<div class="line"><span class="lineno">  180</span>    <span class="comment">// b) disregarded endianess</span></div>
-<div class="line"><span class="lineno">  181</span>    <span class="keywordflow">while</span> (iIdx &lt; iLength)</div>
-<div class="line"><span class="lineno">  182</span>    {</div>
-<div class="line"><span class="lineno">  183</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> <span class="keywordtype">int</span> iNumFrames2Write = min (iLength-iIdx, <a class="code hl_variable" href="a00311.html#a72d0931a9927f4d770d3560e3624d51f">m_kiDefBlockLength</a>/iNumChannels);</div>
-<div class="line"><span class="lineno">  184</span> </div>
-<div class="line"><span class="lineno">  185</span>        <span class="comment">// copy the data</span></div>
-<div class="line"><span class="lineno">  186</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> iCh = 0; iCh &lt; iNumChannels; iCh++)</div>
-<div class="line"><span class="lineno">  187</span>        {</div>
-<div class="line"><span class="lineno">  188</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; iNumFrames2Write; i++)</div>
-<div class="line"><span class="lineno">  189</span>            {</div>
-<div class="line"><span class="lineno">  190</span>                <a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>[i*iNumChannels+iCh] = CUtil::float2int&lt;short&gt;(<a class="code hl_function" href="a00303.html#a8b2a01be9952441ead5aa47b6a49da26">scaleUp</a>(ppfAudioData[iCh][iIdx+i]));</div>
-<div class="line"><span class="lineno">  191</span>            }</div>
-<div class="line"><span class="lineno">  192</span>        }</div>
-<div class="line"><span class="lineno">  193</span> </div>
-<div class="line"><span class="lineno">  194</span>        <a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>.write (<span class="keyword">reinterpret_cast&lt;</span><span class="keywordtype">char</span>*<span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00303.html#a4df7d361fa74b78b4b3e4788eca9a2fc">m_piTmpBuff</a>), <a class="code hl_function" href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9">convFrames2Bytes_</a>(iNumFrames2Write));</div>
+<div class="line"><span class="lineno">  174</span>        <span class="comment">// only look after first minimum</span></div>
+<div class="line"><span class="lineno">  175</span>        iEta = 0;</div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>[iEta] &gt; <a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>[iEta + 1])</div>
+<div class="line"><span class="lineno">  177</span>        {</div>
+<div class="line"><span class="lineno">  178</span>            iEta++;</div>
+<div class="line"><span class="lineno">  179</span>            <span class="keywordflow">if</span> (iEta &gt;= <a class="code hl_variable" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a>)</div>
+<div class="line"><span class="lineno">  180</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  181</span>        }</div>
+<div class="line"><span class="lineno">  182</span> </div>
+<div class="line"><span class="lineno">  183</span>        <span class="keywordflow">if</span> (iEta &gt;= <a class="code hl_variable" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a>)</div>
+<div class="line"><span class="lineno">  184</span>            iEtaMin = 0;</div>
+<div class="line"><span class="lineno">  185</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iEtaMin &lt; iEta)</div>
+<div class="line"><span class="lineno">  186</span>            iEtaMin = iEta;</div>
+<div class="line"><span class="lineno">  187</span> </div>
+<div class="line"><span class="lineno">  188</span>        <span class="comment">// get the maximum given the constraints above</span></div>
+<div class="line"><span class="lineno">  189</span>        <span class="keywordtype">float</span> fMax = 0;</div>
+<div class="line"><span class="lineno">  190</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iMax = -1;</div>
+<div class="line"><span class="lineno">  191</span>        <a class="code hl_function" href="a00411.html#a66a451d1a0992e33a73c01b09566eea0">CVectorFloat::findMax</a>(&amp;<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>[iEtaMin], fMax, iMax, <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a>) - iEtaMin);</div>
+<div class="line"><span class="lineno">  192</span> </div>
+<div class="line"><span class="lineno">  193</span>        <span class="keywordflow">if</span> (fMax &lt;= 0)</div>
+<div class="line"><span class="lineno">  194</span>            <span class="keywordflow">return</span> 0.F;</div>
 <div class="line"><span class="lineno">  195</span> </div>
-<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00303.html#a8fe7d4ce435e53d68a4707b813c77e42">m_File</a>)</div>
-<div class="line"><span class="lineno">  197</span>        {</div>
-<div class="line"><span class="lineno">  198</span>            <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  199</span>        }</div>
-<div class="line"><span class="lineno">  200</span> </div>
-<div class="line"><span class="lineno">  201</span>        <span class="comment">// update frame counter</span></div>
-<div class="line"><span class="lineno">  202</span>        iIdx   += iNumFrames2Write;</div>
-<div class="line"><span class="lineno">  203</span>    }</div>
-<div class="line"><span class="lineno">  204</span>    <span class="keywordflow">return</span> iIdx;</div>
-<div class="line"><span class="lineno">  205</span>}</div>
-<div class="ttc" id="aa00303_html_a8b2a01be9952441ead5aa47b6a49da26"><div class="ttname"><a href="a00303.html#a8b2a01be9952441ead5aa47b6a49da26">CAudioFileRaw::scaleUp</a></div><div class="ttdeci">float scaleUp(float fSample2Clip)</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00105">AudioFile.cpp:105</a></div></div>
+<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a> / (iMax + iEtaMin);</div>
+<div class="line"><span class="lineno">  197</span>    };</div>
+<div class="ttc" id="aa00303_html_a667c865dba3fda2b4dfcb27d467029d8"><div class="ttname"><a href="a00303.html#a667c865dba3fda2b4dfcb27d467029d8">CPitchTimeAcf::m_fMinThresh</a></div><div class="ttdeci">const float m_fMinThresh</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00209">PitchFromBlock.cpp:209</a></div></div>
+<div class="ttc" id="aa00303_html_a7540d2f69db7b7da74ae54c8eacf458e"><div class="ttname"><a href="a00303.html#a7540d2f69db7b7da74ae54c8eacf458e">CPitchTimeAcf::m_fMax</a></div><div class="ttdeci">float m_fMax</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00208">PitchFromBlock.cpp:208</a></div></div>
+<div class="ttc" id="aa00411_html_a66a451d1a0992e33a73c01b09566eea0"><div class="ttname"><a href="a00411.html#a66a451d1a0992e33a73c01b09566eea0">CVectorFloat::findMax</a></div><div class="ttdeci">static void findMax(const float *pfSrc, float &amp;fMax, long long &amp;iMax, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00540">Vector.h:540</a></div></div>
+<div class="ttc" id="aa00427_html_aab7cbf575cd81f196fdc75f226b61ab6"><div class="ttname"><a href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">CPitchFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00060">PitchFromBlock.h:60</a></div></div>
+<div class="ttc" id="aa00427_html_ac4a3235dfd5c3919a7d1a290f92dfa80"><div class="ttname"><a href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">CPitchFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00062">PitchFromBlock.h:62</a></div></div>
+<div class="ttc" id="aa00443_html_a4d7d19dd39b24147d9a1fab5d7e05257"><div class="ttname"><a href="a00443.html#a4d7d19dd39b24147d9a1fab5d7e05257">CCcf::compCcf</a></div><div class="ttdeci">Error_t compCcf(const float *pfInput1, const float *pfInput2, bool bNormalize=true)</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00062">ToolCcf.cpp:62</a></div></div>
+<div class="ttc" id="aa00443_html_af98260f965391ca3adf75bd435601236"><div class="ttname"><a href="a00443.html#af98260f965391ca3adf75bd435601236">CCcf::getCcf</a></div><div class="ttdeci">Error_t getCcf(float *pfCcfResult, bool bIsAcf=false) const</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00111">ToolCcf.cpp:111</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00142">CAudioFileIf::convFrames2Bytes_()</a>, <a class="el" href="a00065_source.html#l00285">CAudioFileIf::getNumChannels_()</a>, <a class="el" href="a00062_source.html#l00034">m_File</a>, <a class="el" href="a00146_source.html#l00179">CAudioFileIf::m_kiDefBlockLength</a>, <a class="el" href="a00062_source.html#l00035">m_piTmpBuff</a>, and <a class="el" href="a00059_source.html#l00105">scaleUp()</a>.</p>
+<p class="reference">References <a class="el" href="a00074_source.html#l00062">CCcf::compCcf()</a>, <a class="el" href="a00107_source.html#l00540">CVectorFloat::findMax()</a>, <a class="el" href="a00074_source.html#l00111">CCcf::getCcf()</a>, <a class="el" href="a00071_source.html#l00208">m_fMax</a>, <a class="el" href="a00071_source.html#l00209">m_fMinThresh</a>, <a class="el" href="a00143_source.html#l00062">CPitchFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00143_source.html#l00060">CPitchFromBlockIf::m_iDataLength</a>, <a class="el" href="a00071_source.html#l00205">m_pCCcf</a>, and <a class="el" href="a00071_source.html#l00206">m_pfAcf</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00303_a952d2952b600db4db42ff5ad1a3fbbee_cgraph.png" border="0" usemap="#aa00303_a952d2952b600db4db42ff5ad1a3fbbee_cgraph" alt=""/></div>
-<map name="aa00303_a952d2952b600db4db42ff5ad1a3fbbee_cgraph" id="aa00303_a952d2952b600db4db42ff5ad1a3fbbee_cgraph">
-<area shape="rect" title=" " alt="" coords="5,64,177,105"/>
-<area shape="rect" href="a00311.html#a0bd2f97afe63b5e50c3b2ce4011607a9" title=" " alt="" coords="225,5,404,47"/>
-<area shape="rect" href="a00311.html#a8f40ad8df042735092624da261d5de85" title=" " alt="" coords="452,13,659,39"/>
-<area shape="rect" href="a00303.html#a8b2a01be9952441ead5aa47b6a49da26" title=" " alt="" coords="232,122,397,149"/>
-<area shape="rect" href="a00311.html#a4fbb0a778b2b8113081d670fc8378031" title=" " alt="" coords="470,63,641,90"/>
-<area shape="rect" href="a00311.html#a1a04689f74a88c77fa2cbfaacdb7b448" title=" " alt="" coords="471,115,639,156"/>
-<area shape="rect" href="a00311.html#a56af13d52f1294e627d276f756edc780" title=" " alt="" coords="478,180,633,221"/>
+<div class="center"><img src="a00303_a7b6c2a935434281c2e17352a3487c912_cgraph.png" border="0" usemap="#aa00303_a7b6c2a935434281c2e17352a3487c912_cgraph" alt=""/></div>
+<map name="aa00303_a7b6c2a935434281c2e17352a3487c912_cgraph" id="aa00303_a7b6c2a935434281c2e17352a3487c912_cgraph">
+<area shape="rect" title=" " alt="" coords="5,317,168,344"/>
+<area shape="rect" href="a00443.html#a4d7d19dd39b24147d9a1fab5d7e05257" title=" " alt="" coords="235,191,345,217"/>
+<area shape="rect" href="a00411.html#a66a451d1a0992e33a73c01b09566eea0" title=" " alt="" coords="216,368,364,395"/>
+<area shape="rect" href="a00443.html#af98260f965391ca3adf75bd435601236" title=" " alt="" coords="243,317,337,344"/>
+<area shape="rect" href="a00379.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="443,115,544,141"/>
+<area shape="rect" href="a00411.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="631,304,762,331"/>
+<area shape="rect" href="a00379.html#a2d2fa880b32c7087973ed25628002129" title=" " alt="" coords="434,165,553,192"/>
+<area shape="rect" href="a00379.html#ab6245bc0fdabc5e62ab910414eb4b923" title=" " alt="" coords="433,7,553,33"/>
+<area shape="rect" href="a00411.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="624,5,769,32"/>
+<area shape="rect" href="a00411.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="412,216,575,243"/>
+<area shape="rect" href="a00379.html#a1d114960d5fc8ff4c328732adf638885" title=" " alt="" coords="439,267,547,293"/>
+<area shape="rect" href="a00411.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="629,173,765,200"/>
+<area shape="rect" href="a00230.html#a32fc71031e721d003fd1dc07f771351d" title=" " alt="" coords="639,107,754,149"/>
+<area shape="rect" href="a00411.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="623,56,771,83"/>
+<area shape="rect" href="a00407.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="827,304,929,331"/>
+<area shape="rect" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="819,56,937,83"/>
+<area shape="rect" href="a00230.html#a3597bc1b9aa8e068d7313a72c4e51eef" title=" " alt="" coords="638,225,755,266"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="a9bc50b93b2afdc1782d8534fa7ed6c80" name="a9bc50b93b2afdc1782d8534fa7ed6c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9bc50b93b2afdc1782d8534fa7ed6c80">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00303.html">CPitchTimeAcf</a> &amp; CPitchTimeAcf::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8fe7d4ce435e53d68a4707b813c77e42" name="a8fe7d4ce435e53d68a4707b813c77e42"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8fe7d4ce435e53d68a4707b813c77e42">&#9670;&nbsp;</a></span>m_File</h2>
+<a id="a7540d2f69db7b7da74ae54c8eacf458e" name="a7540d2f69db7b7da74ae54c8eacf458e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7540d2f69db7b7da74ae54c8eacf458e">&#9670;&nbsp;</a></span>m_fMax</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1228,7 +472,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::fstream CAudioFileRaw::m_File</td>
+          <td class="memname">float CPitchTimeAcf::m_fMax = 2000.F</td>
         </tr>
       </table>
   </td>
@@ -1238,16 +482,14 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>raw pcm file handle </p>
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00208">208</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00034">34</a> of file <a class="el" href="a00062_source.html">AudioFile.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00082">closeFile()</a>, <a class="el" href="a00059_source.html#l00207">getLengthIntern_()</a>, <a class="el" href="a00059_source.html#l00224">getPositionIntern_()</a>, <a class="el" href="a00059_source.html#l00095">isEof()</a>, <a class="el" href="a00059_source.html#l00100">isOpen()</a>, <a class="el" href="a00059_source.html#l00055">openFile()</a>, <a class="el" href="a00059_source.html#l00122">readDataIntern_()</a>, <a class="el" href="a00059_source.html#l00230">setPositionIntern_()</a>, and <a class="el" href="a00059_source.html#l00169">writeDataIntern_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00158">compF0()</a>.</p>
 
 </div>
 </div>
-<a id="a4df7d361fa74b78b4b3e4788eca9a2fc" name="a4df7d361fa74b78b4b3e4788eca9a2fc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4df7d361fa74b78b4b3e4788eca9a2fc">&#9670;&nbsp;</a></span>m_piTmpBuff</h2>
+<a id="a667c865dba3fda2b4dfcb27d467029d8" name="a667c865dba3fda2b4dfcb27d467029d8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a667c865dba3fda2b4dfcb27d467029d8">&#9670;&nbsp;</a></span>m_fMinThresh</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1256,7 +498,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">short* CAudioFileRaw::m_piTmpBuff</td>
+          <td class="memname">const float CPitchTimeAcf::m_fMinThresh = 0.35F</td>
         </tr>
       </table>
   </td>
@@ -1266,22 +508,71 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>temporary buffer for 16 bit integer values </p>
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00209">209</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00062_source.html#l00035">35</a> of file <a class="el" href="a00062_source.html">AudioFile.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00043">allocMemory_()</a>, <a class="el" href="a00059_source.html#l00031">freeMemory_()</a>, <a class="el" href="a00059_source.html#l00122">readDataIntern_()</a>, and <a class="el" href="a00059_source.html#l00169">writeDataIntern_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00158">compF0()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00062_source.html">AudioFile.h</a></li>
-<li><a class="el" href="a00059_source.html">AudioFile.cpp</a></li>
+<a id="a20081d499cd0d70d8e61086f33b33365" name="a20081d499cd0d70d8e61086f33b33365"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a20081d499cd0d70d8e61086f33b33365">&#9670;&nbsp;</a></span>m_pCCcf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00443.html">CCcf</a>* CPitchTimeAcf::m_pCCcf = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00205">205</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00158">compF0()</a>, <a class="el" href="a00071_source.html#l00142">CPitchTimeAcf()</a>, and <a class="el" href="a00071_source.html#l00150">~CPitchTimeAcf()</a>.</p>
+
+</div>
+</div>
+<a id="a55d9b28275bf425da7edcd5a56822247" name="a55d9b28275bf425da7edcd5a56822247"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55d9b28275bf425da7edcd5a56822247">&#9670;&nbsp;</a></span>m_pfAcf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* CPitchTimeAcf::m_pfAcf = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00206">206</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00158">compF0()</a>, <a class="el" href="a00071_source.html#l00142">CPitchTimeAcf()</a>, and <a class="el" href="a00071_source.html#l00150">~CPitchTimeAcf()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00071_source.html">PitchFromBlock.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:48 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

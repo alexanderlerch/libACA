@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -46,25 +46,41 @@
   </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">CMatrix Member List</div></div>
+  <div class="headertitle"><div class="title">CGammaToneFbFromVector Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a00343.html">CMatrix</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a00343.html">CGammaToneFbFromVector</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00343.html#ae669c592fc063391aeb77e07cbc9d4bc">alloc</a>(T **&amp;ppfMat, int iNumRows, int iNumCols)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00343.html#aa2683e4f8bccb4f145b534bd0c54f38f">copy</a>(float **ppfDest, float **ppfSrc, int iNumRows, int iNumCols)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00343.html#afbf24cb4ce4f9b46456419d939eab052">free</a>(T **&amp;ppfMat, int iNumRows)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00343.html#a2beb6cc20e6596997993a552b1bb4a70">inv_I</a>(float **ppfSrcDest, int iNumRows, int iNumCols)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00343.html#ab714a555729264f7fc4ef0f48065d7fe">mulMatColVec</a>(float *pfDestColVec, float **ppfMatrix, const float *pfSrcColVec, int iNumMatRows, int iNumMatCols)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00343.html#a19520bbcd8ef17a0f14bcc66f9f9df37">mulMatMat</a>(float **ppfDest, float **ppfSrc1, float **ppfSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00343.html#ad0f9eb1d1f54d5fd23fea0fef17fc13a">mulRowVecMat</a>(float *pfDestRowVec, const float *pfSrcRowVec, float **ppfMatrix, int iNumMatRows, int iNumMatCols)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00343.html#ac471bc59a137aa4fdccb56b2297ab95d">setEye</a>(float **ppfDest, int iNumRows, int iNumCols)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00343.html#a73dafcf8d734d245809aa9563f3fe2d4">swapRowCol</a>(float **ppfSrcDest, int iRowIdx, int iColIdx, int iNumRows, int iNumCols)</td><td class="entry"><a class="el" href="a00343.html">CMatrix</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00343.html#a01a1b74d93af0810f5f4962b2578ca11">CGammaToneFbFromVector</a>(const float *pfAudio, long long iNumFrames, float fSampleRate, int iNumBands, float fStartInHz)</td><td class="entry"><a class="el" href="a00343.html">CGammaToneFbFromVector</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#ac2de88f207d4482f3aa0c7be334da9c4">CGammaToneFbIf</a>()</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#acaf81407affa5b8a931a61178868ea45">CGammaToneFbIf</a>(const CGammaToneFbIf &amp;that)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a03d88f03c57bea1b0293381042bcdd75">compMidFreqs_</a>(float fFreqLow, float fFreqHigh, int k) const</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a19cabc50a7c022f869871ae9602061cd">create</a>(CGammaToneFbIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iNumBands=20, float fStartInHz=100)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#aacec8e884009d9b7f3b4f64bf49ab77e">create</a>(CGammaToneFbIf *&amp;pCInstance, const float *pfAudio, long long iNumSamples, float fSampleRate, int iNumBands=20, float fStartInHz=100)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a4f9a54535402efadb25424661a8d6638">create</a>(CGammaToneFbIf *&amp;pCInstance, float fSampleRate, int iNumBands=20, float fStartInHz=100)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#ab7ebd623237cc28b195f0fd291707bf8">destroy</a>(CGammaToneFbIf *&amp;pCInstance)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a01fe0c64d257cb16bf633f3b8060d29a">getCenterFreq</a>(int iBandIdx) const</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#ae9588434e58fd751b6ec1b4f13a78356">getOutputDimensions</a>(long long &amp;iNumRows, long long &amp;iNumCols) const</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a0b3ba7948620d116d8fcee83010c56ba">init_</a>()</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#aefc18c9ab9cf803636a6c5bb06340b13">m_bIsInitialized</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a388eaae852deb7133e639cf341aeff9d">m_fSampleRate</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a41006941c3a85e63847ad6de651b3434">m_fStartInHz</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#ab687169c29ca27f3dbbc27645a229476">m_iBlockLength</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a5d0dbe0befa778478d4c0e1437ac4ddd">m_iNumBands</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#aa2262e53efa04768d72c0ee8dc5205bc">m_pCBlockAudio</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a658ed69ea19dec329ad4711450b1d8c9">m_pCNormalize</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#afe5a4649388d2239e2ab38858c95298b">m_pfProcessBuff</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#ae3b05e422442c10ac90ef5fbdc6615cd">m_ppCGammatone</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#aea375ca66d511a19e3a0f2dce77ba482">operator=</a>(const CGammaToneFbIf &amp;c)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a213a39329bd7d70dbd90df71d1cf0735">process</a>(float **ppfOutput, const float *pfInput=0, long long iNumSamples=0)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#acdce444c00fcae3da249963ec17c1640">reset_</a>()</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00343.html#a318a449b09a3ad56279cce2dcd897c10">~CGammaToneFbFromVector</a>()</td><td class="entry"><a class="el" href="a00343.html">CGammaToneFbFromVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a901b757125a9622199ffc7ee63fd91ae">~CGammaToneFbIf</a>()</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:48 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

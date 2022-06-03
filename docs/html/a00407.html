@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CMovingAverage Class Reference</title>
+<title>ACA: CVector Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -47,414 +47,79 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="a00404.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CMovingAverage Class Reference</div></div>
+  <div class="headertitle"><div class="title">CVector Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class for single-pole low pass filtering  
+<p>class with static functions for buffer operations with type T  
  <a href="a00407.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00149_source.html">ToolLowPass.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00107_source.html">Vector.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CMovingAverage:</div>
+Collaboration diagram for CVector:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00405.png" border="0" usemap="#aCMovingAverage_coll__map" alt="Collaboration graph"/></div>
-<map name="aCMovingAverage_coll__map" id="aCMovingAverage_coll__map">
-<area shape="rect" title="class for single&#45;pole low pass filtering" alt="" coords="5,784,148,1023"/>
-<area shape="rect" href="a00347.html" title=" " alt="" coords="8,395,145,721"/>
-<area shape="rect" href="a00347.html" title="implement a circular buffer of type T" alt="" coords="16,5,137,332"/>
+<div class="center"><img src="a00405.png" border="0" usemap="#aCVector_coll__map" alt="Collaboration graph"/></div>
+<map name="aCVector_coll__map" id="aCVector_coll__map">
+<area shape="rect" title="class with static functions for buffer operations with type T" alt="" coords="5,5,167,185"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a1a014af5490675e140d6069561b00eb1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a1a014af5490675e140d6069561b00eb1">setFilterParam</a> (int iFilterLength=64)</td></tr>
-<tr class="separator:a1a014af5490675e140d6069561b00eb1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9704ba1d710c82a1b92af175b0b07538"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a9704ba1d710c82a1b92af175b0b07538">getFilterParam</a> () const</td></tr>
-<tr class="separator:a9704ba1d710c82a1b92af175b0b07538"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e86e5be0bc6ad928397d99eda2d1978"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a4e86e5be0bc6ad928397d99eda2d1978">process</a> (float *pfOutput, const float *pfInput, long long iLengthOfBuffer)</td></tr>
-<tr class="separator:a4e86e5be0bc6ad928397d99eda2d1978"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9681799055b5a4622d25a70901a65af3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a9681799055b5a4622d25a70901a65af3">reset</a> ()</td></tr>
-<tr class="separator:a9681799055b5a4622d25a70901a65af3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab6f5f359e79f0ede5aedc7775ae3bece"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#ab6f5f359e79f0ede5aedc7775ae3bece">filtfilt</a> (float *pfOutput, const float *pfInput, long long iLengthOfBuffer)</td></tr>
-<tr class="separator:ab6f5f359e79f0ede5aedc7775ae3bece"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a9008feaaece203a6bf1220ab81e1b983"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a9008feaaece203a6bf1220ab81e1b983">create</a> (<a class="el" href="a00407.html">CMovingAverage</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:a9008feaaece203a6bf1220ab81e1b983"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5a6b1921f58c43d9daa618a97e62754f"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a5a6b1921f58c43d9daa618a97e62754f">destroy</a> (<a class="el" href="a00407.html">CMovingAverage</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:a5a6b1921f58c43d9daa618a97e62754f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac37c3eae6a41a393219aa4cbd39db211"><td class="memItemLeft" align="right" valign="top">static int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#ac37c3eae6a41a393219aa4cbd39db211">calcFilterLength</a> (float fIntegrationTimeInS, float fSampleRate)</td></tr>
-<tr class="separator:ac37c3eae6a41a393219aa4cbd39db211"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:aa02ee977828ff103f3e2c25889131122"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#aa02ee977828ff103f3e2c25889131122">CMovingAverage</a> ()</td></tr>
-<tr class="separator:aa02ee977828ff103f3e2c25889131122"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adde468f177d86f008403b3d94210bfd4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#adde468f177d86f008403b3d94210bfd4">~CMovingAverage</a> ()</td></tr>
-<tr class="separator:adde468f177d86f008403b3d94210bfd4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7fbde1ace5417196843209065c07d687"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a7fbde1ace5417196843209065c07d687">CMovingAverage</a> (const <a class="el" href="a00407.html">CMovingAverage</a> &amp;that)</td></tr>
-<tr class="separator:a7fbde1ace5417196843209065c07d687"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae283883b27aeaa8aaa1796953cc9a0ef"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00407.html">CMovingAverage</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#ae283883b27aeaa8aaa1796953cc9a0ef">operator=</a> (const <a class="el" href="a00407.html">CMovingAverage</a> &amp;c)</td></tr>
-<tr class="separator:ae283883b27aeaa8aaa1796953cc9a0ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:a67685901f5136c73c25b9650d97193a0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00347.html">CRingBuffer</a>&lt; float &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a> = new <a class="el" href="a00347.html">CRingBuffer</a>&lt;float&gt;(65)</td></tr>
-<tr class="separator:a67685901f5136c73c25b9650d97193a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa9972cded7adacb3a044ba85401b2e1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#afa9972cded7adacb3a044ba85401b2e1">m_fPrevOut</a> = 0</td></tr>
-<tr class="separator:afa9972cded7adacb3a044ba85401b2e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad89b487a9844f6302d8f886e64e78fbd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad89b487a9844f6302d8f886e64e78fbd"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd">alloc</a> (T *&amp;pfVec, long long iLength)</td></tr>
+<tr class="separator:ad89b487a9844f6302d8f886e64e78fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe5e1268bb93a077f0d4fcac90ba8039"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:afe5e1268bb93a077f0d4fcac90ba8039"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039">free</a> (T *&amp;pfVec)</td></tr>
+<tr class="separator:afe5e1268bb93a077f0d4fcac90ba8039"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbb3f9f480568b60f7fe50090d20003"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6dbb3f9f480568b60f7fe50090d20003"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003">setZero</a> (T *ptSrcDest, long long iLength)</td></tr>
+<tr class="separator:a6dbb3f9f480568b60f7fe50090d20003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a4cf9544dd96801e3ee47fd1ef2049a1b">setValue</a> (T *ptDest, T tValue, long long iLength)</td></tr>
+<tr class="separator:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad84d68f82a9afecad29be0d8186f4c9e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad84d68f82a9afecad29be0d8186f4c9e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#ad84d68f82a9afecad29be0d8186f4c9e">setZeroBelowThresh</a> (T *ptSrcDest, long long int iLength, T Thresh)</td></tr>
+<tr class="separator:ad84d68f82a9afecad29be0d8186f4c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b811d064424381d6f210d4b7fcfaef2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6b811d064424381d6f210d4b7fcfaef2"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a6b811d064424381d6f210d4b7fcfaef2">copy</a> (T *ptDest, const T *pSource, long long int iLength)</td></tr>
+<tr class="separator:a6b811d064424381d6f210d4b7fcfaef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16455e414da1bc89417716b46b212ab9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a16455e414da1bc89417716b46b212ab9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a16455e414da1bc89417716b46b212ab9">flip_I</a> (T *ptSrcDest, long long int iLength)</td></tr>
+<tr class="separator:a16455e414da1bc89417716b46b212ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49614aaa52051b98b7f266daac9eefbb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a49614aaa52051b98b7f266daac9eefbb"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a49614aaa52051b98b7f266daac9eefbb">moveInMem</a> (T *ptSrcDest, int iDestIdx, int iSrcIdx, long long int iLength)</td></tr>
+<tr class="separator:a49614aaa52051b98b7f266daac9eefbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class for single-pole low pass filtering </p>
+<div class="textblock"><p >class with static functions for buffer operations with type T </p>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00122">122</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aa02ee977828ff103f3e2c25889131122" name="aa02ee977828ff103f3e2c25889131122"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa02ee977828ff103f3e2c25889131122">&#9670;&nbsp;</a></span>CMovingAverage() <span class="overload">[1/2]</span></h2>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00012">12</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad89b487a9844f6302d8f886e64e78fbd" name="ad89b487a9844f6302d8f886e64e78fbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad89b487a9844f6302d8f886e64e78fbd">&#9670;&nbsp;</a></span>alloc()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CMovingAverage::CMovingAverage </td>
+          <td class="memname">static void CVector::alloc </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00271">271</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  272</span>    {</div>
-<div class="line"><span class="lineno">  273</span>        <a class="code hl_function" href="a00407.html#a9681799055b5a4622d25a70901a65af3">reset</a>();</div>
-<div class="line"><span class="lineno">  274</span>    };</div>
-<div class="ttc" id="aa00407_html_a9681799055b5a4622d25a70901a65af3"><div class="ttname"><a href="a00407.html#a9681799055b5a4622d25a70901a65af3">CMovingAverage::reset</a></div><div class="ttdeci">Error_t reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00219">ToolLowPass.h:219</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00149_source.html#l00219">reset()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00149_source.html#l00130">create()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_aa02ee977828ff103f3e2c25889131122_cgraph.png" border="0" usemap="#aa00407_aa02ee977828ff103f3e2c25889131122_cgraph" alt=""/></div>
-<map name="aa00407_aa02ee977828ff103f3e2c25889131122_cgraph" id="aa00407_aa02ee977828ff103f3e2c25889131122_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,232,57"/>
-<area shape="rect" href="a00407.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="280,31,436,57"/>
-<area shape="rect" href="a00347.html#a716fb4acc03355a73cc7d96f3ceb2995" title=" " alt="" coords="502,5,629,32"/>
-<area shape="rect" href="a00347.html#af265a6322c4b1584c880def00d31e663" title=" " alt="" coords="484,56,647,83"/>
-<area shape="rect" href="a00347.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="695,56,825,83"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_aa02ee977828ff103f3e2c25889131122_icgraph.png" border="0" usemap="#aa00407_aa02ee977828ff103f3e2c25889131122_icgraph" alt=""/></div>
-<map name="aa00407_aa02ee977828ff103f3e2c25889131122_icgraph" id="aa00407_aa02ee977828ff103f3e2c25889131122_icgraph">
-<area shape="rect" title=" " alt="" coords="611,46,837,73"/>
-<area shape="rect" href="a00407.html#a9008feaaece203a6bf1220ab81e1b983" title=" " alt="" coords="400,46,563,73"/>
-<area shape="rect" href="a00367.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="239,46,352,73"/>
-<area shape="rect" href="a00267.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00271.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="23,71,173,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="adde468f177d86f008403b3d94210bfd4" name="adde468f177d86f008403b3d94210bfd4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adde468f177d86f008403b3d94210bfd4">&#9670;&nbsp;</a></span>~CMovingAverage()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual CMovingAverage::~CMovingAverage </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00275">275</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  276</span>    {</div>
-<div class="line"><span class="lineno">  277</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>;</div>
-<div class="line"><span class="lineno">  278</span>    };</div>
-<div class="ttc" id="aa00407_html_a67685901f5136c73c25b9650d97193a0"><div class="ttname"><a href="a00407.html#a67685901f5136c73c25b9650d97193a0">CMovingAverage::m_pCRingBuff</a></div><div class="ttdeci">CRingBuffer&lt; float &gt; * m_pCRingBuff</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00282">ToolLowPass.h:282</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00149_source.html#l00282">m_pCRingBuff</a>.</p>
-
-</div>
-</div>
-<a id="a7fbde1ace5417196843209065c07d687" name="a7fbde1ace5417196843209065c07d687"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7fbde1ace5417196843209065c07d687">&#9670;&nbsp;</a></span>CMovingAverage() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CMovingAverage::CMovingAverage </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00407.html">CMovingAverage</a> &amp;&#160;</td>
-          <td class="paramname"><em>that</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ac37c3eae6a41a393219aa4cbd39db211" name="ac37c3eae6a41a393219aa4cbd39db211"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac37c3eae6a41a393219aa4cbd39db211">&#9670;&nbsp;</a></span>calcFilterLength()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static int CMovingAverage::calcFilterLength </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fIntegrationTimeInS</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >compute the filter length from an "integration time" </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fIntegrationTimeInS</td><td>integration time in seconds (the higher, the more low pass) </td></tr>
-    <tr><td class="paramname">fSampleRate</td><td>sample rate in Hz return int number of coeffs </td></tr>
-  </table>
-  </dd>
-</dl>
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00182">182</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  183</span>    {</div>
-<div class="line"><span class="lineno">  184</span>        assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  185</span>        assert(fIntegrationTimeInS &gt;= 0);</div>
-<div class="line"><span class="lineno">  186</span>        <span class="keywordflow">if</span> (fIntegrationTimeInS &lt;= 1.5F / fSampleRate)</div>
-<div class="line"><span class="lineno">  187</span>            <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">  188</span> </div>
-<div class="line"><span class="lineno">  189</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::ceil(fIntegrationTimeInS * fSampleRate));</div>
-<div class="line"><span class="lineno">  190</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00179">CNoveltyIf::compNovelty()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_ac37c3eae6a41a393219aa4cbd39db211_icgraph.png" border="0" usemap="#aa00407_ac37c3eae6a41a393219aa4cbd39db211_icgraph" alt=""/></div>
-<map name="aa00407_ac37c3eae6a41a393219aa4cbd39db211_icgraph" id="aa00407_ac37c3eae6a41a393219aa4cbd39db211_icgraph">
-<area shape="rect" title=" " alt="" coords="559,23,739,65"/>
-<area shape="rect" href="a00367.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00319.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00074.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00068.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a9008feaaece203a6bf1220ab81e1b983" name="a9008feaaece203a6bf1220ab81e1b983"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9008feaaece203a6bf1220ab81e1b983">&#9670;&nbsp;</a></span>create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CMovingAverage::create </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00407.html">CMovingAverage</a> *&amp;&#160;</td>
-          <td class="paramname"><em>pCInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >initializes a MovingAverage instance with file reading </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00130">130</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  131</span>    {</div>
-<div class="line"><span class="lineno">  132</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00407.html#aa02ee977828ff103f3e2c25889131122">CMovingAverage</a>();</div>
-<div class="line"><span class="lineno">  133</span> </div>
-<div class="line"><span class="lineno">  134</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  135</span>    }</div>
-<div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
-<div class="ttc" id="aa00407_html_aa02ee977828ff103f3e2c25889131122"><div class="ttname"><a href="a00407.html#aa02ee977828ff103f3e2c25889131122">CMovingAverage::CMovingAverage</a></div><div class="ttdeci">CMovingAverage()</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00271">ToolLowPass.h:271</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00149_source.html#l00271">CMovingAverage()</a>, and <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00314">CNoveltyIf::init_()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a9008feaaece203a6bf1220ab81e1b983_cgraph.png" border="0" usemap="#aa00407_a9008feaaece203a6bf1220ab81e1b983_cgraph" alt=""/></div>
-<map name="aa00407_a9008feaaece203a6bf1220ab81e1b983_cgraph" id="aa00407_a9008feaaece203a6bf1220ab81e1b983_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,168,57"/>
-<area shape="rect" href="a00407.html#aa02ee977828ff103f3e2c25889131122" title=" " alt="" coords="216,31,443,57"/>
-<area shape="rect" href="a00407.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="491,31,647,57"/>
-<area shape="rect" href="a00347.html#a716fb4acc03355a73cc7d96f3ceb2995" title=" " alt="" coords="713,5,839,32"/>
-<area shape="rect" href="a00347.html#af265a6322c4b1584c880def00d31e663" title=" " alt="" coords="695,56,857,83"/>
-<area shape="rect" href="a00347.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="905,56,1036,83"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a9008feaaece203a6bf1220ab81e1b983_icgraph.png" border="0" usemap="#aa00407_a9008feaaece203a6bf1220ab81e1b983_icgraph" alt=""/></div>
-<map name="aa00407_a9008feaaece203a6bf1220ab81e1b983_icgraph" id="aa00407_a9008feaaece203a6bf1220ab81e1b983_icgraph">
-<area shape="rect" title=" " alt="" coords="400,46,563,73"/>
-<area shape="rect" href="a00367.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="239,46,352,73"/>
-<area shape="rect" href="a00267.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00271.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="23,71,173,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a5a6b1921f58c43d9daa618a97e62754f" name="a5a6b1921f58c43d9daa618a97e62754f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5a6b1921f58c43d9daa618a97e62754f">&#9670;&nbsp;</a></span>destroy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CMovingAverage::destroy </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00407.html">CMovingAverage</a> *&amp;&#160;</td>
-          <td class="paramname"><em>pCInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >destroys a MovingAverage instance </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be destroyed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00142">142</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  143</span>    {</div>
-<div class="line"><span class="lineno">  144</span>        <span class="keyword">delete</span> pCInstance;</div>
-<div class="line"><span class="lineno">  145</span>        pCInstance = 0;</div>
-<div class="line"><span class="lineno">  146</span> </div>
-<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  148</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00289">CNoveltyIf::reset_()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a5a6b1921f58c43d9daa618a97e62754f_icgraph.png" border="0" usemap="#aa00407_a5a6b1921f58c43d9daa618a97e62754f_icgraph" alt=""/></div>
-<map name="aa00407_a5a6b1921f58c43d9daa618a97e62754f_icgraph" id="aa00407_a5a6b1921f58c43d9daa618a97e62754f_icgraph">
-<area shape="rect" title=" " alt="" coords="412,71,581,98"/>
-<area shape="rect" href="a00367.html#a119fc32e085bb978525ea9596ee2e9c1" title="reset configuration" alt="" coords="239,71,364,98"/>
-<area shape="rect" href="a00267.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00367.html#a120b69bf1f92d3f00ef515518a9dc604" title=" " alt="" coords="23,71,173,98"/>
-<area shape="rect" href="a00367.html#ad5ef9568b2492898ee428c60ae4d5ca5" title=" " alt="" coords="19,122,177,149"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ab6f5f359e79f0ede5aedc7775ae3bece" name="ab6f5f359e79f0ede5aedc7775ae3bece"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab6f5f359e79f0ede5aedc7775ae3bece">&#9670;&nbsp;</a></span>filtfilt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CMovingAverage::filtfilt </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfOutput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfInput</em>, </td>
+          <td class="paramtype">T *&amp;&#160;</td>
+          <td class="paramname"><em>pfVec</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iLengthOfBuffer</em>&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -464,212 +129,130 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >performs zero-phase filtering with the MA </p><dl class="params"><dt>Parameters</dt><dd>
+<p >allocates a float buffer and inits it with zeros </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pfOutput</td><td>filter result (user-allocated, to be written, length iLengthOfBuffer) </td></tr>
-    <tr><td class="paramname">pfInput</td><td>input data of length iLengthOfBuffer </td></tr>
-    <tr><td class="paramname">iLengthOfBuffer</td><td>length of buffer in samples </td></tr>
+    <tr><td class="paramname">pfVec</td><td>(empty pointer, to be allocated) </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of floats </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00234">234</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  235</span>    {</div>
-<div class="line"><span class="lineno">  236</span>        </div>
-<div class="line"><span class="lineno">  237</span>        <span class="keywordtype">int</span> iFilterLength = this-&gt;<a class="code hl_function" href="a00407.html#a9704ba1d710c82a1b92af175b0b07538">getFilterParam</a>();</div>
-<div class="line"><span class="lineno">  238</span>        this-&gt;<a class="code hl_function" href="a00407.html#a9681799055b5a4622d25a70901a65af3">reset</a>();</div>
-<div class="line"><span class="lineno">  239</span>        this-&gt;<a class="code hl_function" href="a00407.html#a1a014af5490675e140d6069561b00eb1">setFilterParam</a>(iFilterLength);</div>
-<div class="line"><span class="lineno">  240</span> </div>
-<div class="line"><span class="lineno">  241</span>        <span class="keywordtype">float</span>* pfTmpBuff = 0;</div>
-<div class="line"><span class="lineno">  242</span>        <a class="code hl_function" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(pfTmpBuff, iLengthOfBuffer + 2 * <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iFilterLength));</div>
-<div class="line"><span class="lineno">  243</span> </div>
-<div class="line"><span class="lineno">  244</span>        this-&gt;<a class="code hl_function" href="a00407.html#a4e86e5be0bc6ad928397d99eda2d1978">process</a>(&amp;pfTmpBuff[iFilterLength], pfInput, iLengthOfBuffer);</div>
-<div class="line"><span class="lineno">  245</span> </div>
-<div class="line"><span class="lineno">  246</span>        <span class="comment">// tail</span></div>
-<div class="line"><span class="lineno">  247</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iFilterLength; i++)</div>
-<div class="line"><span class="lineno">  248</span>        {</div>
-<div class="line"><span class="lineno">  249</span>            <span class="keywordtype">float</span> fZero = 0.F;</div>
-<div class="line"><span class="lineno">  250</span>            this-&gt;<a class="code hl_function" href="a00407.html#a4e86e5be0bc6ad928397d99eda2d1978">process</a>(&amp;pfTmpBuff[iLengthOfBuffer + iFilterLength + i], &amp;fZero, 1);</div>
-<div class="line"><span class="lineno">  251</span>        }</div>
-<div class="line"><span class="lineno">  252</span> </div>
-<div class="line"><span class="lineno">  253</span>        <span class="comment">// reverse tail</span></div>
-<div class="line"><span class="lineno">  254</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = iLengthOfBuffer + 2*<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iFilterLength) - 1; i &gt;= iLengthOfBuffer + iFilterLength; i--)</div>
-<div class="line"><span class="lineno">  255</span>        {</div>
-<div class="line"><span class="lineno">  256</span>            <span class="keywordtype">float</span> fZero = 0.F;</div>
-<div class="line"><span class="lineno">  257</span>            this-&gt;<a class="code hl_function" href="a00407.html#a4e86e5be0bc6ad928397d99eda2d1978">process</a>(&amp;fZero, &amp;pfTmpBuff[i], 1);</div>
-<div class="line"><span class="lineno">  258</span>        }</div>
-<div class="line"><span class="lineno">  259</span> </div>
-<div class="line"><span class="lineno">  260</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = iLengthOfBuffer + iFilterLength - 1; i &gt;= iFilterLength; i--)</div>
-<div class="line"><span class="lineno">  261</span>            this-&gt;<a class="code hl_function" href="a00407.html#a4e86e5be0bc6ad928397d99eda2d1978">process</a>(&amp;pfOutput[i-iFilterLength], &amp;pfTmpBuff[i], 1);</div>
-<div class="line"><span class="lineno">  262</span> </div>
-<div class="line"><span class="lineno">  263</span>        this-&gt;<a class="code hl_function" href="a00407.html#a9681799055b5a4622d25a70901a65af3">reset</a>();</div>
-<div class="line"><span class="lineno">  264</span>        this-&gt;<a class="code hl_function" href="a00407.html#a1a014af5490675e140d6069561b00eb1">setFilterParam</a>(iFilterLength);</div>
-<div class="line"><span class="lineno">  265</span> </div>
-<div class="line"><span class="lineno">  266</span>        <a class="code hl_function" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(pfTmpBuff);</div>
-<div class="line"><span class="lineno">  267</span>    }</div>
-<div class="ttc" id="aa00359_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00022">Vector.h:22</a></div></div>
-<div class="ttc" id="aa00359_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.html#l00037">Vector.h:37</a></div></div>
-<div class="ttc" id="aa00407_html_a1a014af5490675e140d6069561b00eb1"><div class="ttname"><a href="a00407.html#a1a014af5490675e140d6069561b00eb1">CMovingAverage::setFilterParam</a></div><div class="ttdeci">Error_t setFilterParam(int iFilterLength=64)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00154">ToolLowPass.h:154</a></div></div>
-<div class="ttc" id="aa00407_html_a4e86e5be0bc6ad928397d99eda2d1978"><div class="ttname"><a href="a00407.html#a4e86e5be0bc6ad928397d99eda2d1978">CMovingAverage::process</a></div><div class="ttdeci">Error_t process(float *pfOutput, const float *pfInput, long long iLengthOfBuffer)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00198">ToolLowPass.h:198</a></div></div>
-<div class="ttc" id="aa00407_html_a9704ba1d710c82a1b92af175b0b07538"><div class="ttname"><a href="a00407.html#a9704ba1d710c82a1b92af175b0b07538">CMovingAverage::getFilterParam</a></div><div class="ttdeci">int getFilterParam() const</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00172">ToolLowPass.h:172</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00022">22</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   23</span>    {</div>
+<div class="line"><span class="lineno">   24</span>        assert(iLength &gt; 0);</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span>        pfVec = <span class="keyword">new</span> T[iLength];</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>        assert(pfVec);</div>
+<div class="line"><span class="lineno">   29</span>        <a class="code hl_function" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003">setZero</a>(pfVec, iLength);</div>
+<div class="line"><span class="lineno">   30</span>    }</div>
+<div class="ttc" id="aa00407_html_a6dbb3f9f480568b60f7fe50090d20003"><div class="ttname"><a href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a></div><div class="ttdeci">static void setZero(T *ptSrcDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00049">Vector.h:49</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00086_source.html#l00037">CVector::free()</a>, <a class="el" href="a00149_source.html#l00172">getFilterParam()</a>, <a class="el" href="a00149_source.html#l00198">process()</a>, <a class="el" href="a00149_source.html#l00219">reset()</a>, and <a class="el" href="a00149_source.html#l00154">setFilterParam()</a>.</p>
+<p class="reference">References <a class="el" href="a00107_source.html#l00049">setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00179">CNoveltyIf::compNovelty()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00101_source.html#l00021">CMatrix::alloc()</a>, <a class="el" href="a00053_source.html#l00263">CFft::allocMemory_()</a>, <a class="el" href="a00104_source.html#l00301">CButterLp::calcCoeffs()</a>, <a class="el" href="a00059_source.html#l00123">CBlockAudioBuffer::CBlockAudioBuffer()</a>, <a class="el" href="a00038_source.html#l00329">CFeatureSpectralFlux::CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs::CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00727">CFeatureTimeMaxAcf::CFeatureTimeMaxAcf()</a>, <a class="el" href="a00137_source.html#l00016">CInstFreq::CInstFreq()</a>, <a class="el" href="a00092_source.html#l00049">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00050_source.html#l00070">CNoveltyFromBlockIf::CNoveltyFromBlockIf()</a>, <a class="el" href="a00068_source.html#l00179">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00071_source.html#l00019">CPitchSpectralAcf::CPitchSpectralAcf()</a>, <a class="el" href="a00071_source.html#l00092">CPitchSpectralHps::CPitchSpectralHps()</a>, <a class="el" href="a00071_source.html#l00142">CPitchTimeAcf::CPitchTimeAcf()</a>, <a class="el" href="a00071_source.html#l00216">CPitchTimeAuditory::CPitchTimeAuditory()</a>, <a class="el" href="a00146_source.html#l00234">CMovingAverage::filtfilt()</a>, <a class="el" href="a00104_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00065_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00104_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00074_source.html#l00020">CCcf::init()</a>, <a class="el" href="a00047_source.html#l00033">CDtw::init()</a>, <a class="el" href="a00077_source.html#l00495">CGammaToneFbIf::init_()</a>, <a class="el" href="a00062_source.html#l00227">CBeatHistoIf::init_()</a>, <a class="el" href="a00044_source.html#l00342">CFeatureIf::init_()</a>, <a class="el" href="a00065_source.html#l00260">CSpectrogramIf::init_()</a>, <a class="el" href="a00068_source.html#l00314">CNoveltyIf::init_()</a>, <a class="el" href="a00056_source.html#l00293">CPitchIf::init_()</a>, <a class="el" href="a00149_source.html#l00102">CResample::process()</a>, and <a class="el" href="a00104_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_ab6f5f359e79f0ede5aedc7775ae3bece_cgraph.png" border="0" usemap="#aa00407_ab6f5f359e79f0ede5aedc7775ae3bece_cgraph" alt=""/></div>
-<map name="aa00407_ab6f5f359e79f0ede5aedc7775ae3bece_cgraph" id="aa00407_ab6f5f359e79f0ede5aedc7775ae3bece_cgraph">
-<area shape="rect" title=" " alt="" coords="5,144,159,171"/>
-<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="243,5,345,32"/>
-<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="245,56,343,83"/>
-<area shape="rect" href="a00407.html#a9704ba1d710c82a1b92af175b0b07538" title=" " alt="" coords="207,107,381,149"/>
-<area shape="rect" href="a00407.html#a4e86e5be0bc6ad928397d99eda2d1978" title=" " alt="" coords="207,173,381,200"/>
-<area shape="rect" href="a00407.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="216,245,372,272"/>
-<area shape="rect" href="a00407.html#a1a014af5490675e140d6069561b00eb1" title=" " alt="" coords="207,297,381,338"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="461,5,580,32"/>
-<area shape="rect" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d" title=" " alt="" coords="429,82,612,123"/>
-<area shape="rect" href="a00347.html#a0f25eadaafa6a2e7bfe2f9ef6af1104b" title=" " alt="" coords="441,199,601,225"/>
-<area shape="rect" href="a00347.html#a2bd848181a662312600bc590b9040d2a" title=" " alt="" coords="441,148,601,175"/>
-<area shape="rect" href="a00347.html#a23d9877584d712c17811a9833835605e" title=" " alt="" coords="668,199,783,225"/>
-<area shape="rect" href="a00347.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="660,249,791,276"/>
-<area shape="rect" href="a00347.html#a702eb6314380082795f735df74a816c9" title=" " alt="" coords="668,148,783,175"/>
-<area shape="rect" href="a00347.html#a716fb4acc03355a73cc7d96f3ceb2995" title=" " alt="" coords="457,249,584,276"/>
-<area shape="rect" href="a00347.html#af265a6322c4b1584c880def00d31e663" title=" " alt="" coords="439,300,602,327"/>
-<area shape="rect" href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e" title=" " alt="" coords="443,351,598,377"/>
+<div class="center"><img src="a00407_ad89b487a9844f6302d8f886e64e78fbd_cgraph.png" border="0" usemap="#aa00407_ad89b487a9844f6302d8f886e64e78fbd_cgraph" alt=""/></div>
+<map name="aa00407_ad89b487a9844f6302d8f886e64e78fbd_cgraph" id="aa00407_ad89b487a9844f6302d8f886e64e78fbd_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,108,32"/>
+<area shape="rect" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="156,5,275,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_ab6f5f359e79f0ede5aedc7775ae3bece_icgraph.png" border="0" usemap="#aa00407_ab6f5f359e79f0ede5aedc7775ae3bece_icgraph" alt=""/></div>
-<map name="aa00407_ab6f5f359e79f0ede5aedc7775ae3bece_icgraph" id="aa00407_ab6f5f359e79f0ede5aedc7775ae3bece_icgraph">
-<area shape="rect" title=" " alt="" coords="559,31,712,57"/>
-<area shape="rect" href="a00367.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00319.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00074.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00068.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+<div class="center"><img src="a00407_ad89b487a9844f6302d8f886e64e78fbd_icgraph.png" border="0" usemap="#aa00407_ad89b487a9844f6302d8f886e64e78fbd_icgraph" alt=""/></div>
+<map name="aa00407_ad89b487a9844f6302d8f886e64e78fbd_icgraph" id="aa00407_ad89b487a9844f6302d8f886e64e78fbd_icgraph">
+<area shape="rect" title=" " alt="" coords="1256,1039,1359,1066"/>
+<area shape="rect" href="a00391.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="1061,327,1160,354"/>
+<area shape="rect" href="a00247.html#a4ffe272900bf3ba5bbab219262506455" title=" " alt="" coords="773,41,938,83"/>
+<area shape="rect" href="a00307.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="227,664,370,705"/>
+<area shape="rect" href="a00431.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="771,568,940,609"/>
+<area shape="rect" href="a00479.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="817,466,894,493"/>
+<area shape="rect" href="a00383.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="504,365,644,391"/>
+<area shape="rect" href="a00383.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="253,365,345,391"/>
+<area shape="rect" href="a00475.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,671,147,698"/>
+<area shape="rect" href="a00379.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="1044,1090,1177,1117"/>
+<area shape="rect" href="a00455.html#a4b3af2ff4c095211a3c89701a6fdb9db" title=" " alt="" coords="503,989,645,1015"/>
+<area shape="rect" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="537,1039,611,1066"/>
+<area shape="rect" href="a00267.html#a541f40820696e37cc302fc780b8313ee" title=" " alt="" coords="221,912,376,953"/>
+<area shape="rect" href="a00295.html#ad7f64995a5d0ca75139e400172a9ab42" title=" " alt="" coords="231,1029,366,1071"/>
+<area shape="rect" href="a00303.html#acd4920798f76cfa56accd9ba28dad6ae" title=" " alt="" coords="197,1095,401,1122"/>
+<area shape="rect" href="a00371.html#ab38ca831ee8ae42a8a95e33af4f756ba" title="init configuration" alt="" coords="517,786,631,813"/>
+<area shape="rect" href="a00431.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="503,1242,645,1269"/>
+<area shape="rect" href="a00415.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="517,1293,631,1319"/>
+<area shape="rect" href="a00423.html#a3a966aff4a49e12324f205b20c5f2232" title="init configuration" alt="" coords="525,1343,623,1370"/>
+<area shape="rect" href="a00387.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="500,634,648,661"/>
+<area shape="rect" href="a00331.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="1042,1445,1179,1487"/>
+<area shape="rect" href="a00243.html#a1a45f132f54b2f2f3d63f0827dc8300f" title=" " alt="" coords="1034,1511,1187,1552"/>
+<area shape="rect" href="a00471.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="1013,1576,1208,1617"/>
+<area shape="rect" href="a00419.html#a9bd729b91b67944f16547f85090b9eae" title=" " alt="" coords="1035,1641,1187,1683"/>
+<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="773,913,938,939"/>
+<area shape="rect" href="a00299.html#a5c1be3a6a8f0517c57384938dcad343d" title=" " alt="" coords="1041,1707,1180,1748"/>
+<area shape="rect" href="a00463.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="1034,938,1187,965"/>
+<area shape="rect" href="a00383.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="533,735,615,762"/>
+<area shape="rect" href="a00451.html#a0b3ba7948620d116d8fcee83010c56ba" title="init configuration" alt="" coords="1031,1773,1190,1799"/>
+<area shape="rect" href="a00367.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="1047,1827,1174,1854"/>
+<area shape="rect" href="a00247.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="776,107,935,148"/>
+<area shape="rect" href="a00327.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="745,173,965,199"/>
+<area shape="rect" href="a00251.html#a388f9c7dd2074706d723e31b421f16fa" title=" " alt="" coords="753,224,957,265"/>
+<area shape="rect" href="a00391.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="805,365,905,391"/>
+<area shape="rect" href="a00431.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="451,517,697,543"/>
+<area shape="rect" href="a00431.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="458,568,690,609"/>
+<area shape="rect" href="a00379.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="820,1090,891,1117"/>
+<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="202,978,395,1005"/>
+<area shape="rect" href="a00235.html#abdd90edbfe131bcd181d9ffac77fab8e" title=" " alt="" coords="206,781,391,823"/>
+<area shape="rect" href="a00239.html#a686d96f3eac3a33378fcea886d687305" title=" " alt="" coords="224,847,373,888"/>
+<area shape="rect" href="a00319.html#aeac8291805613de79ed584829d3d5f30" title=" " alt="" coords="217,1147,380,1188"/>
+<area shape="rect" href="a00323.html#a2c6b75c7c05204bec34db9c8ec6c40d1" title=" " alt="" coords="209,1212,388,1253"/>
+<area shape="rect" href="a00279.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="206,1277,391,1319"/>
+<area shape="rect" href="a00283.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="224,1343,373,1384"/>
+<area shape="rect" href="a00287.html#ab74f454ce0bbdccd22a38066ce26b16a" title=" " alt="" coords="195,1409,403,1435"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="549,887,599,914"/>
+<area shape="rect" href="a00339.html#aec7867658e2991c8526c78666c960920" title=" " alt="" coords="766,1667,945,1708"/>
+<area shape="rect" href="a00343.html#a01a1b74d93af0810f5f4962b2578ca11" title=" " alt="" coords="758,1732,953,1773"/>
+<area shape="rect" href="a00347.html#a016022732eaec0576f3a8dfc8158fcae" title=" " alt="" coords="764,1797,947,1839"/>
+<area shape="rect" href="a00367.html#a9b3f72cb0d46466cf0aa38540b9980a5" title=" " alt="" coords="786,1863,925,1890"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a9704ba1d710c82a1b92af175b0b07538" name="a9704ba1d710c82a1b92af175b0b07538"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9704ba1d710c82a1b92af175b0b07538">&#9670;&nbsp;</a></span>getFilterParam()</h2>
+<a id="a6b811d064424381d6f210d4b7fcfaef2" name="a6b811d064424381d6f210d4b7fcfaef2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6b811d064424381d6f210d4b7fcfaef2">&#9670;&nbsp;</a></span>copy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int CMovingAverage::getFilterParam </td>
+          <td class="memname">static void CVector::copy </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >returns the filter length </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00172">172</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  173</span>    {</div>
-<div class="line"><span class="lineno">  174</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>-&gt;<a class="code hl_function" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d">getNumValuesInBuffer</a>();</div>
-<div class="line"><span class="lineno">  175</span>    }</div>
-<div class="ttc" id="aa00347_html_aa04a6cb30d486a6ddd5f7929db1eef9d"><div class="ttname"><a href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d">CRingBuffer::getNumValuesInBuffer</a></div><div class="ttdeci">int getNumValuesInBuffer() const</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00191">RingBuffer.h:191</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00092_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, and <a class="el" href="a00149_source.html#l00282">m_pCRingBuff</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00149_source.html#l00234">filtfilt()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a9704ba1d710c82a1b92af175b0b07538_cgraph.png" border="0" usemap="#aa00407_a9704ba1d710c82a1b92af175b0b07538_cgraph" alt=""/></div>
-<map name="aa00407_a9704ba1d710c82a1b92af175b0b07538_cgraph" id="aa00407_a9704ba1d710c82a1b92af175b0b07538_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,180,47"/>
-<area shape="rect" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d" title=" " alt="" coords="228,5,411,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a9704ba1d710c82a1b92af175b0b07538_icgraph.png" border="0" usemap="#aa00407_a9704ba1d710c82a1b92af175b0b07538_icgraph" alt=""/></div>
-<map name="aa00407_a9704ba1d710c82a1b92af175b0b07538_icgraph" id="aa00407_a9704ba1d710c82a1b92af175b0b07538_icgraph">
-<area shape="rect" title=" " alt="" coords="760,23,935,65"/>
-<area shape="rect" href="a00407.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="559,31,712,57"/>
-<area shape="rect" href="a00367.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00319.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00074.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00068.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ae283883b27aeaa8aaa1796953cc9a0ef" name="ae283883b27aeaa8aaa1796953cc9a0ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae283883b27aeaa8aaa1796953cc9a0ef">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00407.html">CMovingAverage</a> &amp; CMovingAverage::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00407.html">CMovingAverage</a> &amp;&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a4e86e5be0bc6ad928397d99eda2d1978" name="a4e86e5be0bc6ad928397d99eda2d1978"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e86e5be0bc6ad928397d99eda2d1978">&#9670;&nbsp;</a></span>process()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CMovingAverage::process </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfOutput</em>, </td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptDest</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfInput</em>, </td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>pSource</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iLengthOfBuffer</em>&#160;</td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -679,283 +262,627 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >performs the MovingAverage computation </p><dl class="params"><dt>Parameters</dt><dd>
+<p >copies buffer of type T </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pfOutput</td><td>filter result (user-allocated, to be written, length iLengthOfBuffer) </td></tr>
-    <tr><td class="paramname">pfInput</td><td>input data of length iLengthOfBuffer </td></tr>
-    <tr><td class="paramname">iLengthOfBuffer</td><td>length of buffer in samples </td></tr>
+    <tr><td class="paramname">ptDest</td><td>pointer to destination memory </td></tr>
+    <tr><td class="paramname">pSource</td><td>pointer to source memory </td></tr>
+    <tr><td class="paramname">iLength</td><td>length of buffer </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00198">198</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  199</span>    {</div>
-<div class="line"><span class="lineno">  200</span>        <span class="keywordflow">if</span> (!pfOutput || !pfInput || iLengthOfBuffer &lt;= 0)</div>
-<div class="line"><span class="lineno">  201</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  202</span>        </div>
-<div class="line"><span class="lineno">  203</span>        <span class="keywordtype">int</span> iFilterLength = <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>-&gt;<a class="code hl_function" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d">getNumValuesInBuffer</a>();</div>
-<div class="line"><span class="lineno">  204</span> </div>
-<div class="line"><span class="lineno">  205</span>        <span class="comment">// recursive implementation - beware of potential error propagation due to numerical precision</span></div>
-<div class="line"><span class="lineno">  206</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLengthOfBuffer; i++)</div>
-<div class="line"><span class="lineno">  207</span>        {</div>
-<div class="line"><span class="lineno">  208</span>            <a class="code hl_variable" href="a00407.html#afa9972cded7adacb3a044ba85401b2e1">m_fPrevOut</a> += (pfInput[i] - <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>-&gt;<a class="code hl_function" href="a00347.html#a0f25eadaafa6a2e7bfe2f9ef6af1104b">getPostInc</a>()) / iFilterLength;</div>
-<div class="line"><span class="lineno">  209</span>            pfOutput[i] = <a class="code hl_variable" href="a00407.html#afa9972cded7adacb3a044ba85401b2e1">m_fPrevOut</a>;</div>
-<div class="line"><span class="lineno">  210</span>            <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>-&gt;<a class="code hl_function" href="a00347.html#a2bd848181a662312600bc590b9040d2a">putPostInc</a>(pfInput[i]);</div>
-<div class="line"><span class="lineno">  211</span>        }</div>
-<div class="line"><span class="lineno">  212</span> </div>
-<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  214</span>    }</div>
-<div class="ttc" id="aa00113_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00347_html_a0f25eadaafa6a2e7bfe2f9ef6af1104b"><div class="ttname"><a href="a00347.html#a0f25eadaafa6a2e7bfe2f9ef6af1104b">CRingBuffer::getPostInc</a></div><div class="ttdeci">T getPostInc()</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00084">RingBuffer.h:84</a></div></div>
-<div class="ttc" id="aa00347_html_a2bd848181a662312600bc590b9040d2a"><div class="ttname"><a href="a00347.html#a2bd848181a662312600bc590b9040d2a">CRingBuffer::putPostInc</a></div><div class="ttdeci">void putPostInc(T tNewValue)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00038">RingBuffer.h:38</a></div></div>
-<div class="ttc" id="aa00407_html_afa9972cded7adacb3a044ba85401b2e1"><div class="ttname"><a href="a00407.html#afa9972cded7adacb3a044ba85401b2e1">CMovingAverage::m_fPrevOut</a></div><div class="ttdeci">float m_fPrevOut</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00284">ToolLowPass.h:284</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00097">97</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>    {</div>
+<div class="line"><span class="lineno">   99</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  100</span> </div>
+<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">  102</span>        {</div>
+<div class="line"><span class="lineno">  103</span>            assert(ptDest);</div>
+<div class="line"><span class="lineno">  104</span>            assert(pSource);</div>
+<div class="line"><span class="lineno">  105</span>            memcpy(ptDest, pSource, <span class="keyword">sizeof</span>(T)*iLength);</div>
+<div class="line"><span class="lineno">  106</span>        }</div>
+<div class="line"><span class="lineno">  107</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00092_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, <a class="el" href="a00092_source.html#l00084">CRingBuffer&lt; T &gt;::getPostInc()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00149_source.html#l00284">m_fPrevOut</a>, <a class="el" href="a00149_source.html#l00282">m_pCRingBuff</a>, and <a class="el" href="a00092_source.html#l00038">CRingBuffer&lt; T &gt;::putPostInc()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00149_source.html#l00234">filtfilt()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a4e86e5be0bc6ad928397d99eda2d1978_cgraph.png" border="0" usemap="#aa00407_a4e86e5be0bc6ad928397d99eda2d1978_cgraph" alt=""/></div>
-<map name="aa00407_a4e86e5be0bc6ad928397d99eda2d1978_cgraph" id="aa00407_a4e86e5be0bc6ad928397d99eda2d1978_cgraph">
-<area shape="rect" title=" " alt="" coords="5,71,179,98"/>
-<area shape="rect" href="a00347.html#aa04a6cb30d486a6ddd5f7929db1eef9d" title=" " alt="" coords="227,5,409,47"/>
-<area shape="rect" href="a00347.html#a0f25eadaafa6a2e7bfe2f9ef6af1104b" title=" " alt="" coords="238,71,398,98"/>
-<area shape="rect" href="a00347.html#a2bd848181a662312600bc590b9040d2a" title=" " alt="" coords="238,122,398,149"/>
-<area shape="rect" href="a00347.html#a23d9877584d712c17811a9833835605e" title=" " alt="" coords="465,46,580,73"/>
-<area shape="rect" href="a00347.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="457,97,588,123"/>
-<area shape="rect" href="a00347.html#a702eb6314380082795f735df74a816c9" title=" " alt="" coords="465,147,580,174"/>
-</map>
-</div>
+<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00037">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00071_source.html#l00102">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00107_source.html#l00182">CVectorFloat::copy()</a>, <a class="el" href="a00104_source.html#l00033">CFilter&lt; T &gt;::init()</a>, and <a class="el" href="a00014_source.html#l00258">CAudioFileSndLib::openFile()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_a4e86e5be0bc6ad928397d99eda2d1978_icgraph.png" border="0" usemap="#aa00407_a4e86e5be0bc6ad928397d99eda2d1978_icgraph" alt=""/></div>
-<map name="aa00407_a4e86e5be0bc6ad928397d99eda2d1978_icgraph" id="aa00407_a4e86e5be0bc6ad928397d99eda2d1978_icgraph">
-<area shape="rect" title=" " alt="" coords="760,31,933,57"/>
-<area shape="rect" href="a00407.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="559,31,712,57"/>
-<area shape="rect" href="a00367.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00319.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00074.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00068.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+<div class="center"><img src="a00407_a6b811d064424381d6f210d4b7fcfaef2_icgraph.png" border="0" usemap="#aa00407_a6b811d064424381d6f210d4b7fcfaef2_icgraph" alt=""/></div>
+<map name="aa00407_a6b811d064424381d6f210d4b7fcfaef2_icgraph" id="aa00407_a6b811d064424381d6f210d4b7fcfaef2_icgraph">
+<area shape="rect" title=" " alt="" coords="1424,548,1527,575"/>
+<area shape="rect" href="a00295.html#a250792b516c76c54251534a33c17bea8" title=" " alt="" coords="401,204,536,245"/>
+<area shape="rect" href="a00299.html#ad6b1dafb86b44b1d31bfbe22e930d146" title=" " alt="" coords="1216,600,1355,641"/>
+<area shape="rect" href="a00411.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="1220,548,1351,575"/>
+<area shape="rect" href="a00383.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="989,76,1072,103"/>
+<area shape="rect" href="a00355.html#a0eed1ac1b3dd498717add1dfa56b3148" title=" " alt="" coords="1195,666,1376,692"/>
+<area shape="rect" href="a00387.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="957,127,1105,154"/>
+<area shape="rect" href="a00331.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="962,826,1099,868"/>
+<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,555,297,582"/>
+<area shape="rect" href="a00443.html#a4d7d19dd39b24147d9a1fab5d7e05257" title=" " alt="" coords="699,395,808,422"/>
+<area shape="rect" href="a00243.html#a7708c61b60debf97d717d637677fc36f" title=" " alt="" coords="957,892,1104,933"/>
+<area shape="rect" href="a00379.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="980,674,1081,700"/>
+<area shape="rect" href="a00379.html#a2d2fa880b32c7087973ed25628002129" title=" " alt="" coords="971,447,1090,474"/>
+<area shape="rect" href="a00419.html#afb2032a0a8448d57c5faec119b63bb71" title=" " alt="" coords="680,910,827,952"/>
+<area shape="rect" href="a00391.html#aa2683e4f8bccb4f145b534bd0c54f38f" title=" " alt="" coords="981,1008,1080,1035"/>
+<area shape="rect" href="a00467.html#af7639b7368293c01c130192067fe0f4b" title=" " alt="" coords="963,1059,1098,1086"/>
+<area shape="rect" href="a00443.html#af98260f965391ca3adf75bd435601236" title=" " alt="" coords="706,446,801,472"/>
+<area shape="rect" href="a00431.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="915,1110,1147,1152"/>
+<area shape="rect" href="a00331.html#a61dc57fda85624457a10ffa2ed7cdc2f" title=" " alt="" coords="962,178,1099,220"/>
+<area shape="rect" href="a00379.html#a71a16138f6d7e92548302f692ef92b9d" title=" " alt="" coords="972,244,1089,271"/>
+<area shape="rect" href="a00379.html#afae6f37b9bd00eaf068b9edd0fd0273d" title=" " alt="" coords="959,295,1103,322"/>
+<area shape="rect" href="a00379.html#aa613a3fa5e2e0ce0889021fdaaed8a0e" title=" " alt="" coords="958,346,1103,372"/>
+<area shape="rect" href="a00455.html#ac2e104197886d92fd1e4ac6d1c0b7e75" title=" " alt="" coords="965,396,1096,423"/>
+<area shape="rect" href="a00335.html#ad34aa3e4260873a5abce7e9e8d6189ab" title=" " alt="" coords="953,623,1108,650"/>
+<area shape="rect" href="a00379.html#a8aca99dbeeab366e72833fa09c134d9a" title=" " alt="" coords="965,724,1097,751"/>
+<area shape="rect" href="a00307.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="682,128,825,169"/>
+<area shape="rect" href="a00475.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="683,76,824,103"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,555,56,582"/>
+<area shape="rect" href="a00303.html#a7b6c2a935434281c2e17352a3487c912" title=" " alt="" coords="387,387,550,414"/>
+<area shape="rect" href="a00307.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="400,438,537,480"/>
+<area shape="rect" href="a00267.html#af20724e23d18c1126e2edf4186cc8005" title=" " alt="" coords="395,321,543,362"/>
+<area shape="rect" href="a00371.html#a7aef37fcf40e80cbace42fe663f47bbd" title=" " alt="" coords="640,640,867,667"/>
+<area shape="rect" href="a00415.html#a9018f2beabd03a9b41d90bde402aa227" title=" " alt="" coords="640,808,867,835"/>
+<area shape="rect" href="a00423.html#aa988c75557f8281271467b000a1a1d54" title=" " alt="" coords="647,691,860,718"/>
+<area shape="rect" href="a00431.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="656,742,851,784"/>
+<area shape="rect" href="a00371.html#a30248aa1fb336095d4d86d0bd3d2bdb8" title=" " alt="" coords="371,606,566,632"/>
+<area shape="rect" href="a00371.html#ad734d1e300583449f51e6ca80aa3e7b8" title=" " alt="" coords="369,656,568,683"/>
+<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="386,910,551,936"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,910,226,936"/>
+<area shape="rect" href="a00423.html#a5c6fea7fdc8067f1d6a116b86d543aa1" title=" " alt="" coords="407,707,530,734"/>
+<area shape="rect" href="a00431.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="345,758,592,784"/>
+<area shape="rect" href="a00431.html#ae041a770ec2b092761d9a88cc87946bb" title=" " alt="" coords="356,808,581,835"/>
+<area shape="rect" href="a00391.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="703,1000,803,1027"/>
+<area shape="rect" href="a00383.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="399,1000,539,1027"/>
+<area shape="rect" href="a00471.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="656,1117,851,1158"/>
+<area shape="rect" href="a00327.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="665,1052,842,1093"/>
+<area shape="rect" href="a00327.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="359,1118,579,1144"/>
+<area shape="rect" href="a00327.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="384,1052,553,1093"/>
+<area shape="rect" href="a00431.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="682,344,825,371"/>
+<area shape="rect" href="a00451.html#a213a39329bd7d70dbd90df71d1cf0735" title=" " alt="" coords="663,500,844,527"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a9681799055b5a4622d25a70901a65af3" name="a9681799055b5a4622d25a70901a65af3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9681799055b5a4622d25a70901a65af3">&#9670;&nbsp;</a></span>reset()</h2>
+<a id="a16455e414da1bc89417716b46b212ab9" name="a16455e414da1bc89417716b46b212ab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16455e414da1bc89417716b46b212ab9">&#9670;&nbsp;</a></span>flip_I()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CMovingAverage::reset </td>
+          <td class="memname">static void CVector::flip_I </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >reverses buffer (last to first element) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be flipped </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of elements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00114">114</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>    {</div>
+<div class="line"><span class="lineno">  116</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">  119</span>        {</div>
+<div class="line"><span class="lineno">  120</span>            assert(ptSrcDest);</div>
+<div class="line"><span class="lineno">  121</span> </div>
+<div class="line"><span class="lineno">  122</span>            <span class="keyword">auto</span> iLoopLength = iLength / 2; <span class="comment">// integer division!</span></div>
+<div class="line"><span class="lineno">  123</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLoopLength; i++)</div>
+<div class="line"><span class="lineno">  124</span>            {</div>
+<div class="line"><span class="lineno">  125</span>                T Tmp = ptSrcDest[i];</div>
+<div class="line"><span class="lineno">  126</span>                ptSrcDest[i] = ptSrcDest[iLength - 1 - i];</div>
+<div class="line"><span class="lineno">  127</span>                ptSrcDest[iLength - 1 - i] = Tmp;</div>
+<div class="line"><span class="lineno">  128</span>            }</div>
+<div class="line"><span class="lineno">  129</span>        }</div>
+<div class="line"><span class="lineno">  130</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00062_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, and <a class="el" href="a00107_source.html#l00192">CVectorFloat::flip_I()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00407_a16455e414da1bc89417716b46b212ab9_icgraph.png" border="0" usemap="#aa00407_a16455e414da1bc89417716b46b212ab9_icgraph" alt=""/></div>
+<map name="aa00407_a16455e414da1bc89417716b46b212ab9_icgraph" id="aa00407_a16455e414da1bc89417716b46b212ab9_icgraph">
+<area shape="rect" title=" " alt="" coords="429,35,532,61"/>
+<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="188,8,381,35"/>
+<area shape="rect" href="a00411.html#a4939c8901691ccaacf558dee2a2e3ea4" title=" " alt="" coords="219,60,350,87"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="47,5,98,32"/>
+<area shape="rect" href="a00295.html#a250792b516c76c54251534a33c17bea8" title=" " alt="" coords="5,57,140,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="afe5e1268bb93a077f0d4fcac90ba8039" name="afe5e1268bb93a077f0d4fcac90ba8039"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afe5e1268bb93a077f0d4fcac90ba8039">&#9670;&nbsp;</a></span>free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::free </td>
+          <td>(</td>
+          <td class="paramtype">T *&amp;&#160;</td>
+          <td class="paramname"><em>pfVec</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >clears internal buffers and sets parameters to default </p><dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+<p >frees a float buffer and sets it to zero </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfVec</td><td>(empty pointer, to be allocated) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00219">219</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  220</span>    {</div>
-<div class="line"><span class="lineno">  221</span>        <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>-&gt;<a class="code hl_function" href="a00347.html#a716fb4acc03355a73cc7d96f3ceb2995">reset</a>();</div>
-<div class="line"><span class="lineno">  222</span>        <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>-&gt;<a class="code hl_function" href="a00347.html#af265a6322c4b1584c880def00d31e663">setReadIdx</a>(-64);</div>
-<div class="line"><span class="lineno">  223</span>        <a class="code hl_variable" href="a00407.html#afa9972cded7adacb3a044ba85401b2e1">m_fPrevOut</a> = 0;</div>
-<div class="line"><span class="lineno">  224</span> </div>
-<div class="line"><span class="lineno">  225</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  226</span>    }</div>
-<div class="ttc" id="aa00347_html_a716fb4acc03355a73cc7d96f3ceb2995"><div class="ttname"><a href="a00347.html#a716fb4acc03355a73cc7d96f3ceb2995">CRingBuffer::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00147">RingBuffer.h:147</a></div></div>
-<div class="ttc" id="aa00347_html_af265a6322c4b1584c880def00d31e663"><div class="ttname"><a href="a00347.html#af265a6322c4b1584c880def00d31e663">CRingBuffer::setReadIdx</a></div><div class="ttdeci">void setReadIdx(int iNewReadIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00183">RingBuffer.h:183</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00037">37</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   38</span>    {</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keyword">delete</span>[] pfVec;</div>
+<div class="line"><span class="lineno">   40</span>        pfVec = 0;</div>
+<div class="line"><span class="lineno">   41</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00149_source.html#l00284">m_fPrevOut</a>, <a class="el" href="a00149_source.html#l00282">m_pCRingBuff</a>, <a class="el" href="a00092_source.html#l00147">CRingBuffer&lt; T &gt;::reset()</a>, and <a class="el" href="a00092_source.html#l00183">CRingBuffer&lt; T &gt;::setReadIdx()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00149_source.html#l00271">CMovingAverage()</a>, <a class="el" href="a00032_source.html#l00179">CNoveltyIf::compNovelty()</a>, and <a class="el" href="a00149_source.html#l00234">filtfilt()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a9681799055b5a4622d25a70901a65af3_cgraph.png" border="0" usemap="#aa00407_a9681799055b5a4622d25a70901a65af3_cgraph" alt=""/></div>
-<map name="aa00407_a9681799055b5a4622d25a70901a65af3_cgraph" id="aa00407_a9681799055b5a4622d25a70901a65af3_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,161,57"/>
-<area shape="rect" href="a00347.html#a716fb4acc03355a73cc7d96f3ceb2995" title=" " alt="" coords="227,5,354,32"/>
-<area shape="rect" href="a00347.html#af265a6322c4b1584c880def00d31e663" title=" " alt="" coords="209,56,372,83"/>
-<area shape="rect" href="a00347.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="420,56,551,83"/>
-</map>
-</div>
+<p class="reference">Referenced by <a class="el" href="a00104_source.html#l00301">CButterLp::calcCoeffs()</a>, <a class="el" href="a00092_source.html#l00049">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00068_source.html#l00179">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00146_source.html#l00234">CMovingAverage::filtfilt()</a>, <a class="el" href="a00104_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00101_source.html#l00039">CMatrix::free()</a>, <a class="el" href="a00053_source.html#l00276">CFft::freeMemory_()</a>, <a class="el" href="a00149_source.html#l00102">CResample::process()</a>, <a class="el" href="a00074_source.html#l00044">CCcf::reset()</a>, <a class="el" href="a00047_source.html#l00055">CDtw::reset()</a>, <a class="el" href="a00104_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, <a class="el" href="a00062_source.html#l00210">CBeatHistoIf::reset_()</a>, <a class="el" href="a00044_source.html#l00319">CFeatureIf::reset_()</a>, <a class="el" href="a00068_source.html#l00289">CNoveltyIf::reset_()</a>, <a class="el" href="a00056_source.html#l00270">CPitchIf::reset_()</a>, <a class="el" href="a00065_source.html#l00238">CSpectrogramIf::reset_()</a>, <a class="el" href="a00077_source.html#l00478">CGammaToneFbIf::reset_()</a>, <a class="el" href="a00104_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>, <a class="el" href="a00059_source.html#l00141">CBlockAudioBuffer::~CBlockAudioBuffer()</a>, <a class="el" href="a00059_source.html#l00041">CBlockAudioFile::~CBlockAudioFile()</a>, <a class="el" href="a00044_source.html#l00019">CFeatureFromFile::~CFeatureFromFile()</a>, <a class="el" href="a00038_source.html#l00335">CFeatureSpectralFlux::~CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.html#l00371">CFeatureSpectralMfccs::~CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00735">CFeatureTimeMaxAcf::~CFeatureTimeMaxAcf()</a>, <a class="el" href="a00137_source.html#l00037">CInstFreq::~CInstFreq()</a>, <a class="el" href="a00050_source.html#l00081">CNoveltyFromBlockIf::~CNoveltyFromBlockIf()</a>, <a class="el" href="a00068_source.html#l00020">CNoveltyFromFile::~CNoveltyFromFile()</a>, <a class="el" href="a00056_source.html#l00022">CPitchFromFile::~CPitchFromFile()</a>, <a class="el" href="a00071_source.html#l00028">CPitchSpectralAcf::~CPitchSpectralAcf()</a>, <a class="el" href="a00071_source.html#l00097">CPitchSpectralHps::~CPitchSpectralHps()</a>, <a class="el" href="a00071_source.html#l00150">CPitchTimeAcf::~CPitchTimeAcf()</a>, <a class="el" href="a00071_source.html#l00239">CPitchTimeAuditory::~CPitchTimeAuditory()</a>, and <a class="el" href="a00065_source.html#l00022">CSpectrogramFromFile::~CSpectrogramFromFile()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_a9681799055b5a4622d25a70901a65af3_icgraph.png" border="0" usemap="#aa00407_a9681799055b5a4622d25a70901a65af3_icgraph" alt=""/></div>
-<map name="aa00407_a9681799055b5a4622d25a70901a65af3_icgraph" id="aa00407_a9681799055b5a4622d25a70901a65af3_icgraph">
-<area shape="rect" title=" " alt="" coords="968,123,1124,150"/>
-<area shape="rect" href="a00407.html#aa02ee977828ff103f3e2c25889131122" title=" " alt="" coords="693,73,920,99"/>
-<area shape="rect" href="a00367.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="480,153,645,179"/>
-<area shape="rect" href="a00407.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="730,174,883,201"/>
-<area shape="rect" href="a00407.html#a9008feaaece203a6bf1220ab81e1b983" title=" " alt="" coords="481,73,644,99"/>
-<area shape="rect" href="a00367.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="279,73,392,99"/>
-<area shape="rect" href="a00267.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00271.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="23,71,173,112"/>
-<area shape="rect" href="a00319.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="239,142,432,169"/>
-<area shape="rect" href="a00074.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="310,193,361,219"/>
-<area shape="rect" href="a00068.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="73,142,123,169"/>
+<div class="center"><img src="a00407_afe5e1268bb93a077f0d4fcac90ba8039_icgraph.png" border="0" usemap="#aa00407_afe5e1268bb93a077f0d4fcac90ba8039_icgraph" alt=""/></div>
+<map name="aa00407_afe5e1268bb93a077f0d4fcac90ba8039_icgraph" id="aa00407_afe5e1268bb93a077f0d4fcac90ba8039_icgraph">
+<area shape="rect" title=" " alt="" coords="1184,920,1281,947"/>
+<area shape="rect" href="a00387.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="247,309,395,336"/>
+<area shape="rect" href="a00475.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="31,339,173,365"/>
+<area shape="rect" href="a00471.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="931,803,1126,845"/>
+<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="685,157,851,184"/>
+<area shape="rect" href="a00463.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="952,208,1105,235"/>
+<area shape="rect" href="a00383.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="275,411,367,437"/>
+<area shape="rect" href="a00391.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="981,600,1076,627"/>
+<area shape="rect" href="a00247.html#abc120e956529cb5d1f6bf881d151bf19" title=" " alt="" coords="443,689,615,730"/>
+<area shape="rect" href="a00383.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="459,512,599,539"/>
+<area shape="rect" href="a00479.html#a5b1d2405bd0a819817aeff8570dead68" title=" " alt="" coords="723,921,813,948"/>
+<area shape="rect" href="a00327.html#a6781748e7339d8a7f5b35be2daca6052" title=" " alt="" coords="681,973,855,1014"/>
+<area shape="rect" href="a00307.html#aafe950d4f08df5a8d47f44cb827ce4a0" title=" " alt="" coords="693,1038,843,1079"/>
+<area shape="rect" href="a00379.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="965,107,1093,133"/>
+<area shape="rect" href="a00443.html#a6edce7be75bf0b89dcc4a20e491ad8d8" title=" " alt="" coords="485,56,572,83"/>
+<area shape="rect" href="a00383.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="481,259,576,285"/>
+<area shape="rect" href="a00367.html#a3c3a39ab20e4ca9f1771bbd6f70327c9" title="reset configuration" alt="" coords="959,869,1098,896"/>
+<area shape="rect" href="a00371.html#a7b77edaf405fefd82329d8987b16d1f2" title="reset configuration" alt="" coords="966,920,1091,947"/>
+<area shape="rect" href="a00415.html#a119fc32e085bb978525ea9596ee2e9c1" title="reset configuration" alt="" coords="966,971,1091,997"/>
+<area shape="rect" href="a00423.html#a0841d88981bfe343f6439b7d4174a30b" title="reset configuration" alt="" coords="973,1021,1084,1048"/>
+<area shape="rect" href="a00431.html#afbe3214c599eaab59c8c5a886408630c" title="reset configuration" alt="" coords="951,1072,1106,1099"/>
+<area shape="rect" href="a00451.html#acdce444c00fcae3da249963ec17c1640" title="reset configuration" alt="" coords="943,1123,1114,1149"/>
+<area shape="rect" href="a00331.html#a92783fdc7fc8ac84ee0b11076852c4c8" title=" " alt="" coords="959,1174,1098,1215"/>
+<area shape="rect" href="a00235.html#afb353d0d979c87299f116cf68dad722d" title=" " alt="" coords="962,1239,1095,1281"/>
+<area shape="rect" href="a00243.html#a3c5685b11c974c54df140122f7cbae9d" title=" " alt="" coords="949,1305,1109,1346"/>
+<area shape="rect" href="a00267.html#a48c4e7762ac0c1bbbb91a50ccc2a4ffc" title=" " alt="" coords="948,1370,1109,1411"/>
+<area shape="rect" href="a00455.html#a1798e1ab9b7e57efba2582bd35fb9537" title=" " alt="" coords="954,1436,1103,1463"/>
+<area shape="rect" href="a00419.html#a0a3ab1625c7603b3e922573dc2354bf9" title=" " alt="" coords="949,1487,1108,1529"/>
+<area shape="rect" href="a00279.html#a5d9abf4513901cb6dfdb32a61bbb2880" title=" " alt="" coords="962,1553,1095,1594"/>
+<area shape="rect" href="a00287.html#a6c446615ac9fff3378654e33cb66430b" title=" " alt="" coords="921,1619,1136,1645"/>
+<area shape="rect" href="a00295.html#a451d66b67603a9d130f162720e361626" title=" " alt="" coords="961,1670,1097,1711"/>
+<area shape="rect" href="a00299.html#a412ed764fc1354045d2e8e9fa5cf20fc" title=" " alt="" coords="959,1735,1099,1777"/>
+<area shape="rect" href="a00303.html#a0c7cdf1cb79c1e8395db89ba56d79cbc" title=" " alt="" coords="923,1801,1134,1828"/>
+<area shape="rect" href="a00319.html#adad2283c6914dad1fadb8f6757215a6d" title=" " alt="" coords="944,1853,1113,1894"/>
+<area shape="rect" href="a00307.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="31,251,173,293"/>
+<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="5,81,199,108"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="503,157,554,184"/>
+<area shape="rect" href="a00247.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="689,689,847,730"/>
+<area shape="rect" href="a00431.html#a00140b0dd45e87aef4561aed8ebc779a" title=" " alt="" coords="666,820,870,847"/>
+<area shape="rect" href="a00391.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="718,637,818,664"/>
+<area shape="rect" href="a00251.html#a2a538aa6aba4b54cc8968b0a757c3996" title=" " alt="" coords="663,754,873,795"/>
+<area shape="rect" href="a00479.html#a9c81702f9537b30c7617ac9042efc950" title=" " alt="" coords="483,871,575,897"/>
+<area shape="rect" href="a00479.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="490,921,567,948"/>
+<area shape="rect" href="a00479.html#a42e62c6146b79e4f7fe3bcda0e4a7f8d" title=" " alt="" coords="479,972,578,999"/>
+<area shape="rect" href="a00379.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="727,107,809,133"/>
+<area shape="rect" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="283,56,358,83"/>
+<area shape="rect" href="a00443.html#add051d7bf13a84ed1fa5e18627e5e2b9" title=" " alt="" coords="274,5,367,32"/>
+<area shape="rect" href="a00383.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="279,259,362,285"/>
+<area shape="rect" href="a00335.html#ac8a53e2ced024bccde0f5941404068d0" title=" " alt="" coords="252,157,389,184"/>
+<area shape="rect" href="a00383.html#a98c26369ca6c2941cba4874e6bfef3a7" title=" " alt="" coords="265,208,376,235"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a1a014af5490675e140d6069561b00eb1" name="a1a014af5490675e140d6069561b00eb1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1a014af5490675e140d6069561b00eb1">&#9670;&nbsp;</a></span>setFilterParam()</h2>
+<a id="a49614aaa52051b98b7f266daac9eefbb" name="a49614aaa52051b98b7f266daac9eefbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49614aaa52051b98b7f266daac9eefbb">&#9670;&nbsp;</a></span>moveInMem()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CMovingAverage::setFilterParam </td>
+          <td class="memname">static void CVector::moveInMem </td>
           <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iFilterLength</em> = <code>64</code></td><td>)</td>
+          <td class="paramname"><em>iDestIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iSrcIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >sets the length of the filter </p><dl class="params"><dt>Parameters</dt><dd>
+<p >moves a subset of the current buffer </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">iFilterLength</td><td>length of the moving average filter (the longer the more lowpass) </td></tr>
+    <tr><td class="paramname">ptSrcDest</td><td>source and destination </td></tr>
+    <tr><td class="paramname">iDestIdx</td><td>destination index </td></tr>
+    <tr><td class="paramname">iSrcIdx</td><td>source index </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of elements to be moved </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00154">154</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  155</span>    {</div>
-<div class="line"><span class="lineno">  156</span>        <span class="keywordflow">if</span> (iFilterLength &lt;= 0)</div>
-<div class="line"><span class="lineno">  157</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>-&gt;<a class="code hl_function" href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e">getLength</a>() &lt; iFilterLength)</div>
-<div class="line"><span class="lineno">  160</span>        {</div>
-<div class="line"><span class="lineno">  161</span>            <span class="keyword">delete</span> <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>;</div>
-<div class="line"><span class="lineno">  162</span>            <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00347.html">CRingBuffer&lt;float&gt;</a>(iFilterLength+1);</div>
-<div class="line"><span class="lineno">  163</span>        }</div>
-<div class="line"><span class="lineno">  164</span>        <a class="code hl_variable" href="a00407.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a>-&gt;<a class="code hl_function" href="a00347.html#af265a6322c4b1584c880def00d31e663">setReadIdx</a>(-iFilterLength);</div>
-<div class="line"><span class="lineno">  165</span> </div>
-<div class="line"><span class="lineno">  166</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  167</span>    }</div>
-<div class="ttc" id="aa00347_html"><div class="ttname"><a href="a00347.html">CRingBuffer&lt; float &gt;</a></div></div>
-<div class="ttc" id="aa00347_html_a0ec2bd62a49e5078d3ca0a03fa123c9e"><div class="ttname"><a href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e">CRingBuffer::getLength</a></div><div class="ttdeci">int getLength() const</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00199">RingBuffer.h:199</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00139">139</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  140</span>    {</div>
+<div class="line"><span class="lineno">  141</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  142</span>        assert (ptSrcDest);</div>
+<div class="line"><span class="lineno">  143</span> </div>
+<div class="line"><span class="lineno">  144</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">  145</span>            memmove (&amp;ptSrcDest[iDestIdx], &amp;ptSrcDest[iSrcIdx], <span class="keyword">sizeof</span>(T)*iLength);</div>
+<div class="line"><span class="lineno">  146</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00092_source.html#l00199">CRingBuffer&lt; T &gt;::getLength()</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00149_source.html#l00282">m_pCRingBuff</a>, and <a class="el" href="a00092_source.html#l00183">CRingBuffer&lt; T &gt;::setReadIdx()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00032_source.html#l00179">CNoveltyIf::compNovelty()</a>, and <a class="el" href="a00149_source.html#l00234">filtfilt()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a1a014af5490675e140d6069561b00eb1_cgraph.png" border="0" usemap="#aa00407_a1a014af5490675e140d6069561b00eb1_cgraph" alt=""/></div>
-<map name="aa00407_a1a014af5490675e140d6069561b00eb1_cgraph" id="aa00407_a1a014af5490675e140d6069561b00eb1_cgraph">
-<area shape="rect" title=" " alt="" coords="5,23,180,65"/>
-<area shape="rect" href="a00347.html#a0ec2bd62a49e5078d3ca0a03fa123c9e" title=" " alt="" coords="232,5,387,32"/>
-<area shape="rect" href="a00347.html#af265a6322c4b1584c880def00d31e663" title=" " alt="" coords="228,56,391,83"/>
-<area shape="rect" href="a00347.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="439,56,569,83"/>
-</map>
-</div>
+<p class="reference">Referenced by <a class="el" href="a00107_source.html#l00204">CVectorFloat::moveInMem()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_a1a014af5490675e140d6069561b00eb1_icgraph.png" border="0" usemap="#aa00407_a1a014af5490675e140d6069561b00eb1_icgraph" alt=""/></div>
-<map name="aa00407_a1a014af5490675e140d6069561b00eb1_icgraph" id="aa00407_a1a014af5490675e140d6069561b00eb1_icgraph">
-<area shape="rect" title=" " alt="" coords="760,23,935,65"/>
-<area shape="rect" href="a00367.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00407.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="559,56,712,83"/>
-<area shape="rect" href="a00319.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00074.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00068.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+<div class="center"><img src="a00407_a49614aaa52051b98b7f266daac9eefbb_icgraph.png" border="0" usemap="#aa00407_a49614aaa52051b98b7f266daac9eefbb_icgraph" alt=""/></div>
+<map name="aa00407_a49614aaa52051b98b7f266daac9eefbb_icgraph" id="aa00407_a49614aaa52051b98b7f266daac9eefbb_icgraph">
+<area shape="rect" title=" " alt="" coords="229,5,376,32"/>
+<area shape="rect" href="a00411.html#aa61715dbd068db45281c419aa004b309" title=" " alt="" coords="5,5,181,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="afa9972cded7adacb3a044ba85401b2e1" name="afa9972cded7adacb3a044ba85401b2e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa9972cded7adacb3a044ba85401b2e1">&#9670;&nbsp;</a></span>m_fPrevOut</h2>
+<a id="a4cf9544dd96801e3ee47fd1ef2049a1b" name="a4cf9544dd96801e3ee47fd1ef2049a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cf9544dd96801e3ee47fd1ef2049a1b">&#9670;&nbsp;</a></span>setValue()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CMovingAverage::m_fPrevOut = 0</td>
+          <td class="memname">static void CVector::setValue </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>tValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >initializes the buffer to a specific value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptDest</td><td>pointer to memory to be initialized </td></tr>
+    <tr><td class="paramname">tValue</td><td>value to use </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of elements to be set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00284">284</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00149_source.html#l00198">process()</a>, and <a class="el" href="a00149_source.html#l00219">reset()</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00065">65</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   66</span>    {</div>
+<div class="line"><span class="lineno">   67</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">   68</span>        assert(ptDest);</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">   71</span>            ptDest[i] = tValue;</div>
+<div class="line"><span class="lineno">   72</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00068_source.html#l00179">CNoveltyIf::compNovelty()</a>, and <a class="el" href="a00107_source.html#l00488">CVectorFloat::findPeaks()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00407_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph.png" border="0" usemap="#aa00407_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph" alt=""/></div>
+<map name="aa00407_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph" id="aa00407_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph">
+<area shape="rect" title=" " alt="" coords="768,31,895,57"/>
+<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
+<area shape="rect" href="a00411.html#acad30e028ad5639629a36820d6bb064b" title=" " alt="" coords="559,56,720,83"/>
+<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a67685901f5136c73c25b9650d97193a0" name="a67685901f5136c73c25b9650d97193a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67685901f5136c73c25b9650d97193a0">&#9670;&nbsp;</a></span>m_pCRingBuff</h2>
+<a id="a6dbb3f9f480568b60f7fe50090d20003" name="a6dbb3f9f480568b60f7fe50090d20003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dbb3f9f480568b60f7fe50090d20003">&#9670;&nbsp;</a></span>setZero()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00347.html">CRingBuffer</a>&lt;float&gt;* CMovingAverage::m_pCRingBuff = new <a class="el" href="a00347.html">CRingBuffer</a>&lt;float&gt;(65)</td>
+          <td class="memname">static void CVector::setZero </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >sets a buffer to zero </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be modified </td></tr>
+    <tr><td class="paramname">iLength</td><td>buffer length </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00282">282</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00049">49</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   50</span>    {</div>
+<div class="line"><span class="lineno">   51</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">   52</span>        assert (ptSrcDest);</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">   55</span>            memset (ptSrcDest, 0, <span class="keyword">sizeof</span>(T)*iLength);</div>
+<div class="line"><span class="lineno">   56</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00107_source.html#l00022">alloc()</a>, <a class="el" href="a00047_source.html#l00015">CDtw::CDtw()</a>, <a class="el" href="a00104_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00104_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, and <a class="el" href="a00107_source.html#l00160">CVectorFloat::setZero()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00407_a6dbb3f9f480568b60f7fe50090d20003_icgraph.png" border="0" usemap="#aa00407_a6dbb3f9f480568b60f7fe50090d20003_icgraph" alt=""/></div>
+<map name="aa00407_a6dbb3f9f480568b60f7fe50090d20003_icgraph" id="aa00407_a6dbb3f9f480568b60f7fe50090d20003_icgraph">
+<area shape="rect" title=" " alt="" coords="1147,1436,1265,1463"/>
+<area shape="rect" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="973,803,1076,829"/>
+<area shape="rect" href="a00383.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="762,1385,845,1412"/>
+<area shape="rect" href="a00479.html#a9c81702f9537b30c7617ac9042efc950" title=" " alt="" coords="979,1436,1071,1463"/>
+<area shape="rect" href="a00383.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="977,1487,1072,1513"/>
+<area shape="rect" href="a00411.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="951,1945,1099,1972"/>
+<area shape="rect" href="a00391.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="754,1132,853,1159"/>
+<area shape="rect" href="a00247.html#a4ffe272900bf3ba5bbab219262506455" title=" " alt="" coords="463,926,629,967"/>
+<area shape="rect" href="a00307.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="475,1226,617,1267"/>
+<area shape="rect" href="a00431.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="461,991,631,1033"/>
+<area shape="rect" href="a00479.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="507,1057,585,1084"/>
+<area shape="rect" href="a00383.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="476,1175,616,1201"/>
+<area shape="rect" href="a00383.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="245,1393,337,1420"/>
+<area shape="rect" href="a00475.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,1469,147,1496"/>
+<area shape="rect" href="a00379.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="737,5,870,32"/>
+<area shape="rect" href="a00387.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="729,1655,877,1681"/>
+<area shape="rect" href="a00331.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="735,57,872,98"/>
+<area shape="rect" href="a00243.html#a1a45f132f54b2f2f3d63f0827dc8300f" title=" " alt="" coords="727,1538,880,1579"/>
+<area shape="rect" href="a00267.html#a541f40820696e37cc302fc780b8313ee" title=" " alt="" coords="469,429,623,470"/>
+<area shape="rect" href="a00455.html#a4b3af2ff4c095211a3c89701a6fdb9db" title=" " alt="" coords="732,173,875,200"/>
+<area shape="rect" href="a00471.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="706,225,901,266"/>
+<area shape="rect" href="a00419.html#a9bd729b91b67944f16547f85090b9eae" title=" " alt="" coords="727,290,879,331"/>
+<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="463,356,629,383"/>
+<area shape="rect" href="a00295.html#ad7f64995a5d0ca75139e400172a9ab42" title=" " alt="" coords="479,513,613,554"/>
+<area shape="rect" href="a00299.html#a5c1be3a6a8f0517c57384938dcad343d" title=" " alt="" coords="734,458,873,499"/>
+<area shape="rect" href="a00303.html#acd4920798f76cfa56accd9ba28dad6ae" title=" " alt="" coords="444,629,648,656"/>
+<area shape="rect" href="a00463.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="727,356,880,383"/>
+<area shape="rect" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="766,575,841,601"/>
+<area shape="rect" href="a00451.html#a0b3ba7948620d116d8fcee83010c56ba" title="init configuration" alt="" coords="724,676,883,703"/>
+<area shape="rect" href="a00367.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="740,727,867,753"/>
+<area shape="rect" href="a00371.html#ab38ca831ee8ae42a8a95e33af4f756ba" title="init configuration" alt="" coords="747,777,860,804"/>
+<area shape="rect" href="a00431.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="732,828,875,855"/>
+<area shape="rect" href="a00415.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="747,879,860,905"/>
+<area shape="rect" href="a00423.html#a3a966aff4a49e12324f205b20c5f2232" title="init configuration" alt="" coords="754,929,853,956"/>
+<area shape="rect" href="a00247.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="467,1109,625,1150"/>
+<area shape="rect" href="a00327.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="436,1292,656,1319"/>
+<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="195,963,388,989"/>
+<area shape="rect" href="a00335.html#ac8a53e2ced024bccde0f5941404068d0" title=" " alt="" coords="735,1436,872,1463"/>
+<area shape="rect" href="a00383.html#a98c26369ca6c2941cba4874e6bfef3a7" title=" " alt="" coords="748,1487,859,1513"/>
+<area shape="rect" href="a00479.html#a27d97d54ec23bdc32778a75204d22842" title=" " alt="" coords="746,2221,861,2248"/>
+<area shape="rect" href="a00299.html#ad6b1dafb86b44b1d31bfbe22e930d146" title=" " alt="" coords="734,2273,873,2314"/>
+<area shape="rect" href="a00307.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="735,2338,872,2379"/>
+<area shape="rect" href="a00247.html#a92ff3ebff9377acf3573f6b4d87a4bcd" title=" " alt="" coords="724,1807,883,1849"/>
+<area shape="rect" href="a00251.html#a049a6c2d11108c7d14111790447f5d84" title=" " alt="" coords="704,1873,903,1914"/>
+<area shape="rect" href="a00379.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="495,1343,597,1369"/>
+<area shape="rect" href="a00327.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="461,2050,631,2091"/>
+<area shape="rect" href="a00331.html#a61dc57fda85624457a10ffa2ed7cdc2f" title=" " alt="" coords="735,2003,872,2045"/>
+<area shape="rect" href="a00391.html#ad0f9eb1d1f54d5fd23fea0fef17fc13a" title=" " alt="" coords="721,2069,885,2096"/>
+<area shape="rect" href="a00327.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="715,1938,892,1979"/>
+<area shape="rect" href="a00391.html#ac471bc59a137aa4fdccb56b2297ab95d" title=" " alt="" coords="748,2120,859,2147"/>
+</map>
+</div>
 
-<p class="reference">Referenced by <a class="el" href="a00149_source.html#l00172">getFilterParam()</a>, <a class="el" href="a00149_source.html#l00198">process()</a>, <a class="el" href="a00149_source.html#l00219">reset()</a>, <a class="el" href="a00149_source.html#l00154">setFilterParam()</a>, and <a class="el" href="a00149_source.html#l00275">~CMovingAverage()</a>.</p>
+</div>
+</div>
+<a id="ad84d68f82a9afecad29be0d8186f4c9e" name="ad84d68f82a9afecad29be0d8186f4c9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad84d68f82a9afecad29be0d8186f4c9e">&#9670;&nbsp;</a></span>setZeroBelowThresh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::setZeroBelowThresh </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>Thresh</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >sets all values smaller than a threshold to 0 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be modified </td></tr>
+    <tr><td class="paramname">iLength</td><td>buffer length </td></tr>
+    <tr><td class="paramname">Thresh</td><td>threshold value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00081">81</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   82</span>    {</div>
+<div class="line"><span class="lineno">   83</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">   84</span>        assert (ptSrcDest);</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">   87</span>            <span class="keywordflow">if</span> (ptSrcDest[i] &lt; Thresh)</div>
+<div class="line"><span class="lineno">   88</span>                ptSrcDest[i] = 0;</div>
+<div class="line"><span class="lineno">   89</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00107_source.html#l00171">CVectorFloat::setZeroBelowThresh()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00407_ad84d68f82a9afecad29be0d8186f4c9e_icgraph.png" border="0" usemap="#aa00407_ad84d68f82a9afecad29be0d8186f4c9e_icgraph" alt=""/></div>
+<map name="aa00407_ad84d68f82a9afecad29be0d8186f4c9e_icgraph" id="aa00407_ad84d68f82a9afecad29be0d8186f4c9e_icgraph">
+<area shape="rect" title=" " alt="" coords="791,31,985,57"/>
+<area shape="rect" href="a00411.html#a0778309dd31c594ef11e7f811449228b" title=" " alt="" coords="559,23,743,65"/>
+<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
+<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+</map>
+</div>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00149_source.html">ToolLowPass.h</a></li>
+<li><a class="el" href="a00107_source.html">Vector.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:48 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: ComputeBeatHisto.cpp File Reference</title>
+<title>ACA: Novelty.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -44,299 +44,65 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_7853cff6ae85101c84b607f53d7cd608.html">ComputeBeatHisto</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bc10c4dd205ae2a1e415269a4536b5cd.html">ACA</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">ComputeBeatHisto.cpp File Reference</div></div>
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle"><div class="title">Novelty.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;ACAConfig.h&quot;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &lt;fstream&gt;</code><br />
-<code>#include &lt;ctime&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00137_source.html">BeatHisto.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00113_source.html">Util.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00119_source.html">AudioFileIf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00098_source.html">Fft.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00092_source.html">ToolPreProc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00128_source.html">ToolBlockAudio.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00146_source.html">ToolLowPass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00152_source.html">NoveltyFromBlock.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00134_source.html">Novelty.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ComputeBeatHisto.cpp:</div>
+Include dependency graph for Novelty.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00069.png" border="0" usemap="#aComputeBeatHisto_8cpp" alt=""/></div>
-<map name="aComputeBeatHisto_8cpp" id="aComputeBeatHisto_8cpp">
-<area shape="rect" title=" " alt="" coords="176,5,332,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,100,107"/>
-<area shape="rect" title=" " alt="" coords="125,80,197,107"/>
-<area shape="rect" title=" " alt="" coords="221,80,287,107"/>
-<area shape="rect" title=" " alt="" coords="312,80,367,107"/>
-<area shape="rect" href="a00137.html" title=" " alt="" coords="391,80,482,107"/>
-<area shape="rect" title=" " alt="" coords="364,155,419,181"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="443,155,521,181"/>
+<div class="center"><img src="a00069.png" border="0" usemap="#aNovelty_8cpp" alt=""/></div>
+<map name="aNovelty_8cpp" id="aNovelty_8cpp">
+<area shape="rect" title=" " alt="" coords="495,5,585,32"/>
+<area shape="rect" href="a00113.html" title=" " alt="" coords="6,155,58,181"/>
+<area shape="rect" href="a00119.html" title=" " alt="" coords="543,155,638,181"/>
+<area shape="rect" href="a00098.html" title=" " alt="" coords="975,80,1023,107"/>
+<area shape="rect" href="a00092.html" title=" " alt="" coords="173,80,277,107"/>
+<area shape="rect" href="a00128.html" title=" " alt="" coords="396,155,519,181"/>
+<area shape="rect" href="a00146.html" title=" " alt="" coords="321,80,433,107"/>
+<area shape="rect" href="a00152.html" title=" " alt="" coords="759,80,897,107"/>
+<area shape="rect" href="a00134.html" title=" " alt="" coords="714,155,790,181"/>
+<area shape="rect" title=" " alt="" coords="169,229,234,256"/>
+<area shape="rect" title=" " alt="" coords="83,229,144,256"/>
+<area shape="rect" title=" " alt="" coords="5,229,59,256"/>
+<area shape="rect" title=" " alt="" coords="634,229,689,256"/>
+<area shape="rect" title=" " alt="" coords="543,229,609,256"/>
+<area shape="rect" title=" " alt="" coords="393,229,468,256"/>
+<area shape="rect" href="a00086.html" title=" " alt="" coords="713,229,791,256"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="82,155,153,181"/>
+<area shape="rect" title=" " alt="" coords="259,229,317,256"/>
+<area shape="rect" href="a00116.html" title=" " alt="" coords="229,155,321,181"/>
+<area shape="rect" title=" " alt="" coords="969,155,1015,181"/>
+<area shape="rect" title=" " alt="" coords="866,155,945,181"/>
 </map>
 </div>
 </div>
 <p><a href="a00068_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:a2d0a5ce28a4b0030ec0353c6f7a0fd64"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a> ()</td></tr>
-<tr class="separator:a2d0a5ce28a4b0030ec0353c6f7a0fd64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ddf1224851353fc92bfbff6f499fa97"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a0ddf1224851353fc92bfbff6f499fa97">main</a> (int argc, char *argv[])</td></tr>
-<tr class="separator:a0ddf1224851353fc92bfbff6f499fa97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html">CNoveltyFromFile</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00283.html">CNoveltyFromVector</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a0ddf1224851353fc92bfbff6f499fa97" name="a0ddf1224851353fc92bfbff6f499fa97"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ddf1224851353fc92bfbff6f499fa97">&#9670;&nbsp;</a></span>main()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int main </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>argc</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">char *&#160;</td>
-          <td class="paramname"><em>argv</em>[]&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >&lt; file paths</p>
-<p >&lt; block length in samples</p>
-<p >&lt; hop length in samples</p>
-<p >&lt; BeatHisto result</p>
-
-<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00019">19</a> of file <a class="el" href="a00068_source.html">ComputeBeatHisto.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>{</div>
-<div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>    std::string             sInputFilePath,                 <span class="comment">//!&lt; file paths</span></div>
-<div class="line"><span class="lineno">   23</span>        sOutputFilePath;</div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordtype">int</span> iBlockLength = 0, <span class="comment">//!&lt; block length in samples </span></div>
-<div class="line"><span class="lineno">   26</span>        iHopLength = 0; <span class="comment">//!&lt; hop length in samples</span></div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordtype">int</span> iBeatHistoDimension = 0;</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>    clock_t time = 0;</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_class" href="a00319.html">CBeatHistoIf</a>* pCInstance = 0;</div>
-<div class="line"><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00319.html#a7aa666694543decf41aa7c27a0593db0">CBeatHistoIf::BeatHisto_t</a> eBeatHistoIdx = <a class="code hl_enumvalue" href="a00319.html#a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770">CBeatHistoIf::kBeatHistoFft</a>;</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">float</span>* pfBeatHisto = 0; <span class="comment">//!&lt; BeatHisto result</span></div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>    std::fstream hOutputFile;</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_function" href="a00068.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>();</div>
-<div class="line"><span class="lineno">   39</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   40</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   41</span><span class="comment"></span>    <span class="comment">// parse command line arguments</span></div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (argc &lt; 2)</div>
-<div class="line"><span class="lineno">   43</span>    {</div>
-<div class="line"><span class="lineno">   44</span>        <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   45</span>        <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   47</span>    }</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   49</span>    {</div>
-<div class="line"><span class="lineno">   50</span>        sInputFilePath = argv[1];</div>
-<div class="line"><span class="lineno">   51</span>        sOutputFilePath = (argc &lt; 3) ? sInputFilePath + <span class="stringliteral">&quot;.txt&quot;</span> : argv[2];</div>
-<div class="line"><span class="lineno">   52</span>        iBlockLength = (argc &lt; 4) ? 1024 : std::stoi(argv[3]);</div>
-<div class="line"><span class="lineno">   53</span>        iHopLength = (argc &lt; 5) ? 8 : std::stoi(argv[4]);</div>
-<div class="line"><span class="lineno">   54</span>    }</div>
-<div class="line"><span class="lineno">   55</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   56</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   57</span><span class="comment"></span>    <span class="comment">// initialize BeatHisto instance</span></div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_function" href="a00319.html#a9b3f72cb0d46466cf0aa38540b9980a5">CBeatHistoIf::create</a>(pCInstance, sInputFilePath, iBlockLength, iHopLength);</div>
-<div class="line"><span class="lineno">   59</span>    iBeatHistoDimension = pCInstance-&gt;<a class="code hl_function" href="a00319.html#a00497d8ae052a8ce7125421c9615c573">getNumBins</a>(eBeatHistoIdx);</div>
-<div class="line"><span class="lineno">   60</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   61</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   62</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
-<div class="line"><span class="lineno">   63</span>    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);</div>
-<div class="line"><span class="lineno">   64</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
-<div class="line"><span class="lineno">   65</span>    {</div>
-<div class="line"><span class="lineno">   66</span>        <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
-<div class="line"><span class="lineno">   67</span>        <a class="code hl_function" href="a00319.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
-<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   69</span>    }</div>
-<div class="line"><span class="lineno">   70</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   71</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   72</span><span class="comment"></span>    <span class="comment">// allocate memory</span></div>
-<div class="line"><span class="lineno">   73</span>    pfBeatHisto = <span class="keyword">new</span> <span class="keywordtype">float</span>[iBeatHistoDimension];</div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>    <span class="keywordflow">if</span> (!pfBeatHisto)</div>
-<div class="line"><span class="lineno">   77</span>    {</div>
-<div class="line"><span class="lineno">   78</span>        <a class="code hl_function" href="a00319.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
-<div class="line"><span class="lineno">   79</span>        hOutputFile.close();</div>
-<div class="line"><span class="lineno">   80</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   81</span>    }</div>
-<div class="line"><span class="lineno">   82</span> </div>
-<div class="line"><span class="lineno">   83</span>    time = clock();</div>
-<div class="line"><span class="lineno">   84</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   85</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   86</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
-<div class="line"><span class="lineno">   87</span>    <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing BeatHisto...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   88</span>    pCInstance-&gt;<a class="code hl_function" href="a00319.html#a58a9a3d685f448ced2e843a60028e472">compBeatHisto</a>(pfBeatHisto);</div>
-<div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span>    <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n BeatHisto computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   91</span> </div>
-<div class="line"><span class="lineno">   92</span>    time = clock();</div>
-<div class="line"><span class="lineno">   93</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   94</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   95</span><span class="comment"></span>    <span class="comment">// file writing</span></div>
-<div class="line"><span class="lineno">   96</span> </div>
-<div class="line"><span class="lineno">   97</span>    <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iBeatHistoDimension; k++)</div>
-<div class="line"><span class="lineno">  100</span>    {</div>
-<div class="line"><span class="lineno">  101</span>        hOutputFile &lt;&lt; pfBeatHisto[k] &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  102</span>    }</div>
-<div class="line"><span class="lineno">  103</span> </div>
-<div class="line"><span class="lineno">  104</span>    <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  105</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  106</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">  107</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
-<div class="line"><span class="lineno">  108</span>    <a class="code hl_function" href="a00319.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a>(pCInstance);</div>
-<div class="line"><span class="lineno">  109</span>    hOutputFile.close();</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>    <span class="keyword">delete</span>[] pfBeatHisto;</div>
-<div class="line"><span class="lineno">  112</span>    pfBeatHisto = 0;</div>
-<div class="line"><span class="lineno">  113</span> </div>
-<div class="line"><span class="lineno">  114</span>    <span class="comment">// all done</span></div>
-<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  116</span> </div>
-<div class="line"><span class="lineno">  117</span>}</div>
-<div class="ttc" id="aa00068_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00068.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.html#l00120">ComputeBeatHisto.cpp:120</a></div></div>
-<div class="ttc" id="aa00203_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00203.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
-<div class="ttc" id="aa00319_html"><div class="ttname"><a href="a00319.html">CBeatHistoIf</a></div><div class="ttdoc">class for computation of a BeatHistogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00015">BeatHisto.h:16</a></div></div>
-<div class="ttc" id="aa00319_html_a00497d8ae052a8ce7125421c9615c573"><div class="ttname"><a href="a00319.html#a00497d8ae052a8ce7125421c9615c573">CBeatHistoIf::getNumBins</a></div><div class="ttdeci">Error_t getNumBins(int &amp;iNumBeatHistoBins, BeatHisto_t eBeatHistoComp) const</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00063">BeatHisto.cpp:63</a></div></div>
-<div class="ttc" id="aa00319_html_a58a9a3d685f448ced2e843a60028e472"><div class="ttname"><a href="a00319.html#a58a9a3d685f448ced2e843a60028e472">CBeatHistoIf::compBeatHisto</a></div><div class="ttdeci">Error_t compBeatHisto(float *pfBeatHisto, BeatHisto_t eBeatHistoComp=kBeatHistoFft)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00113">BeatHisto.cpp:113</a></div></div>
-<div class="ttc" id="aa00319_html_a5f773ad0baf325e182bd459c04ae7137"><div class="ttname"><a href="a00319.html#a5f773ad0baf325e182bd459c04ae7137">CBeatHistoIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CBeatHistoIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00055">BeatHisto.cpp:55</a></div></div>
-<div class="ttc" id="aa00319_html_a7aa666694543decf41aa7c27a0593db0"><div class="ttname"><a href="a00319.html#a7aa666694543decf41aa7c27a0593db0">CBeatHistoIf::BeatHisto_t</a></div><div class="ttdeci">BeatHisto_t</div><div class="ttdoc">enum to index all BeatHistogram computations</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00020">BeatHisto.h:21</a></div></div>
-<div class="ttc" id="aa00319_html_a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770"><div class="ttname"><a href="a00319.html#a7aa666694543decf41aa7c27a0593db0af29c40beceb0046a659f26b95d7d4770">CBeatHistoIf::kBeatHistoFft</a></div><div class="ttdeci">@ kBeatHistoFft</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00023">BeatHisto.h:23</a></div></div>
-<div class="ttc" id="aa00319_html_a9b3f72cb0d46466cf0aa38540b9980a5"><div class="ttname"><a href="a00319.html#a9b3f72cb0d46466cf0aa38540b9980a5">CBeatHistoIf::create</a></div><div class="ttdeci">static Error_t create(CBeatHistoIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=1024, int iHopLength=8)</div><div class="ttdef"><b>Definition:</b> <a href="a00023_source.html#l00019">BeatHisto.cpp:19</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00023_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00023_source.html#l00019">CBeatHistoIf::create()</a>, <a class="el" href="a00023_source.html#l00055">CBeatHistoIf::destroy()</a>, <a class="el" href="a00023_source.html#l00063">CBeatHistoIf::getNumBins()</a>, <a class="el" href="a00137_source.html#l00023">CBeatHistoIf::kBeatHistoFft</a>, and <a class="el" href="a00068_source.html#l00120">showClInfo()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00068_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#aa00068_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
-<map name="aa00068_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="aa00068_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title=" " alt="" coords="5,2029,56,2056"/>
-<area shape="rect" href="a00319.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,756,297,782"/>
-<area shape="rect" href="a00319.html#a00497d8ae052a8ce7125421c9615c573" title=" " alt="" coords="363,1902,538,1929"/>
-<area shape="rect" href="a00203.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="407,2105,494,2132"/>
-<area shape="rect" href="a00319.html#a9b3f72cb0d46466cf0aa38540b9980a5" title=" " alt="" coords="131,2004,270,2030"/>
-<area shape="rect" href="a00319.html#a5f773ad0baf325e182bd459c04ae7137" title=" " alt="" coords="128,2156,273,2182"/>
-<area shape="rect" href="a00068.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="157,2105,244,2132"/>
-<area shape="rect" href="a00363.html#a8abbcfd075eabceada2f024773f11166" title=" " alt="" coords="383,300,519,326"/>
-<area shape="rect" href="a00387.html#a4d7d19dd39b24147d9a1fab5d7e05257" title=" " alt="" coords="396,654,505,681"/>
-<area shape="rect" href="a00331.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="915,456,1017,482"/>
-<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="1110,401,1241,428"/>
-<area shape="rect" href="a00363.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="1101,198,1249,225"/>
-<area shape="rect" href="a00319.html#aab00ef7ee1267d939e78e6b27e86848e" title=" " alt="" coords="345,97,556,124"/>
-<area shape="rect" href="a00367.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="368,1316,533,1342"/>
-<area shape="rect" href="a00331.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="901,1101,1031,1128"/>
-<area shape="rect" href="a00383.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="623,1700,812,1726"/>
-<area shape="rect" href="a00383.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="619,1750,816,1777"/>
-<area shape="rect" href="a00383.html#a84f0c2bf28007ef7749ab0e90c8011d2" title=" " alt="" coords="377,148,524,174"/>
-<area shape="rect" href="a00383.html#a13d2bd6e36210dde0c64d188c1266b88" title=" " alt="" coords="374,198,527,225"/>
-<area shape="rect" href="a00359.html#a16455e414da1bc89417716b46b212ab9" title=" " alt="" coords="399,249,502,276"/>
-<area shape="rect" href="a00387.html#af98260f965391ca3adf75bd435601236" title=" " alt="" coords="919,300,1013,326"/>
-<area shape="rect" href="a00367.html#aa4193070cac8cac64ad8dc222fb612e8" title=" " alt="" coords="630,1953,805,1980"/>
-<area shape="rect" href="a00387.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="413,1726,488,1753"/>
-<area shape="rect" href="a00331.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="682,1902,753,1929"/>
-<area shape="rect" href="a00415.html#a9a0dbb8f97c757a13062370113d661c4" title=" " alt="" coords="359,850,542,891"/>
-<area shape="rect" href="a00331.html#a2d2fa880b32c7087973ed25628002129" title=" " alt="" coords="907,573,1025,600"/>
-<area shape="rect" href="a00331.html#ab6245bc0fdabc5e62ab910414eb4b923" title=" " alt="" coords="657,806,777,833"/>
-<area shape="rect" href="a00363.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="893,908,1039,934"/>
-<area shape="rect" href="a00363.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="636,553,799,580"/>
-<area shape="rect" href="a00331.html#a1d114960d5fc8ff4c328732adf638885" title=" " alt="" coords="663,502,771,529"/>
-<area shape="rect" href="a00363.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="1107,544,1243,570"/>
-<area shape="rect" href="a00218.html#a32fc71031e721d003fd1dc07f771351d" title=" " alt="" coords="1118,452,1233,494"/>
-<area shape="rect" href="a00391.html#ada82d84a69f4c77266835f1f06ca2ecb" title=" " alt="" coords="619,97,816,124"/>
-<area shape="rect" href="a00363.html#af10e45e34254ef453abff50282a8b746" title=" " alt="" coords="645,1548,790,1574"/>
-<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="915,1725,1017,1752"/>
-<area shape="rect" href="a00407.html#ac37c3eae6a41a393219aa4cbd39db211" title=" " alt="" coords="627,1279,807,1320"/>
-<area shape="rect" href="a00371.html#afb2032a0a8448d57c5faec119b63bb71" title=" " alt="" coords="893,507,1039,548"/>
-<area shape="rect" href="a00367.html#a9018f2beabd03a9b41d90bde402aa227" title=" " alt="" coords="604,1076,831,1102"/>
-<area shape="rect" href="a00407.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="641,1345,794,1372"/>
-<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="917,1197,1015,1224"/>
-<area shape="rect" href="a00407.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="888,1268,1044,1294"/>
-<area shape="rect" href="a00407.html#a1a014af5490675e140d6069561b00eb1" title=" " alt="" coords="879,1359,1053,1400"/>
-<area shape="rect" href="a00363.html#acad30e028ad5639629a36820d6bb064b" title=" " alt="" coords="637,1598,798,1625"/>
-<area shape="rect" href="a00359.html#a4cf9544dd96801e3ee47fd1ef2049a1b" title=" " alt="" coords="903,1522,1029,1549"/>
-<area shape="rect" href="a00363.html#a8279b309edcfcac51d94b1e8f206a330" title=" " alt="" coords="644,908,791,934"/>
-<area shape="rect" href="a00363.html#a0ebcfe60eb5cda1ab45ae8157be0e64e" title=" " alt="" coords="640,1497,795,1524"/>
-<area shape="rect" href="a00415.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="626,1010,809,1051"/>
-<area shape="rect" href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="909,1902,1023,1929"/>
-<area shape="rect" href="a00319.html#ae90a9b79467cccffa52077c24cd58bb0" title=" " alt="" coords="361,2004,540,2030"/>
-<area shape="rect" href="a00319.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="387,1953,514,1980"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a2d0a5ce28a4b0030ec0353c6f7a0fd64" name="a2d0a5ce28a4b0030ec0353c6f7a0fd64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2d0a5ce28a4b0030ec0353c6f7a0fd64">&#9670;&nbsp;</a></span>showClInfo()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void showClInfo </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00120">120</a> of file <a class="el" href="a00068_source.html">ComputeBeatHisto.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  121</span>{</div>
-<div class="line"><span class="lineno">  122</span>    <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; ACA_VERSION_MAJOR &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; ACA_VERSION_MINOR &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; ACA_VERSION_PATCH &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Beat Histogram Extraction&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  123</span>    <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  124</span>    <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeBeatHistoFunction inputwavfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  125</span>    <a class="code hl_function" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  128</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00203.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00068_source.html#l00019">main()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00068_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph.png" border="0" usemap="#aa00068_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph" alt=""/></div>
-<map name="aa00068_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph" id="aa00068_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,92,32"/>
-<area shape="rect" href="a00203.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="140,5,227,32"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00068_a2d0a5ce28a4b0030ec0353c6f7a0fd64_icgraph.png" border="0" usemap="#aa00068_a2d0a5ce28a4b0030ec0353c6f7a0fd64_icgraph" alt=""/></div>
-<map name="aa00068_a2d0a5ce28a4b0030ec0353c6f7a0fd64_icgraph" id="aa00068_a2d0a5ce28a4b0030ec0353c6f7a0fd64_icgraph">
-<area shape="rect" title=" " alt="" coords="104,5,191,32"/>
-<area shape="rect" href="a00068.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-</map>
-</div>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:47 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

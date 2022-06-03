@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: AudioFile.cpp File Reference</title>
+<title>ACA: ToolBlockAudio.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -44,52 +44,57 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_d4f6e779a3ef91b95519a6aced733fc8.html">AudioFileIO</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_bc10c4dd205ae2a1e415269a4536b5cd.html">ACA</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">AudioFile.cpp File Reference</div></div>
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle"><div class="title">ToolBlockAudio.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
-<code>#include &lt;iostream&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00080_source.html">Util.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00086_source.html">Vector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00062_source.html">AudioFile.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00188_source.html">sndlib.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00107_source.html">Vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00101_source.html">Matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00116_source.html">RingBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00119_source.html">AudioFileIf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00092_source.html">ToolPreProc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00128_source.html">ToolBlockAudio.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AudioFile.cpp:</div>
+Include dependency graph for ToolBlockAudio.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00060.png" border="0" usemap="#aAudioFile_8cpp" alt=""/></div>
-<map name="aAudioFile_8cpp" id="aAudioFile_8cpp">
-<area shape="rect" title=" " alt="" coords="200,5,300,32"/>
-<area shape="rect" title=" " alt="" coords="5,155,71,181"/>
-<area shape="rect" title=" " alt="" coords="262,80,334,107"/>
-<area shape="rect" href="a00080.html" title=" " alt="" coords="91,80,143,107"/>
-<area shape="rect" href="a00086.html" title=" " alt="" coords="167,80,237,107"/>
-<area shape="rect" href="a00062.html" title=" " alt="" coords="359,80,445,107"/>
-<area shape="rect" href="a00188.html" title=" " alt="" coords="582,80,649,107"/>
-<area shape="rect" title=" " alt="" coords="95,155,157,181"/>
-<area shape="rect" title=" " alt="" coords="181,155,234,181"/>
-<area shape="rect" title=" " alt="" coords="258,155,317,181"/>
-<area shape="rect" href="a00146.html" title=" " alt="" coords="351,155,445,181"/>
-<area shape="rect" title=" " alt="" coords="311,229,365,256"/>
-<area shape="rect" title=" " alt="" coords="390,229,457,256"/>
-<area shape="rect" title=" " alt="" coords="481,229,555,256"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="208,229,287,256"/>
-<area shape="rect" title=" " alt="" coords="469,155,529,181"/>
-<area shape="rect" title=" " alt="" coords="553,155,611,181"/>
-<area shape="rect" title=" " alt="" coords="637,229,724,256"/>
-<area shape="rect" href="a00176.html" title=" " alt="" coords="687,155,739,181"/>
-<area shape="rect" href="a00182.html" title=" " alt="" coords="763,155,814,181"/>
+<div class="center"><img src="a00060.png" border="0" usemap="#aToolBlockAudio_8cpp" alt=""/></div>
+<map name="aToolBlockAudio_8cpp" id="aToolBlockAudio_8cpp">
+<area shape="rect" title=" " alt="" coords="226,5,363,32"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="65,155,135,181"/>
+<area shape="rect" href="a00101.html" title=" " alt="" coords="207,80,273,107"/>
+<area shape="rect" href="a00116.html" title=" " alt="" coords="159,155,251,181"/>
+<area shape="rect" href="a00119.html" title=" " alt="" coords="525,155,619,181"/>
+<area shape="rect" href="a00092.html" title=" " alt="" coords="297,80,401,107"/>
+<area shape="rect" href="a00128.html" title=" " alt="" coords="377,155,500,181"/>
+<area shape="rect" title=" " alt="" coords="251,229,317,256"/>
+<area shape="rect" title=" " alt="" coords="165,229,227,256"/>
+<area shape="rect" title=" " alt="" coords="5,229,59,256"/>
+<area shape="rect" title=" " alt="" coords="83,229,141,256"/>
+<area shape="rect" title=" " alt="" coords="341,229,416,256"/>
+<area shape="rect" title=" " alt="" coords="635,229,690,256"/>
+<area shape="rect" title=" " alt="" coords="544,229,611,256"/>
+<area shape="rect" href="a00086.html" title=" " alt="" coords="441,229,519,256"/>
 </map>
 </div>
 </div>
 <p><a href="a00059_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00327.html">CBlockAudioFile</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00331.html">CBlockAudioBuffer</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:47 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

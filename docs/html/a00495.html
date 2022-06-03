@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Catch::ResultWas Struct Reference</title>
+<title>ACA: Catch::SourceLineInfo Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -46,118 +46,357 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00203.html">Catch</a></li><li class="navelem"><a class="el" href="a00495.html">ResultWas</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00215.html">Catch</a></li><li class="navelem"><a class="el" href="a00495.html">SourceLineInfo</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-attribs">Public Attributes</a> &#124;
 <a href="a00492.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Catch::ResultWas Struct Reference</div></div>
+  <div class="headertitle"><div class="title">Catch::SourceLineInfo Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00152_source.html">catch.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00209_source.html">catch.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for Catch::ResultWas:</div>
+Collaboration diagram for Catch::SourceLineInfo:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00493.png" border="0" usemap="#aCatch_1_1ResultWas_coll__map" alt="Collaboration graph"/></div>
-<map name="aCatch_1_1ResultWas_coll__map" id="aCatch_1_1ResultWas_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,131,83"/>
+<div class="center"><img src="a00493.png" border="0" usemap="#aCatch_1_1SourceLineInfo_coll__map" alt="Collaboration graph"/></div>
+<map name="aCatch_1_1SourceLineInfo_coll__map" id="aCatch_1_1SourceLineInfo_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,156,215"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:a624e1ee3661fcf6094ceef1f654601ef"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601ef">OfType</a> { <br />
-&#160;&#160;<a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa65721dda02fe5efb522e7449e496608a">Unknown</a> = -1
-, <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63">Ok</a> = 0
-, <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c">Info</a> = 1
-, <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21">Warning</a> = 2
-, <br />
-&#160;&#160;<a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c">FailureBit</a> = 0x10
-, <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f">ExpressionFailed</a> = FailureBit | 1
-, <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36">ExplicitFailure</a> = FailureBit | 2
-, <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7">Exception</a> = 0x100 | FailureBit
-, <br />
-&#160;&#160;<a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45">ThrewException</a> = Exception | 1
-, <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa8b6d3d5bc78d4e7a95543b6ecfbdb57d">DidntThrowException</a> = Exception | 2
-, <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377">FatalErrorCondition</a> = 0x200 | FailureBit
-<br />
- }</td></tr>
-<tr class="separator:a624e1ee3661fcf6094ceef1f654601ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a2d80932bb4129b1606d1924a5c44be2f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#a2d80932bb4129b1606d1924a5c44be2f">SourceLineInfo</a> ()=delete</td></tr>
+<tr class="separator:a2d80932bb4129b1606d1924a5c44be2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48510b82a39a042ab370ed143dd30c10"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#a48510b82a39a042ab370ed143dd30c10">SourceLineInfo</a> (char const *_file, std::size_t _line) noexcept</td></tr>
+<tr class="separator:a48510b82a39a042ab370ed143dd30c10"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7c44c9986c33a9cf842b791374332d41"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#a7c44c9986c33a9cf842b791374332d41">SourceLineInfo</a> (<a class="el" href="a00495.html">SourceLineInfo</a> const &amp;other)=default</td></tr>
+<tr class="separator:a7c44c9986c33a9cf842b791374332d41"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9891ccc4e7fa7c1ab747cd013341482"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00495.html">SourceLineInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#ab9891ccc4e7fa7c1ab747cd013341482">operator=</a> (<a class="el" href="a00495.html">SourceLineInfo</a> const &amp;)=default</td></tr>
+<tr class="separator:ab9891ccc4e7fa7c1ab747cd013341482"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5ea6179645457b8ec961aec9ca4c5588"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#a5ea6179645457b8ec961aec9ca4c5588">SourceLineInfo</a> (<a class="el" href="a00495.html">SourceLineInfo</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a5ea6179645457b8ec961aec9ca4c5588"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1efc6194265495c99bb455c69fb1c904"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00495.html">SourceLineInfo</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#a1efc6194265495c99bb455c69fb1c904">operator=</a> (<a class="el" href="a00495.html">SourceLineInfo</a> &amp;&amp;) noexcept=default</td></tr>
+<tr class="separator:a1efc6194265495c99bb455c69fb1c904"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a10a5b5b7dff82971879c2eb8d83f9b3b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00173.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#a10a5b5b7dff82971879c2eb8d83f9b3b">empty</a> () const noexcept</td></tr>
+<tr class="separator:a10a5b5b7dff82971879c2eb8d83f9b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af07e4fdeddf8409b91e4f842f6264cf8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00173.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#af07e4fdeddf8409b91e4f842f6264cf8">operator==</a> (<a class="el" href="a00495.html">SourceLineInfo</a> const &amp;other) const noexcept</td></tr>
+<tr class="separator:af07e4fdeddf8409b91e4f842f6264cf8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af77415416919d2d6030b4be085b92f7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00173.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#af77415416919d2d6030b4be085b92f7a">operator&lt;</a> (<a class="el" href="a00495.html">SourceLineInfo</a> const &amp;other) const noexcept</td></tr>
+<tr class="separator:af77415416919d2d6030b4be085b92f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Public Attributes</h2></td></tr>
+<tr class="memitem:ad65537703e9f08c1fa7777fbc3f0c617"><td class="memItemLeft" align="right" valign="top">char const  *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#ad65537703e9f08c1fa7777fbc3f0c617">file</a></td></tr>
+<tr class="separator:ad65537703e9f08c1fa7777fbc3f0c617"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a841e5d696c7b9cde24e45e61dd979c77"><td class="memItemLeft" align="right" valign="top">std::size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00495.html#a841e5d696c7b9cde24e45e61dd979c77">line</a></td></tr>
+<tr class="separator:a841e5d696c7b9cde24e45e61dd979c77"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00152_source.html#l01353">1353</a> of file <a class="el" href="a00152_source.html">catch.hpp</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a624e1ee3661fcf6094ceef1f654601ef" name="a624e1ee3661fcf6094ceef1f654601ef"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a624e1ee3661fcf6094ceef1f654601ef">&#9670;&nbsp;</a></span>OfType</h2>
+<p class="definition">Definition at line <a class="el" href="a00209_source.html#l00502">502</a> of file <a class="el" href="a00209_source.html">catch.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2d80932bb4129b1606d1924a5c44be2f" name="a2d80932bb4129b1606d1924a5c44be2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d80932bb4129b1606d1924a5c44be2f">&#9670;&nbsp;</a></span>SourceLineInfo() <span class="overload">[1/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Catch::SourceLineInfo::SourceLineInfo </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">delete</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a48510b82a39a042ab370ed143dd30c10" name="a48510b82a39a042ab370ed143dd30c10"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48510b82a39a042ab370ed143dd30c10">&#9670;&nbsp;</a></span>SourceLineInfo() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Catch::SourceLineInfo::SourceLineInfo </td>
+          <td>(</td>
+          <td class="paramtype">char const *&#160;</td>
+          <td class="paramname"><em>_file</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>_line</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00209_source.html#l00505">505</a> of file <a class="el" href="a00209_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  506</span>        :   <a class="code hl_variable" href="a00495.html#ad65537703e9f08c1fa7777fbc3f0c617">file</a>( _file ),</div>
+<div class="line"><span class="lineno">  507</span>            <a class="code hl_variable" href="a00495.html#a841e5d696c7b9cde24e45e61dd979c77">line</a>( _line )</div>
+<div class="line"><span class="lineno">  508</span>        {}</div>
+<div class="ttc" id="aa00495_html_a841e5d696c7b9cde24e45e61dd979c77"><div class="ttname"><a href="a00495.html#a841e5d696c7b9cde24e45e61dd979c77">Catch::SourceLineInfo::line</a></div><div class="ttdeci">std::size_t line</div><div class="ttdef"><b>Definition:</b> <a href="a00209_source.html#l00520">catch.hpp:520</a></div></div>
+<div class="ttc" id="aa00495_html_ad65537703e9f08c1fa7777fbc3f0c617"><div class="ttname"><a href="a00495.html#ad65537703e9f08c1fa7777fbc3f0c617">Catch::SourceLineInfo::file</a></div><div class="ttdeci">char const  * file</div><div class="ttdef"><b>Definition:</b> <a href="a00209_source.html#l00519">catch.hpp:519</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a7c44c9986c33a9cf842b791374332d41" name="a7c44c9986c33a9cf842b791374332d41"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7c44c9986c33a9cf842b791374332d41">&#9670;&nbsp;</a></span>SourceLineInfo() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Catch::SourceLineInfo::SourceLineInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00495.html">SourceLineInfo</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5ea6179645457b8ec961aec9ca4c5588" name="a5ea6179645457b8ec961aec9ca4c5588"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ea6179645457b8ec961aec9ca4c5588">&#9670;&nbsp;</a></span>SourceLineInfo() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Catch::SourceLineInfo::SourceLineInfo </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00495.html">SourceLineInfo</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a10a5b5b7dff82971879c2eb8d83f9b3b" name="a10a5b5b7dff82971879c2eb8d83f9b3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10a5b5b7dff82971879c2eb8d83f9b3b">&#9670;&nbsp;</a></span>empty()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00173.html#abb452686968e48b67397da5f97445f5b">bool</a> Catch::SourceLineInfo::empty </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00209_source.html#l00515">515</a> of file <a class="el" href="a00209_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  515</span>{ <span class="keywordflow">return</span> <a class="code hl_variable" href="a00495.html#ad65537703e9f08c1fa7777fbc3f0c617">file</a>[0] == <span class="charliteral">&#39;\0&#39;</span>; }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00209_source.html#l00519">file</a>.</p>
+
+</div>
+</div>
+<a id="af77415416919d2d6030b4be085b92f7a" name="af77415416919d2d6030b4be085b92f7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af77415416919d2d6030b4be085b92f7a">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00173.html#abb452686968e48b67397da5f97445f5b">bool</a> Catch::SourceLineInfo::operator&lt; </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00495.html">SourceLineInfo</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a1efc6194265495c99bb455c69fb1c904" name="a1efc6194265495c99bb455c69fb1c904"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1efc6194265495c99bb455c69fb1c904">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00495.html">SourceLineInfo</a> &amp; Catch::SourceLineInfo::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00495.html">SourceLineInfo</a> &amp;&amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ab9891ccc4e7fa7c1ab747cd013341482" name="ab9891ccc4e7fa7c1ab747cd013341482"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab9891ccc4e7fa7c1ab747cd013341482">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00495.html">SourceLineInfo</a> &amp; Catch::SourceLineInfo::operator= </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00495.html">SourceLineInfo</a> const &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">default</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="af07e4fdeddf8409b91e4f842f6264cf8" name="af07e4fdeddf8409b91e4f842f6264cf8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af07e4fdeddf8409b91e4f842f6264cf8">&#9670;&nbsp;</a></span>operator==()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00173.html#abb452686968e48b67397da5f97445f5b">bool</a> Catch::SourceLineInfo::operator== </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00495.html">SourceLineInfo</a> const &amp;&#160;</td>
+          <td class="paramname"><em>other</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad65537703e9f08c1fa7777fbc3f0c617" name="ad65537703e9f08c1fa7777fbc3f0c617"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad65537703e9f08c1fa7777fbc3f0c617">&#9670;&nbsp;</a></span>file</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00495.html#a624e1ee3661fcf6094ceef1f654601ef">Catch::ResultWas::OfType</a></td>
+          <td class="memname">char const* Catch::SourceLineInfo::file</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efa65721dda02fe5efb522e7449e496608a" name="a624e1ee3661fcf6094ceef1f654601efa65721dda02fe5efb522e7449e496608a"></a>Unknown&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63" name="a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63"></a>Ok&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c" name="a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c"></a>Info&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21" name="a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21"></a>Warning&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c" name="a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c"></a>FailureBit&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f" name="a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f"></a>ExpressionFailed&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36" name="a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36"></a>ExplicitFailure&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7" name="a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7"></a>Exception&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45" name="a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45"></a>ThrewException&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efa8b6d3d5bc78d4e7a95543b6ecfbdb57d" name="a624e1ee3661fcf6094ceef1f654601efa8b6d3d5bc78d4e7a95543b6ecfbdb57d"></a>DidntThrowException&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377" name="a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377"></a>FatalErrorCondition&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.html#l01353">1353</a> of file <a class="el" href="a00152_source.html">catch.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1353</span>                     { <span class="keyword">enum</span> <a class="code hl_enumeration" href="a00495.html#a624e1ee3661fcf6094ceef1f654601ef">OfType</a> {</div>
-<div class="line"><span class="lineno"> 1354</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa65721dda02fe5efb522e7449e496608a">Unknown</a> = -1,</div>
-<div class="line"><span class="lineno"> 1355</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63">Ok</a> = 0,</div>
-<div class="line"><span class="lineno"> 1356</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c">Info</a> = 1,</div>
-<div class="line"><span class="lineno"> 1357</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21">Warning</a> = 2,</div>
-<div class="line"><span class="lineno"> 1358</span> </div>
-<div class="line"><span class="lineno"> 1359</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c">FailureBit</a> = 0x10,</div>
-<div class="line"><span class="lineno"> 1360</span> </div>
-<div class="line"><span class="lineno"> 1361</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f">ExpressionFailed</a> = <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c">FailureBit</a> | 1,</div>
-<div class="line"><span class="lineno"> 1362</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36">ExplicitFailure</a> = <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c">FailureBit</a> | 2,</div>
-<div class="line"><span class="lineno"> 1363</span> </div>
-<div class="line"><span class="lineno"> 1364</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7">Exception</a> = 0x100 | <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c">FailureBit</a>,</div>
-<div class="line"><span class="lineno"> 1365</span> </div>
-<div class="line"><span class="lineno"> 1366</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45">ThrewException</a> = <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7">Exception</a> | 1,</div>
-<div class="line"><span class="lineno"> 1367</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa8b6d3d5bc78d4e7a95543b6ecfbdb57d">DidntThrowException</a> = <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7">Exception</a> | 2,</div>
-<div class="line"><span class="lineno"> 1368</span> </div>
-<div class="line"><span class="lineno"> 1369</span>        <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377">FatalErrorCondition</a> = 0x200 | <a class="code hl_enumvalue" href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c">FailureBit</a></div>
-<div class="line"><span class="lineno"> 1370</span> </div>
-<div class="line"><span class="lineno"> 1371</span>    }; };</div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601ef"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601ef">Catch::ResultWas::OfType</a></div><div class="ttdeci">OfType</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01353">catch.hpp:1353</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa1818f1b198f10b5734c405142b22025c">Catch::ResultWas::FailureBit</a></div><div class="ttdeci">@ FailureBit</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01359">catch.hpp:1359</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa30222063929ca1b6318faa78e8242f1c">Catch::ResultWas::Info</a></div><div class="ttdeci">@ Info</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01356">catch.hpp:1356</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa3bb56296483947280cf7fa1ad074ab45">Catch::ResultWas::ThrewException</a></div><div class="ttdeci">@ ThrewException</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01366">catch.hpp:1366</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa5e7126b8458dc1376ac870a719f7873f">Catch::ResultWas::ExpressionFailed</a></div><div class="ttdeci">@ ExpressionFailed</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01361">catch.hpp:1361</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efa65721dda02fe5efb522e7449e496608a"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa65721dda02fe5efb522e7449e496608a">Catch::ResultWas::Unknown</a></div><div class="ttdeci">@ Unknown</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01354">catch.hpp:1354</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa67e9d36ba0f04a60a19896834d840c21">Catch::ResultWas::Warning</a></div><div class="ttdeci">@ Warning</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01357">catch.hpp:1357</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377">Catch::ResultWas::FatalErrorCondition</a></div><div class="ttdeci">@ FatalErrorCondition</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01371">catch.hpp:1369</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efa8b6d3d5bc78d4e7a95543b6ecfbdb57d"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efa8b6d3d5bc78d4e7a95543b6ecfbdb57d">Catch::ResultWas::DidntThrowException</a></div><div class="ttdeci">@ DidntThrowException</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01367">catch.hpp:1367</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efaa9107b7836cc7590ca668002f76d27c7">Catch::ResultWas::Exception</a></div><div class="ttdeci">@ Exception</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01364">catch.hpp:1364</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efacecfc052e2499499b13304249303cc36">Catch::ResultWas::ExplicitFailure</a></div><div class="ttdeci">@ ExplicitFailure</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01362">catch.hpp:1362</a></div></div>
-<div class="ttc" id="aa00495_html_a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63"><div class="ttname"><a href="a00495.html#a624e1ee3661fcf6094ceef1f654601efae7cbe89bb9ec7ece9b44d48b63d01b63">Catch::ResultWas::Ok</a></div><div class="ttdeci">@ Ok</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.html#l01355">catch.hpp:1355</a></div></div>
-</div><!-- fragment -->
+<p class="definition">Definition at line <a class="el" href="a00209_source.html#l00519">519</a> of file <a class="el" href="a00209_source.html">catch.hpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00209_source.html#l00515">empty()</a>.</p>
+
+</div>
+</div>
+<a id="a841e5d696c7b9cde24e45e61dd979c77" name="a841e5d696c7b9cde24e45e61dd979c77"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a841e5d696c7b9cde24e45e61dd979c77">&#9670;&nbsp;</a></span>line</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::size_t Catch::SourceLineInfo::line</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00209_source.html#l00520">520</a> of file <a class="el" href="a00209_source.html">catch.hpp</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00152_source.html">catch.hpp</a></li>
+<li><a class="el" href="a00209_source.html">catch.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:07 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:49 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

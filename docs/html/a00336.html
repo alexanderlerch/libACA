@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -46,21 +46,42 @@
   </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">CButterLp Member List</div></div>
+  <div class="headertitle"><div class="title">CGammaToneFbFromFile Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a00339.html">CButterLp</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a00339.html">CGammaToneFbFromFile</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00339.html#a4a70bdde7f075d2591fd03c52c16145c">calcA</a>(T *pfA, int iOrder, T fCutOff)</td><td class="entry"><a class="el" href="a00339.html">CButterLp</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00339.html#a9c08c0b6f891bb37fb4230088f94b0a0">calcB</a>(T *pfB, int iOrder, T fCutOff)</td><td class="entry"><a class="el" href="a00339.html">CButterLp</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00339.html#a3878460603a6e6e1a64de6021b2bb73e">calcCoeffs</a>(T *pfB, T *pfA, int iOrder, T fCutOff)</td><td class="entry"><a class="el" href="a00339.html">CButterLp</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00339.html#a93b25bb8ef71fc7221ae53efe9212d67">calcScale</a>(int iOrder, T fCutOff)</td><td class="entry"><a class="el" href="a00339.html">CButterLp</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00339.html#ab4432f6b6d2f1bad850a13a0573615c4">multBinomial</a>(T *pfOut, const T *pfIn, int iOrder)</td><td class="entry"><a class="el" href="a00339.html">CButterLp</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00339.html#aec7867658e2991c8526c78666c960920">CGammaToneFbFromFile</a>(const std::string &amp;strAudioFilePath, int iNumBands, float fStartInHz)</td><td class="entry"><a class="el" href="a00339.html">CGammaToneFbFromFile</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#ac2de88f207d4482f3aa0c7be334da9c4">CGammaToneFbIf</a>()</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#acaf81407affa5b8a931a61178868ea45">CGammaToneFbIf</a>(const CGammaToneFbIf &amp;that)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a03d88f03c57bea1b0293381042bcdd75">compMidFreqs_</a>(float fFreqLow, float fFreqHigh, int k) const</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a19cabc50a7c022f869871ae9602061cd">create</a>(CGammaToneFbIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iNumBands=20, float fStartInHz=100)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#aacec8e884009d9b7f3b4f64bf49ab77e">create</a>(CGammaToneFbIf *&amp;pCInstance, const float *pfAudio, long long iNumSamples, float fSampleRate, int iNumBands=20, float fStartInHz=100)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a4f9a54535402efadb25424661a8d6638">create</a>(CGammaToneFbIf *&amp;pCInstance, float fSampleRate, int iNumBands=20, float fStartInHz=100)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#ab7ebd623237cc28b195f0fd291707bf8">destroy</a>(CGammaToneFbIf *&amp;pCInstance)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a01fe0c64d257cb16bf633f3b8060d29a">getCenterFreq</a>(int iBandIdx) const</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#ae9588434e58fd751b6ec1b4f13a78356">getOutputDimensions</a>(long long &amp;iNumRows, long long &amp;iNumCols) const</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a0b3ba7948620d116d8fcee83010c56ba">init_</a>()</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#aefc18c9ab9cf803636a6c5bb06340b13">m_bIsInitialized</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a388eaae852deb7133e639cf341aeff9d">m_fSampleRate</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a41006941c3a85e63847ad6de651b3434">m_fStartInHz</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#ab687169c29ca27f3dbbc27645a229476">m_iBlockLength</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a5d0dbe0befa778478d4c0e1437ac4ddd">m_iNumBands</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00339.html#a2dd21fa3436fa74d774737ad79af5fbc">m_pCAudioFile</a></td><td class="entry"><a class="el" href="a00339.html">CGammaToneFbFromFile</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#aa2262e53efa04768d72c0ee8dc5205bc">m_pCBlockAudio</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a658ed69ea19dec329ad4711450b1d8c9">m_pCNormalize</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#afe5a4649388d2239e2ab38858c95298b">m_pfProcessBuff</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#ae3b05e422442c10ac90ef5fbdc6615cd">m_ppCGammatone</a></td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#aea375ca66d511a19e3a0f2dce77ba482">operator=</a>(const CGammaToneFbIf &amp;c)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00451.html#a213a39329bd7d70dbd90df71d1cf0735">process</a>(float **ppfOutput, const float *pfInput=0, long long iNumSamples=0)</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#acdce444c00fcae3da249963ec17c1640">reset_</a>()</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00339.html#a28f040b3b8c652cb30fd1bc9be847211">~CGammaToneFbFromFile</a>()</td><td class="entry"><a class="el" href="a00339.html">CGammaToneFbFromFile</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00451.html#a901b757125a9622199ffc7ee63fd91ae">~CGammaToneFbIf</a>()</td><td class="entry"><a class="el" href="a00451.html">CGammaToneFbIf</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:48 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

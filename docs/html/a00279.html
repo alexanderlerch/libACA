@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CSpectrogramFromVector Class Reference</title>
+<title>ACA: CNoveltyFromFile Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -48,150 +48,152 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="a00276.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CSpectrogramFromVector Class Reference</div></div>
+  <div class="headertitle"><div class="title">CNoveltyFromFile Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Inheritance diagram for CSpectrogramFromVector:</div>
+Inheritance diagram for CNoveltyFromFile:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00278.png" border="0" usemap="#aCSpectrogramFromVector_inherit__map" alt="Inheritance graph"/></div>
-<map name="aCSpectrogramFromVector_inherit__map" id="aCSpectrogramFromVector_inherit__map">
-<area shape="rect" title=" " alt="" coords="18,527,217,619"/>
-<area shape="rect" href="a00375.html" title="class for computation of a magnitude spectrogram from either a file or a vector" alt="" coords="5,5,229,479"/>
+<div class="center"><img src="a00278.png" border="0" usemap="#aCNoveltyFromFile_inherit__map" alt="Inheritance graph"/></div>
+<map name="aCNoveltyFromFile_inherit__map" id="aCNoveltyFromFile_inherit__map">
+<area shape="rect" title=" " alt="" coords="21,497,173,589"/>
+<area shape="rect" href="a00415.html" title="class for computation of a magnitude Novelty from either a file or a vector" alt="" coords="5,5,189,449"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for CSpectrogramFromVector:</div>
+Collaboration diagram for CNoveltyFromFile:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00277.png" border="0" usemap="#aCSpectrogramFromVector_coll__map" alt="Collaboration graph"/></div>
-<map name="aCSpectrogramFromVector_coll__map" id="aCSpectrogramFromVector_coll__map">
-<area shape="rect" title=" " alt="" coords="159,947,357,1039"/>
-<area shape="rect" href="a00375.html" title="class for computation of a magnitude spectrogram from either a file or a vector" alt="" coords="146,468,370,897"/>
-<area shape="rect" href="a00415.html" title="class for audio normalization offering three options" alt="" coords="5,115,153,295"/>
-<area shape="rect" href="a00383.html" title="forward declaration" alt="" coords="177,42,339,369"/>
-<area shape="rect" href="a00331.html" title="class for FFT computation with windowing" alt="" coords="363,5,531,405"/>
+<div class="center"><img src="a00277.png" border="0" usemap="#aCNoveltyFromFile_coll__map" alt="Collaboration graph"/></div>
+<map name="aCNoveltyFromFile_coll__map" id="aCNoveltyFromFile_coll__map">
+<area shape="rect" title=" " alt="" coords="583,1959,735,2051"/>
+<area shape="rect" href="a00415.html" title="class for computation of a magnitude Novelty from either a file or a vector" alt="" coords="462,1386,646,1757"/>
+<area shape="rect" href="a00471.html" title="class for audio normalization offering three options" alt="" coords="5,894,153,1074"/>
+<area shape="rect" href="a00439.html" title="forward declaration" alt="" coords="177,821,339,1147"/>
+<area shape="rect" href="a00419.html" title="class for computation of a Novelty from a block of data (e.g., time or magnitude spectrum)" alt="" coords="363,828,545,1140"/>
+<area shape="rect" href="a00379.html" title="class for FFT computation with windowing" alt="" coords="570,784,738,1184"/>
+<area shape="rect" href="a00463.html" title="class for single&#45;pole low pass filtering" alt="" coords="763,865,905,1103"/>
+<area shape="rect" href="a00395.html" title=" " alt="" coords="765,395,903,721"/>
+<area shape="rect" href="a00395.html" title="implement a circular buffer of type T" alt="" coords="773,5,895,332"/>
+<area shape="rect" href="a00359.html" title="open, read, and write audio files" alt="" coords="792,1247,983,1896"/>
+<area shape="rect" href="a00363.html" title=" " alt="" coords="929,923,1091,1045"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a2c6b75c7c05204bec34db9c8ec6c40d1"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#a2c6b75c7c05204bec34db9c8ec6c40d1">CSpectrogramFromVector</a> (const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength, <a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a> bNormalize, float *pfWindow)</td></tr>
-<tr class="separator:a2c6b75c7c05204bec34db9c8ec6c40d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e30c1b9c4eb573d126946c6fcfa94d9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#a6e30c1b9c4eb573d126946c6fcfa94d9">~CSpectrogramFromVector</a> ()</td></tr>
-<tr class="separator:a6e30c1b9c4eb573d126946c6fcfa94d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00375"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00375')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00375.html">CSpectrogramIf</a></td></tr>
-<tr class="memitem:afb50af1070f5876b4706f5891879fcd8 inherit pub_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#afb50af1070f5876b4706f5891879fcd8">getSpectrogramDimensions</a> (int &amp;iNumRows, int &amp;iNumCols) const</td></tr>
-<tr class="separator:afb50af1070f5876b4706f5891879fcd8 inherit pub_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2efaeb2df2ddfdc633ba53b2bb49b528 inherit pub_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a2efaeb2df2ddfdc633ba53b2bb49b528">getSpectrogramAxisVectors</a> (float *pfAxisTicks, enum <a class="el" href="a00375.html#aadd5bf0e8b40d9ba74dd66ce28bafbcf">AxisLabel_t</a> eAxisLabel) const</td></tr>
-<tr class="separator:a2efaeb2df2ddfdc633ba53b2bb49b528 inherit pub_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae041a770ec2b092761d9a88cc87946bb inherit pub_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#ae041a770ec2b092761d9a88cc87946bb">compSpectrogram</a> (float **ppfSpectrogram)</td></tr>
-<tr class="separator:ae041a770ec2b092761d9a88cc87946bb inherit pub_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af50a3669266ad696a1159b1bb80b1c8a inherit pub_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#af50a3669266ad696a1159b1bb80b1c8a">getMelSpectrogramDimensions</a> (int &amp;iNumRows, int &amp;iNumCols, const <a class="el" href="a00379.html">MelSpectrogramConfig_t</a> *pMelSpecConfig) const</td></tr>
-<tr class="separator:af50a3669266ad696a1159b1bb80b1c8a inherit pub_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbc5337ad3646cbba2b189323de6ce3a inherit pub_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#afbc5337ad3646cbba2b189323de6ce3a">getMelSpectrogramAxisVectors</a> (float *pfAxisTicks, enum <a class="el" href="a00375.html#aadd5bf0e8b40d9ba74dd66ce28bafbcf">AxisLabel_t</a> eAxisLabel, const <a class="el" href="a00379.html">MelSpectrogramConfig_t</a> *pMelSpecConfig)</td></tr>
-<tr class="separator:afbc5337ad3646cbba2b189323de6ce3a inherit pub_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae89af275cdd54029bbf7f0f25ddf7945 inherit pub_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#ae89af275cdd54029bbf7f0f25ddf7945">compMelSpectrogram</a> (float **ppfMelSpectrogram, const <a class="el" href="a00379.html">MelSpectrogramConfig_t</a> *pMelSpecConfig)</td></tr>
-<tr class="separator:ae89af275cdd54029bbf7f0f25ddf7945 inherit pub_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0247bb6d1818b840d1182d5ee50214d5"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#a0247bb6d1818b840d1182d5ee50214d5">CNoveltyFromFile</a> (<a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">Novelty_t</a> eNoveltyIdx, std::string strAudioFilePath, int iBlockLength, int iHopLength)</td></tr>
+<tr class="separator:a0247bb6d1818b840d1182d5ee50214d5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d9abf4513901cb6dfdb32a61bbb2880"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#a5d9abf4513901cb6dfdb32a61bbb2880">~CNoveltyFromFile</a> ()</td></tr>
+<tr class="separator:a5d9abf4513901cb6dfdb32a61bbb2880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00415"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00415')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00415.html">CNoveltyIf</a></td></tr>
+<tr class="memitem:aa4193070cac8cac64ad8dc222fb612e8 inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#aa4193070cac8cac64ad8dc222fb612e8">getNumBlocks</a> (int &amp;iNumBlocks) const</td></tr>
+<tr class="separator:aa4193070cac8cac64ad8dc222fb612e8 inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2957fc23663fb6b67fabb6ecda9ae0bd inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a2957fc23663fb6b67fabb6ecda9ae0bd">getNumBlocks</a> () const</td></tr>
+<tr class="separator:a2957fc23663fb6b67fabb6ecda9ae0bd inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb18cc8c37422254e36c624564ebc75a inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#adb18cc8c37422254e36c624564ebc75a">getNoveltyTimeStamps</a> (float *pfAxisTicks) const</td></tr>
+<tr class="separator:adb18cc8c37422254e36c624564ebc75a inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae9467a0a531230e0c4271055f0d2710 inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#aae9467a0a531230e0c4271055f0d2710">compNovelty</a> (float *pfNovelty, <a class="el" href="a00173.html#abb452686968e48b67397da5f97445f5b">bool</a> *pbIsOnset=0)</td></tr>
+<tr class="separator:aae9467a0a531230e0c4271055f0d2710 inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:a56054b1777c49a132cf89785c89c8f7a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00359.html">CAudioFileIf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a></td></tr>
+<tr class="separator:a56054b1777c49a132cf89785c89c8f7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_types_a00375"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00375')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="a00375.html">CSpectrogramIf</a></td></tr>
-<tr class="memitem:aadd5bf0e8b40d9ba74dd66ce28bafbcf inherit pub_types_a00375"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#aadd5bf0e8b40d9ba74dd66ce28bafbcf">AxisLabel_t</a> { <a class="el" href="a00375.html#aadd5bf0e8b40d9ba74dd66ce28bafbcfa0ae125df6dd5dd61b17eed69fc25c61d">kFrequencyInHz</a>
-, <a class="el" href="a00375.html#aadd5bf0e8b40d9ba74dd66ce28bafbcfa60478da724acf03bab5f69ae664dbe58">kTimeInS</a>
-, <a class="el" href="a00375.html#aadd5bf0e8b40d9ba74dd66ce28bafbcfaffe490e57f97386928481c89dfc849b9">kNumAxisLabels</a>
+<tr class="inherit_header pub_types_a00415"><td colspan="2" onclick="javascript:toggleInherit('pub_types_a00415')"><img src="closed.png" alt="-"/>&#160;Public Types inherited from <a class="el" href="a00415.html">CNoveltyIf</a></td></tr>
+<tr class="memitem:aaaa808da8acb1f5df095f6178faeb4f4 inherit pub_types_a00415"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">Novelty_t</a> { <a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4ab54085095907f70fca3bee22d3bc5d38">kNoveltyFlux</a>
+, <a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4a792ea51409c928b6fa36da69498c725e">kNoveltyHainsworth</a>
+, <a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4a8aa84a1abfabedffd2c7477607a1501c">kNoveltyLaroche</a>
+, <a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4ad3488ba679c6c6545742152b45e3df0c">kNumNoveltyFunctions</a>
  }</td></tr>
-<tr class="separator:aadd5bf0e8b40d9ba74dd66ce28bafbcf inherit pub_types_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_static_methods_a00375"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_a00375')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="a00375.html">CSpectrogramIf</a></td></tr>
-<tr class="memitem:acd73d8c1aaaed8b188de6b8bf2103139 inherit pub_static_methods_a00375"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#acd73d8c1aaaed8b188de6b8bf2103139">create</a> (<a class="el" href="a00375.html">CSpectrogramIf</a> *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, <a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a> bNormalize=<a class="el" href="a00176.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a>, float *pfWindow=0)</td></tr>
-<tr class="separator:acd73d8c1aaaed8b188de6b8bf2103139 inherit pub_static_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acca54a9dc56a85685da272ee71d054d9 inherit pub_static_methods_a00375"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#acca54a9dc56a85685da272ee71d054d9">create</a> (<a class="el" href="a00375.html">CSpectrogramIf</a> *&amp;pCInstance, const float *pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength=2048, int iHopLength=1024, <a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a> bNormalize=<a class="el" href="a00176.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a>, float *pfWindow=0)</td></tr>
-<tr class="separator:acca54a9dc56a85685da272ee71d054d9 inherit pub_static_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6511fc72ef04be91a712ee5ef479bd7e inherit pub_static_methods_a00375"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a6511fc72ef04be91a712ee5ef479bd7e">destroy</a> (<a class="el" href="a00375.html">CSpectrogramIf</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:a6511fc72ef04be91a712ee5ef479bd7e inherit pub_static_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_a00375"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00375')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00375.html">CSpectrogramIf</a></td></tr>
-<tr class="memitem:a8808d63b1b795444056e6ccdf46fc2b0 inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a8808d63b1b795444056e6ccdf46fc2b0">CSpectrogramIf</a> ()</td></tr>
-<tr class="separator:a8808d63b1b795444056e6ccdf46fc2b0 inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a321f47e4165fa5c8b78c0fa47286b53b inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a321f47e4165fa5c8b78c0fa47286b53b">~CSpectrogramIf</a> ()</td></tr>
-<tr class="separator:a321f47e4165fa5c8b78c0fa47286b53b inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a887642514f36ecb7048a7c53ec226a16 inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a887642514f36ecb7048a7c53ec226a16">CSpectrogramIf</a> (const <a class="el" href="a00375.html">CSpectrogramIf</a> &amp;that)</td></tr>
-<tr class="separator:a887642514f36ecb7048a7c53ec226a16 inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a532de34b312a3f850fa8ad4fb3cde62a inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00375.html">CSpectrogramIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a532de34b312a3f850fa8ad4fb3cde62a">operator=</a> (const <a class="el" href="a00375.html">CSpectrogramIf</a> &amp;c)</td></tr>
-<tr class="separator:a532de34b312a3f850fa8ad4fb3cde62a inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbe3214c599eaab59c8c5a886408630c inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#afbe3214c599eaab59c8c5a886408630c">reset_</a> ()</td></tr>
-<tr class="memdesc:afbe3214c599eaab59c8c5a886408630c inherit pro_methods_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset configuration  <a href="a00375.html#afbe3214c599eaab59c8c5a886408630c">More...</a><br /></td></tr>
-<tr class="separator:afbe3214c599eaab59c8c5a886408630c inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9c4b2db2031256e48ade8c9fa235b6f2 inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a9c4b2db2031256e48ade8c9fa235b6f2">init_</a> (float *pfWindow)</td></tr>
-<tr class="memdesc:a9c4b2db2031256e48ade8c9fa235b6f2 inherit pro_methods_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">init configuration  <a href="a00375.html#a9c4b2db2031256e48ade8c9fa235b6f2">More...</a><br /></td></tr>
-<tr class="separator:a9c4b2db2031256e48ade8c9fa235b6f2 inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe25089ec6ef77b0b9952c33a7a8d739 inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#abe25089ec6ef77b0b9952c33a7a8d739">computeMagSpectrum_</a> (int iLength)</td></tr>
-<tr class="separator:abe25089ec6ef77b0b9952c33a7a8d739 inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a04d8f71d4562f2a4efc8a8537826d8c3 inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00113.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a04d8f71d4562f2a4efc8a8537826d8c3">generateMelFb_</a> (const <a class="el" href="a00379.html">MelSpectrogramConfig_t</a> *pMelSpecConfig)</td></tr>
-<tr class="separator:a04d8f71d4562f2a4efc8a8537826d8c3 inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a00140b0dd45e87aef4561aed8ebc779a inherit pro_methods_a00375"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a00140b0dd45e87aef4561aed8ebc779a">destroyMelFb_</a> (const <a class="el" href="a00379.html">MelSpectrogramConfig_t</a> *pMelSpecConfig)</td></tr>
-<tr class="separator:a00140b0dd45e87aef4561aed8ebc779a inherit pro_methods_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00375"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00375')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00375.html">CSpectrogramIf</a></td></tr>
-<tr class="memitem:a42a7505fe0188726c859c4656eaf61eb inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00415.html">CNormalizeAudio</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a42a7505fe0188726c859c4656eaf61eb">m_pCNormalize</a> = 0</td></tr>
-<tr class="memdesc:a42a7505fe0188726c859c4656eaf61eb inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">instantiate if audio file normalization is wanted  <a href="a00375.html#a42a7505fe0188726c859c4656eaf61eb">More...</a><br /></td></tr>
-<tr class="separator:a42a7505fe0188726c859c4656eaf61eb inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b0cd13bbb3570f6b87017b11ca10d63 inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00383.html">CBlockAudioIf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a8b0cd13bbb3570f6b87017b11ca10d63">m_pCBlockAudio</a> = 0</td></tr>
-<tr class="memdesc:a8b0cd13bbb3570f6b87017b11ca10d63 inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">instantiate for blocking time domain signal  <a href="a00375.html#a8b0cd13bbb3570f6b87017b11ca10d63">More...</a><br /></td></tr>
-<tr class="separator:a8b0cd13bbb3570f6b87017b11ca10d63 inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af2d9ad1a7f19819df98a16a12910793b inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00331.html">CFft</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#af2d9ad1a7f19819df98a16a12910793b">m_pCFft</a> = 0</td></tr>
-<tr class="memdesc:af2d9ad1a7f19819df98a16a12910793b inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">fft instance  <a href="a00375.html#af2d9ad1a7f19819df98a16a12910793b">More...</a><br /></td></tr>
-<tr class="separator:af2d9ad1a7f19819df98a16a12910793b inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb9a67e20abef3f1028bb8db15022a0a inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#aeb9a67e20abef3f1028bb8db15022a0a">m_iBlockLength</a> = 0</td></tr>
-<tr class="memdesc:aeb9a67e20abef3f1028bb8db15022a0a inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">fft length  <a href="a00375.html#aeb9a67e20abef3f1028bb8db15022a0a">More...</a><br /></td></tr>
-<tr class="separator:aeb9a67e20abef3f1028bb8db15022a0a inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3520208ce92977729d22e1bbaa5b9532 inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a3520208ce92977729d22e1bbaa5b9532">m_iHopLength</a> = 0</td></tr>
-<tr class="memdesc:a3520208ce92977729d22e1bbaa5b9532 inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">hop length  <a href="a00375.html#a3520208ce92977729d22e1bbaa5b9532">More...</a><br /></td></tr>
-<tr class="separator:a3520208ce92977729d22e1bbaa5b9532 inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad41fa79049fdd292778046629a62139f inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a> = 0</td></tr>
-<tr class="memdesc:ad41fa79049fdd292778046629a62139f inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00375.html#ad41fa79049fdd292778046629a62139f">More...</a><br /></td></tr>
-<tr class="separator:ad41fa79049fdd292778046629a62139f inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a46220f31318fed176ec507649fae3e50 inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a46220f31318fed176ec507649fae3e50">m_pfSpectrum</a> = 0</td></tr>
-<tr class="memdesc:a46220f31318fed176ec507649fae3e50 inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">temporary buffer for current spectrum  <a href="a00375.html#a46220f31318fed176ec507649fae3e50">More...</a><br /></td></tr>
-<tr class="separator:a46220f31318fed176ec507649fae3e50 inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28a5478e7c2d69b9f9fb23042d2ec609 inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a28a5478e7c2d69b9f9fb23042d2ec609">m_pfProcessBuff</a> = 0</td></tr>
-<tr class="memdesc:a28a5478e7c2d69b9f9fb23042d2ec609 inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">temporary buffer  <a href="a00375.html#a28a5478e7c2d69b9f9fb23042d2ec609">More...</a><br /></td></tr>
-<tr class="separator:a28a5478e7c2d69b9f9fb23042d2ec609 inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a92d816e5c53f69e15c9fef51876d771d inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a92d816e5c53f69e15c9fef51876d771d">m_bIsInitialized</a> = <a class="el" href="a00176.html#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
-<tr class="memdesc:a92d816e5c53f69e15c9fef51876d771d inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if initialized  <a href="a00375.html#a92d816e5c53f69e15c9fef51876d771d">More...</a><br /></td></tr>
-<tr class="separator:a92d816e5c53f69e15c9fef51876d771d inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae3a0596e56fb18c4bd4a42a3f75710ed inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#ae3a0596e56fb18c4bd4a42a3f75710ed">m_ppfHMel</a> = 0</td></tr>
-<tr class="memdesc:ae3a0596e56fb18c4bd4a42a3f75710ed inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mel filterbank.  <a href="a00375.html#ae3a0596e56fb18c4bd4a42a3f75710ed">More...</a><br /></td></tr>
-<tr class="separator:ae3a0596e56fb18c4bd4a42a3f75710ed inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3311e6dae017c1c94dc174a3ae99a1dc inherit pro_attribs_a00375"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html#a3311e6dae017c1c94dc174a3ae99a1dc">m_pffcMel</a> = 0</td></tr>
-<tr class="memdesc:a3311e6dae017c1c94dc174a3ae99a1dc inherit pro_attribs_a00375"><td class="mdescLeft">&#160;</td><td class="mdescRight">Mel center frequencies.  <a href="a00375.html#a3311e6dae017c1c94dc174a3ae99a1dc">More...</a><br /></td></tr>
-<tr class="separator:a3311e6dae017c1c94dc174a3ae99a1dc inherit pro_attribs_a00375"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:aaaa808da8acb1f5df095f6178faeb4f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">enum to index all Noveltys note: update CNoveltyIf::isNoveltySpectral_() when modifying  <a href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">More...</a><br /></td></tr>
+<tr class="separator:aaaa808da8acb1f5df095f6178faeb4f4 inherit pub_types_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_methods_a00415"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_a00415')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="a00415.html">CNoveltyIf</a></td></tr>
+<tr class="memitem:abae299cfe8e8806685cab18f59db8f72 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#abae299cfe8e8806685cab18f59db8f72">create</a> (<a class="el" href="a00415.html">CNoveltyIf</a> *&amp;pCInstance, <a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">Novelty_t</a> eNoveltyIdx, const std::string &amp;strAudioFilePath, int iBlockLength=4096, int iHopLength=512)</td></tr>
+<tr class="separator:abae299cfe8e8806685cab18f59db8f72 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8693a2805fe3362c1615c56ef8bc6753 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a8693a2805fe3362c1615c56ef8bc6753">create</a> (<a class="el" href="a00415.html">CNoveltyIf</a> *&amp;pCInstance, <a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">Novelty_t</a> eNoveltyIdx, const float *pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength=4096, int iHopLength=512)</td></tr>
+<tr class="separator:a8693a2805fe3362c1615c56ef8bc6753 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa078a8242089a58179280c824f8ca4f9 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#aa078a8242089a58179280c824f8ca4f9">destroy</a> (<a class="el" href="a00415.html">CNoveltyIf</a> *&amp;pCInstance)</td></tr>
+<tr class="separator:aa078a8242089a58179280c824f8ca4f9 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2c2bdc36b4e569dcf3a229d5bb931e12 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a2c2bdc36b4e569dcf3a229d5bb931e12">getNoveltyString</a> (<a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">Novelty_t</a> eNoveltyIdx)</td></tr>
+<tr class="separator:a2c2bdc36b4e569dcf3a229d5bb931e12 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8d7e7b4f827b2c4e675c252cee9ca14 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">Novelty_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#ad8d7e7b4f827b2c4e675c252cee9ca14">getNoveltyIdxFromString</a> (std::string sNoveltyString)</td></tr>
+<tr class="separator:ad8d7e7b4f827b2c4e675c252cee9ca14 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_a00415"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00415')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00415.html">CNoveltyIf</a></td></tr>
+<tr class="memitem:a120b69bf1f92d3f00ef515518a9dc604 inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a120b69bf1f92d3f00ef515518a9dc604">CNoveltyIf</a> ()</td></tr>
+<tr class="separator:a120b69bf1f92d3f00ef515518a9dc604 inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5ef9568b2492898ee428c60ae4d5ca5 inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#ad5ef9568b2492898ee428c60ae4d5ca5">~CNoveltyIf</a> ()</td></tr>
+<tr class="separator:ad5ef9568b2492898ee428c60ae4d5ca5 inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3cac32c63a59914907f3480ee93981c inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#ad3cac32c63a59914907f3480ee93981c">CNoveltyIf</a> (const <a class="el" href="a00415.html">CNoveltyIf</a> &amp;that)</td></tr>
+<tr class="separator:ad3cac32c63a59914907f3480ee93981c inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a4ce4da9378a136cb2d98dceb79f398 inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00415.html">CNoveltyIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a4a4ce4da9378a136cb2d98dceb79f398">operator=</a> (const <a class="el" href="a00415.html">CNoveltyIf</a> &amp;c)</td></tr>
+<tr class="separator:a4a4ce4da9378a136cb2d98dceb79f398 inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a119fc32e085bb978525ea9596ee2e9c1 inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a119fc32e085bb978525ea9596ee2e9c1">reset_</a> ()</td></tr>
+<tr class="memdesc:a119fc32e085bb978525ea9596ee2e9c1 inherit pro_methods_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset configuration  <a href="a00415.html#a119fc32e085bb978525ea9596ee2e9c1">More...</a><br /></td></tr>
+<tr class="separator:a119fc32e085bb978525ea9596ee2e9c1 inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4beb226d8e7dd927c253667647e837ec inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a4beb226d8e7dd927c253667647e837ec">init_</a> (<a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">Novelty_t</a> eNoveltyIdx)</td></tr>
+<tr class="memdesc:a4beb226d8e7dd927c253667647e837ec inherit pro_methods_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">init configuration  <a href="a00415.html#a4beb226d8e7dd927c253667647e837ec">More...</a><br /></td></tr>
+<tr class="separator:a4beb226d8e7dd927c253667647e837ec inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9018f2beabd03a9b41d90bde402aa227 inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a9018f2beabd03a9b41d90bde402aa227">computeMagSpectrum_</a> ()</td></tr>
+<tr class="separator:a9018f2beabd03a9b41d90bde402aa227 inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00415"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00415')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00415.html">CNoveltyIf</a></td></tr>
+<tr class="memitem:a57a60a36f228fc6de54ce33417b61b10 inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00471.html">CNormalizeAudio</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a57a60a36f228fc6de54ce33417b61b10">m_pCNormalize</a> = 0</td></tr>
+<tr class="memdesc:a57a60a36f228fc6de54ce33417b61b10 inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">instantiate if audio file normalization is wanted  <a href="a00415.html#a57a60a36f228fc6de54ce33417b61b10">More...</a><br /></td></tr>
+<tr class="separator:a57a60a36f228fc6de54ce33417b61b10 inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84efaf39d353e332e0f99eddb06ba39e inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00439.html">CBlockAudioIf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a84efaf39d353e332e0f99eddb06ba39e">m_pCBlockAudio</a> = 0</td></tr>
+<tr class="memdesc:a84efaf39d353e332e0f99eddb06ba39e inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">instantiate for blocking time domain signal  <a href="a00415.html#a84efaf39d353e332e0f99eddb06ba39e">More...</a><br /></td></tr>
+<tr class="separator:a84efaf39d353e332e0f99eddb06ba39e inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a62dccceea81ced7995f41efb4a3195a7 inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00419.html">CNoveltyFromBlockIf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a62dccceea81ced7995f41efb4a3195a7">m_pCNovelty</a> = 0</td></tr>
+<tr class="separator:a62dccceea81ced7995f41efb4a3195a7 inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04ad767c4bbb8eceb60b5f3faf5c5e23 inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00379.html">CFft</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a04ad767c4bbb8eceb60b5f3faf5c5e23">m_pCFft</a> = 0</td></tr>
+<tr class="memdesc:a04ad767c4bbb8eceb60b5f3faf5c5e23 inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">fft instance  <a href="a00415.html#a04ad767c4bbb8eceb60b5f3faf5c5e23">More...</a><br /></td></tr>
+<tr class="separator:a04ad767c4bbb8eceb60b5f3faf5c5e23 inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af7263705b4af451ba7f6f7d40efd8f82 inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00463.html">CMovingAverage</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#af7263705b4af451ba7f6f7d40efd8f82">m_pCLpFilter</a> = 0</td></tr>
+<tr class="separator:af7263705b4af451ba7f6f7d40efd8f82 inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5f24b97fe49f8cfd88eb339464765c9b inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a5f24b97fe49f8cfd88eb339464765c9b">m_iBlockLength</a> = 0</td></tr>
+<tr class="memdesc:a5f24b97fe49f8cfd88eb339464765c9b inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">fft length  <a href="a00415.html#a5f24b97fe49f8cfd88eb339464765c9b">More...</a><br /></td></tr>
+<tr class="separator:a5f24b97fe49f8cfd88eb339464765c9b inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8856282e4ff8634a849e189e6fea73bf inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a8856282e4ff8634a849e189e6fea73bf">m_iHopLength</a> = 0</td></tr>
+<tr class="memdesc:a8856282e4ff8634a849e189e6fea73bf inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">hop length  <a href="a00415.html#a8856282e4ff8634a849e189e6fea73bf">More...</a><br /></td></tr>
+<tr class="separator:a8856282e4ff8634a849e189e6fea73bf inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6a278e55c0f750f8732c432dce067aa8 inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a6a278e55c0f750f8732c432dce067aa8">m_fSampleRate</a> = 0</td></tr>
+<tr class="memdesc:a6a278e55c0f750f8732c432dce067aa8 inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00415.html#a6a278e55c0f750f8732c432dce067aa8">More...</a><br /></td></tr>
+<tr class="separator:a6a278e55c0f750f8732c432dce067aa8 inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a745ce5e4439c61ebb72fbac75f3905ed inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a745ce5e4439c61ebb72fbac75f3905ed">m_pfProcessBuff2</a> = 0</td></tr>
+<tr class="memdesc:a745ce5e4439c61ebb72fbac75f3905ed inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">temporary buffer for current spectrum  <a href="a00415.html#a745ce5e4439c61ebb72fbac75f3905ed">More...</a><br /></td></tr>
+<tr class="separator:a745ce5e4439c61ebb72fbac75f3905ed inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37546cf16c58d32ee9809ee5c43e6a4c inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a37546cf16c58d32ee9809ee5c43e6a4c">m_pfProcessBuff1</a> = 0</td></tr>
+<tr class="memdesc:a37546cf16c58d32ee9809ee5c43e6a4c inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">temporary buffer  <a href="a00415.html#a37546cf16c58d32ee9809ee5c43e6a4c">More...</a><br /></td></tr>
+<tr class="separator:a37546cf16c58d32ee9809ee5c43e6a4c inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdfa2c2dc127e43260ea8455b969052c inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00173.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#abdfa2c2dc127e43260ea8455b969052c">m_bIsInitialized</a> = <a class="el" href="a00173.html#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
+<tr class="memdesc:abdfa2c2dc127e43260ea8455b969052c inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if initialized  <a href="a00415.html#abdfa2c2dc127e43260ea8455b969052c">More...</a><br /></td></tr>
+<tr class="separator:abdfa2c2dc127e43260ea8455b969052c inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00014_source.html#l00063">63</a> of file <a class="el" href="a00014_source.html">Spectrogram.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00015">15</a> of file <a class="el" href="a00068_source.html">Novelty.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a2c6b75c7c05204bec34db9c8ec6c40d1" name="a2c6b75c7c05204bec34db9c8ec6c40d1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c6b75c7c05204bec34db9c8ec6c40d1">&#9670;&nbsp;</a></span>CSpectrogramFromVector()</h2>
+<a id="a0247bb6d1818b840d1182d5ee50214d5" name="a0247bb6d1818b840d1182d5ee50214d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0247bb6d1818b840d1182d5ee50214d5">&#9670;&nbsp;</a></span>CNoveltyFromFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">CSpectrogramFromVector::CSpectrogramFromVector </td>
+          <td class="memname">CNoveltyFromFile::CNoveltyFromFile </td>
           <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfAudio</em>, </td>
+          <td class="paramtype"><a class="el" href="a00415.html#aaaa808da8acb1f5df095f6178faeb4f4">Novelty_t</a>&#160;</td>
+          <td class="paramname"><em>eNoveltyIdx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iAudioLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em>, </td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>strAudioFilePath</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -203,19 +205,7 @@ Additional Inherited Members</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iHopLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00176.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td>
-          <td class="paramname"><em>bNormalize</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfWindow</em>&#160;</td>
+          <td class="paramname"><em>iHopLength</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -225,60 +215,87 @@ Additional Inherited Members</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00014_source.html#l00070">70</a> of file <a class="el" href="a00014_source.html">Spectrogram.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
-<div class="line"><span class="lineno">   72</span>    <span class="comment">// set length variables</span></div>
-<div class="line"><span class="lineno">   73</span>    <a class="code hl_variable" href="a00375.html#aeb9a67e20abef3f1028bb8db15022a0a">m_iBlockLength</a> = iBlockLength;</div>
-<div class="line"><span class="lineno">   74</span>    <a class="code hl_variable" href="a00375.html#a3520208ce92977729d22e1bbaa5b9532">m_iHopLength</a> = iHopLength;</div>
-<div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>    <span class="comment">// set sample rate</span></div>
-<div class="line"><span class="lineno">   77</span>    <a class="code hl_variable" href="a00375.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a> = fSampleRate;</div>
-<div class="line"><span class="lineno">   78</span> </div>
-<div class="line"><span class="lineno">   79</span>    <a class="code hl_function" href="a00383.html#a84f0c2bf28007ef7749ab0e90c8011d2">CBlockAudioIf::create</a>(<a class="code hl_variable" href="a00375.html#a8b0cd13bbb3570f6b87017b11ca10d63">m_pCBlockAudio</a>, pfAudio, iAudioLength, iBlockLength, iHopLength, <a class="code hl_variable" href="a00375.html#ad41fa79049fdd292778046629a62139f">m_fSampleRate</a>);</div>
-<div class="line"><span class="lineno">   80</span> </div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span> (bNormalize)</div>
-<div class="line"><span class="lineno">   82</span>        <a class="code hl_variable" href="a00375.html#a42a7505fe0188726c859c4656eaf61eb">m_pCNormalize</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00415.html">CNormalizeAudio</a>(pfAudio, iAudioLength);</div>
-<div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>    <a class="code hl_function" href="a00375.html#a9c4b2db2031256e48ade8c9fa235b6f2">init_</a>(pfWindow);</div>
-<div class="line"><span class="lineno">   85</span>}</div>
-<div class="ttc" id="aa00375_html_a3520208ce92977729d22e1bbaa5b9532"><div class="ttname"><a href="a00375.html#a3520208ce92977729d22e1bbaa5b9532">CSpectrogramIf::m_iHopLength</a></div><div class="ttdeci">int m_iHopLength</div><div class="ttdoc">hop length</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00128">Spectrogram.h:128</a></div></div>
-<div class="ttc" id="aa00375_html_a42a7505fe0188726c859c4656eaf61eb"><div class="ttname"><a href="a00375.html#a42a7505fe0188726c859c4656eaf61eb">CSpectrogramIf::m_pCNormalize</a></div><div class="ttdeci">CNormalizeAudio * m_pCNormalize</div><div class="ttdoc">instantiate if audio file normalization is wanted</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00121">Spectrogram.h:121</a></div></div>
-<div class="ttc" id="aa00375_html_a8b0cd13bbb3570f6b87017b11ca10d63"><div class="ttname"><a href="a00375.html#a8b0cd13bbb3570f6b87017b11ca10d63">CSpectrogramIf::m_pCBlockAudio</a></div><div class="ttdeci">CBlockAudioIf * m_pCBlockAudio</div><div class="ttdoc">instantiate for blocking time domain signal</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00123">Spectrogram.h:123</a></div></div>
-<div class="ttc" id="aa00375_html_a9c4b2db2031256e48ade8c9fa235b6f2"><div class="ttname"><a href="a00375.html#a9c4b2db2031256e48ade8c9fa235b6f2">CSpectrogramIf::init_</a></div><div class="ttdeci">Error_t init_(float *pfWindow)</div><div class="ttdoc">init configuration</div><div class="ttdef"><b>Definition:</b> <a href="a00014_source.html#l00260">Spectrogram.cpp:260</a></div></div>
-<div class="ttc" id="aa00375_html_ad41fa79049fdd292778046629a62139f"><div class="ttname"><a href="a00375.html#ad41fa79049fdd292778046629a62139f">CSpectrogramIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00130">Spectrogram.h:130</a></div></div>
-<div class="ttc" id="aa00375_html_aeb9a67e20abef3f1028bb8db15022a0a"><div class="ttname"><a href="a00375.html#aeb9a67e20abef3f1028bb8db15022a0a">CSpectrogramIf::m_iBlockLength</a></div><div class="ttdeci">int m_iBlockLength</div><div class="ttdoc">fft length</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00127">Spectrogram.h:127</a></div></div>
-<div class="ttc" id="aa00383_html_a84f0c2bf28007ef7749ab0e90c8011d2"><div class="ttname"><a href="a00383.html#a84f0c2bf28007ef7749ab0e90c8011d2">CBlockAudioIf::create</a></div><div class="ttdeci">static Error_t create(CBlockAudioIf *&amp;pCInstance, CAudioFileIf *pCAudioFile, int iBlockLength, int iHopLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00026_source.html#l00182">ToolBlockAudio.cpp:182</a></div></div>
-<div class="ttc" id="aa00415_html"><div class="ttname"><a href="a00415.html">CNormalizeAudio</a></div><div class="ttdoc">class for audio normalization offering three options</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00046">ToolPreProc.h:47</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00035">35</a> of file <a class="el" href="a00068_source.html">Novelty.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   35</span>                                                                                                                      :</div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_variable" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a>(0)</div>
+<div class="line"><span class="lineno">   37</span>{</div>
+<div class="line"><span class="lineno">   38</span>    this-&gt;<a class="code hl_function" href="a00415.html#a119fc32e085bb978525ea9596ee2e9c1">reset_</a>();</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>    <a class="code hl_struct" href="a00363.html">CAudioFileIf::FileSpec_t</a> stFileSpec;</div>
+<div class="line"><span class="lineno">   41</span>    <a class="code hl_function" href="a00359.html#aab987b1a4ec96a8fc835b1733a1ee0c3">CAudioFileIf::create</a>(<a class="code hl_variable" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a>);</div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_variable" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00359.html#ac845c2e45bc7bab904b73d432b00a05b">openFile</a>(strAudioFilePath, <a class="code hl_enumvalue" href="a00359.html#ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396">CAudioFileIf::kFileRead</a>);</div>
+<div class="line"><span class="lineno">   43</span>    <a class="code hl_variable" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00359.html#a7ddbbf5f828e61db7fd75dbf47a33832">getFileSpec</a>(stFileSpec);</div>
+<div class="line"><span class="lineno">   44</span>    <a class="code hl_variable" href="a00415.html#a6a278e55c0f750f8732c432dce067aa8">m_fSampleRate</a> = stFileSpec.<a class="code hl_variable" href="a00363.html#a396cfc91903815b64eff8131b33a86d9">fSampleRateInHz</a>;</div>
+<div class="line"><span class="lineno">   45</span> </div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_function" href="a00439.html#a84f0c2bf28007ef7749ab0e90c8011d2">CBlockAudioIf::create</a>(<a class="code hl_variable" href="a00415.html#a84efaf39d353e332e0f99eddb06ba39e">m_pCBlockAudio</a>, <a class="code hl_variable" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a>, iBlockLength, iHopLength);</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_variable" href="a00415.html#a57a60a36f228fc6de54ce33417b61b10">m_pCNormalize</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00471.html">CNormalizeAudio</a>(<a class="code hl_variable" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a>);</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    <span class="comment">// set length variables</span></div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_variable" href="a00415.html#a5f24b97fe49f8cfd88eb339464765c9b">m_iBlockLength</a> = iBlockLength;</div>
+<div class="line"><span class="lineno">   52</span>    <a class="code hl_variable" href="a00415.html#a8856282e4ff8634a849e189e6fea73bf">m_iHopLength</a> = iHopLength;</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_function" href="a00415.html#a4beb226d8e7dd927c253667647e837ec">init_</a>(eNoveltyIdx);</div>
+<div class="line"><span class="lineno">   55</span>}</div>
+<div class="ttc" id="aa00279_html_a56054b1777c49a132cf89785c89c8f7a"><div class="ttname"><a href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">CNoveltyFromFile::m_pCAudioFile</a></div><div class="ttdeci">CAudioFileIf * m_pCAudioFile</div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.html#l00032">Novelty.cpp:32</a></div></div>
+<div class="ttc" id="aa00359_html_a7ddbbf5f828e61db7fd75dbf47a33832"><div class="ttname"><a href="a00359.html#a7ddbbf5f828e61db7fd75dbf47a33832">CAudioFileIf::getFileSpec</a></div><div class="ttdeci">Error_t getFileSpec(FileSpec_t &amp;sFileSpec)</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00152">AudioFileIf.cpp:152</a></div></div>
+<div class="ttc" id="aa00359_html_aab987b1a4ec96a8fc835b1733a1ee0c3"><div class="ttname"><a href="a00359.html#aab987b1a4ec96a8fc835b1733a1ee0c3">CAudioFileIf::create</a></div><div class="ttdeci">static Error_t create(CAudioFileIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00015">AudioFileIf.cpp:15</a></div></div>
+<div class="ttc" id="aa00359_html_ac845c2e45bc7bab904b73d432b00a05b"><div class="ttname"><a href="a00359.html#ac845c2e45bc7bab904b73d432b00a05b">CAudioFileIf::openFile</a></div><div class="ttdeci">virtual Error_t openFile(std::string cAudioFileName, FileIoType_t eIoType, FileSpec_t const *psFileSpec=0)=0</div></div>
+<div class="ttc" id="aa00359_html_ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396"><div class="ttname"><a href="a00359.html#ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396">CAudioFileIf::kFileRead</a></div><div class="ttdeci">@ kFileRead</div><div class="ttdoc">open file for reading</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00016">AudioFileIf.h:16</a></div></div>
+<div class="ttc" id="aa00363_html"><div class="ttname"><a href="a00363.html">CAudioFileIf::FileSpec_t</a></div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00038">AudioFileIf.h:39</a></div></div>
+<div class="ttc" id="aa00363_html_a396cfc91903815b64eff8131b33a86d9"><div class="ttname"><a href="a00363.html#a396cfc91903815b64eff8131b33a86d9">CAudioFileIf::FileSpec_t::fSampleRateInHz</a></div><div class="ttdeci">float fSampleRateInHz</div><div class="ttdoc">sample rate in Hz</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00043">AudioFileIf.h:43</a></div></div>
+<div class="ttc" id="aa00415_html_a119fc32e085bb978525ea9596ee2e9c1"><div class="ttname"><a href="a00415.html#a119fc32e085bb978525ea9596ee2e9c1">CNoveltyIf::reset_</a></div><div class="ttdeci">Error_t reset_()</div><div class="ttdoc">reset configuration</div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.html#l00289">Novelty.cpp:289</a></div></div>
+<div class="ttc" id="aa00415_html_a4beb226d8e7dd927c253667647e837ec"><div class="ttname"><a href="a00415.html#a4beb226d8e7dd927c253667647e837ec">CNoveltyIf::init_</a></div><div class="ttdeci">Error_t init_(Novelty_t eNoveltyIdx)</div><div class="ttdoc">init configuration</div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.html#l00314">Novelty.cpp:314</a></div></div>
+<div class="ttc" id="aa00415_html_a57a60a36f228fc6de54ce33417b61b10"><div class="ttname"><a href="a00415.html#a57a60a36f228fc6de54ce33417b61b10">CNoveltyIf::m_pCNormalize</a></div><div class="ttdeci">CNormalizeAudio * m_pCNormalize</div><div class="ttdoc">instantiate if audio file normalization is wanted</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00107">Novelty.h:107</a></div></div>
+<div class="ttc" id="aa00415_html_a5f24b97fe49f8cfd88eb339464765c9b"><div class="ttname"><a href="a00415.html#a5f24b97fe49f8cfd88eb339464765c9b">CNoveltyIf::m_iBlockLength</a></div><div class="ttdeci">int m_iBlockLength</div><div class="ttdoc">fft length</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00117">Novelty.h:117</a></div></div>
+<div class="ttc" id="aa00415_html_a6a278e55c0f750f8732c432dce067aa8"><div class="ttname"><a href="a00415.html#a6a278e55c0f750f8732c432dce067aa8">CNoveltyIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00120">Novelty.h:120</a></div></div>
+<div class="ttc" id="aa00415_html_a84efaf39d353e332e0f99eddb06ba39e"><div class="ttname"><a href="a00415.html#a84efaf39d353e332e0f99eddb06ba39e">CNoveltyIf::m_pCBlockAudio</a></div><div class="ttdeci">CBlockAudioIf * m_pCBlockAudio</div><div class="ttdoc">instantiate for blocking time domain signal</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00109">Novelty.h:109</a></div></div>
+<div class="ttc" id="aa00415_html_a8856282e4ff8634a849e189e6fea73bf"><div class="ttname"><a href="a00415.html#a8856282e4ff8634a849e189e6fea73bf">CNoveltyIf::m_iHopLength</a></div><div class="ttdeci">int m_iHopLength</div><div class="ttdoc">hop length</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00118">Novelty.h:118</a></div></div>
+<div class="ttc" id="aa00439_html_a84f0c2bf28007ef7749ab0e90c8011d2"><div class="ttname"><a href="a00439.html#a84f0c2bf28007ef7749ab0e90c8011d2">CBlockAudioIf::create</a></div><div class="ttdeci">static Error_t create(CBlockAudioIf *&amp;pCInstance, CAudioFileIf *pCAudioFile, int iBlockLength, int iHopLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00182">ToolBlockAudio.cpp:182</a></div></div>
+<div class="ttc" id="aa00471_html"><div class="ttname"><a href="a00471.html">CNormalizeAudio</a></div><div class="ttdoc">class for audio normalization offering three options</div><div class="ttdef"><b>Definition:</b> <a href="a00092_source.html#l00046">ToolPreProc.h:47</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00026_source.html#l00182">CBlockAudioIf::create()</a>, <a class="el" href="a00014_source.html#l00260">CSpectrogramIf::init_()</a>, <a class="el" href="a00143_source.html#l00130">CSpectrogramIf::m_fSampleRate</a>, <a class="el" href="a00143_source.html#l00127">CSpectrogramIf::m_iBlockLength</a>, <a class="el" href="a00143_source.html#l00128">CSpectrogramIf::m_iHopLength</a>, <a class="el" href="a00143_source.html#l00123">CSpectrogramIf::m_pCBlockAudio</a>, and <a class="el" href="a00143_source.html#l00121">CSpectrogramIf::m_pCNormalize</a>.</p>
+<p class="reference">References <a class="el" href="a00011_source.html#l00015">CAudioFileIf::create()</a>, <a class="el" href="a00059_source.html#l00182">CBlockAudioIf::create()</a>, <a class="el" href="a00119_source.html#l00043">CAudioFileIf::FileSpec_t::fSampleRateInHz</a>, <a class="el" href="a00011_source.html#l00152">CAudioFileIf::getFileSpec()</a>, <a class="el" href="a00068_source.html#l00314">CNoveltyIf::init_()</a>, <a class="el" href="a00119_source.html#l00016">CAudioFileIf::kFileRead</a>, <a class="el" href="a00134_source.html#l00120">CNoveltyIf::m_fSampleRate</a>, <a class="el" href="a00134_source.html#l00117">CNoveltyIf::m_iBlockLength</a>, <a class="el" href="a00134_source.html#l00118">CNoveltyIf::m_iHopLength</a>, <a class="el" href="a00068_source.html#l00032">m_pCAudioFile</a>, <a class="el" href="a00134_source.html#l00109">CNoveltyIf::m_pCBlockAudio</a>, <a class="el" href="a00134_source.html#l00107">CNoveltyIf::m_pCNormalize</a>, <a class="el" href="a00359.html#ac845c2e45bc7bab904b73d432b00a05b">CAudioFileIf::openFile()</a>, and <a class="el" href="a00068_source.html#l00289">CNoveltyIf::reset_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00279_a2c6b75c7c05204bec34db9c8ec6c40d1_cgraph.png" border="0" usemap="#aa00279_a2c6b75c7c05204bec34db9c8ec6c40d1_cgraph" alt=""/></div>
-<map name="aa00279_a2c6b75c7c05204bec34db9c8ec6c40d1_cgraph" id="aa00279_a2c6b75c7c05204bec34db9c8ec6c40d1_cgraph">
-<area shape="rect" title=" " alt="" coords="5,99,184,141"/>
-<area shape="rect" href="a00383.html#a84f0c2bf28007ef7749ab0e90c8011d2" title=" " alt="" coords="232,81,379,108"/>
-<area shape="rect" href="a00375.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="234,132,377,159"/>
-<area shape="rect" href="a00359.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="837,5,939,32"/>
-<area shape="rect" href="a00331.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="464,132,535,159"/>
-<area shape="rect" href="a00331.html#aa613a3fa5e2e0ce0889021fdaaed8a0e" title=" " alt="" coords="427,233,572,260"/>
-<area shape="rect" href="a00359.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1000,5,1119,32"/>
-<area shape="rect" href="a00331.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="631,31,765,57"/>
-<area shape="rect" href="a00331.html#aa5fffd68919cea17741c9fe69209bce6" title=" " alt="" coords="620,81,776,108"/>
-<area shape="rect" href="a00355.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="641,132,755,159"/>
-<area shape="rect" href="a00355.html#a0fd55429d52515a9efb2fe602ce8f9ed" title=" " alt="" coords="634,183,762,209"/>
-<area shape="rect" href="a00331.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="657,233,739,260"/>
-<area shape="rect" href="a00331.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="824,233,952,260"/>
-<area shape="rect" href="a00359.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="1011,233,1108,260"/>
-<area shape="rect" href="a00363.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="633,284,763,311"/>
-<area shape="rect" href="a00359.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="837,284,939,311"/>
+<div class="center"><img src="a00279_a0247bb6d1818b840d1182d5ee50214d5_cgraph.png" border="0" usemap="#aa00279_a0247bb6d1818b840d1182d5ee50214d5_cgraph" alt=""/></div>
+<map name="aa00279_a0247bb6d1818b840d1182d5ee50214d5_cgraph" id="aa00279_a0247bb6d1818b840d1182d5ee50214d5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,149,191,191"/>
+<area shape="rect" href="a00359.html#aab987b1a4ec96a8fc835b1733a1ee0c3" title=" " alt="" coords="255,30,390,57"/>
+<area shape="rect" href="a00439.html#a84f0c2bf28007ef7749ab0e90c8011d2" title=" " alt="" coords="249,81,396,107"/>
+<area shape="rect" href="a00359.html#a7ddbbf5f828e61db7fd75dbf47a33832" title=" " alt="" coords="239,131,407,158"/>
+<area shape="rect" href="a00415.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="266,309,379,335"/>
+<area shape="rect" href="a00359.html#ac845c2e45bc7bab904b73d432b00a05b" title=" " alt="" coords="249,359,397,386"/>
+<area shape="rect" href="a00415.html#a119fc32e085bb978525ea9596ee2e9c1" title="reset configuration" alt="" coords="260,182,385,209"/>
+<area shape="rect" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="973,334,1076,361"/>
+<area shape="rect" href="a00463.html#a9008feaaece203a6bf1220ab81e1b983" title=" " alt="" coords="458,477,621,503"/>
+<area shape="rect" href="a00419.html#ad4c0e04f9ae0eaa7ccf48509125cab1a" title=" " alt="" coords="466,411,613,452"/>
+<area shape="rect" href="a00379.html#a9cb162394031e8b496f7a39b51c31d20" title=" " alt="" coords="484,309,595,335"/>
+<area shape="rect" href="a00379.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="504,258,575,285"/>
+<area shape="rect" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1173,334,1291,361"/>
+<area shape="rect" href="a00463.html#aa02ee977828ff103f3e2c25889131122" title=" " alt="" coords="672,477,899,503"/>
+<area shape="rect" href="a00463.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="947,477,1103,503"/>
+<area shape="rect" href="a00395.html#a716fb4acc03355a73cc7d96f3ceb2995" title=" " alt="" coords="1169,451,1295,478"/>
+<area shape="rect" href="a00395.html#af265a6322c4b1584c880def00d31e663" title=" " alt="" coords="1151,502,1313,529"/>
+<area shape="rect" href="a00395.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="1361,502,1492,529"/>
+<area shape="rect" href="a00419.html#a55adbc3ecfeffbeb621875bb56f3bf7f" title=" " alt="" coords="709,411,861,452"/>
+<area shape="rect" href="a00379.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="719,309,852,335"/>
+<area shape="rect" href="a00379.html#aa5fffd68919cea17741c9fe69209bce6" title=" " alt="" coords="707,258,863,285"/>
+<area shape="rect" href="a00403.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="728,106,843,133"/>
+<area shape="rect" href="a00403.html#a0fd55429d52515a9efb2fe602ce8f9ed" title=" " alt="" coords="721,157,849,183"/>
+<area shape="rect" href="a00379.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="744,207,827,234"/>
+<area shape="rect" href="a00379.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="961,149,1089,175"/>
+<area shape="rect" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="1183,94,1281,121"/>
+<area shape="rect" href="a00439.html#a13d2bd6e36210dde0c64d188c1266b88" title=" " alt="" coords="463,157,616,183"/>
+<area shape="rect" href="a00463.html#a5a6b1921f58c43d9daa618a97e62754f" title=" " alt="" coords="455,207,624,234"/>
+<area shape="rect" href="a00419.html#a2066599bb659fd90d13bc8a57dec005e" title=" " alt="" coords="466,91,613,132"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a6e30c1b9c4eb573d126946c6fcfa94d9" name="a6e30c1b9c4eb573d126946c6fcfa94d9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e30c1b9c4eb573d126946c6fcfa94d9">&#9670;&nbsp;</a></span>~CSpectrogramFromVector()</h2>
+<a id="a5d9abf4513901cb6dfdb32a61bbb2880" name="a5d9abf4513901cb6dfdb32a61bbb2880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d9abf4513901cb6dfdb32a61bbb2880">&#9670;&nbsp;</a></span>~CNoveltyFromFile()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +304,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CSpectrogramFromVector::~CSpectrogramFromVector </td>
+          <td class="memname">virtual CNoveltyFromFile::~CNoveltyFromFile </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -300,18 +317,70 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00014_source.html#l00067">67</a> of file <a class="el" href="a00014_source.html">Spectrogram.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   67</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00020">20</a> of file <a class="el" href="a00068_source.html">Novelty.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>    {</div>
+<div class="line"><span class="lineno">   22</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00415.html#a57a60a36f228fc6de54ce33417b61b10">m_pCNormalize</a>;</div>
+<div class="line"><span class="lineno">   23</span>        <a class="code hl_variable" href="a00415.html#a57a60a36f228fc6de54ce33417b61b10">m_pCNormalize</a> = 0;</div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>        <a class="code hl_function" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00415.html#a37546cf16c58d32ee9809ee5c43e6a4c">m_pfProcessBuff1</a>);</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>        <a class="code hl_variable" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a>-&gt;<a class="code hl_function" href="a00359.html#a9b8022f870f94a4b8c5a1f25cf24d2f9">closeFile</a>();</div>
+<div class="line"><span class="lineno">   28</span>        <a class="code hl_function" href="a00359.html#ab490b9d06c7efa0e4da3596cf4e7bec4">CAudioFileIf::destroy</a>(<a class="code hl_variable" href="a00279.html#a56054b1777c49a132cf89785c89c8f7a">m_pCAudioFile</a>);</div>
+<div class="line"><span class="lineno">   29</span>    };</div>
+<div class="ttc" id="aa00359_html_a9b8022f870f94a4b8c5a1f25cf24d2f9"><div class="ttname"><a href="a00359.html#a9b8022f870f94a4b8c5a1f25cf24d2f9">CAudioFileIf::closeFile</a></div><div class="ttdeci">virtual Error_t closeFile()=0</div></div>
+<div class="ttc" id="aa00359_html_ab490b9d06c7efa0e4da3596cf4e7bec4"><div class="ttname"><a href="a00359.html#ab490b9d06c7efa0e4da3596cf4e7bec4">CAudioFileIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CAudioFileIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00029">AudioFileIf.cpp:29</a></div></div>
+<div class="ttc" id="aa00407_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00037">Vector.h:37</a></div></div>
+<div class="ttc" id="aa00415_html_a37546cf16c58d32ee9809ee5c43e6a4c"><div class="ttname"><a href="a00415.html#a37546cf16c58d32ee9809ee5c43e6a4c">CNoveltyIf::m_pfProcessBuff1</a></div><div class="ttdeci">float * m_pfProcessBuff1</div><div class="ttdoc">temporary buffer</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00123">Novelty.h:123</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00359.html#a9b8022f870f94a4b8c5a1f25cf24d2f9">CAudioFileIf::closeFile()</a>, <a class="el" href="a00011_source.html#l00029">CAudioFileIf::destroy()</a>, <a class="el" href="a00107_source.html#l00037">CVector::free()</a>, <a class="el" href="a00068_source.html#l00032">m_pCAudioFile</a>, <a class="el" href="a00134_source.html#l00107">CNoveltyIf::m_pCNormalize</a>, and <a class="el" href="a00134_source.html#l00123">CNoveltyIf::m_pfProcessBuff1</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00279_a5d9abf4513901cb6dfdb32a61bbb2880_cgraph.png" border="0" usemap="#aa00279_a5d9abf4513901cb6dfdb32a61bbb2880_cgraph" alt=""/></div>
+<map name="aa00279_a5d9abf4513901cb6dfdb32a61bbb2880_cgraph" id="aa00279_a5d9abf4513901cb6dfdb32a61bbb2880_cgraph">
+<area shape="rect" title=" " alt="" coords="5,49,139,90"/>
+<area shape="rect" href="a00359.html#a9b8022f870f94a4b8c5a1f25cf24d2f9" title=" " alt="" coords="187,5,337,32"/>
+<area shape="rect" href="a00359.html#ab490b9d06c7efa0e4da3596cf4e7bec4" title=" " alt="" coords="191,56,333,83"/>
+<area shape="rect" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="213,107,311,133"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a56054b1777c49a132cf89785c89c8f7a" name="a56054b1777c49a132cf89785c89c8f7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56054b1777c49a132cf89785c89c8f7a">&#9670;&nbsp;</a></span>m_pCAudioFile</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00359.html">CAudioFileIf</a>* CNoveltyFromFile::m_pCAudioFile</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00032">32</a> of file <a class="el" href="a00068_source.html">Novelty.cpp</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00068_source.html#l00035">CNoveltyFromFile()</a>, and <a class="el" href="a00068_source.html#l00020">~CNoveltyFromFile()</a>.</p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00014_source.html">Spectrogram.cpp</a></li>
+<li><a class="el" href="a00068_source.html">Novelty.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:48 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

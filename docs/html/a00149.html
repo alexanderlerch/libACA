@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: ToolLowPass.h File Reference</title>
+<title>ACA: ToolResample.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -49,36 +49,30 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a> &#124;
-<a href="#define-members">Macros</a>  </div>
-  <div class="headertitle"><div class="title">ToolLowPass.h File Reference</div></div>
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle"><div class="title">ToolResample.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00092_source.html">RingBuffer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00113_source.html">ErrorDef.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00086_source.html">ErrorDef.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00104_source.html">Filter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00113_source.html">Util.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ToolLowPass.h:</div>
+Include dependency graph for ToolResample.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00150.png" border="0" usemap="#aToolLowPass_8h" alt=""/></div>
-<map name="aToolLowPass_8h" id="aToolLowPass_8h">
-<area shape="rect" title=" " alt="" coords="65,5,177,32"/>
-<area shape="rect" title=" " alt="" coords="5,155,64,181"/>
-<area shape="rect" href="a00092.html" title=" " alt="" coords="75,80,167,107"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="191,80,270,107"/>
-<area shape="rect" title=" " alt="" coords="89,155,154,181"/>
-<area shape="rect" title=" " alt="" coords="179,155,253,181"/>
-<area shape="rect" title=" " alt="" coords="277,155,339,181"/>
-</map>
-</div>
-</div><div class="textblock"><div class="dynheader">
-This graph shows which files directly or indirectly include this file:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00151.png" border="0" usemap="#aToolLowPass_8hdep" alt=""/></div>
-<map name="aToolLowPass_8hdep" id="aToolLowPass_8hdep">
-<area shape="rect" title=" " alt="" coords="99,5,211,32"/>
-<area shape="rect" href="a00038.html" title=" " alt="" coords="5,80,159,107"/>
-<area shape="rect" href="a00032.html" title=" " alt="" coords="183,80,274,107"/>
+<div class="center"><img src="a00150.png" border="0" usemap="#aToolResample_8h" alt=""/></div>
+<map name="aToolResample_8h" id="aToolResample_8h">
+<area shape="rect" title=" " alt="" coords="141,5,255,32"/>
+<area shape="rect" href="a00086.html" title=" " alt="" coords="5,155,84,181"/>
+<area shape="rect" href="a00104.html" title=" " alt="" coords="167,80,229,107"/>
+<area shape="rect" href="a00113.html" title=" " alt="" coords="423,229,475,256"/>
+<area shape="rect" title=" " alt="" coords="177,304,235,331"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="276,229,347,256"/>
+<area shape="rect" href="a00101.html" title=" " alt="" coords="286,155,353,181"/>
+<area shape="rect" href="a00116.html" title=" " alt="" coords="160,229,252,256"/>
+<area shape="rect" title=" " alt="" coords="345,304,411,331"/>
+<area shape="rect" title=" " alt="" coords="259,304,321,331"/>
+<area shape="rect" title=" " alt="" coords="435,304,489,331"/>
+<area shape="rect" title=" " alt="" coords="78,304,153,331"/>
 </map>
 </div>
 </div>
@@ -86,39 +80,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00403.html">CSinglePoleLp</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for single-pole low pass filtering  <a href="a00403.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00475.html">CResample</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for simple interpolation/sample rate conversion  <a href="a00475.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html">CMovingAverage</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for single-pole low pass filtering  <a href="a00407.html#details">More...</a><br /></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a525335710b53cb064ca56b936120431e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00149.html#a525335710b53cb064ca56b936120431e">_USE_MATH_DEFINES</a></td></tr>
-<tr class="separator:a525335710b53cb064ca56b936120431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a525335710b53cb064ca56b936120431e" name="a525335710b53cb064ca56b936120431e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a525335710b53cb064ca56b936120431e">&#9670;&nbsp;</a></span>_USE_MATH_DEFINES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _USE_MATH_DEFINES</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00149_source.html#l00004">4</a> of file <a class="el" href="a00149_source.html">ToolLowPass.h</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:06 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:47 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

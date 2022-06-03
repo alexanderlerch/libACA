@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Fft.h File Reference</title>
+<title>ACA: FeatureFromBlock.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.1.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
    </div>
    <div id="projectbrief">Code for Audio Content Analysis</div>
   </td>
@@ -44,38 +44,40 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li><li class="navelem"><a class="el" href="dir_0aca768bfdcf5d30136701ca31d18db0.html">helper</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">Fft.h File Reference</div></div>
+  <div class="headertitle"><div class="title">FeatureFromBlock.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00113_source.html">ErrorDef.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;map&gt;</code><br />
+<code>#include &lt;functional&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00155_source.html">Feature.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00086_source.html">ErrorDef.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Fft.h:</div>
+Include dependency graph for FeatureFromBlock.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00090.png" border="0" usemap="#aFft_8h" alt=""/></div>
-<map name="aFft_8h" id="aFft_8h">
-<area shape="rect" title=" " alt="" coords="21,5,69,32"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="5,80,84,107"/>
+<div class="center"><img src="a00090.png" border="0" usemap="#aFeatureFromBlock_8h" alt=""/></div>
+<map name="aFeatureFromBlock_8h" id="aFeatureFromBlock_8h">
+<area shape="rect" title=" " alt="" coords="97,5,235,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,52,107"/>
+<area shape="rect" title=" " alt="" coords="76,80,155,107"/>
+<area shape="rect" href="a00155.html" title=" " alt="" coords="179,80,255,107"/>
+<area shape="rect" href="a00086.html" title=" " alt="" coords="253,155,332,181"/>
+<area shape="rect" title=" " alt="" coords="175,155,229,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00091.png" border="0" usemap="#aFft_8hdep" alt=""/></div>
-<map name="aFft_8hdep" id="aFft_8hdep">
-<area shape="rect" title=" " alt="" coords="357,5,405,32"/>
-<area shape="rect" href="a00023.html" title=" " alt="" coords="5,80,109,107"/>
-<area shape="rect" href="a00017.html" title=" " alt="" coords="133,80,224,107"/>
-<area shape="rect" href="a00041.html" title=" " alt="" coords="249,80,311,107"/>
-<area shape="rect" href="a00032.html" title=" " alt="" coords="336,80,427,107"/>
-<area shape="rect" href="a00014.html" title=" " alt="" coords="451,80,571,107"/>
-<area shape="rect" href="a00047.html" title=" " alt="" coords="595,80,685,107"/>
-<area shape="rect" href="a00134.html" title=" " alt="" coords="710,80,815,107"/>
+<div class="center"><img src="a00091.png" border="0" usemap="#aFeatureFromBlock_8hdep" alt=""/></div>
+<map name="aFeatureFromBlock_8hdep" id="aFeatureFromBlock_8hdep">
+<area shape="rect" title=" " alt="" coords="55,5,193,32"/>
+<area shape="rect" href="a00044.html" title=" " alt="" coords="5,80,96,107"/>
+<area shape="rect" href="a00038.html" title=" " alt="" coords="121,80,274,107"/>
 </map>
 </div>
 </div>
@@ -83,14 +85,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00331.html">CFft</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for FFT computation with windowing  <a href="a00331.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html">CFeatureFromBlockIf</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for computation of a feature from a block of data (e.g., time or magnitude spectrum)  <a href="a00375.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Wed Jun 1 2022 22:05:05 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 3 2022 21:46:47 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
