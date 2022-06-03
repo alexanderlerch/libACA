@@ -154,7 +154,7 @@ Error_t CPitchIf::getNumBlocks(int& iNumBlocks) const
 \return int
 */
 
-inline int CPitchIf::getNumBlocks() const
+int CPitchIf::getNumBlocks() const
 {
     assert(m_bIsInitialized);
     assert(m_pCBlockAudio);
