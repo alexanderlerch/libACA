@@ -39,6 +39,16 @@ public:
     */
     static Error_t create(CGammaToneFbIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iNumBands = 20, float fStartInHz = 100);
 
+
+    /*! initializes a GammaToneFb instance for block based processing
+    \param pCInstance pointer to instance to be written
+    \param fSampleRate: sample rate in Hz
+    \param iNumBands: number of gammatone bands
+    \param fStartInHz: center frequency of the lowest band
+    \return Error_t
+    */
+    static Error_t create(CGammaToneFbIf*& pCInstance, float fSampleRate, int iNumBands = 20, float fStartInHz = 100);
+
     /*! destroys a GammaToneFb instance
     \param pCInstance pointer to instance to be destroyed
     \return Error_t
@@ -60,9 +70,11 @@ public:
 
     /*! performs the GammaToneFb computation for 1 dimensional GammaToneFbs and writes the result
     \param ppfOutput (user-allocated, to be written, dimensions iNumBands x iNumSamples, see CGammaToneFbIf::getOutputDimensions)
+    \param pfInput input data (for real-time block processing only)
+    \param iNumSamples length of input data (for real-time block processing only)
     \return Error_t
     */
-    Error_t process(float** ppfOutput);
+    Error_t process(float** ppfOutput, const float* pfInput = 0, long long iNumSamples = 0);
 
 protected:
     CGammaToneFbIf();

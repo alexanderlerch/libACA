@@ -65,7 +65,7 @@ public:
 
         CVectorFloat::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
         CVectorFloat::copy(pfInstFreq, m_apfPhase[kPhasePrev], m_iPhaseLength);
-        CVectorFloat::mulC_I(pfInstFreq, static_cast<float>(m_fSampleRate / (m_iHopLength * 2 * M_PI)), m_iPhaseLength);
+        CVectorFloat::mulC_I(pfInstFreq, static_cast<float>(m_fSampleRate / (m_iHopLength * 2. * M_PI)), m_iPhaseLength);
 
         // remember phase for next call but avoid copying
         CUtil::swap(m_apfPhase[kPhasePrev], m_apfPhase[kPhaseCurr]);

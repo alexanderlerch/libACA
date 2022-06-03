@@ -4,6 +4,8 @@
 
 #include "Synthesis.h"
 #include "Vector.h"
+#include "Matrix.h"
+
 #include "ToolCcf.h"
 #include "ToolBlockAudio.h"
 #include "ToolConversion.h"
@@ -378,11 +380,8 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
         iNumBands = 20;
     long long aiDims[2] = { 0 };
 
-    pfIn = new float[iBufferLength];
-    CVectorFloat::setZero(pfIn, iBufferLength);
-    ppfOut = new float* [iNumBands];
-    for (auto k = 0; k < iNumBands; k++)
-        ppfOut[k] = new float[iBufferLength];
+    CVector::alloc(pfIn, iBufferLength);
+    CMatrix::alloc(ppfOut, iNumBands, iBufferLength);
 
     SECTION("Api")
     {
@@ -440,13 +439,44 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
         CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(pCGammatone));
     }
 
+    SECTION("RealTime")
+    {
+        CSynthesis::genSine<float>(pfIn, 100, 32000, iBufferLength);
+
+        CHECK(Error_t::kNoError == CGammaToneFbIf::create(pCGammatone, pfIn, iBufferLength, fSampleRate, iNumBands, fStartFreq));
+
+        CHECK(Error_t::kNoError == pCGammatone->getOutputDimensions(aiDims[0], aiDims[1]));
+        CHECK(iNumBands == aiDims[0]);
+        CHECK(iBufferLength == aiDims[1]);
+
+        CHECK(Error_t::kNoError == pCGammatone->process(ppfOut));
+
+        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(pCGammatone));
+        CHECK(Error_t::kNoError == CGammaToneFbIf::create(pCGammatone, fSampleRate, iNumBands, fStartFreq));
+
+        float** ppfRtOut = 0;
+        CMatrix::alloc(ppfRtOut, iNumBands, iBufferLength);
+        int iBlockLength = 4096;
+        for (auto n = 0; n < iBufferLength / iBlockLength; n++)
+        {
+            pCGammatone->process(ppfRtOut, &pfIn[n * iBlockLength], iBlockLength);
+            for (auto c = 0; c < iNumBands; c++)
+            {
+                CVectorFloat::sub_I(ppfRtOut[c], &ppfOut[c][n * iBlockLength], iBlockLength);
+                CHECK(0.F == CVectorFloat::getSum(ppfRtOut[c], iBlockLength));
+            }
+        }
+        CMatrix::free(ppfRtOut, iNumBands);
+
+
+        CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(pCGammatone));
+    }
+
 
     CGammaToneFbIf::destroy(pCGammatone);
 
-    for (auto k = 0; k < iNumBands; k++)
-        delete[] ppfOut[k];
-    delete[] ppfOut;
-    delete[] pfIn;
+    CVector::free(pfIn);
+    CMatrix::free(ppfOut, iNumBands);
 
 }
 
