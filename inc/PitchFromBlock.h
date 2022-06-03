@@ -49,19 +49,17 @@ public:
     /*! returns index of the Pitch to extract
     \return Pitch_t
     */
-    PitchExtractors_t getPitchIdx() const
+    PitchExtractors_t getPitchExtractorIdx() const
     {
         return m_ePitchIdx;
     }
 
     /*! performs the PitchFromBlock computation
-    \param pfPitch Pitch result (user-allocated, to be written, length from CPitchFromBlockIf::getPitchDimensions)
     \param pfInput input data of length iDataLength
-    \return Error_t
+    \return float fF0InHz
     */
-    virtual Error_t compPitch(float* pfPitch, const float* pfInput);
-
-    /*! returns true if there is an additional parameter
+    virtual float compF0(const float* pfInput) = 0;
+        /*! returns true if there is an additional parameter
     \return bool
     */
     //virtual bool hasAdditionalParam() const;

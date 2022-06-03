@@ -476,7 +476,7 @@ private:
         for (auto c = 0; c < iNumCoeffs; c++)
         {
             for (auto b = 0; b < m_iNumBands; b++)
-                m_ppfDct[c][b] = static_cast<float>(std::cos(c * (2 * b + 1) * M_PI / 2. / m_iNumBands));
+                m_ppfDct[c][b] = static_cast<float>(std::cos(c * (2. * b + 1) * M_PI / 2. / m_iNumBands));
 
             CVectorFloat::mulC_I(m_ppfDct[c], 1/std::sqrt(m_iNumBands / 2.F), m_iNumBands);
         }
