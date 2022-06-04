@@ -6,6 +6,7 @@
 #include "Synthesis.h"
 #include "ToolConversion.h"
 
+#include "Chord.h"
 #include "ChordFromBlock.h"
 #include "catch.hpp"
 
@@ -20,7 +21,7 @@ TEST_CASE("Chord (per block)", "[ChordsBlock]")
     int iBufferLength = 2049;
     
     CVector::alloc(pfInput, iBufferLength);
-    CVector::alloc(pfResult, CChordFromBlockIf::kNumChords);
+    CVector::alloc(pfResult, CChordIf::kNumChords);
 
     SECTION("Api")
     {
@@ -40,7 +41,7 @@ TEST_CASE("Chord (per block)", "[ChordsBlock]")
         CHECK(Error_t::kNoError == CChordFromBlockIf::create(pCInstance, iBufferLength, fSampleRate));
         CHECK(Error_t::kNoError == pCInstance->compChordProb(pfResult, pfInput));
 
-        CHECK(1.F == Approx(pfResult[CChordFromBlockIf::kNoChord]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(pfResult[CChordIf::kNoChord]).margin(1e-6F).epsilon(1e-6F));
 
     }
 
@@ -70,7 +71,7 @@ TEST_CASE("Chord (per block)", "[ChordsBlock]")
 
                 CHECK(Error_t::kNoError == pCInstance->compChordProb(pfResult, pfInput));
 
-                CVectorFloat::findMax(pfResult, fMax, iMax, CChordFromBlockIf::kNumChords);
+                CVectorFloat::findMax(pfResult, fMax, iMax, CChordIf::kNumChords);
                 CHECK(iMax == i*12+c);
 
                 CVectorFloat::addC_I(afChordPitches[i], 1.F, 3);

@@ -3,6 +3,7 @@
 
 #include "FeatureFromBlock.h"
 
+#include "Chord.h"
 #include "ChordFromBlock.h"
 
 Error_t CChordFromBlockIf::create(CChordFromBlockIf*& pCInstance, int iMagSpecLength, float fSampleRate)
@@ -32,18 +33,18 @@ Error_t CChordFromBlockIf::compChordProb(float* pfChordProb, const float* pfInpu
 
     if (CVectorFloat::getSum(m_pfPitchChroma, kNumPitchClasses) <= 1e-20F)
     {
-        CVectorFloat::setZero(pfChordProb, kNumChords);
-        pfChordProb[kNoChord] = 1.F;
+        CVectorFloat::setZero(pfChordProb, CChordIf::kNumChords);
+        pfChordProb[CChordIf::kNoChord] = 1.F;
         return Error_t::kNoError;
     }
 
     // get chord probs with template
-    CMatrix::mulMatColVec(pfChordProb, m_ppfTemplateMatrix, m_pfPitchChroma, kNumChords, kNumPitchClasses);
+    CMatrix::mulMatColVec(pfChordProb, m_ppfTemplateMatrix, m_pfPitchChroma, CChordIf::kNumChords, kNumPitchClasses);
 
-    assert(CVectorFloat::getSum(pfChordProb, kNumChords) > 0);
+    assert(CVectorFloat::getSum(pfChordProb, CChordIf::kNumChords) > 0);
 
     // normalize to probability of 1
-    CVectorFloat::mulC_I(pfChordProb, 1.F / CVectorFloat::getSum(pfChordProb, kNumChords), kNumChords);
+    CVectorFloat::mulC_I(pfChordProb, 1.F / CVectorFloat::getSum(pfChordProb, CChordIf::kNumChords), CChordIf::kNumChords);
 
     return Error_t::kNoError;
 }
@@ -51,7 +52,7 @@ Error_t CChordFromBlockIf::compChordProb(float* pfChordProb, const float* pfInpu
 inline CChordFromBlockIf::CChordFromBlockIf(int iMagSpecLength, float fSampleRate) : m_iMagSpecLength(iMagSpecLength), m_fSampleRate(fSampleRate)
 {
     CVector::alloc(m_pfPitchChroma, kNumPitchClasses);
-    CMatrix::alloc(m_ppfTemplateMatrix, kNumChords, kNumPitchClasses);
+    CMatrix::alloc(m_ppfTemplateMatrix, CChordIf::kNumChords, kNumPitchClasses);
 
     CFeatureFromBlockIf::create(m_pCFeatureExtractor, CFeatureIf::kFeatureSpectralPitchChroma, m_iMagSpecLength, m_fSampleRate);
 
@@ -61,7 +62,7 @@ inline CChordFromBlockIf::CChordFromBlockIf(int iMagSpecLength, float fSampleRat
 inline CChordFromBlockIf::~CChordFromBlockIf() 
 {
     CVector::free(m_pfPitchChroma);
-    CMatrix::free(m_ppfTemplateMatrix, kNumChords);
+    CMatrix::free(m_ppfTemplateMatrix, CChordIf::kNumChords);
 
     CFeatureFromBlockIf::destroy(m_pCFeatureExtractor);
 }
@@ -83,5 +84,5 @@ void CChordFromBlockIf::genTemplateMatrix_()
             m_ppfTemplateMatrix[c+ kNumPitchClasses][(c + aiMinorIndices[p])%12] = 1.F / iNumChordPitches;
         }
     }
-    CVectorFloat::mulC_I(m_ppfTemplateMatrix[kNoChord], 1.F / kNumPitchClasses, kNumPitchClasses);
+    CVectorFloat::mulC_I(m_ppfTemplateMatrix[CChordIf::kNoChord], 1.F / kNumPitchClasses, kNumPitchClasses);
 }

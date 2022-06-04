@@ -12,40 +12,6 @@ class CFeatureFromBlockIf;
 class CChordFromBlockIf
 {
 public:
-    /*! detectable chords
-    */
-    enum Chords_t
-    {
-        kCMajor,
-        kCsMajor,
-        kDMajor,
-        kDsMajor,
-        kEMajor,
-        kFMajor,
-        kFsMajor,
-        kGMajor,
-        kGsMajor,
-        kAMajor,
-        kAsMajor,
-        kBMajor,
-
-        kCMinor,
-        kCsMinor,
-        kDMinor,
-        kDsMinor,
-        kEMinor,
-        kFMinor,
-        kFsMinor,
-        kGMinor,
-        kGsMinor,
-        kAMinor,
-        kAsMinor,
-        kBMinor,
-
-        kNoChord,
-
-        kNumChords
-    };
 
     /*! initializes a ChordFromBlock instance 
     \param pCInstance pointer to instance to be written
