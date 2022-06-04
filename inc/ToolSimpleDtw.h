@@ -61,16 +61,16 @@ private:
 
     enum Directions_t
     {
-        kHoriz,         //!< move horizontally
-        kVert,          //!< move vertically
-        kDiag,          //!< move diagonally
+        kHoriz, //!< move horizontally
+        kVert, //!< move vertically
+        kDiag, //!< move diagonally
 
         kNumDirections
     };
     enum InternalMemory_t
     {
-        kRowCurr,       //!< current row index (cost calculation)
-        kRowNext,       //!< next row index (cost calculation)
+        kRowCurr, //!< current row index (cost calculation)
+        kRowNext, //!< next row index (cost calculation)
 
         kNumVectors
     };
@@ -95,16 +95,16 @@ private:
     }
 
 
-    bool m_bIsInitialized = false;                              //!< true if init has been called
-    bool m_bWasProcessed = false;                               //!< true if compDtw has been called
+    bool m_bIsInitialized = false; //!< true if init has been called
+    bool m_bWasProcessed = false; //!< true if compDtw has been called
 
-    float *m_apfCost[kNumVectors] = {0,0};                      //!< only allocate two rows instead of a whole matrix for the cost 
-    float m_fOverallCost = 0;                                   //!< overall cost
+    float *m_apfCost[kNumVectors] = {0,0}; //!< only allocate two rows instead of a whole matrix for the cost 
+    float m_fOverallCost = 0; //!< overall cost
 
-    unsigned char  **m_ppePathIdx = 0;                          //!< matrix with directions for traceback
-    int   m_iLengthOfPath = 0;                                  //!< overall length of path
+    unsigned char  **m_ppePathIdx = 0; //!< matrix with directions for traceback
+    int   m_iLengthOfPath = 0; //!< overall length of path
 
-    int   m_aiMatrixDimensions[kNumMatrixDimensions] = {0,0};   //!< size of distance matrix
+    int   m_aiMatrixDimensions[kNumMatrixDimensions] = {0,0}; //!< size of distance matrix
 
     static const int aiDecrement[kNumDirections][kNumMatrixDimensions]; //!< index changes for directions
 };

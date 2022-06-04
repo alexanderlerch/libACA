@@ -342,7 +342,7 @@ private:
     {
         T* pfCoeff = 0;     // binomial coefficients
 
-        CVector::alloc<T>(pfCoeff, 2 * iOrder);
+        CVector::alloc<T>(pfCoeff, static_cast<long long>(2) * iOrder);
 
         for (auto j = 0; j < iOrder; j++)
         {
