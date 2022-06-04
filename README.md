@@ -24,9 +24,11 @@ compare:
   |_ ACA: core library 
   |_ AudioFileIO: library wrapping sndfile (3rdparty)
   |_ ComputeBeatHisto: demo executable for beat histogram extraction 
+  |_ ComputeChords: demo executable for chord extraction 
   |_ ComputeFeature: demo executable for feature extraction 
   |_ ComputeMelSpectrogram: demo executable for mel spectrogram extraction 
   |_ ComputeNoveltyFunction: demo executable for novelty function and onset extraction 
+  |_ ComputePitch: demo executable for monophonic f0 extraction 
   |_ ComputeSpectrogram: demo executable for spectrogram extraction 
   |_ Tests: all code related to tests
 	  |_ TestData: data for specific tests possibly requiring data
