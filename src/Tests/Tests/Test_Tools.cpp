@@ -13,6 +13,7 @@
 #include "ToolInstFreq.h"
 #include "ToolLowPass.h"
 #include "ToolResample.h"
+#include "ToolViterbi.h"
 
 #include "catch.hpp"
 
@@ -805,9 +806,9 @@ TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
 
     SECTION("Api")
     {
-        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->setFilterParam(-1.F));
-        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->setFilterParam(1.F));
-        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->setFilterParam(1.1F));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCLowPass->setFilterParam(-1.F));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCLowPass->setFilterParam(1.F));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCLowPass->setFilterParam(1.1F));
 
         CHECK(Error_t::kNoError == pCLowPass->reset());
 
@@ -818,9 +819,9 @@ TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
         CHECK(Error_t::kNoError == pCLowPass->setFilterParam(.99F));
         CHECK(.99F == Approx(pCLowPass->getFilterParam()).margin(1e-6F).epsilon(1e-6F));
 
-        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(0, pfInput, iNumValues));
-        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(pfOut, 0, iNumValues));
-        CHECK(Error_t::kFunctionInvalidArgsError ==pCLowPass->process(pfOut, pfInput, 0));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCLowPass->process(0, pfInput, iNumValues));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCLowPass->process(pfOut, 0, iNumValues));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCLowPass->process(pfOut, pfInput, 0));
         CHECK(Error_t::kNoError == pCLowPass->process(pfOut, pfInput, iNumValues));
     }
 
@@ -856,6 +857,87 @@ TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
     delete[] pfInput;
     delete[] pfOut;
 
+}
+
+TEST_CASE("ToolsViterbi", "[ToolsViterbi]")
+{
+
+    CViterbi* pCInstance = 0;
+    float* pfStartProb = 0; 
+    float** ppfEmission = 0;
+    float** ppfTransProb = 0; 
+    int* piPath = 0;
+    float fResProb = .01512F;
+    int aiResPath[3] = { 0,0,1 };
+
+    int iNumStates = 2; 
+    int iNumObs = 3;  
+
+    pCInstance = new CViterbi();
+    CVector::alloc(pfStartProb, iNumStates);
+    CMatrix::alloc(ppfEmission, iNumStates, iNumObs);
+    CMatrix::alloc(ppfTransProb, iNumStates, iNumStates);
+    CVector::alloc(piPath, iNumObs);
+
+    // states: healthy: 0, fever: 1
+    // 
+    // start prob: healthy: 0.6, fever: 0.4
+    pfStartProb[0] = .6F; pfStartProb[1] = .4F;
+
+    // trans prob: healthy->healthy: 0.7, healthy->fever: 0.3, fever->healthy: 0.4, fever->fever: 0.6
+    ppfTransProb[0][0] = .7F; ppfTransProb[0][1] = .3F;
+    ppfTransProb[1][0] = .4F; ppfTransProb[1][1] = .6F;
+
+    // obs: normal: 0, cold: 1, dizzy: 2
+    // emission prob : normal | healthy : 0.5, cold | healthy : 0.4, dizzy | healthy : 0.1
+    //                 normal | fever: 0.1, cold | fever : 0.3, dizzy | fever : 0.6
+    ppfEmission[0][0] = .5F; ppfEmission[0][1] = .4F; ppfEmission[0][2] = .1F;
+    ppfEmission[1][0] = .1F; ppfEmission[1][1] = .3F; ppfEmission[1][2] = .6F;
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, pfStartProb, iNumStates, iNumObs));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTransProb, 0, iNumStates, iNumObs));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTransProb, pfStartProb, 0, iNumObs));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTransProb, pfStartProb, iNumStates, 0));
+
+        CHECK(Error_t::kNoError == pCInstance->init(ppfTransProb, pfStartProb, iNumStates, iNumObs));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compViterbi(0));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->getStateSequence(0));
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+
+    SECTION("ProcessProb")
+    {
+        CHECK(Error_t::kNoError == pCInstance->init(ppfTransProb, pfStartProb, iNumStates, iNumObs));
+        CHECK(Error_t::kNoError == pCInstance->compViterbi(ppfEmission, false));
+        CHECK(Error_t::kNoError == pCInstance->getStateSequence(piPath));
+
+        for (auto n = 0; n < iNumObs; n++)
+            CHECK(aiResPath[n] == piPath[n]);
+
+        CHECK(fResProb == Approx(pCInstance->getOverallProbability()).margin(1e-6F).epsilon(1e-6F));
+    }
+
+    SECTION("ProcessLog")
+    {
+        CHECK(Error_t::kNoError == pCInstance->init(ppfTransProb, pfStartProb, iNumStates, iNumObs));
+        CHECK(Error_t::kNoError == pCInstance->compViterbi(ppfEmission));
+        CHECK(Error_t::kNoError == pCInstance->getStateSequence(piPath));
+
+        for (auto n = 0; n < iNumObs; n++)
+            CHECK(aiResPath[n] == piPath[n]);
+
+        CHECK(std::log(fResProb) == Approx(pCInstance->getOverallProbability()).margin(1e-6F).epsilon(1e-6F));
+    }
+
+    delete pCInstance ;
+    CVector::free(pfStartProb);
+    CMatrix::free(ppfEmission, iNumStates);
+    CMatrix::free(ppfTransProb, iNumStates);
+    CVector::free(piPath);
 }
 
 #endif //WITH_TESTS
