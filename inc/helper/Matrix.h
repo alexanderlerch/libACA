@@ -48,6 +48,25 @@ public:
         ppfMat = 0;
     }
 
+    /*! copies matrix content to another matrix
+    \param ppfDestMat (destination matrix, user allocated)
+    \param ppfSrcMat (source matrix)
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    template<typename T>
+    static void alloc(T** ppfDestMat, T** ppfSrcMat, int iNumRows, int iNumCols)
+    {
+        assert(ppfDestMat);
+        assert(ppfSrcMat);
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+
+        for (auto m = 0; m < iNumRows; m++)
+            CVector::copy(ppfDestMat[m], ppfSrcMat[m], iNumCols);
+    }
+
     /*! multiplies a matrix with a column vector (MAT * VEC)
     \param pfDestColVec resulting (column) vector of length iNumMatRows (to be written, user allocated)
     \param ppfMatrix matrix to be multiplied
