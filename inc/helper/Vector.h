@@ -34,10 +34,10 @@ public:
     \return
     */
     template<typename T>
-    static void free(T*& pfVec)
+    static void free(T*& ptVec)
     {
-        delete[] pfVec;
-        pfVec = 0;
+        delete[] ptVec;
+        ptVec = 0;
     }
 
     /*! sets a buffer to zero
@@ -74,35 +74,35 @@ public:
     /*! sets all values smaller than a threshold to 0
     \param ptSrcDest pointer to memory to be modified
     \param iLength  buffer length
-    \param Thresh threshold value
+    \param tThresh threshold value
     \return void
     */
     template<typename T>
-    static void setZeroBelowThresh (T *ptSrcDest, long long int iLength, T Thresh)
+    static void setZeroBelowThresh (T *ptSrcDest, long long int iLength, T tThresh)
     {
         assert (iLength >= 0);
         assert (ptSrcDest);
 
         for (auto i = 0; i < iLength; i++)
-            if (ptSrcDest[i] < Thresh)
+            if (ptSrcDest[i] < tThresh)
                 ptSrcDest[i] = 0;
     }
     /*! copies buffer of type T
     \param ptDest pointer to destination memory
-    \param pSource pointer to source memory
+    \param ptSrc pointer to source memory
     \param iLength length of buffer
     \return void
     */
     template<typename T>
-    static void copy(T *ptDest, const T *pSource, long long int iLength)
+    static void copy(T *ptDest, const T *ptSrc, long long int iLength)
     {
         assert(iLength >= 0);
 
         if (iLength > 0)
         {
             assert(ptDest);
-            assert(pSource);
-            memcpy(ptDest, pSource, sizeof(T)*iLength);
+            assert(ptSrc);
+            memcpy(ptDest, ptSrc, sizeof(T)*iLength);
         }
     }
     /*! reverses buffer (last to first element)
@@ -175,13 +175,13 @@ public:
 
     /*! copies buffer of type float
     \param pfDest pointer to destination memory
-    \param pfSource pointer to source memory
+    \param pfSrc pointer to source memory
     \param iLength length of buffer
     \return void
     */
-    static inline void copy(float *pfDest, const float *pfSource, long long int iLength)
+    static inline void copy(float *pfDest, const float *pfSrc, long long int iLength)
     {
-        CVector::copy(pfDest, pfSource, iLength);
+        CVector::copy(pfDest, pfSrc, iLength);
     }
 
     /*! reverses buffer (last to first element)
