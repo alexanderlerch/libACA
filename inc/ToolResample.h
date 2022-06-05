@@ -151,14 +151,6 @@ private:
     CResample(const CResample& that);
     CResample& operator=(const CResample& c);
 
-    void compButterCoeffs_(float* pfB, float* pfA, int iOrder, float fOmegaCutoff)
-    {
-        assert(pfB);
-        assert(pfA);
-        assert(iOrder > 0);
-        assert(fOmegaCutoff > 0 && fOmegaCutoff <= M_PI);
-    }
-
     float m_fInSampleRate = 0.F; //!< sample rate of input
     float m_fOutSampleRate = 0.F; //!< sample rate of output
 

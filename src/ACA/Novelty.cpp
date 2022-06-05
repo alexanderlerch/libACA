@@ -155,7 +155,12 @@ int CNoveltyIf::getNumBlocks() const
     return static_cast<int>(m_pCBlockAudio->getNumBlocks());
 }
 
-Error_t CNoveltyIf::getNoveltyTimeStamps(float* pfAxisTicks) const
+float CNoveltyIf::getTimeStamp(int iBlockIdx) const
+{
+    return m_pCBlockAudio->getTimeStamp(iBlockIdx);
+}
+
+Error_t CNoveltyIf::getTimeStamps(float* pfAxisTicks) const
 {
     if (!m_bIsInitialized)
     {

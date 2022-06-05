@@ -162,7 +162,12 @@ int CPitchIf::getNumBlocks() const
     return static_cast<int>(m_pCBlockAudio->getNumBlocks());
 }
 
-Error_t CPitchIf::getPitchTimeStamps(float* pfAxisTicks) const
+float CPitchIf::getTimeStamp(int iBlockIdx) const
+{
+    return m_pCBlockAudio->getTimeStamp(iBlockIdx);
+}
+
+Error_t CPitchIf::getTimeStamps(float* pfAxisTicks) const
 {
     if (!m_bIsInitialized)
     {

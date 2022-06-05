@@ -81,11 +81,17 @@ public:
     */
     Error_t getFeatureDimensions(int& iNumRows, int& iNumCols) const;
 
-    /*! returns axis ticks
-    \param pfAxisTicks (to be written) equals iNumRows if eAxisLabel == kFrequencyInHz, otherwise iNumCols
+    /*! returns time stamps
+    \param iBlockIdx index of block
+    \return float time stamp
+    */
+    float getTimeStamp(int iBlockIdx) const;
+
+    /*! returns time stamps
+    \param pfAxisTicks (user- allocated, to be written) length iNumBlocks
     \return Error_t
     */
-    Error_t getFeatureTimeStamps(float* pfAxisTicks) const;
+    Error_t getTimeStamps(float* pfAxisTicks) const;
 
     /*! performs the Feature computation for 1 dimensional features and writes the result
     \param pfFeature (user-allocated, to be written, dimensions from CFeatureIf::getFeatureDimensions)

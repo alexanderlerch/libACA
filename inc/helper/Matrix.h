@@ -92,7 +92,7 @@ public:
                 pfDestRowVec[n] += pfSrcRowVec[m] * ppfMatrix[m][n];
     }
 
-    /*! multiplies a matrix with amatrix (MAT1 * MAT2)
+    /*! multiplies a matrix with a matrix (MAT1 * MAT2)
     \param ppfDest resulting matrix of dimension iNum1Rows x iNum2Cols (to be written, user allocated)
     \param ppfSrc1 first matrix to be multiplied
     \param ppfSrc2 second matrix to be multiplied
@@ -115,6 +115,8 @@ public:
         assert(ppfSrc1[0]);
         assert(ppfSrc2);
         assert(ppfSrc2[0]);
+
+        iNum2Rows = iNum1Cols; // avoid compiler warning
 
         for (auto m = 0; m < iNum1Rows; m++)
         {
@@ -148,20 +150,77 @@ public:
 
     }
 
-
-    /*! swaps a matrix row with a column
-    \param ppfSrcDest resulting matrix (to be modified)
-    \param iRowIdx index of row
-    \param iColIdx index of columns
+    /*! return maximum value in a matrix
+    \param ppfMat matrix to analyze
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     \return
     */
-    static void swapRowCol(float** ppfSrcDest, int iRowIdx, int iColIdx, int iNumRows, int iNumCols)
+    static float getMax(float** ppfMat, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        float fGlobalMax = CVectorFloat::getMax(ppfMat[0], iNumCols);
+        for (auto m = 1; m < iNumRows; m++)
+        {
+            float fMax = CVectorFloat::getMax(ppfMat[m], iNumCols);
+            if (fMax > fGlobalMax)
+                fGlobalMax = fMax;
+        }
+        return fGlobalMax;
+    }
+
+    /*! adds a single value to all matrix elements
+    \param ppfMat matrix to analyze
+    \param fAdd scaling factor to apply
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
+    static void addC_I(float** ppfMat, float fAdd, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+            CVectorFloat::addC_I(ppfMat[m], fAdd, iNumCols);
+    }
+
+    /*! multiplies the whole matrix with a single factor
+    \param ppfMat matrix to analyze
+    \param fScale scaling factor to apply
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
+    static void mulC_I(float** ppfMat, float fScale, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+            CVectorFloat::mulC_I(ppfMat[m], fScale, iNumCols);
+    }
+
+
+    /*! swaps a matrix row with a column in a square matrix
+    \param ppfSrcDest resulting matrix (to be modified)
+    \param iRowIdx index of row
+    \param iColIdx index of columns
+    \param iNumCols number of columns in the matrix
+    \return
+    */
+    static void swapRowCol(float** ppfSrcDest, int iRowIdx, int iColIdx, int iNumCols)
     {
         assert(iRowIdx > 0);
         assert(iColIdx > 0);
-        assert(iNumRows > 0);
         assert(iNumCols > 0);
         assert(ppfSrcDest);
         assert(ppfSrcDest[0]);
@@ -169,30 +228,65 @@ public:
         for (auto n = 0; n < iNumCols; n++)
         {
             float fTmp = ppfSrcDest[iRowIdx][n];
-            //ppfSrcDest[iRowIdx][n] = ppfSrcDest[n][iColIdx];
             ppfSrcDest[iRowIdx][n] = ppfSrcDest[iColIdx][n];
             ppfSrcDest[iColIdx][n] = fTmp;
         }
     }
 
-    /*! copies a matrix 
-    \param ppfDest resulting matrix(to be written, user allocated)
-    \param ppfSrc first matrix to be multiplied
-    \param iNumRows number of rows in both matrices
-    \param iNumCols number of columns in both matrices
+    /*! copies matrix content to another matrix
+    \param ppfDestMat (destination matrix, user allocated)
+    \param ppfSrcMat (source matrix)
+    \param iNumRows number of rows
+    \param iNumCols number of columns
     \return
     */
-    static void copy(float** ppfDest, float** ppfSrc, int iNumRows, int iNumCols)
+    template<typename T>
+    static void copy(T** ppfDestMat, T** ppfSrcMat, int iNumRows, int iNumCols)
     {
+        assert(ppfDestMat);
+        assert(ppfSrcMat);
         assert(iNumRows > 0);
         assert(iNumCols > 0);
-        assert(ppfSrc);
-        assert(ppfSrc[0]);
-        assert(ppfDest);
-        assert(ppfDest[0]);
 
         for (auto m = 0; m < iNumRows; m++)
-            CVectorFloat::copy(ppfDest[m], ppfSrc[m], iNumCols);
+            CVector::copy(ppfDestMat[m], ppfSrcMat[m], iNumCols);
+    }
+
+    /*! copies vector content to a row
+    \param ppfDestMat (destination matrix, user allocated)
+    \param pfSrcVec (source vector)
+    \param iRowIdx index of row to copy to
+    \param iNumCols number of columns
+    \return
+    */
+    template<typename T>
+    static void setRow(T** ppfDestMat, T* pfSrcVec, int iRowIdx, int iNumCols)
+    {
+        assert(ppfDestMat);
+        assert(pfSrcVec);
+        assert(iRowIdx >= 0);
+        assert(iNumCols > 0);
+
+        CVector::copy(ppfDestMat[iRowIdx], pfSrcVec, iNumCols);
+    }
+
+    /*! copies vector content to a column
+    \param ppfDestMat (destination matrix, user allocated)
+    \param pfSrcVec (source vector)
+    \param iColIdx index of row to copy to
+    \param iNumRows number of columns
+    \return
+    */
+    template<typename T>
+    static void setCol(T** ppfDestMat, T* pfSrcVec, int iColIdx, int iNumRows)
+    {
+        assert(ppfDestMat);
+        assert(pfSrcVec);
+        assert(iColIdx >= 0);
+        assert(iNumRows > 0);
+
+        for (auto m = 0; m < iNumRows; m++)
+            ppfDestMat[m][iColIdx] = pfSrcVec[m];
     }
 
     /*! computes inverse of square matrix
@@ -227,8 +321,8 @@ public:
             {
                 if (ppfSrcDest[i][0] != 0)
                 {
-                    swapRowCol(ppfSrcDest, 0, i, iNumRows, iNumCols);
-                    swapRowCol(ppfEye, 0, i, iNumRows, iNumCols);
+                    swapRowCol(ppfSrcDest, 0, i, iNumCols);
+                    swapRowCol(ppfEye, 0, i, iNumCols);
                     dDet *= -1;
                     break;
                 }

@@ -1,5 +1,5 @@
-#if !defined(__Pitch_hdr__)
-#define __Pitch_hdr__
+#if !defined(__Chord_hdr__)
+#define __Chord_hdr__
 
 #include <string>
 
@@ -7,45 +7,63 @@
 
 // forward declarations
 class CAudioFileIf;
-class CFft;
 class CNormalizeAudio;
 class CBlockAudioIf;
-class CPitchFromBlockIf;
-class CPitchAuditory;
+class CFft;
+class CChordFromBlockIf;
+class CViterbi;
 
-/*! \brief class for computation of a magnitude Pitch from either a file or a vector
+/*! \brief class for computation of a magnitude Chord from either a file or a vector
 */
-class CPitchIf
+class CChordIf
 {
 public:
-    /*! \brief enum to index all Pitch extractorss
+    /*! detectable chords
     */
-    enum PitchExtractors_t
+    enum Chords_t
     {
-        kPitchSpectralAcf,
-        kPitchSpectralHps,
+        kCMajor,
+        kCsMajor,
+        kDMajor,
+        kDsMajor,
+        kEMajor,
+        kFMajor,
+        kFsMajor,
+        kGMajor,
+        kGsMajor,
+        kAMajor,
+        kAsMajor,
+        kBMajor,
 
-        kPitchTimeAcf,
-        kPitchTimeAmdf,
-        kPitchTimeAuditory,
-        kPitchTimeZeroCrossings,
+        kCMinor,
+        kCsMinor,
+        kDMinor,
+        kDsMinor,
+        kEMinor,
+        kFMinor,
+        kFsMinor,
+        kGMinor,
+        kGsMinor,
+        kAMinor,
+        kAsMinor,
+        kBMinor,
 
-        kNumPitchExtractors
+        kNoChord,
+
+        kNumChords
     };
 
-    /*! initializes a Pitch instance with file reading
+    /*! initializes a Chord instance with file reading
     \param pCInstance pointer to instance to be written
-    \param ePitchIdx as defined in PitchExtractors_t
     \param strAudioFilePath complete path to audio file
     \param iBlockLength: FFT block length in Frames
     \param iHopLength: hop length in Frames
     \return Error_t
     */
-    static Error_t create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const std::string& strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024);
+    static Error_t create(CChordIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 8192, int iHopLength = 2048);
 
-    /*! initializes a Pitch instance from audio data
+    /*! initializes a Chord instance from audio data
     \param pCInstance pointer to instance to be written
-    \param ePitchIdx as defined in PitchExtractors_t
     \param pfAudio complete audio data
     \param iNumFrames: length of pfAudio
     \param fSampleRate: sample rate in Hz
@@ -53,13 +71,13 @@ public:
     \param iHopLength: hop length in Frames
     \return Error_t
     */
-    static Error_t create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 2048, int iHopLength = 1024);
+    static Error_t create(CChordIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 8192, int iHopLength = 2048);
 
-    /*! destroys a Pitch instance
+    /*! destroys a Chord instance
     \param pCInstance pointer to instance to be destroyed
     \return Error_t
     */
-    static Error_t destroy(CPitchIf*& pCInstance);
+    static Error_t destroy(CChordIf*& pCInstance);
 
     /*! returns size of vector to be allocated by user
     \param iNumBlocks (number of blocks, to be written) 
@@ -84,44 +102,43 @@ public:
     */
     Error_t getTimeStamps(float* pfAxisTicks) const;
 
-    /*! performs the Pitch computation for 1 dimensional Pitchs and writes the result
-    \param pfPitch (user-allocated, to be written, dimensions from CPitchIf::getPitchDimensions)
+    /*! performs the Chord computation for 1 dimensional Chords and writes the result
+    \param peChord resulting chord indices (user-allocated, to be written, dimensions from CChordIf::getNumBlocks)
+    \param bWithViterbi use HMM post-processing
     \return Error_t
     */
-    Error_t compF0(float* pfPitch);
+    Error_t compChords(Chords_t* peChord, bool bWithViterbi = true);
 
-    /*! returns Pitch name as string
-    \param ePitchIdx Pitch index
+    /*! returns Chord name as string
+    \param eChordIdx Chord index
     \return std::string
     */
-    static std::string getPitchString(PitchExtractors_t ePitchIdx);
+    static std::string getChordString(Chords_t eChordIdx);
 
-    /*! returns Pitch index from string
-    \param sPitchString string describing the Pitch
-    \return PitchExtractors_t
+    /*! returns Chord index from string
+    \param sChordString string describing the Chord
+    \return Chords_t
     */
-    static PitchExtractors_t getPitchIdxFromString(std::string sPitchString);
+    static Chords_t getChordIdxFromString(std::string sChordString);
 
 protected:
-    CPitchIf();
-    virtual ~CPitchIf();
-    CPitchIf(const CPitchIf& that);
-    CPitchIf& operator=(const CPitchIf& c);
+    CChordIf();
+    virtual ~CChordIf();
+    CChordIf(const CChordIf& that);
+    CChordIf& operator=(const CChordIf& c);
 
     Error_t reset_();                    //!< reset configuration
-    Error_t init_(PitchExtractors_t ePitchIdx);                     //!< init configuration
-    bool isPitchExtractorSpectral_(PitchExtractors_t ePitchIdx);
+    Error_t init_();                     //!< init configuration
+    void initViterbi_();
     void computeMagSpectrum_();
 
     CNormalizeAudio* m_pCNormalize = 0;  //!< instantiate if audio file normalization is wanted
  
     CBlockAudioIf* m_pCBlockAudio = 0;   //!< instantiate for blocking time domain signal
 
-    CPitchFromBlockIf* m_pCPitch = 0;
-
-    CPitchAuditory* m_pCAuditory = 0;
-
+    CChordFromBlockIf* m_pCChord = 0;
     CFft* m_pCFft = 0;                   //!< fft instance
+    CViterbi* m_pCViterbi = 0;
 
     int m_iBlockLength = 0,              //!< fft length
         m_iHopLength = 0;                //!< hop length
@@ -131,10 +148,12 @@ protected:
     float* m_pfProcessBuff2 = 0;             //!< temporary buffer for current spectrum
     float* m_pfProcessBuff1 = 0;          //!<  temporary buffer
 
+    float** m_ppfChordProbs = 0;
+
     bool    m_bIsInitialized = false;    //!< true if initialized
 };
 
-#endif // #if !defined(__Pitch_hdr__)
+#endif // #if !defined(__Chord_hdr__)
 
 
 

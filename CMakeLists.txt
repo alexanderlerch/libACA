@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.6)
 project (ACA
-        VERSION 0.2.0)
+        VERSION 0.2.1)
 
 #######################################################################################################
 ## includes
@@ -33,7 +33,7 @@ set (PROJECT_DIRECTORIES)
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ACA) 
 
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeBeatHisto)       
-#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeChords)      
+list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeChords)      
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFeature)       
 #list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFingerprint)       
 #list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeKey)       
@@ -74,6 +74,7 @@ if (WITH_TESTS)
     # add tests here
     add_test(AudioIo ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec AudioIo* "${CMAKE_SOURCE_DIR}/src/Tests/TestData/")
     add_test(BeatHisto ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec BeatHisto*)
+    add_test(Chord ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Chord*)
     add_test(Dtw ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Dtw*)
     add_test(Features ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Feature*)
     add_test(Filter ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Filter*)

@@ -1,10 +1,12 @@
+#include "ACAConfig.h"
 
 #include <iostream>
+#include <fstream>
 #include <ctime>
 
 #include "ACAConfig.h"
 
-#include "AudioFileIf.h"
+#include "Chord.h"
 
 using std::cout;
 using std::endl;
@@ -20,82 +22,95 @@ int main(int argc, char* argv[])
     std::string             sInputFilePath,                 //!< file paths
         sOutputFilePath;
 
-    static const int            kBlockSize = 1024;
-    long long                   iNumFrames = kBlockSize;
-    int                         iNumChannels;
+    std::string sChordString; //!< string of the Chord to be extracted
 
-    float                       fModFrequencyInHz;
-    float                       fModWidthInSec;
+    int iBlockLength = 0, //!< block length in samples 
+        iHopLength = 0; //!< hop length in samples
+    int iNumBlocks = 0; //!< number of blocks
 
-    clock_t                     time = 0;
+    clock_t time = 0;
 
-    float** ppfInputAudio = 0;
-    float** ppfOutputAudio = 0;
+    CChordIf* pCInstance = 0;
 
-    CAudioFileIf* phAudioFile = 0;
-    CAudioFileIf::FileSpec_t    stFileSpec;
+    CChordIf::Chords_t* peChord = 0; //!< chord result
+
+    std::fstream hOutputFile;
 
     showClInfo();
 
-
-    // command line args
-    if (argc < 5)
+    //////////////////////////////////////////////////////////////////////////////
+    // parse command line arguments
+    if (argc < 2)
     {
-        cout << "Incorrect number of arguments!" << endl;
+        cout << "Missing audio input path!" << endl;
+        cout << "Expected Synopsis: inputfile [outputtxtfile] [blocksize] [hopsize]" << endl;
         return -1;
     }
-    sInputFilePath = argv[1];
-    sOutputFilePath = argv[2];
-    fModFrequencyInHz = atof(argv[3]);
-    fModWidthInSec = atof(argv[4]);
-
-    ///////////////////////////////////////////////////////////////////////////
-    CAudioFileIf::create(phAudioFile);
-
-    phAudioFile->openFile(sInputFilePath, CAudioFileIf::kFileRead);
-    phAudioFile->getFileSpec(stFileSpec);
-    iNumChannels = stFileSpec.iNumChannels;
-    if (!phAudioFile->isOpen())
+    else
     {
-        cout << "Input file open error!";
-
-        CAudioFileIf::destroy(phAudioFile);
-        return -1;
+        sInputFilePath = argv[1];
+        sOutputFilePath = (argc < 3) ? sInputFilePath + ".txt" : argv[2];
+        iBlockLength = (argc < 4) ? 8192 : std::stoi(argv[3]);
+        iHopLength = (argc < 5) ? 2048 : std::stoi(argv[4]);
     }
-
-    // allocate memory
-    ppfInputAudio = new float* [stFileSpec.iNumChannels];
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
-        ppfInputAudio[i] = new float[kBlockSize];
-
-    ppfOutputAudio = new float* [stFileSpec.iNumChannels];
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
-        ppfOutputAudio[i] = new float[kBlockSize];
-
-
-    // processing
-    while (!phAudioFile->isEof())
-    {
-        phAudioFile->readData(ppfInputAudio, iNumFrames);
-    }
-    phAudioFile->getFileSpec(stFileSpec);
-
-
-    cout << "\nreading/writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
 
     //////////////////////////////////////////////////////////////////////////////
-    // clean-up
-    CAudioFileIf::destroy(phAudioFile);
+    // initialize Chord instance
+    CChordIf::create(pCInstance, sInputFilePath, iBlockLength, iHopLength);
+    pCInstance->getNumBlocks(iNumBlocks);
 
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
+    //////////////////////////////////////////////////////////////////////////////
+    // open the output text file
+    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
+    if (!hOutputFile.is_open())
     {
-        delete[] ppfInputAudio[i];
-        delete[] ppfOutputAudio[i];
+        cout << "Text file open error!";
+        CChordIf::destroy(pCInstance);
+        return -1;
     }
-    delete[] ppfInputAudio;
-    delete[] ppfOutputAudio;
-    ppfInputAudio = 0;
-    ppfOutputAudio = 0;
+
+    //////////////////////////////////////////////////////////////////////////////
+    // allocate memory
+    peChord = new CChordIf::Chords_t[iNumBlocks];
+
+
+    if (!peChord)
+    {
+        CChordIf::destroy(pCInstance);
+        hOutputFile.close();
+        return -1;
+    }
+
+    time = clock();
+
+    //////////////////////////////////////////////////////////////////////////////
+    // compute spectrogram
+    cout << "\n1. computing chord progression..." << endl;
+    pCInstance->compChords(peChord);
+
+    cout << "\n F0 computation done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
+
+    time = clock();
+
+    //////////////////////////////////////////////////////////////////////////////
+    // file writing
+
+    cout << "\n2. writing output file..." << endl;
+
+    for (auto n = 0; n < iNumBlocks; n++)
+    {
+        hOutputFile  << pCInstance->getTimeStamp(n) << "\t" << pCInstance->getChordString(peChord[n]) << endl;
+    }
+
+    cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
+
+    //////////////////////////////////////////////////////////////////////////////
+    // clean-up (close files, delete instances, and free memory)
+    CChordIf::destroy(pCInstance);
+    hOutputFile.close();
+
+    delete[] peChord;
+    peChord = 0;
 
     // all done
     return 0;
@@ -105,10 +120,10 @@ int main(int argc, char* argv[])
 
 void     showClInfo()
 {
-    cout << "ACA: ComputeFeature" << endl;
+    cout << "ACA v" << ACA_VERSION_MAJOR << "." << ACA_VERSION_MINOR << "." << ACA_VERSION_PATCH << ": Demo Executable for Chord Extraction" << endl;
     cout << "(c) 2022 by Alexander Lerch" << endl;
+    cout << "Synopsis: ComputeChord inputwavfile [outputtxtfile] [blocksize] [hopsize]" << endl;
     cout << endl;
 
     return;
 }
-
