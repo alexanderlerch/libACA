@@ -233,7 +233,7 @@ Error_t CBeatHistoIf::init_(const std::string& strAudioFilePath)
         assert(iNumBlocks > 2);
         CVector::alloc(m_pfNovelty, iNumBlocks);
 
-        m_pCNovelty->getNoveltyTimeStamps(m_pfNovelty);
+        m_pCNovelty->getTimeStamps(m_pfNovelty);
         m_fSampleRate = m_iHopLength / (m_pfNovelty[1] - m_pfNovelty[0]);
 
         CVector::alloc(m_pfProcessBuff, static_cast<long long>(m_iBeatHistoLength) * 2);

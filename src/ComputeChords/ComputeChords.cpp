@@ -99,7 +99,7 @@ int main(int argc, char* argv[])
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
-        hOutputFile  << pCInstance->getChordString(peChord[n]) << endl;
+        hOutputFile  << pCInstance->getTimeStamp(n) << "\t" << pCInstance->getChordString(peChord[n]) << endl;
     }
 
     cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;

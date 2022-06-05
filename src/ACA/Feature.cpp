@@ -148,7 +148,12 @@ Error_t CFeatureIf::getFeatureDimensions(int& iNumRows, int& iNumCols) const
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::getFeatureTimeStamps(float* pfAxisTicks) const
+float CFeatureIf::getTimeStamp(int iBlockIdx) const
+{
+    return m_pCBlockAudio->getTimeStamp(iBlockIdx);
+}
+
+Error_t CFeatureIf::getTimeStamps(float* pfAxisTicks) const
 {
     if (!m_bIsInitialized)
     {

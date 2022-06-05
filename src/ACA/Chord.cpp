@@ -168,7 +168,12 @@ int CChordIf::getNumBlocks() const
     return static_cast<int>(m_pCBlockAudio->getNumBlocks());
 }
 
-Error_t CChordIf::getChordTimeStamps(float* pfAxisTicks) const
+float CChordIf::getTimeStamp(int iBlockIdx) const
+{
+    return m_pCBlockAudio->getTimeStamp(iBlockIdx);
+}
+
+Error_t CChordIf::getTimeStamps(float* pfAxisTicks) const
 {
     if (!m_bIsInitialized)
     {

@@ -24,13 +24,14 @@ add_inc_directories ()
 
 add_executable(${APP} ${${APP}_SOURCES} ${${APP}_HEADERS} ${${APP}_SOURCES_TEST} ${${APP}_HEADERS_TEST} ${HELPER_HEADERS})
 
-# link the libraries
+## link the libraries
 target_link_libraries(${APP} ${LIB}${AcaLIB} ${AudioLIB} ${OS_LIBS})
 
 if(MSVC)
     target_compile_options(${APP} PRIVATE /W4 /WX)
 endif(MSVC)
 
+## set group in IDE
 set_target_properties(${APP} PROPERTIES FOLDER Testing)
 source_group("Header Files\\Helpers" FILES ${HELPER_HEADERS})
 

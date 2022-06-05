@@ -88,7 +88,7 @@ int main(int argc, char* argv[])
 
     //////////////////////////////////////////////////////////////////////////////
     // compute spectrogram
-    cout << "\n1. computing Pitch..." << endl;
+    cout << "\n1. computing f0..." << endl;
     pCInstance->compF0(pfPitch);
 
     cout << "\n F0 computation done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
@@ -102,7 +102,7 @@ int main(int argc, char* argv[])
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
-        hOutputFile << pfPitch[n] << endl;
+        hOutputFile << pCInstance->getTimeStamp(n) << "\t" << pfPitch[n] << endl;
     }
 
     cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;

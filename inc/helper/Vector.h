@@ -14,23 +14,23 @@ class CVector
 public:
 
     /*! allocates a float buffer and inits it with zeros
-    \param pfVec (empty pointer, to be allocated)
+    \param ptVec (empty pointer, to be allocated)
     \param iLength number of floats
     \return
     */
     template<typename T>
-    static void alloc(T*& pfVec, long long iLength)
+    static void alloc(T*& ptVec, long long iLength)
     {
         assert(iLength > 0);
 
-        pfVec = new T[iLength];
+        ptVec = new T[iLength];
 
-        assert(pfVec);
-        setZero(pfVec, iLength);
+        assert(ptVec);
+        setZero(ptVec, iLength);
     }
 
     /*! frees a float buffer and sets it to zero
-    \param pfVec (empty pointer, to be allocated)
+    \param ptVec (empty pointer, to be allocated)
     \return
     */
     template<typename T>

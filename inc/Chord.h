@@ -90,11 +90,17 @@ public:
     */
     int getNumBlocks() const;
 
-    /*! returns axis ticks
-    \param pfAxisTicks (to be written) equals iNumRows if eAxisLabel == kFrequencyInHz, otherwise iNumCols
+    /*! returns time stamps
+    \param iBlockIdx index of block
+    \return float time stamp
+    */
+    float getTimeStamp(int iBlockIdx) const;
+
+    /*! returns time stamps
+    \param pfAxisTicks (user- allocated, to be written) length iNumBlocks
     \return Error_t
     */
-    Error_t getChordTimeStamps(float* pfAxisTicks) const;
+    Error_t getTimeStamps(float* pfAxisTicks) const;
 
     /*! performs the Chord computation for 1 dimensional Chords and writes the result
     \param peChord resulting chord indices (user-allocated, to be written, dimensions from CChordIf::getNumBlocks)
