@@ -62,7 +62,7 @@ Collaboration diagram for CMatrix:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00429.png" border="0" usemap="#aCMatrix_coll__map" alt="Collaboration graph"/></div>
 <map name="aCMatrix_coll__map" id="aCMatrix_coll__map">
-<area shape="rect" title="class with static functions for matrix operations with type float (functionality only added when need..." alt="" coords="5,5,139,273"/>
+<area shape="rect" title="class with static functions for matrix operations with type float (functionality only added when need..." alt="" coords="5,5,167,229"/>
 </map>
 </div>
 <table class="memberdecls">
@@ -74,14 +74,39 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:afbf24cb4ce4f9b46456419d939eab052"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:afbf24cb4ce4f9b46456419d939eab052"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">free</a> (T **&amp;ppfMat, int iNumRows)</td></tr>
 <tr class="separator:afbf24cb4ce4f9b46456419d939eab052"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab714a555729264f7fc4ef0f48065d7fe"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#ab714a555729264f7fc4ef0f48065d7fe">mulMatColVec</a> (float *pfDestColVec, float **ppfMatrix, const float *pfSrcColVec, int iNumMatRows, int iNumMatCols)</td></tr>
-<tr class="separator:ab714a555729264f7fc4ef0f48065d7fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad0f9eb1d1f54d5fd23fea0fef17fc13a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#ad0f9eb1d1f54d5fd23fea0fef17fc13a">mulRowVecMat</a> (float *pfDestRowVec, const float *pfSrcRowVec, float **ppfMatrix, int iNumMatRows, int iNumMatCols)</td></tr>
-<tr class="separator:ad0f9eb1d1f54d5fd23fea0fef17fc13a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a19520bbcd8ef17a0f14bcc66f9f9df37"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a19520bbcd8ef17a0f14bcc66f9f9df37">mulMatMat</a> (float **ppfDest, float **ppfSrc1, float **ppfSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)</td></tr>
-<tr class="separator:a19520bbcd8ef17a0f14bcc66f9f9df37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c64eb95776c6a1f65e2089835a778e0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5c64eb95776c6a1f65e2089835a778e0"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00431.html#a5c64eb95776c6a1f65e2089835a778e0">setZero</a> (T **ppfMat, int iNumRows, int iNumCols)</td></tr>
+<tr class="separator:a5c64eb95776c6a1f65e2089835a778e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0ae383e7642531506618691fffe25755"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a0ae383e7642531506618691fffe25755"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00431.html#a0ae383e7642531506618691fffe25755">setValue</a> (T **ppfMat, T tValue, int iNumRows, int iNumCols)</td></tr>
+<tr class="separator:a0ae383e7642531506618691fffe25755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab4b96d92f9b9482e217d7740a559f88"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aab4b96d92f9b9482e217d7740a559f88"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00431.html#aab4b96d92f9b9482e217d7740a559f88">setRand</a> (T **ppfMat, int iNumRows, int iNumCols)</td></tr>
+<tr class="separator:aab4b96d92f9b9482e217d7740a559f88"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5456c76f617beb13f25cdc766813524b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a5456c76f617beb13f25cdc766813524b"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00431.html#a5456c76f617beb13f25cdc766813524b">setCol</a> (T **ppfDestMat, T *pfSrcVec, int iColIdx, int iNumRows)</td></tr>
+<tr class="separator:a5456c76f617beb13f25cdc766813524b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d4f47826ff87a03fd220d61f326ac5b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2d4f47826ff87a03fd220d61f326ac5b"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00431.html#a2d4f47826ff87a03fd220d61f326ac5b">setZeroBelowThresh</a> (T **ppfMat, int iNumRows, int iNumCols, T tThresh)</td></tr>
+<tr class="separator:a2d4f47826ff87a03fd220d61f326ac5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac471bc59a137aa4fdccb56b2297ab95d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#ac471bc59a137aa4fdccb56b2297ab95d">setEye</a> (float **ppfDest, int iNumRows, int iNumCols)</td></tr>
 <tr class="separator:ac471bc59a137aa4fdccb56b2297ab95d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8711751fc46abb0e242f40cd5cb02e15"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a8711751fc46abb0e242f40cd5cb02e15">vecnorm_I</a> (float **ppfSrcDest, int iNumRows, int iNumCols)</td></tr>
+<tr class="separator:a8711751fc46abb0e242f40cd5cb02e15"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30a6c3d224cd3e5e601e99f517eaa8a2"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a30a6c3d224cd3e5e601e99f517eaa8a2">calcKlDivergence</a> (float **ppfSrc1, float **ppfSrc2, int iNumRows, int iNumCols)</td></tr>
+<tr class="separator:a30a6c3d224cd3e5e601e99f517eaa8a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad853a511232f954cfd9ae2211759c6bf"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#ad853a511232f954cfd9ae2211759c6bf">transpose</a> (float **ppfDest, float **ppfSrc, int iNumSrcRows, int iNumSrcCols)</td></tr>
+<tr class="separator:ad853a511232f954cfd9ae2211759c6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8f217a73d7c2503e0435da5f1ed52a0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#af8f217a73d7c2503e0435da5f1ed52a0">mulMatColVec</a> (float *pfDestColVec, float **ppfMat, const float *pfSrcColVec, int iNumMatRows, int iNumMatCols)</td></tr>
+<tr class="separator:af8f217a73d7c2503e0435da5f1ed52a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a59940f1e61a4bda407546a6e7648dd3d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a59940f1e61a4bda407546a6e7648dd3d">mulRowVecMat</a> (float *pfDestRowVec, const float *pfSrcRowVec, float **ppfMat, int iNumMatRows, int iNumMatCols)</td></tr>
+<tr class="separator:a59940f1e61a4bda407546a6e7648dd3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19520bbcd8ef17a0f14bcc66f9f9df37"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a19520bbcd8ef17a0f14bcc66f9f9df37">mulMatMat</a> (float **ppfDest, float **ppfSrc1, float **ppfSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)</td></tr>
+<tr class="separator:a19520bbcd8ef17a0f14bcc66f9f9df37"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d2fd141b49c287db7b826a43e723ee3"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a1d2fd141b49c287db7b826a43e723ee3">mul_I</a> (float **ppfSrcDest, float **ppfSrc, int iNumRows, int iNumCols)</td></tr>
+<tr class="separator:a1d2fd141b49c287db7b826a43e723ee3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7fbde9461acdc6a4ac9dfbcff614339f"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a7fbde9461acdc6a4ac9dfbcff614339f">div_I</a> (float **ppfSrcDest, float **ppfSrc, int iNumRows, int iNumCols, <a class="el" href="a00197.html#abb452686968e48b67397da5f97445f5b">bool</a> bAddSmallConst=<a class="el" href="a00197.html#a65e9886d74aaee76545e83dd09011727">false</a>)</td></tr>
+<tr class="separator:a7fbde9461acdc6a4ac9dfbcff614339f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad3848ab0bb04d603c0e7687246c11cba"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#ad3848ab0bb04d603c0e7687246c11cba">getMax</a> (float **ppfMat, int iNumRows, int iNumCols)</td></tr>
 <tr class="separator:ad3848ab0bb04d603c0e7687246c11cba"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a80c3acdf185e2aa6ed7c5dd2a253efde"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a80c3acdf185e2aa6ed7c5dd2a253efde">addC_I</a> (float **ppfMat, float fAdd, int iNumRows, int iNumCols)</td></tr>
@@ -96,9 +121,6 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ae103e51983894359c155e72398ebd8f1"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ae103e51983894359c155e72398ebd8f1"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00431.html#ae103e51983894359c155e72398ebd8f1">setRow</a> (T **ppfDestMat, T *pfSrcVec, int iRowIdx, int iNumCols)</td></tr>
 <tr class="separator:ae103e51983894359c155e72398ebd8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5456c76f617beb13f25cdc766813524b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a5456c76f617beb13f25cdc766813524b"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00431.html#a5456c76f617beb13f25cdc766813524b">setCol</a> (T **ppfDestMat, T *pfSrcVec, int iColIdx, int iNumRows)</td></tr>
-<tr class="separator:a5456c76f617beb13f25cdc766813524b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2beb6cc20e6596997993a552b1bb4a70"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00431.html#a2beb6cc20e6596997993a552b1bb4a70">inv_I</a> (float **ppfSrcDest, int iNumRows, int iNumCols)</td></tr>
 <tr class="separator:a2beb6cc20e6596997993a552b1bb4a70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
@@ -163,19 +185,19 @@ Static Public Member Functions</h2></td></tr>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00183">183</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  184</span>    {</div>
-<div class="line"><span class="lineno">  185</span>        assert(iNumRows &gt; 0);</div>
-<div class="line"><span class="lineno">  186</span>        assert(iNumCols &gt; 0);</div>
-<div class="line"><span class="lineno">  187</span>        assert(ppfMat);</div>
-<div class="line"><span class="lineno">  188</span>        assert(ppfMat[0]);</div>
-<div class="line"><span class="lineno">  189</span> </div>
-<div class="line"><span class="lineno">  190</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
-<div class="line"><span class="lineno">  191</span>            <a class="code hl_function" href="a00451.html#af10e45e34254ef453abff50282a8b746">CVectorFloat::addC_I</a>(ppfMat[m], fAdd, iNumCols);</div>
-<div class="line"><span class="lineno">  192</span>    }</div>
-<div class="ttc" id="aa00451_html_af10e45e34254ef453abff50282a8b746"><div class="ttname"><a href="a00451.html#af10e45e34254ef453abff50282a8b746">CVectorFloat::addC_I</a></div><div class="ttdeci">static void addC_I(float *pfSrcDest, float fConst, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00315">Vector.h:315</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00397">397</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  398</span>    {</div>
+<div class="line"><span class="lineno">  399</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  400</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  401</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">  402</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">  403</span> </div>
+<div class="line"><span class="lineno">  404</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  405</span>            <a class="code hl_function" href="a00451.html#af10e45e34254ef453abff50282a8b746">CVectorFloat::addC_I</a>(ppfMat[m], fAdd, iNumCols);</div>
+<div class="line"><span class="lineno">  406</span>    }</div>
+<div class="ttc" id="aa00451_html_af10e45e34254ef453abff50282a8b746"><div class="ttname"><a href="a00451.html#af10e45e34254ef453abff50282a8b746">CVectorFloat::addC_I</a></div><div class="ttdeci">static void addC_I(float *pfSrcDest, float fConst, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00341">Vector.h:341</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00315">CVectorFloat::addC_I()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00341">CVectorFloat::addC_I()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00089_source.html#l00414">CChordIf::initViterbi_()</a>.</p>
 <div class="dynheader">
@@ -264,11 +286,11 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">   29</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
 <div class="line"><span class="lineno">   30</span>            <a class="code hl_function" href="a00447.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(ppfMat[m], iNumCols);</div>
 <div class="line"><span class="lineno">   31</span>    }</div>
-<div class="ttc" id="aa00447_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00447.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00022">Vector.h:22</a></div></div>
+<div class="ttc" id="aa00447_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00447.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00024">Vector.h:24</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00022">CVector::alloc()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00024">CVector::alloc()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00489">CFeatureSpectralMfccs::allocDctMat_()</a>, <a class="el" href="a00065_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf::CChordFromBlockIf()</a>, <a class="el" href="a00041_source.html#l00362">CFeatureSpectralMfccs::CFeatureSpectralMfccs()</a>, <a class="el" href="a00041_source.html#l00512">CFeatureSpectralPitchChroma::CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00080_source.html#l00216">CPitchTimeAuditory::CPitchTimeAuditory()</a>, <a class="el" href="a00074_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00068_source.html#l00018">CViterbi::init()</a>, <a class="el" href="a00053_source.html#l00033">CDtw::init()</a>, <a class="el" href="a00089_source.html#l00395">CChordIf::init_()</a>, <a class="el" href="a00089_source.html#l00414">CChordIf::initViterbi_()</a>, <a class="el" href="a00116_source.html#l00298">inv_I()</a>, and <a class="el" href="a00119_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00489">CFeatureSpectralMfccs::allocDctMat_()</a>, <a class="el" href="a00065_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf::CChordFromBlockIf()</a>, <a class="el" href="a00041_source.html#l00362">CFeatureSpectralMfccs::CFeatureSpectralMfccs()</a>, <a class="el" href="a00041_source.html#l00512">CFeatureSpectralPitchChroma::CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00080_source.html#l00216">CPitchTimeAuditory::CPitchTimeAuditory()</a>, <a class="el" href="a00074_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00068_source.html#l00018">CViterbi::init()</a>, <a class="el" href="a00053_source.html#l00033">CDtw::init()</a>, <a class="el" href="a00089_source.html#l00395">CChordIf::init_()</a>, <a class="el" href="a00089_source.html#l00414">CChordIf::initViterbi_()</a>, <a class="el" href="a00116_source.html#l00493">inv_I()</a>, and <a class="el" href="a00119_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -311,6 +333,84 @@ Here is the caller graph for this function:</div>
 </map>
 </div>
 
+</div>
+</div>
+<a id="a30a6c3d224cd3e5e601e99f517eaa8a2" name="a30a6c3d224cd3e5e601e99f517eaa8a2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a30a6c3d224cd3e5e601e99f517eaa8a2">&#9670;&nbsp;</a></span>calcKlDivergence()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static float CMatrix::calcKlDivergence </td>
+          <td>(</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfSrc1</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfSrc2</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >comnputes kl divergence between two matrices </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfSrc1</td><td>matrix of dimension iNumRows x iNumCols </td></tr>
+    <tr><td class="paramname">ppfSrc2</td><td>matrix of dimension iNumRows x iNumCols </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows in the matrix </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns in the matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00194">194</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  195</span>    {</div>
+<div class="line"><span class="lineno">  196</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  197</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  198</span>        assert(ppfSrc1);</div>
+<div class="line"><span class="lineno">  199</span>        assert(ppfSrc1[0]);</div>
+<div class="line"><span class="lineno">  200</span>        assert(ppfSrc2);</div>
+<div class="line"><span class="lineno">  201</span>        assert(ppfSrc2[0]);</div>
+<div class="line"><span class="lineno">  202</span> </div>
+<div class="line"><span class="lineno">  203</span>        <span class="keywordtype">float</span> fResult = 0;</div>
+<div class="line"><span class="lineno">  204</span> </div>
+<div class="line"><span class="lineno">  205</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; iNumRows; i++)</div>
+<div class="line"><span class="lineno">  206</span>        {</div>
+<div class="line"><span class="lineno">  207</span>            <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 0; j &lt; iNumCols; j++)</div>
+<div class="line"><span class="lineno">  208</span>                fResult += ppfSrc1[i][j] * (std::log((ppfSrc1[i][j] + 1e-24F) / (ppfSrc2[i][j] + 1e-24F)) - 1.F) + ppfSrc2[i][j];</div>
+<div class="line"><span class="lineno">  209</span>        }</div>
+<div class="line"><span class="lineno">  210</span> </div>
+<div class="line"><span class="lineno">  211</span>        <span class="keywordflow">return</span> fResult;</div>
+<div class="line"><span class="lineno">  212</span>    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a38351fc34e85cfa1da2b46ec84083d38" name="a38351fc34e85cfa1da2b46ec84083d38"></a>
@@ -371,21 +471,21 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00244">244</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  245</span>    {</div>
-<div class="line"><span class="lineno">  246</span>        assert(ppfDestMat);</div>
-<div class="line"><span class="lineno">  247</span>        assert(ppfSrcMat);</div>
-<div class="line"><span class="lineno">  248</span>        assert(iNumRows &gt; 0);</div>
-<div class="line"><span class="lineno">  249</span>        assert(iNumCols &gt; 0);</div>
-<div class="line"><span class="lineno">  250</span> </div>
-<div class="line"><span class="lineno">  251</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
-<div class="line"><span class="lineno">  252</span>            <a class="code hl_function" href="a00447.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(ppfDestMat[m], ppfSrcMat[m], iNumCols);</div>
-<div class="line"><span class="lineno">  253</span>    }</div>
-<div class="ttc" id="aa00447_html_ad7c5cba73e439adac77778f61c9418f0"><div class="ttname"><a href="a00447.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a></div><div class="ttdeci">static void copy(T *ptDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00097">Vector.h:97</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00458">458</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  459</span>    {</div>
+<div class="line"><span class="lineno">  460</span>        assert(ppfDestMat);</div>
+<div class="line"><span class="lineno">  461</span>        assert(ppfSrcMat);</div>
+<div class="line"><span class="lineno">  462</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  463</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  464</span> </div>
+<div class="line"><span class="lineno">  465</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  466</span>            <a class="code hl_function" href="a00447.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(ppfDestMat[m], ppfSrcMat[m], iNumCols);</div>
+<div class="line"><span class="lineno">  467</span>    }</div>
+<div class="ttc" id="aa00447_html_ad7c5cba73e439adac77778f61c9418f0"><div class="ttname"><a href="a00447.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a></div><div class="ttdeci">static void copy(T *ptDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00113">Vector.h:113</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00097">CVector::copy()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00113">CVector::copy()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00068_source.html#l00018">CViterbi::init()</a>, and <a class="el" href="a00116_source.html#l00298">inv_I()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00068_source.html#l00018">CViterbi::init()</a>, and <a class="el" href="a00116_source.html#l00493">inv_I()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -413,6 +513,89 @@ Here is the caller graph for this function:</div>
 </map>
 </div>
 
+</div>
+</div>
+<a id="a7fbde9461acdc6a4ac9dfbcff614339f" name="a7fbde9461acdc6a4ac9dfbcff614339f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7fbde9461acdc6a4ac9dfbcff614339f">&#9670;&nbsp;</a></span>div_I()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CMatrix::div_I </td>
+          <td>(</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfSrc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00197.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td>
+          <td class="paramname"><em>bAddSmallConst</em> = <code><a class="el" href="a00197.html#a65e9886d74aaee76545e83dd09011727">false</a></code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >elementwise division of two matrices inplace </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfSrcDest</td><td>resulting matrix </td></tr>
+    <tr><td class="paramname">ppfSrc</td><td>matrix to be multiplied </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns </td></tr>
+    <tr><td class="paramname">bAddSmallConst</td><td>a small floating point number is added before division if true </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00349">349</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  350</span>    {</div>
+<div class="line"><span class="lineno">  351</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  352</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  353</span>        assert(ppfSrcDest);</div>
+<div class="line"><span class="lineno">  354</span>        assert(ppfSrcDest[0]);</div>
+<div class="line"><span class="lineno">  355</span>        assert(ppfSrc);</div>
+<div class="line"><span class="lineno">  356</span>        assert(ppfSrc[0]);</div>
+<div class="line"><span class="lineno">  357</span> </div>
+<div class="line"><span class="lineno">  358</span>        <span class="keywordtype">float</span> fEpsilon = bAddSmallConst? 1e-30F : .0F;</div>
+<div class="line"><span class="lineno">  359</span> </div>
+<div class="line"><span class="lineno">  360</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  361</span>        {</div>
+<div class="line"><span class="lineno">  362</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumCols; n++)</div>
+<div class="line"><span class="lineno">  363</span>                ppfSrcDest[m][n] /= (ppfSrc[m][n] + fEpsilon);</div>
+<div class="line"><span class="lineno">  364</span>        }</div>
+<div class="line"><span class="lineno">  365</span>    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="afbf24cb4ce4f9b46456419d939eab052" name="afbf24cb4ce4f9b46456419d939eab052"></a>
@@ -470,11 +653,11 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">   47</span>        <a class="code hl_function" href="a00447.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(ppfMat);</div>
 <div class="line"><span class="lineno">   48</span>        ppfMat = 0;</div>
 <div class="line"><span class="lineno">   49</span>    }</div>
-<div class="ttc" id="aa00447_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00447.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00037">Vector.h:37</a></div></div>
+<div class="ttc" id="aa00447_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00447.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00039">Vector.h:39</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00037">CVector::free()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00039">CVector::free()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00496">CFeatureSpectralMfccs::deleteDctMat_()</a>, <a class="el" href="a00074_source.html#l00233">CSpectrogramIf::destroyMelFb_()</a>, <a class="el" href="a00089_source.html#l00414">CChordIf::initViterbi_()</a>, <a class="el" href="a00116_source.html#l00298">inv_I()</a>, <a class="el" href="a00053_source.html#l00055">CDtw::reset()</a>, <a class="el" href="a00068_source.html#l00051">CViterbi::reset()</a>, <a class="el" href="a00089_source.html#l00367">CChordIf::reset_()</a>, <a class="el" href="a00119_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>, <a class="el" href="a00065_source.html#l00041">CBlockAudioFile::~CBlockAudioFile()</a>, <a class="el" href="a00050_source.html#l00062">CChordFromBlockIf::~CChordFromBlockIf()</a>, <a class="el" href="a00041_source.html#l00373">CFeatureSpectralMfccs::~CFeatureSpectralMfccs()</a>, <a class="el" href="a00041_source.html#l00520">CFeatureSpectralPitchChroma::~CFeatureSpectralPitchChroma()</a>, and <a class="el" href="a00080_source.html#l00239">CPitchTimeAuditory::~CPitchTimeAuditory()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00496">CFeatureSpectralMfccs::deleteDctMat_()</a>, <a class="el" href="a00074_source.html#l00233">CSpectrogramIf::destroyMelFb_()</a>, <a class="el" href="a00089_source.html#l00414">CChordIf::initViterbi_()</a>, <a class="el" href="a00116_source.html#l00493">inv_I()</a>, <a class="el" href="a00053_source.html#l00055">CDtw::reset()</a>, <a class="el" href="a00068_source.html#l00051">CViterbi::reset()</a>, <a class="el" href="a00089_source.html#l00367">CChordIf::reset_()</a>, <a class="el" href="a00119_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>, <a class="el" href="a00065_source.html#l00041">CBlockAudioFile::~CBlockAudioFile()</a>, <a class="el" href="a00050_source.html#l00062">CChordFromBlockIf::~CChordFromBlockIf()</a>, <a class="el" href="a00041_source.html#l00373">CFeatureSpectralMfccs::~CFeatureSpectralMfccs()</a>, <a class="el" href="a00041_source.html#l00520">CFeatureSpectralPitchChroma::~CFeatureSpectralPitchChroma()</a>, and <a class="el" href="a00080_source.html#l00239">CPitchTimeAuditory::~CPitchTimeAuditory()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -577,25 +760,25 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00159">159</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  160</span>    {</div>
-<div class="line"><span class="lineno">  161</span>        assert(iNumRows &gt; 0);</div>
-<div class="line"><span class="lineno">  162</span>        assert(iNumCols &gt; 0);</div>
-<div class="line"><span class="lineno">  163</span>        assert(ppfMat);</div>
-<div class="line"><span class="lineno">  164</span>        assert(ppfMat[0]);</div>
-<div class="line"><span class="lineno">  165</span> </div>
-<div class="line"><span class="lineno">  166</span>        <span class="keywordtype">float</span> fGlobalMax = <a class="code hl_function" href="a00451.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(ppfMat[0], iNumCols);</div>
-<div class="line"><span class="lineno">  167</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 1; m &lt; iNumRows; m++)</div>
-<div class="line"><span class="lineno">  168</span>        {</div>
-<div class="line"><span class="lineno">  169</span>            <span class="keywordtype">float</span> fMax = <a class="code hl_function" href="a00451.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(ppfMat[m], iNumCols);</div>
-<div class="line"><span class="lineno">  170</span>            <span class="keywordflow">if</span> (fMax &gt; fGlobalMax)</div>
-<div class="line"><span class="lineno">  171</span>                fGlobalMax = fMax;</div>
-<div class="line"><span class="lineno">  172</span>        }</div>
-<div class="line"><span class="lineno">  173</span>        <span class="keywordflow">return</span> fGlobalMax;</div>
-<div class="line"><span class="lineno">  174</span>    }</div>
-<div class="ttc" id="aa00451_html_a8279b309edcfcac51d94b1e8f206a330"><div class="ttname"><a href="a00451.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a></div><div class="ttdeci">static float getMax(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00471">Vector.h:471</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00373">373</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  374</span>    {</div>
+<div class="line"><span class="lineno">  375</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  376</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  377</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">  378</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">  379</span> </div>
+<div class="line"><span class="lineno">  380</span>        <span class="keywordtype">float</span> fGlobalMax = <a class="code hl_function" href="a00451.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(ppfMat[0], iNumCols);</div>
+<div class="line"><span class="lineno">  381</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 1; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  382</span>        {</div>
+<div class="line"><span class="lineno">  383</span>            <span class="keywordtype">float</span> fMax = <a class="code hl_function" href="a00451.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a>(ppfMat[m], iNumCols);</div>
+<div class="line"><span class="lineno">  384</span>            <span class="keywordflow">if</span> (fMax &gt; fGlobalMax)</div>
+<div class="line"><span class="lineno">  385</span>                fGlobalMax = fMax;</div>
+<div class="line"><span class="lineno">  386</span>        }</div>
+<div class="line"><span class="lineno">  387</span>        <span class="keywordflow">return</span> fGlobalMax;</div>
+<div class="line"><span class="lineno">  388</span>    }</div>
+<div class="ttc" id="aa00451_html_a8279b309edcfcac51d94b1e8f206a330"><div class="ttname"><a href="a00451.html#a8279b309edcfcac51d94b1e8f206a330">CVectorFloat::getMax</a></div><div class="ttdeci">static float getMax(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00497">Vector.h:497</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00471">CVectorFloat::getMax()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00497">CVectorFloat::getMax()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00089_source.html#l00414">CChordIf::initViterbi_()</a>.</p>
 <div class="dynheader">
@@ -672,114 +855,114 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00298">298</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  299</span>    {</div>
-<div class="line"><span class="lineno">  300</span>        assert(iNumRows &gt; 0);</div>
-<div class="line"><span class="lineno">  301</span>        assert(iNumRows == iNumCols);</div>
-<div class="line"><span class="lineno">  302</span>        assert(ppfSrcDest);</div>
-<div class="line"><span class="lineno">  303</span>        assert(ppfSrcDest[0]);</div>
-<div class="line"><span class="lineno">  304</span> </div>
-<div class="line"><span class="lineno">  305</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> kSingularityThresh = 1e-15F;</div>
-<div class="line"><span class="lineno">  306</span>        <span class="keywordtype">float</span>** ppfTmp = 0;</div>
-<div class="line"><span class="lineno">  307</span>        <span class="keywordtype">float</span>** ppfEye = 0;</div>
-<div class="line"><span class="lineno">  308</span>        <span class="keywordtype">int</span>    i, j;</div>
-<div class="line"><span class="lineno">  309</span>        <span class="keywordtype">double</span> dDet = 1;</div>
-<div class="line"><span class="lineno">  310</span> </div>
-<div class="line"><span class="lineno">  311</span>        <a class="code hl_function" href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc">alloc</a>(ppfTmp, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  312</span>        <a class="code hl_function" href="a00431.html#a38351fc34e85cfa1da2b46ec84083d38">copy</a>(ppfTmp, ppfSrcDest, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  313</span> </div>
-<div class="line"><span class="lineno">  314</span>        <a class="code hl_function" href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc">alloc</a>(ppfEye, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  315</span>        <a class="code hl_function" href="a00431.html#ac471bc59a137aa4fdccb56b2297ab95d">setEye</a>(ppfEye, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  316</span> </div>
-<div class="line"><span class="lineno">  317</span>        <span class="keywordflow">if</span> (ppfSrcDest[0][0] == 0)</div>
-<div class="line"><span class="lineno">  318</span>        {</div>
-<div class="line"><span class="lineno">  319</span>            i = 1;</div>
-<div class="line"><span class="lineno">  320</span>            <span class="keywordflow">while</span> (i &lt; iNumRows)</div>
-<div class="line"><span class="lineno">  321</span>            {</div>
-<div class="line"><span class="lineno">  322</span>                <span class="keywordflow">if</span> (ppfSrcDest[i][0] != 0)</div>
-<div class="line"><span class="lineno">  323</span>                {</div>
-<div class="line"><span class="lineno">  324</span>                    <a class="code hl_function" href="a00431.html#a47882391a9274df66406eba4be082019">swapRowCol</a>(ppfSrcDest, 0, i, iNumCols);</div>
-<div class="line"><span class="lineno">  325</span>                    <a class="code hl_function" href="a00431.html#a47882391a9274df66406eba4be082019">swapRowCol</a>(ppfEye, 0, i, iNumCols);</div>
-<div class="line"><span class="lineno">  326</span>                    dDet *= -1;</div>
-<div class="line"><span class="lineno">  327</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  328</span>                }</div>
-<div class="line"><span class="lineno">  329</span>                i++;</div>
-<div class="line"><span class="lineno">  330</span>            }</div>
-<div class="line"><span class="lineno">  331</span>        }</div>
-<div class="line"><span class="lineno">  332</span> </div>
-<div class="line"><span class="lineno">  333</span>        dDet *= ppfSrcDest[0][0];</div>
-<div class="line"><span class="lineno">  334</span> </div>
-<div class="line"><span class="lineno">  335</span>        <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfEye[0], 1.F / ppfSrcDest[0][0], iNumCols);</div>
-<div class="line"><span class="lineno">  336</span>        <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfSrcDest[0], 1.F / ppfSrcDest[0][0], iNumCols);</div>
-<div class="line"><span class="lineno">  337</span> </div>
-<div class="line"><span class="lineno">  338</span>        <span class="keywordflow">for</span> (i = 1; i &lt; iNumRows; i++)</div>
-<div class="line"><span class="lineno">  339</span>        {</div>
-<div class="line"><span class="lineno">  340</span>            j = 0;</div>
-<div class="line"><span class="lineno">  341</span> </div>
-<div class="line"><span class="lineno">  342</span>            <span class="keywordflow">if</span> (dDet &lt; kSingularityThresh *1.* kSingularityThresh)</div>
-<div class="line"><span class="lineno">  343</span>                dDet = 0;</div>
-<div class="line"><span class="lineno">  344</span> </div>
-<div class="line"><span class="lineno">  345</span>            <span class="keywordflow">while</span> (j &lt; i)</div>
-<div class="line"><span class="lineno">  346</span>            {</div>
-<div class="line"><span class="lineno">  347</span>                <a class="code hl_function" href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a>(ppfEye[i], ppfEye[j], ppfSrcDest[i][j], iNumCols);</div>
-<div class="line"><span class="lineno">  348</span>                <a class="code hl_function" href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a>(ppfSrcDest[i], ppfSrcDest[j], ppfSrcDest[i][j], iNumCols);</div>
-<div class="line"><span class="lineno">  349</span>                j++;</div>
-<div class="line"><span class="lineno">  350</span>            }</div>
-<div class="line"><span class="lineno">  351</span> </div>
-<div class="line"><span class="lineno">  352</span>            <span class="keywordflow">if</span> (ppfSrcDest[i][i] != 0)</div>
-<div class="line"><span class="lineno">  353</span>            {</div>
-<div class="line"><span class="lineno">  354</span>                dDet *= ppfSrcDest[i][i];</div>
-<div class="line"><span class="lineno">  355</span>                <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfEye[i], 1.F / ppfSrcDest[i][i], iNumCols);</div>
-<div class="line"><span class="lineno">  356</span>                <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfSrcDest[i], 1.F / ppfSrcDest[i][i], iNumCols);</div>
-<div class="line"><span class="lineno">  357</span>            }</div>
-<div class="line"><span class="lineno">  358</span> </div>
-<div class="line"><span class="lineno">  359</span>            <span class="keywordflow">if</span> (ppfSrcDest[i][i] == 0)</div>
-<div class="line"><span class="lineno">  360</span>            {</div>
-<div class="line"><span class="lineno">  361</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j1 = i + 1; j1 &lt; iNumCols; j1++)</div>
-<div class="line"><span class="lineno">  362</span>                {</div>
-<div class="line"><span class="lineno">  363</span>                    <span class="keywordflow">if</span> (ppfSrcDest[i][j1] != 0)         <span class="comment">// Column pivotting not supported</span></div>
-<div class="line"><span class="lineno">  364</span>                    {</div>
-<div class="line"><span class="lineno">  365</span>                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i1 = 0; i1 &lt; iNumRows; i1++)</div>
-<div class="line"><span class="lineno">  366</span>                        {</div>
-<div class="line"><span class="lineno">  367</span>                            <span class="keywordflow">for</span> (j = 0; j &lt; iNumCols; j++)</div>
-<div class="line"><span class="lineno">  368</span>                                ppfSrcDest[i1][j] = ppfTmp[i1][j];</div>
-<div class="line"><span class="lineno">  369</span>                        }</div>
-<div class="line"><span class="lineno">  370</span>                        <a class="code hl_function" href="a00431.html#a2beb6cc20e6596997993a552b1bb4a70">inv_I</a>(ppfTmp, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  371</span>                        <a class="code hl_function" href="a00431.html#a38351fc34e85cfa1da2b46ec84083d38">copy</a>(ppfSrcDest, ppfTmp, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  372</span> </div>
-<div class="line"><span class="lineno">  373</span>                        <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(ppfTmp, iNumRows);</div>
-<div class="line"><span class="lineno">  374</span>                        <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(ppfEye, iNumRows);</div>
-<div class="line"><span class="lineno">  375</span>                        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  376</span>                    }</div>
-<div class="line"><span class="lineno">  377</span>                }</div>
-<div class="line"><span class="lineno">  378</span>            }</div>
-<div class="line"><span class="lineno">  379</span>        }</div>
-<div class="line"><span class="lineno">  380</span> </div>
-<div class="line"><span class="lineno">  381</span>        <span class="keywordflow">for</span> (i = iNumRows - 1; i &gt; 0; i--)</div>
-<div class="line"><span class="lineno">  382</span>        {</div>
-<div class="line"><span class="lineno">  383</span>            <span class="keywordflow">for</span> (j = i - 1; j &gt;= 0; j--)</div>
-<div class="line"><span class="lineno">  384</span>            {</div>
-<div class="line"><span class="lineno">  385</span>                <a class="code hl_function" href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a>(ppfEye[j], ppfEye[i], ppfSrcDest[j][i], iNumCols);</div>
-<div class="line"><span class="lineno">  386</span>                <a class="code hl_function" href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a>(ppfSrcDest[j], ppfSrcDest[i], ppfSrcDest[j][i], iNumCols);</div>
-<div class="line"><span class="lineno">  387</span>            }</div>
-<div class="line"><span class="lineno">  388</span>        }</div>
-<div class="line"><span class="lineno">  389</span> </div>
-<div class="line"><span class="lineno">  390</span>        <a class="code hl_function" href="a00431.html#a38351fc34e85cfa1da2b46ec84083d38">copy</a>(ppfSrcDest, ppfEye, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  391</span>        <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(ppfTmp, iNumRows);</div>
-<div class="line"><span class="lineno">  392</span>        <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(ppfEye, iNumRows);</div>
-<div class="line"><span class="lineno">  393</span>    }</div>
-<div class="ttc" id="aa00431_html_a2beb6cc20e6596997993a552b1bb4a70"><div class="ttname"><a href="a00431.html#a2beb6cc20e6596997993a552b1bb4a70">CMatrix::inv_I</a></div><div class="ttdeci">static void inv_I(float **ppfSrcDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00298">Matrix.h:298</a></div></div>
-<div class="ttc" id="aa00431_html_a38351fc34e85cfa1da2b46ec84083d38"><div class="ttname"><a href="a00431.html#a38351fc34e85cfa1da2b46ec84083d38">CMatrix::copy</a></div><div class="ttdeci">static void copy(T **ppfDestMat, T **ppfSrcMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00244">Matrix.h:244</a></div></div>
-<div class="ttc" id="aa00431_html_a47882391a9274df66406eba4be082019"><div class="ttname"><a href="a00431.html#a47882391a9274df66406eba4be082019">CMatrix::swapRowCol</a></div><div class="ttdeci">static void swapRowCol(float **ppfSrcDest, int iRowIdx, int iColIdx, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00220">Matrix.h:220</a></div></div>
-<div class="ttc" id="aa00431_html_ac471bc59a137aa4fdccb56b2297ab95d"><div class="ttname"><a href="a00431.html#ac471bc59a137aa4fdccb56b2297ab95d">CMatrix::setEye</a></div><div class="ttdeci">static void setEye(float **ppfDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00138">Matrix.h:138</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00493">493</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  494</span>    {</div>
+<div class="line"><span class="lineno">  495</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  496</span>        assert(iNumRows == iNumCols);</div>
+<div class="line"><span class="lineno">  497</span>        assert(ppfSrcDest);</div>
+<div class="line"><span class="lineno">  498</span>        assert(ppfSrcDest[0]);</div>
+<div class="line"><span class="lineno">  499</span> </div>
+<div class="line"><span class="lineno">  500</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> kSingularityThresh = 1e-15F;</div>
+<div class="line"><span class="lineno">  501</span>        <span class="keywordtype">float</span>** ppfTmp = 0;</div>
+<div class="line"><span class="lineno">  502</span>        <span class="keywordtype">float</span>** ppfEye = 0;</div>
+<div class="line"><span class="lineno">  503</span>        <span class="keywordtype">int</span>    i, j;</div>
+<div class="line"><span class="lineno">  504</span>        <span class="keywordtype">double</span> dDet = 1;</div>
+<div class="line"><span class="lineno">  505</span> </div>
+<div class="line"><span class="lineno">  506</span>        <a class="code hl_function" href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc">alloc</a>(ppfTmp, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  507</span>        <a class="code hl_function" href="a00431.html#a38351fc34e85cfa1da2b46ec84083d38">copy</a>(ppfTmp, ppfSrcDest, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  508</span> </div>
+<div class="line"><span class="lineno">  509</span>        <a class="code hl_function" href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc">alloc</a>(ppfEye, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  510</span>        <a class="code hl_function" href="a00431.html#ac471bc59a137aa4fdccb56b2297ab95d">setEye</a>(ppfEye, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  511</span> </div>
+<div class="line"><span class="lineno">  512</span>        <span class="keywordflow">if</span> (ppfSrcDest[0][0] == 0)</div>
+<div class="line"><span class="lineno">  513</span>        {</div>
+<div class="line"><span class="lineno">  514</span>            i = 1;</div>
+<div class="line"><span class="lineno">  515</span>            <span class="keywordflow">while</span> (i &lt; iNumRows)</div>
+<div class="line"><span class="lineno">  516</span>            {</div>
+<div class="line"><span class="lineno">  517</span>                <span class="keywordflow">if</span> (ppfSrcDest[i][0] != 0)</div>
+<div class="line"><span class="lineno">  518</span>                {</div>
+<div class="line"><span class="lineno">  519</span>                    <a class="code hl_function" href="a00431.html#a47882391a9274df66406eba4be082019">swapRowCol</a>(ppfSrcDest, 0, i, iNumCols);</div>
+<div class="line"><span class="lineno">  520</span>                    <a class="code hl_function" href="a00431.html#a47882391a9274df66406eba4be082019">swapRowCol</a>(ppfEye, 0, i, iNumCols);</div>
+<div class="line"><span class="lineno">  521</span>                    dDet *= -1;</div>
+<div class="line"><span class="lineno">  522</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  523</span>                }</div>
+<div class="line"><span class="lineno">  524</span>                i++;</div>
+<div class="line"><span class="lineno">  525</span>            }</div>
+<div class="line"><span class="lineno">  526</span>        }</div>
+<div class="line"><span class="lineno">  527</span> </div>
+<div class="line"><span class="lineno">  528</span>        dDet *= ppfSrcDest[0][0];</div>
+<div class="line"><span class="lineno">  529</span> </div>
+<div class="line"><span class="lineno">  530</span>        <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfEye[0], 1.F / ppfSrcDest[0][0], iNumCols);</div>
+<div class="line"><span class="lineno">  531</span>        <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfSrcDest[0], 1.F / ppfSrcDest[0][0], iNumCols);</div>
+<div class="line"><span class="lineno">  532</span> </div>
+<div class="line"><span class="lineno">  533</span>        <span class="keywordflow">for</span> (i = 1; i &lt; iNumRows; i++)</div>
+<div class="line"><span class="lineno">  534</span>        {</div>
+<div class="line"><span class="lineno">  535</span>            j = 0;</div>
+<div class="line"><span class="lineno">  536</span> </div>
+<div class="line"><span class="lineno">  537</span>            <span class="keywordflow">if</span> (dDet &lt; kSingularityThresh *1.* kSingularityThresh)</div>
+<div class="line"><span class="lineno">  538</span>                dDet = 0;</div>
+<div class="line"><span class="lineno">  539</span> </div>
+<div class="line"><span class="lineno">  540</span>            <span class="keywordflow">while</span> (j &lt; i)</div>
+<div class="line"><span class="lineno">  541</span>            {</div>
+<div class="line"><span class="lineno">  542</span>                <a class="code hl_function" href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a>(ppfEye[i], ppfEye[j], ppfSrcDest[i][j], iNumCols);</div>
+<div class="line"><span class="lineno">  543</span>                <a class="code hl_function" href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a>(ppfSrcDest[i], ppfSrcDest[j], ppfSrcDest[i][j], iNumCols);</div>
+<div class="line"><span class="lineno">  544</span>                j++;</div>
+<div class="line"><span class="lineno">  545</span>            }</div>
+<div class="line"><span class="lineno">  546</span> </div>
+<div class="line"><span class="lineno">  547</span>            <span class="keywordflow">if</span> (ppfSrcDest[i][i] != 0)</div>
+<div class="line"><span class="lineno">  548</span>            {</div>
+<div class="line"><span class="lineno">  549</span>                dDet *= ppfSrcDest[i][i];</div>
+<div class="line"><span class="lineno">  550</span>                <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfEye[i], 1.F / ppfSrcDest[i][i], iNumCols);</div>
+<div class="line"><span class="lineno">  551</span>                <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfSrcDest[i], 1.F / ppfSrcDest[i][i], iNumCols);</div>
+<div class="line"><span class="lineno">  552</span>            }</div>
+<div class="line"><span class="lineno">  553</span> </div>
+<div class="line"><span class="lineno">  554</span>            <span class="keywordflow">if</span> (ppfSrcDest[i][i] == 0)</div>
+<div class="line"><span class="lineno">  555</span>            {</div>
+<div class="line"><span class="lineno">  556</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j1 = i + 1; j1 &lt; iNumCols; j1++)</div>
+<div class="line"><span class="lineno">  557</span>                {</div>
+<div class="line"><span class="lineno">  558</span>                    <span class="keywordflow">if</span> (ppfSrcDest[i][j1] != 0)         <span class="comment">// Column pivotting not supported</span></div>
+<div class="line"><span class="lineno">  559</span>                    {</div>
+<div class="line"><span class="lineno">  560</span>                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i1 = 0; i1 &lt; iNumRows; i1++)</div>
+<div class="line"><span class="lineno">  561</span>                        {</div>
+<div class="line"><span class="lineno">  562</span>                            <span class="keywordflow">for</span> (j = 0; j &lt; iNumCols; j++)</div>
+<div class="line"><span class="lineno">  563</span>                                ppfSrcDest[i1][j] = ppfTmp[i1][j];</div>
+<div class="line"><span class="lineno">  564</span>                        }</div>
+<div class="line"><span class="lineno">  565</span>                        <a class="code hl_function" href="a00431.html#a2beb6cc20e6596997993a552b1bb4a70">inv_I</a>(ppfTmp, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  566</span>                        <a class="code hl_function" href="a00431.html#a38351fc34e85cfa1da2b46ec84083d38">copy</a>(ppfSrcDest, ppfTmp, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  567</span> </div>
+<div class="line"><span class="lineno">  568</span>                        <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(ppfTmp, iNumRows);</div>
+<div class="line"><span class="lineno">  569</span>                        <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(ppfEye, iNumRows);</div>
+<div class="line"><span class="lineno">  570</span>                        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  571</span>                    }</div>
+<div class="line"><span class="lineno">  572</span>                }</div>
+<div class="line"><span class="lineno">  573</span>            }</div>
+<div class="line"><span class="lineno">  574</span>        }</div>
+<div class="line"><span class="lineno">  575</span> </div>
+<div class="line"><span class="lineno">  576</span>        <span class="keywordflow">for</span> (i = iNumRows - 1; i &gt; 0; i--)</div>
+<div class="line"><span class="lineno">  577</span>        {</div>
+<div class="line"><span class="lineno">  578</span>            <span class="keywordflow">for</span> (j = i - 1; j &gt;= 0; j--)</div>
+<div class="line"><span class="lineno">  579</span>            {</div>
+<div class="line"><span class="lineno">  580</span>                <a class="code hl_function" href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a>(ppfEye[j], ppfEye[i], ppfSrcDest[j][i], iNumCols);</div>
+<div class="line"><span class="lineno">  581</span>                <a class="code hl_function" href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a>(ppfSrcDest[j], ppfSrcDest[i], ppfSrcDest[j][i], iNumCols);</div>
+<div class="line"><span class="lineno">  582</span>            }</div>
+<div class="line"><span class="lineno">  583</span>        }</div>
+<div class="line"><span class="lineno">  584</span> </div>
+<div class="line"><span class="lineno">  585</span>        <a class="code hl_function" href="a00431.html#a38351fc34e85cfa1da2b46ec84083d38">copy</a>(ppfSrcDest, ppfEye, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  586</span>        <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(ppfTmp, iNumRows);</div>
+<div class="line"><span class="lineno">  587</span>        <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(ppfEye, iNumRows);</div>
+<div class="line"><span class="lineno">  588</span>    }</div>
+<div class="ttc" id="aa00431_html_a2beb6cc20e6596997993a552b1bb4a70"><div class="ttname"><a href="a00431.html#a2beb6cc20e6596997993a552b1bb4a70">CMatrix::inv_I</a></div><div class="ttdeci">static void inv_I(float **ppfSrcDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00493">Matrix.h:493</a></div></div>
+<div class="ttc" id="aa00431_html_a38351fc34e85cfa1da2b46ec84083d38"><div class="ttname"><a href="a00431.html#a38351fc34e85cfa1da2b46ec84083d38">CMatrix::copy</a></div><div class="ttdeci">static void copy(T **ppfDestMat, T **ppfSrcMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00458">Matrix.h:458</a></div></div>
+<div class="ttc" id="aa00431_html_a47882391a9274df66406eba4be082019"><div class="ttname"><a href="a00431.html#a47882391a9274df66406eba4be082019">CMatrix::swapRowCol</a></div><div class="ttdeci">static void swapRowCol(float **ppfSrcDest, int iRowIdx, int iColIdx, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00434">Matrix.h:434</a></div></div>
+<div class="ttc" id="aa00431_html_ac471bc59a137aa4fdccb56b2297ab95d"><div class="ttname"><a href="a00431.html#ac471bc59a137aa4fdccb56b2297ab95d">CMatrix::setEye</a></div><div class="ttdeci">static void setEye(float **ppfDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00149">Matrix.h:149</a></div></div>
 <div class="ttc" id="aa00431_html_ae669c592fc063391aeb77e07cbc9d4bc"><div class="ttname"><a href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00021">Matrix.h:21</a></div></div>
 <div class="ttc" id="aa00431_html_afbf24cb4ce4f9b46456419d939eab052"><div class="ttname"><a href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;ppfMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00039">Matrix.h:39</a></div></div>
-<div class="ttc" id="aa00451_html_a6dc46873ff8f2f3e2d697399f78c81c0"><div class="ttname"><a href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a></div><div class="ttdeci">static void subW_I(float *pfSrcDest, const float *pfSrc, float fWeight, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00340">Vector.h:340</a></div></div>
-<div class="ttc" id="aa00451_html_afc9a413a88b0c7143252dac95050af33"><div class="ttname"><a href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a></div><div class="ttdeci">static void mulC_I(float *pfSrcDest, float fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00230">Vector.h:230</a></div></div>
+<div class="ttc" id="aa00451_html_a6dc46873ff8f2f3e2d697399f78c81c0"><div class="ttname"><a href="a00451.html#a6dc46873ff8f2f3e2d697399f78c81c0">CVectorFloat::subW_I</a></div><div class="ttdeci">static void subW_I(float *pfSrcDest, const float *pfSrc, float fWeight, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00366">Vector.h:366</a></div></div>
+<div class="ttc" id="aa00451_html_afc9a413a88b0c7143252dac95050af33"><div class="ttname"><a href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a></div><div class="ttdeci">static void mulC_I(float *pfSrcDest, float fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00256">Vector.h:256</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00116_source.html#l00021">alloc()</a>, <a class="el" href="a00116_source.html#l00244">copy()</a>, <a class="el" href="a00116_source.html#l00039">free()</a>, <a class="el" href="a00116_source.html#l00298">inv_I()</a>, <a class="el" href="a00122_source.html#l00230">CVectorFloat::mulC_I()</a>, <a class="el" href="a00116_source.html#l00138">setEye()</a>, <a class="el" href="a00122_source.html#l00340">CVectorFloat::subW_I()</a>, and <a class="el" href="a00116_source.html#l00220">swapRowCol()</a>.</p>
+<p class="reference">References <a class="el" href="a00116_source.html#l00021">alloc()</a>, <a class="el" href="a00116_source.html#l00458">copy()</a>, <a class="el" href="a00116_source.html#l00039">free()</a>, <a class="el" href="a00116_source.html#l00493">inv_I()</a>, <a class="el" href="a00122_source.html#l00256">CVectorFloat::mulC_I()</a>, <a class="el" href="a00116_source.html#l00149">setEye()</a>, <a class="el" href="a00122_source.html#l00366">CVectorFloat::subW_I()</a>, and <a class="el" href="a00116_source.html#l00434">swapRowCol()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00116_source.html#l00298">inv_I()</a>, and <a class="el" href="a00119_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00116_source.html#l00493">inv_I()</a>, and <a class="el" href="a00119_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -812,6 +995,80 @@ Here is the caller graph for this function:</div>
 </map>
 </div>
 
+</div>
+</div>
+<a id="a1d2fd141b49c287db7b826a43e723ee3" name="a1d2fd141b49c287db7b826a43e723ee3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d2fd141b49c287db7b826a43e723ee3">&#9670;&nbsp;</a></span>mul_I()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CMatrix::mul_I </td>
+          <td>(</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfSrc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >elementwise multiplication of two matrices inplace </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfSrcDest</td><td>resulting matrix </td></tr>
+    <tr><td class="paramname">ppfSrc</td><td>matrix to be multiplied </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00325">325</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  326</span>    {</div>
+<div class="line"><span class="lineno">  327</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  328</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  329</span>        assert(ppfSrcDest);</div>
+<div class="line"><span class="lineno">  330</span>        assert(ppfSrcDest[0]);</div>
+<div class="line"><span class="lineno">  331</span>        assert(ppfSrc);</div>
+<div class="line"><span class="lineno">  332</span>        assert(ppfSrc[0]);</div>
+<div class="line"><span class="lineno">  333</span> </div>
+<div class="line"><span class="lineno">  334</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  335</span>        {</div>
+<div class="line"><span class="lineno">  336</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumCols; n++)</div>
+<div class="line"><span class="lineno">  337</span>                ppfSrcDest[m][n] *= ppfSrc[m][n];</div>
+<div class="line"><span class="lineno">  338</span>        }</div>
+<div class="line"><span class="lineno">  339</span>    }</div>
+</div><!-- fragment -->
 </div>
 </div>
 <a id="a58e19c307b276d235162248aaa3592c4" name="a58e19c307b276d235162248aaa3592c4"></a>
@@ -870,18 +1127,18 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00201">201</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  202</span>    {</div>
-<div class="line"><span class="lineno">  203</span>        assert(iNumRows &gt; 0);</div>
-<div class="line"><span class="lineno">  204</span>        assert(iNumCols &gt; 0);</div>
-<div class="line"><span class="lineno">  205</span>        assert(ppfMat);</div>
-<div class="line"><span class="lineno">  206</span>        assert(ppfMat[0]);</div>
-<div class="line"><span class="lineno">  207</span> </div>
-<div class="line"><span class="lineno">  208</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
-<div class="line"><span class="lineno">  209</span>            <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfMat[m], fScale, iNumCols);</div>
-<div class="line"><span class="lineno">  210</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00415">415</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  416</span>    {</div>
+<div class="line"><span class="lineno">  417</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  418</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  419</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">  420</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">  421</span> </div>
+<div class="line"><span class="lineno">  422</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  423</span>            <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(ppfMat[m], fScale, iNumCols);</div>
+<div class="line"><span class="lineno">  424</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00230">CVectorFloat::mulC_I()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00256">CVectorFloat::mulC_I()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00089_source.html#l00414">CChordIf::initViterbi_()</a>.</p>
 <div class="dynheader">
@@ -908,8 +1165,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="ab714a555729264f7fc4ef0f48065d7fe" name="ab714a555729264f7fc4ef0f48065d7fe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab714a555729264f7fc4ef0f48065d7fe">&#9670;&nbsp;</a></span>mulMatColVec()</h2>
+<a id="af8f217a73d7c2503e0435da5f1ed52a0" name="af8f217a73d7c2503e0435da5f1ed52a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8f217a73d7c2503e0435da5f1ed52a0">&#9670;&nbsp;</a></span>mulMatColVec()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -927,7 +1184,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfMatrix</em>, </td>
+          <td class="paramname"><em>ppfMat</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -962,7 +1219,7 @@ Here is the caller graph for this function:</div>
 <p >multiplies a matrix with a column vector (MAT * VEC) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">pfDestColVec</td><td>resulting (column) vector of length iNumMatRows (to be written, user allocated) </td></tr>
-    <tr><td class="paramname">ppfMatrix</td><td>matrix to be multiplied </td></tr>
+    <tr><td class="paramname">ppfMat</td><td>matrix to be multiplied </td></tr>
     <tr><td class="paramname">pfSrcColVec</td><td>(column) vector to be multiplied </td></tr>
     <tr><td class="paramname">iNumMatRows</td><td>number of rows in the matrix </td></tr>
     <tr><td class="paramname">iNumMatCols</td><td>number of columns in the matrix </td></tr>
@@ -971,28 +1228,28 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00059">59</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>    {</div>
-<div class="line"><span class="lineno">   61</span>        assert(iNumMatRows &gt; 0);</div>
-<div class="line"><span class="lineno">   62</span>        assert(iNumMatCols &gt; 0);</div>
-<div class="line"><span class="lineno">   63</span>        assert(pfDestColVec);</div>
-<div class="line"><span class="lineno">   64</span>        assert(pfSrcColVec);</div>
-<div class="line"><span class="lineno">   65</span>        assert(ppfMatrix);</div>
-<div class="line"><span class="lineno">   66</span>        assert(ppfMatrix[0]);</div>
-<div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumMatRows; m++)</div>
-<div class="line"><span class="lineno">   69</span>            pfDestColVec[m] = <a class="code hl_function" href="a00451.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(ppfMatrix[m], pfSrcColVec, iNumMatCols);</div>
-<div class="line"><span class="lineno">   70</span>    }</div>
-<div class="ttc" id="aa00451_html_ab572a4fece01255657935ed18afdeadd"><div class="ttname"><a href="a00451.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a></div><div class="ttdeci">static float mulScalar(const float *pfSrc1, const float *pfSrc2, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00261">Vector.h:261</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00245">245</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  246</span>    {</div>
+<div class="line"><span class="lineno">  247</span>        assert(iNumMatRows &gt; 0);</div>
+<div class="line"><span class="lineno">  248</span>        assert(iNumMatCols &gt; 0);</div>
+<div class="line"><span class="lineno">  249</span>        assert(pfDestColVec);</div>
+<div class="line"><span class="lineno">  250</span>        assert(pfSrcColVec);</div>
+<div class="line"><span class="lineno">  251</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">  252</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">  253</span> </div>
+<div class="line"><span class="lineno">  254</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumMatRows; m++)</div>
+<div class="line"><span class="lineno">  255</span>            pfDestColVec[m] = <a class="code hl_function" href="a00451.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a>(ppfMat[m], pfSrcColVec, iNumMatCols);</div>
+<div class="line"><span class="lineno">  256</span>    }</div>
+<div class="ttc" id="aa00451_html_ab572a4fece01255657935ed18afdeadd"><div class="ttname"><a href="a00451.html#ab572a4fece01255657935ed18afdeadd">CVectorFloat::mulScalar</a></div><div class="ttdeci">static float mulScalar(const float *pfSrc1, const float *pfSrc2, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00287">Vector.h:287</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00261">CVectorFloat::mulScalar()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00287">CVectorFloat::mulScalar()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00050_source.html#l00029">CChordFromBlockIf::compChordProb()</a>, and <a class="el" href="a00119_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00431_ab714a555729264f7fc4ef0f48065d7fe_cgraph.png" border="0" usemap="#aa00431_ab714a555729264f7fc4ef0f48065d7fe_cgraph" alt=""/></div>
-<map name="aa00431_ab714a555729264f7fc4ef0f48065d7fe_cgraph" id="aa00431_ab714a555729264f7fc4ef0f48065d7fe_cgraph">
+<div class="center"><img src="a00431_af8f217a73d7c2503e0435da5f1ed52a0_cgraph.png" border="0" usemap="#aa00431_af8f217a73d7c2503e0435da5f1ed52a0_cgraph" alt=""/></div>
+<map name="aa00431_af8f217a73d7c2503e0435da5f1ed52a0_cgraph" id="aa00431_af8f217a73d7c2503e0435da5f1ed52a0_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,163,32"/>
 <area shape="rect" href="a00451.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="211,5,373,32"/>
 </map>
@@ -1000,8 +1257,8 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00431_ab714a555729264f7fc4ef0f48065d7fe_icgraph.png" border="0" usemap="#aa00431_ab714a555729264f7fc4ef0f48065d7fe_icgraph" alt=""/></div>
-<map name="aa00431_ab714a555729264f7fc4ef0f48065d7fe_icgraph" id="aa00431_ab714a555729264f7fc4ef0f48065d7fe_icgraph">
+<div class="center"><img src="a00431_af8f217a73d7c2503e0435da5f1ed52a0_icgraph.png" border="0" usemap="#aa00431_af8f217a73d7c2503e0435da5f1ed52a0_icgraph" alt=""/></div>
+<map name="aa00431_af8f217a73d7c2503e0435da5f1ed52a0_icgraph" id="aa00431_af8f217a73d7c2503e0435da5f1ed52a0_icgraph">
 <area shape="rect" title=" " alt="" coords="585,42,743,69"/>
 <area shape="rect" href="a00407.html#a3996cacb83a90e37284ca5abd2608c17" title=" " alt="" coords="395,5,537,47"/>
 <area shape="rect" href="a00423.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="396,71,536,98"/>
@@ -1091,37 +1348,37 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00105">105</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>    {</div>
-<div class="line"><span class="lineno">  107</span>        assert(iNum1Rows &gt; 0);</div>
-<div class="line"><span class="lineno">  108</span>        assert(iNum1Cols &gt; 0);</div>
-<div class="line"><span class="lineno">  109</span>        assert(iNum2Rows &gt; 0);</div>
-<div class="line"><span class="lineno">  110</span>        assert(iNum2Cols &gt; 0);</div>
-<div class="line"><span class="lineno">  111</span>        assert(iNum1Cols == iNum2Rows);</div>
-<div class="line"><span class="lineno">  112</span>        assert(ppfDest);</div>
-<div class="line"><span class="lineno">  113</span>        assert(ppfDest[0]);</div>
-<div class="line"><span class="lineno">  114</span>        assert(ppfSrc1);</div>
-<div class="line"><span class="lineno">  115</span>        assert(ppfSrc1[0]);</div>
-<div class="line"><span class="lineno">  116</span>        assert(ppfSrc2);</div>
-<div class="line"><span class="lineno">  117</span>        assert(ppfSrc2[0]);</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>        iNum2Rows = iNum1Cols; <span class="comment">// avoid compiler warning</span></div>
-<div class="line"><span class="lineno">  120</span> </div>
-<div class="line"><span class="lineno">  121</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNum1Rows; m++)</div>
-<div class="line"><span class="lineno">  122</span>        {</div>
-<div class="line"><span class="lineno">  123</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNum2Cols; n++)</div>
-<div class="line"><span class="lineno">  124</span>            {</div>
-<div class="line"><span class="lineno">  125</span>                ppfDest[m][n] = 0.F;</div>
-<div class="line"><span class="lineno">  126</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iNum1Cols; k++)</div>
-<div class="line"><span class="lineno">  127</span>                    ppfDest[m][n] += ppfSrc1[m][k] * ppfSrc2[k][n];</div>
-<div class="line"><span class="lineno">  128</span>            }</div>
-<div class="line"><span class="lineno">  129</span>        }</div>
-<div class="line"><span class="lineno">  130</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00291">291</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  292</span>    {</div>
+<div class="line"><span class="lineno">  293</span>        assert(iNum1Rows &gt; 0);</div>
+<div class="line"><span class="lineno">  294</span>        assert(iNum1Cols &gt; 0);</div>
+<div class="line"><span class="lineno">  295</span>        assert(iNum2Rows &gt; 0);</div>
+<div class="line"><span class="lineno">  296</span>        assert(iNum2Cols &gt; 0);</div>
+<div class="line"><span class="lineno">  297</span>        assert(iNum1Cols == iNum2Rows);</div>
+<div class="line"><span class="lineno">  298</span>        assert(ppfDest);</div>
+<div class="line"><span class="lineno">  299</span>        assert(ppfDest[0]);</div>
+<div class="line"><span class="lineno">  300</span>        assert(ppfSrc1);</div>
+<div class="line"><span class="lineno">  301</span>        assert(ppfSrc1[0]);</div>
+<div class="line"><span class="lineno">  302</span>        assert(ppfSrc2);</div>
+<div class="line"><span class="lineno">  303</span>        assert(ppfSrc2[0]);</div>
+<div class="line"><span class="lineno">  304</span> </div>
+<div class="line"><span class="lineno">  305</span>        iNum2Rows = iNum1Cols; <span class="comment">// avoid compiler warning</span></div>
+<div class="line"><span class="lineno">  306</span> </div>
+<div class="line"><span class="lineno">  307</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNum1Rows; m++)</div>
+<div class="line"><span class="lineno">  308</span>        {</div>
+<div class="line"><span class="lineno">  309</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNum2Cols; n++)</div>
+<div class="line"><span class="lineno">  310</span>            {</div>
+<div class="line"><span class="lineno">  311</span>                ppfDest[m][n] = 0.F;</div>
+<div class="line"><span class="lineno">  312</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iNum1Cols; k++)</div>
+<div class="line"><span class="lineno">  313</span>                    ppfDest[m][n] += ppfSrc1[m][k] * ppfSrc2[k][n];</div>
+<div class="line"><span class="lineno">  314</span>            }</div>
+<div class="line"><span class="lineno">  315</span>        }</div>
+<div class="line"><span class="lineno">  316</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="ad0f9eb1d1f54d5fd23fea0fef17fc13a" name="ad0f9eb1d1f54d5fd23fea0fef17fc13a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0f9eb1d1f54d5fd23fea0fef17fc13a">&#9670;&nbsp;</a></span>mulRowVecMat()</h2>
+<a id="a59940f1e61a4bda407546a6e7648dd3d" name="a59940f1e61a4bda407546a6e7648dd3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59940f1e61a4bda407546a6e7648dd3d">&#9670;&nbsp;</a></span>mulRowVecMat()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1145,7 +1402,7 @@ Here is the caller graph for this function:</div>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfMatrix</em>, </td>
+          <td class="paramname"><em>ppfMat</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -1175,7 +1432,7 @@ Here is the caller graph for this function:</div>
   <table class="params">
     <tr><td class="paramname">pfDestRowVec</td><td>resulting (row) vector of length iNumMatCols (to be written, user allocated) </td></tr>
     <tr><td class="paramname">pfSrcRowVec</td><td>(column) vector to be multiplied </td></tr>
-    <tr><td class="paramname">ppfMatrix</td><td>matrix to be multiplied </td></tr>
+    <tr><td class="paramname">ppfMat</td><td>matrix to be multiplied </td></tr>
     <tr><td class="paramname">iNumMatRows</td><td>number of rows in the matrix </td></tr>
     <tr><td class="paramname">iNumMatCols</td><td>number of columns in the matrix </td></tr>
   </table>
@@ -1183,28 +1440,28 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00080">80</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   81</span>    {</div>
-<div class="line"><span class="lineno">   82</span>        assert(iNumMatRows &gt; 0);</div>
-<div class="line"><span class="lineno">   83</span>        assert(iNumMatCols &gt; 0);</div>
-<div class="line"><span class="lineno">   84</span>        assert(pfDestRowVec);</div>
-<div class="line"><span class="lineno">   85</span>        assert(pfSrcRowVec);</div>
-<div class="line"><span class="lineno">   86</span>        assert(ppfMatrix);</div>
-<div class="line"><span class="lineno">   87</span>        assert(ppfMatrix[0]);</div>
-<div class="line"><span class="lineno">   88</span> </div>
-<div class="line"><span class="lineno">   89</span>        <a class="code hl_function" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfDestRowVec, iNumMatCols);</div>
-<div class="line"><span class="lineno">   90</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumMatCols; n++)</div>
-<div class="line"><span class="lineno">   91</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumMatRows; m++)</div>
-<div class="line"><span class="lineno">   92</span>                pfDestRowVec[n] += pfSrcRowVec[m] * ppfMatrix[m][n];</div>
-<div class="line"><span class="lineno">   93</span>    }</div>
-<div class="ttc" id="aa00451_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00160">Vector.h:160</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00266">266</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  267</span>    {</div>
+<div class="line"><span class="lineno">  268</span>        assert(iNumMatRows &gt; 0);</div>
+<div class="line"><span class="lineno">  269</span>        assert(iNumMatCols &gt; 0);</div>
+<div class="line"><span class="lineno">  270</span>        assert(pfDestRowVec);</div>
+<div class="line"><span class="lineno">  271</span>        assert(pfSrcRowVec);</div>
+<div class="line"><span class="lineno">  272</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">  273</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">  274</span> </div>
+<div class="line"><span class="lineno">  275</span>        <a class="code hl_function" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfDestRowVec, iNumMatCols);</div>
+<div class="line"><span class="lineno">  276</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumMatCols; n++)</div>
+<div class="line"><span class="lineno">  277</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumMatRows; m++)</div>
+<div class="line"><span class="lineno">  278</span>                pfDestRowVec[n] += pfSrcRowVec[m] * ppfMat[m][n];</div>
+<div class="line"><span class="lineno">  279</span>    }</div>
+<div class="ttc" id="aa00451_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00176">Vector.h:176</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00160">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00176">CVectorFloat::setZero()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00431_ad0f9eb1d1f54d5fd23fea0fef17fc13a_cgraph.png" border="0" usemap="#aa00431_ad0f9eb1d1f54d5fd23fea0fef17fc13a_cgraph" alt=""/></div>
-<map name="aa00431_ad0f9eb1d1f54d5fd23fea0fef17fc13a_cgraph" id="aa00431_ad0f9eb1d1f54d5fd23fea0fef17fc13a_cgraph">
+<div class="center"><img src="a00431_a59940f1e61a4bda407546a6e7648dd3d_cgraph.png" border="0" usemap="#aa00431_a59940f1e61a4bda407546a6e7648dd3d_cgraph" alt=""/></div>
+<map name="aa00431_a59940f1e61a4bda407546a6e7648dd3d_cgraph" id="aa00431_a59940f1e61a4bda407546a6e7648dd3d_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,169,32"/>
 <area shape="rect" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="217,5,365,32"/>
 <area shape="rect" href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="413,5,532,32"/>
@@ -1271,16 +1528,16 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00281">281</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  282</span>    {</div>
-<div class="line"><span class="lineno">  283</span>        assert(ppfDestMat);</div>
-<div class="line"><span class="lineno">  284</span>        assert(pfSrcVec);</div>
-<div class="line"><span class="lineno">  285</span>        assert(iColIdx &gt;= 0);</div>
-<div class="line"><span class="lineno">  286</span>        assert(iNumRows &gt; 0);</div>
-<div class="line"><span class="lineno">  287</span> </div>
-<div class="line"><span class="lineno">  288</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
-<div class="line"><span class="lineno">  289</span>            ppfDestMat[m][iColIdx] = pfSrcVec[m];</div>
-<div class="line"><span class="lineno">  290</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00114">114</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  115</span>    {</div>
+<div class="line"><span class="lineno">  116</span>        assert(ppfDestMat);</div>
+<div class="line"><span class="lineno">  117</span>        assert(pfSrcVec);</div>
+<div class="line"><span class="lineno">  118</span>        assert(iColIdx &gt;= 0);</div>
+<div class="line"><span class="lineno">  119</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  122</span>            ppfDestMat[m][iColIdx] = pfSrcVec[m];</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="a00089_source.html#l00197">CChordIf::compChords()</a>, and <a class="el" href="a00089_source.html#l00414">CChordIf::initViterbi_()</a>.</p>
 <div class="dynheader">
@@ -1349,24 +1606,23 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00138">138</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  139</span>    {</div>
-<div class="line"><span class="lineno">  140</span>        assert(iNumRows &gt; 0);</div>
-<div class="line"><span class="lineno">  141</span>        assert(iNumRows == iNumCols);</div>
-<div class="line"><span class="lineno">  142</span>        assert(ppfDest);</div>
-<div class="line"><span class="lineno">  143</span>        assert(ppfDest[0]);</div>
-<div class="line"><span class="lineno">  144</span> </div>
-<div class="line"><span class="lineno">  145</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
-<div class="line"><span class="lineno">  146</span>        {</div>
-<div class="line"><span class="lineno">  147</span>            <a class="code hl_function" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(ppfDest[m], iNumCols);</div>
-<div class="line"><span class="lineno">  148</span>            ppfDest[m][m] = 1.F;</div>
-<div class="line"><span class="lineno">  149</span>        }</div>
-<div class="line"><span class="lineno">  150</span> </div>
-<div class="line"><span class="lineno">  151</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00149">149</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  150</span>    {</div>
+<div class="line"><span class="lineno">  151</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  152</span>        assert(iNumRows == iNumCols);</div>
+<div class="line"><span class="lineno">  153</span>        assert(ppfDest);</div>
+<div class="line"><span class="lineno">  154</span>        assert(ppfDest[0]);</div>
+<div class="line"><span class="lineno">  155</span> </div>
+<div class="line"><span class="lineno">  156</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  157</span>        {</div>
+<div class="line"><span class="lineno">  158</span>            <a class="code hl_function" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(ppfDest[m], iNumCols);</div>
+<div class="line"><span class="lineno">  159</span>            ppfDest[m][m] = 1.F;</div>
+<div class="line"><span class="lineno">  160</span>        }</div>
+<div class="line"><span class="lineno">  161</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00160">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00176">CVectorFloat::setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00116_source.html#l00298">inv_I()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00116_source.html#l00493">inv_I()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1387,6 +1643,83 @@ Here is the caller graph for this function:</div>
 <area shape="rect" href="a00423.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="335,29,475,56"/>
 <area shape="rect" href="a00423.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="195,29,287,56"/>
 <area shape="rect" href="a00515.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,29,147,56"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aab4b96d92f9b9482e217d7740a559f88" name="aab4b96d92f9b9482e217d7740a559f88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab4b96d92f9b9482e217d7740a559f88">&#9670;&nbsp;</a></span>setRand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CMatrix::setRand </td>
+          <td>(</td>
+          <td class="paramtype">T **&#160;</td>
+          <td class="paramname"><em>ppfMat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >sets a float matrix to random </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfMat</td><td>pointer to memory to be set </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00095">95</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>    {</div>
+<div class="line"><span class="lineno">   97</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">   98</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">   99</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">  100</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  103</span>            <a class="code hl_function" href="a00447.html#a58b564301f8eb378b8f02e5bdb282a0e">CVector::setRand</a>(ppfMat[m], iNumCols);</div>
+<div class="line"><span class="lineno">  104</span>    }</div>
+<div class="ttc" id="aa00447_html_a58b564301f8eb378b8f02e5bdb282a0e"><div class="ttname"><a href="a00447.html#a58b564301f8eb378b8f02e5bdb282a0e">CVector::setRand</a></div><div class="ttdeci">static void setRand(T *pfDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00082">Vector.h:82</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00122_source.html#l00082">CVector::setRand()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00431_aab4b96d92f9b9482e217d7740a559f88_cgraph.png" border="0" usemap="#aa00431_aab4b96d92f9b9482e217d7740a559f88_cgraph" alt=""/></div>
+<map name="aa00431_aab4b96d92f9b9482e217d7740a559f88_cgraph" id="aa00431_aab4b96d92f9b9482e217d7740a559f88_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,125,32"/>
+<area shape="rect" href="a00447.html#a58b564301f8eb378b8f02e5bdb282a0e" title=" " alt="" coords="173,5,296,32"/>
+<area shape="rect" href="a00439.html#a67eaa8b4b86a5c507f1fe0f1b9c92ce6" title=" " alt="" coords="344,5,493,32"/>
 </map>
 </div>
 
@@ -1450,17 +1783,17 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00263">263</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  264</span>    {</div>
-<div class="line"><span class="lineno">  265</span>        assert(ppfDestMat);</div>
-<div class="line"><span class="lineno">  266</span>        assert(pfSrcVec);</div>
-<div class="line"><span class="lineno">  267</span>        assert(iRowIdx &gt;= 0);</div>
-<div class="line"><span class="lineno">  268</span>        assert(iNumCols &gt; 0);</div>
-<div class="line"><span class="lineno">  269</span> </div>
-<div class="line"><span class="lineno">  270</span>        <a class="code hl_function" href="a00447.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(ppfDestMat[iRowIdx], pfSrcVec, iNumCols);</div>
-<div class="line"><span class="lineno">  271</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00477">477</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  478</span>    {</div>
+<div class="line"><span class="lineno">  479</span>        assert(ppfDestMat);</div>
+<div class="line"><span class="lineno">  480</span>        assert(pfSrcVec);</div>
+<div class="line"><span class="lineno">  481</span>        assert(iRowIdx &gt;= 0);</div>
+<div class="line"><span class="lineno">  482</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  483</span> </div>
+<div class="line"><span class="lineno">  484</span>        <a class="code hl_function" href="a00447.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(ppfDestMat[iRowIdx], pfSrcVec, iNumCols);</div>
+<div class="line"><span class="lineno">  485</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00122_source.html#l00097">CVector::copy()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00113">CVector::copy()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1468,6 +1801,247 @@ Here is the call graph for this function:</div>
 <map name="aa00431_ae103e51983894359c155e72398ebd8f1_cgraph" id="aa00431_ae103e51983894359c155e72398ebd8f1_cgraph">
 <area shape="rect" title=" " alt="" coords="5,5,121,32"/>
 <area shape="rect" href="a00447.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="169,5,272,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a0ae383e7642531506618691fffe25755" name="a0ae383e7642531506618691fffe25755"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0ae383e7642531506618691fffe25755">&#9670;&nbsp;</a></span>setValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CMatrix::setValue </td>
+          <td>(</td>
+          <td class="paramtype">T **&#160;</td>
+          <td class="paramname"><em>ppfMat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>tValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >sets a float matrix to zero </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfMat</td><td>pointer to memory to be set </td></tr>
+    <tr><td class="paramname">tValue</td><td>value to use </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00077">77</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   78</span>    {</div>
+<div class="line"><span class="lineno">   79</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">   80</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">   81</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">   82</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">   85</span>            <a class="code hl_function" href="a00447.html#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a>(ppfMat[m], tValue, iNumCols);</div>
+<div class="line"><span class="lineno">   86</span>    }</div>
+<div class="ttc" id="aa00447_html_a4cf9544dd96801e3ee47fd1ef2049a1b"><div class="ttname"><a href="a00447.html#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a></div><div class="ttdeci">static void setValue(T *ptDest, T tValue, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00067">Vector.h:67</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00122_source.html#l00067">CVector::setValue()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00431_a0ae383e7642531506618691fffe25755_cgraph.png" border="0" usemap="#aa00431_a0ae383e7642531506618691fffe25755_cgraph" alt=""/></div>
+<map name="aa00431_a0ae383e7642531506618691fffe25755_cgraph" id="aa00431_a0ae383e7642531506618691fffe25755_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,128,32"/>
+<area shape="rect" href="a00447.html#a4cf9544dd96801e3ee47fd1ef2049a1b" title=" " alt="" coords="176,5,303,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5c64eb95776c6a1f65e2089835a778e0" name="a5c64eb95776c6a1f65e2089835a778e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c64eb95776c6a1f65e2089835a778e0">&#9670;&nbsp;</a></span>setZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CMatrix::setZero </td>
+          <td>(</td>
+          <td class="paramtype">T **&#160;</td>
+          <td class="paramname"><em>ppfMat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >sets a float matrix to zero </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfMat</td><td>pointer to memory to be set </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00058">58</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   59</span>    {</div>
+<div class="line"><span class="lineno">   60</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">   61</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">   62</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">   63</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">   66</span>            <a class="code hl_function" href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a>(ppfMat[m], iNumCols);</div>
+<div class="line"><span class="lineno">   67</span>    }</div>
+<div class="ttc" id="aa00447_html_a6dbb3f9f480568b60f7fe50090d20003"><div class="ttname"><a href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a></div><div class="ttdeci">static void setZero(T *ptSrcDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00051">Vector.h:51</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00122_source.html#l00051">CVector::setZero()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00431_a5c64eb95776c6a1f65e2089835a778e0_cgraph.png" border="0" usemap="#aa00431_a5c64eb95776c6a1f65e2089835a778e0_cgraph" alt=""/></div>
+<map name="aa00431_a5c64eb95776c6a1f65e2089835a778e0_cgraph" id="aa00431_a5c64eb95776c6a1f65e2089835a778e0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,121,32"/>
+<area shape="rect" href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="169,5,288,32"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a2d4f47826ff87a03fd220d61f326ac5b" name="a2d4f47826ff87a03fd220d61f326ac5b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d4f47826ff87a03fd220d61f326ac5b">&#9670;&nbsp;</a></span>setZeroBelowThresh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CMatrix::setZeroBelowThresh </td>
+          <td>(</td>
+          <td class="paramtype">T **&#160;</td>
+          <td class="paramname"><em>ppfMat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>tThresh</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >sets all elements in a matrix below a threshold to zero </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfMat</td><td>pointer to memory to be set </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00132">132</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  133</span>    {</div>
+<div class="line"><span class="lineno">  134</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  135</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  136</span>        assert(ppfMat);</div>
+<div class="line"><span class="lineno">  137</span>        assert(ppfMat[0]);</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  140</span>            <a class="code hl_function" href="a00447.html#aba07261926b4c10ed7fdbe38edf6d16d">CVector::setZeroBelowThresh</a>(ppfMat[m], iNumCols, tThresh);</div>
+<div class="line"><span class="lineno">  141</span>    }</div>
+<div class="ttc" id="aa00447_html_aba07261926b4c10ed7fdbe38edf6d16d"><div class="ttname"><a href="a00447.html#aba07261926b4c10ed7fdbe38edf6d16d">CVector::setZeroBelowThresh</a></div><div class="ttdeci">static void setZeroBelowThresh(T *ptSrcDest, long long int iLength, T tThresh)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00097">Vector.h:97</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00122_source.html#l00097">CVector::setZeroBelowThresh()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00431_a2d4f47826ff87a03fd220d61f326ac5b_cgraph.png" border="0" usemap="#aa00431_a2d4f47826ff87a03fd220d61f326ac5b_cgraph" alt=""/></div>
+<map name="aa00431_a2d4f47826ff87a03fd220d61f326ac5b_cgraph" id="aa00431_a2d4f47826ff87a03fd220d61f326ac5b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,197,32"/>
+<area shape="rect" href="a00447.html#aba07261926b4c10ed7fdbe38edf6d16d" title=" " alt="" coords="245,5,440,32"/>
 </map>
 </div>
 
@@ -1529,23 +2103,23 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00220">220</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  221</span>    {</div>
-<div class="line"><span class="lineno">  222</span>        assert(iRowIdx &gt; 0);</div>
-<div class="line"><span class="lineno">  223</span>        assert(iColIdx &gt; 0);</div>
-<div class="line"><span class="lineno">  224</span>        assert(iNumCols &gt; 0);</div>
-<div class="line"><span class="lineno">  225</span>        assert(ppfSrcDest);</div>
-<div class="line"><span class="lineno">  226</span>        assert(ppfSrcDest[0]);</div>
-<div class="line"><span class="lineno">  227</span> </div>
-<div class="line"><span class="lineno">  228</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumCols; n++)</div>
-<div class="line"><span class="lineno">  229</span>        {</div>
-<div class="line"><span class="lineno">  230</span>            <span class="keywordtype">float</span> fTmp = ppfSrcDest[iRowIdx][n];</div>
-<div class="line"><span class="lineno">  231</span>            ppfSrcDest[iRowIdx][n] = ppfSrcDest[iColIdx][n];</div>
-<div class="line"><span class="lineno">  232</span>            ppfSrcDest[iColIdx][n] = fTmp;</div>
-<div class="line"><span class="lineno">  233</span>        }</div>
-<div class="line"><span class="lineno">  234</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00434">434</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  435</span>    {</div>
+<div class="line"><span class="lineno">  436</span>        assert(iRowIdx &gt; 0);</div>
+<div class="line"><span class="lineno">  437</span>        assert(iColIdx &gt; 0);</div>
+<div class="line"><span class="lineno">  438</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  439</span>        assert(ppfSrcDest);</div>
+<div class="line"><span class="lineno">  440</span>        assert(ppfSrcDest[0]);</div>
+<div class="line"><span class="lineno">  441</span> </div>
+<div class="line"><span class="lineno">  442</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumCols; n++)</div>
+<div class="line"><span class="lineno">  443</span>        {</div>
+<div class="line"><span class="lineno">  444</span>            <span class="keywordtype">float</span> fTmp = ppfSrcDest[iRowIdx][n];</div>
+<div class="line"><span class="lineno">  445</span>            ppfSrcDest[iRowIdx][n] = ppfSrcDest[iColIdx][n];</div>
+<div class="line"><span class="lineno">  446</span>            ppfSrcDest[iColIdx][n] = fTmp;</div>
+<div class="line"><span class="lineno">  447</span>        }</div>
+<div class="line"><span class="lineno">  448</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00116_source.html#l00298">inv_I()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00116_source.html#l00493">inv_I()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1561,13 +2135,156 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="ad853a511232f954cfd9ae2211759c6bf" name="ad853a511232f954cfd9ae2211759c6bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad853a511232f954cfd9ae2211759c6bf">&#9670;&nbsp;</a></span>transpose()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CMatrix::transpose </td>
+          <td>(</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfSrc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumSrcRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumSrcCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >transposes matrix ppfSrc and write the result to ppfDest </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfDest</td><td>resulting matrix of dimension iNumSrcCols x iNumSrcRows (to be written, user allocated) </td></tr>
+    <tr><td class="paramname">ppfSrc</td><td>input matrix of dimension iNumSrcRows x iNumCols </td></tr>
+    <tr><td class="paramname">iNumSrcRows</td><td>number of rows in the matrix </td></tr>
+    <tr><td class="paramname">iNumSrcCols</td><td>number of columns in the matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00221">221</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  222</span>    {</div>
+<div class="line"><span class="lineno">  223</span>        assert(iNumSrcRows &gt; 0);</div>
+<div class="line"><span class="lineno">  224</span>        assert(iNumSrcCols &gt; 0);</div>
+<div class="line"><span class="lineno">  225</span>        assert(ppfSrc);</div>
+<div class="line"><span class="lineno">  226</span>        assert(ppfSrc[0]);</div>
+<div class="line"><span class="lineno">  227</span>        assert(ppfDest);</div>
+<div class="line"><span class="lineno">  228</span>        assert(ppfDest[0]);</div>
+<div class="line"><span class="lineno">  229</span> </div>
+<div class="line"><span class="lineno">  230</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumSrcRows; m++)</div>
+<div class="line"><span class="lineno">  231</span>        {</div>
+<div class="line"><span class="lineno">  232</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumSrcCols; n++)</div>
+<div class="line"><span class="lineno">  233</span>                ppfDest[n][m] = ppfSrc[m][n];</div>
+<div class="line"><span class="lineno">  234</span>        }</div>
+<div class="line"><span class="lineno">  235</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a8711751fc46abb0e242f40cd5cb02e15" name="a8711751fc46abb0e242f40cd5cb02e15"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8711751fc46abb0e242f40cd5cb02e15">&#9670;&nbsp;</a></span>vecnorm_I()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CMatrix::vecnorm_I </td>
+          <td>(</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >normalizes each column of the matrix (p=1) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfSrcDest</td><td>resulting matrix of dimension iNumRows x iNumCols (to be written, user allocated) </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows in the matrix </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns in the matrix </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00116_source.html#l00169">169</a> of file <a class="el" href="a00116_source.html">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  170</span>    {</div>
+<div class="line"><span class="lineno">  171</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  172</span>        assert(iNumCols &gt; 0);</div>
+<div class="line"><span class="lineno">  173</span>        assert(ppfSrcDest);</div>
+<div class="line"><span class="lineno">  174</span>        assert(ppfSrcDest[0]);</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumCols; n++)</div>
+<div class="line"><span class="lineno">  177</span>        {</div>
+<div class="line"><span class="lineno">  178</span>            <span class="keywordtype">float</span> fNorm = 0;</div>
+<div class="line"><span class="lineno">  179</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  180</span>                fNorm += std::abs(ppfSrcDest[m][n]);</div>
+<div class="line"><span class="lineno">  181</span>            <span class="keywordflow">if</span> (fNorm &gt; 0)</div>
+<div class="line"><span class="lineno">  182</span>                <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iNumRows; m++)</div>
+<div class="line"><span class="lineno">  183</span>                    ppfSrcDest[m][n] /= fNorm;</div>
+<div class="line"><span class="lineno">  184</span>        }</div>
+<div class="line"><span class="lineno">  185</span>    }</div>
+</div><!-- fragment -->
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following file:<ul>
 <li><a class="el" href="a00116_source.html">Matrix.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 18:37:03 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 22:59:34 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
