@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CVector Class Reference</title>
+<title>ACA: CChordFromBlockIf Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,9 +18,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
-   <div id="projectbrief">Code for Audio Content Analysis</div>
+   <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
  </tr>
  </tbody>
@@ -47,79 +47,191 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00404.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CVector Class Reference</div></div>
+  <div class="headertitle"><div class="title">CChordFromBlockIf Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class with static functions for buffer operations with type T  
+<p>class for computation of a chord from a magnitude spectrum  
  <a href="a00407.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00107_source.html">Vector.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00107_source.html">ChordFromBlock.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CVector:</div>
+Collaboration diagram for CChordFromBlockIf:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00405.png" border="0" usemap="#aCVector_coll__map" alt="Collaboration graph"/></div>
-<map name="aCVector_coll__map" id="aCVector_coll__map">
-<area shape="rect" title="class with static functions for buffer operations with type T" alt="" coords="5,5,167,185"/>
+<div class="center"><img src="a00405.png" border="0" usemap="#aCChordFromBlockIf_coll__map" alt="Collaboration graph"/></div>
+<map name="aCChordFromBlockIf_coll__map" id="aCChordFromBlockIf_coll__map">
+<area shape="rect" title="class for computation of a chord from a magnitude spectrum" alt="" coords="38,512,199,736"/>
+<area shape="rect" href="a00415.html" title="class for computation of a feature from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,5,232,449"/>
 </map>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a3996cacb83a90e37284ca5abd2608c17"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a3996cacb83a90e37284ca5abd2608c17">compChordProb</a> (float *pfChordProb, const float *pfInput)</td></tr>
+<tr class="separator:a3996cacb83a90e37284ca5abd2608c17"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad89b487a9844f6302d8f886e64e78fbd"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad89b487a9844f6302d8f886e64e78fbd"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd">alloc</a> (T *&amp;pfVec, long long iLength)</td></tr>
-<tr class="separator:ad89b487a9844f6302d8f886e64e78fbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe5e1268bb93a077f0d4fcac90ba8039"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:afe5e1268bb93a077f0d4fcac90ba8039"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039">free</a> (T *&amp;pfVec)</td></tr>
-<tr class="separator:afe5e1268bb93a077f0d4fcac90ba8039"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6dbb3f9f480568b60f7fe50090d20003"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6dbb3f9f480568b60f7fe50090d20003"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003">setZero</a> (T *ptSrcDest, long long iLength)</td></tr>
-<tr class="separator:a6dbb3f9f480568b60f7fe50090d20003"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a4cf9544dd96801e3ee47fd1ef2049a1b">setValue</a> (T *ptDest, T tValue, long long iLength)</td></tr>
-<tr class="separator:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad84d68f82a9afecad29be0d8186f4c9e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:ad84d68f82a9afecad29be0d8186f4c9e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#ad84d68f82a9afecad29be0d8186f4c9e">setZeroBelowThresh</a> (T *ptSrcDest, long long int iLength, T Thresh)</td></tr>
-<tr class="separator:ad84d68f82a9afecad29be0d8186f4c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b811d064424381d6f210d4b7fcfaef2"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a6b811d064424381d6f210d4b7fcfaef2"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a6b811d064424381d6f210d4b7fcfaef2">copy</a> (T *ptDest, const T *pSource, long long int iLength)</td></tr>
-<tr class="separator:a6b811d064424381d6f210d4b7fcfaef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a16455e414da1bc89417716b46b212ab9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a16455e414da1bc89417716b46b212ab9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a16455e414da1bc89417716b46b212ab9">flip_I</a> (T *ptSrcDest, long long int iLength)</td></tr>
-<tr class="separator:a16455e414da1bc89417716b46b212ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a49614aaa52051b98b7f266daac9eefbb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a49614aaa52051b98b7f266daac9eefbb"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00407.html#a49614aaa52051b98b7f266daac9eefbb">moveInMem</a> (T *ptSrcDest, int iDestIdx, int iSrcIdx, long long int iLength)</td></tr>
-<tr class="separator:a49614aaa52051b98b7f266daac9eefbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac51d13fa2b36cafa4962cb3592ebfcb7"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#ac51d13fa2b36cafa4962cb3592ebfcb7">create</a> (<a class="el" href="a00407.html">CChordFromBlockIf</a> *&amp;pCInstance, int iMagSpecLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:ac51d13fa2b36cafa4962cb3592ebfcb7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa15c2f57c2552592541337926473a3d"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#afa15c2f57c2552592541337926473a3d">destroy</a> (<a class="el" href="a00407.html">CChordFromBlockIf</a> *&amp;pCInstance)</td></tr>
+<tr class="separator:afa15c2f57c2552592541337926473a3d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:a529ca766e0348bbfed1008b132fda706"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706">PitchClasses_t</a> { <br />
+&#160;&#160;<a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa56bcf50308f2c04be4515f0e265b254">kC</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706ab0bf612b0b7f5c4219cff9f12b2c1f31">kCs</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706ae50b166455e2f35f90b2c605f010fe09">kD</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706a59f0620566e639c31bab30db5c372638">kDs</a>
+, <br />
+&#160;&#160;<a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706ac82484054d9433789f14525c0b42deef">kE</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706aafdbd780e342fc20ae79fd257d3affc2">kF</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706a2cb437e0be8a078f14d4bfc334934c3d">kFs</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706a4d686fdf0cdf0a7e0541af82e204017c">kG</a>
+, <br />
+&#160;&#160;<a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706a9c11778bd4b16dbc1e224232b286ab1e">kGs</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706aee70fc5545adb3469a9520001ec6bb8a">kA</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706a5ba9f9b73c01ee22f914327f3b07c010">kAs</a>
+, <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706ad8019102ce333f4eb5e1aae6484d2825">kB</a>
+, <br />
+&#160;&#160;<a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>
+<br />
+ }</td></tr>
+<tr class="separator:a529ca766e0348bbfed1008b132fda706"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a2e221ac492231e16a62781a573921a9c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a2e221ac492231e16a62781a573921a9c">CChordFromBlockIf</a> (int iMagSpecLength, float fSampleRate)</td></tr>
+<tr class="separator:a2e221ac492231e16a62781a573921a9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af783b5570bc292cf87a9421aa9272a7b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#af783b5570bc292cf87a9421aa9272a7b">~CChordFromBlockIf</a> ()</td></tr>
+<tr class="separator:af783b5570bc292cf87a9421aa9272a7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0ddb92a2f112a5e7b5efabcf4b66dd9"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#ae0ddb92a2f112a5e7b5efabcf4b66dd9">CChordFromBlockIf</a> (const <a class="el" href="a00407.html">CChordFromBlockIf</a> &amp;that)</td></tr>
+<tr class="separator:ae0ddb92a2f112a5e7b5efabcf4b66dd9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8388ced682f516ac1a9a64033a11e9ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00407.html">CChordFromBlockIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a8388ced682f516ac1a9a64033a11e9ea">operator=</a> (const <a class="el" href="a00407.html">CChordFromBlockIf</a> &amp;c)</td></tr>
+<tr class="separator:a8388ced682f516ac1a9a64033a11e9ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab2c2fed87717cbeca6d10d0438a12c47"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#ab2c2fed87717cbeca6d10d0438a12c47">genTemplateMatrix_</a> ()</td></tr>
+<tr class="separator:ab2c2fed87717cbeca6d10d0438a12c47"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:af14667f7495b67b0d2bdd0ccd0a40a1a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#af14667f7495b67b0d2bdd0ccd0a40a1a">m_iMagSpecLength</a> = 0</td></tr>
+<tr class="memdesc:af14667f7495b67b0d2bdd0ccd0a40a1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00407.html#af14667f7495b67b0d2bdd0ccd0a40a1a">More...</a><br /></td></tr>
+<tr class="separator:af14667f7495b67b0d2bdd0ccd0a40a1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad47a5d9f79118a0211789990dabd0140"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#ad47a5d9f79118a0211789990dabd0140">m_fSampleRate</a> = 0</td></tr>
+<tr class="memdesc:ad47a5d9f79118a0211789990dabd0140"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00407.html#ad47a5d9f79118a0211789990dabd0140">More...</a><br /></td></tr>
+<tr class="separator:ad47a5d9f79118a0211789990dabd0140"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa449dd64acb5ed4dc94eaceb85e23391"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#aa449dd64acb5ed4dc94eaceb85e23391">m_pfPitchChroma</a> = 0</td></tr>
+<tr class="memdesc:aa449dd64acb5ed4dc94eaceb85e23391"><td class="mdescLeft">&#160;</td><td class="mdescRight">current pitch chroma  <a href="a00407.html#aa449dd64acb5ed4dc94eaceb85e23391">More...</a><br /></td></tr>
+<tr class="separator:aa449dd64acb5ed4dc94eaceb85e23391"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89f8838207a7fc2ab0206ca946f0d2a5"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a> = 0</td></tr>
+<tr class="memdesc:a89f8838207a7fc2ab0206ca946f0d2a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">matrix holding all chord templates  <a href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">More...</a><br /></td></tr>
+<tr class="separator:a89f8838207a7fc2ab0206ca946f0d2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56e672da365101383488872334ef086e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00415.html">CFeatureFromBlockIf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00407.html#a56e672da365101383488872334ef086e">m_pCFeatureExtractor</a> = 0</td></tr>
+<tr class="memdesc:a56e672da365101383488872334ef086e"><td class="mdescLeft">&#160;</td><td class="mdescRight">instance for pitch chroma extraction  <a href="a00407.html#a56e672da365101383488872334ef086e">More...</a><br /></td></tr>
+<tr class="separator:a56e672da365101383488872334ef086e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class with static functions for buffer operations with type T </p>
+<div class="textblock"><p >class for computation of a chord from a magnitude spectrum </p>
 
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00012">12</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad89b487a9844f6302d8f886e64e78fbd" name="ad89b487a9844f6302d8f886e64e78fbd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad89b487a9844f6302d8f886e64e78fbd">&#9670;&nbsp;</a></span>alloc()</h2>
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00012">12</a> of file <a class="el" href="a00107_source.html">ChordFromBlock.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a529ca766e0348bbfed1008b132fda706" name="a529ca766e0348bbfed1008b132fda706"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a529ca766e0348bbfed1008b132fda706">&#9670;&nbsp;</a></span>PitchClasses_t</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CVector::alloc </td>
+          <td class="memname">enum <a class="el" href="a00407.html#a529ca766e0348bbfed1008b132fda706">CChordFromBlockIf::PitchClasses_t</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706aa56bcf50308f2c04be4515f0e265b254" name="a529ca766e0348bbfed1008b132fda706aa56bcf50308f2c04be4515f0e265b254"></a>kC&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706ab0bf612b0b7f5c4219cff9f12b2c1f31" name="a529ca766e0348bbfed1008b132fda706ab0bf612b0b7f5c4219cff9f12b2c1f31"></a>kCs&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706ae50b166455e2f35f90b2c605f010fe09" name="a529ca766e0348bbfed1008b132fda706ae50b166455e2f35f90b2c605f010fe09"></a>kD&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706a59f0620566e639c31bab30db5c372638" name="a529ca766e0348bbfed1008b132fda706a59f0620566e639c31bab30db5c372638"></a>kDs&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706ac82484054d9433789f14525c0b42deef" name="a529ca766e0348bbfed1008b132fda706ac82484054d9433789f14525c0b42deef"></a>kE&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706aafdbd780e342fc20ae79fd257d3affc2" name="a529ca766e0348bbfed1008b132fda706aafdbd780e342fc20ae79fd257d3affc2"></a>kF&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706a2cb437e0be8a078f14d4bfc334934c3d" name="a529ca766e0348bbfed1008b132fda706a2cb437e0be8a078f14d4bfc334934c3d"></a>kFs&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706a4d686fdf0cdf0a7e0541af82e204017c" name="a529ca766e0348bbfed1008b132fda706a4d686fdf0cdf0a7e0541af82e204017c"></a>kG&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706a9c11778bd4b16dbc1e224232b286ab1e" name="a529ca766e0348bbfed1008b132fda706a9c11778bd4b16dbc1e224232b286ab1e"></a>kGs&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706aee70fc5545adb3469a9520001ec6bb8a" name="a529ca766e0348bbfed1008b132fda706aee70fc5545adb3469a9520001ec6bb8a"></a>kA&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706a5ba9f9b73c01ee22f914327f3b07c010" name="a529ca766e0348bbfed1008b132fda706a5ba9f9b73c01ee22f914327f3b07c010"></a>kAs&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706ad8019102ce333f4eb5e1aae6484d2825" name="a529ca766e0348bbfed1008b132fda706ad8019102ce333f4eb5e1aae6484d2825"></a>kB&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce" name="a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce"></a>kNumPitchClasses&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00038">38</a> of file <a class="el" href="a00107_source.html">ChordFromBlock.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   39</span>    {</div>
+<div class="line"><span class="lineno">   40</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa56bcf50308f2c04be4515f0e265b254">kC</a>,</div>
+<div class="line"><span class="lineno">   41</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706ab0bf612b0b7f5c4219cff9f12b2c1f31">kCs</a>,</div>
+<div class="line"><span class="lineno">   42</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706ae50b166455e2f35f90b2c605f010fe09">kD</a>,</div>
+<div class="line"><span class="lineno">   43</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706a59f0620566e639c31bab30db5c372638">kDs</a>,</div>
+<div class="line"><span class="lineno">   44</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706ac82484054d9433789f14525c0b42deef">kE</a>,</div>
+<div class="line"><span class="lineno">   45</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aafdbd780e342fc20ae79fd257d3affc2">kF</a>,</div>
+<div class="line"><span class="lineno">   46</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706a2cb437e0be8a078f14d4bfc334934c3d">kFs</a>,</div>
+<div class="line"><span class="lineno">   47</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706a4d686fdf0cdf0a7e0541af82e204017c">kG</a>,</div>
+<div class="line"><span class="lineno">   48</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706a9c11778bd4b16dbc1e224232b286ab1e">kGs</a>,</div>
+<div class="line"><span class="lineno">   49</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aee70fc5545adb3469a9520001ec6bb8a">kA</a>,</div>
+<div class="line"><span class="lineno">   50</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706a5ba9f9b73c01ee22f914327f3b07c010">kAs</a>,</div>
+<div class="line"><span class="lineno">   51</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706ad8019102ce333f4eb5e1aae6484d2825">kB</a>,</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>        <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a></div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>    };</div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706a2cb437e0be8a078f14d4bfc334934c3d"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706a2cb437e0be8a078f14d4bfc334934c3d">CChordFromBlockIf::kFs</a></div><div class="ttdeci">@ kFs</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00046">ChordFromBlock.h:46</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706a4d686fdf0cdf0a7e0541af82e204017c"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706a4d686fdf0cdf0a7e0541af82e204017c">CChordFromBlockIf::kG</a></div><div class="ttdeci">@ kG</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00047">ChordFromBlock.h:47</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706a59f0620566e639c31bab30db5c372638"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706a59f0620566e639c31bab30db5c372638">CChordFromBlockIf::kDs</a></div><div class="ttdeci">@ kDs</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00043">ChordFromBlock.h:43</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706a5ba9f9b73c01ee22f914327f3b07c010"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706a5ba9f9b73c01ee22f914327f3b07c010">CChordFromBlockIf::kAs</a></div><div class="ttdeci">@ kAs</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00050">ChordFromBlock.h:50</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706a9c11778bd4b16dbc1e224232b286ab1e"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706a9c11778bd4b16dbc1e224232b286ab1e">CChordFromBlockIf::kGs</a></div><div class="ttdeci">@ kGs</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00048">ChordFromBlock.h:48</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706aa56bcf50308f2c04be4515f0e265b254"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706aa56bcf50308f2c04be4515f0e265b254">CChordFromBlockIf::kC</a></div><div class="ttdeci">@ kC</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00040">ChordFromBlock.h:40</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">CChordFromBlockIf::kNumPitchClasses</a></div><div class="ttdeci">@ kNumPitchClasses</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00055">ChordFromBlock.h:53</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706aafdbd780e342fc20ae79fd257d3affc2"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706aafdbd780e342fc20ae79fd257d3affc2">CChordFromBlockIf::kF</a></div><div class="ttdeci">@ kF</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00045">ChordFromBlock.h:45</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706ab0bf612b0b7f5c4219cff9f12b2c1f31"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706ab0bf612b0b7f5c4219cff9f12b2c1f31">CChordFromBlockIf::kCs</a></div><div class="ttdeci">@ kCs</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00041">ChordFromBlock.h:41</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706ac82484054d9433789f14525c0b42deef"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706ac82484054d9433789f14525c0b42deef">CChordFromBlockIf::kE</a></div><div class="ttdeci">@ kE</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00044">ChordFromBlock.h:44</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706ad8019102ce333f4eb5e1aae6484d2825"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706ad8019102ce333f4eb5e1aae6484d2825">CChordFromBlockIf::kB</a></div><div class="ttdeci">@ kB</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00051">ChordFromBlock.h:51</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706ae50b166455e2f35f90b2c605f010fe09"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706ae50b166455e2f35f90b2c605f010fe09">CChordFromBlockIf::kD</a></div><div class="ttdeci">@ kD</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00042">ChordFromBlock.h:42</a></div></div>
+<div class="ttc" id="aa00407_html_a529ca766e0348bbfed1008b132fda706aee70fc5545adb3469a9520001ec6bb8a"><div class="ttname"><a href="a00407.html#a529ca766e0348bbfed1008b132fda706aee70fc5545adb3469a9520001ec6bb8a">CChordFromBlockIf::kA</a></div><div class="ttdeci">@ kA</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00049">ChordFromBlock.h:49</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a2e221ac492231e16a62781a573921a9c" name="a2e221ac492231e16a62781a573921a9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2e221ac492231e16a62781a573921a9c">&#9670;&nbsp;</a></span>CChordFromBlockIf() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CChordFromBlockIf::CChordFromBlockIf </td>
           <td>(</td>
-          <td class="paramtype">T *&amp;&#160;</td>
-          <td class="paramname"><em>pfVec</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iMagSpecLength</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fSampleRate</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -129,130 +241,162 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >allocates a float buffer and inits it with zeros </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pfVec</td><td>(empty pointer, to be allocated) </td></tr>
-    <tr><td class="paramname">iLength</td><td>number of floats </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00022">22</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   23</span>    {</div>
-<div class="line"><span class="lineno">   24</span>        assert(iLength &gt; 0);</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span>        pfVec = <span class="keyword">new</span> T[iLength];</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>        assert(pfVec);</div>
-<div class="line"><span class="lineno">   29</span>        <a class="code hl_function" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003">setZero</a>(pfVec, iLength);</div>
-<div class="line"><span class="lineno">   30</span>    }</div>
-<div class="ttc" id="aa00407_html_a6dbb3f9f480568b60f7fe50090d20003"><div class="ttname"><a href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a></div><div class="ttdeci">static void setZero(T *ptSrcDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00049">Vector.h:49</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00050_source.html#l00052">52</a> of file <a class="el" href="a00050_source.html">ChordFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>                                                                                 : <a class="code hl_variable" href="a00407.html#af14667f7495b67b0d2bdd0ccd0a40a1a">m_iMagSpecLength</a>(iMagSpecLength), <a class="code hl_variable" href="a00407.html#ad47a5d9f79118a0211789990dabd0140">m_fSampleRate</a>(fSampleRate)</div>
+<div class="line"><span class="lineno">   53</span>{</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_function" href="a00447.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00407.html#aa449dd64acb5ed4dc94eaceb85e23391">m_pfPitchChroma</a>, <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>);</div>
+<div class="line"><span class="lineno">   55</span>    <a class="code hl_function" href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a>, <a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a">CChordIf::kNumChords</a>, <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>);</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>    <a class="code hl_function" href="a00415.html#a6d3ca4f66582ae352e3addfd7f99a752">CFeatureFromBlockIf::create</a>(<a class="code hl_variable" href="a00407.html#a56e672da365101383488872334ef086e">m_pCFeatureExtractor</a>, <a class="code hl_enumvalue" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3a6cca75d6d116b2284ae19d2b75093198">CFeatureIf::kFeatureSpectralPitchChroma</a>, <a class="code hl_variable" href="a00407.html#af14667f7495b67b0d2bdd0ccd0a40a1a">m_iMagSpecLength</a>, <a class="code hl_variable" href="a00407.html#ad47a5d9f79118a0211789990dabd0140">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>    <a class="code hl_function" href="a00407.html#ab2c2fed87717cbeca6d10d0438a12c47">genTemplateMatrix_</a>();</div>
+<div class="line"><span class="lineno">   60</span>}</div>
+<div class="ttc" id="aa00403_html_ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a"><div class="ttname"><a href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a">CChordIf::kNumChords</a></div><div class="ttdeci">@ kNumChords</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00054">Chord.h:53</a></div></div>
+<div class="ttc" id="aa00407_html_a56e672da365101383488872334ef086e"><div class="ttname"><a href="a00407.html#a56e672da365101383488872334ef086e">CChordFromBlockIf::m_pCFeatureExtractor</a></div><div class="ttdeci">CFeatureFromBlockIf * m_pCFeatureExtractor</div><div class="ttdoc">instance for pitch chroma extraction</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00070">ChordFromBlock.h:70</a></div></div>
+<div class="ttc" id="aa00407_html_a89f8838207a7fc2ab0206ca946f0d2a5"><div class="ttname"><a href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">CChordFromBlockIf::m_ppfTemplateMatrix</a></div><div class="ttdeci">float ** m_ppfTemplateMatrix</div><div class="ttdoc">matrix holding all chord templates</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00068">ChordFromBlock.h:68</a></div></div>
+<div class="ttc" id="aa00407_html_aa449dd64acb5ed4dc94eaceb85e23391"><div class="ttname"><a href="a00407.html#aa449dd64acb5ed4dc94eaceb85e23391">CChordFromBlockIf::m_pfPitchChroma</a></div><div class="ttdeci">float * m_pfPitchChroma</div><div class="ttdoc">current pitch chroma</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00066">ChordFromBlock.h:66</a></div></div>
+<div class="ttc" id="aa00407_html_ab2c2fed87717cbeca6d10d0438a12c47"><div class="ttname"><a href="a00407.html#ab2c2fed87717cbeca6d10d0438a12c47">CChordFromBlockIf::genTemplateMatrix_</a></div><div class="ttdeci">void genTemplateMatrix_()</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00070">ChordFromBlock.cpp:70</a></div></div>
+<div class="ttc" id="aa00407_html_ad47a5d9f79118a0211789990dabd0140"><div class="ttname"><a href="a00407.html#ad47a5d9f79118a0211789990dabd0140">CChordFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00064">ChordFromBlock.h:64</a></div></div>
+<div class="ttc" id="aa00407_html_af14667f7495b67b0d2bdd0ccd0a40a1a"><div class="ttname"><a href="a00407.html#af14667f7495b67b0d2bdd0ccd0a40a1a">CChordFromBlockIf::m_iMagSpecLength</a></div><div class="ttdeci">int m_iMagSpecLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00063">ChordFromBlock.h:63</a></div></div>
+<div class="ttc" id="aa00411_html_a47ca14941c604beb42d60164b3e5e6b3a6cca75d6d116b2284ae19d2b75093198"><div class="ttname"><a href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3a6cca75d6d116b2284ae19d2b75093198">CFeatureIf::kFeatureSpectralPitchChroma</a></div><div class="ttdeci">@ kFeatureSpectralPitchChroma</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.html#l00032">Feature.h:32</a></div></div>
+<div class="ttc" id="aa00415_html_a6d3ca4f66582ae352e3addfd7f99a752"><div class="ttname"><a href="a00415.html#a6d3ca4f66582ae352e3addfd7f99a752">CFeatureFromBlockIf::create</a></div><div class="ttdeci">static Error_t create(CFeatureFromBlockIf *&amp;pCInstance, CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00950">FeatureFromBlock.cpp:950</a></div></div>
+<div class="ttc" id="aa00431_html_ae669c592fc063391aeb77e07cbc9d4bc"><div class="ttname"><a href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00021">Matrix.h:21</a></div></div>
+<div class="ttc" id="aa00447_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00447.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00022">Vector.h:22</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00107_source.html#l00049">setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00116_source.html#l00021">CMatrix::alloc()</a>, <a class="el" href="a00041_source.html#l00950">CFeatureFromBlockIf::create()</a>, <a class="el" href="a00050_source.html#l00070">genTemplateMatrix_()</a>, <a class="el" href="a00179_source.html#l00032">CFeatureIf::kFeatureSpectralPitchChroma</a>, <a class="el" href="a00143_source.html#l00053">CChordIf::kNumChords</a>, <a class="el" href="a00107_source.html#l00053">kNumPitchClasses</a>, <a class="el" href="a00107_source.html#l00064">m_fSampleRate</a>, <a class="el" href="a00107_source.html#l00063">m_iMagSpecLength</a>, <a class="el" href="a00107_source.html#l00070">m_pCFeatureExtractor</a>, <a class="el" href="a00107_source.html#l00066">m_pfPitchChroma</a>, and <a class="el" href="a00107_source.html#l00068">m_ppfTemplateMatrix</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00101_source.html#l00021">CMatrix::alloc()</a>, <a class="el" href="a00053_source.html#l00263">CFft::allocMemory_()</a>, <a class="el" href="a00104_source.html#l00301">CButterLp::calcCoeffs()</a>, <a class="el" href="a00059_source.html#l00123">CBlockAudioBuffer::CBlockAudioBuffer()</a>, <a class="el" href="a00038_source.html#l00329">CFeatureSpectralFlux::CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.html#l00360">CFeatureSpectralMfccs::CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00727">CFeatureTimeMaxAcf::CFeatureTimeMaxAcf()</a>, <a class="el" href="a00137_source.html#l00016">CInstFreq::CInstFreq()</a>, <a class="el" href="a00092_source.html#l00049">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00050_source.html#l00070">CNoveltyFromBlockIf::CNoveltyFromBlockIf()</a>, <a class="el" href="a00068_source.html#l00179">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00071_source.html#l00019">CPitchSpectralAcf::CPitchSpectralAcf()</a>, <a class="el" href="a00071_source.html#l00092">CPitchSpectralHps::CPitchSpectralHps()</a>, <a class="el" href="a00071_source.html#l00142">CPitchTimeAcf::CPitchTimeAcf()</a>, <a class="el" href="a00071_source.html#l00216">CPitchTimeAuditory::CPitchTimeAuditory()</a>, <a class="el" href="a00146_source.html#l00234">CMovingAverage::filtfilt()</a>, <a class="el" href="a00104_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00065_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00104_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00074_source.html#l00020">CCcf::init()</a>, <a class="el" href="a00047_source.html#l00033">CDtw::init()</a>, <a class="el" href="a00077_source.html#l00495">CGammaToneFbIf::init_()</a>, <a class="el" href="a00062_source.html#l00227">CBeatHistoIf::init_()</a>, <a class="el" href="a00044_source.html#l00342">CFeatureIf::init_()</a>, <a class="el" href="a00065_source.html#l00260">CSpectrogramIf::init_()</a>, <a class="el" href="a00068_source.html#l00314">CNoveltyIf::init_()</a>, <a class="el" href="a00056_source.html#l00293">CPitchIf::init_()</a>, <a class="el" href="a00149_source.html#l00102">CResample::process()</a>, and <a class="el" href="a00104_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00050_source.html#l00009">create()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_ad89b487a9844f6302d8f886e64e78fbd_cgraph.png" border="0" usemap="#aa00407_ad89b487a9844f6302d8f886e64e78fbd_cgraph" alt=""/></div>
-<map name="aa00407_ad89b487a9844f6302d8f886e64e78fbd_cgraph" id="aa00407_ad89b487a9844f6302d8f886e64e78fbd_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,108,32"/>
-<area shape="rect" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="156,5,275,32"/>
+<div class="center"><img src="a00407_a2e221ac492231e16a62781a573921a9c_cgraph.png" border="0" usemap="#aa00407_a2e221ac492231e16a62781a573921a9c_cgraph" alt=""/></div>
+<map name="aa00407_a2e221ac492231e16a62781a573921a9c_cgraph" id="aa00407_a2e221ac492231e16a62781a573921a9c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,53,148,94"/>
+<area shape="rect" href="a00447.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="415,5,518,32"/>
+<area shape="rect" href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="220,31,319,57"/>
+<area shape="rect" href="a00415.html#a6d3ca4f66582ae352e3addfd7f99a752" title=" " alt="" coords="196,82,343,123"/>
+<area shape="rect" href="a00407.html#ab2c2fed87717cbeca6d10d0438a12c47" title=" " alt="" coords="198,147,341,189"/>
+<area shape="rect" href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="591,5,709,32"/>
+<area shape="rect" href="a00415.html#a483bca508e2817799a3173a6180d245e" title=" " alt="" coords="391,82,543,123"/>
+<area shape="rect" href="a00451.html#af10e45e34254ef453abff50282a8b746" title=" " alt="" coords="394,155,539,181"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_ad89b487a9844f6302d8f886e64e78fbd_icgraph.png" border="0" usemap="#aa00407_ad89b487a9844f6302d8f886e64e78fbd_icgraph" alt=""/></div>
-<map name="aa00407_ad89b487a9844f6302d8f886e64e78fbd_icgraph" id="aa00407_ad89b487a9844f6302d8f886e64e78fbd_icgraph">
-<area shape="rect" title=" " alt="" coords="1256,1039,1359,1066"/>
-<area shape="rect" href="a00391.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="1061,327,1160,354"/>
-<area shape="rect" href="a00247.html#a4ffe272900bf3ba5bbab219262506455" title=" " alt="" coords="773,41,938,83"/>
-<area shape="rect" href="a00307.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="227,664,370,705"/>
-<area shape="rect" href="a00431.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="771,568,940,609"/>
-<area shape="rect" href="a00479.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="817,466,894,493"/>
-<area shape="rect" href="a00383.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="504,365,644,391"/>
-<area shape="rect" href="a00383.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="253,365,345,391"/>
-<area shape="rect" href="a00475.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,671,147,698"/>
-<area shape="rect" href="a00379.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="1044,1090,1177,1117"/>
-<area shape="rect" href="a00455.html#a4b3af2ff4c095211a3c89701a6fdb9db" title=" " alt="" coords="503,989,645,1015"/>
-<area shape="rect" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="537,1039,611,1066"/>
-<area shape="rect" href="a00267.html#a541f40820696e37cc302fc780b8313ee" title=" " alt="" coords="221,912,376,953"/>
-<area shape="rect" href="a00295.html#ad7f64995a5d0ca75139e400172a9ab42" title=" " alt="" coords="231,1029,366,1071"/>
-<area shape="rect" href="a00303.html#acd4920798f76cfa56accd9ba28dad6ae" title=" " alt="" coords="197,1095,401,1122"/>
-<area shape="rect" href="a00371.html#ab38ca831ee8ae42a8a95e33af4f756ba" title="init configuration" alt="" coords="517,786,631,813"/>
-<area shape="rect" href="a00431.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="503,1242,645,1269"/>
-<area shape="rect" href="a00415.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="517,1293,631,1319"/>
-<area shape="rect" href="a00423.html#a3a966aff4a49e12324f205b20c5f2232" title="init configuration" alt="" coords="525,1343,623,1370"/>
-<area shape="rect" href="a00387.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="500,634,648,661"/>
-<area shape="rect" href="a00331.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="1042,1445,1179,1487"/>
-<area shape="rect" href="a00243.html#a1a45f132f54b2f2f3d63f0827dc8300f" title=" " alt="" coords="1034,1511,1187,1552"/>
-<area shape="rect" href="a00471.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="1013,1576,1208,1617"/>
-<area shape="rect" href="a00419.html#a9bd729b91b67944f16547f85090b9eae" title=" " alt="" coords="1035,1641,1187,1683"/>
-<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="773,913,938,939"/>
-<area shape="rect" href="a00299.html#a5c1be3a6a8f0517c57384938dcad343d" title=" " alt="" coords="1041,1707,1180,1748"/>
-<area shape="rect" href="a00463.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="1034,938,1187,965"/>
-<area shape="rect" href="a00383.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="533,735,615,762"/>
-<area shape="rect" href="a00451.html#a0b3ba7948620d116d8fcee83010c56ba" title="init configuration" alt="" coords="1031,1773,1190,1799"/>
-<area shape="rect" href="a00367.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="1047,1827,1174,1854"/>
-<area shape="rect" href="a00247.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="776,107,935,148"/>
-<area shape="rect" href="a00327.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="745,173,965,199"/>
-<area shape="rect" href="a00251.html#a388f9c7dd2074706d723e31b421f16fa" title=" " alt="" coords="753,224,957,265"/>
-<area shape="rect" href="a00391.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="805,365,905,391"/>
-<area shape="rect" href="a00431.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="451,517,697,543"/>
-<area shape="rect" href="a00431.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="458,568,690,609"/>
-<area shape="rect" href="a00379.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="820,1090,891,1117"/>
-<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="202,978,395,1005"/>
-<area shape="rect" href="a00235.html#abdd90edbfe131bcd181d9ffac77fab8e" title=" " alt="" coords="206,781,391,823"/>
-<area shape="rect" href="a00239.html#a686d96f3eac3a33378fcea886d687305" title=" " alt="" coords="224,847,373,888"/>
-<area shape="rect" href="a00319.html#aeac8291805613de79ed584829d3d5f30" title=" " alt="" coords="217,1147,380,1188"/>
-<area shape="rect" href="a00323.html#a2c6b75c7c05204bec34db9c8ec6c40d1" title=" " alt="" coords="209,1212,388,1253"/>
-<area shape="rect" href="a00279.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="206,1277,391,1319"/>
-<area shape="rect" href="a00283.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="224,1343,373,1384"/>
-<area shape="rect" href="a00287.html#ab74f454ce0bbdccd22a38066ce26b16a" title=" " alt="" coords="195,1409,403,1435"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="549,887,599,914"/>
-<area shape="rect" href="a00339.html#aec7867658e2991c8526c78666c960920" title=" " alt="" coords="766,1667,945,1708"/>
-<area shape="rect" href="a00343.html#a01a1b74d93af0810f5f4962b2578ca11" title=" " alt="" coords="758,1732,953,1773"/>
-<area shape="rect" href="a00347.html#a016022732eaec0576f3a8dfc8158fcae" title=" " alt="" coords="764,1797,947,1839"/>
-<area shape="rect" href="a00367.html#a9b3f72cb0d46466cf0aa38540b9980a5" title=" " alt="" coords="786,1863,925,1890"/>
+<div class="center"><img src="a00407_a2e221ac492231e16a62781a573921a9c_icgraph.png" border="0" usemap="#aa00407_a2e221ac492231e16a62781a573921a9c_icgraph" alt=""/></div>
+<map name="aa00407_a2e221ac492231e16a62781a573921a9c_icgraph" id="aa00407_a2e221ac492231e16a62781a573921a9c_icgraph">
+<area shape="rect" title=" " alt="" coords="611,27,753,69"/>
+<area shape="rect" href="a00407.html#ac51d13fa2b36cafa4962cb3592ebfcb7" title=" " alt="" coords="420,27,563,69"/>
+<area shape="rect" href="a00403.html#ad48a5bd574f16b7491b70efb9998935f" title="init configuration" alt="" coords="269,35,372,61"/>
+<area shape="rect" href="a00259.html#a6df404d2eb3d4c8f9dc2071930fc9e7e" title=" " alt="" coords="5,5,221,32"/>
+<area shape="rect" href="a00263.html#ac9c41c2ddc441df7e0ae80c25971c260" title=" " alt="" coords="22,57,205,98"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a6b811d064424381d6f210d4b7fcfaef2" name="a6b811d064424381d6f210d4b7fcfaef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b811d064424381d6f210d4b7fcfaef2">&#9670;&nbsp;</a></span>copy()</h2>
+<a id="af783b5570bc292cf87a9421aa9272a7b" name="af783b5570bc292cf87a9421aa9272a7b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af783b5570bc292cf87a9421aa9272a7b">&#9670;&nbsp;</a></span>~CChordFromBlockIf()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CVector::copy </td>
+          <td class="memname">CChordFromBlockIf::~CChordFromBlockIf </td>
           <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptDest</em>, </td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00050_source.html#l00062">62</a> of file <a class="el" href="a00050_source.html">ChordFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   63</span>{</div>
+<div class="line"><span class="lineno">   64</span>    <a class="code hl_function" href="a00447.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00407.html#aa449dd64acb5ed4dc94eaceb85e23391">m_pfPitchChroma</a>);</div>
+<div class="line"><span class="lineno">   65</span>    <a class="code hl_function" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a>, <a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a">CChordIf::kNumChords</a>);</div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>    <a class="code hl_function" href="a00415.html#a300e7b2134b2bd0faaa24cfecbd9cb51">CFeatureFromBlockIf::destroy</a>(<a class="code hl_variable" href="a00407.html#a56e672da365101383488872334ef086e">m_pCFeatureExtractor</a>);</div>
+<div class="line"><span class="lineno">   68</span>}</div>
+<div class="ttc" id="aa00415_html_a300e7b2134b2bd0faaa24cfecbd9cb51"><div class="ttname"><a href="a00415.html#a300e7b2134b2bd0faaa24cfecbd9cb51">CFeatureFromBlockIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CFeatureFromBlockIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l01012">FeatureFromBlock.cpp:1012</a></div></div>
+<div class="ttc" id="aa00431_html_afbf24cb4ce4f9b46456419d939eab052"><div class="ttname"><a href="a00431.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;ppfMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00039">Matrix.h:39</a></div></div>
+<div class="ttc" id="aa00447_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00447.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00037">Vector.h:37</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00041_source.html#l01012">CFeatureFromBlockIf::destroy()</a>, <a class="el" href="a00122_source.html#l00037">CVector::free()</a>, <a class="el" href="a00116_source.html#l00039">CMatrix::free()</a>, <a class="el" href="a00143_source.html#l00053">CChordIf::kNumChords</a>, <a class="el" href="a00107_source.html#l00070">m_pCFeatureExtractor</a>, <a class="el" href="a00107_source.html#l00066">m_pfPitchChroma</a>, and <a class="el" href="a00107_source.html#l00068">m_ppfTemplateMatrix</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00407_af783b5570bc292cf87a9421aa9272a7b_cgraph.png" border="0" usemap="#aa00407_af783b5570bc292cf87a9421aa9272a7b_cgraph" alt=""/></div>
+<map name="aa00407_af783b5570bc292cf87a9421aa9272a7b_cgraph" id="aa00407_af783b5570bc292cf87a9421aa9272a7b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,64,148,105"/>
+<area shape="rect" href="a00415.html#a300e7b2134b2bd0faaa24cfecbd9cb51" title=" " alt="" coords="196,5,343,47"/>
+<area shape="rect" href="a00447.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="391,97,488,123"/>
+<area shape="rect" href="a00431.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="222,122,317,149"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae0ddb92a2f112a5e7b5efabcf4b66dd9" name="ae0ddb92a2f112a5e7b5efabcf4b66dd9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0ddb92a2f112a5e7b5efabcf4b66dd9">&#9670;&nbsp;</a></span>CChordFromBlockIf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CChordFromBlockIf::CChordFromBlockIf </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00407.html">CChordFromBlockIf</a> &amp;&#160;</td>
+          <td class="paramname"><em>that</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a3996cacb83a90e37284ca5abd2608c17" name="a3996cacb83a90e37284ca5abd2608c17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3996cacb83a90e37284ca5abd2608c17">&#9670;&nbsp;</a></span>compChordProb()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CChordFromBlockIf::compChordProb </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>pfChordProb</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>pSource</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long int&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>pfInput</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -262,305 +406,106 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >copies buffer of type T </p><dl class="params"><dt>Parameters</dt><dd>
+<p >calculates the chord probabilities </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ptDest</td><td>pointer to destination memory </td></tr>
-    <tr><td class="paramname">pSource</td><td>pointer to source memory </td></tr>
-    <tr><td class="paramname">iLength</td><td>length of buffer </td></tr>
+    <tr><td class="paramname">pfChordProb</td><td>resulting chord probabilities (user allocated, length kNumChords) </td></tr>
+    <tr><td class="paramname">pfInput</td><td>input data of length iMagSpecLength </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00097">97</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   98</span>    {</div>
-<div class="line"><span class="lineno">   99</span>        assert(iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  100</span> </div>
-<div class="line"><span class="lineno">  101</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
-<div class="line"><span class="lineno">  102</span>        {</div>
-<div class="line"><span class="lineno">  103</span>            assert(ptDest);</div>
-<div class="line"><span class="lineno">  104</span>            assert(pSource);</div>
-<div class="line"><span class="lineno">  105</span>            memcpy(ptDest, pSource, <span class="keyword">sizeof</span>(T)*iLength);</div>
-<div class="line"><span class="lineno">  106</span>        }</div>
-<div class="line"><span class="lineno">  107</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00050_source.html#l00029">29</a> of file <a class="el" href="a00050_source.html">ChordFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   30</span>{</div>
+<div class="line"><span class="lineno">   31</span>    <span class="comment">// compute pitch chroma</span></div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_variable" href="a00407.html#a56e672da365101383488872334ef086e">m_pCFeatureExtractor</a>-&gt;<a class="code hl_function" href="a00415.html#aefd1cebf296212209ba41f38939e07bf">compFeature</a>(<a class="code hl_variable" href="a00407.html#aa449dd64acb5ed4dc94eaceb85e23391">m_pfPitchChroma</a>, pfInput);</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="a00451.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(<a class="code hl_variable" href="a00407.html#aa449dd64acb5ed4dc94eaceb85e23391">m_pfPitchChroma</a>, <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>) &lt;= 1e-20F)</div>
+<div class="line"><span class="lineno">   35</span>    {</div>
+<div class="line"><span class="lineno">   36</span>        <a class="code hl_function" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfChordProb, <a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a">CChordIf::kNumChords</a>);</div>
+<div class="line"><span class="lineno">   37</span>        pfChordProb[<a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada62e4f5e3d993820970eb235469434582">CChordIf::kNoChord</a>] = 1.F;</div>
+<div class="line"><span class="lineno">   38</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   39</span>    }</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="comment">// get chord probs with template</span></div>
+<div class="line"><span class="lineno">   42</span>    <a class="code hl_function" href="a00431.html#ab714a555729264f7fc4ef0f48065d7fe">CMatrix::mulMatColVec</a>(pfChordProb, <a class="code hl_variable" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a>, <a class="code hl_variable" href="a00407.html#aa449dd64acb5ed4dc94eaceb85e23391">m_pfPitchChroma</a>, <a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a">CChordIf::kNumChords</a>, <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>);</div>
+<div class="line"><span class="lineno">   43</span> </div>
+<div class="line"><span class="lineno">   44</span>    assert(<a class="code hl_function" href="a00451.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(pfChordProb, <a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a">CChordIf::kNumChords</a>) &gt; 0);</div>
+<div class="line"><span class="lineno">   45</span> </div>
+<div class="line"><span class="lineno">   46</span>    <span class="comment">// normalize to probability of 1</span></div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_function" href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a>(pfChordProb, 1.F / <a class="code hl_function" href="a00451.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a>(pfChordProb, <a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a">CChordIf::kNumChords</a>), <a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada0d262c71a2a078822913fc73a8dab56a">CChordIf::kNumChords</a>);</div>
+<div class="line"><span class="lineno">   48</span> </div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   50</span>}</div>
+<div class="ttc" id="aa00098_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00403_html_ad5f8c359b49a2a976c2ed1b789ef0dada62e4f5e3d993820970eb235469434582"><div class="ttname"><a href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada62e4f5e3d993820970eb235469434582">CChordIf::kNoChord</a></div><div class="ttdeci">@ kNoChord</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00051">Chord.h:51</a></div></div>
+<div class="ttc" id="aa00415_html_aefd1cebf296212209ba41f38939e07bf"><div class="ttname"><a href="a00415.html#aefd1cebf296212209ba41f38939e07bf">CFeatureFromBlockIf::compFeature</a></div><div class="ttdeci">virtual Error_t compFeature(float *pfFeature, const float *pfInput)</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l01027">FeatureFromBlock.cpp:1027</a></div></div>
+<div class="ttc" id="aa00431_html_ab714a555729264f7fc4ef0f48065d7fe"><div class="ttname"><a href="a00431.html#ab714a555729264f7fc4ef0f48065d7fe">CMatrix::mulMatColVec</a></div><div class="ttdeci">static void mulMatColVec(float *pfDestColVec, float **ppfMatrix, const float *pfSrcColVec, int iNumMatRows, int iNumMatCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.html#l00059">Matrix.h:59</a></div></div>
+<div class="ttc" id="aa00451_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00160">Vector.h:160</a></div></div>
+<div class="ttc" id="aa00451_html_a7972e4c31df79a32bbc5396e07d2ca9e"><div class="ttname"><a href="a00451.html#a7972e4c31df79a32bbc5396e07d2ca9e">CVectorFloat::getSum</a></div><div class="ttdeci">static float getSum(const float *pfSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00356">Vector.h:356</a></div></div>
+<div class="ttc" id="aa00451_html_afc9a413a88b0c7143252dac95050af33"><div class="ttname"><a href="a00451.html#afc9a413a88b0c7143252dac95050af33">CVectorFloat::mulC_I</a></div><div class="ttdeci">static void mulC_I(float *pfSrcDest, float fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00230">Vector.h:230</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00037">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00071_source.html#l00102">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00107_source.html#l00182">CVectorFloat::copy()</a>, <a class="el" href="a00104_source.html#l00033">CFilter&lt; T &gt;::init()</a>, and <a class="el" href="a00014_source.html#l00258">CAudioFileSndLib::openFile()</a>.</p>
+<p class="reference">References <a class="el" href="a00041_source.html#l01027">CFeatureFromBlockIf::compFeature()</a>, <a class="el" href="a00122_source.html#l00356">CVectorFloat::getSum()</a>, <a class="el" href="a00143_source.html#l00051">CChordIf::kNoChord</a>, <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00143_source.html#l00053">CChordIf::kNumChords</a>, <a class="el" href="a00107_source.html#l00053">kNumPitchClasses</a>, <a class="el" href="a00107_source.html#l00070">m_pCFeatureExtractor</a>, <a class="el" href="a00107_source.html#l00066">m_pfPitchChroma</a>, <a class="el" href="a00107_source.html#l00068">m_ppfTemplateMatrix</a>, <a class="el" href="a00122_source.html#l00230">CVectorFloat::mulC_I()</a>, <a class="el" href="a00116_source.html#l00059">CMatrix::mulMatColVec()</a>, and <a class="el" href="a00122_source.html#l00160">CVectorFloat::setZero()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00089_source.html#l00197">CChordIf::compChords()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00407_a3996cacb83a90e37284ca5abd2608c17_cgraph.png" border="0" usemap="#aa00407_a3996cacb83a90e37284ca5abd2608c17_cgraph" alt=""/></div>
+<map name="aa00407_a3996cacb83a90e37284ca5abd2608c17_cgraph" id="aa00407_a3996cacb83a90e37284ca5abd2608c17_cgraph">
+<area shape="rect" title=" " alt="" coords="5,115,148,156"/>
+<area shape="rect" href="a00415.html#aefd1cebf296212209ba41f38939e07bf" title=" " alt="" coords="201,5,348,47"/>
+<area shape="rect" href="a00451.html#a7972e4c31df79a32bbc5396e07d2ca9e" title=" " alt="" coords="200,71,349,98"/>
+<area shape="rect" href="a00451.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="202,122,347,149"/>
+<area shape="rect" href="a00431.html#ab714a555729264f7fc4ef0f48065d7fe" title=" " alt="" coords="196,173,353,199"/>
+<area shape="rect" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="201,223,349,250"/>
+<area shape="rect" href="a00451.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="401,173,564,199"/>
+<area shape="rect" href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="423,223,542,250"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_a6b811d064424381d6f210d4b7fcfaef2_icgraph.png" border="0" usemap="#aa00407_a6b811d064424381d6f210d4b7fcfaef2_icgraph" alt=""/></div>
-<map name="aa00407_a6b811d064424381d6f210d4b7fcfaef2_icgraph" id="aa00407_a6b811d064424381d6f210d4b7fcfaef2_icgraph">
-<area shape="rect" title=" " alt="" coords="1424,548,1527,575"/>
-<area shape="rect" href="a00295.html#a250792b516c76c54251534a33c17bea8" title=" " alt="" coords="401,204,536,245"/>
-<area shape="rect" href="a00299.html#ad6b1dafb86b44b1d31bfbe22e930d146" title=" " alt="" coords="1216,600,1355,641"/>
-<area shape="rect" href="a00411.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="1220,548,1351,575"/>
-<area shape="rect" href="a00383.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="989,76,1072,103"/>
-<area shape="rect" href="a00355.html#a0eed1ac1b3dd498717add1dfa56b3148" title=" " alt="" coords="1195,666,1376,692"/>
-<area shape="rect" href="a00387.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="957,127,1105,154"/>
-<area shape="rect" href="a00331.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="962,826,1099,868"/>
-<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,555,297,582"/>
-<area shape="rect" href="a00443.html#a4d7d19dd39b24147d9a1fab5d7e05257" title=" " alt="" coords="699,395,808,422"/>
-<area shape="rect" href="a00243.html#a7708c61b60debf97d717d637677fc36f" title=" " alt="" coords="957,892,1104,933"/>
-<area shape="rect" href="a00379.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="980,674,1081,700"/>
-<area shape="rect" href="a00379.html#a2d2fa880b32c7087973ed25628002129" title=" " alt="" coords="971,447,1090,474"/>
-<area shape="rect" href="a00419.html#afb2032a0a8448d57c5faec119b63bb71" title=" " alt="" coords="680,910,827,952"/>
-<area shape="rect" href="a00391.html#aa2683e4f8bccb4f145b534bd0c54f38f" title=" " alt="" coords="981,1008,1080,1035"/>
-<area shape="rect" href="a00467.html#af7639b7368293c01c130192067fe0f4b" title=" " alt="" coords="963,1059,1098,1086"/>
-<area shape="rect" href="a00443.html#af98260f965391ca3adf75bd435601236" title=" " alt="" coords="706,446,801,472"/>
-<area shape="rect" href="a00431.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="915,1110,1147,1152"/>
-<area shape="rect" href="a00331.html#a61dc57fda85624457a10ffa2ed7cdc2f" title=" " alt="" coords="962,178,1099,220"/>
-<area shape="rect" href="a00379.html#a71a16138f6d7e92548302f692ef92b9d" title=" " alt="" coords="972,244,1089,271"/>
-<area shape="rect" href="a00379.html#afae6f37b9bd00eaf068b9edd0fd0273d" title=" " alt="" coords="959,295,1103,322"/>
-<area shape="rect" href="a00379.html#aa613a3fa5e2e0ce0889021fdaaed8a0e" title=" " alt="" coords="958,346,1103,372"/>
-<area shape="rect" href="a00455.html#ac2e104197886d92fd1e4ac6d1c0b7e75" title=" " alt="" coords="965,396,1096,423"/>
-<area shape="rect" href="a00335.html#ad34aa3e4260873a5abce7e9e8d6189ab" title=" " alt="" coords="953,623,1108,650"/>
-<area shape="rect" href="a00379.html#a8aca99dbeeab366e72833fa09c134d9a" title=" " alt="" coords="965,724,1097,751"/>
-<area shape="rect" href="a00307.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="682,128,825,169"/>
-<area shape="rect" href="a00475.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="683,76,824,103"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,555,56,582"/>
-<area shape="rect" href="a00303.html#a7b6c2a935434281c2e17352a3487c912" title=" " alt="" coords="387,387,550,414"/>
-<area shape="rect" href="a00307.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="400,438,537,480"/>
-<area shape="rect" href="a00267.html#af20724e23d18c1126e2edf4186cc8005" title=" " alt="" coords="395,321,543,362"/>
-<area shape="rect" href="a00371.html#a7aef37fcf40e80cbace42fe663f47bbd" title=" " alt="" coords="640,640,867,667"/>
-<area shape="rect" href="a00415.html#a9018f2beabd03a9b41d90bde402aa227" title=" " alt="" coords="640,808,867,835"/>
-<area shape="rect" href="a00423.html#aa988c75557f8281271467b000a1a1d54" title=" " alt="" coords="647,691,860,718"/>
-<area shape="rect" href="a00431.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="656,742,851,784"/>
-<area shape="rect" href="a00371.html#a30248aa1fb336095d4d86d0bd3d2bdb8" title=" " alt="" coords="371,606,566,632"/>
-<area shape="rect" href="a00371.html#ad734d1e300583449f51e6ca80aa3e7b8" title=" " alt="" coords="369,656,568,683"/>
-<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="386,910,551,936"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,910,226,936"/>
-<area shape="rect" href="a00423.html#a5c6fea7fdc8067f1d6a116b86d543aa1" title=" " alt="" coords="407,707,530,734"/>
-<area shape="rect" href="a00431.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="345,758,592,784"/>
-<area shape="rect" href="a00431.html#ae041a770ec2b092761d9a88cc87946bb" title=" " alt="" coords="356,808,581,835"/>
-<area shape="rect" href="a00391.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="703,1000,803,1027"/>
-<area shape="rect" href="a00383.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="399,1000,539,1027"/>
-<area shape="rect" href="a00471.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="656,1117,851,1158"/>
-<area shape="rect" href="a00327.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="665,1052,842,1093"/>
-<area shape="rect" href="a00327.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="359,1118,579,1144"/>
-<area shape="rect" href="a00327.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="384,1052,553,1093"/>
-<area shape="rect" href="a00431.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="682,344,825,371"/>
-<area shape="rect" href="a00451.html#a213a39329bd7d70dbd90df71d1cf0735" title=" " alt="" coords="663,500,844,527"/>
+<div class="center"><img src="a00407_a3996cacb83a90e37284ca5abd2608c17_icgraph.png" border="0" usemap="#aa00407_a3996cacb83a90e37284ca5abd2608c17_icgraph" alt=""/></div>
+<map name="aa00407_a3996cacb83a90e37284ca5abd2608c17_icgraph" id="aa00407_a3996cacb83a90e37284ca5abd2608c17_icgraph">
+<area shape="rect" title=" " alt="" coords="304,5,447,47"/>
+<area shape="rect" href="a00403.html#a463c7570302112f307363ec1c7260221" title=" " alt="" coords="104,13,256,39"/>
+<area shape="rect" href="a00029.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,56,39"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a16455e414da1bc89417716b46b212ab9" name="a16455e414da1bc89417716b46b212ab9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16455e414da1bc89417716b46b212ab9">&#9670;&nbsp;</a></span>flip_I()</h2>
+<a id="ac51d13fa2b36cafa4962cb3592ebfcb7" name="ac51d13fa2b36cafa4962cb3592ebfcb7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac51d13fa2b36cafa4962cb3592ebfcb7">&#9670;&nbsp;</a></span>create()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CVector::flip_I </td>
+          <td class="memname"><a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CChordFromBlockIf::create </td>
           <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptSrcDest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long int&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >reverses buffer (last to first element) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be flipped </td></tr>
-    <tr><td class="paramname">iLength</td><td>number of elements </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00114">114</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  115</span>    {</div>
-<div class="line"><span class="lineno">  116</span>        assert(iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  117</span> </div>
-<div class="line"><span class="lineno">  118</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
-<div class="line"><span class="lineno">  119</span>        {</div>
-<div class="line"><span class="lineno">  120</span>            assert(ptSrcDest);</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>            <span class="keyword">auto</span> iLoopLength = iLength / 2; <span class="comment">// integer division!</span></div>
-<div class="line"><span class="lineno">  123</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLoopLength; i++)</div>
-<div class="line"><span class="lineno">  124</span>            {</div>
-<div class="line"><span class="lineno">  125</span>                T Tmp = ptSrcDest[i];</div>
-<div class="line"><span class="lineno">  126</span>                ptSrcDest[i] = ptSrcDest[iLength - 1 - i];</div>
-<div class="line"><span class="lineno">  127</span>                ptSrcDest[iLength - 1 - i] = Tmp;</div>
-<div class="line"><span class="lineno">  128</span>            }</div>
-<div class="line"><span class="lineno">  129</span>        }</div>
-<div class="line"><span class="lineno">  130</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00062_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, and <a class="el" href="a00107_source.html#l00192">CVectorFloat::flip_I()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_a16455e414da1bc89417716b46b212ab9_icgraph.png" border="0" usemap="#aa00407_a16455e414da1bc89417716b46b212ab9_icgraph" alt=""/></div>
-<map name="aa00407_a16455e414da1bc89417716b46b212ab9_icgraph" id="aa00407_a16455e414da1bc89417716b46b212ab9_icgraph">
-<area shape="rect" title=" " alt="" coords="429,35,532,61"/>
-<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="188,8,381,35"/>
-<area shape="rect" href="a00411.html#a4939c8901691ccaacf558dee2a2e3ea4" title=" " alt="" coords="219,60,350,87"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="47,5,98,32"/>
-<area shape="rect" href="a00295.html#a250792b516c76c54251534a33c17bea8" title=" " alt="" coords="5,57,140,98"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="afe5e1268bb93a077f0d4fcac90ba8039" name="afe5e1268bb93a077f0d4fcac90ba8039"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe5e1268bb93a077f0d4fcac90ba8039">&#9670;&nbsp;</a></span>free()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void CVector::free </td>
-          <td>(</td>
-          <td class="paramtype">T *&amp;&#160;</td>
-          <td class="paramname"><em>pfVec</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >frees a float buffer and sets it to zero </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pfVec</td><td>(empty pointer, to be allocated) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd></dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00037">37</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   38</span>    {</div>
-<div class="line"><span class="lineno">   39</span>        <span class="keyword">delete</span>[] pfVec;</div>
-<div class="line"><span class="lineno">   40</span>        pfVec = 0;</div>
-<div class="line"><span class="lineno">   41</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00104_source.html#l00301">CButterLp::calcCoeffs()</a>, <a class="el" href="a00092_source.html#l00049">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00068_source.html#l00179">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00146_source.html#l00234">CMovingAverage::filtfilt()</a>, <a class="el" href="a00104_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00101_source.html#l00039">CMatrix::free()</a>, <a class="el" href="a00053_source.html#l00276">CFft::freeMemory_()</a>, <a class="el" href="a00149_source.html#l00102">CResample::process()</a>, <a class="el" href="a00074_source.html#l00044">CCcf::reset()</a>, <a class="el" href="a00047_source.html#l00055">CDtw::reset()</a>, <a class="el" href="a00104_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, <a class="el" href="a00062_source.html#l00210">CBeatHistoIf::reset_()</a>, <a class="el" href="a00044_source.html#l00319">CFeatureIf::reset_()</a>, <a class="el" href="a00068_source.html#l00289">CNoveltyIf::reset_()</a>, <a class="el" href="a00056_source.html#l00270">CPitchIf::reset_()</a>, <a class="el" href="a00065_source.html#l00238">CSpectrogramIf::reset_()</a>, <a class="el" href="a00077_source.html#l00478">CGammaToneFbIf::reset_()</a>, <a class="el" href="a00104_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>, <a class="el" href="a00059_source.html#l00141">CBlockAudioBuffer::~CBlockAudioBuffer()</a>, <a class="el" href="a00059_source.html#l00041">CBlockAudioFile::~CBlockAudioFile()</a>, <a class="el" href="a00044_source.html#l00019">CFeatureFromFile::~CFeatureFromFile()</a>, <a class="el" href="a00038_source.html#l00335">CFeatureSpectralFlux::~CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.html#l00371">CFeatureSpectralMfccs::~CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.html#l00735">CFeatureTimeMaxAcf::~CFeatureTimeMaxAcf()</a>, <a class="el" href="a00137_source.html#l00037">CInstFreq::~CInstFreq()</a>, <a class="el" href="a00050_source.html#l00081">CNoveltyFromBlockIf::~CNoveltyFromBlockIf()</a>, <a class="el" href="a00068_source.html#l00020">CNoveltyFromFile::~CNoveltyFromFile()</a>, <a class="el" href="a00056_source.html#l00022">CPitchFromFile::~CPitchFromFile()</a>, <a class="el" href="a00071_source.html#l00028">CPitchSpectralAcf::~CPitchSpectralAcf()</a>, <a class="el" href="a00071_source.html#l00097">CPitchSpectralHps::~CPitchSpectralHps()</a>, <a class="el" href="a00071_source.html#l00150">CPitchTimeAcf::~CPitchTimeAcf()</a>, <a class="el" href="a00071_source.html#l00239">CPitchTimeAuditory::~CPitchTimeAuditory()</a>, and <a class="el" href="a00065_source.html#l00022">CSpectrogramFromFile::~CSpectrogramFromFile()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_afe5e1268bb93a077f0d4fcac90ba8039_icgraph.png" border="0" usemap="#aa00407_afe5e1268bb93a077f0d4fcac90ba8039_icgraph" alt=""/></div>
-<map name="aa00407_afe5e1268bb93a077f0d4fcac90ba8039_icgraph" id="aa00407_afe5e1268bb93a077f0d4fcac90ba8039_icgraph">
-<area shape="rect" title=" " alt="" coords="1184,920,1281,947"/>
-<area shape="rect" href="a00387.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="247,309,395,336"/>
-<area shape="rect" href="a00475.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="31,339,173,365"/>
-<area shape="rect" href="a00471.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="931,803,1126,845"/>
-<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="685,157,851,184"/>
-<area shape="rect" href="a00463.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="952,208,1105,235"/>
-<area shape="rect" href="a00383.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="275,411,367,437"/>
-<area shape="rect" href="a00391.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="981,600,1076,627"/>
-<area shape="rect" href="a00247.html#abc120e956529cb5d1f6bf881d151bf19" title=" " alt="" coords="443,689,615,730"/>
-<area shape="rect" href="a00383.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="459,512,599,539"/>
-<area shape="rect" href="a00479.html#a5b1d2405bd0a819817aeff8570dead68" title=" " alt="" coords="723,921,813,948"/>
-<area shape="rect" href="a00327.html#a6781748e7339d8a7f5b35be2daca6052" title=" " alt="" coords="681,973,855,1014"/>
-<area shape="rect" href="a00307.html#aafe950d4f08df5a8d47f44cb827ce4a0" title=" " alt="" coords="693,1038,843,1079"/>
-<area shape="rect" href="a00379.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="965,107,1093,133"/>
-<area shape="rect" href="a00443.html#a6edce7be75bf0b89dcc4a20e491ad8d8" title=" " alt="" coords="485,56,572,83"/>
-<area shape="rect" href="a00383.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="481,259,576,285"/>
-<area shape="rect" href="a00367.html#a3c3a39ab20e4ca9f1771bbd6f70327c9" title="reset configuration" alt="" coords="959,869,1098,896"/>
-<area shape="rect" href="a00371.html#a7b77edaf405fefd82329d8987b16d1f2" title="reset configuration" alt="" coords="966,920,1091,947"/>
-<area shape="rect" href="a00415.html#a119fc32e085bb978525ea9596ee2e9c1" title="reset configuration" alt="" coords="966,971,1091,997"/>
-<area shape="rect" href="a00423.html#a0841d88981bfe343f6439b7d4174a30b" title="reset configuration" alt="" coords="973,1021,1084,1048"/>
-<area shape="rect" href="a00431.html#afbe3214c599eaab59c8c5a886408630c" title="reset configuration" alt="" coords="951,1072,1106,1099"/>
-<area shape="rect" href="a00451.html#acdce444c00fcae3da249963ec17c1640" title="reset configuration" alt="" coords="943,1123,1114,1149"/>
-<area shape="rect" href="a00331.html#a92783fdc7fc8ac84ee0b11076852c4c8" title=" " alt="" coords="959,1174,1098,1215"/>
-<area shape="rect" href="a00235.html#afb353d0d979c87299f116cf68dad722d" title=" " alt="" coords="962,1239,1095,1281"/>
-<area shape="rect" href="a00243.html#a3c5685b11c974c54df140122f7cbae9d" title=" " alt="" coords="949,1305,1109,1346"/>
-<area shape="rect" href="a00267.html#a48c4e7762ac0c1bbbb91a50ccc2a4ffc" title=" " alt="" coords="948,1370,1109,1411"/>
-<area shape="rect" href="a00455.html#a1798e1ab9b7e57efba2582bd35fb9537" title=" " alt="" coords="954,1436,1103,1463"/>
-<area shape="rect" href="a00419.html#a0a3ab1625c7603b3e922573dc2354bf9" title=" " alt="" coords="949,1487,1108,1529"/>
-<area shape="rect" href="a00279.html#a5d9abf4513901cb6dfdb32a61bbb2880" title=" " alt="" coords="962,1553,1095,1594"/>
-<area shape="rect" href="a00287.html#a6c446615ac9fff3378654e33cb66430b" title=" " alt="" coords="921,1619,1136,1645"/>
-<area shape="rect" href="a00295.html#a451d66b67603a9d130f162720e361626" title=" " alt="" coords="961,1670,1097,1711"/>
-<area shape="rect" href="a00299.html#a412ed764fc1354045d2e8e9fa5cf20fc" title=" " alt="" coords="959,1735,1099,1777"/>
-<area shape="rect" href="a00303.html#a0c7cdf1cb79c1e8395db89ba56d79cbc" title=" " alt="" coords="923,1801,1134,1828"/>
-<area shape="rect" href="a00319.html#adad2283c6914dad1fadb8f6757215a6d" title=" " alt="" coords="944,1853,1113,1894"/>
-<area shape="rect" href="a00307.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="31,251,173,293"/>
-<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="5,81,199,108"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="503,157,554,184"/>
-<area shape="rect" href="a00247.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="689,689,847,730"/>
-<area shape="rect" href="a00431.html#a00140b0dd45e87aef4561aed8ebc779a" title=" " alt="" coords="666,820,870,847"/>
-<area shape="rect" href="a00391.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="718,637,818,664"/>
-<area shape="rect" href="a00251.html#a2a538aa6aba4b54cc8968b0a757c3996" title=" " alt="" coords="663,754,873,795"/>
-<area shape="rect" href="a00479.html#a9c81702f9537b30c7617ac9042efc950" title=" " alt="" coords="483,871,575,897"/>
-<area shape="rect" href="a00479.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="490,921,567,948"/>
-<area shape="rect" href="a00479.html#a42e62c6146b79e4f7fe3bcda0e4a7f8d" title=" " alt="" coords="479,972,578,999"/>
-<area shape="rect" href="a00379.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="727,107,809,133"/>
-<area shape="rect" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="283,56,358,83"/>
-<area shape="rect" href="a00443.html#add051d7bf13a84ed1fa5e18627e5e2b9" title=" " alt="" coords="274,5,367,32"/>
-<area shape="rect" href="a00383.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="279,259,362,285"/>
-<area shape="rect" href="a00335.html#ac8a53e2ced024bccde0f5941404068d0" title=" " alt="" coords="252,157,389,184"/>
-<area shape="rect" href="a00383.html#a98c26369ca6c2941cba4874e6bfef3a7" title=" " alt="" coords="265,208,376,235"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a49614aaa52051b98b7f266daac9eefbb" name="a49614aaa52051b98b7f266daac9eefbb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49614aaa52051b98b7f266daac9eefbb">&#9670;&nbsp;</a></span>moveInMem()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void CVector::moveInMem </td>
-          <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptSrcDest</em>, </td>
+          <td class="paramtype"><a class="el" href="a00407.html">CChordFromBlockIf</a> *&amp;&#160;</td>
+          <td class="paramname"><em>pCInstance</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDestIdx</em>, </td>
+          <td class="paramname"><em>iMagSpecLength</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iSrcIdx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long int&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fSampleRate</em> = <code>1.F</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -570,319 +515,371 @@ template&lt;typename T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >moves a subset of the current buffer </p><dl class="params"><dt>Parameters</dt><dd>
+<p >initializes a ChordFromBlock instance </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ptSrcDest</td><td>source and destination </td></tr>
-    <tr><td class="paramname">iDestIdx</td><td>destination index </td></tr>
-    <tr><td class="paramname">iSrcIdx</td><td>source index </td></tr>
-    <tr><td class="paramname">iLength</td><td>number of elements to be moved </td></tr>
+    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
+    <tr><td class="paramname">iMagSpecLength</td><td>block length </td></tr>
+    <tr><td class="paramname">fSampleRate</td><td>sample rate </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00139">139</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  140</span>    {</div>
-<div class="line"><span class="lineno">  141</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  142</span>        assert (ptSrcDest);</div>
-<div class="line"><span class="lineno">  143</span> </div>
-<div class="line"><span class="lineno">  144</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
-<div class="line"><span class="lineno">  145</span>            memmove (&amp;ptSrcDest[iDestIdx], &amp;ptSrcDest[iSrcIdx], <span class="keyword">sizeof</span>(T)*iLength);</div>
-<div class="line"><span class="lineno">  146</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00050_source.html#l00009">9</a> of file <a class="el" href="a00050_source.html">ChordFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>{</div>
+<div class="line"><span class="lineno">   11</span>    <span class="keywordflow">if</span> (iMagSpecLength &lt;= 0 || fSampleRate &lt;= 0)</div>
+<div class="line"><span class="lineno">   12</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">   13</span> </div>
+<div class="line"><span class="lineno">   14</span> </div>
+<div class="line"><span class="lineno">   15</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00407.html#a2e221ac492231e16a62781a573921a9c">CChordFromBlockIf</a>(iMagSpecLength, fSampleRate); </div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   18</span>}</div>
+<div class="ttc" id="aa00098_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
+<div class="ttc" id="aa00407_html_a2e221ac492231e16a62781a573921a9c"><div class="ttname"><a href="a00407.html#a2e221ac492231e16a62781a573921a9c">CChordFromBlockIf::CChordFromBlockIf</a></div><div class="ttdeci">CChordFromBlockIf(int iMagSpecLength, float fSampleRate)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00052">ChordFromBlock.cpp:52</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00107_source.html#l00204">CVectorFloat::moveInMem()</a>.</p>
+<p class="reference">References <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf()</a>, <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00089_source.html#l00395">CChordIf::init_()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00407_ac51d13fa2b36cafa4962cb3592ebfcb7_cgraph.png" border="0" usemap="#aa00407_ac51d13fa2b36cafa4962cb3592ebfcb7_cgraph" alt=""/></div>
+<map name="aa00407_ac51d13fa2b36cafa4962cb3592ebfcb7_cgraph" id="aa00407_ac51d13fa2b36cafa4962cb3592ebfcb7_cgraph">
+<area shape="rect" title=" " alt="" coords="5,53,148,94"/>
+<area shape="rect" href="a00407.html#a2e221ac492231e16a62781a573921a9c" title=" " alt="" coords="196,53,339,94"/>
+<area shape="rect" href="a00447.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="606,5,709,32"/>
+<area shape="rect" href="a00431.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="411,31,509,57"/>
+<area shape="rect" href="a00415.html#a6d3ca4f66582ae352e3addfd7f99a752" title=" " alt="" coords="387,82,533,123"/>
+<area shape="rect" href="a00407.html#ab2c2fed87717cbeca6d10d0438a12c47" title=" " alt="" coords="389,147,531,189"/>
+<area shape="rect" href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="781,5,900,32"/>
+<area shape="rect" href="a00415.html#a483bca508e2817799a3173a6180d245e" title=" " alt="" coords="581,82,733,123"/>
+<area shape="rect" href="a00451.html#af10e45e34254ef453abff50282a8b746" title=" " alt="" coords="585,155,730,181"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_a49614aaa52051b98b7f266daac9eefbb_icgraph.png" border="0" usemap="#aa00407_a49614aaa52051b98b7f266daac9eefbb_icgraph" alt=""/></div>
-<map name="aa00407_a49614aaa52051b98b7f266daac9eefbb_icgraph" id="aa00407_a49614aaa52051b98b7f266daac9eefbb_icgraph">
-<area shape="rect" title=" " alt="" coords="229,5,376,32"/>
-<area shape="rect" href="a00411.html#aa61715dbd068db45281c419aa004b309" title=" " alt="" coords="5,5,181,32"/>
+<div class="center"><img src="a00407_ac51d13fa2b36cafa4962cb3592ebfcb7_icgraph.png" border="0" usemap="#aa00407_ac51d13fa2b36cafa4962cb3592ebfcb7_icgraph" alt=""/></div>
+<map name="aa00407_ac51d13fa2b36cafa4962cb3592ebfcb7_icgraph" id="aa00407_ac51d13fa2b36cafa4962cb3592ebfcb7_icgraph">
+<area shape="rect" title=" " alt="" coords="420,27,563,69"/>
+<area shape="rect" href="a00403.html#ad48a5bd574f16b7491b70efb9998935f" title="init configuration" alt="" coords="269,35,372,61"/>
+<area shape="rect" href="a00259.html#a6df404d2eb3d4c8f9dc2071930fc9e7e" title=" " alt="" coords="5,5,221,32"/>
+<area shape="rect" href="a00263.html#ac9c41c2ddc441df7e0ae80c25971c260" title=" " alt="" coords="22,57,205,98"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a4cf9544dd96801e3ee47fd1ef2049a1b" name="a4cf9544dd96801e3ee47fd1ef2049a1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4cf9544dd96801e3ee47fd1ef2049a1b">&#9670;&nbsp;</a></span>setValue()</h2>
+<a id="afa15c2f57c2552592541337926473a3d" name="afa15c2f57c2552592541337926473a3d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa15c2f57c2552592541337926473a3d">&#9670;&nbsp;</a></span>destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CVector::setValue </td>
+          <td class="memname"><a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CChordFromBlockIf::destroy </td>
           <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptDest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="a00407.html">CChordFromBlockIf</a> *&amp;&#160;</td>
+          <td class="paramname"><em>pCInstance</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>tValue</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >initializes the buffer to a specific value </p><dl class="params"><dt>Parameters</dt><dd>
+<p >destroys a ChordFromBlock instance </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ptDest</td><td>pointer to memory to be initialized </td></tr>
-    <tr><td class="paramname">tValue</td><td>value to use </td></tr>
-    <tr><td class="paramname">iLength</td><td>number of elements to be set </td></tr>
+    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be destroyed </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00065">65</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   66</span>    {</div>
-<div class="line"><span class="lineno">   67</span>        assert(iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">   68</span>        assert(ptDest);</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">   71</span>            ptDest[i] = tValue;</div>
-<div class="line"><span class="lineno">   72</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00050_source.html#l00020">20</a> of file <a class="el" href="a00050_source.html">ChordFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   21</span>{</div>
+<div class="line"><span class="lineno">   22</span>    <span class="keyword">delete</span> pCInstance;</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    pCInstance = 0;</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   27</span>}</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00068_source.html#l00179">CNoveltyIf::compNovelty()</a>, and <a class="el" href="a00107_source.html#l00488">CVectorFloat::findPeaks()</a>.</p>
+<p class="reference">References <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00089_source.html#l00367">CChordIf::reset_()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph.png" border="0" usemap="#aa00407_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph" alt=""/></div>
-<map name="aa00407_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph" id="aa00407_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph">
-<area shape="rect" title=" " alt="" coords="768,31,895,57"/>
-<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00411.html#acad30e028ad5639629a36820d6bb064b" title=" " alt="" coords="559,56,720,83"/>
-<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+<div class="center"><img src="a00407_afa15c2f57c2552592541337926473a3d_icgraph.png" border="0" usemap="#aa00407_afa15c2f57c2552592541337926473a3d_icgraph" alt=""/></div>
+<map name="aa00407_afa15c2f57c2552592541337926473a3d_icgraph" id="aa00407_afa15c2f57c2552592541337926473a3d_icgraph">
+<area shape="rect" title=" " alt="" coords="432,49,575,90"/>
+<area shape="rect" href="a00403.html#a333842dc3ecbbf719eee742f1a4b1845" title="reset configuration" alt="" coords="269,56,384,83"/>
+<area shape="rect" href="a00259.html#a6df404d2eb3d4c8f9dc2071930fc9e7e" title=" " alt="" coords="5,5,221,32"/>
+<area shape="rect" href="a00403.html#a46a40c5a1fa7415337653bec30255245" title=" " alt="" coords="48,56,179,83"/>
+<area shape="rect" href="a00403.html#aa778bd3dadb1442280d4a076c10769d4" title=" " alt="" coords="45,107,182,133"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a6dbb3f9f480568b60f7fe50090d20003" name="a6dbb3f9f480568b60f7fe50090d20003"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6dbb3f9f480568b60f7fe50090d20003">&#9670;&nbsp;</a></span>setZero()</h2>
+<a id="ab2c2fed87717cbeca6d10d0438a12c47" name="ab2c2fed87717cbeca6d10d0438a12c47"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab2c2fed87717cbeca6d10d0438a12c47">&#9670;&nbsp;</a></span>genTemplateMatrix_()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CVector::setZero </td>
+          <td class="memname">void CChordFromBlockIf::genTemplateMatrix_ </td>
           <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptSrcDest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >sets a buffer to zero </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be modified </td></tr>
-    <tr><td class="paramname">iLength</td><td>buffer length </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00049">49</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>    {</div>
-<div class="line"><span class="lineno">   51</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">   52</span>        assert (ptSrcDest);</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
-<div class="line"><span class="lineno">   55</span>            memset (ptSrcDest, 0, <span class="keyword">sizeof</span>(T)*iLength);</div>
-<div class="line"><span class="lineno">   56</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00050_source.html#l00070">70</a> of file <a class="el" href="a00050_source.html">ChordFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
+<div class="line"><span class="lineno">   72</span>    assert(<a class="code hl_variable" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a>);</div>
+<div class="line"><span class="lineno">   73</span>    assert(<a class="code hl_variable" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a>[0]);</div>
+<div class="line"><span class="lineno">   74</span> </div>
+<div class="line"><span class="lineno">   75</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> iNumChordPitches = 3;</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> aiMajorIndices[3] = { 0,4,7 };</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keyword">const</span> <span class="keywordtype">int</span> aiMinorIndices[3] = { 0,3,7 };</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>; c++)</div>
+<div class="line"><span class="lineno">   80</span>    {</div>
+<div class="line"><span class="lineno">   81</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; iNumChordPitches; p++)</div>
+<div class="line"><span class="lineno">   82</span>        {</div>
+<div class="line"><span class="lineno">   83</span>            <a class="code hl_variable" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a>[c][(c + aiMajorIndices[p])%12] = 1.F / iNumChordPitches;</div>
+<div class="line"><span class="lineno">   84</span>            <a class="code hl_variable" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a>[c+ <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>][(c + aiMinorIndices[p])%12] = 1.F / iNumChordPitches;</div>
+<div class="line"><span class="lineno">   85</span>        }</div>
+<div class="line"><span class="lineno">   86</span>    }</div>
+<div class="line"><span class="lineno">   87</span>    <a class="code hl_function" href="a00451.html#af10e45e34254ef453abff50282a8b746">CVectorFloat::addC_I</a>(<a class="code hl_variable" href="a00407.html#a89f8838207a7fc2ab0206ca946f0d2a5">m_ppfTemplateMatrix</a>[<a class="code hl_enumvalue" href="a00403.html#ad5f8c359b49a2a976c2ed1b789ef0dada62e4f5e3d993820970eb235469434582">CChordIf::kNoChord</a>], 1.F / <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>, <a class="code hl_enumvalue" href="a00407.html#a529ca766e0348bbfed1008b132fda706aa848584e0a0f85a93a31217ede0fd1ce">kNumPitchClasses</a>);</div>
+<div class="line"><span class="lineno">   88</span>}</div>
+<div class="ttc" id="aa00451_html_af10e45e34254ef453abff50282a8b746"><div class="ttname"><a href="a00451.html#af10e45e34254ef453abff50282a8b746">CVectorFloat::addC_I</a></div><div class="ttdeci">static void addC_I(float *pfSrcDest, float fConst, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00315">Vector.h:315</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00107_source.html#l00022">alloc()</a>, <a class="el" href="a00047_source.html#l00015">CDtw::CDtw()</a>, <a class="el" href="a00104_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00104_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, and <a class="el" href="a00107_source.html#l00160">CVectorFloat::setZero()</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00315">CVectorFloat::addC_I()</a>, <a class="el" href="a00143_source.html#l00051">CChordIf::kNoChord</a>, <a class="el" href="a00107_source.html#l00053">kNumPitchClasses</a>, and <a class="el" href="a00107_source.html#l00068">m_ppfTemplateMatrix</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00407_ab2c2fed87717cbeca6d10d0438a12c47_cgraph.png" border="0" usemap="#aa00407_ab2c2fed87717cbeca6d10d0438a12c47_cgraph" alt=""/></div>
+<map name="aa00407_ab2c2fed87717cbeca6d10d0438a12c47_cgraph" id="aa00407_ab2c2fed87717cbeca6d10d0438a12c47_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" href="a00451.html#af10e45e34254ef453abff50282a8b746" title=" " alt="" coords="196,13,341,39"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00407_a6dbb3f9f480568b60f7fe50090d20003_icgraph.png" border="0" usemap="#aa00407_a6dbb3f9f480568b60f7fe50090d20003_icgraph" alt=""/></div>
-<map name="aa00407_a6dbb3f9f480568b60f7fe50090d20003_icgraph" id="aa00407_a6dbb3f9f480568b60f7fe50090d20003_icgraph">
-<area shape="rect" title=" " alt="" coords="1147,1436,1265,1463"/>
-<area shape="rect" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="973,803,1076,829"/>
-<area shape="rect" href="a00383.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="762,1385,845,1412"/>
-<area shape="rect" href="a00479.html#a9c81702f9537b30c7617ac9042efc950" title=" " alt="" coords="979,1436,1071,1463"/>
-<area shape="rect" href="a00383.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="977,1487,1072,1513"/>
-<area shape="rect" href="a00411.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="951,1945,1099,1972"/>
-<area shape="rect" href="a00391.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="754,1132,853,1159"/>
-<area shape="rect" href="a00247.html#a4ffe272900bf3ba5bbab219262506455" title=" " alt="" coords="463,926,629,967"/>
-<area shape="rect" href="a00307.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="475,1226,617,1267"/>
-<area shape="rect" href="a00431.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="461,991,631,1033"/>
-<area shape="rect" href="a00479.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="507,1057,585,1084"/>
-<area shape="rect" href="a00383.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="476,1175,616,1201"/>
-<area shape="rect" href="a00383.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="245,1393,337,1420"/>
-<area shape="rect" href="a00475.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,1469,147,1496"/>
-<area shape="rect" href="a00379.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="737,5,870,32"/>
-<area shape="rect" href="a00387.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="729,1655,877,1681"/>
-<area shape="rect" href="a00331.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="735,57,872,98"/>
-<area shape="rect" href="a00243.html#a1a45f132f54b2f2f3d63f0827dc8300f" title=" " alt="" coords="727,1538,880,1579"/>
-<area shape="rect" href="a00267.html#a541f40820696e37cc302fc780b8313ee" title=" " alt="" coords="469,429,623,470"/>
-<area shape="rect" href="a00455.html#a4b3af2ff4c095211a3c89701a6fdb9db" title=" " alt="" coords="732,173,875,200"/>
-<area shape="rect" href="a00471.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="706,225,901,266"/>
-<area shape="rect" href="a00419.html#a9bd729b91b67944f16547f85090b9eae" title=" " alt="" coords="727,290,879,331"/>
-<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="463,356,629,383"/>
-<area shape="rect" href="a00295.html#ad7f64995a5d0ca75139e400172a9ab42" title=" " alt="" coords="479,513,613,554"/>
-<area shape="rect" href="a00299.html#a5c1be3a6a8f0517c57384938dcad343d" title=" " alt="" coords="734,458,873,499"/>
-<area shape="rect" href="a00303.html#acd4920798f76cfa56accd9ba28dad6ae" title=" " alt="" coords="444,629,648,656"/>
-<area shape="rect" href="a00463.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="727,356,880,383"/>
-<area shape="rect" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="766,575,841,601"/>
-<area shape="rect" href="a00451.html#a0b3ba7948620d116d8fcee83010c56ba" title="init configuration" alt="" coords="724,676,883,703"/>
-<area shape="rect" href="a00367.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="740,727,867,753"/>
-<area shape="rect" href="a00371.html#ab38ca831ee8ae42a8a95e33af4f756ba" title="init configuration" alt="" coords="747,777,860,804"/>
-<area shape="rect" href="a00431.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="732,828,875,855"/>
-<area shape="rect" href="a00415.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="747,879,860,905"/>
-<area shape="rect" href="a00423.html#a3a966aff4a49e12324f205b20c5f2232" title="init configuration" alt="" coords="754,929,853,956"/>
-<area shape="rect" href="a00247.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="467,1109,625,1150"/>
-<area shape="rect" href="a00327.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="436,1292,656,1319"/>
-<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="195,963,388,989"/>
-<area shape="rect" href="a00335.html#ac8a53e2ced024bccde0f5941404068d0" title=" " alt="" coords="735,1436,872,1463"/>
-<area shape="rect" href="a00383.html#a98c26369ca6c2941cba4874e6bfef3a7" title=" " alt="" coords="748,1487,859,1513"/>
-<area shape="rect" href="a00479.html#a27d97d54ec23bdc32778a75204d22842" title=" " alt="" coords="746,2221,861,2248"/>
-<area shape="rect" href="a00299.html#ad6b1dafb86b44b1d31bfbe22e930d146" title=" " alt="" coords="734,2273,873,2314"/>
-<area shape="rect" href="a00307.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="735,2338,872,2379"/>
-<area shape="rect" href="a00247.html#a92ff3ebff9377acf3573f6b4d87a4bcd" title=" " alt="" coords="724,1807,883,1849"/>
-<area shape="rect" href="a00251.html#a049a6c2d11108c7d14111790447f5d84" title=" " alt="" coords="704,1873,903,1914"/>
-<area shape="rect" href="a00379.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="495,1343,597,1369"/>
-<area shape="rect" href="a00327.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="461,2050,631,2091"/>
-<area shape="rect" href="a00331.html#a61dc57fda85624457a10ffa2ed7cdc2f" title=" " alt="" coords="735,2003,872,2045"/>
-<area shape="rect" href="a00391.html#ad0f9eb1d1f54d5fd23fea0fef17fc13a" title=" " alt="" coords="721,2069,885,2096"/>
-<area shape="rect" href="a00327.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="715,1938,892,1979"/>
-<area shape="rect" href="a00391.html#ac471bc59a137aa4fdccb56b2297ab95d" title=" " alt="" coords="748,2120,859,2147"/>
+<div class="center"><img src="a00407_ab2c2fed87717cbeca6d10d0438a12c47_icgraph.png" border="0" usemap="#aa00407_ab2c2fed87717cbeca6d10d0438a12c47_icgraph" alt=""/></div>
+<map name="aa00407_ab2c2fed87717cbeca6d10d0438a12c47_icgraph" id="aa00407_ab2c2fed87717cbeca6d10d0438a12c47_icgraph">
+<area shape="rect" title=" " alt="" coords="801,27,944,69"/>
+<area shape="rect" href="a00407.html#a2e221ac492231e16a62781a573921a9c" title=" " alt="" coords="611,27,753,69"/>
+<area shape="rect" href="a00407.html#ac51d13fa2b36cafa4962cb3592ebfcb7" title=" " alt="" coords="420,27,563,69"/>
+<area shape="rect" href="a00403.html#ad48a5bd574f16b7491b70efb9998935f" title="init configuration" alt="" coords="269,35,372,61"/>
+<area shape="rect" href="a00259.html#a6df404d2eb3d4c8f9dc2071930fc9e7e" title=" " alt="" coords="5,5,221,32"/>
+<area shape="rect" href="a00263.html#ac9c41c2ddc441df7e0ae80c25971c260" title=" " alt="" coords="22,57,205,98"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ad84d68f82a9afecad29be0d8186f4c9e" name="ad84d68f82a9afecad29be0d8186f4c9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad84d68f82a9afecad29be0d8186f4c9e">&#9670;&nbsp;</a></span>setZeroBelowThresh()</h2>
+<a id="a8388ced682f516ac1a9a64033a11e9ea" name="a8388ced682f516ac1a9a64033a11e9ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8388ced682f516ac1a9a64033a11e9ea">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<div class="memtemplate">
-template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CVector::setZeroBelowThresh </td>
+          <td class="memname"><a class="el" href="a00407.html">CChordFromBlockIf</a> &amp; CChordFromBlockIf::operator= </td>
           <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptSrcDest</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">const <a class="el" href="a00407.html">CChordFromBlockIf</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">long long int&#160;</td>
-          <td class="paramname"><em>iLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>Thresh</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >sets all values smaller than a threshold to 0 </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be modified </td></tr>
-    <tr><td class="paramname">iLength</td><td>buffer length </td></tr>
-    <tr><td class="paramname">Thresh</td><td>threshold value </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00081">81</a> of file <a class="el" href="a00107_source.html">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   82</span>    {</div>
-<div class="line"><span class="lineno">   83</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">   84</span>        assert (ptSrcDest);</div>
-<div class="line"><span class="lineno">   85</span> </div>
-<div class="line"><span class="lineno">   86</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">   87</span>            <span class="keywordflow">if</span> (ptSrcDest[i] &lt; Thresh)</div>
-<div class="line"><span class="lineno">   88</span>                ptSrcDest[i] = 0;</div>
-<div class="line"><span class="lineno">   89</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00107_source.html#l00171">CVectorFloat::setZeroBelowThresh()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00407_ad84d68f82a9afecad29be0d8186f4c9e_icgraph.png" border="0" usemap="#aa00407_ad84d68f82a9afecad29be0d8186f4c9e_icgraph" alt=""/></div>
-<map name="aa00407_ad84d68f82a9afecad29be0d8186f4c9e_icgraph" id="aa00407_ad84d68f82a9afecad29be0d8186f4c9e_icgraph">
-<area shape="rect" title=" " alt="" coords="791,31,985,57"/>
-<area shape="rect" href="a00411.html#a0778309dd31c594ef11e7f811449228b" title=" " alt="" coords="559,23,743,65"/>
-<area shape="rect" href="a00415.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00367.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-</map>
-</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00107_source.html">Vector.h</a></li>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ad47a5d9f79118a0211789990dabd0140" name="ad47a5d9f79118a0211789990dabd0140"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad47a5d9f79118a0211789990dabd0140">&#9670;&nbsp;</a></span>m_fSampleRate</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CChordFromBlockIf::m_fSampleRate = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>sample rate </p>
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00064">64</a> of file <a class="el" href="a00107_source.html">ChordFromBlock.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf()</a>.</p>
+
+</div>
+</div>
+<a id="af14667f7495b67b0d2bdd0ccd0a40a1a" name="af14667f7495b67b0d2bdd0ccd0a40a1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af14667f7495b67b0d2bdd0ccd0a40a1a">&#9670;&nbsp;</a></span>m_iMagSpecLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CChordFromBlockIf::m_iMagSpecLength = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>block length </p>
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00063">63</a> of file <a class="el" href="a00107_source.html">ChordFromBlock.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf()</a>.</p>
+
+</div>
+</div>
+<a id="a56e672da365101383488872334ef086e" name="a56e672da365101383488872334ef086e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56e672da365101383488872334ef086e">&#9670;&nbsp;</a></span>m_pCFeatureExtractor</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00415.html">CFeatureFromBlockIf</a>* CChordFromBlockIf::m_pCFeatureExtractor = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>instance for pitch chroma extraction </p>
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00070">70</a> of file <a class="el" href="a00107_source.html">ChordFromBlock.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf()</a>, <a class="el" href="a00050_source.html#l00029">compChordProb()</a>, and <a class="el" href="a00050_source.html#l00062">~CChordFromBlockIf()</a>.</p>
+
+</div>
+</div>
+<a id="aa449dd64acb5ed4dc94eaceb85e23391" name="aa449dd64acb5ed4dc94eaceb85e23391"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa449dd64acb5ed4dc94eaceb85e23391">&#9670;&nbsp;</a></span>m_pfPitchChroma</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* CChordFromBlockIf::m_pfPitchChroma = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>current pitch chroma </p>
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00066">66</a> of file <a class="el" href="a00107_source.html">ChordFromBlock.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf()</a>, <a class="el" href="a00050_source.html#l00029">compChordProb()</a>, and <a class="el" href="a00050_source.html#l00062">~CChordFromBlockIf()</a>.</p>
+
+</div>
+</div>
+<a id="a89f8838207a7fc2ab0206ca946f0d2a5" name="a89f8838207a7fc2ab0206ca946f0d2a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89f8838207a7fc2ab0206ca946f0d2a5">&#9670;&nbsp;</a></span>m_ppfTemplateMatrix</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float** CChordFromBlockIf::m_ppfTemplateMatrix = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>matrix holding all chord templates </p>
+
+<p class="definition">Definition at line <a class="el" href="a00107_source.html#l00068">68</a> of file <a class="el" href="a00107_source.html">ChordFromBlock.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00050_source.html#l00052">CChordFromBlockIf()</a>, <a class="el" href="a00050_source.html#l00029">compChordProb()</a>, <a class="el" href="a00050_source.html#l00070">genTemplateMatrix_()</a>, and <a class="el" href="a00050_source.html#l00062">~CChordFromBlockIf()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="a00107_source.html">ChordFromBlock.h</a></li>
+<li><a class="el" href="a00050_source.html">ChordFromBlock.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 3 2022 22:03:45 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:03 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

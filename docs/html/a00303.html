@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CPitchTimeAcf Class Reference</title>
+<title>ACA: CFeatureTimePeakEnvelope Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,9 +18,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
-   <div id="projectbrief">Code for Audio Content Analysis</div>
+   <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
  </tr>
  </tbody>
@@ -48,103 +48,156 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="a00300.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CPitchTimeAcf Class Reference</div></div>
+  <div class="headertitle"><div class="title">CFeatureTimePeakEnvelope Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="dynheader">
-Inheritance diagram for CPitchTimeAcf:</div>
+Inheritance diagram for CFeatureTimePeakEnvelope:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00302.png" border="0" usemap="#aCPitchTimeAcf_inherit__map" alt="Inheritance graph"/></div>
-<map name="aCPitchTimeAcf_inherit__map" id="aCPitchTimeAcf_inherit__map">
-<area shape="rect" title=" " alt="" coords="16,277,152,472"/>
-<area shape="rect" href="a00427.html" title="class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,5,163,229"/>
+<div class="center"><img src="a00302.png" border="0" usemap="#aCFeatureTimePeakEnvelope_inherit__map" alt="Inheritance graph"/></div>
+<map name="aCFeatureTimePeakEnvelope_inherit__map" id="aCFeatureTimePeakEnvelope_inherit__map">
+<area shape="rect" title=" " alt="" coords="12,497,225,677"/>
+<area shape="rect" href="a00415.html" title="class for computation of a feature from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,5,232,449"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for CPitchTimeAcf:</div>
+Collaboration diagram for CFeatureTimePeakEnvelope:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00301.png" border="0" usemap="#aCPitchTimeAcf_coll__map" alt="Collaboration graph"/></div>
-<map name="aCPitchTimeAcf_coll__map" id="aCPitchTimeAcf_coll__map">
-<area shape="rect" title=" " alt="" coords="37,813,173,993"/>
-<area shape="rect" href="a00427.html" title="class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,497,163,721"/>
-<area shape="rect" href="a00443.html" title="computation of correlation (freq domain)" alt="" coords="187,468,330,751"/>
-<area shape="rect" href="a00379.html" title="class for FFT computation with windowing" alt="" coords="175,5,343,405"/>
+<div class="center"><img src="a00301.png" border="0" usemap="#aCFeatureTimePeakEnvelope_coll__map" alt="Collaboration graph"/></div>
+<map name="aCFeatureTimePeakEnvelope_coll__map" id="aCFeatureTimePeakEnvelope_coll__map">
+<area shape="rect" title=" " alt="" coords="12,497,225,677"/>
+<area shape="rect" href="a00415.html" title="class for computation of a feature from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,5,232,449"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:acd4920798f76cfa56accd9ba28dad6ae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#acd4920798f76cfa56accd9ba28dad6ae">CPitchTimeAcf</a> (<a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate)</td></tr>
-<tr class="separator:acd4920798f76cfa56accd9ba28dad6ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0c7cdf1cb79c1e8395db89ba56d79cbc"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a0c7cdf1cb79c1e8395db89ba56d79cbc">~CPitchTimeAcf</a> ()</td></tr>
-<tr class="separator:a0c7cdf1cb79c1e8395db89ba56d79cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7b6c2a935434281c2e17352a3487c912"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a7b6c2a935434281c2e17352a3487c912">compF0</a> (const float *pfInput) override</td></tr>
-<tr class="separator:a7b6c2a935434281c2e17352a3487c912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pub_methods_a00427"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00427')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00427.html">CPitchFromBlockIf</a></td></tr>
-<tr class="memitem:ac7496d16e4dfc1ab55305dc118c2e6bf inherit pub_methods_a00427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac7496d16e4dfc1ab55305dc118c2e6bf">getPitchExtractorIdx</a> () const</td></tr>
-<tr class="separator:ac7496d16e4dfc1ab55305dc118c2e6bf inherit pub_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a680337ee1fcc59015ea679862cd8085c inherit pub_methods_a00427"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a680337ee1fcc59015ea679862cd8085c">compF0</a> (const float *pfInput)=0</td></tr>
-<tr class="separator:a680337ee1fcc59015ea679862cd8085c inherit pub_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af43ac71fb7b58e2ae9897e33bae488f3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#af43ac71fb7b58e2ae9897e33bae488f3">CFeatureTimePeakEnvelope</a> (<a class="el" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a> eFeatureIdx, int iDataLength, float fSampleRate)</td></tr>
+<tr class="separator:af43ac71fb7b58e2ae9897e33bae488f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2b23785ea04505ff4a889d8313c2169"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#af2b23785ea04505ff4a889d8313c2169">~CFeatureTimePeakEnvelope</a> ()</td></tr>
+<tr class="separator:af2b23785ea04505ff4a889d8313c2169"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a238861a45b720d2b5a4974ea2dde9bad"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a238861a45b720d2b5a4974ea2dde9bad">compFeature</a> (float *pfFeature, const float *pfInput) override</td></tr>
+<tr class="separator:a238861a45b720d2b5a4974ea2dde9bad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a55891d1e487afbe095399d19ab078469"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a55891d1e487afbe095399d19ab078469">getFeatureDimensions</a> () const override</td></tr>
+<tr class="separator:a55891d1e487afbe095399d19ab078469"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_methods_a00415"><td colspan="2" onclick="javascript:toggleInherit('pub_methods_a00415')"><img src="closed.png" alt="-"/>&#160;Public Member Functions inherited from <a class="el" href="a00415.html">CFeatureFromBlockIf</a></td></tr>
+<tr class="memitem:a8bf822f58aa66fc4787c5528352575c0 inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a8bf822f58aa66fc4787c5528352575c0">getFeatureDimensions</a> () const</td></tr>
+<tr class="separator:a8bf822f58aa66fc4787c5528352575c0 inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ab50f7ebebbabec7e1610bc04a3328 inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#ab6ab50f7ebebbabec7e1610bc04a3328">getFeatureIdx</a> () const</td></tr>
+<tr class="separator:ab6ab50f7ebebbabec7e1610bc04a3328 inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aefd1cebf296212209ba41f38939e07bf inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#aefd1cebf296212209ba41f38939e07bf">compFeature</a> (float *pfFeature, const float *pfInput)</td></tr>
+<tr class="separator:aefd1cebf296212209ba41f38939e07bf inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a41daabd1afa9c2307c64b431fcf8da62 inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00197.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a41daabd1afa9c2307c64b431fcf8da62">hasAdditionalParam</a> () const</td></tr>
+<tr class="separator:a41daabd1afa9c2307c64b431fcf8da62 inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f3f62f3787b0ddc4c8938f5d54170af inherit pub_methods_a00415"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a7f3f62f3787b0ddc4c8938f5d54170af">setAdditionalParam</a> (float fParamValue)</td></tr>
+<tr class="separator:a7f3f62f3787b0ddc4c8938f5d54170af inherit pub_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:a7edc97c9ab3cfb28e51b7f041b93c503"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503">PeakType_t</a> { <a class="el" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a81e4ef03732f59697b6515c67c9a1299">kBlock</a>
+, <a class="el" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13">kPpmMax</a>
+, <a class="el" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503ab044c98fa4caca6d1300b5adb1365c70">kNumPeakTypes</a>
+ }</td></tr>
+<tr class="separator:a7edc97c9ab3cfb28e51b7f041b93c503"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd92b000d83f9ec3613b59a995c6d296"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296">PpmFilters_t</a> { <a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296ab728d46d8acd39d42832d6982013dba5">kAttack</a>
+, <a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296afcf3cedb9d4d092a341bd5b2ed1ffab5">kRelease</a>
+, <a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986">kNumPpmFilters</a>
+ }</td></tr>
+<tr class="separator:acd92b000d83f9ec3613b59a995c6d296"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:af1810f62663b7dbd228a09198f3cf13a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#af1810f62663b7dbd228a09198f3cf13a">CPitchTimeAcf</a> ()</td></tr>
-<tr class="separator:af1810f62663b7dbd228a09198f3cf13a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58e2df14aeed930a1e41749d40e65c35"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a58e2df14aeed930a1e41749d40e65c35">CPitchTimeAcf</a> (const <a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;that)</td></tr>
-<tr class="memdesc:a58e2df14aeed930a1e41749d40e65c35"><td class="mdescLeft">&#160;</td><td class="mdescRight">disallow copy construction  <a href="a00303.html#a58e2df14aeed930a1e41749d40e65c35">More...</a><br /></td></tr>
-<tr class="separator:a58e2df14aeed930a1e41749d40e65c35"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bc50b93b2afdc1782d8534fa7ed6c80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a9bc50b93b2afdc1782d8534fa7ed6c80">operator=</a> (const <a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;c)</td></tr>
-<tr class="separator:a9bc50b93b2afdc1782d8534fa7ed6c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab29ce4890eab1620a0e9ad62acf3fe2e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#ab29ce4890eab1620a0e9ad62acf3fe2e">CFeatureTimePeakEnvelope</a> ()</td></tr>
+<tr class="separator:ab29ce4890eab1620a0e9ad62acf3fe2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1a8760a574baf47c90caf0ea1d3e5053"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a1a8760a574baf47c90caf0ea1d3e5053">ppm_I</a> (float fIn)</td></tr>
+<tr class="separator:a1a8760a574baf47c90caf0ea1d3e5053"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a20081d499cd0d70d8e61086f33b33365"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00443.html">CCcf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a> = 0</td></tr>
-<tr class="separator:a20081d499cd0d70d8e61086f33b33365"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a55d9b28275bf425da7edcd5a56822247"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a> = 0</td></tr>
-<tr class="separator:a55d9b28275bf425da7edcd5a56822247"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7540d2f69db7b7da74ae54c8eacf458e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a7540d2f69db7b7da74ae54c8eacf458e">m_fMax</a> = 2000.F</td></tr>
-<tr class="separator:a7540d2f69db7b7da74ae54c8eacf458e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a667c865dba3fda2b4dfcb27d467029d8"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a667c865dba3fda2b4dfcb27d467029d8">m_fMinThresh</a> = 0.35F</td></tr>
-<tr class="separator:a667c865dba3fda2b4dfcb27d467029d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a31608e2cfe64a3ac1b7b2e4d57b0fbe7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a31608e2cfe64a3ac1b7b2e4d57b0fbe7">m_afIntegrationTimeInS</a> [<a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986">kNumPpmFilters</a>] = { .01F, 1.5F }</td></tr>
+<tr class="separator:a31608e2cfe64a3ac1b7b2e4d57b0fbe7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af43fa882d3241bd471c366ad4494ae84"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#af43fa882d3241bd471c366ad4494ae84">m_afAlpha</a> [<a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986">kNumPpmFilters</a>] = { 0,0 }</td></tr>
+<tr class="separator:af43fa882d3241bd471c366ad4494ae84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03dcdc58bb508eedc93c0261cfaa1843"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html#a03dcdc58bb508eedc93c0261cfaa1843">m_fFilterBuff</a> = 0.F</td></tr>
+<tr class="separator:a03dcdc58bb508eedc93c0261cfaa1843"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="inherited" name="inherited"></a>
 Additional Inherited Members</h2></td></tr>
-<tr class="inherit_header pub_static_methods_a00427"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_a00427')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="a00427.html">CPitchFromBlockIf</a></td></tr>
-<tr class="memitem:a1718a14a292a2a34ae92e8ce838456a3 inherit pub_static_methods_a00427"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a1718a14a292a2a34ae92e8ce838456a3">create</a> (<a class="el" href="a00427.html">CPitchFromBlockIf</a> *&amp;pCInstance, <a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate=1.F)</td></tr>
-<tr class="separator:a1718a14a292a2a34ae92e8ce838456a3 inherit pub_static_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adadb010b152c65dc26b08f56fa700e77 inherit pub_static_methods_a00427"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#adadb010b152c65dc26b08f56fa700e77">destroy</a> (<a class="el" href="a00427.html">CPitchFromBlockIf</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:adadb010b152c65dc26b08f56fa700e77 inherit pub_static_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_methods_a00427"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00427')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00427.html">CPitchFromBlockIf</a></td></tr>
-<tr class="memitem:a8d454d951956c464b883888196a0fe23 inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a8d454d951956c464b883888196a0fe23">CPitchFromBlockIf</a> ()</td></tr>
-<tr class="separator:a8d454d951956c464b883888196a0fe23 inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bf104764846e7531e2011312311c6ea inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a7bf104764846e7531e2011312311c6ea">CPitchFromBlockIf</a> (<a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate)</td></tr>
-<tr class="separator:a7bf104764846e7531e2011312311c6ea inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbcd93d047e4d96fb117e764481c44bd inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#afbcd93d047e4d96fb117e764481c44bd">~CPitchFromBlockIf</a> ()</td></tr>
-<tr class="separator:afbcd93d047e4d96fb117e764481c44bd inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02981a6e1aa3094a190b4bb6550b8053 inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a02981a6e1aa3094a190b4bb6550b8053">CPitchFromBlockIf</a> (const <a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;that)</td></tr>
-<tr class="separator:a02981a6e1aa3094a190b4bb6550b8053 inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8707778012c90162771312f62be77271 inherit pro_methods_a00427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a8707778012c90162771312f62be77271">operator=</a> (const <a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;c)</td></tr>
-<tr class="separator:a8707778012c90162771312f62be77271 inherit pro_methods_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="inherit_header pro_attribs_a00427"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00427')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00427.html">CPitchFromBlockIf</a></td></tr>
-<tr class="memitem:ac90de810c2f977da52483d905119172e inherit pro_attribs_a00427"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac90de810c2f977da52483d905119172e">m_ePitchIdx</a> = <a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></td></tr>
-<tr class="memdesc:ac90de810c2f977da52483d905119172e inherit pro_attribs_a00427"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of Pitch to extract  <a href="a00427.html#ac90de810c2f977da52483d905119172e">More...</a><br /></td></tr>
-<tr class="separator:ac90de810c2f977da52483d905119172e inherit pro_attribs_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab7cbf575cd81f196fdc75f226b61ab6 inherit pro_attribs_a00427"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a> = 0</td></tr>
-<tr class="memdesc:aab7cbf575cd81f196fdc75f226b61ab6 inherit pro_attribs_a00427"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">More...</a><br /></td></tr>
-<tr class="separator:aab7cbf575cd81f196fdc75f226b61ab6 inherit pro_attribs_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a3235dfd5c3919a7d1a290f92dfa80 inherit pro_attribs_a00427"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a> = 0</td></tr>
-<tr class="memdesc:ac4a3235dfd5c3919a7d1a290f92dfa80 inherit pro_attribs_a00427"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">More...</a><br /></td></tr>
-<tr class="separator:ac4a3235dfd5c3919a7d1a290f92dfa80 inherit pro_attribs_a00427"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_methods_a00415"><td colspan="2" onclick="javascript:toggleInherit('pub_static_methods_a00415')"><img src="closed.png" alt="-"/>&#160;Static Public Member Functions inherited from <a class="el" href="a00415.html">CFeatureFromBlockIf</a></td></tr>
+<tr class="memitem:a6d3ca4f66582ae352e3addfd7f99a752 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a6d3ca4f66582ae352e3addfd7f99a752">create</a> (<a class="el" href="a00415.html">CFeatureFromBlockIf</a> *&amp;pCInstance, <a class="el" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a> eFeatureIdx, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a6d3ca4f66582ae352e3addfd7f99a752 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a300e7b2134b2bd0faaa24cfecbd9cb51 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a300e7b2134b2bd0faaa24cfecbd9cb51">destroy</a> (<a class="el" href="a00415.html">CFeatureFromBlockIf</a> *&amp;pCInstance)</td></tr>
+<tr class="separator:a300e7b2134b2bd0faaa24cfecbd9cb51 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a880a58f05522dfd1f0f16f26c34703db inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a880a58f05522dfd1f0f16f26c34703db">compFeatureSpectralCentroid</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a880a58f05522dfd1f0f16f26c34703db inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15df133306497e4f85929692354f378a inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a15df133306497e4f85929692354f378a">compFeatureSpectralCrestFactor</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a15df133306497e4f85929692354f378a inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9e03b3181d7ff9d8a9b0eaedabff9899 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a9e03b3181d7ff9d8a9b0eaedabff9899">compFeatureSpectralDecrease</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a9e03b3181d7ff9d8a9b0eaedabff9899 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a361ef81afe12623645546fbbeab30b14 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a361ef81afe12623645546fbbeab30b14">compFeatureSpectralFlatness</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a361ef81afe12623645546fbbeab30b14 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42b11faa0f65881702ad7dcc1398ec5f inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a42b11faa0f65881702ad7dcc1398ec5f">compFeatureSpectralFlux</a> (const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a42b11faa0f65881702ad7dcc1398ec5f inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff5ebe0708311c49ba85c03c4546b6cf inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#aff5ebe0708311c49ba85c03c4546b6cf">compFeatureSpectralKurtosis</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:aff5ebe0708311c49ba85c03c4546b6cf inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a28b9430a480ce697a7dbd73527057ac6 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a28b9430a480ce697a7dbd73527057ac6">compFeatureSpectralRolloff</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F, float fKappa=.85F)</td></tr>
+<tr class="separator:a28b9430a480ce697a7dbd73527057ac6 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af130d46bb6a964262acb138fc7b7b9fd inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#af130d46bb6a964262acb138fc7b7b9fd">compFeatureSpectralSkewness</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:af130d46bb6a964262acb138fc7b7b9fd inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c8ded721d053ed4f34565a1392993fc inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a8c8ded721d053ed4f34565a1392993fc">compFeatureSpectralSlope</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a8c8ded721d053ed4f34565a1392993fc inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa97614c73430e57facec7a88bee49c9f inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#aa97614c73430e57facec7a88bee49c9f">compFeatureSpectralSpread</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:aa97614c73430e57facec7a88bee49c9f inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abdd05ed6160f4154fd4aae2816939f5e inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#abdd05ed6160f4154fd4aae2816939f5e">compFeatureSpectralTonalPowerRatio</a> (const float *pfMagSpec, int iDataLength, float fSampleRate=1.F, float fThresh=5e-4)</td></tr>
+<tr class="separator:abdd05ed6160f4154fd4aae2816939f5e inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a665af5d570876cc41adc56185201cd8c inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a665af5d570876cc41adc56185201cd8c">compFeatureTimeAcfCoeff</a> (const float *pfSamples, int iDataLength, float fSampleRate=1.F, int iEta=19)</td></tr>
+<tr class="separator:a665af5d570876cc41adc56185201cd8c inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8343fab849f52e77639b46e759e7e49d inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a8343fab849f52e77639b46e759e7e49d">compFeatureTimePeakEnvelope</a> (const float *pfSamples, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a8343fab849f52e77639b46e759e7e49d inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46500f9eaa49f3860afa5f1fce555415 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a46500f9eaa49f3860afa5f1fce555415">compFeatureTimeRms</a> (const float *pfSamples, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a46500f9eaa49f3860afa5f1fce555415 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eca7f209c771fb5008fa08facffd598 inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a4eca7f209c771fb5008fa08facffd598">compFeatureTimeStd</a> (const float *pfSamples, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:a4eca7f209c771fb5008fa08facffd598 inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add9e6742349500c1323607b2508d311d inherit pub_static_methods_a00415"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#add9e6742349500c1323607b2508d311d">compFeatureTimeZeroCrossingRate</a> (const float *pfSamples, int iDataLength, float fSampleRate=1.F)</td></tr>
+<tr class="separator:add9e6742349500c1323607b2508d311d inherit pub_static_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pub_static_attribs_a00415"><td colspan="2" onclick="javascript:toggleInherit('pub_static_attribs_a00415')"><img src="closed.png" alt="-"/>&#160;Static Public Attributes inherited from <a class="el" href="a00415.html">CFeatureFromBlockIf</a></td></tr>
+<tr class="memitem:a23b1d6639637a13587d5529a57f3bf78 inherit pub_static_attribs_a00415"><td class="memItemLeft" align="right" valign="top">static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a23b1d6639637a13587d5529a57f3bf78">m_kfFloatThresh</a> = 1e-30F</td></tr>
+<tr class="memdesc:a23b1d6639637a13587d5529a57f3bf78 inherit pub_static_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">below this we just assume it's zero  <a href="a00415.html#a23b1d6639637a13587d5529a57f3bf78">More...</a><br /></td></tr>
+<tr class="separator:a23b1d6639637a13587d5529a57f3bf78 inherit pub_static_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_methods_a00415"><td colspan="2" onclick="javascript:toggleInherit('pro_methods_a00415')"><img src="closed.png" alt="-"/>&#160;Protected Member Functions inherited from <a class="el" href="a00415.html">CFeatureFromBlockIf</a></td></tr>
+<tr class="memitem:a483bca508e2817799a3173a6180d245e inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a> ()</td></tr>
+<tr class="separator:a483bca508e2817799a3173a6180d245e inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26bc5632321408486bf3fccfa3fbfa1c inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a26bc5632321408486bf3fccfa3fbfa1c">CFeatureFromBlockIf</a> (<a class="el" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a> eFeatureIdx, int iDataLength, float fSampleRate)</td></tr>
+<tr class="separator:a26bc5632321408486bf3fccfa3fbfa1c inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab3e21cffc4d8fb5851c9564671cad2cd inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#ab3e21cffc4d8fb5851c9564671cad2cd">~CFeatureFromBlockIf</a> ()</td></tr>
+<tr class="separator:ab3e21cffc4d8fb5851c9564671cad2cd inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ca29d1d628143cb11f1c3400f6b23c4 inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a3ca29d1d628143cb11f1c3400f6b23c4">CFeatureFromBlockIf</a> (const <a class="el" href="a00415.html">CFeatureFromBlockIf</a> &amp;that)</td></tr>
+<tr class="separator:a3ca29d1d628143cb11f1c3400f6b23c4 inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af9650d7b6bb5362a2c4be9154e777089 inherit pro_methods_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00415.html">CFeatureFromBlockIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#af9650d7b6bb5362a2c4be9154e777089">operator=</a> (const <a class="el" href="a00415.html">CFeatureFromBlockIf</a> &amp;c)</td></tr>
+<tr class="separator:af9650d7b6bb5362a2c4be9154e777089 inherit pro_methods_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="inherit_header pro_attribs_a00415"><td colspan="2" onclick="javascript:toggleInherit('pro_attribs_a00415')"><img src="closed.png" alt="-"/>&#160;Protected Attributes inherited from <a class="el" href="a00415.html">CFeatureFromBlockIf</a></td></tr>
+<tr class="memitem:a3cdaa6a50139576cf1aaa73f4b0d3b6f inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a3cdaa6a50139576cf1aaa73f4b0d3b6f">m_eFeatureIdx</a> = <a class="el" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3abe9b4914b84bc00da1aacb5f0068545d">CFeatureIf::kNumFeatures</a></td></tr>
+<tr class="memdesc:a3cdaa6a50139576cf1aaa73f4b0d3b6f inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of feature to extract  <a href="a00415.html#a3cdaa6a50139576cf1aaa73f4b0d3b6f">More...</a><br /></td></tr>
+<tr class="separator:a3cdaa6a50139576cf1aaa73f4b0d3b6f inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2fefdb1b1217edd46c2b4e9336fa2aed inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a> = 0</td></tr>
+<tr class="memdesc:a2fefdb1b1217edd46c2b4e9336fa2aed inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00415.html#a2fefdb1b1217edd46c2b4e9336fa2aed">More...</a><br /></td></tr>
+<tr class="separator:a2fefdb1b1217edd46c2b4e9336fa2aed inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75ac4ef94667058662a8100bb1c1e1cd inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a> = 0</td></tr>
+<tr class="memdesc:a75ac4ef94667058662a8100bb1c1e1cd inherit pro_attribs_a00415"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00415.html#a75ac4ef94667058662a8100bb1c1e1cd">More...</a><br /></td></tr>
+<tr class="separator:a75ac4ef94667058662a8100bb1c1e1cd inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a21d3edee07a3b9f4d0af407479591a6c inherit pro_attribs_a00415"><td class="memItemLeft" align="right" valign="top">const std::map&lt; <a class="el" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a>, std::function&lt; float(const float *, int, float)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00415.html#a21d3edee07a3b9f4d0af407479591a6c">m_DispatchMap</a></td></tr>
+<tr class="separator:a21d3edee07a3b9f4d0af407479591a6c inherit pro_attribs_a00415"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00139">139</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="acd4920798f76cfa56accd9ba28dad6ae" name="acd4920798f76cfa56accd9ba28dad6ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd4920798f76cfa56accd9ba28dad6ae">&#9670;&nbsp;</a></span>CPitchTimeAcf() <span class="overload">[1/3]</span></h2>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00808">808</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a7edc97c9ab3cfb28e51b7f041b93c503" name="a7edc97c9ab3cfb28e51b7f041b93c503"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7edc97c9ab3cfb28e51b7f041b93c503">&#9670;&nbsp;</a></span>PeakType_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -153,10 +206,87 @@ Additional Inherited Members</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CPitchTimeAcf::CPitchTimeAcf </td>
+          <td class="memname">enum <a class="el" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503">CFeatureTimePeakEnvelope::PeakType_t</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a7edc97c9ab3cfb28e51b7f041b93c503a81e4ef03732f59697b6515c67c9a1299" name="a7edc97c9ab3cfb28e51b7f041b93c503a81e4ef03732f59697b6515c67c9a1299"></a>kBlock&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13" name="a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13"></a>kPpmMax&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a7edc97c9ab3cfb28e51b7f041b93c503ab044c98fa4caca6d1300b5adb1365c70" name="a7edc97c9ab3cfb28e51b7f041b93c503ab044c98fa4caca6d1300b5adb1365c70"></a>kNumPeakTypes&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00842">842</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  843</span>    {</div>
+<div class="line"><span class="lineno">  844</span>        <a class="code hl_enumvalue" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a81e4ef03732f59697b6515c67c9a1299">kBlock</a>,</div>
+<div class="line"><span class="lineno">  845</span>        <a class="code hl_enumvalue" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13">kPpmMax</a>,</div>
+<div class="line"><span class="lineno">  846</span> </div>
+<div class="line"><span class="lineno">  847</span>        <a class="code hl_enumvalue" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503ab044c98fa4caca6d1300b5adb1365c70">kNumPeakTypes</a></div>
+<div class="line"><span class="lineno">  848</span>    };</div>
+<div class="ttc" id="aa00303_html_a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13"><div class="ttname"><a href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13">CFeatureTimePeakEnvelope::kPpmMax</a></div><div class="ttdeci">@ kPpmMax</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00845">FeatureFromBlock.cpp:845</a></div></div>
+<div class="ttc" id="aa00303_html_a7edc97c9ab3cfb28e51b7f041b93c503a81e4ef03732f59697b6515c67c9a1299"><div class="ttname"><a href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a81e4ef03732f59697b6515c67c9a1299">CFeatureTimePeakEnvelope::kBlock</a></div><div class="ttdeci">@ kBlock</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00844">FeatureFromBlock.cpp:844</a></div></div>
+<div class="ttc" id="aa00303_html_a7edc97c9ab3cfb28e51b7f041b93c503ab044c98fa4caca6d1300b5adb1365c70"><div class="ttname"><a href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503ab044c98fa4caca6d1300b5adb1365c70">CFeatureTimePeakEnvelope::kNumPeakTypes</a></div><div class="ttdeci">@ kNumPeakTypes</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00848">FeatureFromBlock.cpp:847</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="acd92b000d83f9ec3613b59a995c6d296" name="acd92b000d83f9ec3613b59a995c6d296"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acd92b000d83f9ec3613b59a995c6d296">&#9670;&nbsp;</a></span>PpmFilters_t</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296">CFeatureTimePeakEnvelope::PpmFilters_t</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acd92b000d83f9ec3613b59a995c6d296ab728d46d8acd39d42832d6982013dba5" name="acd92b000d83f9ec3613b59a995c6d296ab728d46d8acd39d42832d6982013dba5"></a>kAttack&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acd92b000d83f9ec3613b59a995c6d296afcf3cedb9d4d092a341bd5b2ed1ffab5" name="acd92b000d83f9ec3613b59a995c6d296afcf3cedb9d4d092a341bd5b2ed1ffab5"></a>kRelease&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986" name="acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986"></a>kNumPpmFilters&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00850">850</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  851</span>    {</div>
+<div class="line"><span class="lineno">  852</span>        <a class="code hl_enumvalue" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296ab728d46d8acd39d42832d6982013dba5">kAttack</a>,</div>
+<div class="line"><span class="lineno">  853</span>        <a class="code hl_enumvalue" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296afcf3cedb9d4d092a341bd5b2ed1ffab5">kRelease</a>,</div>
+<div class="line"><span class="lineno">  854</span> </div>
+<div class="line"><span class="lineno">  855</span>        <a class="code hl_enumvalue" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986">kNumPpmFilters</a></div>
+<div class="line"><span class="lineno">  856</span>    };</div>
+<div class="ttc" id="aa00303_html_acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986"><div class="ttname"><a href="a00303.html#acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986">CFeatureTimePeakEnvelope::kNumPpmFilters</a></div><div class="ttdeci">@ kNumPpmFilters</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00856">FeatureFromBlock.cpp:855</a></div></div>
+<div class="ttc" id="aa00303_html_acd92b000d83f9ec3613b59a995c6d296ab728d46d8acd39d42832d6982013dba5"><div class="ttname"><a href="a00303.html#acd92b000d83f9ec3613b59a995c6d296ab728d46d8acd39d42832d6982013dba5">CFeatureTimePeakEnvelope::kAttack</a></div><div class="ttdeci">@ kAttack</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00852">FeatureFromBlock.cpp:852</a></div></div>
+<div class="ttc" id="aa00303_html_acd92b000d83f9ec3613b59a995c6d296afcf3cedb9d4d092a341bd5b2ed1ffab5"><div class="ttname"><a href="a00303.html#acd92b000d83f9ec3613b59a995c6d296afcf3cedb9d4d092a341bd5b2ed1ffab5">CFeatureTimePeakEnvelope::kRelease</a></div><div class="ttdeci">@ kRelease</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00853">FeatureFromBlock.cpp:853</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="af43ac71fb7b58e2ae9897e33bae488f3" name="af43ac71fb7b58e2ae9897e33bae488f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af43ac71fb7b58e2ae9897e33bae488f3">&#9670;&nbsp;</a></span>CFeatureTimePeakEnvelope() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CFeatureTimePeakEnvelope::CFeatureTimePeakEnvelope </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td>
-          <td class="paramname"><em>ePitchIdx</em>, </td>
+          <td class="paramtype"><a class="el" href="a00411.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a>&#160;</td>
+          <td class="paramname"><em>eFeatureIdx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -183,49 +313,32 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00142">142</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  142</span>                                                                                           : <a class="code hl_function" href="a00427.html#a8d454d951956c464b883888196a0fe23">CPitchFromBlockIf</a>(ePitchIdx, iDataLength, fSampleRate)</div>
-<div class="line"><span class="lineno">  143</span>    {</div>
-<div class="line"><span class="lineno">  144</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00443.html">CCcf</a>();</div>
-<div class="line"><span class="lineno">  145</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5">init</a>(iDataLength);</div>
-<div class="line"><span class="lineno">  146</span> </div>
-<div class="line"><span class="lineno">  147</span>        <a class="code hl_function" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a>(<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>, <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00443.html#a837db3fbfbd8a3b5e27be2fe8f137c2c">getCcfLength</a>(<span class="keyword">true</span>));</div>
-<div class="line"><span class="lineno">  148</span>    };</div>
-<div class="ttc" id="aa00303_html_a20081d499cd0d70d8e61086f33b33365"><div class="ttname"><a href="a00303.html#a20081d499cd0d70d8e61086f33b33365">CPitchTimeAcf::m_pCCcf</a></div><div class="ttdeci">CCcf * m_pCCcf</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00205">PitchFromBlock.cpp:205</a></div></div>
-<div class="ttc" id="aa00303_html_a55d9b28275bf425da7edcd5a56822247"><div class="ttname"><a href="a00303.html#a55d9b28275bf425da7edcd5a56822247">CPitchTimeAcf::m_pfAcf</a></div><div class="ttdeci">float * m_pfAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00206">PitchFromBlock.cpp:206</a></div></div>
-<div class="ttc" id="aa00407_html_ad89b487a9844f6302d8f886e64e78fbd"><div class="ttname"><a href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;pfVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00022">Vector.h:22</a></div></div>
-<div class="ttc" id="aa00427_html_a8d454d951956c464b883888196a0fe23"><div class="ttname"><a href="a00427.html#a8d454d951956c464b883888196a0fe23">CPitchFromBlockIf::CPitchFromBlockIf</a></div><div class="ttdeci">CPitchFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00052">PitchFromBlock.h:52</a></div></div>
-<div class="ttc" id="aa00443_html"><div class="ttname"><a href="a00443.html">CCcf</a></div><div class="ttdoc">computation of correlation (freq domain)</div><div class="ttdef"><b>Definition:</b> <a href="a00140_source.html#l00013">ToolCcf.h:14</a></div></div>
-<div class="ttc" id="aa00443_html_a837db3fbfbd8a3b5e27be2fe8f137c2c"><div class="ttname"><a href="a00443.html#a837db3fbfbd8a3b5e27be2fe8f137c2c">CCcf::getCcfLength</a></div><div class="ttdeci">int getCcfLength(bool bIsAcf=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00103">ToolCcf.cpp:103</a></div></div>
-<div class="ttc" id="aa00443_html_af683b1b5e37ca2039424af02f4bfb3c5"><div class="ttname"><a href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5">CCcf::init</a></div><div class="ttdeci">Error_t init(int iBlockLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00020">ToolCcf.cpp:20</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00811">811</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  811</span>                                                                                                  : <a class="code hl_function" href="a00415.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate)</div>
+<div class="line"><span class="lineno">  812</span>    {</div>
+<div class="line"><span class="lineno">  813</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; <a class="code hl_enumvalue" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986">kNumPpmFilters</a>; i++)</div>
+<div class="line"><span class="lineno">  814</span>            <a class="code hl_variable" href="a00303.html#af43fa882d3241bd471c366ad4494ae84">m_afAlpha</a>[i] = <a class="code hl_function" href="a00499.html#afedab0de8491f604e797ada1fb0e5899">CSinglePoleLp::calcFilterParam</a>(<a class="code hl_variable" href="a00303.html#a31608e2cfe64a3ac1b7b2e4d57b0fbe7">m_afIntegrationTimeInS</a>[i], fSampleRate);</div>
+<div class="line"><span class="lineno">  815</span>    };</div>
+<div class="ttc" id="aa00303_html_a31608e2cfe64a3ac1b7b2e4d57b0fbe7"><div class="ttname"><a href="a00303.html#a31608e2cfe64a3ac1b7b2e4d57b0fbe7">CFeatureTimePeakEnvelope::m_afIntegrationTimeInS</a></div><div class="ttdeci">float m_afIntegrationTimeInS[kNumPpmFilters]</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00874">FeatureFromBlock.cpp:874</a></div></div>
+<div class="ttc" id="aa00303_html_af43fa882d3241bd471c366ad4494ae84"><div class="ttname"><a href="a00303.html#af43fa882d3241bd471c366ad4494ae84">CFeatureTimePeakEnvelope::m_afAlpha</a></div><div class="ttdeci">float m_afAlpha[kNumPpmFilters]</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00875">FeatureFromBlock.cpp:875</a></div></div>
+<div class="ttc" id="aa00415_html_a483bca508e2817799a3173a6180d245e"><div class="ttname"><a href="a00415.html#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf::CFeatureFromBlockIf</a></div><div class="ttdeci">CFeatureFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00088">FeatureFromBlock.h:88</a></div></div>
+<div class="ttc" id="aa00499_html_afedab0de8491f604e797ada1fb0e5899"><div class="ttname"><a href="a00499.html#afedab0de8491f604e797ada1fb0e5899">CSinglePoleLp::calcFilterParam</a></div><div class="ttdeci">static float calcFilterParam(float fIntegrationTimeInS, float fSampleRate)</div><div class="ttdef"><b>Definition:</b> <a href="a00167_source.html#l00099">ToolLowPass.h:99</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00107_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00074_source.html#l00103">CCcf::getCcfLength()</a>, <a class="el" href="a00074_source.html#l00020">CCcf::init()</a>, <a class="el" href="a00071_source.html#l00205">m_pCCcf</a>, and <a class="el" href="a00071_source.html#l00206">m_pfAcf</a>.</p>
+<p class="reference">References <a class="el" href="a00167_source.html#l00099">CSinglePoleLp::calcFilterParam()</a>, <a class="el" href="a00041_source.html#l00855">kNumPpmFilters</a>, <a class="el" href="a00041_source.html#l00875">m_afAlpha</a>, and <a class="el" href="a00041_source.html#l00874">m_afIntegrationTimeInS</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00303_acd4920798f76cfa56accd9ba28dad6ae_cgraph.png" border="0" usemap="#aa00303_acd4920798f76cfa56accd9ba28dad6ae_cgraph" alt=""/></div>
-<map name="aa00303_acd4920798f76cfa56accd9ba28dad6ae_cgraph" id="aa00303_acd4920798f76cfa56accd9ba28dad6ae_cgraph">
-<area shape="rect" title=" " alt="" coords="5,132,209,159"/>
-<area shape="rect" href="a00407.html#ad89b487a9844f6302d8f886e64e78fbd" title=" " alt="" coords="791,5,894,32"/>
-<area shape="rect" href="a00443.html#a837db3fbfbd8a3b5e27be2fe8f137c2c" title=" " alt="" coords="257,183,392,209"/>
-<area shape="rect" href="a00443.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="287,132,362,159"/>
-<area shape="rect" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="955,5,1073,32"/>
-<area shape="rect" href="a00379.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="448,107,519,133"/>
-<area shape="rect" href="a00403.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="595,157,710,184"/>
-<area shape="rect" href="a00403.html#a0fd55429d52515a9efb2fe602ce8f9ed" title=" " alt="" coords="589,208,717,235"/>
-<area shape="rect" href="a00443.html#a6edce7be75bf0b89dcc4a20e491ad8d8" title=" " alt="" coords="440,259,527,285"/>
-<area shape="rect" href="a00379.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="586,56,719,83"/>
-<area shape="rect" href="a00379.html#aa5fffd68919cea17741c9fe69209bce6" title=" " alt="" coords="575,107,731,133"/>
-<area shape="rect" href="a00379.html#a0a0053b6ce93161553b573a16c77387a" title=" " alt="" coords="611,259,694,285"/>
-<area shape="rect" href="a00379.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="779,259,907,285"/>
-<area shape="rect" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="965,284,1063,311"/>
+<div class="center"><img src="a00303_af43ac71fb7b58e2ae9897e33bae488f3_cgraph.png" border="0" usemap="#aa00303_af43ac71fb7b58e2ae9897e33bae488f3_cgraph" alt=""/></div>
+<map name="aa00303_af43ac71fb7b58e2ae9897e33bae488f3_cgraph" id="aa00303_af43ac71fb7b58e2ae9897e33bae488f3_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,199,47"/>
+<area shape="rect" href="a00499.html#afedab0de8491f604e797ada1fb0e5899" title=" " alt="" coords="247,5,413,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a0c7cdf1cb79c1e8395db89ba56d79cbc" name="a0c7cdf1cb79c1e8395db89ba56d79cbc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0c7cdf1cb79c1e8395db89ba56d79cbc">&#9670;&nbsp;</a></span>~CPitchTimeAcf()</h2>
+<a id="af2b23785ea04505ff4a889d8313c2169" name="af2b23785ea04505ff4a889d8313c2169"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2b23785ea04505ff4a889d8313c2169">&#9670;&nbsp;</a></span>~CFeatureTimePeakEnvelope()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -234,7 +347,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CPitchTimeAcf::~CPitchTimeAcf </td>
+          <td class="memname">virtual CFeatureTimePeakEnvelope::~CFeatureTimePeakEnvelope </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -247,30 +360,13 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00150">150</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  151</span>    {</div>
-<div class="line"><span class="lineno">  152</span>        <a class="code hl_function" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a>(<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>);</div>
-<div class="line"><span class="lineno">  153</span> </div>
-<div class="line"><span class="lineno">  154</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>;</div>
-<div class="line"><span class="lineno">  155</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a> = 0;</div>
-<div class="line"><span class="lineno">  156</span>    };</div>
-<div class="ttc" id="aa00407_html_afe5e1268bb93a077f0d4fcac90ba8039"><div class="ttname"><a href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00037">Vector.h:37</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00817">817</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  817</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00107_source.html#l00037">CVector::free()</a>, <a class="el" href="a00071_source.html#l00205">m_pCCcf</a>, and <a class="el" href="a00071_source.html#l00206">m_pfAcf</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00303_a0c7cdf1cb79c1e8395db89ba56d79cbc_cgraph.png" border="0" usemap="#aa00303_a0c7cdf1cb79c1e8395db89ba56d79cbc_cgraph" alt=""/></div>
-<map name="aa00303_a0c7cdf1cb79c1e8395db89ba56d79cbc_cgraph" id="aa00303_a0c7cdf1cb79c1e8395db89ba56d79cbc_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,216,32"/>
-<area shape="rect" href="a00407.html#afe5e1268bb93a077f0d4fcac90ba8039" title=" " alt="" coords="264,5,361,32"/>
-</map>
-</div>
-
 </div>
 </div>
-<a id="af1810f62663b7dbd228a09198f3cf13a" name="af1810f62663b7dbd228a09198f3cf13a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af1810f62663b7dbd228a09198f3cf13a">&#9670;&nbsp;</a></span>CPitchTimeAcf() <span class="overload">[2/3]</span></h2>
+<a id="ab29ce4890eab1620a0e9ad62acf3fe2e" name="ab29ce4890eab1620a0e9ad62acf3fe2e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab29ce4890eab1620a0e9ad62acf3fe2e">&#9670;&nbsp;</a></span>CFeatureTimePeakEnvelope() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -279,7 +375,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CPitchTimeAcf::CPitchTimeAcf </td>
+          <td class="memname">CFeatureTimePeakEnvelope::CFeatureTimePeakEnvelope </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -292,42 +388,14 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00201">201</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  201</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00840">840</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  840</span>{};</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a58e2df14aeed930a1e41749d40e65c35" name="a58e2df14aeed930a1e41749d40e65c35"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58e2df14aeed930a1e41749d40e65c35">&#9670;&nbsp;</a></span>CPitchTimeAcf() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CPitchTimeAcf::CPitchTimeAcf </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;&#160;</td>
-          <td class="paramname"><em>that</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>disallow copy construction </p>
-
-</div>
-</div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a7b6c2a935434281c2e17352a3487c912" name="a7b6c2a935434281c2e17352a3487c912"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b6c2a935434281c2e17352a3487c912">&#9670;&nbsp;</a></span>compF0()</h2>
+<a id="a238861a45b720d2b5a4974ea2dde9bad" name="a238861a45b720d2b5a4974ea2dde9bad"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a238861a45b720d2b5a4974ea2dde9bad">&#9670;&nbsp;</a></span>compFeature()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -336,11 +404,21 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CPitchTimeAcf::compF0 </td>
+          <td class="memname"><a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CFeatureTimePeakEnvelope::compFeature </td>
           <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfInput</em></td><td>)</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>pfFeature</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>pfInput</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -349,94 +427,55 @@ Here is the call graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >performs the PitchFromBlock computation </p><dl class="params"><dt>Parameters</dt><dd>
+<p >performs the FeatureFromBlock computation </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
+    <tr><td class="paramname">pfFeature</td><td>feature result (user-allocated, to be written, length from <a class="el" href="a00415.html#a8bf822f58aa66fc4787c5528352575c0">CFeatureFromBlockIf::getFeatureDimensions</a>) </td></tr>
     <tr><td class="paramname">pfInput</td><td>input data of length iDataLength </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>float fF0InHz </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p>Implements <a class="el" href="a00427.html#a680337ee1fcc59015ea679862cd8085c">CPitchFromBlockIf</a>.</p>
+<p>Reimplemented from <a class="el" href="a00415.html#aefd1cebf296212209ba41f38939e07bf">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00158">158</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  159</span>    {</div>
-<div class="line"><span class="lineno">  160</span>        assert(pfInput);</div>
-<div class="line"><span class="lineno">  161</span> </div>
-<div class="line"><span class="lineno">  162</span>        <span class="keywordtype">int</span> iEta = 0,</div>
-<div class="line"><span class="lineno">  163</span>            iEtaMin = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a> / <a class="code hl_variable" href="a00303.html#a7540d2f69db7b7da74ae54c8eacf458e">m_fMax</a>);</div>
-<div class="line"><span class="lineno">  164</span> </div>
-<div class="line"><span class="lineno">  165</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00443.html#a4d7d19dd39b24147d9a1fab5d7e05257">compCcf</a>(pfInput, pfInput, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  166</span>        <a class="code hl_variable" href="a00303.html#a20081d499cd0d70d8e61086f33b33365">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00443.html#af98260f965391ca3adf75bd435601236">getCcf</a>(<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  167</span> </div>
-<div class="line"><span class="lineno">  168</span>        <span class="comment">// avoid main lobe</span></div>
-<div class="line"><span class="lineno">  169</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>[iEta] &gt; <a class="code hl_variable" href="a00303.html#a667c865dba3fda2b4dfcb27d467029d8">m_fMinThresh</a>)</div>
-<div class="line"><span class="lineno">  170</span>            iEta++;</div>
-<div class="line"><span class="lineno">  171</span>        <span class="keywordflow">if</span> (iEtaMin &lt; iEta)</div>
-<div class="line"><span class="lineno">  172</span>            iEtaMin = iEta;</div>
-<div class="line"><span class="lineno">  173</span> </div>
-<div class="line"><span class="lineno">  174</span>        <span class="comment">// only look after first minimum</span></div>
-<div class="line"><span class="lineno">  175</span>        iEta = 0;</div>
-<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>[iEta] &gt; <a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>[iEta + 1])</div>
-<div class="line"><span class="lineno">  177</span>        {</div>
-<div class="line"><span class="lineno">  178</span>            iEta++;</div>
-<div class="line"><span class="lineno">  179</span>            <span class="keywordflow">if</span> (iEta &gt;= <a class="code hl_variable" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a>)</div>
-<div class="line"><span class="lineno">  180</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  181</span>        }</div>
-<div class="line"><span class="lineno">  182</span> </div>
-<div class="line"><span class="lineno">  183</span>        <span class="keywordflow">if</span> (iEta &gt;= <a class="code hl_variable" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a>)</div>
-<div class="line"><span class="lineno">  184</span>            iEtaMin = 0;</div>
-<div class="line"><span class="lineno">  185</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iEtaMin &lt; iEta)</div>
-<div class="line"><span class="lineno">  186</span>            iEtaMin = iEta;</div>
-<div class="line"><span class="lineno">  187</span> </div>
-<div class="line"><span class="lineno">  188</span>        <span class="comment">// get the maximum given the constraints above</span></div>
-<div class="line"><span class="lineno">  189</span>        <span class="keywordtype">float</span> fMax = 0;</div>
-<div class="line"><span class="lineno">  190</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iMax = -1;</div>
-<div class="line"><span class="lineno">  191</span>        <a class="code hl_function" href="a00411.html#a66a451d1a0992e33a73c01b09566eea0">CVectorFloat::findMax</a>(&amp;<a class="code hl_variable" href="a00303.html#a55d9b28275bf425da7edcd5a56822247">m_pfAcf</a>[iEtaMin], fMax, iMax, <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a>) - iEtaMin);</div>
-<div class="line"><span class="lineno">  192</span> </div>
-<div class="line"><span class="lineno">  193</span>        <span class="keywordflow">if</span> (fMax &lt;= 0)</div>
-<div class="line"><span class="lineno">  194</span>            <span class="keywordflow">return</span> 0.F;</div>
-<div class="line"><span class="lineno">  195</span> </div>
-<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a> / (iMax + iEtaMin);</div>
-<div class="line"><span class="lineno">  197</span>    };</div>
-<div class="ttc" id="aa00303_html_a667c865dba3fda2b4dfcb27d467029d8"><div class="ttname"><a href="a00303.html#a667c865dba3fda2b4dfcb27d467029d8">CPitchTimeAcf::m_fMinThresh</a></div><div class="ttdeci">const float m_fMinThresh</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00209">PitchFromBlock.cpp:209</a></div></div>
-<div class="ttc" id="aa00303_html_a7540d2f69db7b7da74ae54c8eacf458e"><div class="ttname"><a href="a00303.html#a7540d2f69db7b7da74ae54c8eacf458e">CPitchTimeAcf::m_fMax</a></div><div class="ttdeci">float m_fMax</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00208">PitchFromBlock.cpp:208</a></div></div>
-<div class="ttc" id="aa00411_html_a66a451d1a0992e33a73c01b09566eea0"><div class="ttname"><a href="a00411.html#a66a451d1a0992e33a73c01b09566eea0">CVectorFloat::findMax</a></div><div class="ttdeci">static void findMax(const float *pfSrc, float &amp;fMax, long long &amp;iMax, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.html#l00540">Vector.h:540</a></div></div>
-<div class="ttc" id="aa00427_html_aab7cbf575cd81f196fdc75f226b61ab6"><div class="ttname"><a href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">CPitchFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00060">PitchFromBlock.h:60</a></div></div>
-<div class="ttc" id="aa00427_html_ac4a3235dfd5c3919a7d1a290f92dfa80"><div class="ttname"><a href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">CPitchFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00062">PitchFromBlock.h:62</a></div></div>
-<div class="ttc" id="aa00443_html_a4d7d19dd39b24147d9a1fab5d7e05257"><div class="ttname"><a href="a00443.html#a4d7d19dd39b24147d9a1fab5d7e05257">CCcf::compCcf</a></div><div class="ttdeci">Error_t compCcf(const float *pfInput1, const float *pfInput2, bool bNormalize=true)</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00062">ToolCcf.cpp:62</a></div></div>
-<div class="ttc" id="aa00443_html_af98260f965391ca3adf75bd435601236"><div class="ttname"><a href="a00443.html#af98260f965391ca3adf75bd435601236">CCcf::getCcf</a></div><div class="ttdeci">Error_t getCcf(float *pfCcfResult, bool bIsAcf=false) const</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.html#l00111">ToolCcf.cpp:111</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00819">819</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  820</span>    {</div>
+<div class="line"><span class="lineno">  821</span>        pfFeature[<a class="code hl_enumvalue" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a81e4ef03732f59697b6515c67c9a1299">kBlock</a>] = <a class="code hl_function" href="a00415.html#a8343fab849f52e77639b46e759e7e49d">compFeatureTimePeakEnvelope</a>(pfInput, <a class="code hl_variable" href="a00415.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>, <a class="code hl_variable" href="a00415.html#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno">  822</span> </div>
+<div class="line"><span class="lineno">  823</span>        pfFeature[<a class="code hl_enumvalue" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13">kPpmMax</a>] = 0;</div>
+<div class="line"><span class="lineno">  824</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; <a class="code hl_variable" href="a00415.html#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>; i++)</div>
+<div class="line"><span class="lineno">  825</span>        {</div>
+<div class="line"><span class="lineno">  826</span>            <span class="keywordtype">float</span> fOut = <a class="code hl_function" href="a00303.html#a1a8760a574baf47c90caf0ea1d3e5053">ppm_I</a>(pfInput[i]);</div>
+<div class="line"><span class="lineno">  827</span>            <span class="keywordflow">if</span> (fOut &gt; pfFeature[<a class="code hl_enumvalue" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13">kPpmMax</a>])</div>
+<div class="line"><span class="lineno">  828</span>                pfFeature[<a class="code hl_enumvalue" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503a6bd88cda995b797a44ad0d9f8da29f13">kPpmMax</a>] = fOut;</div>
+<div class="line"><span class="lineno">  829</span>        }</div>
+<div class="line"><span class="lineno">  830</span> </div>
+<div class="line"><span class="lineno">  831</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  832</span>    };</div>
+<div class="ttc" id="aa00098_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00303_html_a1a8760a574baf47c90caf0ea1d3e5053"><div class="ttname"><a href="a00303.html#a1a8760a574baf47c90caf0ea1d3e5053">CFeatureTimePeakEnvelope::ppm_I</a></div><div class="ttdeci">float ppm_I(float fIn)</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00858">FeatureFromBlock.cpp:858</a></div></div>
+<div class="ttc" id="aa00415_html_a2fefdb1b1217edd46c2b4e9336fa2aed"><div class="ttname"><a href="a00415.html#a2fefdb1b1217edd46c2b4e9336fa2aed">CFeatureFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00096">FeatureFromBlock.h:96</a></div></div>
+<div class="ttc" id="aa00415_html_a75ac4ef94667058662a8100bb1c1e1cd"><div class="ttname"><a href="a00415.html#a75ac4ef94667058662a8100bb1c1e1cd">CFeatureFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00098">FeatureFromBlock.h:98</a></div></div>
+<div class="ttc" id="aa00415_html_a8343fab849f52e77639b46e759e7e49d"><div class="ttname"><a href="a00415.html#a8343fab849f52e77639b46e759e7e49d">CFeatureFromBlockIf::compFeatureTimePeakEnvelope</a></div><div class="ttdeci">static float compFeatureTimePeakEnvelope(const float *pfSamples, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00280">FeatureFromBlock.cpp:280</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00074_source.html#l00062">CCcf::compCcf()</a>, <a class="el" href="a00107_source.html#l00540">CVectorFloat::findMax()</a>, <a class="el" href="a00074_source.html#l00111">CCcf::getCcf()</a>, <a class="el" href="a00071_source.html#l00208">m_fMax</a>, <a class="el" href="a00071_source.html#l00209">m_fMinThresh</a>, <a class="el" href="a00143_source.html#l00062">CPitchFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00143_source.html#l00060">CPitchFromBlockIf::m_iDataLength</a>, <a class="el" href="a00071_source.html#l00205">m_pCCcf</a>, and <a class="el" href="a00071_source.html#l00206">m_pfAcf</a>.</p>
+<p class="reference">References <a class="el" href="a00041_source.html#l00280">CFeatureFromBlockIf::compFeatureTimePeakEnvelope()</a>, <a class="el" href="a00041_source.html#l00844">kBlock</a>, <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00041_source.html#l00845">kPpmMax</a>, <a class="el" href="a00101_source.html#l00098">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00101_source.html#l00096">CFeatureFromBlockIf::m_iDataLength</a>, and <a class="el" href="a00041_source.html#l00858">ppm_I()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00303_a7b6c2a935434281c2e17352a3487c912_cgraph.png" border="0" usemap="#aa00303_a7b6c2a935434281c2e17352a3487c912_cgraph" alt=""/></div>
-<map name="aa00303_a7b6c2a935434281c2e17352a3487c912_cgraph" id="aa00303_a7b6c2a935434281c2e17352a3487c912_cgraph">
-<area shape="rect" title=" " alt="" coords="5,317,168,344"/>
-<area shape="rect" href="a00443.html#a4d7d19dd39b24147d9a1fab5d7e05257" title=" " alt="" coords="235,191,345,217"/>
-<area shape="rect" href="a00411.html#a66a451d1a0992e33a73c01b09566eea0" title=" " alt="" coords="216,368,364,395"/>
-<area shape="rect" href="a00443.html#af98260f965391ca3adf75bd435601236" title=" " alt="" coords="243,317,337,344"/>
-<area shape="rect" href="a00379.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="443,115,544,141"/>
-<area shape="rect" href="a00411.html#a0bf711bf2ed2dc87efeafe12db55570e" title=" " alt="" coords="631,304,762,331"/>
-<area shape="rect" href="a00379.html#a2d2fa880b32c7087973ed25628002129" title=" " alt="" coords="434,165,553,192"/>
-<area shape="rect" href="a00379.html#ab6245bc0fdabc5e62ab910414eb4b923" title=" " alt="" coords="433,7,553,33"/>
-<area shape="rect" href="a00411.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="624,5,769,32"/>
-<area shape="rect" href="a00411.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="412,216,575,243"/>
-<area shape="rect" href="a00379.html#a1d114960d5fc8ff4c328732adf638885" title=" " alt="" coords="439,267,547,293"/>
-<area shape="rect" href="a00411.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="629,173,765,200"/>
-<area shape="rect" href="a00230.html#a32fc71031e721d003fd1dc07f771351d" title=" " alt="" coords="639,107,754,149"/>
-<area shape="rect" href="a00411.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="623,56,771,83"/>
-<area shape="rect" href="a00407.html#a6b811d064424381d6f210d4b7fcfaef2" title=" " alt="" coords="827,304,929,331"/>
-<area shape="rect" href="a00407.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="819,56,937,83"/>
-<area shape="rect" href="a00230.html#a3597bc1b9aa8e068d7313a72c4e51eef" title=" " alt="" coords="638,225,755,266"/>
+<div class="center"><img src="a00303_a238861a45b720d2b5a4974ea2dde9bad_cgraph.png" border="0" usemap="#aa00303_a238861a45b720d2b5a4974ea2dde9bad_cgraph" alt=""/></div>
+<map name="aa00303_a238861a45b720d2b5a4974ea2dde9bad_cgraph" id="aa00303_a238861a45b720d2b5a4974ea2dde9bad_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,192,80"/>
+<area shape="rect" href="a00415.html#a8343fab849f52e77639b46e759e7e49d" title=" " alt="" coords="240,5,456,47"/>
+<area shape="rect" href="a00303.html#a1a8760a574baf47c90caf0ea1d3e5053" title=" " alt="" coords="255,71,441,112"/>
+<area shape="rect" href="a00451.html#a8279b309edcfcac51d94b1e8f206a330" title=" " alt="" coords="504,13,651,39"/>
+<area shape="rect" href="a00451.html#a66a451d1a0992e33a73c01b09566eea0" title=" " alt="" coords="699,13,847,39"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a9bc50b93b2afdc1782d8534fa7ed6c80" name="a9bc50b93b2afdc1782d8534fa7ed6c80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bc50b93b2afdc1782d8534fa7ed6c80">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a55891d1e487afbe095399d19ab078469" name="a55891d1e487afbe095399d19ab078469"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a55891d1e487afbe095399d19ab078469">&#9670;&nbsp;</a></span>getFeatureDimensions()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -445,25 +484,90 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00303.html">CPitchTimeAcf</a> &amp; CPitchTimeAcf::operator= </td>
+          <td class="memname">int CFeatureTimePeakEnvelope::getFeatureDimensions </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00303.html">CPitchTimeAcf</a> &amp;&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">override</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >returns size of output feature (1 in most cases) </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+<p>Reimplemented from <a class="el" href="a00415.html#a8bf822f58aa66fc4787c5528352575c0">CFeatureFromBlockIf</a>.</p>
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00834">834</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  835</span>    {</div>
+<div class="line"><span class="lineno">  836</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00303.html#a7edc97c9ab3cfb28e51b7f041b93c503ab044c98fa4caca6d1300b5adb1365c70">kNumPeakTypes</a>;</div>
+<div class="line"><span class="lineno">  837</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00041_source.html#l00847">kNumPeakTypes</a>.</p>
+
+</div>
+</div>
+<a id="a1a8760a574baf47c90caf0ea1d3e5053" name="a1a8760a574baf47c90caf0ea1d3e5053"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1a8760a574baf47c90caf0ea1d3e5053">&#9670;&nbsp;</a></span>ppm_I()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CFeatureTimePeakEnvelope::ppm_I </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fIn</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00858">858</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  859</span>    {</div>
+<div class="line"><span class="lineno">  860</span>        <span class="keywordtype">float</span> fOut = 0;</div>
+<div class="line"><span class="lineno">  861</span> </div>
+<div class="line"><span class="lineno">  862</span>        fIn = std::abs(fIn);</div>
+<div class="line"><span class="lineno">  863</span> </div>
+<div class="line"><span class="lineno">  864</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00303.html#a03dcdc58bb508eedc93c0261cfaa1843">m_fFilterBuff</a> &gt; fIn)</div>
+<div class="line"><span class="lineno">  865</span>            fOut = <a class="code hl_variable" href="a00303.html#af43fa882d3241bd471c366ad4494ae84">m_afAlpha</a>[<a class="code hl_enumvalue" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296afcf3cedb9d4d092a341bd5b2ed1ffab5">kRelease</a>] * <a class="code hl_variable" href="a00303.html#a03dcdc58bb508eedc93c0261cfaa1843">m_fFilterBuff</a>;</div>
+<div class="line"><span class="lineno">  866</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  867</span>            fOut = (1.F - <a class="code hl_variable" href="a00303.html#af43fa882d3241bd471c366ad4494ae84">m_afAlpha</a>[<a class="code hl_enumvalue" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296ab728d46d8acd39d42832d6982013dba5">kAttack</a>]) * fIn + <a class="code hl_variable" href="a00303.html#af43fa882d3241bd471c366ad4494ae84">m_afAlpha</a>[<a class="code hl_enumvalue" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296ab728d46d8acd39d42832d6982013dba5">kAttack</a>] * <a class="code hl_variable" href="a00303.html#a03dcdc58bb508eedc93c0261cfaa1843">m_fFilterBuff</a>;</div>
+<div class="line"><span class="lineno">  868</span> </div>
+<div class="line"><span class="lineno">  869</span>        <a class="code hl_variable" href="a00303.html#a03dcdc58bb508eedc93c0261cfaa1843">m_fFilterBuff</a> = fOut;</div>
+<div class="line"><span class="lineno">  870</span> </div>
+<div class="line"><span class="lineno">  871</span>        <span class="keywordflow">return</span> fOut;</div>
+<div class="line"><span class="lineno">  872</span>    }</div>
+<div class="ttc" id="aa00303_html_a03dcdc58bb508eedc93c0261cfaa1843"><div class="ttname"><a href="a00303.html#a03dcdc58bb508eedc93c0261cfaa1843">CFeatureTimePeakEnvelope::m_fFilterBuff</a></div><div class="ttdeci">float m_fFilterBuff</div><div class="ttdef"><b>Definition:</b> <a href="a00041_source.html#l00876">FeatureFromBlock.cpp:876</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00041_source.html#l00852">kAttack</a>, <a class="el" href="a00041_source.html#l00853">kRelease</a>, <a class="el" href="a00041_source.html#l00875">m_afAlpha</a>, and <a class="el" href="a00041_source.html#l00876">m_fFilterBuff</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00819">compFeature()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00303_a1a8760a574baf47c90caf0ea1d3e5053_icgraph.png" border="0" usemap="#aa00303_a1a8760a574baf47c90caf0ea1d3e5053_icgraph" alt=""/></div>
+<map name="aa00303_a1a8760a574baf47c90caf0ea1d3e5053_icgraph" id="aa00303_a1a8760a574baf47c90caf0ea1d3e5053_icgraph">
+<area shape="rect" title=" " alt="" coords="240,5,427,47"/>
+<area shape="rect" href="a00303.html#a238861a45b720d2b5a4974ea2dde9bad" title=" " alt="" coords="5,5,192,47"/>
+</map>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7540d2f69db7b7da74ae54c8eacf458e" name="a7540d2f69db7b7da74ae54c8eacf458e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7540d2f69db7b7da74ae54c8eacf458e">&#9670;&nbsp;</a></span>m_fMax</h2>
+<a id="af43fa882d3241bd471c366ad4494ae84" name="af43fa882d3241bd471c366ad4494ae84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af43fa882d3241bd471c366ad4494ae84">&#9670;&nbsp;</a></span>m_afAlpha</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -472,7 +576,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CPitchTimeAcf::m_fMax = 2000.F</td>
+          <td class="memname">float CFeatureTimePeakEnvelope::m_afAlpha[<a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986">kNumPpmFilters</a>] = { 0,0 }</td>
         </tr>
       </table>
   </td>
@@ -482,14 +586,14 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00208">208</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00875">875</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00158">compF0()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00811">CFeatureTimePeakEnvelope()</a>, and <a class="el" href="a00041_source.html#l00858">ppm_I()</a>.</p>
 
 </div>
 </div>
-<a id="a667c865dba3fda2b4dfcb27d467029d8" name="a667c865dba3fda2b4dfcb27d467029d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a667c865dba3fda2b4dfcb27d467029d8">&#9670;&nbsp;</a></span>m_fMinThresh</h2>
+<a id="a31608e2cfe64a3ac1b7b2e4d57b0fbe7" name="a31608e2cfe64a3ac1b7b2e4d57b0fbe7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a31608e2cfe64a3ac1b7b2e4d57b0fbe7">&#9670;&nbsp;</a></span>m_afIntegrationTimeInS</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -498,7 +602,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const float CPitchTimeAcf::m_fMinThresh = 0.35F</td>
+          <td class="memname">float CFeatureTimePeakEnvelope::m_afIntegrationTimeInS[<a class="el" href="a00303.html#acd92b000d83f9ec3613b59a995c6d296a244967a35270c25af7fbf24a22b4b986">kNumPpmFilters</a>] = { .01F, 1.5F }</td>
         </tr>
       </table>
   </td>
@@ -508,14 +612,14 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00209">209</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00874">874</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00158">compF0()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00811">CFeatureTimePeakEnvelope()</a>.</p>
 
 </div>
 </div>
-<a id="a20081d499cd0d70d8e61086f33b33365" name="a20081d499cd0d70d8e61086f33b33365"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a20081d499cd0d70d8e61086f33b33365">&#9670;&nbsp;</a></span>m_pCCcf</h2>
+<a id="a03dcdc58bb508eedc93c0261cfaa1843" name="a03dcdc58bb508eedc93c0261cfaa1843"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03dcdc58bb508eedc93c0261cfaa1843">&#9670;&nbsp;</a></span>m_fFilterBuff</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -524,7 +628,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00443.html">CCcf</a>* CPitchTimeAcf::m_pCCcf = 0</td>
+          <td class="memname">float CFeatureTimePeakEnvelope::m_fFilterBuff = 0.F</td>
         </tr>
       </table>
   </td>
@@ -534,45 +638,19 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00205">205</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00041_source.html#l00876">876</a> of file <a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00158">compF0()</a>, <a class="el" href="a00071_source.html#l00142">CPitchTimeAcf()</a>, and <a class="el" href="a00071_source.html#l00150">~CPitchTimeAcf()</a>.</p>
-
-</div>
-</div>
-<a id="a55d9b28275bf425da7edcd5a56822247" name="a55d9b28275bf425da7edcd5a56822247"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55d9b28275bf425da7edcd5a56822247">&#9670;&nbsp;</a></span>m_pfAcf</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float* CPitchTimeAcf::m_pfAcf = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00206">206</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00158">compF0()</a>, <a class="el" href="a00071_source.html#l00142">CPitchTimeAcf()</a>, and <a class="el" href="a00071_source.html#l00150">~CPitchTimeAcf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.html#l00858">ppm_I()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00071_source.html">PitchFromBlock.cpp</a></li>
+<li><a class="el" href="a00041_source.html">FeatureFromBlock.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 3 2022 22:03:45 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:03 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

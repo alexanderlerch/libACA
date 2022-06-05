@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Pitch.cpp File Reference</title>
+<title>ACA: Fft.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -49,59 +49,61 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">Pitch.cpp File Reference</div></div>
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">Fft.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;map&gt;</code><br />
-<code>#include &lt;functional&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00125_source.html">Util.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00131_source.html">AudioFileIf.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00110_source.html">Fft.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00101_source.html">ToolPreProc.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00146_source.html">ToolBlockAudio.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00161_source.html">PitchFromBlock.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00179_source.html">Pitch.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00128_source.html">Util.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00122_source.html">Vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00113_source.html">Fft.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00230_source.html">rvfft.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Pitch.cpp:</div>
+Include dependency graph for Fft.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00060.png" border="0" usemap="#aPitch_8cpp" alt=""/></div>
-<map name="aPitch_8cpp" id="aPitch_8cpp">
-<area shape="rect" title=" " alt="" coords="351,5,427,32"/>
-<area shape="rect" title=" " alt="" coords="23,80,70,107"/>
-<area shape="rect" title=" " alt="" coords="94,80,173,107"/>
-<area shape="rect" href="a00125.html" title=" " alt="" coords="47,155,99,181"/>
-<area shape="rect" href="a00131.html" title=" " alt="" coords="467,155,562,181"/>
-<area shape="rect" href="a00110.html" title=" " alt="" coords="627,80,675,107"/>
-<area shape="rect" href="a00101.html" title=" " alt="" coords="248,80,352,107"/>
-<area shape="rect" href="a00146.html" title=" " alt="" coords="269,155,392,181"/>
-<area shape="rect" href="a00161.html" title=" " alt="" coords="477,80,603,107"/>
-<area shape="rect" href="a00179.html" title=" " alt="" coords="689,155,751,181"/>
-<area shape="rect" title=" " alt="" coords="251,229,317,256"/>
-<area shape="rect" title=" " alt="" coords="5,229,67,256"/>
-<area shape="rect" title=" " alt="" coords="91,229,144,256"/>
-<area shape="rect" title=" " alt="" coords="686,229,741,256"/>
-<area shape="rect" title=" " alt="" coords="387,229,453,256"/>
-<area shape="rect" title=" " alt="" coords="477,229,552,256"/>
-<area shape="rect" href="a00095.html" title=" " alt="" coords="577,229,655,256"/>
-<area shape="rect" href="a00119.html" title=" " alt="" coords="123,155,194,181"/>
-<area shape="rect" title=" " alt="" coords="168,229,227,256"/>
+<div class="center"><img src="a00060.png" border="0" usemap="#aFft_8cpp" alt=""/></div>
+<map name="aFft_8cpp" id="aFft_8cpp">
+<area shape="rect" title=" " alt="" coords="178,5,241,32"/>
+<area shape="rect" title=" " alt="" coords="5,155,64,181"/>
+<area shape="rect" href="a00128.html" title=" " alt="" coords="183,80,235,107"/>
+<area shape="rect" href="a00122.html" title=" " alt="" coords="89,80,159,107"/>
+<area shape="rect" href="a00113.html" title=" " alt="" coords="260,80,308,107"/>
+<area shape="rect" href="a00230.html" title=" " alt="" coords="333,80,387,107"/>
+<area shape="rect" title=" " alt="" coords="89,155,154,181"/>
+<area shape="rect" title=" " alt="" coords="179,155,240,181"/>
+<area shape="rect" title=" " alt="" coords="264,155,317,181"/>
+<area shape="rect" href="a00098.html" title=" " alt="" coords="342,155,421,181"/>
 </map>
 </div>
 </div>
 <p><a href="a00059_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00313.html">CPitchFromFile</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00317.html">CPitchFromVector</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a525335710b53cb064ca56b936120431e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00059.html#a525335710b53cb064ca56b936120431e">_USE_MATH_DEFINES</a></td></tr>
+<tr class="separator:a525335710b53cb064ca56b936120431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a525335710b53cb064ca56b936120431e" name="a525335710b53cb064ca56b936120431e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525335710b53cb064ca56b936120431e">&#9670;&nbsp;</a></span>_USE_MATH_DEFINES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _USE_MATH_DEFINES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00002">2</a> of file <a class="el" href="a00059_source.html">Fft.cpp</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 17:22:39 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:02 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

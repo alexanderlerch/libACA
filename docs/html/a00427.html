@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CPitchFromBlockIf Class Reference</title>
+<title>ACA: CButterLp Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,9 +18,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
-   <div id="projectbrief">Code for Audio Content Analysis</div>
+   <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
  </tr>
  </tbody>
@@ -47,140 +47,80 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
+<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="a00424.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CPitchFromBlockIf Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">CButterLp Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)  
+<p>class providing a generic filter implementation implementation inspired by src from <a href="https://exstrom.com/journal/sigproc/dsigproc.html">https://exstrom.com/journal/sigproc/dsigproc.html</a>  
  <a href="a00427.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00143_source.html">PitchFromBlock.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00119_source.html">Filter.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for CPitchFromBlockIf:</div>
+Collaboration diagram for CButterLp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00426.png" border="0" usemap="#aCPitchFromBlockIf_inherit__map" alt="Inheritance graph"/></div>
-<map name="aCPitchFromBlockIf_inherit__map" id="aCPitchFromBlockIf_inherit__map">
-<area shape="rect" title="class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)" alt="" coords="440,5,597,229"/>
-<area shape="rect" href="a00295.html" title=" " alt="" coords="5,329,160,523"/>
-<area shape="rect" href="a00299.html" title=" " alt="" coords="185,336,343,516"/>
-<area shape="rect" href="a00303.html" title=" " alt="" coords="368,329,504,523"/>
-<area shape="rect" href="a00311.html" title=" " alt="" coords="528,343,675,509"/>
-<area shape="rect" href="a00307.html" title=" " alt="" coords="699,277,861,575"/>
-<area shape="rect" href="a00315.html" title=" " alt="" coords="885,351,1085,501"/>
-</map>
-</div>
-<div class="dynheader">
-Collaboration diagram for CPitchFromBlockIf:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00425.png" border="0" usemap="#aCPitchFromBlockIf_coll__map" alt="Collaboration graph"/></div>
-<map name="aCPitchFromBlockIf_coll__map" id="aCPitchFromBlockIf_coll__map">
-<area shape="rect" title="class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,5,163,229"/>
+<div class="center"><img src="a00425.png" border="0" usemap="#aCButterLp_coll__map" alt="Collaboration graph"/></div>
+<map name="aCButterLp_coll__map" id="aCButterLp_coll__map">
+<area shape="rect" title="class providing a generic filter implementation implementation inspired by src from https://exstrom...." alt="" coords="5,5,117,141"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:ac7496d16e4dfc1ab55305dc118c2e6bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac7496d16e4dfc1ab55305dc118c2e6bf">getPitchExtractorIdx</a> () const</td></tr>
-<tr class="separator:ac7496d16e4dfc1ab55305dc118c2e6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a680337ee1fcc59015ea679862cd8085c"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a680337ee1fcc59015ea679862cd8085c">compF0</a> (const float *pfInput)=0</td></tr>
-<tr class="separator:a680337ee1fcc59015ea679862cd8085c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1718a14a292a2a34ae92e8ce838456a3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a1718a14a292a2a34ae92e8ce838456a3">create</a> (<a class="el" href="a00427.html">CPitchFromBlockIf</a> *&amp;pCInstance, <a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate=1.F)</td></tr>
-<tr class="separator:a1718a14a292a2a34ae92e8ce838456a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adadb010b152c65dc26b08f56fa700e77"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#adadb010b152c65dc26b08f56fa700e77">destroy</a> (<a class="el" href="a00427.html">CPitchFromBlockIf</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:adadb010b152c65dc26b08f56fa700e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3878460603a6e6e1a64de6021b2bb73e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a3878460603a6e6e1a64de6021b2bb73e"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00427.html#a3878460603a6e6e1a64de6021b2bb73e">calcCoeffs</a> (T *pfB, T *pfA, int iOrder, T fCutOff)</td></tr>
+<tr class="separator:a3878460603a6e6e1a64de6021b2bb73e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8d454d951956c464b883888196a0fe23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a8d454d951956c464b883888196a0fe23">CPitchFromBlockIf</a> ()</td></tr>
-<tr class="separator:a8d454d951956c464b883888196a0fe23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bf104764846e7531e2011312311c6ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a7bf104764846e7531e2011312311c6ea">CPitchFromBlockIf</a> (<a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate)</td></tr>
-<tr class="separator:a7bf104764846e7531e2011312311c6ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbcd93d047e4d96fb117e764481c44bd"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#afbcd93d047e4d96fb117e764481c44bd">~CPitchFromBlockIf</a> ()</td></tr>
-<tr class="separator:afbcd93d047e4d96fb117e764481c44bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02981a6e1aa3094a190b4bb6550b8053"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a02981a6e1aa3094a190b4bb6550b8053">CPitchFromBlockIf</a> (const <a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;that)</td></tr>
-<tr class="separator:a02981a6e1aa3094a190b4bb6550b8053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8707778012c90162771312f62be77271"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#a8707778012c90162771312f62be77271">operator=</a> (const <a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;c)</td></tr>
-<tr class="separator:a8707778012c90162771312f62be77271"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:ac90de810c2f977da52483d905119172e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac90de810c2f977da52483d905119172e">m_ePitchIdx</a> = <a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></td></tr>
-<tr class="memdesc:ac90de810c2f977da52483d905119172e"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of Pitch to extract  <a href="a00427.html#ac90de810c2f977da52483d905119172e">More...</a><br /></td></tr>
-<tr class="separator:ac90de810c2f977da52483d905119172e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab7cbf575cd81f196fdc75f226b61ab6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a> = 0</td></tr>
-<tr class="memdesc:aab7cbf575cd81f196fdc75f226b61ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">More...</a><br /></td></tr>
-<tr class="separator:aab7cbf575cd81f196fdc75f226b61ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a3235dfd5c3919a7d1a290f92dfa80"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a> = 0</td></tr>
-<tr class="memdesc:ac4a3235dfd5c3919a7d1a290f92dfa80"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">More...</a><br /></td></tr>
-<tr class="separator:ac4a3235dfd5c3919a7d1a290f92dfa80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
+Static Private Member Functions</h2></td></tr>
+<tr class="memitem:a9c08c0b6f891bb37fb4230088f94b0a0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a9c08c0b6f891bb37fb4230088f94b0a0"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00427.html#a9c08c0b6f891bb37fb4230088f94b0a0">calcB</a> (T *pfB, int iOrder, T fCutOff)</td></tr>
+<tr class="separator:a9c08c0b6f891bb37fb4230088f94b0a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a70bdde7f075d2591fd03c52c16145c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4a70bdde7f075d2591fd03c52c16145c"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00427.html#a4a70bdde7f075d2591fd03c52c16145c">calcA</a> (T *pfA, int iOrder, T fCutOff)</td></tr>
+<tr class="separator:a4a70bdde7f075d2591fd03c52c16145c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a93b25bb8ef71fc7221ae53efe9212d67"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a93b25bb8ef71fc7221ae53efe9212d67"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00427.html#a93b25bb8ef71fc7221ae53efe9212d67">calcScale</a> (int iOrder, T fCutOff)</td></tr>
+<tr class="separator:a93b25bb8ef71fc7221ae53efe9212d67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab4432f6b6d2f1bad850a13a0573615c4"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ab4432f6b6d2f1bad850a13a0573615c4"><td class="memTemplItemLeft" align="right" valign="top">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00427.html#ab4432f6b6d2f1bad850a13a0573615c4">multBinomial</a> (T *pfOut, const T *pfIn, int iOrder)</td></tr>
+<tr class="separator:ab4432f6b6d2f1bad850a13a0573615c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum) </p>
+<div class="textblock"><p >class providing a generic filter implementation implementation inspired by src from <a href="https://exstrom.com/journal/sigproc/dsigproc.html">https://exstrom.com/journal/sigproc/dsigproc.html</a> </p>
 
-<p class="definition">Definition at line <a class="el" href="a00143_source.html#l00013">13</a> of file <a class="el" href="a00143_source.html">PitchFromBlock.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8d454d951956c464b883888196a0fe23" name="a8d454d951956c464b883888196a0fe23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d454d951956c464b883888196a0fe23">&#9670;&nbsp;</a></span>CPitchFromBlockIf() <span class="overload">[1/3]</span></h2>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00289">289</a> of file <a class="el" href="a00119_source.html">Filter.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a4a70bdde7f075d2591fd03c52c16145c" name="a4a70bdde7f075d2591fd03c52c16145c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a70bdde7f075d2591fd03c52c16145c">&#9670;&nbsp;</a></span>calcA()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CPitchFromBlockIf::CPitchFromBlockIf </td>
+          <td class="memname">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CButterLp::calcA </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00143_source.html#l00052">52</a> of file <a class="el" href="a00143_source.html">PitchFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   52</span>{};</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a7bf104764846e7531e2011312311c6ea" name="a7bf104764846e7531e2011312311c6ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bf104764846e7531e2011312311c6ea">&#9670;&nbsp;</a></span>CPitchFromBlockIf() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CPitchFromBlockIf::CPitchFromBlockIf </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td>
-          <td class="paramname"><em>ePitchIdx</em>, </td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pfA</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
+          <td class="paramname"><em>iOrder</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em>&#160;</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fCutOff</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -190,153 +130,94 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00143_source.html#l00053">53</a> of file <a class="el" href="a00143_source.html">PitchFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   53</span>: <a class="code hl_variable" href="a00427.html#ac90de810c2f977da52483d905119172e">m_ePitchIdx</a>(ePitchIdx), <a class="code hl_variable" href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a>(iDataLength), <a class="code hl_variable" href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a>(fSampleRate) {assert(iDataLength &gt; 0);};</div>
-<div class="ttc" id="aa00427_html_aab7cbf575cd81f196fdc75f226b61ab6"><div class="ttname"><a href="a00427.html#aab7cbf575cd81f196fdc75f226b61ab6">CPitchFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00060">PitchFromBlock.h:60</a></div></div>
-<div class="ttc" id="aa00427_html_ac4a3235dfd5c3919a7d1a290f92dfa80"><div class="ttname"><a href="a00427.html#ac4a3235dfd5c3919a7d1a290f92dfa80">CPitchFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00062">PitchFromBlock.h:62</a></div></div>
-<div class="ttc" id="aa00427_html_ac90de810c2f977da52483d905119172e"><div class="ttname"><a href="a00427.html#ac90de810c2f977da52483d905119172e">CPitchFromBlockIf::m_ePitchIdx</a></div><div class="ttdeci">CPitchIf::PitchExtractors_t m_ePitchIdx</div><div class="ttdoc">index of Pitch to extract</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00058">PitchFromBlock.h:58</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00341">341</a> of file <a class="el" href="a00119_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  342</span>    {</div>
+<div class="line"><span class="lineno">  343</span>        T* pfCoeff = 0;     <span class="comment">// binomial coefficients</span></div>
+<div class="line"><span class="lineno">  344</span> </div>
+<div class="line"><span class="lineno">  345</span>        CVector::alloc&lt;T&gt;(pfCoeff, <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(2) * iOrder);</div>
+<div class="line"><span class="lineno">  346</span> </div>
+<div class="line"><span class="lineno">  347</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; iOrder; j++)</div>
+<div class="line"><span class="lineno">  348</span>        {</div>
+<div class="line"><span class="lineno">  349</span>            T fArg = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * (2. * j + 1) / (2. * iOrder));</div>
+<div class="line"><span class="lineno">  350</span>            T fNorm = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1 + std::sin(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * fCutOff) * std::sin(fArg));</div>
+<div class="line"><span class="lineno">  351</span>            pfCoeff[2 * j] = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(-std::cos(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * fCutOff) / fNorm);</div>
+<div class="line"><span class="lineno">  352</span>            pfCoeff[2 * j + 1] = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(-std::sin(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * fCutOff) * std::cos(fArg) / fNorm);</div>
+<div class="line"><span class="lineno">  353</span>        }</div>
+<div class="line"><span class="lineno">  354</span> </div>
+<div class="line"><span class="lineno">  355</span>        <a class="code hl_function" href="a00427.html#ab4432f6b6d2f1bad850a13a0573615c4">multBinomial</a>(pfA, pfCoeff, iOrder); </div>
+<div class="line"><span class="lineno">  356</span> </div>
+<div class="line"><span class="lineno">  357</span>        pfA[1] = pfA[0];</div>
+<div class="line"><span class="lineno">  358</span>        pfA[0] = 1;</div>
+<div class="line"><span class="lineno">  359</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 3; j &lt;= iOrder; j++)</div>
+<div class="line"><span class="lineno">  360</span>            pfA[j] = pfA[2 * j - 2];</div>
+<div class="line"><span class="lineno">  361</span> </div>
+<div class="line"><span class="lineno">  362</span>        CVector::free&lt;T&gt;(pfCoeff);</div>
+<div class="line"><span class="lineno">  363</span> </div>
+<div class="line"><span class="lineno">  364</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  365</span>    }</div>
+<div class="ttc" id="aa00098_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00212_html_ae71449b1cc6e6250b91f539153a7a0d3"><div class="ttname"><a href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a></div><div class="ttdeci">#define M_PI</div><div class="ttdef"><b>Definition:</b> <a href="a00212_source.html#l00018">_sndlib.h:18</a></div></div>
+<div class="ttc" id="aa00427_html_ab4432f6b6d2f1bad850a13a0573615c4"><div class="ttname"><a href="a00427.html#ab4432f6b6d2f1bad850a13a0573615c4">CButterLp::multBinomial</a></div><div class="ttdeci">static Error_t multBinomial(T *pfOut, const T *pfIn, int iOrder)</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00384">Filter.h:384</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00212_source.html#l00018">M_PI</a>, and <a class="el" href="a00119_source.html#l00384">multBinomial()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.html#l00301">calcCoeffs()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00427_a4a70bdde7f075d2591fd03c52c16145c_cgraph.png" border="0" usemap="#aa00427_a4a70bdde7f075d2591fd03c52c16145c_cgraph" alt=""/></div>
+<map name="aa00427_a4a70bdde7f075d2591fd03c52c16145c_cgraph" id="aa00427_a4a70bdde7f075d2591fd03c52c16145c_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,125,32"/>
+<area shape="rect" href="a00427.html#ab4432f6b6d2f1bad850a13a0573615c4" title=" " alt="" coords="173,5,336,32"/>
+</map>
 </div>
-</div>
-<a id="afbcd93d047e4d96fb117e764481c44bd" name="afbcd93d047e4d96fb117e764481c44bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbcd93d047e4d96fb117e764481c44bd">&#9670;&nbsp;</a></span>~CPitchFromBlockIf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual CPitchFromBlockIf::~CPitchFromBlockIf </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00143_source.html#l00054">54</a> of file <a class="el" href="a00143_source.html">PitchFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   54</span>{};</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a02981a6e1aa3094a190b4bb6550b8053" name="a02981a6e1aa3094a190b4bb6550b8053"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02981a6e1aa3094a190b4bb6550b8053">&#9670;&nbsp;</a></span>CPitchFromBlockIf() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CPitchFromBlockIf::CPitchFromBlockIf </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;&#160;</td>
-          <td class="paramname"><em>that</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="a680337ee1fcc59015ea679862cd8085c" name="a680337ee1fcc59015ea679862cd8085c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680337ee1fcc59015ea679862cd8085c">&#9670;&nbsp;</a></span>compF0()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual float CPitchFromBlockIf::compF0 </td>
-          <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfInput</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >performs the PitchFromBlock computation </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pfInput</td><td>input data of length iDataLength </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>float fF0InHz </dd></dl>
-
-<p>Implemented in <a class="el" href="a00295.html#a250792b516c76c54251534a33c17bea8">CPitchSpectralAcf</a>, <a class="el" href="a00299.html#ad6b1dafb86b44b1d31bfbe22e930d146">CPitchSpectralHps</a>, <a class="el" href="a00303.html#a7b6c2a935434281c2e17352a3487c912">CPitchTimeAcf</a>, <a class="el" href="a00307.html#a7fa2c23a2108dc313f319ec803a6181f">CPitchTimeAuditory</a>, <a class="el" href="a00311.html#ae235ca4cf85c1da5f49460775ed5cb24">CPitchTimeAmdf</a>, and <a class="el" href="a00315.html#ad801e225c1a5713cd40865c5e8a2211f">CPitchTimeZeroCrossings</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00056_source.html#l00186">CPitchIf::compF0()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00427_a680337ee1fcc59015ea679862cd8085c_icgraph.png" border="0" usemap="#aa00427_a680337ee1fcc59015ea679862cd8085c_icgraph" alt=""/></div>
-<map name="aa00427_a680337ee1fcc59015ea679862cd8085c_icgraph" id="aa00427_a680337ee1fcc59015ea679862cd8085c_icgraph">
-<area shape="rect" title=" " alt="" coords="275,5,413,47"/>
-<area shape="rect" href="a00423.html#a5c6fea7fdc8067f1d6a116b86d543aa1" title=" " alt="" coords="104,13,227,39"/>
-<area shape="rect" href="a00083.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,56,39"/>
+<div class="center"><img src="a00427_a4a70bdde7f075d2591fd03c52c16145c_icgraph.png" border="0" usemap="#aa00427_a4a70bdde7f075d2591fd03c52c16145c_icgraph" alt=""/></div>
+<map name="aa00427_a4a70bdde7f075d2591fd03c52c16145c_icgraph" id="aa00427_a4a70bdde7f075d2591fd03c52c16145c_icgraph">
+<area shape="rect" title=" " alt="" coords="392,42,512,69"/>
+<area shape="rect" href="a00427.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="196,42,344,69"/>
+<area shape="rect" href="a00339.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" href="a00515.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="6,71,147,98"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a1718a14a292a2a34ae92e8ce838456a3" name="a1718a14a292a2a34ae92e8ce838456a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1718a14a292a2a34ae92e8ce838456a3">&#9670;&nbsp;</a></span>create()</h2>
+<a id="a9c08c0b6f891bb37fb4230088f94b0a0" name="a9c08c0b6f891bb37fb4230088f94b0a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c08c0b6f891bb37fb4230088f94b0a0">&#9670;&nbsp;</a></span>calcB()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchFromBlockIf::create </td>
+          <td class="memname">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CButterLp::calcB </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00427.html">CPitchFromBlockIf</a> *&amp;&#160;</td>
-          <td class="paramname"><em>pCInstance</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td>
-          <td class="paramname"><em>ePitchIdx</em>, </td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pfB</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
+          <td class="paramname"><em>iOrder</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>1.F</code>&#160;</td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fCutOff</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -346,311 +227,324 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >initializes a PitchFromBlock instance </p><dl class="params"><dt>Parameters</dt><dd>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00320">320</a> of file <a class="el" href="a00119_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  321</span>    {</div>
+<div class="line"><span class="lineno">  322</span>        pfB[0] = 1;</div>
+<div class="line"><span class="lineno">  323</span>        pfB[1] = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(iOrder);</div>
+<div class="line"><span class="lineno">  324</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 2; j &lt;= iOrder / 2; ++j)</div>
+<div class="line"><span class="lineno">  325</span>        {</div>
+<div class="line"><span class="lineno">  326</span>            pfB[j] = (iOrder - j + 1) * pfB[j - 1] / j;</div>
+<div class="line"><span class="lineno">  327</span>            pfB[iOrder - j] = pfB[j];</div>
+<div class="line"><span class="lineno">  328</span>        }</div>
+<div class="line"><span class="lineno">  329</span>        pfB[iOrder - 1] = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(iOrder);</div>
+<div class="line"><span class="lineno">  330</span>        pfB[iOrder] = 1;</div>
+<div class="line"><span class="lineno">  331</span> </div>
+<div class="line"><span class="lineno">  332</span>        T fScale = <a class="code hl_function" href="a00427.html#a93b25bb8ef71fc7221ae53efe9212d67">calcScale</a>(iOrder, fCutOff);</div>
+<div class="line"><span class="lineno">  333</span> </div>
+<div class="line"><span class="lineno">  334</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; iOrder + 1; j++)</div>
+<div class="line"><span class="lineno">  335</span>            pfB[j] *= fScale;</div>
+<div class="line"><span class="lineno">  336</span> </div>
+<div class="line"><span class="lineno">  337</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  338</span>    }</div>
+<div class="ttc" id="aa00427_html_a93b25bb8ef71fc7221ae53efe9212d67"><div class="ttname"><a href="a00427.html#a93b25bb8ef71fc7221ae53efe9212d67">CButterLp::calcScale</a></div><div class="ttdeci">static T calcScale(int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00368">Filter.h:368</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00119_source.html#l00368">calcScale()</a>, and <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.html#l00301">calcCoeffs()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00427_a9c08c0b6f891bb37fb4230088f94b0a0_cgraph.png" border="0" usemap="#aa00427_a9c08c0b6f891bb37fb4230088f94b0a0_cgraph" alt=""/></div>
+<map name="aa00427_a9c08c0b6f891bb37fb4230088f94b0a0_cgraph" id="aa00427_a9c08c0b6f891bb37fb4230088f94b0a0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,125,32"/>
+<area shape="rect" href="a00427.html#a93b25bb8ef71fc7221ae53efe9212d67" title=" " alt="" coords="173,5,317,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00427_a9c08c0b6f891bb37fb4230088f94b0a0_icgraph.png" border="0" usemap="#aa00427_a9c08c0b6f891bb37fb4230088f94b0a0_icgraph" alt=""/></div>
+<map name="aa00427_a9c08c0b6f891bb37fb4230088f94b0a0_icgraph" id="aa00427_a9c08c0b6f891bb37fb4230088f94b0a0_icgraph">
+<area shape="rect" title=" " alt="" coords="392,42,512,69"/>
+<area shape="rect" href="a00427.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="196,42,344,69"/>
+<area shape="rect" href="a00339.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" href="a00515.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="6,71,147,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a3878460603a6e6e1a64de6021b2bb73e" name="a3878460603a6e6e1a64de6021b2bb73e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3878460603a6e6e1a64de6021b2bb73e">&#9670;&nbsp;</a></span>calcCoeffs()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CButterLp::calcCoeffs </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pfB</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pfA</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iOrder</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fCutOff</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >computes buttworth lowpass coefficients </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
-    <tr><td class="paramname">ePitchIdx</td><td>index of Pitch to extract </td></tr>
-    <tr><td class="paramname">iDataLength</td><td>block length </td></tr>
-    <tr><td class="paramname">fSampleRate</td><td>sample rate (only used when needed) </td></tr>
+    <tr><td class="paramname">pfB</td><td>output signal (to be written, length iOrder+1, allocated by user) </td></tr>
+    <tr><td class="paramname">pfA</td><td>input signal (to be written, length iOrder+1, allocated by user) </td></tr>
+    <tr><td class="paramname">iOrder</td><td>number of poles </td></tr>
+    <tr><td class="paramname">fCutOff</td><td>normed cutoff between 0 and 1 (fs/2) </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00433">433</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  434</span>{</div>
-<div class="line"><span class="lineno">  435</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
-<div class="line"><span class="lineno">  436</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  437</span> </div>
-<div class="line"><span class="lineno">  438</span> </div>
-<div class="line"><span class="lineno">  439</span>    <span class="keywordflow">switch</span> (ePitchIdx)</div>
-<div class="line"><span class="lineno">  440</span>    {</div>
-<div class="line"><span class="lineno">  441</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  442</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">CPitchIf::kPitchTimeAcf</a>:</div>
-<div class="line"><span class="lineno">  443</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00303.html">CPitchTimeAcf</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  444</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  445</span> </div>
-<div class="line"><span class="lineno">  446</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">CPitchIf::kPitchTimeZeroCrossings</a>:</div>
-<div class="line"><span class="lineno">  447</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00315.html">CPitchTimeZeroCrossings</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  448</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  449</span> </div>
-<div class="line"><span class="lineno">  450</span>    <span class="comment">//case CPitchIf::kPitchTimeAuditory:</span></div>
-<div class="line"><span class="lineno">  451</span>    <span class="comment">//    pCInstance = new CPitchTimeAuditory(ePitchIdx, iDataLength, fSampleRate);</span></div>
-<div class="line"><span class="lineno">  452</span>    <span class="comment">//    break;</span></div>
-<div class="line"><span class="lineno">  453</span> </div>
-<div class="line"><span class="lineno">  454</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">CPitchIf::kPitchTimeAmdf</a>:</div>
-<div class="line"><span class="lineno">  455</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00311.html">CPitchTimeAmdf</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  456</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  457</span> </div>
-<div class="line"><span class="lineno">  458</span> </div>
-<div class="line"><span class="lineno">  459</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">CPitchIf::kPitchSpectralHps</a>:</div>
-<div class="line"><span class="lineno">  460</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00299.html">CPitchSpectralHps</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  461</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  462</span> </div>
-<div class="line"><span class="lineno">  463</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">CPitchIf::kPitchSpectralAcf</a>:</div>
-<div class="line"><span class="lineno">  464</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00295.html">CPitchSpectralAcf</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  465</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  466</span>    }</div>
-<div class="line"><span class="lineno">  467</span> </div>
-<div class="line"><span class="lineno">  468</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  469</span>}</div>
-<div class="ttc" id="aa00086_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00086_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
-<div class="ttc" id="aa00295_html"><div class="ttname"><a href="a00295.html">CPitchSpectralAcf</a></div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00016">PitchFromBlock.cpp:17</a></div></div>
-<div class="ttc" id="aa00299_html"><div class="ttname"><a href="a00299.html">CPitchSpectralHps</a></div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00089">PitchFromBlock.cpp:90</a></div></div>
-<div class="ttc" id="aa00303_html"><div class="ttname"><a href="a00303.html">CPitchTimeAcf</a></div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00139">PitchFromBlock.cpp:140</a></div></div>
-<div class="ttc" id="aa00311_html"><div class="ttname"><a href="a00311.html">CPitchTimeAmdf</a></div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00337">PitchFromBlock.cpp:338</a></div></div>
-<div class="ttc" id="aa00315_html"><div class="ttname"><a href="a00315.html">CPitchTimeZeroCrossings</a></div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00392">PitchFromBlock.cpp:393</a></div></div>
-<div class="ttc" id="aa00423_html_ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19"><div class="ttname"><a href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">CPitchIf::kPitchTimeAcf</a></div><div class="ttdeci">@ kPitchTimeAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.html#l00028">Pitch.h:28</a></div></div>
-<div class="ttc" id="aa00423_html_ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f"><div class="ttname"><a href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">CPitchIf::kPitchSpectralHps</a></div><div class="ttdeci">@ kPitchSpectralHps</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.html#l00026">Pitch.h:26</a></div></div>
-<div class="ttc" id="aa00423_html_ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b"><div class="ttname"><a href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">CPitchIf::kPitchTimeAmdf</a></div><div class="ttdeci">@ kPitchTimeAmdf</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.html#l00029">Pitch.h:29</a></div></div>
-<div class="ttc" id="aa00423_html_ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec"><div class="ttname"><a href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">CPitchIf::kPitchSpectralAcf</a></div><div class="ttdeci">@ kPitchSpectralAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.html#l00025">Pitch.h:25</a></div></div>
-<div class="ttc" id="aa00423_html_ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07"><div class="ttname"><a href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">CPitchIf::kPitchTimeZeroCrossings</a></div><div class="ttdeci">@ kPitchTimeZeroCrossings</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.html#l00031">Pitch.h:31</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00301">301</a> of file <a class="el" href="a00119_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  302</span>    {</div>
+<div class="line"><span class="lineno">  303</span>        <span class="keyword">const</span> <span class="keywordtype">long</span> <span class="keywordtype">long</span> iTmpOrder = <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iOrder); <span class="comment">// silly compiler warnings get annoying</span></div>
+<div class="line"><span class="lineno">  304</span>        <span class="keywordtype">float</span>* pfTmpA = 0;</div>
+<div class="line"><span class="lineno">  305</span>        <a class="code hl_function" href="a00447.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfTmpA, 2 * iTmpOrder);</div>
+<div class="line"><span class="lineno">  306</span>        <a class="code hl_function" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfB, iTmpOrder + 1);</div>
+<div class="line"><span class="lineno">  307</span>        <a class="code hl_function" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(pfTmpA, 2 * iTmpOrder);</div>
+<div class="line"><span class="lineno">  308</span> </div>
+<div class="line"><span class="lineno">  309</span>        <a class="code hl_function" href="a00427.html#a9c08c0b6f891bb37fb4230088f94b0a0">calcB</a>(pfB, iOrder, fCutOff);</div>
+<div class="line"><span class="lineno">  310</span>        <a class="code hl_function" href="a00427.html#a4a70bdde7f075d2591fd03c52c16145c">calcA</a>(pfTmpA, iOrder, fCutOff);</div>
+<div class="line"><span class="lineno">  311</span>        <a class="code hl_function" href="a00451.html#a0a8056cf61fdabd88f1ef56314f27e8d">CVectorFloat::copy</a>(pfA, pfTmpA, iTmpOrder + 1);</div>
+<div class="line"><span class="lineno">  312</span> </div>
+<div class="line"><span class="lineno">  313</span>        <a class="code hl_function" href="a00447.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfTmpA);</div>
+<div class="line"><span class="lineno">  314</span> </div>
+<div class="line"><span class="lineno">  315</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  316</span>    }</div>
+<div class="ttc" id="aa00427_html_a4a70bdde7f075d2591fd03c52c16145c"><div class="ttname"><a href="a00427.html#a4a70bdde7f075d2591fd03c52c16145c">CButterLp::calcA</a></div><div class="ttdeci">static Error_t calcA(T *pfA, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00341">Filter.h:341</a></div></div>
+<div class="ttc" id="aa00427_html_a9c08c0b6f891bb37fb4230088f94b0a0"><div class="ttname"><a href="a00427.html#a9c08c0b6f891bb37fb4230088f94b0a0">CButterLp::calcB</a></div><div class="ttdeci">static Error_t calcB(T *pfB, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00320">Filter.h:320</a></div></div>
+<div class="ttc" id="aa00447_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00447.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00037">Vector.h:37</a></div></div>
+<div class="ttc" id="aa00447_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00447.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00022">Vector.h:22</a></div></div>
+<div class="ttc" id="aa00451_html_a0a8056cf61fdabd88f1ef56314f27e8d"><div class="ttname"><a href="a00451.html#a0a8056cf61fdabd88f1ef56314f27e8d">CVectorFloat::copy</a></div><div class="ttdeci">static void copy(float *pfDest, const float *pfSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00182">Vector.h:182</a></div></div>
+<div class="ttc" id="aa00451_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00160">Vector.h:160</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00161_source.html#l00025">CPitchIf::kPitchSpectralAcf</a>, <a class="el" href="a00161_source.html#l00026">CPitchIf::kPitchSpectralHps</a>, <a class="el" href="a00161_source.html#l00028">CPitchIf::kPitchTimeAcf</a>, <a class="el" href="a00161_source.html#l00029">CPitchIf::kPitchTimeAmdf</a>, and <a class="el" href="a00161_source.html#l00031">CPitchIf::kPitchTimeZeroCrossings</a>.</p>
+<p class="reference">References <a class="el" href="a00122_source.html#l00022">CVector::alloc()</a>, <a class="el" href="a00119_source.html#l00341">calcA()</a>, <a class="el" href="a00119_source.html#l00320">calcB()</a>, <a class="el" href="a00122_source.html#l00182">CVectorFloat::copy()</a>, <a class="el" href="a00122_source.html#l00037">CVector::free()</a>, <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, and <a class="el" href="a00122_source.html#l00160">CVectorFloat::setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00056_source.html#l00293">CPitchIf::init_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00080_source.html#l00216">CPitchTimeAuditory::CPitchTimeAuditory()</a>, and <a class="el" href="a00170_source.html#l00102">CResample::process()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00427_a3878460603a6e6e1a64de6021b2bb73e_cgraph.png" border="0" usemap="#aa00427_a3878460603a6e6e1a64de6021b2bb73e_cgraph" alt=""/></div>
+<map name="aa00427_a3878460603a6e6e1a64de6021b2bb73e_cgraph" id="aa00427_a3878460603a6e6e1a64de6021b2bb73e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,132,153,159"/>
+<area shape="rect" href="a00447.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="224,107,327,133"/>
+<area shape="rect" href="a00427.html#a4a70bdde7f075d2591fd03c52c16145c" title=" " alt="" coords="215,5,335,32"/>
+<area shape="rect" href="a00427.html#a9c08c0b6f891bb37fb4230088f94b0a0" title=" " alt="" coords="215,56,335,83"/>
+<area shape="rect" href="a00451.html#a0a8056cf61fdabd88f1ef56314f27e8d" title=" " alt="" coords="210,259,341,285"/>
+<area shape="rect" href="a00447.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="227,208,324,235"/>
+<area shape="rect" href="a00451.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="201,157,349,184"/>
+<area shape="rect" href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="419,132,538,159"/>
+<area shape="rect" href="a00427.html#ab4432f6b6d2f1bad850a13a0573615c4" title=" " alt="" coords="397,5,560,32"/>
+<area shape="rect" href="a00427.html#a93b25bb8ef71fc7221ae53efe9212d67" title=" " alt="" coords="407,56,551,83"/>
+<area shape="rect" href="a00447.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="427,259,530,285"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00427_a1718a14a292a2a34ae92e8ce838456a3_icgraph.png" border="0" usemap="#aa00427_a1718a14a292a2a34ae92e8ce838456a3_icgraph" alt=""/></div>
-<map name="aa00427_a1718a14a292a2a34ae92e8ce838456a3_icgraph" id="aa00427_a1718a14a292a2a34ae92e8ce838456a3_icgraph">
-<area shape="rect" title=" " alt="" coords="408,27,547,69"/>
-<area shape="rect" href="a00423.html#a3a966aff4a49e12324f205b20c5f2232" title="init configuration" alt="" coords="261,35,360,61"/>
-<area shape="rect" href="a00287.html#ab74f454ce0bbdccd22a38066ce26b16a" title=" " alt="" coords="5,5,213,32"/>
-<area shape="rect" href="a00291.html#a383eb44fd89db6be0119177effcf90bd" title=" " alt="" coords="22,57,197,98"/>
+<div class="center"><img src="a00427_a3878460603a6e6e1a64de6021b2bb73e_icgraph.png" border="0" usemap="#aa00427_a3878460603a6e6e1a64de6021b2bb73e_icgraph" alt=""/></div>
+<map name="aa00427_a3878460603a6e6e1a64de6021b2bb73e_icgraph" id="aa00427_a3878460603a6e6e1a64de6021b2bb73e_icgraph">
+<area shape="rect" title=" " alt="" coords="196,42,344,69"/>
+<area shape="rect" href="a00339.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" href="a00515.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="6,71,147,98"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="adadb010b152c65dc26b08f56fa700e77" name="adadb010b152c65dc26b08f56fa700e77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adadb010b152c65dc26b08f56fa700e77">&#9670;&nbsp;</a></span>destroy()</h2>
+<a id="a93b25bb8ef71fc7221ae53efe9212d67" name="a93b25bb8ef71fc7221ae53efe9212d67"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a93b25bb8ef71fc7221ae53efe9212d67">&#9670;&nbsp;</a></span>calcScale()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchFromBlockIf::destroy </td>
+          <td class="memname">static T CButterLp::calcScale </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00427.html">CPitchFromBlockIf</a> *&amp;&#160;</td>
-          <td class="paramname"><em>pCInstance</em></td><td>)</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iOrder</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fCutOff</em>&#160;</td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >destroys a PitchFromBlock instance </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be destroyed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00071_source.html#l00471">471</a> of file <a class="el" href="a00071_source.html">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  472</span>{</div>
-<div class="line"><span class="lineno">  473</span>    <span class="keyword">delete</span> pCInstance;</div>
-<div class="line"><span class="lineno">  474</span> </div>
-<div class="line"><span class="lineno">  475</span>    pCInstance = 0;</div>
-<div class="line"><span class="lineno">  476</span> </div>
-<div class="line"><span class="lineno">  477</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  478</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00056_source.html#l00270">CPitchIf::reset_()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00427_adadb010b152c65dc26b08f56fa700e77_icgraph.png" border="0" usemap="#aa00427_adadb010b152c65dc26b08f56fa700e77_icgraph" alt=""/></div>
-<map name="aa00427_adadb010b152c65dc26b08f56fa700e77_icgraph" id="aa00427_adadb010b152c65dc26b08f56fa700e77_icgraph">
-<area shape="rect" title=" " alt="" coords="420,49,559,90"/>
-<area shape="rect" href="a00423.html#a0841d88981bfe343f6439b7d4174a30b" title="reset configuration" alt="" coords="261,56,372,83"/>
-<area shape="rect" href="a00287.html#ab74f454ce0bbdccd22a38066ce26b16a" title=" " alt="" coords="5,5,213,32"/>
-<area shape="rect" href="a00423.html#a6e2c59c5b6bb651075bd0e9d65edd383" title=" " alt="" coords="48,56,171,83"/>
-<area shape="rect" href="a00423.html#a4df4a76c5c6a23618ad9889dd8855f2b" title=" " alt="" coords="45,107,174,133"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="ac7496d16e4dfc1ab55305dc118c2e6bf" name="ac7496d16e4dfc1ab55305dc118c2e6bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7496d16e4dfc1ab55305dc118c2e6bf">&#9670;&nbsp;</a></span>getPitchExtractorIdx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> CPitchFromBlockIf::getPitchExtractorIdx </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >returns size of output Pitch (1 in most cases) </p><dl class="section return"><dt>Returns</dt><dd>int</dd></dl>
-<p>returns index of the Pitch to extract </p><dl class="section return"><dt>Returns</dt><dd>Pitch_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00143_source.html#l00040">40</a> of file <a class="el" href="a00143_source.html">PitchFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>    {</div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00427.html#ac90de810c2f977da52483d905119172e">m_ePitchIdx</a>;</div>
-<div class="line"><span class="lineno">   43</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00143_source.html#l00058">m_ePitchIdx</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00056_source.html#l00186">CPitchIf::compF0()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00427_ac7496d16e4dfc1ab55305dc118c2e6bf_icgraph.png" border="0" usemap="#aa00427_ac7496d16e4dfc1ab55305dc118c2e6bf_icgraph" alt=""/></div>
-<map name="aa00427_ac7496d16e4dfc1ab55305dc118c2e6bf_icgraph" id="aa00427_ac7496d16e4dfc1ab55305dc118c2e6bf_icgraph">
-<area shape="rect" title=" " alt="" coords="275,5,413,47"/>
-<area shape="rect" href="a00423.html#a5c6fea7fdc8067f1d6a116b86d543aa1" title=" " alt="" coords="104,13,227,39"/>
-<area shape="rect" href="a00083.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,56,39"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a8707778012c90162771312f62be77271" name="a8707778012c90162771312f62be77271"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8707778012c90162771312f62be77271">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp; CPitchFromBlockIf::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00427.html">CPitchFromBlockIf</a> &amp;&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00368">368</a> of file <a class="el" href="a00119_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  369</span>    {</div>
+<div class="line"><span class="lineno">  370</span>        T fPhase = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / (2. * iOrder));</div>
+<div class="line"><span class="lineno">  371</span>        T fScale = 1;</div>
+<div class="line"><span class="lineno">  372</span> </div>
+<div class="line"><span class="lineno">  373</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 0; j &lt; iOrder / 2; ++j)</div>
+<div class="line"><span class="lineno">  374</span>            fScale *= <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(1 + std::sin(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * fCutOff) * std::sin((2 * j + 1) * fPhase));</div>
+<div class="line"><span class="lineno">  375</span> </div>
+<div class="line"><span class="lineno">  376</span>        <span class="keywordflow">if</span> (iOrder % 2)</div>
+<div class="line"><span class="lineno">  377</span>            fScale *= <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(std::sin(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * fCutOff / 2) + std::cos(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * fCutOff / 2));</div>
+<div class="line"><span class="lineno">  378</span>        fScale = <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(std::pow(std::sin(<a class="code hl_define" href="a00212.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> * fCutOff / 2), iOrder) / fScale);</div>
+<div class="line"><span class="lineno">  379</span> </div>
+<div class="line"><span class="lineno">  380</span>        <span class="keywordflow">return</span> fScale;</div>
+<div class="line"><span class="lineno">  381</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00212_source.html#l00018">M_PI</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.html#l00320">calcB()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00427_a93b25bb8ef71fc7221ae53efe9212d67_icgraph.png" border="0" usemap="#aa00427_a93b25bb8ef71fc7221ae53efe9212d67_icgraph" alt=""/></div>
+<map name="aa00427_a93b25bb8ef71fc7221ae53efe9212d67_icgraph" id="aa00427_a93b25bb8ef71fc7221ae53efe9212d67_icgraph">
+<area shape="rect" title=" " alt="" coords="560,42,704,69"/>
+<area shape="rect" href="a00427.html#a9c08c0b6f891bb37fb4230088f94b0a0" title=" " alt="" coords="392,42,512,69"/>
+<area shape="rect" href="a00427.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="196,42,344,69"/>
+<area shape="rect" href="a00339.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" href="a00515.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="6,71,147,98"/>
+</map>
+</div>
+
 </div>
 </div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac90de810c2f977da52483d905119172e" name="ac90de810c2f977da52483d905119172e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac90de810c2f977da52483d905119172e">&#9670;&nbsp;</a></span>m_ePitchIdx</h2>
+<a id="ab4432f6b6d2f1bad850a13a0573615c4" name="ab4432f6b6d2f1bad850a13a0573615c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4432f6b6d2f1bad850a13a0573615c4">&#9670;&nbsp;</a></span>multBinomial()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> CPitchFromBlockIf::m_ePitchIdx = <a class="el" href="a00423.html#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></td>
+          <td class="memname">static <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CButterLp::multBinomial </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pfOut</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>index of Pitch to extract </p>
-
-<p class="definition">Definition at line <a class="el" href="a00143_source.html#l00058">58</a> of file <a class="el" href="a00143_source.html">PitchFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00143_source.html#l00040">getPitchExtractorIdx()</a>.</p>
-
-</div>
-</div>
-<a id="ac4a3235dfd5c3919a7d1a290f92dfa80" name="ac4a3235dfd5c3919a7d1a290f92dfa80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4a3235dfd5c3919a7d1a290f92dfa80">&#9670;&nbsp;</a></span>m_fSampleRate</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">float CPitchFromBlockIf::m_fSampleRate = 0</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>pfIn</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>sample rate </p>
-
-<p class="definition">Definition at line <a class="el" href="a00143_source.html#l00062">62</a> of file <a class="el" href="a00143_source.html">PitchFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00037">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00071_source.html#l00102">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00071_source.html#l00158">CPitchTimeAcf::compF0()</a>, <a class="el" href="a00071_source.html#l00254">CPitchTimeAuditory::compF0()</a>, <a class="el" href="a00071_source.html#l00344">CPitchTimeAmdf::compF0()</a>, <a class="el" href="a00071_source.html#l00399">CPitchTimeZeroCrossings::compF0()</a>, and <a class="el" href="a00071_source.html#l00285">CPitchTimeAuditory::getAcfMax_()</a>.</p>
-
-</div>
-</div>
-<a id="aab7cbf575cd81f196fdc75f226b61ab6" name="aab7cbf575cd81f196fdc75f226b61ab6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab7cbf575cd81f196fdc75f226b61ab6">&#9670;&nbsp;</a></span>m_iDataLength</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">int CPitchFromBlockIf::m_iDataLength = 0</td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iOrder</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>block length </p>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00384">384</a> of file <a class="el" href="a00119_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  385</span>    {</div>
+<div class="line"><span class="lineno">  386</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iOrder; i++)</div>
+<div class="line"><span class="lineno">  387</span>        {</div>
+<div class="line"><span class="lineno">  388</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = i; j &gt; 0; j--)</div>
+<div class="line"><span class="lineno">  389</span>            {</div>
+<div class="line"><span class="lineno">  390</span>                pfOut[2 * j] += pfIn[2 * i] * pfOut[2 * (j - 1)] - pfIn[2 * i + 1] * pfOut[2 * (j - 1) + 1];</div>
+<div class="line"><span class="lineno">  391</span>                pfOut[2 * j + 1] += pfIn[2 * i] * pfOut[2 * (j - 1) + 1] + pfIn[2 * i + 1] * pfOut[2 * (j - 1)];</div>
+<div class="line"><span class="lineno">  392</span>            }</div>
+<div class="line"><span class="lineno">  393</span>            pfOut[0] += pfIn[2 * i];</div>
+<div class="line"><span class="lineno">  394</span>            pfOut[1] += pfIn[2 * i + 1];</div>
+<div class="line"><span class="lineno">  395</span>        }</div>
+<div class="line"><span class="lineno">  396</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  397</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00098.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00143_source.html#l00060">60</a> of file <a class="el" href="a00143_source.html">PitchFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00037">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00071_source.html#l00102">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00071_source.html#l00158">CPitchTimeAcf::compF0()</a>, <a class="el" href="a00071_source.html#l00254">CPitchTimeAuditory::compF0()</a>, <a class="el" href="a00071_source.html#l00344">CPitchTimeAmdf::compF0()</a>, <a class="el" href="a00071_source.html#l00399">CPitchTimeZeroCrossings::compF0()</a>, <a class="el" href="a00071_source.html#l00019">CPitchSpectralAcf::CPitchSpectralAcf()</a>, <a class="el" href="a00071_source.html#l00092">CPitchSpectralHps::CPitchSpectralHps()</a>, and <a class="el" href="a00071_source.html#l00285">CPitchTimeAuditory::getAcfMax_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00119_source.html#l00341">calcA()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00427_ab4432f6b6d2f1bad850a13a0573615c4_icgraph.png" border="0" usemap="#aa00427_ab4432f6b6d2f1bad850a13a0573615c4_icgraph" alt=""/></div>
+<map name="aa00427_ab4432f6b6d2f1bad850a13a0573615c4_icgraph" id="aa00427_ab4432f6b6d2f1bad850a13a0573615c4_icgraph">
+<area shape="rect" title=" " alt="" coords="560,42,723,69"/>
+<area shape="rect" href="a00427.html#a4a70bdde7f075d2591fd03c52c16145c" title=" " alt="" coords="392,42,512,69"/>
+<area shape="rect" href="a00427.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="196,42,344,69"/>
+<area shape="rect" href="a00339.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" href="a00515.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="6,71,147,98"/>
+</map>
+</div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00143_source.html">PitchFromBlock.h</a></li>
-<li><a class="el" href="a00071_source.html">PitchFromBlock.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00119_source.html">Filter.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 3 2022 22:03:45 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:03 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

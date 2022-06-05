@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Spectrogram.cpp File Reference</title>
+<title>ACA: BeatHisto.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -48,62 +48,52 @@
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">Spectrogram.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">BeatHisto.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00125_source.html">Util.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00113_source.html">Matrix.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00128_source.html">RingBuffer.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00131_source.html">AudioFileIf.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00110_source.html">Fft.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00101_source.html">ToolPreProc.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00146_source.html">ToolBlockAudio.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00137_source.html">ToolConversion.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00134_source.html">Spectrogram.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00128_source.html">Util.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00122_source.html">Vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00113_source.html">Fft.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00155_source.html">Novelty.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00161_source.html">ToolCcf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00149_source.html">ToolBlockAudio.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00104_source.html">ToolPreProc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00140_source.html">ToolConversion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00182_source.html">BeatHisto.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Spectrogram.cpp:</div>
+Include dependency graph for BeatHisto.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00072.png" border="0" usemap="#aSpectrogram_8cpp" alt=""/></div>
-<map name="aSpectrogram_8cpp" id="aSpectrogram_8cpp">
-<area shape="rect" title=" " alt="" coords="438,5,558,32"/>
-<area shape="rect" href="a00125.html" title=" " alt="" coords="5,155,57,181"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="266,80,333,107"/>
-<area shape="rect" href="a00128.html" title=" " alt="" coords="176,155,268,181"/>
-<area shape="rect" href="a00131.html" title=" " alt="" coords="541,155,636,181"/>
-<area shape="rect" href="a00110.html" title=" " alt="" coords="737,80,785,107"/>
-<area shape="rect" href="a00101.html" title=" " alt="" coords="357,80,461,107"/>
-<area shape="rect" href="a00146.html" title=" " alt="" coords="394,155,517,181"/>
-<area shape="rect" href="a00137.html" title=" " alt="" coords="825,80,947,107"/>
-<area shape="rect" href="a00134.html" title=" " alt="" coords="661,155,767,181"/>
-<area shape="rect" title=" " alt="" coords="264,229,329,256"/>
-<area shape="rect" title=" " alt="" coords="86,229,147,256"/>
-<area shape="rect" title=" " alt="" coords="7,229,61,256"/>
-<area shape="rect" href="a00119.html" title=" " alt="" coords="81,155,152,181"/>
-<area shape="rect" title=" " alt="" coords="177,229,235,256"/>
-<area shape="rect" title=" " alt="" coords="406,229,481,256"/>
-<area shape="rect" title=" " alt="" coords="621,229,676,256"/>
-<area shape="rect" title=" " alt="" coords="530,229,597,256"/>
-<area shape="rect" href="a00095.html" title=" " alt="" coords="700,229,779,256"/>
-<area shape="rect" title=" " alt="" coords="893,155,940,181"/>
-<area shape="rect" title=" " alt="" coords="964,155,1043,181"/>
+<div class="center"><img src="a00072.png" border="0" usemap="#aBeatHisto_8cpp" alt=""/></div>
+<map name="aBeatHisto_8cpp" id="aBeatHisto_8cpp">
+<area shape="rect" title=" " alt="" coords="412,5,516,32"/>
+<area shape="rect" href="a00128.html" title=" " alt="" coords="34,155,86,181"/>
+<area shape="rect" href="a00122.html" title=" " alt="" coords="110,155,181,181"/>
+<area shape="rect" href="a00113.html" title=" " alt="" coords="683,80,731,107"/>
+<area shape="rect" href="a00155.html" title=" " alt="" coords="771,155,847,181"/>
+<area shape="rect" href="a00161.html" title=" " alt="" coords="555,80,632,107"/>
+<area shape="rect" href="a00149.html" title=" " alt="" coords="256,155,379,181"/>
+<area shape="rect" href="a00104.html" title=" " alt="" coords="205,80,309,107"/>
+<area shape="rect" href="a00140.html" title=" " alt="" coords="403,155,525,181"/>
+<area shape="rect" href="a00182.html" title=" " alt="" coords="872,155,963,181"/>
+<area shape="rect" title=" " alt="" coords="169,229,234,256"/>
+<area shape="rect" title=" " alt="" coords="5,229,67,256"/>
+<area shape="rect" title=" " alt="" coords="91,229,144,256"/>
+<area shape="rect" title=" " alt="" coords="259,229,317,256"/>
+<area shape="rect" href="a00098.html" title=" " alt="" coords="706,229,785,256"/>
+<area shape="rect" title=" " alt="" coords="809,229,863,256"/>
+<area shape="rect" href="a00134.html" title=" " alt="" coords="550,155,645,181"/>
+<area shape="rect" title=" " alt="" coords="615,229,681,256"/>
+<area shape="rect" title=" " alt="" coords="516,229,591,256"/>
+<area shape="rect" title=" " alt="" coords="342,229,389,256"/>
+<area shape="rect" title=" " alt="" coords="413,229,491,256"/>
 </map>
 </div>
 </div>
 <p><a href="a00071_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
-Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00345.html">CSpectrogramFromFile</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00349.html">CSpectrogramFromVector</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 17:22:39 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:02 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

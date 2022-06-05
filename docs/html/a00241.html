@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Catch::Matchers::Floating Namespace Reference</title>
+<title>ACA: Catch::Detail Namespace Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -44,29 +44,442 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00233.html">Catch</a></li><li class="navelem"><a class="el" href="a00238.html">Matchers</a></li><li class="navelem"><a class="el" href="a00241.html">Floating</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00239.html">Catch</a></li><li class="navelem"><a class="el" href="a00241.html">Detail</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">Catch::Matchers::Floating Namespace Reference</div></div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
+  <div class="headertitle"><div class="title">Catch::Detail Namespace Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00893.html">WithinAbsMatcher</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00859.html">Approx</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00901.html">WithinRelMatcher</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00615.html">EnumInfo</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00897.html">WithinUlpsMatcher</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00623.html">IsStreamInsertable</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ac5d6c510e565ee5bddcc2236194ce29e"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html#ac5d6c510e565ee5bddcc2236194ce29e">rawMemoryToString</a> (const void *object, std::size_t size)</td></tr>
+<tr class="separator:ac5d6c510e565ee5bddcc2236194ce29e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a371620ed524abfcae5c3772bf49b563a"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a371620ed524abfcae5c3772bf49b563a"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#a371620ed524abfcae5c3772bf49b563a">rawMemoryToString</a> (const T &amp;object)</td></tr>
+<tr class="separator:a371620ed524abfcae5c3772bf49b563a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a242396de537c5176710d680cc9ca6b93"><td class="memTemplParams" colspan="2">template&lt;typename E &gt; </td></tr>
+<tr class="memitem:a242396de537c5176710d680cc9ca6b93"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#a242396de537c5176710d680cc9ca6b93">convertUnknownEnumToString</a> (E e)</td></tr>
+<tr class="separator:a242396de537c5176710d680cc9ca6b93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa4fbd846029625d08378606ffe9ebc3b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa4fbd846029625d08378606ffe9ebc3b"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_enum&lt; T &gt;::value &amp;&amp;!std::is_base_of&lt; std::exception, T &gt;::value, std::string &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#aa4fbd846029625d08378606ffe9ebc3b">convertUnstreamable</a> (T const &amp;)</td></tr>
+<tr class="separator:aa4fbd846029625d08378606ffe9ebc3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a669969ab020f5a314d6fa97749a99f56"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a669969ab020f5a314d6fa97749a99f56"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt;!std::is_enum&lt; T &gt;::value &amp;&amp;std::is_base_of&lt; std::exception, T &gt;::value, std::string &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#a669969ab020f5a314d6fa97749a99f56">convertUnstreamable</a> (T const &amp;ex)</td></tr>
+<tr class="separator:a669969ab020f5a314d6fa97749a99f56"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af5310e4687d8c000e7911b91164756e6"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af5310e4687d8c000e7911b91164756e6"><td class="memTemplItemLeft" align="right" valign="top">std::enable_if&lt; std::is_enum&lt; T &gt;::value, std::string &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#af5310e4687d8c000e7911b91164756e6">convertUnstreamable</a> (T const &amp;value)</td></tr>
+<tr class="separator:af5310e4687d8c000e7911b91164756e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ad48344ffd3f92f3568465248a9880"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:af0ad48344ffd3f92f3568465248a9880"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#af0ad48344ffd3f92f3568465248a9880">stringify</a> (const T &amp;e)</td></tr>
+<tr class="separator:af0ad48344ffd3f92f3568465248a9880"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac954cf158347a76a5b0c3f4fa9a9fa52"><td class="memTemplParams" colspan="2">template&lt;typename InputIterator , typename Sentinel  = InputIterator&gt; </td></tr>
+<tr class="memitem:ac954cf158347a76a5b0c3f4fa9a9fa52"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00241.html#ac954cf158347a76a5b0c3f4fa9a9fa52">rangeToString</a> (InputIterator first, Sentinel last)</td></tr>
+<tr class="separator:ac954cf158347a76a5b0c3f4fa9a9fa52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a466775f4eec29ffef29ab334cd885136"><td class="memItemLeft" align="right" valign="top">const std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00241.html#a466775f4eec29ffef29ab334cd885136">unprintableString</a></td></tr>
+<tr class="separator:a466775f4eec29ffef29ab334cd885136"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a242396de537c5176710d680cc9ca6b93" name="a242396de537c5176710d680cc9ca6b93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a242396de537c5176710d680cc9ca6b93">&#9670;&nbsp;</a></span>convertUnknownEnumToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename E &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Catch::Detail::convertUnknownEnumToString </td>
+          <td>(</td>
+          <td class="paramtype">E&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01649">1649</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1649</span>                                                    {</div>
+<div class="line"><span class="lineno"> 1650</span>            <a class="code hl_function" href="a00241.html#af0ad48344ffd3f92f3568465248a9880">return ::Catch::Detail::stringify</a>(<span class="keyword">static_cast&lt;</span>typename std::underlying_type&lt;E&gt;::type<span class="keyword">&gt;</span>(e));</div>
+<div class="line"><span class="lineno"> 1651</span>        }</div>
+<div class="ttc" id="aa00241_html_af0ad48344ffd3f92f3568465248a9880"><div class="ttname"><a href="a00241.html#af0ad48344ffd3f92f3568465248a9880">Catch::Detail::stringify</a></div><div class="ttdeci">std::string stringify(const T &amp;e)</div><div class="ttdef"><b>Definition:</b> <a href="a00233_source.html#l01644">catch.hpp:1644</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00233_source.html#l01644">stringify()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00233_source.html#l01595">convertUnstreamable()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_a242396de537c5176710d680cc9ca6b93_cgraph.png" border="0" usemap="#aa00241_a242396de537c5176710d680cc9ca6b93_cgraph" alt=""/></div>
+<map name="aa00241_a242396de537c5176710d680cc9ca6b93_cgraph" id="aa00241_a242396de537c5176710d680cc9ca6b93_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,204,47"/>
+<area shape="rect" href="a00241.html#af0ad48344ffd3f92f3568465248a9880" title=" " alt="" coords="252,13,399,39"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_a242396de537c5176710d680cc9ca6b93_icgraph.png" border="0" usemap="#aa00241_a242396de537c5176710d680cc9ca6b93_icgraph" alt=""/></div>
+<map name="aa00241_a242396de537c5176710d680cc9ca6b93_icgraph" id="aa00241_a242396de537c5176710d680cc9ca6b93_icgraph">
+<area shape="rect" title=" " alt="" coords="279,5,477,47"/>
+<area shape="rect" href="a00241.html#af5310e4687d8c000e7911b91164756e6" title=" " alt="" coords="5,13,231,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa4fbd846029625d08378606ffe9ebc3b" name="aa4fbd846029625d08378606ffe9ebc3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa4fbd846029625d08378606ffe9ebc3b">&#9670;&nbsp;</a></span>convertUnstreamable() <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;!std::is_enum&lt; T &gt;::value &amp;&amp;!std::is_base_of&lt; std::exception, T &gt;::value, std::string &gt;::type Catch::Detail::convertUnstreamable </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01582">1582</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1582</span>                                                       {</div>
+<div class="line"><span class="lineno"> 1583</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="a00241.html#a466775f4eec29ffef29ab334cd885136">Detail::unprintableString</a>;</div>
+<div class="line"><span class="lineno"> 1584</span>        }</div>
+<div class="ttc" id="aa00241_html_a466775f4eec29ffef29ab334cd885136"><div class="ttname"><a href="a00241.html#a466775f4eec29ffef29ab334cd885136">Catch::Detail::unprintableString</a></div><div class="ttdeci">const std::string unprintableString</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00241.html#a466775f4eec29ffef29ab334cd885136">unprintableString</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00233_source.html#l01630">Catch::StringMaker&lt; T, typename &gt;::convert()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_aa4fbd846029625d08378606ffe9ebc3b_icgraph.png" border="0" usemap="#aa00241_aa4fbd846029625d08378606ffe9ebc3b_icgraph" alt=""/></div>
+<map name="aa00241_aa4fbd846029625d08378606ffe9ebc3b_icgraph" id="aa00241_aa4fbd846029625d08378606ffe9ebc3b_icgraph">
+<area shape="rect" title=" " alt="" coords="185,13,411,39"/>
+<area shape="rect" href="a00627.html#ac23f621d0bed26c4a511d4f5c37abb91" title=" " alt="" coords="5,5,137,47"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a669969ab020f5a314d6fa97749a99f56" name="a669969ab020f5a314d6fa97749a99f56"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a669969ab020f5a314d6fa97749a99f56">&#9670;&nbsp;</a></span>convertUnstreamable() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt;!std::is_enum&lt; T &gt;::value &amp;&amp;std::is_base_of&lt; std::exception, T &gt;::value, std::string &gt;::type Catch::Detail::convertUnstreamable </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>ex</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01588">1588</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1588</span>                                                         {</div>
+<div class="line"><span class="lineno"> 1589</span>            <span class="keywordflow">return</span> ex.what();</div>
+<div class="line"><span class="lineno"> 1590</span>        }</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="af5310e4687d8c000e7911b91164756e6" name="af5310e4687d8c000e7911b91164756e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5310e4687d8c000e7911b91164756e6">&#9670;&nbsp;</a></span>convertUnstreamable() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::enable_if&lt; std::is_enum&lt; T &gt;::value, std::string &gt;::type Catch::Detail::convertUnstreamable </td>
+          <td>(</td>
+          <td class="paramtype">T const &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01595">1595</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1595</span>                                                               {</div>
+<div class="line"><span class="lineno"> 1596</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="a00241.html#a242396de537c5176710d680cc9ca6b93">convertUnknownEnumToString</a>( <a class="code hl_function" href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb">value</a> );</div>
+<div class="line"><span class="lineno"> 1597</span>        }</div>
+<div class="ttc" id="aa00241_html_a242396de537c5176710d680cc9ca6b93"><div class="ttname"><a href="a00241.html#a242396de537c5176710d680cc9ca6b93">Catch::Detail::convertUnknownEnumToString</a></div><div class="ttdeci">std::string convertUnknownEnumToString(E e)</div><div class="ttdef"><b>Definition:</b> <a href="a00233_source.html#l01649">catch.hpp:1649</a></div></div>
+<div class="ttc" id="aa00252_html_a3b2efc97978cf37951b75394aae1a3fb"><div class="ttname"><a href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb">Catch::Generators::value</a></div><div class="ttdeci">GeneratorWrapper&lt; T &gt; value(T &amp;&amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="a00233_source.html#l04001">catch.hpp:4001</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00233_source.html#l01649">convertUnknownEnumToString()</a>, and <a class="el" href="a00233_source.html#l04001">Catch::Generators::value()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_af5310e4687d8c000e7911b91164756e6_cgraph.png" border="0" usemap="#aa00241_af5310e4687d8c000e7911b91164756e6_cgraph" alt=""/></div>
+<map name="aa00241_af5310e4687d8c000e7911b91164756e6_cgraph" id="aa00241_af5310e4687d8c000e7911b91164756e6_cgraph">
+<area shape="rect" title=" " alt="" coords="5,58,231,85"/>
+<area shape="rect" href="a00241.html#a242396de537c5176710d680cc9ca6b93" title=" " alt="" coords="279,5,477,47"/>
+<area shape="rect" href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb" title=" " alt="" coords="312,95,444,136"/>
+<area shape="rect" href="a00241.html#af0ad48344ffd3f92f3568465248a9880" title=" " alt="" coords="525,13,672,39"/>
+<area shape="rect" href="a00253.html#a015e8fcef2972da878a07023e40d46d8" title=" " alt="" coords="533,95,665,136"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac954cf158347a76a5b0c3f4fa9a9fa52" name="ac954cf158347a76a5b0c3f4fa9a9fa52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac954cf158347a76a5b0c3f4fa9a9fa52">&#9670;&nbsp;</a></span>rangeToString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename InputIterator , typename Sentinel  = InputIterator&gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Catch::Detail::rangeToString </td>
+          <td>(</td>
+          <td class="paramtype">InputIterator&#160;</td>
+          <td class="paramname"><em>first</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">Sentinel&#160;</td>
+          <td class="paramname"><em>last</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01829">1829</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1829</span>                                                                    {</div>
+<div class="line"><span class="lineno"> 1830</span>            <a class="code hl_class" href="a00611.html">ReusableStringStream</a> rss;</div>
+<div class="line"><span class="lineno"> 1831</span>            rss &lt;&lt; <span class="stringliteral">&quot;{ &quot;</span>;</div>
+<div class="line"><span class="lineno"> 1832</span>            <span class="keywordflow">if</span> (first != last) {</div>
+<div class="line"><span class="lineno"> 1833</span>                rss &lt;&lt; <a class="code hl_function" href="a00241.html#af0ad48344ffd3f92f3568465248a9880">::Catch::Detail::stringify</a>(*first);</div>
+<div class="line"><span class="lineno"> 1834</span>                <span class="keywordflow">for</span> (++first; first != last; ++first)</div>
+<div class="line"><span class="lineno"> 1835</span>                    rss &lt;&lt; <span class="stringliteral">&quot;, &quot;</span> &lt;&lt; <a class="code hl_function" href="a00241.html#af0ad48344ffd3f92f3568465248a9880">::Catch::Detail::stringify</a>(*first);</div>
+<div class="line"><span class="lineno"> 1836</span>            }</div>
+<div class="line"><span class="lineno"> 1837</span>            rss &lt;&lt; <span class="stringliteral">&quot; }&quot;</span>;</div>
+<div class="line"><span class="lineno"> 1838</span>            <span class="keywordflow">return</span> rss.<a class="code hl_function" href="a00611.html#a0e9ecf260b2a5d35f4886ef0d51f6270">str</a>();</div>
+<div class="line"><span class="lineno"> 1839</span>        }</div>
+<div class="ttc" id="aa00611_html"><div class="ttname"><a href="a00611.html">Catch::ReusableStringStream</a></div><div class="ttdef"><b>Definition:</b> <a href="a00233_source.html#l01440">catch.hpp:1440</a></div></div>
+<div class="ttc" id="aa00611_html_a0e9ecf260b2a5d35f4886ef0d51f6270"><div class="ttname"><a href="a00611.html#a0e9ecf260b2a5d35f4886ef0d51f6270">Catch::ReusableStringStream::str</a></div><div class="ttdeci">auto str() const -&gt; std::string</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00611.html#a0e9ecf260b2a5d35f4886ef0d51f6270">Catch::ReusableStringStream::str()</a>, and <a class="el" href="a00233_source.html#l01644">stringify()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_ac954cf158347a76a5b0c3f4fa9a9fa52_cgraph.png" border="0" usemap="#aa00241_ac954cf158347a76a5b0c3f4fa9a9fa52_cgraph" alt=""/></div>
+<map name="aa00241_ac954cf158347a76a5b0c3f4fa9a9fa52_cgraph" id="aa00241_ac954cf158347a76a5b0c3f4fa9a9fa52_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,188,57"/>
+<area shape="rect" href="a00611.html#a0e9ecf260b2a5d35f4886ef0d51f6270" title=" " alt="" coords="236,5,449,32"/>
+<area shape="rect" href="a00241.html#af0ad48344ffd3f92f3568465248a9880" title=" " alt="" coords="269,56,416,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a371620ed524abfcae5c3772bf49b563a" name="a371620ed524abfcae5c3772bf49b563a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a371620ed524abfcae5c3772bf49b563a">&#9670;&nbsp;</a></span>rawMemoryToString() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Catch::Detail::rawMemoryToString </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>object</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01559">1559</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1559</span>                                                       {</div>
+<div class="line"><span class="lineno"> 1560</span>          <span class="keywordflow">return</span> <a class="code hl_function" href="a00241.html#a371620ed524abfcae5c3772bf49b563a">rawMemoryToString</a>( &amp;<span class="keywordtype">object</span>, <span class="keyword">sizeof</span>(<span class="keywordtype">object</span>) );</div>
+<div class="line"><span class="lineno"> 1561</span>        }</div>
+<div class="ttc" id="aa00241_html_a371620ed524abfcae5c3772bf49b563a"><div class="ttname"><a href="a00241.html#a371620ed524abfcae5c3772bf49b563a">Catch::Detail::rawMemoryToString</a></div><div class="ttdeci">std::string rawMemoryToString(const T &amp;object)</div><div class="ttdef"><b>Definition:</b> <a href="a00233_source.html#l01559">catch.hpp:1559</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00241.html#ac5d6c510e565ee5bddcc2236194ce29e">rawMemoryToString()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00233_source.html#l01809">Catch::StringMaker&lt; R C::* &gt;::convert()</a>, and <a class="el" href="a00233_source.html#l01798">Catch::StringMaker&lt; T * &gt;::convert()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_a371620ed524abfcae5c3772bf49b563a_cgraph.png" border="0" usemap="#aa00241_a371620ed524abfcae5c3772bf49b563a_cgraph" alt=""/></div>
+<map name="aa00241_a371620ed524abfcae5c3772bf49b563a_cgraph" id="aa00241_a371620ed524abfcae5c3772bf49b563a_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,173,47"/>
+<area shape="rect" href="a00241.html#ac5d6c510e565ee5bddcc2236194ce29e" title=" " alt="" coords="221,5,389,47"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_a371620ed524abfcae5c3772bf49b563a_icgraph.png" border="0" usemap="#aa00241_a371620ed524abfcae5c3772bf49b563a_icgraph" alt=""/></div>
+<map name="aa00241_a371620ed524abfcae5c3772bf49b563a_icgraph" id="aa00241_a371620ed524abfcae5c3772bf49b563a_icgraph">
+<area shape="rect" title=" " alt="" coords="185,39,353,80"/>
+<area shape="rect" href="a00723.html#af69c15e0b406e945777137fe4a333731" title=" " alt="" coords="5,5,137,47"/>
+<area shape="rect" href="a00719.html#a2adbc75c99d71b8323f4052bcb0815c9" title=" " alt="" coords="5,71,137,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac5d6c510e565ee5bddcc2236194ce29e" name="ac5d6c510e565ee5bddcc2236194ce29e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac5d6c510e565ee5bddcc2236194ce29e">&#9670;&nbsp;</a></span>rawMemoryToString() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Catch::Detail::rawMemoryToString </td>
+          <td>(</td>
+          <td class="paramtype">const void *&#160;</td>
+          <td class="paramname"><em>object</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">std::size_t&#160;</td>
+          <td class="paramname"><em>size</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="a00233_source.html#l01559">rawMemoryToString()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_ac5d6c510e565ee5bddcc2236194ce29e_icgraph.png" border="0" usemap="#aa00241_ac5d6c510e565ee5bddcc2236194ce29e_icgraph" alt=""/></div>
+<map name="aa00241_ac5d6c510e565ee5bddcc2236194ce29e_icgraph" id="aa00241_ac5d6c510e565ee5bddcc2236194ce29e_icgraph">
+<area shape="rect" title=" " alt="" coords="401,39,569,80"/>
+<area shape="rect" href="a00241.html#a371620ed524abfcae5c3772bf49b563a" title=" " alt="" coords="185,39,353,80"/>
+<area shape="rect" href="a00723.html#af69c15e0b406e945777137fe4a333731" title=" " alt="" coords="5,5,137,47"/>
+<area shape="rect" href="a00719.html#a2adbc75c99d71b8323f4052bcb0815c9" title=" " alt="" coords="5,71,137,112"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="af0ad48344ffd3f92f3568465248a9880" name="af0ad48344ffd3f92f3568465248a9880"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0ad48344ffd3f92f3568465248a9880">&#9670;&nbsp;</a></span>stringify()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Catch::Detail::stringify </td>
+          <td>(</td>
+          <td class="paramtype">const T &amp;&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01644">1644</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1644</span>                                        {</div>
+<div class="line"><span class="lineno"> 1645</span>            return ::Catch::StringMaker&lt;typename std::remove_cv&lt;typename std::remove_reference&lt;T&gt;::type&gt;::type&gt;::convert(e);</div>
+<div class="line"><span class="lineno"> 1646</span>        }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00233_source.html#l02663">Catch::Capturer::captureValues()</a>, <a class="el" href="a00233_source.html#l01712">Catch::StringMaker&lt; char[SZ]&gt;::convert()</a>, <a class="el" href="a00233_source.html#l01718">Catch::StringMaker&lt; signed char[SZ]&gt;::convert()</a>, <a class="el" href="a00233_source.html#l01724">Catch::StringMaker&lt; unsigned char[SZ]&gt;::convert()</a>, <a class="el" href="a00233_source.html#l01649">convertUnknownEnumToString()</a>, <a class="el" href="a00233_source.html#l03620">Catch::Matchers::Vector::ContainsElementMatcher&lt; T, Alloc &gt;::describe()</a>, <a class="el" href="a00233_source.html#l03650">Catch::Matchers::Vector::ContainsMatcher&lt; T, AllocComp, AllocMatch &gt;::describe()</a>, <a class="el" href="a00233_source.html#l03674">Catch::Matchers::Vector::EqualsMatcher&lt; T, AllocComp, AllocMatch &gt;::describe()</a>, <a class="el" href="a00233_source.html#l03693">Catch::Matchers::Vector::ApproxMatcher&lt; T, AllocComp, AllocMatch &gt;::describe()</a>, <a class="el" href="a00233_source.html#l03726">Catch::Matchers::Vector::UnorderedEqualsMatcher&lt; T, AllocComp, AllocMatch &gt;::describe()</a>, <a class="el" href="a00233_source.html#l01829">rangeToString()</a>, <a class="el" href="a00233_source.html#l02024">Catch::rangeToString()</a>, <a class="el" href="a00233_source.html#l02229">Catch::BinaryExpr&lt; LhsT, RhsT &gt;::streamReconstructedExpression()</a>, <a class="el" href="a00233_source.html#l02303">Catch::UnaryExpr&lt; LhsT &gt;::streamReconstructedExpression()</a>, and <a class="el" href="a00233_source.html#l03782">Catch::MatchExpr&lt; ArgT, MatcherT &gt;::streamReconstructedExpression()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00241_af0ad48344ffd3f92f3568465248a9880_icgraph.png" border="0" usemap="#aa00241_af0ad48344ffd3f92f3568465248a9880_icgraph" alt=""/></div>
+<map name="aa00241_af0ad48344ffd3f92f3568465248a9880_icgraph" id="aa00241_af0ad48344ffd3f92f3568465248a9880_icgraph">
+<area shape="rect" title=" " alt="" coords="827,511,973,538"/>
+<area shape="rect" href="a00807.html#a60d08e6db2e54740bb2298bbbec3bc0b" title=" " alt="" coords="594,5,754,47"/>
+<area shape="rect" href="a00655.html#a095e415534f9145300271befe9853357" title=" " alt="" coords="604,71,744,112"/>
+<area shape="rect" href="a00659.html#a23ac689cc79dbcfe9b1765fe9e25690e" title=" " alt="" coords="605,135,743,191"/>
+<area shape="rect" href="a00663.html#a590d64c72b0cc75c113f1eea95d52b66" title=" " alt="" coords="601,215,747,271"/>
+<area shape="rect" href="a00241.html#a242396de537c5176710d680cc9ca6b93" title=" " alt="" coords="575,295,773,336"/>
+<area shape="rect" href="a00943.html#a4bcd9a471271ed4dadf5db7987baeeaa" title=" " alt="" coords="587,359,761,415"/>
+<area shape="rect" href="a00947.html#aa8ba33f6de86d0198b77023e1808933b" title=" " alt="" coords="583,439,765,480"/>
+<area shape="rect" href="a00951.html#a398b5cc80200b3b45922c36bddcb4b37" title=" " alt="" coords="589,504,759,545"/>
+<area shape="rect" href="a00955.html#a760b0d1922d53b7ec327ac7418681c3f" title=" " alt="" coords="589,569,759,611"/>
+<area shape="rect" href="a00959.html#a33b685a1505a0afe06ded7e0d207bc14" title=" " alt="" coords="587,634,761,690"/>
+<area shape="rect" href="a00241.html#ac954cf158347a76a5b0c3f4fa9a9fa52" title=" " alt="" coords="583,714,765,741"/>
+<area shape="rect" href="a00239.html#ae162dc66b7767a52e7e4283915fd3d9f" title=" " alt="" coords="603,765,745,791"/>
+<area shape="rect" href="a00755.html#af998022712d4bd3e4fc7ab9b8a38b445" title=" " alt="" coords="569,816,779,857"/>
+<area shape="rect" href="a00759.html#aaabf30455a996c80675c0f388a6e4110" title=" " alt="" coords="589,881,759,923"/>
+<area shape="rect" href="a00963.html#ad3e41adb597750b2219bb37e51185629" title=" " alt="" coords="589,947,759,988"/>
+<area shape="rect" href="a00241.html#af5310e4687d8c000e7911b91164756e6" title=" " alt="" coords="296,302,521,329"/>
+<area shape="rect" href="a00239.html#af13494e925a793e3e7143c6ce6f442c2" title=" " alt="" coords="337,765,480,791"/>
+<area shape="rect" href="a00743.html#ac6088db00103a7482fb9bc04b1603362" title=" " alt="" coords="5,691,248,777"/>
+<area shape="rect" href="a00747.html#a3698cea2c24d8649ec9ecb5fa679eeb7" title=" " alt="" coords="61,801,193,843"/>
+</map>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a466775f4eec29ffef29ab334cd885136" name="a466775f4eec29ffef29ab334cd885136"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a466775f4eec29ffef29ab334cd885136">&#9670;&nbsp;</a></span>unprintableString</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const std::string Catch::Detail::unprintableString</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="reference">Referenced by <a class="el" href="a00233_source.html#l01582">convertUnstreamable()</a>, and <a class="el" href="a00233_source.html#l03782">Catch::MatchExpr&lt; ArgT, MatcherT &gt;::streamReconstructedExpression()</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 17:22:40 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:04 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

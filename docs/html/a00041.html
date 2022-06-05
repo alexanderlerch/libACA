@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: ToolConversion.cpp File Reference</title>
+<title>ACA: FeatureFromBlock.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -48,32 +48,72 @@
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">ToolConversion.cpp File Reference</div></div>
+  <div class="summary">
+<a href="#nested-classes">Classes</a>  </div>
+  <div class="headertitle"><div class="title">FeatureFromBlock.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cassert&gt;</code><br />
-<code>#include &lt;cmath&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00137_source.html">ToolConversion.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00122_source.html">Vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00116_source.html">Matrix.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00128_source.html">Util.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00140_source.html">ToolConversion.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00161_source.html">ToolCcf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00167_source.html">ToolLowPass.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00101_source.html">FeatureFromBlock.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ToolConversion.cpp:</div>
+Include dependency graph for FeatureFromBlock.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00042.png" border="0" usemap="#aToolConversion_8cpp" alt=""/></div>
-<map name="aToolConversion_8cpp" id="aToolConversion_8cpp">
-<area shape="rect" title=" " alt="" coords="57,5,193,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,71,107"/>
-<area shape="rect" title=" " alt="" coords="95,80,154,107"/>
-<area shape="rect" href="a00137.html" title=" " alt="" coords="178,80,301,107"/>
-<area shape="rect" title=" " alt="" coords="129,155,176,181"/>
-<area shape="rect" title=" " alt="" coords="200,155,279,181"/>
-<area shape="rect" href="a00095.html" title=" " alt="" coords="303,155,381,181"/>
+<div class="center"><img src="a00042.png" border="0" usemap="#aFeatureFromBlock_8cpp" alt=""/></div>
+<map name="aFeatureFromBlock_8cpp" id="aFeatureFromBlock_8cpp">
+<area shape="rect" title=" " alt="" coords="302,5,455,32"/>
+<area shape="rect" href="a00122.html" title=" " alt="" coords="154,155,225,181"/>
+<area shape="rect" href="a00116.html" title=" " alt="" coords="156,80,223,107"/>
+<area shape="rect" href="a00128.html" title=" " alt="" coords="26,155,78,181"/>
+<area shape="rect" href="a00140.html" title=" " alt="" coords="469,80,592,107"/>
+<area shape="rect" href="a00161.html" title=" " alt="" coords="828,80,905,107"/>
+<area shape="rect" href="a00167.html" title=" " alt="" coords="323,80,435,107"/>
+<area shape="rect" href="a00101.html" title=" " alt="" coords="625,80,764,107"/>
+<area shape="rect" title=" " alt="" coords="83,229,149,256"/>
+<area shape="rect" title=" " alt="" coords="173,229,235,256"/>
+<area shape="rect" title=" " alt="" coords="5,229,59,256"/>
+<area shape="rect" title=" " alt="" coords="357,229,416,256"/>
+<area shape="rect" title=" " alt="" coords="671,155,718,181"/>
+<area shape="rect" title=" " alt="" coords="569,155,647,181"/>
+<area shape="rect" href="a00098.html" title=" " alt="" coords="709,229,787,256"/>
+<area shape="rect" href="a00131.html" title=" " alt="" coords="249,155,341,181"/>
+<area shape="rect" title=" " alt="" coords="259,229,333,256"/>
+<area shape="rect" href="a00179.html" title=" " alt="" coords="794,155,870,181"/>
+<area shape="rect" title=" " alt="" coords="811,229,866,256"/>
 </map>
 </div>
 </div>
 <p><a href="a00041_source.html">Go to the source code of this file.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00275.html">CFeatureSpectralFlux</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00279.html">CFeatureSpectralMfccs</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00283.html">CFeatureSpectralPitchChroma</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00287.html">CFeatureSpectralRolloff</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00291.html">CFeatureSpectralTonalPowerRatio</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00295.html">CFeatureTimeAcfCoeff</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00299.html">CFeatureTimeMaxAcf</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00303.html">CFeatureTimePeakEnvelope</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00307.html">CFeatureTimeRms</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 17:22:39 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:02 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

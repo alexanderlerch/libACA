@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Catch::StringMaker&lt; long &gt; Struct Reference</title>
+<title>ACA: Catch::StringMaker&lt; T, typename &gt; Struct Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,9 +18,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
-   <div id="projectbrief">Code for Audio Content Analysis</div>
+   <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
  </tr>
  </tbody>
@@ -46,69 +46,154 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="a00215.html">Catch</a></li><li class="navelem"><a class="el" href="a00627.html">StringMaker&lt; long &gt;</a></li>  </ul>
+<li class="navelem"><a class="el" href="a00239.html">Catch</a></li><li class="navelem"><a class="el" href="a00627.html">StringMaker</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a00624.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Catch::StringMaker&lt; long &gt; Struct Reference</div></div>
+  <div class="headertitle"><div class="title">Catch::StringMaker&lt; T, typename &gt; Struct Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00209_source.html">catch.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00233_source.html">catch.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for Catch::StringMaker&lt; long &gt;:</div>
+Collaboration diagram for Catch::StringMaker&lt; T, typename &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00625.png" border="0" usemap="#aCatch_1_1StringMaker_3_01long_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="aCatch_1_1StringMaker_3_01long_01_4_coll__map" id="aCatch_1_1StringMaker_3_01long_01_4_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,137,97"/>
+<div class="center"><img src="a00625.png" border="0" usemap="#aCatch_1_1StringMaker_3_01T_00_01typename_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="aCatch_1_1StringMaker_3_01T_00_01typename_01_4_coll__map" id="aCatch_1_1StringMaker_3_01T_00_01typename_01_4_coll__map">
+<area shape="rect" title=" " alt="" coords="5,5,137,112"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1c0c56497813e7a6425c5411d5e66447"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00627.html#a1c0c56497813e7a6425c5411d5e66447">convert</a> (long value)</td></tr>
-<tr class="separator:a1c0c56497813e7a6425c5411d5e66447"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98ebf81ba6ef3cfd72b23316e291d3d0"><td class="memTemplParams" colspan="2">template&lt;typename Fake  = T&gt; </td></tr>
+<tr class="memitem:a98ebf81ba6ef3cfd72b23316e291d3d0"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt;<a class="el" href="a00623.html">::Catch::Detail::IsStreamInsertable</a>&lt; Fake &gt;::value, std::string &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00627.html#a98ebf81ba6ef3cfd72b23316e291d3d0">convert</a> (const Fake &amp;value)</td></tr>
+<tr class="separator:a98ebf81ba6ef3cfd72b23316e291d3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac23f621d0bed26c4a511d4f5c37abb91"><td class="memTemplParams" colspan="2">template&lt;typename Fake  = T&gt; </td></tr>
+<tr class="memitem:ac23f621d0bed26c4a511d4f5c37abb91"><td class="memTemplItemLeft" align="right" valign="top">static std::enable_if&lt;!<a class="el" href="a00623.html">::Catch::Detail::IsStreamInsertable</a>&lt; Fake &gt;::value, std::string &gt;::type&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00627.html#ac23f621d0bed26c4a511d4f5c37abb91">convert</a> (const Fake &amp;value)</td></tr>
+<tr class="separator:ac23f621d0bed26c4a511d4f5c37abb91"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00209_source.html#l01740">1740</a> of file <a class="el" href="a00209_source.html">catch.hpp</a>.</p>
+<div class="textblock"><div class="compoundTemplParams">template&lt;typename T, typename = void&gt;<br />
+struct Catch::StringMaker&lt; T, typename &gt;</div>
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01615">1615</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1c0c56497813e7a6425c5411d5e66447" name="a1c0c56497813e7a6425c5411d5e66447"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1c0c56497813e7a6425c5411d5e66447">&#9670;&nbsp;</a></span>convert()</h2>
+<a id="a98ebf81ba6ef3cfd72b23316e291d3d0" name="a98ebf81ba6ef3cfd72b23316e291d3d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98ebf81ba6ef3cfd72b23316e291d3d0">&#9670;&nbsp;</a></span>convert() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename  = void&gt; </div>
+<div class="memtemplate">
+template&lt;typename Fake  = T&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static std::string <a class="el" href="a00583.html">Catch::StringMaker</a>&lt; long &gt;::convert </td>
+          <td class="memname">static std::enable_if&lt;<a class="el" href="a00623.html">::Catch::Detail::IsStreamInsertable</a>&lt; Fake &gt;::value, std::string &gt;::type <a class="el" href="a00627.html">Catch::StringMaker</a>&lt; T, typename &gt;::convert </td>
           <td>(</td>
-          <td class="paramtype">long&#160;</td>
+          <td class="paramtype">const Fake &amp;&#160;</td>
           <td class="paramname"><em>value</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01619">1619</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1619</span>                                       {</div>
+<div class="line"><span class="lineno"> 1620</span>                ReusableStringStream rss;</div>
+<div class="line"><span class="lineno"> 1621</span>                <span class="comment">// NB: call using the function-like syntax to avoid ambiguity with</span></div>
+<div class="line"><span class="lineno"> 1622</span>                <span class="comment">// user-defined templated operator&lt;&lt; under clang.</span></div>
+<div class="line"><span class="lineno"> 1623</span>                rss.operator&lt;&lt;(<a class="code hl_function" href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb">value</a>);</div>
+<div class="line"><span class="lineno"> 1624</span>                <span class="keywordflow">return</span> rss.str();</div>
+<div class="line"><span class="lineno"> 1625</span>        }</div>
+<div class="ttc" id="aa00252_html_a3b2efc97978cf37951b75394aae1a3fb"><div class="ttname"><a href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb">Catch::Generators::value</a></div><div class="ttdeci">GeneratorWrapper&lt; T &gt; value(T &amp;&amp;value)</div><div class="ttdef"><b>Definition:</b> <a href="a00233_source.html#l04001">catch.hpp:4001</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00611.html#a0e9ecf260b2a5d35f4886ef0d51f6270">Catch::ReusableStringStream::str()</a>, and <a class="el" href="a00233_source.html#l04001">Catch::Generators::value()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00627_a98ebf81ba6ef3cfd72b23316e291d3d0_cgraph.png" border="0" usemap="#aa00627_a98ebf81ba6ef3cfd72b23316e291d3d0_cgraph" alt=""/></div>
+<map name="aa00627_a98ebf81ba6ef3cfd72b23316e291d3d0_cgraph" id="aa00627_a98ebf81ba6ef3cfd72b23316e291d3d0_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,137,81"/>
+<area shape="rect" href="a00611.html#a0e9ecf260b2a5d35f4886ef0d51f6270" title=" " alt="" coords="185,5,399,32"/>
+<area shape="rect" href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb" title=" " alt="" coords="226,81,358,122"/>
+<area shape="rect" href="a00253.html#a015e8fcef2972da878a07023e40d46d8" title=" " alt="" coords="447,81,579,122"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac23f621d0bed26c4a511d4f5c37abb91" name="ac23f621d0bed26c4a511d4f5c37abb91"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac23f621d0bed26c4a511d4f5c37abb91">&#9670;&nbsp;</a></span>convert() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T , typename  = void&gt; </div>
+<div class="memtemplate">
+template&lt;typename Fake  = T&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static std::enable_if&lt;!<a class="el" href="a00623.html">::Catch::Detail::IsStreamInsertable</a>&lt; Fake &gt;::value, std::string &gt;::type <a class="el" href="a00627.html">Catch::StringMaker</a>&lt; T, typename &gt;::convert </td>
+          <td>(</td>
+          <td class="paramtype">const Fake &amp;&#160;</td>
+          <td class="paramname"><em>value</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00233_source.html#l01630">1630</a> of file <a class="el" href="a00233_source.html">catch.hpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1630</span>                                         {</div>
+<div class="line"><span class="lineno"> 1631</span><span class="preprocessor">#if !defined(CATCH_CONFIG_FALLBACK_STRINGIFIER)</span></div>
+<div class="line"><span class="lineno"> 1632</span>            <span class="keywordflow">return</span> <a class="code hl_function" href="a00241.html#aa4fbd846029625d08378606ffe9ebc3b">Detail::convertUnstreamable</a>(<a class="code hl_function" href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb">value</a>);</div>
+<div class="line"><span class="lineno"> 1633</span><span class="preprocessor">#else</span></div>
+<div class="line"><span class="lineno"> 1634</span>            <span class="keywordflow">return</span> CATCH_CONFIG_FALLBACK_STRINGIFIER(<a class="code hl_function" href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb">value</a>);</div>
+<div class="line"><span class="lineno"> 1635</span><span class="preprocessor">#endif</span></div>
+<div class="line"><span class="lineno"> 1636</span>        }</div>
+<div class="ttc" id="aa00241_html_aa4fbd846029625d08378606ffe9ebc3b"><div class="ttname"><a href="a00241.html#aa4fbd846029625d08378606ffe9ebc3b">Catch::Detail::convertUnstreamable</a></div><div class="ttdeci">std::enable_if&lt;!std::is_enum&lt; T &gt;::value &amp;&amp;!std::is_base_of&lt; std::exception, T &gt;::value, std::string &gt;::type convertUnstreamable(T const &amp;)</div><div class="ttdef"><b>Definition:</b> <a href="a00233_source.html#l01582">catch.hpp:1582</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00233_source.html#l01582">Catch::Detail::convertUnstreamable()</a>, and <a class="el" href="a00233_source.html#l04001">Catch::Generators::value()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00627_ac23f621d0bed26c4a511d4f5c37abb91_cgraph.png" border="0" usemap="#aa00627_ac23f621d0bed26c4a511d4f5c37abb91_cgraph" alt=""/></div>
+<map name="aa00627_ac23f621d0bed26c4a511d4f5c37abb91_cgraph" id="aa00627_ac23f621d0bed26c4a511d4f5c37abb91_cgraph">
+<area shape="rect" title=" " alt="" coords="5,39,137,81"/>
+<area shape="rect" href="a00241.html#aa4fbd846029625d08378606ffe9ebc3b" title=" " alt="" coords="185,5,411,32"/>
+<area shape="rect" href="a00252.html#a3b2efc97978cf37951b75394aae1a3fb" title=" " alt="" coords="232,81,364,122"/>
+<area shape="rect" href="a00253.html#a015e8fcef2972da878a07023e40d46d8" title=" " alt="" coords="459,81,591,122"/>
+</map>
+</div>
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00209_source.html">catch.hpp</a></li>
+<li><a class="el" href="a00233_source.html">catch.hpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 3 2022 22:03:45 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:04 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

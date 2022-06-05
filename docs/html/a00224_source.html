@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: rvfft.h Source File</title>
+<title>ACA: sndlib2xen.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -44,30 +44,87 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_8cab8f464681f7cc51cee77e79a434cd.html">3rdparty</a></li><li class="navelem"><a class="el" href="dir_445e14af68586b81219bc89f847a69a4.html">Fft</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_8cab8f464681f7cc51cee77e79a434cd.html">3rdparty</a></li><li class="navelem"><a class="el" href="dir_a0f72a9b6cbd6178b1a9d40a8cc47498.html">sndlib</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">rvfft.h</div></div>
+  <div class="headertitle"><div class="title">sndlib2xen.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00224.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#if !defined(__rvfft_hdr__)</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __rvfft_hdr__</span></div>
+<a href="a00224.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef SNDLIB2XEN_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define SNDLIB2XEN_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="keyword">namespace </span><a class="code hl_namespace" href="a00248.html">LaszloFft</a></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="a00248.html#a32fc71031e721d003fd1dc07f771351d">realfft_split</a>(<span class="keywordtype">float</span> *data,<span class="keywordtype">long</span> n);</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span>    <span class="keywordtype">void</span> <a class="code hl_function" href="a00248.html#a3597bc1b9aa8e068d7313a72c4e51eef">irealfft_split</a>(<span class="keywordtype">float</span> *data,<span class="keywordtype">long</span> n);</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>}</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#endif </span><span class="comment">//__rvfft_hdr__</span></div>
-<div class="ttc" id="aa00248_html"><div class="ttname"><a href="a00248.html">LaszloFft</a></div><div class="ttdef"><b>Definition:</b> <a href="a00221_source.html#l00023">rvfft.cpp:24</a></div></div>
-<div class="ttc" id="aa00248_html_a32fc71031e721d003fd1dc07f771351d"><div class="ttname"><a href="a00248.html#a32fc71031e721d003fd1dc07f771351d">LaszloFft::realfft_split</a></div><div class="ttdeci">void realfft_split(float *data, long n)</div><div class="ttdef"><b>Definition:</b> <a href="a00221_source.html#l00668">rvfft.cpp:668</a></div></div>
-<div class="ttc" id="aa00248_html_a3597bc1b9aa8e068d7313a72c4e51eef"><div class="ttname"><a href="a00248.html#a3597bc1b9aa8e068d7313a72c4e51eef">LaszloFft::irealfft_split</a></div><div class="ttdeci">void irealfft_split(float *data, long n)</div><div class="ttdef"><b>Definition:</b> <a href="a00221_source.html#l00838">rvfft.cpp:838</a></div></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;<a class="code" href="a00197.html">xen.h</a>&quot;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="comment">/* error indications */</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno"><a class="line" href="a00224.html#af518a5fbb3962744c74304c963940fb5">    8</a></span><span class="preprocessor">#define NO_SUCH_CHANNEL      XEN_ERROR_TYPE(&quot;no-such-channel&quot;</span>)</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno"><a class="line" href="a00224.html#a5e6cd423ba3aa86c0f670e1e4af22b52">    9</a></span><span class="preprocessor">#define NO_SUCH_FILE         XEN_ERROR_TYPE(&quot;no-such-file&quot;</span>)</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno"><a class="line" href="a00224.html#ac2788803e5b2009df2503a16a693ec0e">   10</a></span><span class="preprocessor">#define BAD_TYPE             XEN_ERROR_TYPE(&quot;bad-type&quot;</span>)</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno"><a class="line" href="a00224.html#a68de9030c39965958f08402f7d452ad9">   11</a></span><span class="preprocessor">#define NO_DATA              XEN_ERROR_TYPE(&quot;no-data&quot;</span>)</div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno"><a class="line" href="a00224.html#a01cc88a54e3e85e9121f9748beae5e45">   12</a></span><span class="preprocessor">#define BAD_HEADER           XEN_ERROR_TYPE(&quot;bad-header&quot;</span>)</div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span> </div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#if HAVE_SCHEME</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>  <span class="keyword">typedef</span> <span class="keyword">struct </span>s7_cell <a class="code hl_typedef" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a>;</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">   17</a></span>  <span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_typedef" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a> <a class="code hl_typedef" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a>;</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00224.html#aca182a56ab63c9951961321c36dcfdc4">   24</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <span class="keywordtype">bool</span> <a class="code hl_function" href="a00224.html#aca182a56ab63c9951961321c36dcfdc4">sound_data_p</a>(<a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> obj);</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="a00224.html#a509b16a76dacd2eb069abbe584c6e78a">   25</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <span class="keywordtype">void</span> <a class="code hl_function" href="a00224.html#a509b16a76dacd2eb069abbe584c6e78a">mus_sndlib_xen_initialize</a> (<span class="keywordtype">void</span>);</div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno"><a class="line" href="a00224.html#ad121f2d6736c6dafcc53f2cc813b6db2">   26</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> <a class="code hl_function" href="a00224.html#ad121f2d6736c6dafcc53f2cc813b6db2">wrap_sound_data</a>(<span class="keywordtype">int</span> chans, <a class="code hl_typedef" href="a00218.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> frames, <a class="code hl_typedef" href="a00218.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> **data);</div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno"><a class="line" href="a00224.html#afd555abd5801d6973752d3865cf025b4">   27</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_typedef" href="a00218.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> <a class="code hl_function" href="a00224.html#afd555abd5801d6973752d3865cf025b4">mus_sound_data_ref</a>(<a class="code hl_typedef" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a> *sd, <span class="keywordtype">int</span> chan, <a class="code hl_typedef" href="a00218.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> pos);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="a00224.html#a97f092e570347b6b3014a76e070c225c">   28</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_typedef" href="a00218.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> <a class="code hl_function" href="a00224.html#a97f092e570347b6b3014a76e070c225c">mus_sound_data_set</a>(<a class="code hl_typedef" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a> *sd, <span class="keywordtype">int</span> chan, <a class="code hl_typedef" href="a00218.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> pos, <a class="code hl_typedef" href="a00218.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> val);</div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="a00224.html#af184d06afa6d2f8eae4ad11b77799805">   29</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <span class="keywordtype">int</span> <a class="code hl_function" href="a00224.html#af184d06afa6d2f8eae4ad11b77799805">mus_sound_data_chans</a>(<a class="code hl_typedef" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a> *sd);</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="a00224.html#aa17b36a16cd60bc0886d3ab426260aa4">   30</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_typedef" href="a00218.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> <a class="code hl_function" href="a00224.html#aa17b36a16cd60bc0886d3ab426260aa4">mus_sound_data_length</a>(<a class="code hl_typedef" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a> *sd);</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno"><a class="line" href="a00224.html#a0fd40df17d9ecf5407df49e9ac6a06d9">   31</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <span class="keywordtype">void</span> <a class="code hl_function" href="a00224.html#a0fd40df17d9ecf5407df49e9ac6a06d9">mus_sound_data_add_frame</a>(<a class="code hl_typedef" href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a> *sd, <a class="code hl_typedef" href="a00218.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> pos, <a class="code hl_typedef" href="a00218.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *data);</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span> </div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#if HAVE_SCHEME</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#define XEN_TO_SOUND_DATA(Obj) (sound_data *)Obj</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno"><a class="line" href="a00224.html#abeb0bee55d110c22048ea277b4a1c0fd">   36</a></span><span class="preprocessor">#define XEN_TO_SOUND_DATA(Obj) (sound_data *)XEN_OBJECT_REF(Obj)</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="a00224.html#a83c855ba5ab3c17658529789e620a854">   39</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> <a class="code hl_function" href="a00224.html#a83c855ba5ab3c17658529789e620a854">g_mus_sound_srate</a>(<a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> filename);</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno"><a class="line" href="a00224.html#a7f6b7c406d695e2b931903212634c1d5">   40</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> <a class="code hl_function" href="a00224.html#a7f6b7c406d695e2b931903212634c1d5">g_mus_sound_chans</a>(<a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> filename);</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno"><a class="line" href="a00224.html#a5a24b615e8cecd6d5eef552f9169ea95">   41</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> <a class="code hl_function" href="a00224.html#a5a24b615e8cecd6d5eef552f9169ea95">g_mus_sound_frames</a>(<a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> filename);</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno"><a class="line" href="a00224.html#a37d9b2e3b05b86ed324fcf7fac97407a">   42</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> <a class="code hl_function" href="a00224.html#a37d9b2e3b05b86ed324fcf7fac97407a">g_mus_expand_filename</a>(<a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> file);</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno"><a class="line" href="a00224.html#af2912f25d58af347bee3f6bc8e5dbb16">   43</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> <a class="code hl_function" href="a00224.html#af2912f25d58af347bee3f6bc8e5dbb16">g_sound_data_maxamp</a>(<a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> obj);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="a00224.html#ab19e5479f6256d9fd0db80e6bb4d226b">   44</a></span><a class="code hl_define" href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> <a class="code hl_function" href="a00224.html#ab19e5479f6256d9fd0db80e6bb4d226b">g_mus_sound_maxamp</a>(<a class="code hl_define" href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> file);</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>}</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00197_html"><div class="ttname"><a href="a00197.html">xen.h</a></div></div>
+<div class="ttc" id="aa00197_html_a5e8e16988dd8c844d9288d7881694e8d"><div class="ttname"><a href="a00197.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a></div><div class="ttdeci">#define XEN</div><div class="ttdef"><b>Definition:</b> <a href="a00197_source.html#l01307">xen.h:1307</a></div></div>
+<div class="ttc" id="aa00218_html_a0a196ab9e6f9225338bbf58dbbf3083f"><div class="ttname"><a href="a00218.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a></div><div class="ttdeci">double mus_float_t</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.html#l00029">sndlib.h:29</a></div></div>
+<div class="ttc" id="aa00218_html_a3efa54550781ffe2f5ce2cc9a5a2abbd"><div class="ttname"><a href="a00218.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a></div><div class="ttdeci">long long int mus_long_t</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.html#l00030">sndlib.h:30</a></div></div>
+<div class="ttc" id="aa00218_html_a64c3cdf8a14cbb80d3c492a484ec2a6d"><div class="ttname"><a href="a00218.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a></div><div class="ttdeci">#define MUS_EXPORT</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.html#l00041">sndlib.h:41</a></div></div>
+<div class="ttc" id="aa00224_html_a0fd40df17d9ecf5407df49e9ac6a06d9"><div class="ttname"><a href="a00224.html#a0fd40df17d9ecf5407df49e9ac6a06d9">mus_sound_data_add_frame</a></div><div class="ttdeci">MUS_EXPORT void mus_sound_data_add_frame(sound_data *sd, mus_long_t pos, mus_float_t *data)</div></div>
+<div class="ttc" id="aa00224_html_a37d9b2e3b05b86ed324fcf7fac97407a"><div class="ttname"><a href="a00224.html#a37d9b2e3b05b86ed324fcf7fac97407a">g_mus_expand_filename</a></div><div class="ttdeci">MUS_EXPORT XEN g_mus_expand_filename(XEN file)</div></div>
+<div class="ttc" id="aa00224_html_a509b16a76dacd2eb069abbe584c6e78a"><div class="ttname"><a href="a00224.html#a509b16a76dacd2eb069abbe584c6e78a">mus_sndlib_xen_initialize</a></div><div class="ttdeci">MUS_EXPORT void mus_sndlib_xen_initialize(void)</div></div>
+<div class="ttc" id="aa00224_html_a5a24b615e8cecd6d5eef552f9169ea95"><div class="ttname"><a href="a00224.html#a5a24b615e8cecd6d5eef552f9169ea95">g_mus_sound_frames</a></div><div class="ttdeci">MUS_EXPORT XEN g_mus_sound_frames(XEN filename)</div></div>
+<div class="ttc" id="aa00224_html_a7e60471a990cdefaf0d7fb9bbfb08435"><div class="ttname"><a href="a00224.html#a7e60471a990cdefaf0d7fb9bbfb08435">sound_data</a></div><div class="ttdeci">struct sound_data sound_data</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.html#l00017">sndlib2xen.h:17</a></div></div>
+<div class="ttc" id="aa00224_html_a7f6b7c406d695e2b931903212634c1d5"><div class="ttname"><a href="a00224.html#a7f6b7c406d695e2b931903212634c1d5">g_mus_sound_chans</a></div><div class="ttdeci">MUS_EXPORT XEN g_mus_sound_chans(XEN filename)</div></div>
+<div class="ttc" id="aa00224_html_a83c855ba5ab3c17658529789e620a854"><div class="ttname"><a href="a00224.html#a83c855ba5ab3c17658529789e620a854">g_mus_sound_srate</a></div><div class="ttdeci">MUS_EXPORT XEN g_mus_sound_srate(XEN filename)</div></div>
+<div class="ttc" id="aa00224_html_a97f092e570347b6b3014a76e070c225c"><div class="ttname"><a href="a00224.html#a97f092e570347b6b3014a76e070c225c">mus_sound_data_set</a></div><div class="ttdeci">MUS_EXPORT mus_float_t mus_sound_data_set(sound_data *sd, int chan, mus_long_t pos, mus_float_t val)</div></div>
+<div class="ttc" id="aa00224_html_aa17b36a16cd60bc0886d3ab426260aa4"><div class="ttname"><a href="a00224.html#aa17b36a16cd60bc0886d3ab426260aa4">mus_sound_data_length</a></div><div class="ttdeci">MUS_EXPORT mus_long_t mus_sound_data_length(sound_data *sd)</div></div>
+<div class="ttc" id="aa00224_html_ab19e5479f6256d9fd0db80e6bb4d226b"><div class="ttname"><a href="a00224.html#ab19e5479f6256d9fd0db80e6bb4d226b">g_mus_sound_maxamp</a></div><div class="ttdeci">MUS_EXPORT XEN g_mus_sound_maxamp(XEN file)</div></div>
+<div class="ttc" id="aa00224_html_aca182a56ab63c9951961321c36dcfdc4"><div class="ttname"><a href="a00224.html#aca182a56ab63c9951961321c36dcfdc4">sound_data_p</a></div><div class="ttdeci">MUS_EXPORT bool sound_data_p(XEN obj)</div></div>
+<div class="ttc" id="aa00224_html_ad121f2d6736c6dafcc53f2cc813b6db2"><div class="ttname"><a href="a00224.html#ad121f2d6736c6dafcc53f2cc813b6db2">wrap_sound_data</a></div><div class="ttdeci">MUS_EXPORT XEN wrap_sound_data(int chans, mus_long_t frames, mus_float_t **data)</div></div>
+<div class="ttc" id="aa00224_html_af184d06afa6d2f8eae4ad11b77799805"><div class="ttname"><a href="a00224.html#af184d06afa6d2f8eae4ad11b77799805">mus_sound_data_chans</a></div><div class="ttdeci">MUS_EXPORT int mus_sound_data_chans(sound_data *sd)</div></div>
+<div class="ttc" id="aa00224_html_af2912f25d58af347bee3f6bc8e5dbb16"><div class="ttname"><a href="a00224.html#af2912f25d58af347bee3f6bc8e5dbb16">g_sound_data_maxamp</a></div><div class="ttdeci">MUS_EXPORT XEN g_sound_data_maxamp(XEN obj)</div></div>
+<div class="ttc" id="aa00224_html_afd555abd5801d6973752d3865cf025b4"><div class="ttname"><a href="a00224.html#afd555abd5801d6973752d3865cf025b4">mus_sound_data_ref</a></div><div class="ttdeci">MUS_EXPORT mus_float_t mus_sound_data_ref(sound_data *sd, int chan, mus_long_t pos)</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 17:22:38 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:02 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

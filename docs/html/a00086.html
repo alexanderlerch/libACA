@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Chord.cpp File Reference</title>
+<title>ACA: ToolGammatone.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -51,45 +51,39 @@
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#define-members">Macros</a>  </div>
-  <div class="headertitle"><div class="title">Chord.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">ToolGammatone.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cmath&gt;</code><br />
-<code>#include &lt;map&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00113_source.html">Matrix.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00125_source.html">Util.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00131_source.html">AudioFileIf.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00110_source.html">Fft.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00101_source.html">ToolPreProc.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00146_source.html">ToolBlockAudio.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00143_source.html">ToolViterbi.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00104_source.html">ChordFromBlock.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00140_source.html">Chord.h</a>&quot;</code><br />
+<code>#include &lt;complex&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00134_source.html">AudioFileIf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00104_source.html">ToolPreProc.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00149_source.html">ToolBlockAudio.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00119_source.html">Filter.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00110_source.html">ToolGammatone.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Chord.cpp:</div>
+Include dependency graph for ToolGammatone.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00087.png" border="0" usemap="#aChord_8cpp" alt=""/></div>
-<map name="aChord_8cpp" id="aChord_8cpp">
-<area shape="rect" title=" " alt="" coords="436,5,516,32"/>
-<area shape="rect" title=" " alt="" coords="5,229,64,256"/>
-<area shape="rect" title=" " alt="" coords="879,155,926,181"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="143,80,209,107"/>
-<area shape="rect" href="a00125.html" title=" " alt="" coords="170,155,222,181"/>
-<area shape="rect" href="a00131.html" title=" " alt="" coords="495,155,590,181"/>
-<area shape="rect" href="a00110.html" title=" " alt="" coords="564,80,612,107"/>
-<area shape="rect" href="a00101.html" title=" " alt="" coords="284,80,388,107"/>
-<area shape="rect" href="a00146.html" title=" " alt="" coords="348,155,471,181"/>
-<area shape="rect" href="a00143.html" title=" " alt="" coords="637,80,731,107"/>
-<area shape="rect" href="a00104.html" title=" " alt="" coords="755,80,885,107"/>
-<area shape="rect" href="a00140.html" title=" " alt="" coords="615,155,681,181"/>
-<area shape="rect" title=" " alt="" coords="251,229,317,256"/>
-<area shape="rect" href="a00119.html" title=" " alt="" coords="75,155,146,181"/>
-<area shape="rect" title=" " alt="" coords="165,229,227,256"/>
-<area shape="rect" title=" " alt="" coords="88,229,141,256"/>
-<area shape="rect" title=" " alt="" coords="601,229,655,256"/>
-<area shape="rect" title=" " alt="" coords="509,229,576,256"/>
-<area shape="rect" title=" " alt="" coords="411,229,485,256"/>
-<area shape="rect" href="a00095.html" title=" " alt="" coords="679,229,758,256"/>
+<div class="center"><img src="a00087.png" border="0" usemap="#aToolGammatone_8cpp" alt=""/></div>
+<map name="aToolGammatone_8cpp" id="aToolGammatone_8cpp">
+<area shape="rect" title=" " alt="" coords="438,5,581,32"/>
+<area shape="rect" title=" " alt="" coords="5,304,64,331"/>
+<area shape="rect" title=" " alt="" coords="687,80,758,107"/>
+<area shape="rect" href="a00134.html" title=" " alt="" coords="715,155,810,181"/>
+<area shape="rect" href="a00104.html" title=" " alt="" coords="457,80,561,107"/>
+<area shape="rect" href="a00149.html" title=" " alt="" coords="315,155,437,181"/>
+<area shape="rect" href="a00119.html" title=" " alt="" coords="160,80,221,107"/>
+<area shape="rect" href="a00110.html" title=" " alt="" coords="563,155,691,181"/>
+<area shape="rect" title=" " alt="" coords="599,229,654,256"/>
+<area shape="rect" title=" " alt="" coords="679,229,745,256"/>
+<area shape="rect" title=" " alt="" coords="543,304,617,331"/>
+<area shape="rect" href="a00098.html" title=" " alt="" coords="409,229,487,256"/>
+<area shape="rect" title=" " alt="" coords="251,304,317,331"/>
+<area shape="rect" href="a00122.html" title=" " alt="" coords="86,229,157,256"/>
+<area shape="rect" title=" " alt="" coords="165,304,227,331"/>
+<area shape="rect" title=" " alt="" coords="88,304,141,331"/>
+<area shape="rect" href="a00116.html" title=" " alt="" coords="123,155,189,181"/>
+<area shape="rect" href="a00131.html" title=" " alt="" coords="233,229,325,256"/>
 </map>
 </div>
 </div>
@@ -97,9 +91,14 @@ Include dependency graph for Chord.cpp:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00253.html">CChordFromFile</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00367.html">CGammatone</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for a single gammtone filter  <a href="a00367.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00257.html">CChordFromVector</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00371.html">CGammaToneFbFromFile</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00375.html">CGammaToneFbFromVector</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00379.html">CGammaToneFbRealTime</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
@@ -120,14 +119,14 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00086_source.html#l00002">2</a> of file <a class="el" href="a00086_source.html">Chord.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00086_source.html#l00002">2</a> of file <a class="el" href="a00086_source.html">ToolGammatone.cpp</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 17:22:39 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 18:37:02 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
