@@ -40,7 +40,7 @@ Error_t CViterbi::init(float** ppfPTransition, float* pfPStart, int iNumStates, 
 
     // set values
     CVector::copy(m_pfStart, pfPStart, iNumStates);
-    CMatrix::copy(m_ppfTransProb, ppfPTransition, m_iNumStates, m_iNumObs);
+    CMatrix::copy(m_ppfTransProb, ppfPTransition, m_iNumStates, m_iNumStates);
 
     // all done here
     m_bIsInitialized    = true;
