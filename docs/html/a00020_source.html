@@ -18,9 +18,9 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.0</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.1</span>
    </div>
-   <div id="projectbrief">Code for Audio Content Analysis</div>
+   <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
  </tr>
  </tbody>
@@ -57,9 +57,9 @@
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ctime&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="a00122.html">Spectrogram.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="a00134.html">Spectrogram.h</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span><a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">std::cout</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span><a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">std::cout</a>;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>std::endl;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// local function declarations</span></div>
@@ -78,7 +78,7 @@
 <div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
 <div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    clock_t time = 0;</div>
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="a00431.html">CSpectrogramIf</a>* pCSpectrogram = 0; <span class="comment">//!&lt; instance to extract the spectrogram</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <a class="code hl_class" href="a00465.html">CSpectrogramIf</a>* pCSpectrogram = 0; <span class="comment">//!&lt; instance to extract the spectrogram</span></div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <span class="keywordtype">float</span>** ppfSpectrogram = 0; <span class="comment">//!&lt; resulting spectrogram</span></div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
@@ -90,8 +90,8 @@
 <div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment"></span>    <span class="comment">// parse command line arguments</span></div>
 <div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <span class="keywordflow">if</span> (argc &lt; 2)</div>
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span>    {</div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>        <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>        <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    }</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <span class="keywordflow">else</span></div>
@@ -104,16 +104,16 @@
 <div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
 <div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span>    <span class="comment">// initialize spectrogram instance</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="a00431.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a>(pCSpectrogram, sInputFilePath, iBlockLength, iHopLength);</div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00431.html#afb50af1070f5876b4706f5891879fcd8">getSpectrogramDimensions</a>(aiSpecGramDimensions[0], aiSpecGramDimensions[1]);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>    <a class="code hl_function" href="a00465.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a>(pCSpectrogram, sInputFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00465.html#afb50af1070f5876b4706f5891879fcd8">getSpectrogramDimensions</a>(aiSpecGramDimensions[0], aiSpecGramDimensions[1]);</div>
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);</div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    {</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_function" href="a00431.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>        <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>        <a class="code hl_function" href="a00465.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    }</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment"></span> </div>
@@ -126,7 +126,7 @@
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">if</span> (!ppfSpectrogram )</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_function" href="a00431.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_function" href="a00465.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        hOutputFile.close();</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
@@ -135,17 +135,17 @@
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing spectrogram...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00431.html#ae041a770ec2b092761d9a88cc87946bb">compSpectrogram</a>(ppfSpectrogram);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing spectrogram...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00465.html#ae041a770ec2b092761d9a88cc87946bb">compSpectrogram</a>(ppfSpectrogram);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n spectrogram computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n spectrogram computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    time = clock();</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"></span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span>    <span class="comment">// file writing</span></div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; aiSpecGramDimensions[0]; k++)</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
@@ -157,11 +157,11 @@
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>        hOutputFile &lt;&lt; endl;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span>    }</div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span> </div>
-<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment"></span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
-<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_function" href="a00431.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    <a class="code hl_function" href="a00465.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
 <div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span>    hOutputFile.close();</div>
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span> </div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; aiSpecGramDimensions[0]; k++)</div>
@@ -177,27 +177,27 @@
 <div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span> </div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno"><a class="line" href="a00020.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">  125</a></span><span class="keywordtype">void</span>     <a class="code hl_function" href="a00020.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>()</div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>{</div>
-<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; ACA_VERSION_MAJOR &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; ACA_VERSION_MINOR &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; ACA_VERSION_PATCH &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Spectrogram Extraction&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeSpectrogram inputwavfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_function" href="a00215.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; ACA_VERSION_MAJOR &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; ACA_VERSION_MINOR &lt;&lt; <span class="stringliteral">&quot;.&quot;</span> &lt;&lt; ACA_VERSION_PATCH &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Spectrogram Extraction&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span>    <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeSpectrogram inputwavfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <a class="code hl_function" href="a00233.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
 <div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span> </div>
 <div class="line"><a id="l00132" name="l00132"></a><span class="lineno">  132</span>    <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span>}</div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno">  134</span> </div>
 <div class="ttc" id="aa00020_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="a00020.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00017">ComputeSpectrogram.cpp:17</a></div></div>
 <div class="ttc" id="aa00020_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00020.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.html#l00125">ComputeSpectrogram.cpp:125</a></div></div>
-<div class="ttc" id="aa00122_html"><div class="ttname"><a href="a00122.html">Spectrogram.h</a></div></div>
-<div class="ttc" id="aa00215_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00215.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
-<div class="ttc" id="aa00431_html"><div class="ttname"><a href="a00431.html">CSpectrogramIf</a></div><div class="ttdoc">class for computation of a magnitude spectrogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00016">Spectrogram.h:17</a></div></div>
-<div class="ttc" id="aa00431_html_a6511fc72ef04be91a712ee5ef479bd7e"><div class="ttname"><a href="a00431.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CSpectrogramIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00133">Spectrogram.cpp:133</a></div></div>
-<div class="ttc" id="aa00431_html_acd73d8c1aaaed8b188de6b8bf2103139"><div class="ttname"><a href="a00431.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a></div><div class="ttdeci">static Error_t create(CSpectrogramIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, bool bNormalize=true, float *pfWindow=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00100">Spectrogram.cpp:100</a></div></div>
-<div class="ttc" id="aa00431_html_ae041a770ec2b092761d9a88cc87946bb"><div class="ttname"><a href="a00431.html#ae041a770ec2b092761d9a88cc87946bb">CSpectrogramIf::compSpectrogram</a></div><div class="ttdeci">Error_t compSpectrogram(float **ppfSpectrogram)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00188">Spectrogram.cpp:188</a></div></div>
-<div class="ttc" id="aa00431_html_afb50af1070f5876b4706f5891879fcd8"><div class="ttname"><a href="a00431.html#afb50af1070f5876b4706f5891879fcd8">CSpectrogramIf::getSpectrogramDimensions</a></div><div class="ttdeci">Error_t getSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols) const</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00141">Spectrogram.cpp:141</a></div></div>
+<div class="ttc" id="aa00134_html"><div class="ttname"><a href="a00134.html">Spectrogram.h</a></div></div>
+<div class="ttc" id="aa00233_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00233.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
+<div class="ttc" id="aa00465_html"><div class="ttname"><a href="a00465.html">CSpectrogramIf</a></div><div class="ttdoc">class for computation of a magnitude spectrogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00016">Spectrogram.h:17</a></div></div>
+<div class="ttc" id="aa00465_html_a6511fc72ef04be91a712ee5ef479bd7e"><div class="ttname"><a href="a00465.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CSpectrogramIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00133">Spectrogram.cpp:133</a></div></div>
+<div class="ttc" id="aa00465_html_acd73d8c1aaaed8b188de6b8bf2103139"><div class="ttname"><a href="a00465.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a></div><div class="ttdeci">static Error_t create(CSpectrogramIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, bool bNormalize=true, float *pfWindow=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00100">Spectrogram.cpp:100</a></div></div>
+<div class="ttc" id="aa00465_html_ae041a770ec2b092761d9a88cc87946bb"><div class="ttname"><a href="a00465.html#ae041a770ec2b092761d9a88cc87946bb">CSpectrogramIf::compSpectrogram</a></div><div class="ttdeci">Error_t compSpectrogram(float **ppfSpectrogram)</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00188">Spectrogram.cpp:188</a></div></div>
+<div class="ttc" id="aa00465_html_afb50af1070f5876b4706f5891879fcd8"><div class="ttname"><a href="a00465.html#afb50af1070f5876b4706f5891879fcd8">CSpectrogramIf::getSpectrogramDimensions</a></div><div class="ttdeci">Error_t getSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols) const</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00141">Spectrogram.cpp:141</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Fri Jun 3 2022 22:03:44 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Sun Jun 5 2022 17:22:39 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
