@@ -194,11 +194,11 @@ Error_t CChordIf::getTimeStamps(float* pfAxisTicks) const
     return Error_t::kNoError;
 }
 
-Error_t CChordIf::compChords(Chords_t* pfChord)
+Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
-    if (!pfChord)
+    if (!peChord)
         return Error_t::kFunctionInvalidArgsError;
 
     assert(m_pfProcessBuff1);
@@ -210,6 +210,8 @@ Error_t CChordIf::compChords(Chords_t* pfChord)
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
+        float fTmp = 0;
+        long long iMaxIdx = -1;
         float afChordProb[kNumChords] = { 0 };
 
         // retrieve the next audio block
@@ -227,10 +229,28 @@ Error_t CChordIf::compChords(Chords_t* pfChord)
         m_pCChord->compChordProb(afChordProb, m_pfProcessBuff1);
 
         // store result
-        CMatrix::setCol(m_ppfChordProbs, afChordProb, n, kNumChords);
+        if (bWithViterbi)
+            CMatrix::setCol(m_ppfChordProbs, afChordProb, n, kNumChords);
+        else
+        {
+            CVectorFloat::findMax(afChordProb, fTmp, iMaxIdx, kNumChords);
+            peChord[n] = static_cast<Chords_t>(iMaxIdx);
+        }
     }
 
     // compute viterbi
+    if (bWithViterbi)
+    {
+        int* piTmp = 0;
+        CVector::alloc(piTmp, iNumBlocks);
+        m_pCViterbi->compViterbi(m_ppfChordProbs);
+        m_pCViterbi->getStateSequence(piTmp);
+
+        for (auto n = 0; n < iNumBlocks; n++)
+            peChord[n] = static_cast<Chords_t>(piTmp[n]);
+
+        CVector::free(piTmp);
+    }
 
     return Error_t::kNoError;
 }
@@ -383,7 +403,7 @@ Error_t CChordIf::init_()
     // allocate processing memory
     CVector::alloc(m_pfProcessBuff1, m_pCFft->getLength(CFft::kLengthFft));
     CVector::alloc(m_pfProcessBuff2, m_pCFft->getLength(CFft::kLengthFft));
-    CChordFromBlockIf::create(m_pCChord, m_iBlockLength, m_fSampleRate);
+    CChordFromBlockIf::create(m_pCChord, m_pCFft->getLength(CFft::kLengthMagnitude), m_fSampleRate);
     CMatrix::alloc(m_ppfChordProbs, kNumChords, static_cast<int>(m_pCBlockAudio->getNumBlocks()));
 
     m_bIsInitialized = true;
@@ -405,21 +425,21 @@ void CChordIf::initViterbi_()
     /////////////////////////////
     // transition probabilities
     float** ppfTransProb = 0;
-    CMatrix::alloc(ppfTransProb, kNumChords, iNumBlocks);
+    CMatrix::alloc(ppfTransProb, kNumChords, kNumChords);
     const int aiCircleOfFifths[24] = { 0, -5, 2, -3, 4, -1, 6, 1, -4, 3, -2, 5, -3, 4, -1, 6, 1, -4, 3, -2, 5, 0, -5, 2 };
     float fRadius = 1.F;
     float fDistance = .5F;
 
     for (auto m = 0; m < kNumChords-1; m++)
     {
-        float fX1 = static_cast<float>(fRadius * std::cos(2. * M_PI * aiCircleOfFifths[m]));
-        float fY1 = static_cast<float>(fRadius * std::sin(2. * M_PI * aiCircleOfFifths[m]));
-        float fZ1 = fDistance - fDistance * (m % 12);
+        float fX1 = static_cast<float>(fRadius * std::cos(2. * M_PI * aiCircleOfFifths[m] / 12.));
+        float fY1 = static_cast<float>(fRadius * std::sin(2. * M_PI * aiCircleOfFifths[m] / 12.));
+        float fZ1 = fDistance - ((m < 12) ? 0 : fDistance);
         for (auto n = 0; n < kNumChords - 1; n++)
         {
-            float fXDist = static_cast<float>(fX1 - fRadius * std::cos(2. * M_PI * aiCircleOfFifths[n]));
-            float fYDist = static_cast<float>(fY1 - fRadius * std::sin(2. * M_PI * aiCircleOfFifths[n]));
-            float fZDist = fZ1 - (fDistance - fDistance * (n % 12));
+            float fXDist = static_cast<float>(fX1 - fRadius * std::cos(2. * M_PI * aiCircleOfFifths[n] / 12.));
+            float fYDist = static_cast<float>(fY1 - fRadius * std::sin(2. * M_PI * aiCircleOfFifths[n] / 12.));
+            float fZDist = fZ1 - (fDistance - ((n < 12) ? 0 : fDistance));
 
             ppfTransProb[m][n] = .1F + std::sqrt(fXDist * fXDist + fYDist * fYDist + fZDist * fZDist);
         }

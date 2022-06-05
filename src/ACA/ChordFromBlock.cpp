@@ -84,5 +84,5 @@ void CChordFromBlockIf::genTemplateMatrix_()
             m_ppfTemplateMatrix[c+ kNumPitchClasses][(c + aiMinorIndices[p])%12] = 1.F / iNumChordPitches;
         }
     }
-    CVectorFloat::mulC_I(m_ppfTemplateMatrix[CChordIf::kNoChord], 1.F / kNumPitchClasses, kNumPitchClasses);
+    CVectorFloat::addC_I(m_ppfTemplateMatrix[CChordIf::kNoChord], 1.F / kNumPitchClasses, kNumPitchClasses);
 }

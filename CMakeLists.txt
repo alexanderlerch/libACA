@@ -74,6 +74,7 @@ if (WITH_TESTS)
     # add tests here
     add_test(AudioIo ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec AudioIo* "${CMAKE_SOURCE_DIR}/src/Tests/TestData/")
     add_test(BeatHisto ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec BeatHisto*)
+    add_test(Chord ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Chord*)
     add_test(Dtw ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Dtw*)
     add_test(Features ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Feature*)
     add_test(Filter ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Filter*)

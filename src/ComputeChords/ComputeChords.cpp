@@ -49,9 +49,9 @@ int main(int argc, char* argv[])
     else
     {
         sInputFilePath = argv[1];
-        sChordString = (argc < 3) ? sInputFilePath + ".txt" : argv[2];
-        iBlockLength = (argc < 4) ? 4096 : std::stoi(argv[3]);
-        iHopLength = (argc < 5) ? 1024 : std::stoi(argv[4]);
+        sOutputFilePath = (argc < 3) ? sInputFilePath + ".txt" : argv[2];
+        iBlockLength = (argc < 4) ? 8192 : std::stoi(argv[3]);
+        iHopLength = (argc < 5) ? 2048 : std::stoi(argv[4]);
     }
 
     //////////////////////////////////////////////////////////////////////////////

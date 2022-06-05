@@ -60,7 +60,7 @@ public:
     \param iHopLength: hop length in Frames
     \return Error_t
     */
-    static Error_t create(CChordIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 4096, int iHopLength = 2048);
+    static Error_t create(CChordIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 8192, int iHopLength = 2048);
 
     /*! initializes a Chord instance from audio data
     \param pCInstance pointer to instance to be written
@@ -71,7 +71,7 @@ public:
     \param iHopLength: hop length in Frames
     \return Error_t
     */
-    static Error_t create(CChordIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 4096, int iHopLength = 2048);
+    static Error_t create(CChordIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 8192, int iHopLength = 2048);
 
     /*! destroys a Chord instance
     \param pCInstance pointer to instance to be destroyed
@@ -104,9 +104,10 @@ public:
 
     /*! performs the Chord computation for 1 dimensional Chords and writes the result
     \param peChord resulting chord indices (user-allocated, to be written, dimensions from CChordIf::getNumBlocks)
+    \param bWithViterbi use HMM post-processing
     \return Error_t
     */
-    Error_t compChords(Chords_t* peChord);
+    Error_t compChords(Chords_t* peChord, bool bWithViterbi = true);
 
     /*! returns Chord name as string
     \param eChordIdx Chord index
