@@ -320,6 +320,8 @@ float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* pfSample
     return fvzc / (2 * iDataLength);
 }
 
+CFeatureFromBlockIf::CFeatureFromBlockIf(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : m_eFeatureIdx(eFeatureIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) { assert(iDataLength > 0); }
+
 
 ///////////////////////////////////////////////////////////////////
 // features that need "memory" so can't easily work as static functions

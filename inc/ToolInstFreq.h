@@ -1,6 +1,11 @@
 #if !defined(__InstFreq_hdr__)
 #define __InstFreq_hdr__
 
+
+#define _USE_MATH_DEFINES
+#include <cassert>
+#include <cmath>
+
 #include "Util.h"
 #include "Vector.h"
 #include "Fft.h"

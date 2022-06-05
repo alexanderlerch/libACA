@@ -346,7 +346,7 @@ private:
 
         for (auto j = 0; j < iOrder; j++)
         {
-            T fArg = static_cast<T>(M_PI * (2 * j + 1) / (2. * iOrder));
+            T fArg = static_cast<T>(M_PI * (2. * j + 1) / (2. * iOrder));
             T fNorm = static_cast<T>(1 + std::sin(M_PI * fCutOff) * std::sin(fArg));
             pfCoeff[2 * j] = static_cast<T>(-std::cos(M_PI * fCutOff) / fNorm);
             pfCoeff[2 * j + 1] = static_cast<T>(-std::sin(M_PI * fCutOff) * std::cos(fArg) / fNorm);
@@ -367,7 +367,7 @@ private:
     template<typename T>
     static T calcScale(int iOrder, T fCutOff)
     {
-        T fPhase = static_cast<T>(M_PI / (2 * iOrder));
+        T fPhase = static_cast<T>(M_PI / (2. * iOrder));
         T fScale = 1;
 
         for (auto j = 0; j < iOrder / 2; ++j)

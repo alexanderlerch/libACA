@@ -86,7 +86,7 @@ public:
 
 protected:
     CFeatureFromBlockIf() {};
-    CFeatureFromBlockIf(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : m_eFeatureIdx(eFeatureIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) {assert(iDataLength > 0);};
+    CFeatureFromBlockIf(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate);
     virtual ~CFeatureFromBlockIf() {};
     CFeatureFromBlockIf(const CFeatureFromBlockIf& that);
     CFeatureFromBlockIf& operator=(const CFeatureFromBlockIf& c);

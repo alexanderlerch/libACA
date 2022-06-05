@@ -1,10 +1,8 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #include <iostream>
 #include <fstream>
 #include <ctime>
-
-#include "ACAConfig.h"
 
 #include "Feature.h"
 
@@ -135,7 +133,8 @@ int main(int argc, char* argv[])
 
 void     showClInfo()
 {
-    cout << "ACA v" << ACA_VERSION_MAJOR << "." << ACA_VERSION_MINOR << "." << ACA_VERSION_PATCH << ": Demo Executable for Feature Extraction" << endl;
+    cout << "ACA v" << getAcaVersion() << ": Demo Executable for Feature Extraction" << endl;
+    cout << "Build date: " << getAcaBuildDate() << endl;
     cout << "(c) 2022 by Alexander Lerch" << endl;
     cout << "Synopsis: ComputeFeature inputwavfile featurename [outputtxtfile] [blocksize] [hopsize]" << endl;
     cout << endl;

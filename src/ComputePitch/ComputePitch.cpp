@@ -1,10 +1,8 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #include <iostream>
 #include <fstream>
 #include <ctime>
-
-#include "ACAConfig.h"
 
 #include "Pitch.h"
 
@@ -123,7 +121,8 @@ int main(int argc, char* argv[])
 
 void     showClInfo()
 {
-    cout << "ACA v" << ACA_VERSION_MAJOR << "." << ACA_VERSION_MINOR << "." << ACA_VERSION_PATCH << ": Demo Executable for Pitch (F0) Extraction" << endl;
+    cout << "ACA v" << getAcaVersion() << ": Demo Executable for Pitch (F0) Extraction" << endl;
+    cout << "Build date: " << getAcaBuildDate() << endl;
     cout << "(c) 2022 by Alexander Lerch" << endl;
     cout << "Synopsis: ComputePitch inputwavfile Pitchname [outputtxtfile] [blocksize] [hopsize]" << endl;
     cout << endl;
