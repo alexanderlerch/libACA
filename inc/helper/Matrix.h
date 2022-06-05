@@ -48,48 +48,234 @@ public:
         ppfMat = 0;
     }
 
+    /*! sets a float matrix to zero
+    \param ppfMat pointer to memory to be set
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    template<typename T>
+    static void setZero(T** ppfMat, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+            CVector::setZero(ppfMat[m], iNumCols);
+    }
+
+    /*! sets a float matrix to zero
+    \param ppfMat pointer to memory to be set
+    \param tValue  value to use
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    template<typename T>
+    static void setValue(T** ppfMat, T tValue, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+            CVector::setValue(ppfMat[m], tValue, iNumCols);
+    }
+
+    /*! sets a float matrix to random
+    \param ppfMat pointer to memory to be set
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    template<typename T>
+    static void setRand(T** ppfMat, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+            CVector::setRand(ppfMat[m], iNumCols);
+    }
+
+    /*! copies vector content to a column
+    \param ppfDestMat (destination matrix, user allocated)
+    \param pfSrcVec (source vector)
+    \param iColIdx index of row to copy to
+    \param iNumRows number of columns
+    \return
+    */
+    template<typename T>
+    static void setCol(T** ppfDestMat, T* pfSrcVec, int iColIdx, int iNumRows)
+    {
+        assert(ppfDestMat);
+        assert(pfSrcVec);
+        assert(iColIdx >= 0);
+        assert(iNumRows > 0);
+
+        for (auto m = 0; m < iNumRows; m++)
+            ppfDestMat[m][iColIdx] = pfSrcVec[m];
+    }
+
+    /*! sets all elements in a matrix below a threshold to zero
+    \param ppfMat pointer to memory to be set
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    template<typename T>
+    static void setZeroBelowThresh(T** ppfMat, int iNumRows, int iNumCols, T tThresh)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+            CVector::setZeroBelowThresh(ppfMat[m], iNumCols, tThresh);
+    }
+
+    /*! fills matrix with ones on the diagonal, zeros elsewhere
+    \param ppfDest resulting matrix of dimension iNumRows x iNumCols (to be written, user allocated)
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
+    static void setEye(float** ppfDest, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumRows == iNumCols);
+        assert(ppfDest);
+        assert(ppfDest[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+        {
+            CVectorFloat::setZero(ppfDest[m], iNumCols);
+            ppfDest[m][m] = 1.F;
+        }
+    }
+
+    /*! normalizes each column of the matrix (p=1)
+    \param ppfSrcDest resulting matrix of dimension iNumRows x iNumCols (to be written, user allocated)
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
+    static void vecnorm_I(float** ppfSrcDest, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+
+        for (auto n = 0; n < iNumCols; n++)
+        {
+            float fNorm = 0;
+            for (auto m = 0; m < iNumRows; m++)
+                fNorm += std::abs(ppfSrcDest[m][n]);
+            if (fNorm > 0)
+                for (auto m = 0; m < iNumRows; m++)
+                    ppfSrcDest[m][n] /= fNorm;
+        }
+    }
+
+    /*! comnputes kl divergence between two matrices
+    \param ppfSrc1 matrix of dimension iNumRows x iNumCols
+    \param ppfSrc2 matrix of dimension iNumRows x iNumCols
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
+    static float calcKlDivergence(float** ppfSrc1, float** ppfSrc2, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfSrc1);
+        assert(ppfSrc1[0]);
+        assert(ppfSrc2);
+        assert(ppfSrc2[0]);
+
+        float fResult = 0;
+
+        for (int i = 0; i < iNumRows; i++)
+        {
+            for (int j = 0; j < iNumCols; j++)
+                fResult += ppfSrc1[i][j] * (std::log((ppfSrc1[i][j] + 1e-24F) / (ppfSrc2[i][j] + 1e-24F)) - 1.F) + ppfSrc2[i][j];
+        }
+
+        return fResult;
+    }
+
+    /*! transposes matrix ppfSrc and write the result to ppfDest
+    \param ppfDest resulting matrix of dimension iNumSrcCols x iNumSrcRows (to be written, user allocated)
+    \param ppfSrc input matrix of dimension iNumSrcRows x iNumCols
+    \param iNumSrcRows number of rows in the matrix
+    \param iNumSrcCols number of columns in the matrix
+    \return
+    */
+    static void transpose(float** ppfDest, float** ppfSrc, int iNumSrcRows, int iNumSrcCols)
+    {
+        assert(iNumSrcRows > 0);
+        assert(iNumSrcCols > 0);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
+        assert(ppfDest);
+        assert(ppfDest[0]);
+
+        for (auto m = 0; m < iNumSrcRows; m++)
+        {
+            for (auto n = 0; n < iNumSrcCols; n++)
+                ppfDest[n][m] = ppfSrc[m][n];
+        }
+    }
+
     /*! multiplies a matrix with a column vector (MAT * VEC)
     \param pfDestColVec resulting (column) vector of length iNumMatRows (to be written, user allocated)
-    \param ppfMatrix matrix to be multiplied
+    \param ppfMat matrix to be multiplied
     \param pfSrcColVec (column) vector to be multiplied
     \param iNumMatRows number of rows in the matrix
     \param iNumMatCols number of columns in the matrix
     \return
     */
-    static void mulMatColVec(float* pfDestColVec, float** ppfMatrix, const float* pfSrcColVec, int iNumMatRows, int iNumMatCols)
+    static void mulMatColVec(float* pfDestColVec, float** ppfMat, const float* pfSrcColVec, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
         assert(pfDestColVec);
         assert(pfSrcColVec);
-        assert(ppfMatrix);
-        assert(ppfMatrix[0]);
+        assert(ppfMat);
+        assert(ppfMat[0]);
 
         for (auto m = 0; m < iNumMatRows; m++)
-            pfDestColVec[m] = CVectorFloat::mulScalar(ppfMatrix[m], pfSrcColVec, iNumMatCols);
+            pfDestColVec[m] = CVectorFloat::mulScalar(ppfMat[m], pfSrcColVec, iNumMatCols);
     }
 
     /*! multiplies a row vector with a matrix (VEC * MAT)
     \param pfDestRowVec resulting (row) vector of length iNumMatCols (to be written, user allocated)
     \param pfSrcRowVec (column) vector to be multiplied
-    \param ppfMatrix matrix to be multiplied
+    \param ppfMat matrix to be multiplied
     \param iNumMatRows number of rows in the matrix
     \param iNumMatCols number of columns in the matrix
     \return
     */
-    static void mulRowVecMat(float* pfDestRowVec, const float* pfSrcRowVec, float** ppfMatrix, int iNumMatRows, int iNumMatCols)
+    static void mulRowVecMat(float* pfDestRowVec, const float* pfSrcRowVec, float** ppfMat, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
         assert(pfDestRowVec);
         assert(pfSrcRowVec);
-        assert(ppfMatrix);
-        assert(ppfMatrix[0]);
+        assert(ppfMat);
+        assert(ppfMat[0]);
 
         CVectorFloat::setZero(pfDestRowVec, iNumMatCols);
         for (auto n = 0; n < iNumMatCols; n++)
             for (auto m = 0; m < iNumMatRows; m++)
-                pfDestRowVec[n] += pfSrcRowVec[m] * ppfMatrix[m][n];
+                pfDestRowVec[n] += pfSrcRowVec[m] * ppfMat[m][n];
     }
 
     /*! multiplies a matrix with a matrix (MAT1 * MAT2)
@@ -129,25 +315,53 @@ public:
         }
     }
 
-    /*! fills matrix with ones on the diagonal, zeros elsewhere
-    \param ppfDest resulting matrix of dimension iNumRows x iNumCols (to be written, user allocated)
-    \param iNumRows number of rows in the matrix
-    \param iNumCols number of columns in the matrix
+    /*! elementwise multiplication of two matrices inplace
+    \param ppfSrcDest resulting matrix
+    \param ppfSrc matrix to be multiplied
+    \param iNumRows number of rows
+    \param iNumCols number of columns
     \return
     */
-    static void setEye(float** ppfDest, int iNumRows, int iNumCols)
+    static void mul_I(float** ppfSrcDest, float** ppfSrc, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
-        assert(iNumRows == iNumCols);
-        assert(ppfDest);
-        assert(ppfDest[0]);
+        assert(iNumRows > 0);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
 
         for (auto m = 0; m < iNumRows; m++)
         {
-            CVectorFloat::setZero(ppfDest[m], iNumCols);
-            ppfDest[m][m] = 1.F;
+            for (auto n = 0; n < iNumCols; n++)
+                ppfSrcDest[m][n] *= ppfSrc[m][n];
         }
+    }
 
+    /*! elementwise division of two matrices inplace
+    \param ppfSrcDest resulting matrix
+    \param ppfSrc matrix to be multiplied
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \param bAddSmallConst a small floating point number is added before division if true
+    \return
+    */
+    static void div_I(float** ppfSrcDest, float** ppfSrc, int iNumRows, int iNumCols, bool bAddSmallConst = false)
+    {
+        assert(iNumRows > 0);
+        assert(iNumRows > 0);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
+
+        float fEpsilon = bAddSmallConst? 1e-30F : .0F;
+
+        for (auto m = 0; m < iNumRows; m++)
+        {
+            for (auto n = 0; n < iNumCols; n++)
+                ppfSrcDest[m][n] /= (ppfSrc[m][n] + fEpsilon);
+        }
     }
 
     /*! return maximum value in a matrix
@@ -268,25 +482,6 @@ public:
         assert(iNumCols > 0);
 
         CVector::copy(ppfDestMat[iRowIdx], pfSrcVec, iNumCols);
-    }
-
-    /*! copies vector content to a column
-    \param ppfDestMat (destination matrix, user allocated)
-    \param pfSrcVec (source vector)
-    \param iColIdx index of row to copy to
-    \param iNumRows number of columns
-    \return
-    */
-    template<typename T>
-    static void setCol(T** ppfDestMat, T* pfSrcVec, int iColIdx, int iNumRows)
-    {
-        assert(ppfDestMat);
-        assert(pfSrcVec);
-        assert(iColIdx >= 0);
-        assert(iNumRows > 0);
-
-        for (auto m = 0; m < iNumRows; m++)
-            ppfDestMat[m][iColIdx] = pfSrcVec[m];
     }
 
     /*! computes inverse of square matrix

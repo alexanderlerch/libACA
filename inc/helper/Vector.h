@@ -7,6 +7,8 @@
 #include <limits>
 #include <cmath>
 
+#include "Synthesis.h"
+
 /*! \brief class with static functions for buffer operations with type T
 */
 class CVector
@@ -56,7 +58,7 @@ public:
     }
 
     /*! initializes the buffer to a specific value
-    \param ptDest pointer to memory to be initialized
+    \param ptDest pointer to memory to be set
     \param tValue value to use
     \param iLength number of elements to be set
     \return void
@@ -69,6 +71,20 @@ public:
 
         for (auto i = 0; i < iLength; i++)
             ptDest[i] = tValue;
+    }
+
+    /*! initializes the buffer with random noise
+    \param pfDest pointer to memory to be initialized
+    \param iLength number of elements to be set
+    \return void
+    */
+    template<typename T>
+    static inline void setRand(T* pfDest, long long iLength)
+    {
+        assert(iLength >= 0);
+        assert(pfDest);
+
+        CSynthesis::genNoise(pfDest, iLength);
     }
 
     /*! sets all values smaller than a threshold to 0
@@ -212,13 +228,23 @@ public:
     \param iLength number of elements to be set
     \return void
     */
-    static inline void setValue (float *pfDest, float fValue, long long int iLength)
+    static inline void setValue(float* pfDest, float fValue, long long int iLength)
     {
-        assert (iLength >= 0);
-        assert (pfDest);
+        assert(iLength >= 0);
+        assert(pfDest);
 
         for (auto i = 0; i < iLength; i++)
             pfDest[i] = fValue;
+    }
+
+    /*! initializes the buffer with random noise
+    \param pfDest pointer to memory to be initialized
+    \param iLength number of elements to be set
+    \return void
+    */
+    static inline void setRand(float* pfDest, long long int iLength)
+    {
+        CVector::setRand(pfDest, iLength);
     }
 
     /*! multiplies a buffer with a scalar
