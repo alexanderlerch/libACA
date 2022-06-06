@@ -210,8 +210,6 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
-        float fTmp = 0;
-        long long iMaxIdx = -1;
         float afChordProb[kNumChords] = { 0 };
 
         // retrieve the next audio block
@@ -233,6 +231,8 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
             CMatrix::setCol(m_ppfChordProbs, afChordProb, n, kNumChords);
         else
         {
+            float fTmp = 0;
+			long long iMaxIdx = -1;
             CVectorFloat::findMax(afChordProb, fTmp, iMaxIdx, kNumChords);
             peChord[n] = static_cast<Chords_t>(iMaxIdx);
         }
