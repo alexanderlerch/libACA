@@ -727,7 +727,7 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
     float** ppfOut = 0;
     float** ppfW = 0;
     float** ppfH = 0;
-    int aiDim[2] = { 128, 6 };
+    int aiDim[2] = { 128, 13 };
     int iRank = 2;
     int iMaxIter = 300;
     CNmfResult* pCResult = new CNmfResult();
@@ -735,8 +735,8 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
     pCInstance = new CNmf();
     CMatrix::alloc(ppfInput, aiDim[0], aiDim[1]);
     CMatrix::alloc(ppfOut, aiDim[0], aiDim[1]);
-    CMatrix::alloc(ppfW, aiDim[0], iRank);
-    CMatrix::alloc(ppfH, iRank, aiDim[1]);
+    CMatrix::alloc(ppfW, aiDim[0], iRank+1);
+    CMatrix::alloc(ppfH, iRank+1, aiDim[1]);
 
     SECTION("Api")
     {
@@ -790,10 +790,10 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
         CHECK(0 == Approx(CMatrix::getMax(ppfInput, aiDim[0], aiDim[1])).margin(1e-2F).epsilon(1e-2F));
 
         // check H
-        CHECK(ppfH[0][0] == Approx(ppfH[1][1]).margin(1e-4F).epsilon(1e-4F));
-        CHECK(ppfH[0][1] == Approx(ppfH[1][0]).margin(1e-4F).epsilon(1e-4F));
-        CHECK(ppfH[0][3] == Approx(ppfH[1][3]).margin(1e-4F).epsilon(1e-4F));
-        CHECK(.7F / .3F == Approx(ppfH[0][2] /ppfH[1][2]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfH[0][0] == Approx(ppfH[1][1]).margin(1e-4F).epsilon(1e-3F));
+        CHECK(ppfH[0][1] == Approx(ppfH[1][0]).margin(1e-4F).epsilon(1e-3F));
+        CHECK(ppfH[0][3] == Approx(ppfH[1][3]).margin(1e-4F).epsilon(1e-3F));
+        CHECK(((.7F / .3F == Approx(ppfH[0][2] / ppfH[1][2]).margin(1e-2F).epsilon(1e-2F)) || (.3F / .7F == Approx(ppfH[0][2] / ppfH[1][2]).margin(1e-2F).epsilon(1e-2F))));
 
         // check W
         float afRes[4] = { 0 };
@@ -806,12 +806,15 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
         }
         CHECK(afRes[0] == Approx(afRes[3]).margin(1e-3F).epsilon(1e-3F));
         CHECK(afRes[1] == Approx(afRes[2]).margin(1e-3F).epsilon(1e-3F));
-        CHECK(afRes[0] == Approx(afRes[0] + afRes[1]).margin(1e-3F).epsilon(1e-3F));
-        CHECK(afRes[3] == Approx(afRes[2] + afRes[3]).margin(1e-3F).epsilon(1e-3F));
+        CHECK(afRes[2] + afRes[3] == Approx(afRes[0] + afRes[1]).margin(1e-3F).epsilon(1e-3F));
+
+        aiDim[0] = 128;
+        aiDim[1] = 13;
     }
 
     SECTION("2Rank")
     {
+        aiDim[1] = 8;
         srand(42);
         CMatrix::setRand(ppfInput, aiDim[0], aiDim[1]);
         CMatrix::mulC_I(ppfInput, 1.F / 20.F, aiDim[0], aiDim[1]);
@@ -847,13 +850,44 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
         CHECK(Error_t::kNoError == pCResult->getMat(ppfH, CNmfResult::kH));
         CHECK(Error_t::kNoError == pCResult->getMat(ppfOut, CNmfResult::kXHat));
 
-        CHECK(ppfW[4][1] == Approx(ppfW[8][1]).margin(1e-3F).epsilon(1e-3F));
-        CHECK(ppfW[4][1] == Approx(ppfW[12][1]).margin(1e-3F).epsilon(1e-3F));
-        CHECK(ppfW[4][1] == Approx(ppfW[16][1]).margin(1e-3F).epsilon(1e-3F));
-        CHECK(ppfW[7][0] == Approx(ppfW[14][0]).margin(1e-3F).epsilon(1e-3F));
-        CHECK(ppfW[7][0] == Approx(ppfW[21][0]).margin(1e-3F).epsilon(1e-3F));
-        CHECK(ppfW[7][0] == Approx(ppfW[28][0]).margin(1e-3F).epsilon(1e-3F));
+        CHECK(ppfW[4][1] == Approx(ppfW[8][1]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[4][1] == Approx(ppfW[12][1]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[4][1] == Approx(ppfW[16][1]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[7][0] == Approx(ppfW[14][0]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[7][0] == Approx(ppfW[21][0]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[7][0] == Approx(ppfW[28][0]).margin(1e-2F).epsilon(1e-2F));
 
+        aiDim[0] = 128;
+        aiDim[1] = 13;
+    }
+
+    SECTION("3Rank")
+    {
+        aiDim[0] = 8;
+        aiDim[1] = 13;
+        iRank = 3;
+
+        for (auto j = 0; j < 4; j++)
+            ppfInput[2][j] = 1.F;
+        for (auto j = 4; j < 9; j++)
+            ppfInput[5][j] = 1.F;
+        for (auto j = 9; j < 13; j++)
+            ppfInput[7][j] = 1.F;
+
+        CHECK(Error_t::kNoError == pCInstance->init(pCResult, iRank, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kNoError == pCInstance->compNmf(pCResult, ppfInput));
+
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfW, CNmfResult::kW));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfH, CNmfResult::kH));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfOut, CNmfResult::kXHat));
+
+        CHECK(3.F == Approx(CMatrix::getSum(ppfW, aiDim[0], iRank)).margin(1e-3F).epsilon(1e-3F));
+        CHECK(13.F == Approx(CMatrix::getSum(ppfH, iRank, aiDim[1])).margin(1e-3F).epsilon(1e-3F));
+
+        aiDim[0] = 128;
+        aiDim[1] = 13;
+        iRank = 2;
     }
 
     delete pCResult;
@@ -862,7 +896,7 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
     CMatrix::free(ppfInput, aiDim[0]);
     CMatrix::free(ppfOut, aiDim[0]);
     CMatrix::free(ppfW, aiDim[0]);
-    CMatrix::free(ppfH, iRank);
+    CMatrix::free(ppfH, iRank+1);
 }
 
 TEST_CASE("ToolsResample", "[ToolsResample]")

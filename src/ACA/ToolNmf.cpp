@@ -79,6 +79,8 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, float** ppfInput)
     {
         afCost[kCurrCost] = runNmfIter(pCNmfResult, ppfInput);
 
+        assert(!std::isnan(afCost[kCurrCost]));
+
         if (k > 0)
         {
             if (std::abs((afCost[kCurrCost] - afCost[kPrevCost]) / (afCost[kStartCost] - afCost[kCurrCost] + m_kMinOffset)) < .001F)
@@ -86,6 +88,8 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, float** ppfInput)
         }
         else
             afCost[kStartCost] = afCost[kCurrCost];
+
+        afCost[kPrevCost] = afCost[kCurrCost];
     }
     return Error_t::kNoError;
 }
@@ -100,20 +104,25 @@ float CNmf::runNmfIter(CNmfResult* pCNmfResult, float** ppfInput)
     int iNumObs = pCNmfResult->getMatCols(CNmfResult::kH);
     int iNumBins = pCNmfResult->getMatRows(CNmfResult::kW);
 
+    const bool bUpdateH = true,
+        bUpdateW = true;
+
     // compute current estimate
     CMatrix::mulMatMat(ppfXHat, ppfW, ppfH, iNumBins, iRank, iRank, iNumObs);
+    CMatrix::addC_I(ppfXHat, m_kMinOffset, iNumBins, iNumObs);
 
     //m_ppfX
     CMatrix::copy(m_ppfX, ppfInput, iNumBins, iNumObs);
-    CMatrix::addC_I(m_ppfX, m_kMinOffset, iNumBins, iNumObs);
     CMatrix::div_I(m_ppfX, ppfXHat, iNumBins, iNumObs);
 
     // update H
+    if (bUpdateH)
     {
         CMatrix::transpose(m_ppfTransp, ppfW, iNumBins, iRank);
 
         // denominator
         CMatrix::mulMatMat(m_ppfDenom, m_ppfTransp, m_ppfOnes, iRank, iNumBins, iNumBins, iNumObs);
+        CMatrix::addC_I(m_ppfDenom, m_fSparsity + m_kMinOffset, iRank, iNumObs);
 
         // numerator
         CMatrix::mulMatMat(m_ppfNum, m_ppfTransp, m_ppfX, iRank, iNumBins, iNumBins, iNumObs);
@@ -125,28 +134,34 @@ float CNmf::runNmfIter(CNmfResult* pCNmfResult, float** ppfInput)
     }
 
     // update W
+    if (bUpdateW)
     {
         CMatrix::transpose(m_ppfTransp, ppfH, iRank, iNumObs);
 
         // denominator
         CMatrix::mulMatMat(m_ppfDenom, m_ppfOnes, m_ppfTransp, iNumBins, iNumObs, iNumObs, iRank);
+        CMatrix::addC_I(m_ppfDenom, m_kMinOffset, iNumBins, iRank);
 
         // numerator
         CMatrix::mulMatMat(m_ppfNum, m_ppfX, m_ppfTransp, iNumBins, iNumObs, iNumObs, iRank);
         CMatrix::div_I(m_ppfNum, m_ppfDenom, iNumBins, iRank);
         CMatrix::mul_I(ppfW, m_ppfNum, iNumBins, iRank);
 
-        // clean small values
-        CMatrix::setZeroBelowThresh(ppfW, iNumBins, iRank, m_kMinOffset);
-
         // normalize
         CMatrix::vecnorm_I(ppfW, iNumBins, iRank);
+
+        // clean small values
+        CMatrix::setZeroBelowThresh(ppfW, iNumBins, iRank, m_kMinOffset);
     }
 
     // compute error
     CMatrix::mulMatMat(ppfXHat, ppfW, ppfH, iNumBins, iRank, iRank, iNumObs);
+    CMatrix::addC_I(ppfXHat, m_kMinOffset, iNumBins, iNumObs);
 
-    return CMatrix::calcKlDivergence(ppfInput, ppfXHat, iNumBins, iNumObs); // + fSparsity * norm(H, 1)
+    // deal with sparsity
+    CMatrix::addC_I(ppfXHat, m_fSparsity * CMatrix::getNorm(ppfXHat, iNumBins, iNumObs), iNumBins, iNumObs);
+
+    return CMatrix::calcKlDivergence(ppfInput, ppfXHat, iNumBins, iNumObs); 
 }
 
 

@@ -52,7 +52,12 @@ public:
     virtual ~CNmf(void);
 
     /*! initializes the class with the size of the distance matrix
-    \param iBlockLength
+    \param pCNmfResult class holding the result to be initialized (user allocated)
+    \param iRank NMF rank
+    \param iNumRows number of rows of matrix to be factorized
+    \param iNumCols number of columns of matrix to be factorized
+    \param iMaxIter maximum number of iterations
+    \param fSparsity sparsity weight
     \return Error_t
     */
     Error_t init (CNmfResult* pCNmfResult, int iRank, int iNumRows, int iNumCols, int iMaxIter = 300, float fSparsity = 0);
