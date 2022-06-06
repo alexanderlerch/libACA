@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.1</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -46,26 +46,30 @@
   </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">CResample Member List</div></div>
+  <div class="headertitle"><div class="title">CMovingAverage Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a00509.html">CResample</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a00509.html">CMovingAverage</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a6af73d34704579d5d18ef456fe54a983">CResample</a>(float fInSampleRate, float fOutSampleRate)</td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#aa35aba2e70d5325d5b3098faa79ba05d">CResample</a>(const CResample &amp;that)</td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a1fa6003e640ba66531236277eddc5158">getOutputLength</a>(long long iNumInSamples) const</td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#a02a81c6177894649b0524b684118839e">interp1d</a>(float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)</td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a></td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a></td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00509.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a></td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#a0db33ae459e827fc0258b7b9ae3cf738">operator=</a>(const CResample &amp;c)</td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a040a6674ec0ff9171d6b4cb4b8436cb2">process</a>(float *pfOut, const float *pfIn, long long iNumInSamples)</td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#abf7624c3daf78a13e5bb949a242c3034">~CResample</a>()</td><td class="entry"><a class="el" href="a00509.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00509.html#ac37c3eae6a41a393219aa4cbd39db211">calcFilterLength</a>(float fIntegrationTimeInS, float fSampleRate)</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#aa02ee977828ff103f3e2c25889131122">CMovingAverage</a>()</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a7fbde1ace5417196843209065c07d687">CMovingAverage</a>(const CMovingAverage &amp;that)</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#a9008feaaece203a6bf1220ab81e1b983">create</a>(CMovingAverage *&amp;pCInstance)</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a5a6b1921f58c43d9daa618a97e62754f">destroy</a>(CMovingAverage *&amp;pCInstance)</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#ab6f5f359e79f0ede5aedc7775ae3bece">filtfilt</a>(float *pfOutput, const float *pfInput, long long iLengthOfBuffer)</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a9704ba1d710c82a1b92af175b0b07538">getFilterParam</a>() const</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#afa9972cded7adacb3a044ba85401b2e1">m_fPrevOut</a></td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a67685901f5136c73c25b9650d97193a0">m_pCRingBuff</a></td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#ae283883b27aeaa8aaa1796953cc9a0ef">operator=</a>(const CMovingAverage &amp;c)</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a4e86e5be0bc6ad928397d99eda2d1978">process</a>(float *pfOutput, const float *pfInput, long long iLengthOfBuffer)</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#a9681799055b5a4622d25a70901a65af3">reset</a>()</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00509.html#a1a014af5490675e140d6069561b00eb1">setFilterParam</a>(int iFilterLength=64)</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00509.html#adde468f177d86f008403b3d94210bfd4">~CMovingAverage</a>()</td><td class="entry"><a class="el" href="a00509.html">CMovingAverage</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 17:22:40 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Mon Jun 6 2022 17:03:36 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
