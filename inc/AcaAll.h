@@ -5,6 +5,8 @@
 
 #include "AudioFileIf.h"
 #include "BeatHisto.h"
+#include "Chord.h"
+#include "ChordFromBlock.h"
 #include "ErrorDef.h"
 #include "Feature.h"
 #include "FeatureFromBlock.h"
@@ -21,6 +23,7 @@
 #include "ToolInstFreq.h"
 #include "ToolLowPass.h"
 #include "ToolNmf.h"
+#include "ToolPca.h"
 #include "ToolPreProc.h"
 #include "ToolResample.h"
 #include "ToolSimpleDtw.h"

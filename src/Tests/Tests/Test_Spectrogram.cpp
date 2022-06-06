@@ -1,11 +1,6 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #ifdef WITH_TESTS
-
-#include "Synthesis.h"
-#include "Vector.h"
-#include "Spectrogram.h"
-
 #include "catch.hpp"
 
 TEST_CASE("Spectrogram", "[Spectrogram]")
@@ -87,7 +82,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
 
         CSynthesis::genSine(pfInput, f0, fs, static_cast<int>(fs));
 
-        CHECK(Error_t::kNoError == CSpectrogramIf::create(pCSpecGram, pfInput, static_cast<int>(fs), fs, iBlockLength, iHopLength));
+        CHECK(Error_t::kNoError == CSpectrogramIf::create(pCSpecGram, pfInput, 40000, fs, iBlockLength, iHopLength));
 
         CHECK(Error_t::kNoError == pCSpecGram->getSpectrogramDimensions(aiSpecGramDimension[0], aiSpecGramDimension[1]));
 

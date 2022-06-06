@@ -1,9 +1,6 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #ifdef WITH_TESTS
-#include "Synthesis.h"
-#include "RingBuffer.h"
-
 #include "catch.hpp"
 
 TEST_CASE("RingBuffer", "[RingBuffer]")

@@ -1,12 +1,6 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #ifdef WITH_TESTS
-
-#include "Vector.h"
-#include "Synthesis.h"
-#include "ToolConversion.h"
-
-#include "PitchFromBlock.h"
 #include "catch.hpp"
 
 TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")

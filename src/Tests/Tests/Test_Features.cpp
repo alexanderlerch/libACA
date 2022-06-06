@@ -1,13 +1,6 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #ifdef WITH_TESTS
-
-#include "Vector.h"
-#include "Synthesis.h"
-#include "ToolConversion.h"
-#include "ToolLowPass.h"
-
-#include "FeatureFromBlock.h"
 #include "catch.hpp"
 
 TEST_CASE("Features (static functions)", "[FeaturesStatic]")

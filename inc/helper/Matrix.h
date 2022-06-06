@@ -2,6 +2,7 @@
 #define __MatrixFloat_hdr__
 
 #include <cassert>
+#include <algorithm>
 
 #include "Vector.h"
 
@@ -283,6 +284,27 @@ public:
             for (auto n = 0; n < iNumSrcCols; n++)
                 ppfDest[n][m] = ppfSrc[m][n];
         }
+    }
+
+    /*! returns matrix diagonal as vector
+    \param ppfDest resulting matrix of dimension iNumSrcRows (to be written, user allocated)
+    \param ppfSrc input matrix of dimension iNumSrcRows x iNumCols
+    \param iNumSrcRows number of rows in the matrix
+    \param iNumSrcCols number of columns in the matrix
+    \return
+    */
+    static void diag(float* pfDest, float** ppfSrc, int iNumSrcRows, int iNumSrcCols)
+    {
+        assert(iNumSrcRows > 0);
+        assert(iNumSrcCols > 0);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
+        assert(pfDest);
+
+        int iLen = std::min(iNumSrcRows, iNumSrcCols);
+
+        for (auto m = 0; m < iLen; m++)
+            pfDest[m] = ppfSrc[m][m];
     }
 
     /*! multiplies a matrix with a column vector (MAT * VEC)
@@ -683,6 +705,8 @@ public:
         CMatrix::free(ppfTmp, iNumRows);
         CMatrix::free(ppfEye, iNumRows);
     }
+
+
 };
 
 #endif // __MatrixFloat_hdr__
