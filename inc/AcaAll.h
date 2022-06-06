@@ -20,9 +20,11 @@
 #include "ToolGammatone.h"
 #include "ToolInstFreq.h"
 #include "ToolLowPass.h"
+#include "ToolNmf.h"
 #include "ToolPreProc.h"
 #include "ToolResample.h"
 #include "ToolSimpleDtw.h"
+#include "ToolViterbi.h"
 
 /*! returns the version string of libACA
 \return std::string

@@ -4,7 +4,7 @@
 
 #include "ToolNmf.h"
 
-const float  CNmf::m_kMinOffset = 1e-18F;
+const float  CNmf::m_kMinOffset = 1e-30F;
 
 CNmf::CNmf(void)
 {
@@ -18,7 +18,7 @@ CNmf::~CNmf(void)
 
 Error_t CNmf::init(CNmfResult* pCNmfResult, int iRank, int iNumRows, int iNumCols, int iMaxIter /*= 300*/, float fSparsity /*= 0*/)
 {
-    if (iRank <= 0 || iMaxIter <= 0)
+    if (!pCNmfResult || iRank <= 0 || iNumRows <= 0 || iNumCols <= 0 || iMaxIter <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
     pCNmfResult->init(iRank, iNumRows, iNumCols);
@@ -58,6 +58,13 @@ Error_t CNmf::reset()
 
 Error_t CNmf::compNmf(CNmfResult* pCNmfResult, float** ppfInput)
 {
+
+    if (!pCNmfResult || !ppfInput)
+        return Error_t::kFunctionInvalidArgsError;
+
+    if (!m_bIsInitialized || !pCNmfResult->isInitialized())
+        return Error_t::kFunctionIllegalCallError;
+    
     enum Cost_t
     {
         kStartCost,
@@ -67,12 +74,6 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, float** ppfInput)
         kNumCosts
     };
     float afCost[kNumCosts] = { 0 };
-
-    if (!ppfInput)
-        return Error_t::kFunctionInvalidArgsError;
-
-    if (!m_bIsInitialized || !pCNmfResult->isInitialized())
-        return Error_t::kFunctionIllegalCallError;
 
     for (int k = 0; k < m_iMaxIter; k++)
     {
@@ -96,7 +97,7 @@ float CNmf::runNmfIter(CNmfResult* pCNmfResult, float** ppfInput)
     float** ppfXHat = pCNmfResult->getMatPointer(CNmfResult::kXHat);
 
     int iRank = pCNmfResult->getMatCols(CNmfResult::kW);
-    int iNumObs = pCNmfResult->getMatRows(CNmfResult::kH);
+    int iNumObs = pCNmfResult->getMatCols(CNmfResult::kH);
     int iNumBins = pCNmfResult->getMatRows(CNmfResult::kW);
 
     // compute current estimate
@@ -115,7 +116,7 @@ float CNmf::runNmfIter(CNmfResult* pCNmfResult, float** ppfInput)
         CMatrix::mulMatMat(m_ppfDenom, m_ppfTransp, m_ppfOnes, iRank, iNumBins, iNumBins, iNumObs);
 
         // numerator
-        CMatrix::mulMatMat(m_ppfNum, m_ppfTransp, ppfXHat, iRank, iNumBins, iNumBins, iNumObs);
+        CMatrix::mulMatMat(m_ppfNum, m_ppfTransp, m_ppfX, iRank, iNumBins, iNumBins, iNumObs);
         CMatrix::div_I(m_ppfNum, m_ppfDenom, iRank, iNumObs);
         CMatrix::mul_I(ppfH, m_ppfNum, iRank, iNumObs);
 
@@ -131,7 +132,7 @@ float CNmf::runNmfIter(CNmfResult* pCNmfResult, float** ppfInput)
         CMatrix::mulMatMat(m_ppfDenom, m_ppfOnes, m_ppfTransp, iNumBins, iNumObs, iNumObs, iRank);
 
         // numerator
-        CMatrix::mulMatMat(m_ppfNum, ppfXHat, m_ppfTransp, iNumBins, iNumObs, iNumObs, iRank);
+        CMatrix::mulMatMat(m_ppfNum, m_ppfX, m_ppfTransp, iNumBins, iNumObs, iNumObs, iRank);
         CMatrix::div_I(m_ppfNum, m_ppfDenom, iNumBins, iRank);
         CMatrix::mul_I(ppfW, m_ppfNum, iNumBins, iRank);
 
@@ -155,7 +156,9 @@ CNmfResult::CNmfResult()
 {}
 
 CNmfResult::~CNmfResult(void)
-{}
+{
+    reset();
+}
 
 Error_t CNmfResult::init(int iRank, int iNumRows, int iNumCols)
 {
@@ -180,14 +183,21 @@ Error_t CNmfResult::init(int iRank, int iNumRows, int iNumCols)
     // normalize
     CMatrix::vecnorm_I(m_appfMatrices[kW], m_aaiMatrixDims[kW][0], m_aaiMatrixDims[kW][1]);
 
+    m_bIsInitialized = true;
+
     return Error_t::kNoError;
 }
 
 
 Error_t CNmfResult::reset(void)
 {
+    m_bIsInitialized = false;
+
     for (auto m = 0; m < kNumMatrices; m++)
+    {
         CMatrix::free(m_appfMatrices[m], m_aaiMatrixDims[m][0]);
+        CVector::setZero(m_aaiMatrixDims[m], 2);
+    }
 
     return Error_t::kNoError;
 }
@@ -211,6 +221,8 @@ void CNmfResult::getMatDims(NmfMatrices_t eMatIdx, int& iNumRows, int& iNumCols)
 
 Error_t CNmfResult::getMat(float** ppfDest, NmfMatrices_t eMatIdx)
 {
+    if (!m_bIsInitialized)
+        return Error_t::kFunctionIllegalCallError;
     if (!ppfDest)
         return Error_t::kFunctionInvalidArgsError;
     if (!ppfDest[0])

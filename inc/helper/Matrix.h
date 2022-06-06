@@ -338,6 +338,52 @@ public:
         }
     }
 
+    /*! elementwise addition of two matrices inplace
+    \param ppfSrcDest resulting matrix
+    \param ppfSrc matrix to be multiplied
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    static void add_I(float** ppfSrcDest, float** ppfSrc, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumRows > 0);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+        {
+            for (auto n = 0; n < iNumCols; n++)
+                ppfSrcDest[m][n] += ppfSrc[m][n];
+        }
+    }
+
+    /*! elementwise subtraction of two matrices inplace
+    \param ppfSrcDest resulting matrix
+    \param ppfSrc matrix to be multiplied
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    static void sub_I(float** ppfSrcDest, float** ppfSrc, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumRows > 0);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+        {
+            for (auto n = 0; n < iNumCols; n++)
+                ppfSrcDest[m][n] -= ppfSrc[m][n];
+        }
+    }
+
     /*! elementwise division of two matrices inplace
     \param ppfSrcDest resulting matrix
     \param ppfSrc matrix to be multiplied

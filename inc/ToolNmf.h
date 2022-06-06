@@ -62,7 +62,7 @@ public:
     */
     Error_t reset ();
 
-    Error_t compNmf (CNmfResult *pCNmfResult, float** pCInput);
+    Error_t compNmf (CNmfResult *pCNmfResult, float** ppfInput);
  
  
 private:
