@@ -1,19 +1,10 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #ifdef WITH_TESTS
 
 #include "Synthesis.h"
 #include "Vector.h"
 #include "Matrix.h"
-
-#include "ToolCcf.h"
-#include "ToolBlockAudio.h"
-#include "ToolConversion.h"
-#include "ToolGammatone.h"
-#include "ToolInstFreq.h"
-#include "ToolLowPass.h"
-#include "ToolResample.h"
-#include "ToolViterbi.h"
 
 #include "catch.hpp"
 
@@ -727,6 +718,185 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
     delete[] pfIn;
     delete[] pfOut;
     delete[] pfOutIdx;
+}
+
+TEST_CASE("ToolsNmf", "[ToolsNmf]")
+{
+    CNmf* pCInstance = 0;
+    float** ppfInput = 0;
+    float** ppfOut = 0;
+    float** ppfW = 0;
+    float** ppfH = 0;
+    int aiDim[2] = { 128, 13 };
+    int iRank = 2;
+    int iMaxIter = 300;
+    CNmfResult* pCResult = new CNmfResult();
+
+    pCInstance = new CNmf();
+    CMatrix::alloc(ppfInput, aiDim[0], aiDim[1]);
+    CMatrix::alloc(ppfOut, aiDim[0], aiDim[1]);
+    CMatrix::alloc(ppfW, aiDim[0], iRank+1);
+    CMatrix::alloc(ppfH, iRank+1, aiDim[1]);
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionIllegalCallError == pCResult->getMat(ppfW, CNmfResult::kW));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, iRank, aiDim[0], aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(pCResult, 0, aiDim[0], aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(pCResult, iRank, 0, aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(pCResult, iRank, aiDim[0], 0, iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(pCResult, iRank, aiDim[0], aiDim[1], 0));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->compNmf(pCResult, ppfInput));
+
+        CHECK(Error_t::kNoError == pCInstance->init(pCResult, iRank, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCResult->getMat(0, CNmfResult::kW));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfW, CNmfResult::kW));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compNmf(0, ppfInput));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compNmf(pCResult, 0));
+
+        CHECK(Error_t::kNoError == pCInstance->compNmf(pCResult, ppfInput));
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+
+    SECTION("Trivial")
+    {
+        srand(42);
+        aiDim[0] = 8;
+        aiDim[1] = 4;
+        for (auto k = 0; k < 4; k++)
+        {
+            ppfInput[k][0] = 1.F;
+            ppfInput[k+4][1] = 1.F;
+        }
+
+        for (auto k = 0; k < aiDim[0]; k++)
+        {
+            ppfInput[k][2] = .7F * ppfInput[k][0] + .3F * ppfInput[k][1];
+            ppfInput[k][3] = .5F * ppfInput[k][0] + .5F * ppfInput[k][1];
+        }
+
+        CHECK(Error_t::kNoError == pCInstance->init(pCResult, iRank, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kNoError == pCInstance->compNmf(pCResult, ppfInput));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfW, CNmfResult::kW));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfH, CNmfResult::kH));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfOut, CNmfResult::kXHat));
+
+        // check XHat
+        CMatrix::sub_I(ppfInput, ppfOut, aiDim[0], aiDim[1]);
+        CHECK(0 == Approx(CMatrix::getMax(ppfInput, aiDim[0], aiDim[1])).margin(1e-2F).epsilon(1e-2F));
+
+        // check H
+        CHECK(ppfH[0][0] == Approx(ppfH[1][1]).margin(1e-4F).epsilon(1e-3F));
+        CHECK(ppfH[0][1] == Approx(ppfH[1][0]).margin(1e-4F).epsilon(1e-3F));
+        CHECK(ppfH[0][3] == Approx(ppfH[1][3]).margin(1e-4F).epsilon(1e-3F));
+        CHECK(((.7F / .3F == Approx(ppfH[0][2] / ppfH[1][2]).margin(1e-2F).epsilon(1e-2F)) || (.3F / .7F == Approx(ppfH[0][2] / ppfH[1][2]).margin(1e-2F).epsilon(1e-2F))));
+
+        // check W
+        float afRes[4] = { 0 };
+        for (auto k = 0; k < 4; k++)
+        {
+            afRes[0] += ppfW[k][0];
+            afRes[1] += ppfW[k][1];
+            afRes[2] += ppfW[k+4][0];
+            afRes[3] += ppfW[k+4][1];
+        }
+        CHECK(afRes[0] == Approx(afRes[3]).margin(1e-3F).epsilon(1e-3F));
+        CHECK(afRes[1] == Approx(afRes[2]).margin(1e-3F).epsilon(1e-3F));
+        CHECK(afRes[2] + afRes[3] == Approx(afRes[0] + afRes[1]).margin(1e-3F).epsilon(1e-3F));
+
+        aiDim[0] = 128;
+        aiDim[1] = 13;
+    }
+
+    SECTION("2Rank")
+    {
+        aiDim[1] = 8;
+        srand(42);
+        CMatrix::setRand(ppfInput, aiDim[0], aiDim[1]);
+        CMatrix::mulC_I(ppfInput, 1.F / 20.F, aiDim[0], aiDim[1]);
+
+        for (auto k = 1; k < aiDim[0]; k++)
+        {
+            if (k % 4 == 0)
+            {
+                ppfInput[k][0] = 1;
+                ppfInput[k][1] = 1;
+            }
+        }
+
+        for (auto k = 1; k < aiDim[0]; k++)
+        {
+            if (k % 7 == 0)
+            {
+                ppfInput[k][2] = 1;
+                ppfInput[k][3] = 1;
+            }
+        }
+
+        for (auto k = 0; k < aiDim[0]; k++)
+        {
+            ppfInput[k][4] = .7F * ppfInput[k][0] + .3F * ppfInput[k][2];
+            ppfInput[k][5] = ppfInput[k][4];
+        }
+
+        CHECK(Error_t::kNoError == pCInstance->init(pCResult, iRank, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kNoError == pCInstance->compNmf(pCResult, ppfInput));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfW, CNmfResult::kW));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfH, CNmfResult::kH));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfOut, CNmfResult::kXHat));
+
+        CHECK(ppfW[4][1] == Approx(ppfW[8][1]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[4][1] == Approx(ppfW[12][1]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[4][1] == Approx(ppfW[16][1]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[7][0] == Approx(ppfW[14][0]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[7][0] == Approx(ppfW[21][0]).margin(1e-2F).epsilon(1e-2F));
+        CHECK(ppfW[7][0] == Approx(ppfW[28][0]).margin(1e-2F).epsilon(1e-2F));
+
+        aiDim[0] = 128;
+        aiDim[1] = 13;
+    }
+
+    SECTION("3Rank")
+    {
+        aiDim[0] = 8;
+        aiDim[1] = 13;
+        iRank = 3;
+
+        for (auto j = 0; j < 4; j++)
+            ppfInput[2][j] = 1.F;
+        for (auto j = 4; j < 9; j++)
+            ppfInput[5][j] = 1.F;
+        for (auto j = 9; j < 13; j++)
+            ppfInput[7][j] = 1.F;
+
+        CHECK(Error_t::kNoError == pCInstance->init(pCResult, iRank, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kNoError == pCInstance->compNmf(pCResult, ppfInput));
+
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfW, CNmfResult::kW));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfH, CNmfResult::kH));
+        CHECK(Error_t::kNoError == pCResult->getMat(ppfOut, CNmfResult::kXHat));
+
+        CHECK(3.F == Approx(CMatrix::getSum(ppfW, aiDim[0], iRank)).margin(1e-3F).epsilon(1e-3F));
+        CHECK(13.F == Approx(CMatrix::getSum(ppfH, iRank, aiDim[1])).margin(1e-3F).epsilon(1e-3F));
+
+        aiDim[0] = 128;
+        aiDim[1] = 13;
+        iRank = 2;
+    }
+
+    delete pCResult;
+    delete pCInstance;
+
+    CMatrix::free(ppfInput, aiDim[0]);
+    CMatrix::free(ppfOut, aiDim[0]);
+    CMatrix::free(ppfW, aiDim[0]);
+    CMatrix::free(ppfH, iRank+1);
 }
 
 TEST_CASE("ToolsResample", "[ToolsResample]")

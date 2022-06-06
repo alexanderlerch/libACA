@@ -21,8 +21,6 @@ int main(int argc, char* argv[])
     std::string             sInputFilePath,                 //!< file paths
         sOutputFilePath;
 
-    std::string sChordString; //!< string of the Chord to be extracted
-
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
     int iNumBlocks = 0; //!< number of blocks

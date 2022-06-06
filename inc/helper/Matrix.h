@@ -126,6 +126,7 @@ public:
     \param ppfMat pointer to memory to be set
     \param iNumRows number of rows
     \param iNumCols number of columns
+    \param tThresh threshold
     \return
     */
     template<typename T>
@@ -158,6 +159,56 @@ public:
             CVectorFloat::setZero(ppfDest[m], iNumCols);
             ppfDest[m][m] = 1.F;
         }
+    }
+
+    /*! adds all matrix elements
+    \param ppfMat input matrix of dimension iNumRows x iNumCols (to be written, user allocated)
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \param bAbs flag to indicate whether to sum the absolute values
+    \return
+    */
+    static float getSum(float** ppfMat, int iNumRows, int iNumCols, bool bAbs = false)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        float fResult = 0;
+
+        for (auto m = 0; m < iNumRows; m++)
+            fResult += CVectorFloat::getSum(ppfMat[m], iNumCols, bAbs);
+
+        return fResult;
+    }
+
+    /*! return the matrix norm (p=1)
+    \param ppfMat input matrix of dimension iNumRows x iNumCols (to be written, user allocated)
+    \param iNumRows number of rows in the matrix
+    \param iNumCols number of columns in the matrix
+    \return
+    */
+    static float getNorm(float** ppfMat, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumCols > 0);
+        assert(ppfMat);
+        assert(ppfMat[0]);
+
+        float fResult = 0;
+
+        for (auto n = 0; n < iNumCols; n++)
+        {
+            float fTmp = 0;
+            for (auto m = 0; m < iNumRows; m++)
+                fTmp += std::abs(ppfMat[m][n]);
+
+            if (fTmp > fResult)
+                fResult = fTmp;
+        }
+
+        return fResult;
     }
 
     /*! normalizes each column of the matrix (p=1)
@@ -335,6 +386,52 @@ public:
         {
             for (auto n = 0; n < iNumCols; n++)
                 ppfSrcDest[m][n] *= ppfSrc[m][n];
+        }
+    }
+
+    /*! elementwise addition of two matrices inplace
+    \param ppfSrcDest resulting matrix
+    \param ppfSrc matrix to be multiplied
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    static void add_I(float** ppfSrcDest, float** ppfSrc, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumRows > 0);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+        {
+            for (auto n = 0; n < iNumCols; n++)
+                ppfSrcDest[m][n] += ppfSrc[m][n];
+        }
+    }
+
+    /*! elementwise subtraction of two matrices inplace
+    \param ppfSrcDest resulting matrix
+    \param ppfSrc matrix to be multiplied
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
+    static void sub_I(float** ppfSrcDest, float** ppfSrc, int iNumRows, int iNumCols)
+    {
+        assert(iNumRows > 0);
+        assert(iNumRows > 0);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+        {
+            for (auto n = 0; n < iNumCols; n++)
+                ppfSrcDest[m][n] -= ppfSrc[m][n];
         }
     }
 
