@@ -30,7 +30,7 @@ public:
             iEnd = iNumOutSamples - 1;
 
         // treat first samples
-        while ((pfNewIdx[iStart] < 0) && (iStart < iNumOutSamples))
+        while ((iStart < iNumOutSamples) && (pfNewIdx[iStart] < 0))
         {
             if (pfNewIdx[iStart] < -1)
                 pfOut[iStart] = 0;
