@@ -347,6 +347,67 @@ public:
             pfSrcDest[i] += fConst;
     }
 
+
+    /*! sorts values in a buffer 
+    \param pfSrcDest buffer to be sorted
+    \param piIndices new indices (optional, can be left 0)
+    \param iLength number of elements to be sorted
+    \return void
+    */
+    static inline void sort_I(float* pfSrcDest, int* piIndices,  int iLength, bool bAscending = true)
+    {
+        // go bubble sort!
+
+        bool bDone = false; // this flag will be used to check whether we have to continue the algorithm
+
+        // initialize
+        if (piIndices)
+            for (auto i = 0; i < iLength; i++)
+                piIndices[i] = i;
+
+        if (bAscending)
+        {
+            while (!bDone)
+            {
+                bDone = true;
+
+                for (auto i = 0; i < iLength; i++)
+                {
+                    if (pfSrcDest[i] > pfSrcDest[i + 1]) // compare the current element with the following one
+                    {
+                        //swap them
+                        CUtil::swap(pfSrcDest[i], pfSrcDest[i + 1]);
+                        if (piIndices)
+                            CUtil::swap(piIndices[i], piIndices[i + 1]);
+
+                        bDone = false; // let's recheck the array
+                    }
+                }
+            }
+        }
+        else // descending
+        {
+            while (!bDone)
+            {
+                bDone = true;
+
+                for (auto i = 0; i < iLength; i++)
+                {
+                    if (pfSrcDest[i] < pfSrcDest[i + 1]) // compare the current element with the following one
+                    {
+                        //swap them
+                        CUtil::swap(pfSrcDest[i], pfSrcDest[i + 1]);
+                        if (piIndices)
+                            CUtil::swap(piIndices[i], piIndices[i + 1]);
+
+                        bDone = false; // let's recheck the array
+                    }
+                }
+            }
+        }
+    }
+
+
     /*! element-wise vector subtraction
     \param pfSrcDest one input and output buffer
     \param pfSrc second input buffer

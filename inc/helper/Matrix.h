@@ -286,8 +286,36 @@ public:
         }
     }
 
+    /*! rearrange the rows of a matrix according to a row index vector
+    \param ppfSrcDest resorted matrix of dimension iNumRows x ?
+    \param piRowIndices new indices iNumRows
+    \param iNumRows number of rows in the matrix
+    \return
+    */
+    static void rearrangeRows(float** ppfSrcDest, int* piRowIndices, int iNumRows)
+    {
+        assert(iNumRows > 0);
+        assert(piRowIndices);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+
+        float** ppfTmp = 0;
+        CVector::alloc(ppfTmp, iNumRows);
+
+        for (auto m = 0; m < iNumRows; m++)
+        {
+            assert(piRowIndices[m] < iNumRows);
+            assert(piRowIndices[m] >= 0);
+
+            ppfTmp[m] = ppfSrcDest[piRowIndices[m]];
+        }
+        CVector::copy(ppfSrcDest, ppfTmp, iNumRows);
+
+        CVector::free(ppfTmp);
+    }
+
     /*! returns matrix diagonal as vector
-    \param ppfDest resulting matrix of dimension iNumSrcRows (to be written, user allocated)
+    \param pfDest resulting vector of dimension min(iNumSrcRows, iNumCols) (to be written, user allocated)
     \param ppfSrc input matrix of dimension iNumSrcRows x iNumCols
     \param iNumSrcRows number of rows in the matrix
     \param iNumSrcCols number of columns in the matrix

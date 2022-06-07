@@ -8,6 +8,9 @@ CPca::~CPca(void) { reset(); }
 
 Error_t CPca::init(int iNumFeatures, int iNumObservations)
 {
+    if (iNumFeatures <= 0 || iNumObservations <= 0)
+        return Error_t::kFunctionInvalidArgsError;
+
     m_iNumFeatures = iNumFeatures;
     m_iNumObs = iNumObservations;
 
@@ -15,6 +18,8 @@ Error_t CPca::init(int iNumFeatures, int iNumObservations)
     CMatrix::alloc(m_ppfU, m_iNumFeatures, m_iNumFeatures);
     CMatrix::alloc(m_ppfW, m_iNumFeatures, m_iNumFeatures);
     CMatrix::alloc(m_ppfV, m_iNumFeatures, m_iNumFeatures);
+
+    CVector::alloc(piSortIndices, m_iNumFeatures);
 
     return Error_t::kNoError;
 }
@@ -25,6 +30,8 @@ Error_t CPca::reset()
     CMatrix::free(m_ppfU, m_iNumFeatures);
     CMatrix::free(m_ppfW, m_iNumFeatures);
     CMatrix::free(m_ppfV, m_iNumFeatures);
+
+    CVector::free(piSortIndices);
 
     return Error_t::kNoError;
 }
@@ -40,16 +47,22 @@ Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, float** ppfIn)
 
     compCov(m_ppfProcTmp, ppfIn, m_iNumFeatures, m_iNumObs);
 
-    calcSVD(m_ppfU, m_ppfW, m_ppfV, m_ppfProcTmp, m_iNumFeatures, m_iNumObs);
+    calcSVD(m_ppfU, m_ppfW, m_ppfV, m_ppfProcTmp, m_iNumFeatures, m_iNumFeatures);
+
+    // extract eigenvalues
+    CMatrix::diag(pfEigenValues, m_ppfW, m_iNumFeatures, m_iNumFeatures);
+
+    // sort eigenvalues
+    CVectorFloat::sort_I(pfEigenValues, piSortIndices, m_iNumFeatures, false);
 
     // transpose T
     CMatrix::transpose(m_ppfProcTmp, m_ppfV, m_iNumFeatures, m_iNumFeatures);
 
+    // rearrange transformation matrix
+    CMatrix::rearrangeRows(m_ppfProcTmp, piSortIndices, m_iNumFeatures);
+
     //compute components
     CMatrix::mulMatMat(ppfRes, m_ppfProcTmp, ppfIn, m_iNumFeatures, m_iNumFeatures, m_iNumFeatures, m_iNumObs);
-
-    // extract eigenvalues
-    CMatrix::diag(pfEigenValues, m_ppfW, m_iNumFeatures, m_iNumFeatures);
 
     return Error_t::kNoError;
 }

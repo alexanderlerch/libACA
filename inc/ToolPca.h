@@ -49,7 +49,7 @@ public:
     \param ppfU (user-allocated, to be written, dimension iNumRows X iNumCols)
     \param ppfW  (user-allocated, to be written, dimension iNumCols X iNumCols)
     \param ppfV (user-allocated, to be written, dimension iNumCols X iNumCols)
-    \param ppfU (dimension iNumRows X iNumCols)
+    \param ppfMat input matrix (dimension iNumRows X iNumCols)
     \param iNumRows number of rows in the input  matrix
     \param iNumCols number of columns/in the input matrix
     \param iMaxIterations maximum number of iterations
@@ -70,6 +70,7 @@ private:
     float** m_ppfU = 0;
     float** m_ppfW = 0;
     float** m_ppfV = 0;
+    int* piSortIndices = 0;
 };
 
 
