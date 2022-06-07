@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: _sndlib.h File Reference</title>
+<title>ACA: vct.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -49,29 +49,23 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#define-members">Macros</a>  </div>
-  <div class="headertitle"><div class="title">_sndlib.h File Reference</div></div>
+<a href="#define-members">Macros</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
+<a href="#func-members">Functions</a>  </div>
+  <div class="headertitle"><div class="title">vct.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;<a class="el" href="a00206_source.html">mus-config.h</a>&gt;</code><br />
-<code>#include &lt;sys/types.h&gt;</code><br />
-<code>#include &lt;stdio.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00224_source.html">sndlib.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00203_source.html">xen.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00212_source.html">vct.h</a>&quot;</code><br />
-</div><div class="textblock"><div class="dynheader">
-Include dependency graph for _sndlib.h:</div>
+<div class="textblock"><div class="dynheader">
+This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00219.png" border="0" usemap="#a__sndlib_8h" alt=""/></div>
-<map name="a__sndlib_8h" id="a__sndlib_8h">
-<area shape="rect" title=" " alt="" coords="245,5,319,32"/>
-<area shape="rect" href="a00206.html" title=" " alt="" coords="5,80,100,107"/>
-<area shape="rect" title=" " alt="" coords="159,229,245,256"/>
-<area shape="rect" title=" " alt="" coords="385,155,445,181"/>
-<area shape="rect" href="a00224.html" title=" " alt="" coords="285,80,351,107"/>
-<area shape="rect" href="a00203.html" title=" " alt="" coords="176,155,228,181"/>
-<area shape="rect" href="a00212.html" title=" " alt="" coords="470,155,521,181"/>
-<area shape="rect" title=" " alt="" coords="304,155,361,181"/>
+<div class="center"><img src="a00220.png" border="0" usemap="#avct_8hdep" alt=""/></div>
+<map name="avct_8hdep" id="avct_8hdep">
+<area shape="rect" title=" " alt="" coords="62,5,113,32"/>
+<area shape="rect" href="a00224.html" title=" " alt="" coords="5,155,79,181"/>
+<area shape="rect" href="a00200.html" title=" " alt="" coords="47,80,127,107"/>
+<area shape="rect" href="a00230.html" title=" " alt="" coords="151,80,218,107"/>
+<area shape="rect" href="a00014.html" title=" " alt="" coords="119,155,219,181"/>
+<area shape="rect" href="a00221.html" title=" " alt="" coords="243,155,297,181"/>
 </map>
 </div>
 </div>
@@ -79,460 +73,538 @@ Include dependency graph for _sndlib.h:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a7d6e1cf1a8d53f38471e9e9db3faf740"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a7d6e1cf1a8d53f38471e9e9db3faf740">__func__</a>&#160;&#160;&#160;__FUNCTION__</td></tr>
-<tr class="separator:a7d6e1cf1a8d53f38471e9e9db3faf740"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae71449b1cc6e6250b91f539153a7a0d3"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a>&#160;&#160;&#160;3.14159265358979323846264338327</td></tr>
-<tr class="separator:ae71449b1cc6e6250b91f539153a7a0d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a958e4508ed28ee5cc04249144312c15f"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a958e4508ed28ee5cc04249144312c15f">M_PI_2</a>&#160;&#160;&#160;(<a class="el" href="a00218.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 2.0)</td></tr>
-<tr class="separator:a958e4508ed28ee5cc04249144312c15f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bef143fd29095a717e86ebe9f6bb661"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a2bef143fd29095a717e86ebe9f6bb661">POWER_OF_2_P</a>(x)&#160;&#160;&#160;((((x) - 1) &amp; (x)) == 0)</td></tr>
-<tr class="separator:a2bef143fd29095a717e86ebe9f6bb661"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84e52776adc3b6f1109323ecf4537d4c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a84e52776adc3b6f1109323ecf4537d4c">MUS_MAX_MALLOC_DEFAULT</a>&#160;&#160;&#160;(1 &lt;&lt; 26)</td></tr>
-<tr class="separator:a84e52776adc3b6f1109323ecf4537d4c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aedead79c7cdaf1e163e412a7c91bc4cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#aedead79c7cdaf1e163e412a7c91bc4cb">MUS_MAX_TABLE_SIZE_DEFAULT</a>&#160;&#160;&#160;(1024 * 1024 * 20) /* delay line allocation etc */</td></tr>
-<tr class="separator:aedead79c7cdaf1e163e412a7c91bc4cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0d112bae8fd35be772185b6ec6bcbe64"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a0d112bae8fd35be772185b6ec6bcbe64">SEEK_SET</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a0d112bae8fd35be772185b6ec6bcbe64"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2a2e6c114780c3071efd24f16c7f7d8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#ad2a2e6c114780c3071efd24f16c7f7d8">SEEK_END</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:ad2a2e6c114780c3071efd24f16c7f7d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48fb2c83c91dc700a6bdef74dee909cc"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a48fb2c83c91dc700a6bdef74dee909cc">OPEN</a>(File,  Flags,  Mode)&#160;&#160;&#160;open((File), (Flags))</td></tr>
-<tr class="separator:a48fb2c83c91dc700a6bdef74dee909cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa77baea27fefe4d8e7df64961c6c92dd"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#aa77baea27fefe4d8e7df64961c6c92dd">FOPEN</a>(File,  Flags)&#160;&#160;&#160;fopen((File), (Flags))</td></tr>
-<tr class="separator:aa77baea27fefe4d8e7df64961c6c92dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a500f9e8cbf97bcf0ced716de592f4574"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a500f9e8cbf97bcf0ced716de592f4574">CREAT</a>(File,  Flags)&#160;&#160;&#160;creat((File), (Flags))</td></tr>
-<tr class="separator:a500f9e8cbf97bcf0ced716de592f4574"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42656f42b5d2e7b8db50f769a84c132d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a42656f42b5d2e7b8db50f769a84c132d">REMOVE</a>(OldF)&#160;&#160;&#160;remove(OldF)</td></tr>
-<tr class="separator:a42656f42b5d2e7b8db50f769a84c132d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9953c803fe99cfa510e19e13d8ef4ac5"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a9953c803fe99cfa510e19e13d8ef4ac5">STRERROR</a>(Err)&#160;&#160;&#160;strerror(Err)</td></tr>
-<tr class="separator:a9953c803fe99cfa510e19e13d8ef4ac5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f644d32207581fdb8673cd0ce3afd73"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a1f644d32207581fdb8673cd0ce3afd73">CLOSE</a>(Fd,  Name)&#160;&#160;&#160;close(Fd)</td></tr>
-<tr class="separator:a1f644d32207581fdb8673cd0ce3afd73"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a705a26e67d0eaa29431b83a5db6b570b"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a705a26e67d0eaa29431b83a5db6b570b">FCLOSE</a>(Fd,  Name)&#160;&#160;&#160;fclose(Fd)</td></tr>
-<tr class="separator:a705a26e67d0eaa29431b83a5db6b570b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af372d07f0f9ccbf7f3ab13940755a41c"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#af372d07f0f9ccbf7f3ab13940755a41c">S_setB</a>&#160;&#160;&#160;&quot;set-&quot;</td></tr>
-<tr class="separator:af372d07f0f9ccbf7f3ab13940755a41c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9ced7065438425b282f3033aa48653b9"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a9ced7065438425b282f3033aa48653b9">MUS_LOOP_INFO_SIZE</a>&#160;&#160;&#160;8</td></tr>
-<tr class="separator:a9ced7065438425b282f3033aa48653b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a621d7a5517dc9d6b1d86f5923534c0c8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a621d7a5517dc9d6b1d86f5923534c0c8">MUS_ALSA_API</a>&#160;&#160;&#160;0</td></tr>
-<tr class="separator:a621d7a5517dc9d6b1d86f5923534c0c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7637bbb7a6bf0566ed1b170b1415308"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#ab7637bbb7a6bf0566ed1b170b1415308">MUS_OSS_API</a>&#160;&#160;&#160;1</td></tr>
-<tr class="separator:ab7637bbb7a6bf0566ed1b170b1415308"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a86cf793f61f4dfb1f3f972ee3791ac84"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a86cf793f61f4dfb1f3f972ee3791ac84">MUS_JACK_API</a>&#160;&#160;&#160;2</td></tr>
-<tr class="separator:a86cf793f61f4dfb1f3f972ee3791ac84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5b2fc41b8f81fef595d02327fa923df"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#ae5b2fc41b8f81fef595d02327fa923df">XEN_TO_VCT</a>(arg)&#160;&#160;&#160;((<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *)<a class="el" href="a00209.html#a817fb971eaaaee0aa460fe91dfb3c2c0">XEN_OBJECT_REF</a>(arg))</td></tr>
+<tr class="separator:ae5b2fc41b8f81fef595d02327fa923df"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a97b2b77bdc8018fd3fdc1f9b8a287949"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a97b2b77bdc8018fd3fdc1f9b8a287949">MUS_VCT_P</a>(arg)&#160;&#160;&#160;<a class="el" href="a00218.html#a2385017c5854cfb01f18b85d792e80bf">mus_vct_p</a>(arg)</td></tr>
+<tr class="separator:a97b2b77bdc8018fd3fdc1f9b8a287949"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="typedef-members" name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:a626b3f22f5e5af605c1e1e64e720e865"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a></td></tr>
+<tr class="separator:a626b3f22f5e5af605c1e1e64e720e865"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:ae5b708991f0320891fb1b8ffbc43c58b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#ae5b708991f0320891fb1b8ffbc43c58b">mus_vct_init</a> (void)</td></tr>
+<tr class="separator:ae5b708991f0320891fb1b8ffbc43c58b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2385017c5854cfb01f18b85d792e80bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a2385017c5854cfb01f18b85d792e80bf">mus_vct_p</a> (<a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> obj)</td></tr>
+<tr class="separator:a2385017c5854cfb01f18b85d792e80bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b14def1ee4efeebb544fdbdd07b930c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a5b14def1ee4efeebb544fdbdd07b930c">mus_vct_print_length</a> (void)</td></tr>
+<tr class="separator:a5b14def1ee4efeebb544fdbdd07b930c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aae73f4bd4f3fd9a52b0f53b38ff601f7"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#aae73f4bd4f3fd9a52b0f53b38ff601f7">mus_vct_set_print_length</a> (int len)</td></tr>
+<tr class="separator:aae73f4bd4f3fd9a52b0f53b38ff601f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa0ed9ddc2dfd31e132c8578ea2d7efbd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#aa0ed9ddc2dfd31e132c8578ea2d7efbd">mus_array_to_list</a> (<a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *arr, <a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> i, <a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> len)</td></tr>
+<tr class="separator:aa0ed9ddc2dfd31e132c8578ea2d7efbd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e7cc5542364b6bbbdd857b779e7c13a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a6e7cc5542364b6bbbdd857b779e7c13a">mus_vct_equalp</a> (<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *v1, <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *v2)</td></tr>
+<tr class="separator:a6e7cc5542364b6bbbdd857b779e7c13a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3ef69190d41aea49f0db376012c44c06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a3ef69190d41aea49f0db376012c44c06">mus_vct_to_readable_string</a> (<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *v)</td></tr>
+<tr class="separator:a3ef69190d41aea49f0db376012c44c06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a000778e22e467a1a5cbe9412a5cfc82b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a000778e22e467a1a5cbe9412a5cfc82b">mus_vct_make</a> (<a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> len)</td></tr>
+<tr class="separator:a000778e22e467a1a5cbe9412a5cfc82b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a46211e0e0773e4ce36bdbe3b6187f3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a2a46211e0e0773e4ce36bdbe3b6187f3">mus_vct_free</a> (<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *v)</td></tr>
+<tr class="separator:a2a46211e0e0773e4ce36bdbe3b6187f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e594d5832ec8f0de8bd8bf606123d33"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a4e594d5832ec8f0de8bd8bf606123d33">mus_vct_copy</a> (<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *vc)</td></tr>
+<tr class="separator:a4e594d5832ec8f0de8bd8bf606123d33"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeefd03ef858f928227bd7fa92d379d3c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#aeefd03ef858f928227bd7fa92d379d3c">mus_vct_peak</a> (<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *v)</td></tr>
+<tr class="separator:aeefd03ef858f928227bd7fa92d379d3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a27dd65bb97881e25d967dd7a6c1790aa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a27dd65bb97881e25d967dd7a6c1790aa">vct_to_xen</a> (<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *v)</td></tr>
+<tr class="separator:a27dd65bb97881e25d967dd7a6c1790aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26f8ca9a5fad0c51ecb14347a8df8b84"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a26f8ca9a5fad0c51ecb14347a8df8b84">xen_list_to_vct</a> (<a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> lst)</td></tr>
+<tr class="separator:a26f8ca9a5fad0c51ecb14347a8df8b84"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50e716368a8139de5106ec905730dd5a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a50e716368a8139de5106ec905730dd5a">xen_to_vct</a> (<a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> arg)</td></tr>
+<tr class="separator:a50e716368a8139de5106ec905730dd5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8601da23313dc3400b42d6d151842d80"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a8601da23313dc3400b42d6d151842d80">xen_make_vct</a> (<a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> len, <a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *data)</td></tr>
+<tr class="separator:a8601da23313dc3400b42d6d151842d80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4c8fb2ddcbabb0d96c8fbbed605bcf70"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a4c8fb2ddcbabb0d96c8fbbed605bcf70">xen_make_vct_wrapper</a> (<a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> len, <a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *data)</td></tr>
+<tr class="separator:a4c8fb2ddcbabb0d96c8fbbed605bcf70"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a355dc6225233bb6bf661d67d04969bdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a355dc6225233bb6bf661d67d04969bdf">g_vct_peak</a> (<a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> obj)</td></tr>
+<tr class="separator:a355dc6225233bb6bf661d67d04969bdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56ffa1f463d55878fd064a88032431c6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a56ffa1f463d55878fd064a88032431c6">mus_vct_length</a> (<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *v)</td></tr>
+<tr class="separator:a56ffa1f463d55878fd064a88032431c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa3c9c54fa75b50b85f6031e69fe44c2f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#aa3c9c54fa75b50b85f6031e69fe44c2f">mus_vct_data</a> (<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *v)</td></tr>
+<tr class="separator:aa3c9c54fa75b50b85f6031e69fe44c2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2ae1b0ae0106e36db5bcda670aed5f00"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00218.html#a2ae1b0ae0106e36db5bcda670aed5f00">mus_vct_wrap</a> (<a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> len, <a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *data)</td></tr>
+<tr class="separator:a2ae1b0ae0106e36db5bcda670aed5f00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a7d6e1cf1a8d53f38471e9e9db3faf740" name="a7d6e1cf1a8d53f38471e9e9db3faf740"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d6e1cf1a8d53f38471e9e9db3faf740">&#9670;&nbsp;</a></span>__func__</h2>
+<a id="a97b2b77bdc8018fd3fdc1f9b8a287949" name="a97b2b77bdc8018fd3fdc1f9b8a287949"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a97b2b77bdc8018fd3fdc1f9b8a287949">&#9670;&nbsp;</a></span>MUS_VCT_P</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define __func__&#160;&#160;&#160;__FUNCTION__</td>
+          <td class="memname">#define MUS_VCT_P</td>
+          <td>(</td>
+          <td class="paramtype">&#160;</td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;<a class="el" href="a00218.html#a2385017c5854cfb01f18b85d792e80bf">mus_vct_p</a>(arg)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00014">14</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00039">39</a> of file <a class="el" href="a00218_source.html">vct.h</a>.</p>
 
 </div>
 </div>
-<a id="a1f644d32207581fdb8673cd0ce3afd73" name="a1f644d32207581fdb8673cd0ce3afd73"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1f644d32207581fdb8673cd0ce3afd73">&#9670;&nbsp;</a></span>CLOSE</h2>
+<a id="ae5b2fc41b8f81fef595d02327fa923df" name="ae5b2fc41b8f81fef595d02327fa923df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b2fc41b8f81fef595d02327fa923df">&#9670;&nbsp;</a></span>XEN_TO_VCT</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CLOSE</td>
+          <td class="memname">#define XEN_TO_VCT</td>
           <td>(</td>
           <td class="paramtype">&#160;</td>
-          <td class="paramname">Fd, </td>
+          <td class="paramname">arg</td><td>)</td>
+          <td>&#160;&#160;&#160;((<a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *)<a class="el" href="a00209.html#a817fb971eaaaee0aa460fe91dfb3c2c0">XEN_OBJECT_REF</a>(arg))</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00036">36</a> of file <a class="el" href="a00218_source.html">vct.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Typedef Documentation</h2>
+<a id="a626b3f22f5e5af605c1e1e64e720e865" name="a626b3f22f5e5af605c1e1e64e720e865"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a626b3f22f5e5af605c1e1e64e720e865">&#9670;&nbsp;</a></span>vct</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00007">7</a> of file <a class="el" href="a00218_source.html">vct.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
+<a id="a355dc6225233bb6bf661d67d04969bdf" name="a355dc6225233bb6bf661d67d04969bdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a355dc6225233bb6bf661d67d04969bdf">&#9670;&nbsp;</a></span>g_vct_peak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> g_vct_peak </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa0ed9ddc2dfd31e132c8578ea2d7efbd" name="aa0ed9ddc2dfd31e132c8578ea2d7efbd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa0ed9ddc2dfd31e132c8578ea2d7efbd">&#9670;&nbsp;</a></span>mus_array_to_list()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> mus_array_to_list </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *&#160;</td>
+          <td class="paramname"><em>arr</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Name&#160;</td>
+          <td class="paramtype"><a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a>&#160;</td>
+          <td class="paramname"><em>i</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a>&#160;</td>
+          <td class="paramname"><em>len</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;close(Fd)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00061">61</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
 </div>
 </div>
-<a id="a500f9e8cbf97bcf0ced716de592f4574" name="a500f9e8cbf97bcf0ced716de592f4574"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a500f9e8cbf97bcf0ced716de592f4574">&#9670;&nbsp;</a></span>CREAT</h2>
+<a id="a4e594d5832ec8f0de8bd8bf606123d33" name="a4e594d5832ec8f0de8bd8bf606123d33"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e594d5832ec8f0de8bd8bf606123d33">&#9670;&nbsp;</a></span>mus_vct_copy()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define CREAT</td>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> * mus_vct_copy </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">File, </td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>vc</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aa3c9c54fa75b50b85f6031e69fe44c2f" name="aa3c9c54fa75b50b85f6031e69fe44c2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa3c9c54fa75b50b85f6031e69fe44c2f">&#9670;&nbsp;</a></span>mus_vct_data()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> * mus_vct_data </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a6e7cc5542364b6bbbdd857b779e7c13a" name="a6e7cc5542364b6bbbdd857b779e7c13a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e7cc5542364b6bbbdd857b779e7c13a">&#9670;&nbsp;</a></span>mus_vct_equalp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#abb452686968e48b67397da5f97445f5b">bool</a> mus_vct_equalp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>v1</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Flags&#160;</td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>v2</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;creat((File), (Flags))</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00058">58</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
 </div>
 </div>
-<a id="a705a26e67d0eaa29431b83a5db6b570b" name="a705a26e67d0eaa29431b83a5db6b570b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a705a26e67d0eaa29431b83a5db6b570b">&#9670;&nbsp;</a></span>FCLOSE</h2>
+<a id="a2a46211e0e0773e4ce36bdbe3b6187f3" name="a2a46211e0e0773e4ce36bdbe3b6187f3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a46211e0e0773e4ce36bdbe3b6187f3">&#9670;&nbsp;</a></span>mus_vct_free()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FCLOSE</td>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> * mus_vct_free </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Fd, </td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae5b708991f0320891fb1b8ffbc43c58b" name="ae5b708991f0320891fb1b8ffbc43c58b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5b708991f0320891fb1b8ffbc43c58b">&#9670;&nbsp;</a></span>mus_vct_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> void mus_vct_init </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a56ffa1f463d55878fd064a88032431c6" name="a56ffa1f463d55878fd064a88032431c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56ffa1f463d55878fd064a88032431c6">&#9670;&nbsp;</a></span>mus_vct_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a> mus_vct_length </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a000778e22e467a1a5cbe9412a5cfc82b" name="a000778e22e467a1a5cbe9412a5cfc82b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a000778e22e467a1a5cbe9412a5cfc82b">&#9670;&nbsp;</a></span>mus_vct_make()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> * mus_vct_make </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a>&#160;</td>
+          <td class="paramname"><em>len</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2385017c5854cfb01f18b85d792e80bf" name="a2385017c5854cfb01f18b85d792e80bf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2385017c5854cfb01f18b85d792e80bf">&#9670;&nbsp;</a></span>mus_vct_p()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#abb452686968e48b67397da5f97445f5b">bool</a> mus_vct_p </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td>
+          <td class="paramname"><em>obj</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aeefd03ef858f928227bd7fa92d379d3c" name="aeefd03ef858f928227bd7fa92d379d3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeefd03ef858f928227bd7fa92d379d3c">&#9670;&nbsp;</a></span>mus_vct_peak()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> double mus_vct_peak </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5b14def1ee4efeebb544fdbdd07b930c" name="a5b14def1ee4efeebb544fdbdd07b930c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b14def1ee4efeebb544fdbdd07b930c">&#9670;&nbsp;</a></span>mus_vct_print_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> int mus_vct_print_length </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="aae73f4bd4f3fd9a52b0f53b38ff601f7" name="aae73f4bd4f3fd9a52b0f53b38ff601f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aae73f4bd4f3fd9a52b0f53b38ff601f7">&#9670;&nbsp;</a></span>mus_vct_set_print_length()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> void mus_vct_set_print_length </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>len</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a3ef69190d41aea49f0db376012c44c06" name="a3ef69190d41aea49f0db376012c44c06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3ef69190d41aea49f0db376012c44c06">&#9670;&nbsp;</a></span>mus_vct_to_readable_string()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> char * mus_vct_to_readable_string </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a2ae1b0ae0106e36db5bcda670aed5f00" name="a2ae1b0ae0106e36db5bcda670aed5f00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2ae1b0ae0106e36db5bcda670aed5f00">&#9670;&nbsp;</a></span>mus_vct_wrap()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> * mus_vct_wrap </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a>&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Name&#160;</td>
+          <td class="paramtype"><a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;fclose(Fd)</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00062">62</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
 </div>
 </div>
-<a id="aa77baea27fefe4d8e7df64961c6c92dd" name="aa77baea27fefe4d8e7df64961c6c92dd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa77baea27fefe4d8e7df64961c6c92dd">&#9670;&nbsp;</a></span>FOPEN</h2>
+<a id="a27dd65bb97881e25d967dd7a6c1790aa" name="a27dd65bb97881e25d967dd7a6c1790aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a27dd65bb97881e25d967dd7a6c1790aa">&#9670;&nbsp;</a></span>vct_to_xen()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define FOPEN</td>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> vct_to_xen </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">File, </td>
+          <td class="paramtype"><a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> *&#160;</td>
+          <td class="paramname"><em>v</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a26f8ca9a5fad0c51ecb14347a8df8b84" name="a26f8ca9a5fad0c51ecb14347a8df8b84"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26f8ca9a5fad0c51ecb14347a8df8b84">&#9670;&nbsp;</a></span>xen_list_to_vct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> xen_list_to_vct </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td>
+          <td class="paramname"><em>lst</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a8601da23313dc3400b42d6d151842d80" name="a8601da23313dc3400b42d6d151842d80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8601da23313dc3400b42d6d151842d80">&#9670;&nbsp;</a></span>xen_make_vct()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> xen_make_vct </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a>&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Flags&#160;</td>
+          <td class="paramtype"><a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;fopen((File), (Flags))</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00057">57</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
 </div>
 </div>
-<a id="ae71449b1cc6e6250b91f539153a7a0d3" name="ae71449b1cc6e6250b91f539153a7a0d3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae71449b1cc6e6250b91f539153a7a0d3">&#9670;&nbsp;</a></span>M_PI</h2>
+<a id="a4c8fb2ddcbabb0d96c8fbbed605bcf70" name="a4c8fb2ddcbabb0d96c8fbbed605bcf70"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4c8fb2ddcbabb0d96c8fbbed605bcf70">&#9670;&nbsp;</a></span>xen_make_vct_wrapper()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define M_PI&#160;&#160;&#160;3.14159265358979323846264338327</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00018">18</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a958e4508ed28ee5cc04249144312c15f" name="a958e4508ed28ee5cc04249144312c15f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a958e4508ed28ee5cc04249144312c15f">&#9670;&nbsp;</a></span>M_PI_2</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define M_PI_2&#160;&#160;&#160;(<a class="el" href="a00218.html#ae71449b1cc6e6250b91f539153a7a0d3">M_PI</a> / 2.0)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00019">19</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a621d7a5517dc9d6b1d86f5923534c0c8" name="a621d7a5517dc9d6b1d86f5923534c0c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a621d7a5517dc9d6b1d86f5923534c0c8">&#9670;&nbsp;</a></span>MUS_ALSA_API</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MUS_ALSA_API&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00081">81</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a86cf793f61f4dfb1f3f972ee3791ac84" name="a86cf793f61f4dfb1f3f972ee3791ac84"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a86cf793f61f4dfb1f3f972ee3791ac84">&#9670;&nbsp;</a></span>MUS_JACK_API</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MUS_JACK_API&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00083">83</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a9ced7065438425b282f3033aa48653b9" name="a9ced7065438425b282f3033aa48653b9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9ced7065438425b282f3033aa48653b9">&#9670;&nbsp;</a></span>MUS_LOOP_INFO_SIZE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MUS_LOOP_INFO_SIZE&#160;&#160;&#160;8</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00080">80</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a84e52776adc3b6f1109323ecf4537d4c" name="a84e52776adc3b6f1109323ecf4537d4c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84e52776adc3b6f1109323ecf4537d4c">&#9670;&nbsp;</a></span>MUS_MAX_MALLOC_DEFAULT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MUS_MAX_MALLOC_DEFAULT&#160;&#160;&#160;(1 &lt;&lt; 26)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00024">24</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="aedead79c7cdaf1e163e412a7c91bc4cb" name="aedead79c7cdaf1e163e412a7c91bc4cb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aedead79c7cdaf1e163e412a7c91bc4cb">&#9670;&nbsp;</a></span>MUS_MAX_TABLE_SIZE_DEFAULT</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MUS_MAX_TABLE_SIZE_DEFAULT&#160;&#160;&#160;(1024 * 1024 * 20) /* delay line allocation etc */</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00025">25</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="ab7637bbb7a6bf0566ed1b170b1415308" name="ab7637bbb7a6bf0566ed1b170b1415308"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7637bbb7a6bf0566ed1b170b1415308">&#9670;&nbsp;</a></span>MUS_OSS_API</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define MUS_OSS_API&#160;&#160;&#160;1</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00082">82</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a48fb2c83c91dc700a6bdef74dee909cc" name="a48fb2c83c91dc700a6bdef74dee909cc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48fb2c83c91dc700a6bdef74dee909cc">&#9670;&nbsp;</a></span>OPEN</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define OPEN</td>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a> xen_make_vct_wrapper </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">File, </td>
+          <td class="paramtype"><a class="el" href="a00230.html#a3efa54550781ffe2f5ce2cc9a5a2abbd">mus_long_t</a>&#160;</td>
+          <td class="paramname"><em>len</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Flags, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Mode&#160;</td>
+          <td class="paramtype"><a class="el" href="a00230.html#a0a196ab9e6f9225338bbf58dbbf3083f">mus_float_t</a> *&#160;</td>
+          <td class="paramname"><em>data</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
           <td>)</td>
-          <td></td><td>&#160;&#160;&#160;open((File), (Flags))</td>
+          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00039">39</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
 </div>
 </div>
-<a id="a2bef143fd29095a717e86ebe9f6bb661" name="a2bef143fd29095a717e86ebe9f6bb661"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bef143fd29095a717e86ebe9f6bb661">&#9670;&nbsp;</a></span>POWER_OF_2_P</h2>
+<a id="a50e716368a8139de5106ec905730dd5a" name="a50e716368a8139de5106ec905730dd5a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50e716368a8139de5106ec905730dd5a">&#9670;&nbsp;</a></span>xen_to_vct()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define POWER_OF_2_P</td>
+          <td class="memname"><a class="el" href="a00230.html#a64c3cdf8a14cbb80d3c492a484ec2a6d">MUS_EXPORT</a> <a class="el" href="a00218.html#a626b3f22f5e5af605c1e1e64e720e865">vct</a> * xen_to_vct </td>
           <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">x</td><td>)</td>
-          <td>&#160;&#160;&#160;((((x) - 1) &amp; (x)) == 0)</td>
+          <td class="paramtype"><a class="el" href="a00209.html#a5e8e16988dd8c844d9288d7881694e8d">XEN</a>&#160;</td>
+          <td class="paramname"><em>arg</em></td><td>)</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00022">22</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a42656f42b5d2e7b8db50f769a84c132d" name="a42656f42b5d2e7b8db50f769a84c132d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42656f42b5d2e7b8db50f769a84c132d">&#9670;&nbsp;</a></span>REMOVE</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define REMOVE</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">OldF</td><td>)</td>
-          <td>&#160;&#160;&#160;remove(OldF)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00059">59</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="af372d07f0f9ccbf7f3ab13940755a41c" name="af372d07f0f9ccbf7f3ab13940755a41c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af372d07f0f9ccbf7f3ab13940755a41c">&#9670;&nbsp;</a></span>S_setB</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define S_setB&#160;&#160;&#160;&quot;set-&quot;</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00076">76</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="ad2a2e6c114780c3071efd24f16c7f7d8" name="ad2a2e6c114780c3071efd24f16c7f7d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2a2e6c114780c3071efd24f16c7f7d8">&#9670;&nbsp;</a></span>SEEK_END</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SEEK_END&#160;&#160;&#160;2</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00029">29</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a0d112bae8fd35be772185b6ec6bcbe64" name="a0d112bae8fd35be772185b6ec6bcbe64"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0d112bae8fd35be772185b6ec6bcbe64">&#9670;&nbsp;</a></span>SEEK_SET</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define SEEK_SET&#160;&#160;&#160;0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00028">28</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
-
-</div>
-</div>
-<a id="a9953c803fe99cfa510e19e13d8ef4ac5" name="a9953c803fe99cfa510e19e13d8ef4ac5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9953c803fe99cfa510e19e13d8ef4ac5">&#9670;&nbsp;</a></span>STRERROR</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define STRERROR</td>
-          <td>(</td>
-          <td class="paramtype">&#160;</td>
-          <td class="paramname">Err</td><td>)</td>
-          <td>&#160;&#160;&#160;strerror(Err)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00218_source.html#l00060">60</a> of file <a class="el" href="a00218_source.html">_sndlib.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 6 2022 17:03:35 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue Jun 7 2022 19:55:54 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

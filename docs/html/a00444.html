@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -46,25 +46,41 @@
   </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">CVector Member List</div></div>
+  <div class="headertitle"><div class="title">CRingBuffer&lt; T &gt; Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a00447.html">CVector</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00447.html#abaadac98b1cad18b7b568852bc951696">alloc</a>(T *&amp;ptVec, long long iLength)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#ad7c5cba73e439adac77778f61c9418f0">copy</a>(T *ptDest, const T *ptSrc, long long int iLength)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a16455e414da1bc89417716b46b212ab9">flip_I</a>(T *ptSrcDest, long long int iLength)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#aa86bdb0c663d4d52f2765793756f8737">free</a>(T *&amp;ptVec)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a49614aaa52051b98b7f266daac9eefbb">moveInMem</a>(T *ptSrcDest, int iDestIdx, int iSrcIdx, long long int iLength)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a58b564301f8eb378b8f02e5bdb282a0e">setRand</a>(T *pfDest, long long iLength)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a4cf9544dd96801e3ee47fd1ef2049a1b">setValue</a>(T *ptDest, T tValue, long long iLength)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a6dbb3f9f480568b60f7fe50090d20003">setZero</a>(T *ptSrcDest, long long iLength)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00447.html#aba07261926b4c10ed7fdbe38edf6d16d">setZeroBelowThresh</a>(T *ptSrcDest, long long int iLength, T tThresh)</td><td class="entry"><a class="el" href="a00447.html">CVector</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a0e007e130e9190892274dde988e40a59">CRingBuffer</a>(int iBufferLengthInSamples)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a16631e41f7e79a0da11a5246dfcade5c">CRingBuffer</a>()</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#add36d66b9e45b08cb8bb11b1fbc83e1b">CRingBuffer</a>(const CRingBuffer &amp;that)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a23d9877584d712c17811a9833835605e">get</a>(float fOffset=0) const</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a047d589f30b02374de2aabdbc6892912">get</a>(T *ptBuff, int iLength) const</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a0ec2bd62a49e5078d3ca0a03fa123c9e">getLength</a>() const</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#aa04a6cb30d486a6ddd5f7929db1eef9d">getNumValuesInBuffer</a>() const</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a0f25eadaafa6a2e7bfe2f9ef6af1104b">getPostInc</a>()</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#aeb86fd660cbaadd93a9d89dc529d5b76">getPostInc</a>(T *ptBuff, int iLength)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#ab18fac37cac4e8bde0419fe04845ac9d">getReadIdx</a>() const</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a8173fd5abe5c4ff4e78ffad4b14ea88b">getWriteIdx</a>() const</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a67eddecd2a880c52c80093774bc37c24">incIdx</a>(int &amp;iIdx, int iOffset=1)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a></td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a></td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a></td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a></td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a76a236cd8dcd7e464abd9416dd445f2c">operator=</a>(const CRingBuffer &amp;c)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a702eb6314380082795f735df74a816c9">put</a>(T tNewValue)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a15f6463cfcafd855157d33d253011dc7">put</a>(const T *ptNewBuff, int iLength)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a2bd848181a662312600bc590b9040d2a">putPostInc</a>(T tNewValue)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a21568ce259aa8e97ea3f3d7aec4828b7">putPostInc</a>(const T *ptNewBuff, int iLength)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a716fb4acc03355a73cc7d96f3ceb2995">reset</a>()</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#af265a6322c4b1584c880def00d31e663">setReadIdx</a>(int iNewReadIdx)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00447.html#a408e0ec5855fca27bd2dc5862fa913ab">setWriteIdx</a>(int iNewWriteIdx)</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00447.html#a97c8bb4689fcef14d595e897ea72cba9">~CRingBuffer</a>()</td><td class="entry"><a class="el" href="a00447.html">CRingBuffer&lt; T &gt;</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 22:59:35 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue Jun 7 2022 19:55:55 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

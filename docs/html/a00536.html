@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -44,33 +44,28 @@
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="a00239.html">Catch</a></li><li class="navelem"><a class="el" href="a00539.html">SourceLineInfo</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">Catch::SourceLineInfo Member List</div></div>
+  <div class="headertitle"><div class="title">CResample Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a00539.html">Catch::SourceLineInfo</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a00539.html">CResample</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00539.html#a10a5b5b7dff82971879c2eb8d83f9b3b">empty</a>() const noexcept</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#ad65537703e9f08c1fa7777fbc3f0c617">file</a></td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00539.html#a841e5d696c7b9cde24e45e61dd979c77">line</a></td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#af77415416919d2d6030b4be085b92f7a">operator&lt;</a>(SourceLineInfo const &amp;other) const noexcept</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00539.html#ab9891ccc4e7fa7c1ab747cd013341482">operator=</a>(SourceLineInfo const &amp;)=default</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#a1efc6194265495c99bb455c69fb1c904">operator=</a>(SourceLineInfo &amp;&amp;) noexcept=default</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00539.html#af07e4fdeddf8409b91e4f842f6264cf8">operator==</a>(SourceLineInfo const &amp;other) const noexcept</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#a2d80932bb4129b1606d1924a5c44be2f">SourceLineInfo</a>()=delete</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00539.html#a48510b82a39a042ab370ed143dd30c10">SourceLineInfo</a>(char const *_file, std::size_t _line) noexcept</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#a7c44c9986c33a9cf842b791374332d41">SourceLineInfo</a>(SourceLineInfo const &amp;other)=default</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00539.html#a5ea6179645457b8ec961aec9ca4c5588">SourceLineInfo</a>(SourceLineInfo &amp;&amp;) noexcept=default</td><td class="entry"><a class="el" href="a00539.html">Catch::SourceLineInfo</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00539.html#a6af73d34704579d5d18ef456fe54a983">CResample</a>(float fInSampleRate, float fOutSampleRate)</td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#aa35aba2e70d5325d5b3098faa79ba05d">CResample</a>(const CResample &amp;that)</td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00539.html#a1fa6003e640ba66531236277eddc5158">getOutputLength</a>(long long iNumInSamples) const</td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#a02a81c6177894649b0524b684118839e">interp1d</a>(float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)</td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00539.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a></td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a></td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00539.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a></td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#a0db33ae459e827fc0258b7b9ae3cf738">operator=</a>(const CResample &amp;c)</td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00539.html#a040a6674ec0ff9171d6b4cb4b8436cb2">process</a>(float *pfOut, const float *pfIn, long long iNumInSamples)</td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00539.html#abf7624c3daf78a13e5bb949a242c3034">~CResample</a>()</td><td class="entry"><a class="el" href="a00539.html">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Jun 5 2022 22:59:35 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue Jun 7 2022 19:55:55 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

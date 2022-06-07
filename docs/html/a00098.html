@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: ComputePitch.cpp File Reference</title>
+<title>ACA: ComputeMelSpectrogram.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -44,68 +44,71 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_46e78329c7bcc891e6f94a800d2aa205.html">ComputePitch</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_8466febdf0a749a7e938bf7fc9cef1bc.html">ComputeMelSpectrogram</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">ComputePitch.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">ComputeMelSpectrogram.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;<a class="el" href="a00176_source.html">AcaAll.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00179_source.html">AcaAll.h</a>&quot;</code><br />
 <code>#include &lt;iostream&gt;</code><br />
 <code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00191_source.html">Pitch.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00143_source.html">Spectrogram.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for ComputePitch.cpp:</div>
+Include dependency graph for ComputeMelSpectrogram.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00099.png" border="0" usemap="#aComputePitch_8cpp" alt=""/></div>
-<map name="aComputePitch_8cpp" id="aComputePitch_8cpp">
-<area shape="rect" title=" " alt="" coords="1672,5,1800,32"/>
-<area shape="rect" href="a00176.html" title=" " alt="" coords="1018,80,1089,107"/>
-<area shape="rect" title=" " alt="" coords="1640,453,1707,480"/>
-<area shape="rect" href="a00191.html" title=" " alt="" coords="446,379,509,405"/>
-<area shape="rect" title=" " alt="" coords="1773,80,1845,107"/>
-<area shape="rect" title=" " alt="" coords="1870,80,1925,107"/>
-<area shape="rect" title=" " alt="" coords="1603,155,1698,181"/>
-<area shape="rect" href="a00137.html" title=" " alt="" coords="1547,379,1642,405"/>
-<area shape="rect" href="a00101.html" title=" " alt="" coords="1133,528,1211,555"/>
-<area shape="rect" href="a00188.html" title=" " alt="" coords="584,379,675,405"/>
-<area shape="rect" href="a00182.html" title=" " alt="" coords="699,379,775,405"/>
-<area shape="rect" href="a00104.html" title=" " alt="" coords="261,304,400,331"/>
-<area shape="rect" href="a00158.html" title=" " alt="" coords="1134,379,1210,405"/>
-<area shape="rect" href="a00179.html" title=" " alt="" coords="424,304,563,331"/>
-<area shape="rect" href="a00167.html" title=" " alt="" coords="688,304,813,331"/>
-<area shape="rect" href="a00140.html" title=" " alt="" coords="800,379,907,405"/>
-<area shape="rect" href="a00152.html" title=" " alt="" coords="5,453,128,480"/>
-<area shape="rect" href="a00164.html" title=" " alt="" coords="1141,229,1219,256"/>
-<area shape="rect" href="a00143.html" title=" " alt="" coords="115,304,237,331"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="981,379,1109,405"/>
-<area shape="rect" href="a00161.html" title=" " alt="" coords="2377,304,2482,331"/>
-<area shape="rect" href="a00170.html" title=" " alt="" coords="1849,379,1961,405"/>
-<area shape="rect" href="a00185.html" title=" " alt="" coords="263,229,345,256"/>
-<area shape="rect" href="a00107.html" title=" " alt="" coords="2248,304,2352,331"/>
-<area shape="rect" href="a00173.html" title=" " alt="" coords="1464,155,1579,181"/>
-<area shape="rect" href="a00155.html" title=" " alt="" coords="1243,229,1363,256"/>
-<area shape="rect" href="a00149.html" title=" " alt="" coords="1243,155,1338,181"/>
-<area shape="rect" title=" " alt="" coords="851,453,906,480"/>
-<area shape="rect" title=" " alt="" coords="1835,528,1909,555"/>
-<area shape="rect" title=" " alt="" coords="273,379,319,405"/>
-<area shape="rect" title=" " alt="" coords="170,379,249,405"/>
-<area shape="rect" title=" " alt="" coords="2199,603,2265,629"/>
-<area shape="rect" title=" " alt="" coords="2157,528,2216,555"/>
-<area shape="rect" href="a00131.html" title=" " alt="" coords="2635,528,2687,555"/>
-<area shape="rect" href="a00125.html" title=" " alt="" coords="2335,379,2406,405"/>
-<area shape="rect" href="a00116.html" title=" " alt="" coords="1781,453,1829,480"/>
-<area shape="rect" title=" " alt="" coords="2567,603,2628,629"/>
-<area shape="rect" title=" " alt="" coords="2675,603,2728,629"/>
-<area shape="rect" href="a00128.html" title=" " alt="" coords="2326,453,2415,480"/>
-<area shape="rect" title=" " alt="" coords="2341,528,2401,555"/>
-<area shape="rect" href="a00134.html" title=" " alt="" coords="1955,453,2047,480"/>
-<area shape="rect" href="a00122.html" title=" " alt="" coords="2005,229,2067,256"/>
-<area shape="rect" href="a00119.html" title=" " alt="" coords="2039,304,2105,331"/>
+<div class="center"><img src="a00099.png" border="0" usemap="#aComputeMelSpectrogram_8cpp" alt=""/></div>
+<map name="aComputeMelSpectrogram_8cpp" id="aComputeMelSpectrogram_8cpp">
+<area shape="rect" title=" " alt="" coords="2092,5,2285,32"/>
+<area shape="rect" href="a00179.html" title=" " alt="" coords="1269,80,1340,107"/>
+<area shape="rect" title=" " alt="" coords="2258,453,2325,480"/>
+<area shape="rect" href="a00143.html" title=" " alt="" coords="137,229,243,256"/>
+<area shape="rect" title=" " alt="" coords="2226,80,2298,107"/>
+<area shape="rect" title=" " alt="" coords="2323,80,2377,107"/>
+<area shape="rect" title=" " alt="" coords="1480,155,1575,181"/>
+<area shape="rect" href="a00140.html" title=" " alt="" coords="2179,379,2273,405"/>
+<area shape="rect" href="a00104.html" title=" " alt="" coords="1228,528,1307,555"/>
+<area shape="rect" href="a00191.html" title=" " alt="" coords="719,379,810,405"/>
+<area shape="rect" href="a00149.html" title=" " alt="" coords="885,379,951,405"/>
+<area shape="rect" href="a00113.html" title=" " alt="" coords="5,304,135,331"/>
+<area shape="rect" href="a00185.html" title=" " alt="" coords="243,379,319,405"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="318,304,457,331"/>
+<area shape="rect" href="a00161.html" title=" " alt="" coords="619,379,695,405"/>
+<area shape="rect" href="a00182.html" title=" " alt="" coords="481,304,619,331"/>
+<area shape="rect" href="a00197.html" title=" " alt="" coords="1280,379,1343,405"/>
+<area shape="rect" href="a00170.html" title=" " alt="" coords="1330,304,1455,331"/>
+<area shape="rect" href="a00155.html" title=" " alt="" coords="1757,453,1879,480"/>
+<area shape="rect" href="a00167.html" title=" " alt="" coords="1143,155,1221,181"/>
+<area shape="rect" href="a00146.html" title=" " alt="" coords="643,304,766,331"/>
+<area shape="rect" href="a00116.html" title=" " alt="" coords="975,379,1103,405"/>
+<area shape="rect" href="a00164.html" title=" " alt="" coords="1893,304,1999,331"/>
+<area shape="rect" href="a00173.html" title=" " alt="" coords="2042,379,2154,405"/>
+<area shape="rect" href="a00188.html" title=" " alt="" coords="1549,229,1631,256"/>
+<area shape="rect" href="a00194.html" title=" " alt="" coords="1650,155,1730,181"/>
+<area shape="rect" href="a00110.html" title=" " alt="" coords="2259,304,2363,331"/>
+<area shape="rect" href="a00176.html" title=" " alt="" coords="2358,155,2473,181"/>
+<area shape="rect" href="a00158.html" title=" " alt="" coords="1183,229,1303,256"/>
+<area shape="rect" href="a00152.html" title=" " alt="" coords="1429,229,1524,256"/>
+<area shape="rect" title=" " alt="" coords="839,453,893,480"/>
+<area shape="rect" title=" " alt="" coords="2593,528,2667,555"/>
+<area shape="rect" title=" " alt="" coords="343,379,389,405"/>
+<area shape="rect" title=" " alt="" coords="413,379,492,405"/>
+<area shape="rect" title=" " alt="" coords="2399,603,2464,629"/>
+<area shape="rect" title=" " alt="" coords="2399,528,2458,555"/>
+<area shape="rect" href="a00134.html" title=" " alt="" coords="2961,528,3013,555"/>
+<area shape="rect" href="a00128.html" title=" " alt="" coords="2739,379,2809,405"/>
+<area shape="rect" href="a00119.html" title=" " alt="" coords="1685,453,1733,480"/>
+<area shape="rect" title=" " alt="" coords="2842,603,2903,629"/>
+<area shape="rect" title=" " alt="" coords="2993,603,3046,629"/>
+<area shape="rect" href="a00131.html" title=" " alt="" coords="2669,453,2759,480"/>
+<area shape="rect" title=" " alt="" coords="2692,528,2752,555"/>
+<area shape="rect" href="a00137.html" title=" " alt="" coords="2501,453,2593,480"/>
+<area shape="rect" href="a00125.html" title=" " alt="" coords="2418,229,2479,256"/>
+<area shape="rect" href="a00122.html" title=" " alt="" coords="2777,304,2843,331"/>
 </map>
 </div>
 </div>
@@ -145,164 +148,174 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >&lt; file paths</p>
-<p >&lt; string of the Pitch to be extracted</p>
-<p >&lt; block length in samples</p>
-<p >&lt; hop length in samples</p>
-<p >&lt; number of blocks</p>
-<p >&lt; F0 result</p>
 
-<p class="definition">Definition at line <a class="el" href="a00098_source.html#l00017">17</a> of file <a class="el" href="a00098_source.html">ComputePitch.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00098_source.html#l00017">17</a> of file <a class="el" href="a00098_source.html">ComputeMelSpectrogram.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>    std::string             sInputFilePath,                 <span class="comment">//!&lt; file paths</span></div>
-<div class="line"><span class="lineno">   21</span>        sOutputFilePath;</div>
-<div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>    std::string sPitchString; <span class="comment">//!&lt; string of the Pitch to be extracted</span></div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordtype">int</span> iBlockLength = 0, <span class="comment">//!&lt; block length in samples </span></div>
-<div class="line"><span class="lineno">   26</span>        iHopLength = 0; <span class="comment">//!&lt; hop length in samples</span></div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordtype">int</span> iNumBlocks = 0; <span class="comment">//!&lt; number of blocks</span></div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>    clock_t time = 0;</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>    <a class="code hl_class" href="a00469.html">CPitchIf</a>* pCInstance = 0;</div>
-<div class="line"><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00469.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx = <a class="code hl_enumvalue" href="a00469.html#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a>;</div>
+<div class="line"><span class="lineno">   19</span>    std::string sInputFilePath,                 <span class="comment">//!&lt; file paths</span></div>
+<div class="line"><span class="lineno">   20</span>        sOutputFilePath;</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <span class="keywordtype">int</span> iBlockLength = 0,</div>
+<div class="line"><span class="lineno">   23</span>        iHopLength = 0;</div>
+<div class="line"><span class="lineno">   24</span>    <span class="keywordtype">int</span> aiSpecGramDimensions[2] = { 0,0 };</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_struct" href="a00487.html">CSpectrogramIf::MelSpectrogramConfig_t</a> stMelConfig;</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    clock_t time = 0;</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_class" href="a00483.html">CSpectrogramIf</a>* pCSpectrogram = 0;</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    <span class="keywordtype">float</span>** ppfSpectrogram = 0;</div>
 <div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordtype">float</span>* pfPitch = 0; <span class="comment">//!&lt; F0 result</span></div>
+<div class="line"><span class="lineno">   34</span>    std::fstream hOutputFile;</div>
 <div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>    std::fstream hOutputFile;</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_function" href="a00098.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>();</div>
-<div class="line"><span class="lineno">   39</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   40</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   41</span><span class="comment"></span>    <span class="comment">// parse command line arguments</span></div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (argc &lt; 2)</div>
-<div class="line"><span class="lineno">   43</span>    {</div>
-<div class="line"><span class="lineno">   44</span>        <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   45</span>        <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile Pitchname [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   46</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   47</span>    }</div>
-<div class="line"><span class="lineno">   48</span>    <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   49</span>    {</div>
-<div class="line"><span class="lineno">   50</span>        sInputFilePath = argv[1];</div>
-<div class="line"><span class="lineno">   51</span>        sPitchString = (argc &lt; 3) ? <span class="stringliteral">&quot;SpectralAcf&quot;</span> : argv[2];</div>
-<div class="line"><span class="lineno">   52</span>        sOutputFilePath = (argc &lt; 4) ? sInputFilePath + <span class="stringliteral">&quot;.txt&quot;</span> : argv[3];</div>
-<div class="line"><span class="lineno">   53</span>        iBlockLength = (argc &lt; 5) ? 4096 : std::stoi(argv[4]);</div>
-<div class="line"><span class="lineno">   54</span>        iHopLength = (argc &lt; 6) ? 512 : std::stoi(argv[5]);</div>
-<div class="line"><span class="lineno">   55</span>    }</div>
-<div class="line"><span class="lineno">   56</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   57</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   58</span><span class="comment"></span>    <span class="comment">// initialize Pitch instance</span></div>
-<div class="line"><span class="lineno">   59</span>    ePitchIdx = <a class="code hl_function" href="a00469.html#ad782102749e4f057b10a5b84ae622889">CPitchIf::getPitchIdxFromString</a>(sPitchString);</div>
-<div class="line"><span class="lineno">   60</span>    <a class="code hl_function" href="a00469.html#aad21e51c82ea3cfb6b495b39acd40412">CPitchIf::create</a>(pCInstance, ePitchIdx, sInputFilePath, iBlockLength, iHopLength);</div>
-<div class="line"><span class="lineno">   61</span>    pCInstance-&gt;<a class="code hl_function" href="a00469.html#a253cce3499a721648eba3d7b2a9f2b16">getNumBlocks</a>(iNumBlocks);</div>
-<div class="line"><span class="lineno">   62</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   63</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   64</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
-<div class="line"><span class="lineno">   65</span>    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);</div>
-<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
-<div class="line"><span class="lineno">   67</span>    {</div>
-<div class="line"><span class="lineno">   68</span>        <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
-<div class="line"><span class="lineno">   69</span>        <a class="code hl_function" href="a00469.html#a4eee721e50a85ed9d48f7a84d9144a3b">CPitchIf::destroy</a>(pCInstance);</div>
-<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   71</span>    }</div>
-<div class="line"><span class="lineno">   72</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   73</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   74</span><span class="comment"></span>    <span class="comment">// allocate memory</span></div>
-<div class="line"><span class="lineno">   75</span>    pfPitch = <span class="keyword">new</span> <span class="keywordtype">float</span>[iNumBlocks];</div>
-<div class="line"><span class="lineno">   76</span> </div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">if</span> (!pfPitch)</div>
-<div class="line"><span class="lineno">   79</span>    {</div>
-<div class="line"><span class="lineno">   80</span>        <a class="code hl_function" href="a00469.html#a4eee721e50a85ed9d48f7a84d9144a3b">CPitchIf::destroy</a>(pCInstance);</div>
-<div class="line"><span class="lineno">   81</span>        hOutputFile.close();</div>
-<div class="line"><span class="lineno">   82</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   83</span>    }</div>
-<div class="line"><span class="lineno">   84</span> </div>
-<div class="line"><span class="lineno">   85</span>    time = clock();</div>
-<div class="line"><span class="lineno">   86</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   87</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   88</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
-<div class="line"><span class="lineno">   89</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing f0...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   90</span>    pCInstance-&gt;<a class="code hl_function" href="a00469.html#a5c6fea7fdc8067f1d6a116b86d543aa1">compF0</a>(pfPitch);</div>
-<div class="line"><span class="lineno">   91</span> </div>
-<div class="line"><span class="lineno">   92</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n F0 computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   93</span> </div>
-<div class="line"><span class="lineno">   94</span>    time = clock();</div>
-<div class="line"><span class="lineno">   95</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   96</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   97</span><span class="comment"></span>    <span class="comment">// file writing</span></div>
-<div class="line"><span class="lineno">   98</span> </div>
-<div class="line"><span class="lineno">   99</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  100</span> </div>
-<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
-<div class="line"><span class="lineno">  102</span>    {</div>
-<div class="line"><span class="lineno">  103</span>        hOutputFile &lt;&lt; pCInstance-&gt;<a class="code hl_function" href="a00469.html#a70543df0ca9394f9b594e4f23bacc71b">getTimeStamp</a>(n) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; pfPitch[n] &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  104</span>    }</div>
-<div class="line"><span class="lineno">  105</span> </div>
-<div class="line"><span class="lineno">  106</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  107</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">  108</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">  109</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
-<div class="line"><span class="lineno">  110</span>    <a class="code hl_function" href="a00469.html#a4eee721e50a85ed9d48f7a84d9144a3b">CPitchIf::destroy</a>(pCInstance);</div>
-<div class="line"><span class="lineno">  111</span>    hOutputFile.close();</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>    <span class="keyword">delete</span>[] pfPitch;</div>
-<div class="line"><span class="lineno">  114</span>    pfPitch = 0;</div>
-<div class="line"><span class="lineno">  115</span> </div>
-<div class="line"><span class="lineno">  116</span>    <span class="comment">// all done</span></div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>}</div>
-<div class="ttc" id="aa00098_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00098.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00122">ComputePitch.cpp:122</a></div></div>
-<div class="ttc" id="aa00245_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00245.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
-<div class="ttc" id="aa00469_html"><div class="ttname"><a href="a00469.html">CPitchIf</a></div><div class="ttdoc">class for computation of a magnitude Pitch from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00191_source.html#l00018">Pitch.h:19</a></div></div>
-<div class="ttc" id="aa00469_html_a253cce3499a721648eba3d7b2a9f2b16"><div class="ttname"><a href="a00469.html#a253cce3499a721648eba3d7b2a9f2b16">CPitchIf::getNumBlocks</a></div><div class="ttdeci">Error_t getNumBlocks(int &amp;iNumBlocks) const</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00139">Pitch.cpp:139</a></div></div>
-<div class="ttc" id="aa00469_html_a4eee721e50a85ed9d48f7a84d9144a3b"><div class="ttname"><a href="a00469.html#a4eee721e50a85ed9d48f7a84d9144a3b">CPitchIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CPitchIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00131">Pitch.cpp:131</a></div></div>
-<div class="ttc" id="aa00469_html_a5c6fea7fdc8067f1d6a116b86d543aa1"><div class="ttname"><a href="a00469.html#a5c6fea7fdc8067f1d6a116b86d543aa1">CPitchIf::compF0</a></div><div class="ttdeci">Error_t compF0(float *pfPitch)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00191">Pitch.cpp:191</a></div></div>
-<div class="ttc" id="aa00469_html_a70543df0ca9394f9b594e4f23bacc71b"><div class="ttname"><a href="a00469.html#a70543df0ca9394f9b594e4f23bacc71b">CPitchIf::getTimeStamp</a></div><div class="ttdeci">float getTimeStamp(int iBlockIdx) const</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00165">Pitch.cpp:165</a></div></div>
-<div class="ttc" id="aa00469_html_aad21e51c82ea3cfb6b495b39acd40412"><div class="ttname"><a href="a00469.html#aad21e51c82ea3cfb6b495b39acd40412">CPitchIf::create</a></div><div class="ttdeci">static Error_t create(CPitchIf *&amp;pCInstance, PitchExtractors_t ePitchIdx, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00098">Pitch.cpp:98</a></div></div>
-<div class="ttc" id="aa00469_html_ac55ab3f8cd0b036cbb891537272342df"><div class="ttname"><a href="a00469.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a></div><div class="ttdeci">PitchExtractors_t</div><div class="ttdoc">enum to index all Pitch extractorss</div><div class="ttdef"><b>Definition:</b> <a href="a00191_source.html#l00023">Pitch.h:24</a></div></div>
-<div class="ttc" id="aa00469_html_ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2"><div class="ttname"><a href="a00469.html#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></div><div class="ttdeci">@ kNumPitchExtractors</div><div class="ttdef"><b>Definition:</b> <a href="a00191_source.html#l00034">Pitch.h:33</a></div></div>
-<div class="ttc" id="aa00469_html_ad782102749e4f057b10a5b84ae622889"><div class="ttname"><a href="a00469.html#ad782102749e4f057b10a5b84ae622889">CPitchIf::getPitchIdxFromString</a></div><div class="ttdeci">static PitchExtractors_t getPitchIdxFromString(std::string sPitchString)</div><div class="ttdef"><b>Definition:</b> <a href="a00065_source.html#l00244">Pitch.cpp:244</a></div></div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_function" href="a00098.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>();</div>
+<div class="line"><span class="lineno">   37</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   38</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   39</span><span class="comment"></span>    <span class="comment">// parse command line arguments</span></div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">if</span> (argc &lt; 2)</div>
+<div class="line"><span class="lineno">   41</span>    {</div>
+<div class="line"><span class="lineno">   42</span>        <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   43</span>        <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile [outputfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   45</span>    }</div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   47</span>    {</div>
+<div class="line"><span class="lineno">   48</span>        sInputFilePath = argv[1];</div>
+<div class="line"><span class="lineno">   49</span>        sOutputFilePath = (argc &lt; 3) ? sInputFilePath + <span class="stringliteral">&quot;.txt&quot;</span> : argv[2];</div>
+<div class="line"><span class="lineno">   50</span>        iBlockLength = (argc &lt; 4) ? 4096 : std::stoi(argv[3]);</div>
+<div class="line"><span class="lineno">   51</span>        iHopLength = (argc &lt; 5) ? 2048 : std::stoi(argv[4]);</div>
+<div class="line"><span class="lineno">   52</span>    }</div>
+<div class="line"><span class="lineno">   53</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   54</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   55</span><span class="comment"></span>    <span class="comment">// initialize spectrogram instance</span></div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_function" href="a00483.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a>(pCSpectrogram, sInputFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>    stMelConfig.<a class="code hl_variable" href="a00487.html#ad6663bc74095b6d299849a4ddb5bdb88">bIsLogarithmic</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   59</span>    stMelConfig.<a class="code hl_variable" href="a00487.html#a6bd6c66e6b6fd17afa94128330ac6896">fMaxFreqInHz</a> = 16000;</div>
+<div class="line"><span class="lineno">   60</span>    stMelConfig.<a class="code hl_variable" href="a00487.html#aa6921e032cc949020a697469322ab926">fMinFreqInHz</a> = 100;</div>
+<div class="line"><span class="lineno">   61</span>    stMelConfig.<a class="code hl_variable" href="a00487.html#aef36317d41163f339227bd84d417b74e">iNumMelBins</a> = 128;</div>
+<div class="line"><span class="lineno">   62</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00483.html#af50a3669266ad696a1159b1bb80b1c8a">getMelSpectrogramDimensions</a>(aiSpecGramDimensions[0], aiSpecGramDimensions[1], &amp;stMelConfig);</div>
+<div class="line"><span class="lineno">   63</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   64</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   65</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
+<div class="line"><span class="lineno">   66</span>    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);</div>
+<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
+<div class="line"><span class="lineno">   68</span>    {</div>
+<div class="line"><span class="lineno">   69</span>        <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
+<div class="line"><span class="lineno">   70</span>        <a class="code hl_function" href="a00483.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   72</span>    }</div>
+<div class="line"><span class="lineno">   73</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   74</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   75</span><span class="comment"></span>    <span class="comment">// allocate memory</span></div>
+<div class="line"><span class="lineno">   76</span>    ppfSpectrogram = <span class="keyword">new</span> <span class="keywordtype">float</span>* [aiSpecGramDimensions[0]];</div>
+<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; aiSpecGramDimensions[0]; k++)</div>
+<div class="line"><span class="lineno">   78</span>        ppfSpectrogram[k] = <span class="keyword">new</span> <span class="keywordtype">float</span>[aiSpecGramDimensions[1]];</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>    <span class="keywordflow">if</span> (!ppfSpectrogram )</div>
+<div class="line"><span class="lineno">   82</span>    {</div>
+<div class="line"><span class="lineno">   83</span>        <a class="code hl_function" href="a00483.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><span class="lineno">   84</span>        hOutputFile.close();</div>
+<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   86</span>    }</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>    time = clock();</div>
+<div class="line"><span class="lineno">   89</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   90</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   91</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
+<div class="line"><span class="lineno">   92</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing spectrogram...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   93</span>    pCSpectrogram-&gt;<a class="code hl_function" href="a00483.html#ae89af275cdd54029bbf7f0f25ddf7945">compMelSpectrogram</a>(ppfSpectrogram, &amp;stMelConfig);</div>
+<div class="line"><span class="lineno">   94</span> </div>
+<div class="line"><span class="lineno">   95</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n spectrogram computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>    time = clock();</div>
+<div class="line"><span class="lineno">   98</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   99</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">  100</span><span class="comment"></span>    <span class="comment">// file writing</span></div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  103</span> </div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; aiSpecGramDimensions[0]; k++)</div>
+<div class="line"><span class="lineno">  105</span>    {</div>
+<div class="line"><span class="lineno">  106</span>        <span class="comment">// write</span></div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> n = 0; n &lt; aiSpecGramDimensions[1]; n++)</div>
+<div class="line"><span class="lineno">  108</span>        {</div>
+<div class="line"><span class="lineno">  109</span>            hOutputFile &lt;&lt; ppfSpectrogram[k][n] &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span>;</div>
+<div class="line"><span class="lineno">  110</span>        }</div>
+<div class="line"><span class="lineno">  111</span>        hOutputFile &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  112</span>    }</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  115</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">  116</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">  117</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
+<div class="line"><span class="lineno">  118</span>    <a class="code hl_function" href="a00483.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a>(pCSpectrogram);</div>
+<div class="line"><span class="lineno">  119</span>    hOutputFile.close();</div>
+<div class="line"><span class="lineno">  120</span> </div>
+<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; aiSpecGramDimensions[0]; k++)</div>
+<div class="line"><span class="lineno">  122</span>        <span class="keyword">delete</span>[] ppfSpectrogram[k];</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keyword">delete</span>[] ppfSpectrogram;</div>
+<div class="line"><span class="lineno">  124</span>    ppfSpectrogram = 0;</div>
+<div class="line"><span class="lineno">  125</span> </div>
+<div class="line"><span class="lineno">  126</span>    <span class="comment">// all done</span></div>
+<div class="line"><span class="lineno">  127</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  128</span> </div>
+<div class="line"><span class="lineno">  129</span>}</div>
+<div class="ttc" id="aa00098_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00098.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00132">ComputeMelSpectrogram.cpp:132</a></div></div>
+<div class="ttc" id="aa00251_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00251.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
+<div class="ttc" id="aa00483_html"><div class="ttname"><a href="a00483.html">CSpectrogramIf</a></div><div class="ttdoc">class for computation of a magnitude spectrogram from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00016">Spectrogram.h:17</a></div></div>
+<div class="ttc" id="aa00483_html_a6511fc72ef04be91a712ee5ef479bd7e"><div class="ttname"><a href="a00483.html#a6511fc72ef04be91a712ee5ef479bd7e">CSpectrogramIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CSpectrogramIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00133">Spectrogram.cpp:133</a></div></div>
+<div class="ttc" id="aa00483_html_acd73d8c1aaaed8b188de6b8bf2103139"><div class="ttname"><a href="a00483.html#acd73d8c1aaaed8b188de6b8bf2103139">CSpectrogramIf::create</a></div><div class="ttdeci">static Error_t create(CSpectrogramIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024, bool bNormalize=true, float *pfWindow=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00100">Spectrogram.cpp:100</a></div></div>
+<div class="ttc" id="aa00483_html_ae89af275cdd54029bbf7f0f25ddf7945"><div class="ttname"><a href="a00483.html#ae89af275cdd54029bbf7f0f25ddf7945">CSpectrogramIf::compMelSpectrogram</a></div><div class="ttdeci">Error_t compMelSpectrogram(float **ppfMelSpectrogram, const MelSpectrogramConfig_t *pMelSpecConfig)</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00333">Spectrogram.cpp:333</a></div></div>
+<div class="ttc" id="aa00483_html_af50a3669266ad696a1159b1bb80b1c8a"><div class="ttname"><a href="a00483.html#af50a3669266ad696a1159b1bb80b1c8a">CSpectrogramIf::getMelSpectrogramDimensions</a></div><div class="ttdeci">Error_t getMelSpectrogramDimensions(int &amp;iNumRows, int &amp;iNumCols, const MelSpectrogramConfig_t *pMelSpecConfig) const</div><div class="ttdef"><b>Definition:</b> <a href="a00080_source.html#l00278">Spectrogram.cpp:278</a></div></div>
+<div class="ttc" id="aa00487_html"><div class="ttname"><a href="a00487.html">CSpectrogramIf::MelSpectrogramConfig_t</a></div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00077">Spectrogram.h:78</a></div></div>
+<div class="ttc" id="aa00487_html_a6bd6c66e6b6fd17afa94128330ac6896"><div class="ttname"><a href="a00487.html#a6bd6c66e6b6fd17afa94128330ac6896">CSpectrogramIf::MelSpectrogramConfig_t::fMaxFreqInHz</a></div><div class="ttdeci">float fMaxFreqInHz</div><div class="ttdoc">minimum frequency</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00081">Spectrogram.h:81</a></div></div>
+<div class="ttc" id="aa00487_html_aa6921e032cc949020a697469322ab926"><div class="ttname"><a href="a00487.html#aa6921e032cc949020a697469322ab926">CSpectrogramIf::MelSpectrogramConfig_t::fMinFreqInHz</a></div><div class="ttdeci">float fMinFreqInHz</div><div class="ttdoc">maximum frequency</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00080">Spectrogram.h:80</a></div></div>
+<div class="ttc" id="aa00487_html_ad6663bc74095b6d299849a4ddb5bdb88"><div class="ttname"><a href="a00487.html#ad6663bc74095b6d299849a4ddb5bdb88">CSpectrogramIf::MelSpectrogramConfig_t::bIsLogarithmic</a></div><div class="ttdeci">bool bIsLogarithmic</div><div class="ttdoc">true for logarithmic amplitude</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00082">Spectrogram.h:82</a></div></div>
+<div class="ttc" id="aa00487_html_aef36317d41163f339227bd84d417b74e"><div class="ttname"><a href="a00487.html#aef36317d41163f339227bd84d417b74e">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a></div><div class="ttdeci">int iNumMelBins</div><div class="ttdoc">number of frequency bins</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.html#l00079">Spectrogram.h:79</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00065_source.html#l00191">CPitchIf::compF0()</a>, <a class="el" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00065_source.html#l00098">CPitchIf::create()</a>, <a class="el" href="a00065_source.html#l00131">CPitchIf::destroy()</a>, <a class="el" href="a00065_source.html#l00139">CPitchIf::getNumBlocks()</a>, <a class="el" href="a00065_source.html#l00244">CPitchIf::getPitchIdxFromString()</a>, <a class="el" href="a00065_source.html#l00165">CPitchIf::getTimeStamp()</a>, <a class="el" href="a00191_source.html#l00033">CPitchIf::kNumPitchExtractors</a>, and <a class="el" href="a00098_source.html#l00122">showClInfo()</a>.</p>
+<p class="reference">References <a class="el" href="a00143_source.html#l00082">CSpectrogramIf::MelSpectrogramConfig_t::bIsLogarithmic</a>, <a class="el" href="a00080_source.html#l00333">CSpectrogramIf::compMelSpectrogram()</a>, <a class="el" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00080_source.html#l00100">CSpectrogramIf::create()</a>, <a class="el" href="a00080_source.html#l00133">CSpectrogramIf::destroy()</a>, <a class="el" href="a00143_source.html#l00081">CSpectrogramIf::MelSpectrogramConfig_t::fMaxFreqInHz</a>, <a class="el" href="a00143_source.html#l00080">CSpectrogramIf::MelSpectrogramConfig_t::fMinFreqInHz</a>, <a class="el" href="a00080_source.html#l00278">CSpectrogramIf::getMelSpectrogramDimensions()</a>, <a class="el" href="a00143_source.html#l00079">CSpectrogramIf::MelSpectrogramConfig_t::iNumMelBins</a>, and <a class="el" href="a00098_source.html#l00132">showClInfo()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="a00098_a0ddf1224851353fc92bfbff6f499fa97_cgraph.png" border="0" usemap="#aa00098_a0ddf1224851353fc92bfbff6f499fa97_cgraph" alt=""/></div>
 <map name="aa00098_a0ddf1224851353fc92bfbff6f499fa97_cgraph" id="aa00098_a0ddf1224851353fc92bfbff6f499fa97_cgraph">
-<area shape="rect" title=" " alt="" coords="5,599,56,625"/>
-<area shape="rect" href="a00469.html#a5c6fea7fdc8067f1d6a116b86d543aa1" title=" " alt="" coords="128,264,251,291"/>
-<area shape="rect" href="a00245.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="386,741,473,768"/>
-<area shape="rect" href="a00469.html#aad21e51c82ea3cfb6b495b39acd40412" title=" " alt="" coords="134,472,245,499"/>
-<area shape="rect" href="a00469.html#a4eee721e50a85ed9d48f7a84d9144a3b" title=" " alt="" coords="131,573,248,600"/>
-<area shape="rect" href="a00469.html#a253cce3499a721648eba3d7b2a9f2b16" title=" " alt="" coords="109,523,270,549"/>
-<area shape="rect" href="a00469.html#ad782102749e4f057b10a5b84ae622889" title=" " alt="" coords="104,675,275,717"/>
-<area shape="rect" href="a00469.html#a70543df0ca9394f9b594e4f23bacc71b" title=" " alt="" coords="109,624,269,651"/>
-<area shape="rect" href="a00098.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="146,792,233,819"/>
-<area shape="rect" href="a00473.html#a680337ee1fcc59015ea679862cd8085c" title=" " alt="" coords="360,406,499,447"/>
-<area shape="rect" href="a00469.html#aa988c75557f8281271467b000a1a1d54" title=" " alt="" coords="323,56,536,83"/>
-<area shape="rect" href="a00485.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="335,107,524,133"/>
-<area shape="rect" href="a00485.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="584,439,781,465"/>
-<area shape="rect" href="a00473.html#ac7496d16e4dfc1ab55305dc118c2e6bf" title=" " alt="" coords="360,223,499,265"/>
-<area shape="rect" href="a00469.html#ad1d4759da8b0fddeda3d1e3bbfc0cd23" title=" " alt="" coords="346,289,513,330"/>
-<area shape="rect" href="a00525.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="338,158,521,199"/>
-<area shape="rect" href="a00425.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="632,107,733,133"/>
-<area shape="rect" href="a00425.html#a9cb162394031e8b496f7a39b51c31d20" title=" " alt="" coords="627,5,738,32"/>
-<area shape="rect" href="a00425.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="617,56,748,83"/>
-<area shape="rect" href="a00457.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="610,161,755,188"/>
-<area shape="rect" href="a00457.html#a0a8056cf61fdabd88f1ef56314f27e8d" title=" " alt="" coords="838,27,969,53"/>
-<area shape="rect" href="a00457.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="835,77,971,104"/>
-<area shape="rect" href="a00260.html#a32fc71031e721d003fd1dc07f771351d" title=" " alt="" coords="846,129,961,170"/>
-<area shape="rect" href="a00457.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="829,195,977,221"/>
-<area shape="rect" href="a00453.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="1033,27,1136,53"/>
-<area shape="rect" href="a00453.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1025,195,1144,221"/>
-<area shape="rect" href="a00449.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="372,472,487,499"/>
-<area shape="rect" href="a00469.html#af2ce0d31ee7e368ebc1889507972f9c2" title=" " alt="" coords="349,523,510,549"/>
-<area shape="rect" href="a00485.html#a95d0310c888433e7e45806538dc0d347" title=" " alt="" coords="331,624,527,651"/>
-<area shape="rect" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0" title=" " alt="" coords="370,843,489,869"/>
-<area shape="rect" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3" title=" " alt="" coords="376,792,483,819"/>
+<area shape="rect" title=" " alt="" coords="5,717,56,744"/>
+<area shape="rect" href="a00483.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="104,536,351,563"/>
+<area shape="rect" href="a00251.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="457,793,544,820"/>
+<area shape="rect" href="a00483.html#acd73d8c1aaaed8b188de6b8bf2103139" title=" " alt="" coords="150,692,305,719"/>
+<area shape="rect" href="a00483.html#a6511fc72ef04be91a712ee5ef479bd7e" title=" " alt="" coords="147,743,308,769"/>
+<area shape="rect" href="a00483.html#af50a3669266ad696a1159b1bb80b1c8a" title=" " alt="" coords="111,626,343,667"/>
+<area shape="rect" href="a00098.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="184,844,271,871"/>
+<area shape="rect" href="a00483.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="403,141,598,182"/>
+<area shape="rect" href="a00483.html#a00140b0dd45e87aef4561aed8ebc779a" title=" " alt="" coords="399,359,603,385"/>
+<area shape="rect" href="a00483.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="416,470,585,511"/>
+<area shape="rect" href="a00431.html#a9cb162394031e8b496f7a39b51c31d20" title=" " alt="" coords="695,655,805,681"/>
+<area shape="rect" href="a00491.html#a595b3a391e2540a1dc9e53edf8634494" title=" " alt="" coords="402,637,599,664"/>
+<area shape="rect" href="a00463.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="419,587,582,613"/>
+<area shape="rect" href="a00431.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="699,173,801,200"/>
+<area shape="rect" href="a00431.html#a48428f0ac37a3c112c9598c784771d4a" title=" " alt="" coords="685,224,815,251"/>
+<area shape="rect" href="a00491.html#a531920b36b04ecdb562bfbb09dd2e856" title=" " alt="" coords="655,5,845,32"/>
+<area shape="rect" href="a00463.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="899,56,1044,83"/>
+<area shape="rect" href="a00535.html#aa8a561b4133585586c5b595116a9217f" title=" " alt="" coords="659,57,841,98"/>
+<area shape="rect" href="a00463.html#a0a8056cf61fdabd88f1ef56314f27e8d" title=" " alt="" coords="906,173,1037,200"/>
+<area shape="rect" href="a00463.html#a46b380667a11bdeea9255e5370bd5a78" title=" " alt="" coords="903,224,1039,251"/>
+<area shape="rect" href="a00266.html#a32fc71031e721d003fd1dc07f771351d" title=" " alt="" coords="914,107,1029,149"/>
+<area shape="rect" href="a00463.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="897,275,1045,301"/>
+<area shape="rect" href="a00459.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="1101,173,1204,200"/>
+<area shape="rect" href="a00459.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1093,325,1212,352"/>
+<area shape="rect" href="a00443.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="703,300,797,327"/>
+<area shape="rect" href="a00459.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="923,325,1020,352"/>
+<area shape="rect" href="a00459.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="920,376,1023,403"/>
+<area shape="rect" href="a00443.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="701,351,799,377"/>
+<area shape="rect" href="a00499.html#aebe59f905b1dd02058cccbb062de6507" title=" " alt="" coords="651,503,849,529"/>
+<area shape="rect" href="a00499.html#ad0d26c7c6a5edaa81527e68fe0c0c46f" title=" " alt="" coords="651,553,849,580"/>
+<area shape="rect" href="a00499.html#adbcadd75a3a33ca9e9453a17a9336318" title=" " alt="" coords="651,604,849,631"/>
+<area shape="rect" href="a00431.html#a22af988b424911d7750a0f9f381aa443" title=" " alt="" coords="701,401,799,428"/>
+<area shape="rect" href="a00455.html#a6d0e75b0bcbbb243b7141cfc0126e443" title=" " alt="" coords="443,692,558,719"/>
+<area shape="rect" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0" title=" " alt="" coords="441,844,560,871"/>
+<area shape="rect" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3" title=" " alt="" coords="447,895,554,921"/>
 </map>
 </div>
 
@@ -323,20 +336,20 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00098_source.html#l00122">122</a> of file <a class="el" href="a00098_source.html">ComputePitch.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>{</div>
-<div class="line"><span class="lineno">  124</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>() &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Pitch (F0) Extraction&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  125</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Build date: &quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>() &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  126</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  127</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputePitch inputwavfile Pitchname [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  128</span>    <a class="code hl_function" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  131</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00098_source.html#l00132">132</a> of file <a class="el" href="a00098_source.html">ComputeMelSpectrogram.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  133</span>{</div>
+<div class="line"><span class="lineno">  134</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>() &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Mel Spectrogram Extraction&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  135</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Build date: &quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  136</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  137</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeSpectrogram inputfile [outputfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  138</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  139</span> </div>
+<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  141</span>}</div>
 <div class="ttc" id="aa00038_html_a352c17bde18dd0d9c3989f6050b060b0"><div class="ttname"><a href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a></div><div class="ttdeci">std::string getAcaBuildDate()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00015">AcaAll.cpp:15</a></div></div>
 <div class="ttc" id="aa00038_html_aeca12b465ae15d8b8e775e1b0cfec9f3"><div class="ttname"><a href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a></div><div class="ttdeci">std::string getAcaVersion()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00008">AcaAll.cpp:8</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00245.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00038_source.html#l00015">getAcaBuildDate()</a>, and <a class="el" href="a00038_source.html#l00008">getAcaVersion()</a>.</p>
+<p class="reference">References <a class="el" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00038_source.html#l00015">getAcaBuildDate()</a>, and <a class="el" href="a00038_source.html#l00008">getAcaVersion()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00098_source.html#l00017">main()</a>.</p>
 <div class="dynheader">
@@ -345,7 +358,7 @@ Here is the call graph for this function:</div>
 <div class="center"><img src="a00098_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph.png" border="0" usemap="#aa00098_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph" alt=""/></div>
 <map name="aa00098_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph" id="aa00098_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph">
 <area shape="rect" title=" " alt="" coords="5,56,92,83"/>
-<area shape="rect" href="a00245.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="156,5,243,32"/>
+<area shape="rect" href="a00251.html#a0179d453617ba2296f2baa99a49e7264" title=" " alt="" coords="156,5,243,32"/>
 <area shape="rect" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0" title=" " alt="" coords="140,56,259,83"/>
 <area shape="rect" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3" title=" " alt="" coords="146,107,253,133"/>
 </map>
@@ -365,7 +378,7 @@ Here is the caller graph for this function:</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 6 2022 17:03:35 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Tue Jun 7 2022 19:55:54 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
