@@ -735,8 +735,8 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
     pCInstance = new CNmf();
     CMatrix::alloc(ppfInput, aiDim[0], aiDim[1]);
     CMatrix::alloc(ppfOut, aiDim[0], aiDim[1]);
-    CMatrix::alloc(ppfW, aiDim[0], iRank+1);
-    CMatrix::alloc(ppfH, iRank+1, aiDim[1]);
+    CMatrix::alloc(ppfW, aiDim[0], iRank + 1);
+    CMatrix::alloc(ppfH, iRank + 1, aiDim[1]);
 
     SECTION("Api")
     {
@@ -769,7 +769,7 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
         for (auto k = 0; k < 4; k++)
         {
             ppfInput[k][0] = 1.F;
-            ppfInput[k+4][1] = 1.F;
+            ppfInput[k + 4][1] = 1.F;
         }
 
         for (auto k = 0; k < aiDim[0]; k++)
@@ -801,8 +801,8 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
         {
             afRes[0] += ppfW[k][0];
             afRes[1] += ppfW[k][1];
-            afRes[2] += ppfW[k+4][0];
-            afRes[3] += ppfW[k+4][1];
+            afRes[2] += ppfW[k + 4][0];
+            afRes[3] += ppfW[k + 4][1];
         }
         CHECK(afRes[0] == Approx(afRes[3]).margin(1e-3F).epsilon(1e-3F));
         CHECK(afRes[1] == Approx(afRes[2]).margin(1e-3F).epsilon(1e-3F));
@@ -896,7 +896,207 @@ TEST_CASE("ToolsNmf", "[ToolsNmf]")
     CMatrix::free(ppfInput, aiDim[0]);
     CMatrix::free(ppfOut, aiDim[0]);
     CMatrix::free(ppfW, aiDim[0]);
-    CMatrix::free(ppfH, iRank+1);
+    CMatrix::free(ppfH, iRank + 1);
+}
+
+TEST_CASE("ToolsPcaCov", "[ToolsPca]")
+{
+    float** ppfInput = 0;
+    float** ppfCov = 0;
+    int aiDim[2] = { 8, 10 };
+    CMatrix::alloc(ppfInput, aiDim[0], aiDim[1]);
+    CMatrix::alloc(ppfCov, aiDim[0], aiDim[0]);
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == CPca::compCov(0, ppfInput, aiDim[0], aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == CPca::compCov(ppfCov, 0, aiDim[0], aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == CPca::compCov(ppfCov, ppfInput, 0, aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == CPca::compCov(ppfCov, ppfInput, aiDim[0], 0));
+
+        CHECK(Error_t::kNoError == CPca::compCov(ppfCov, ppfInput, aiDim[0], aiDim[1]));
+
+    }
+
+    SECTION("Trivial")
+    {
+        int iNumRows = 2;
+        int iNumCols = 3;
+
+        for (auto j = 0; j < iNumCols; j++)
+        {
+            ppfInput[0][j] = 1.F * j;
+            ppfInput[1][iNumCols - 1 - j] = ppfInput[0][j];
+        }
+
+        CHECK(Error_t::kNoError == CPca::compCov(ppfCov, ppfInput, iNumRows, iNumCols));
+
+        CHECK(1.F == Approx(ppfCov[0][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(ppfCov[1][1]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(-1.F == Approx(ppfCov[0][1]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(-1.F == Approx(ppfCov[1][0]).margin(1e-6F).epsilon(1e-6F));
+    }
+
+    SECTION("3Var")
+    {
+        int iNumRows = 3;
+        int iNumCols = 3;
+
+        ppfInput[0][0] = 1.F;  ppfInput[0][1] = 3.F;  ppfInput[0][2] = -5.F;
+        ppfInput[1][0] = 3.F;  ppfInput[1][1] = 9.F;  ppfInput[1][2] = 4.F;
+        ppfInput[2][0] = -7.F;  ppfInput[2][1] = 2.F;  ppfInput[2][2] = 6.F;
+
+        CHECK(Error_t::kNoError == CPca::compCov(ppfCov, ppfInput, iNumRows, iNumCols));
+
+        CHECK(17.333333F == Approx(ppfCov[0][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(10.333333F == Approx(ppfCov[1][1]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(44.333333F == Approx(ppfCov[2][2]).margin(1e-6F).epsilon(1e-6F));
+
+        CHECK(ppfCov[0][1] == Approx(ppfCov[1][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfCov[0][2] == Approx(ppfCov[2][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfCov[1][2] == Approx(ppfCov[2][1]).margin(1e-6F).epsilon(1e-6F));
+
+        CHECK(7.6666666F == Approx(ppfCov[1][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(-15.3333333F == Approx(ppfCov[2][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(7.83333333F == Approx(ppfCov[2][1]).margin(1e-6F).epsilon(1e-6F));
+    }
+
+
+    CMatrix::free(ppfInput, aiDim[0]);
+    CMatrix::free(ppfCov, aiDim[0]);
+}
+
+TEST_CASE("ToolsPca", "[ToolsPca]")
+{
+    float** ppfIn = 0;
+    float** ppfOut = 0;
+    float* pfEigenValues = 0;
+    int aiDim[2] = { 2,8 };
+    CMatrix::alloc(ppfIn, aiDim[0], aiDim[1]);
+    CMatrix::alloc(ppfOut, aiDim[0], aiDim[1]);
+    CVector::alloc(pfEigenValues, aiDim[0]);
+    CPca *pCInstance = new CPca();
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], 0));
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compPca(0, pfEigenValues, ppfIn));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compPca(ppfOut, 0, ppfIn));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compPca(ppfOut, pfEigenValues, 0));
+        
+        CHECK(Error_t::kNoError == pCInstance->compPca(ppfOut, pfEigenValues, ppfIn));
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+
+    SECTION("OneComponent")
+    {
+        for (auto i = 0; i < 4; i++)
+        {
+            ppfIn[0][i] = i + 1.F;
+            ppfIn[1][i] = .5F * ppfIn[0][i];
+            ppfIn[0][i + 4] = -ppfIn[0][i];
+            ppfIn[1][i + 4] = -ppfIn[1][i];
+        }
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+        CHECK(Error_t::kNoError == pCInstance->compPca(ppfOut, pfEigenValues, ppfIn));
+
+        CHECK(0.F == Approx(pfEigenValues[1]).margin(1e-6F).epsilon(1e-6F));
+
+        CHECK(0.F == Approx(CVectorFloat::getSum(ppfOut[1], aiDim[1])).margin(1e-6F).epsilon(1e-6F));
+    }
+
+    SECTION("SimpleMatrix")
+    {
+        ppfIn[0][0] = -2.F; ppfIn[0][1] = -1.F; ppfIn[0][2] = 1.F; ppfIn[0][3] = 2.F; ppfIn[0][4] = -1.F; ppfIn[0][5] = -.5F; ppfIn[0][6] = .5F; ppfIn[0][7] = 1.F;
+        CVector::copy(ppfIn[1], ppfIn[0], aiDim[1]);
+        CVectorFloat::mulC_I(&ppfIn[1][4], -1.F, 4);
+
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+        CHECK(Error_t::kNoError == pCInstance->compPca(ppfOut, pfEigenValues, ppfIn));
+
+        CHECK(2.85714285714286F == Approx(pfEigenValues[0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.714285714285714F == Approx(pfEigenValues[1]).margin(1e-6F).epsilon(1e-6F));
+
+        CHECK(0.F == Approx(CVectorFloat::getSum(ppfOut[1], 4)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVectorFloat::getSum(&ppfOut[0][4], 4)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfOut[0][3] == Approx(-ppfOut[0][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfOut[0][2] == Approx(-ppfOut[0][1]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfOut[1][7] == Approx(-ppfOut[1][4]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfOut[1][6] == Approx(-ppfOut[1][5]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfOut[0][1] == Approx(.5F * ppfOut[0][0]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfOut[0][2] == Approx(.5F * ppfOut[0][3]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfOut[1][5] == Approx(.5F * ppfOut[1][4]).margin(1e-6F).epsilon(1e-6F));
+        CHECK(ppfOut[1][6] == Approx(.5F * ppfOut[1][7]).margin(1e-6F).epsilon(1e-6F));
+    }
+
+    CMatrix::free(ppfIn, aiDim[0]);
+    CMatrix::free(ppfOut, aiDim[0]);
+    CVector::free(pfEigenValues);
+    delete pCInstance;
+}
+
+TEST_CASE("ToolsPcaSvd", "[Svd]")
+{
+    float** ppfIn = 0;
+    float** ppfU = 0;
+    float** ppfW = 0;
+    float** ppfV = 0;
+    float** ppfRes = 0;
+    float** ppfTmp = 0;
+
+    int aiDim[2] = { 4,2 };
+
+    CMatrix::alloc(ppfIn, aiDim[0], aiDim[1]);
+    CMatrix::alloc(ppfU, aiDim[0], aiDim[1]);
+    CMatrix::alloc(ppfW, aiDim[1], aiDim[1]);
+    CMatrix::alloc(ppfV, aiDim[1], aiDim[1]);
+    CMatrix::alloc(ppfRes, aiDim[0], aiDim[0]);
+    CMatrix::alloc(ppfTmp, aiDim[0], aiDim[0]);
+
+    SECTION("zero")
+    {
+        CPca::calcSVD(ppfU, ppfW, ppfV, ppfIn, aiDim[0], aiDim[1]);
+
+        for (auto i = 0; i < aiDim[1]; i++)
+            CHECK(1 == ppfU[i][i]);
+        CHECK(aiDim[1] == CMatrix::getSum(ppfU, aiDim[1], aiDim[1]));
+
+        CHECK(0 == CMatrix::getSum(ppfW, aiDim[1], aiDim[1]));
+
+        for (auto i = 0; i < aiDim[1]; i++)
+            CHECK(1 == ppfV[i][i]);
+        CHECK(aiDim[1] == CMatrix::getSum(ppfV, aiDim[1], aiDim[1]));
+    }
+
+    SECTION("matlabexample")
+    {
+        ppfIn[0][0] = 1.F; ppfIn[0][1] = 2.F;
+        ppfIn[1][0] = 3.F; ppfIn[1][1] = 4.F;
+        ppfIn[2][0] = 5.F; ppfIn[2][1] = 6.F;
+        ppfIn[3][0] = 7.F; ppfIn[3][1] = 8.F;
+
+        CPca::calcSVD(ppfU, ppfW, ppfV, ppfIn, aiDim[0], aiDim[1]);
+
+        CMatrix::transpose(ppfRes, ppfV, aiDim[1], aiDim[1]);
+        CMatrix::mulMatMat(ppfTmp, ppfW, ppfRes, aiDim[1], aiDim[1], aiDim[1], aiDim[1]);
+        CMatrix::mulMatMat(ppfRes, ppfU, ppfTmp, aiDim[0], aiDim[1], aiDim[1], aiDim[1]);
+        CMatrix::sub_I(ppfRes, ppfIn, aiDim[0], aiDim[1]);
+
+        CHECK(0 == Approx(CMatrix::getSum(ppfRes, aiDim[0], aiDim[1])).margin(1e-4F).epsilon(1e-4F));
+    }
+
+    CMatrix::free(ppfIn, aiDim[0]);
+    CMatrix::free(ppfU, aiDim[0]);
+    CMatrix::free(ppfW, aiDim[1]);
+    CMatrix::free(ppfV, aiDim[1]);
+    CMatrix::free(ppfRes, aiDim[0]);
+    CMatrix::free(ppfTmp, aiDim[0]);
 }
 
 TEST_CASE("ToolsResample", "[ToolsResample]")

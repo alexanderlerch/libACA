@@ -1,10 +1,6 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #ifdef WITH_TESTS
-
-#include "Vector.h"
-#include "ToolSimpleDtw.h"
-
 #include "catch.hpp"
 
 TEST_CASE("Dtw", "[Dtw]") 

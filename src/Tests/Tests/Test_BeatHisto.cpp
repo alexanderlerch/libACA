@@ -1,11 +1,6 @@
-#include "ACAConfig.h"
+#include "AcaAll.h"
 
 #ifdef WITH_TESTS
-
-#include "Vector.h"
-
-#include "BeatHisto.h"
-
 #include "catch.hpp"
 
 TEST_CASE("BeatHisto", "[BeatHistoClass]")

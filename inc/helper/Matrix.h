@@ -2,6 +2,7 @@
 #define __MatrixFloat_hdr__
 
 #include <cassert>
+#include <algorithm>
 
 #include "Vector.h"
 
@@ -283,6 +284,55 @@ public:
             for (auto n = 0; n < iNumSrcCols; n++)
                 ppfDest[n][m] = ppfSrc[m][n];
         }
+    }
+
+    /*! rearrange the rows of a matrix according to a row index vector
+    \param ppfSrcDest resorted matrix of dimension iNumRows x ?
+    \param piRowIndices new indices iNumRows
+    \param iNumRows number of rows in the matrix
+    \return
+    */
+    static void rearrangeRows(float** ppfSrcDest, int* piRowIndices, int iNumRows)
+    {
+        assert(iNumRows > 0);
+        assert(piRowIndices);
+        assert(ppfSrcDest);
+        assert(ppfSrcDest[0]);
+
+        float** ppfTmp = 0;
+        CVector::alloc(ppfTmp, iNumRows);
+
+        for (auto m = 0; m < iNumRows; m++)
+        {
+            assert(piRowIndices[m] < iNumRows);
+            assert(piRowIndices[m] >= 0);
+
+            ppfTmp[m] = ppfSrcDest[piRowIndices[m]];
+        }
+        CVector::copy(ppfSrcDest, ppfTmp, iNumRows);
+
+        CVector::free(ppfTmp);
+    }
+
+    /*! returns matrix diagonal as vector
+    \param pfDest resulting vector of dimension min(iNumSrcRows, iNumCols) (to be written, user allocated)
+    \param ppfSrc input matrix of dimension iNumSrcRows x iNumCols
+    \param iNumSrcRows number of rows in the matrix
+    \param iNumSrcCols number of columns in the matrix
+    \return
+    */
+    static void diag(float* pfDest, float** ppfSrc, int iNumSrcRows, int iNumSrcCols)
+    {
+        assert(iNumSrcRows > 0);
+        assert(iNumSrcCols > 0);
+        assert(ppfSrc);
+        assert(ppfSrc[0]);
+        assert(pfDest);
+
+        int iLen = std::min(iNumSrcRows, iNumSrcCols);
+
+        for (auto m = 0; m < iLen; m++)
+            pfDest[m] = ppfSrc[m][m];
     }
 
     /*! multiplies a matrix with a column vector (MAT * VEC)
@@ -683,6 +733,8 @@ public:
         CMatrix::free(ppfTmp, iNumRows);
         CMatrix::free(ppfEye, iNumRows);
     }
+
+
 };
 
 #endif // __MatrixFloat_hdr__

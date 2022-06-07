@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.6)
 project (ACA
-        VERSION 0.2.2)
+        VERSION 0.2.3)
 
 #######################################################################################################
 ## includes
@@ -81,7 +81,7 @@ if (WITH_TESTS)
     add_test(Fft ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Fft*)
     add_test(Matrix ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Matrix*)
     add_test(Novelty ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Novelty*)
-    add_test(RingBuff ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Pitch*)
+    add_test(Pitch ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Pitch*)
     add_test(RingBuff ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec RingBuff*)
     add_test(Spectrogram ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Spectrogram*)
     add_test(Tools ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Tools*)
