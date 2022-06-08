@@ -20,6 +20,11 @@ include (SetOsLibs)
 include(AddSrcDirectories)
 include(AddIncDirectories)
 
+message(STATUS Src Dir: ${CMAKE_SOURCE_DIR})
+message(STATUS "")
+message(STATUS Bld Dir:  ${CMAKE_BINARY_DIR})
+message(STATUS "")
+
 
 # with tests or not
 option (WITH_TESTS "Use googletest for testing" ON)
