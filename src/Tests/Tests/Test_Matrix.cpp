@@ -125,4 +125,68 @@ TEST_CASE("Matrix", "[Matrix]")
     CMatrix::free(ppfMatrix, aiDims[0]);
 }
 
+TEST_CASE("MatrixVector", "[Vector]")
+{
+    float* pfVec1 = 0,
+        * pfVec2 = 0;
+    int iLength = 3;
+
+    CVector::alloc(pfVec1, iLength);
+    CVector::alloc(pfVec2, iLength);
+
+    SECTION("Euc")
+    {
+        // zero check
+        CHECK(0 == CVectorFloat::distEuclidean(pfVec1, pfVec2, iLength));
+
+        pfVec1[0] = 3.F;
+        pfVec1[1] = 0.F;
+        pfVec1[2] = 4.F;
+
+        pfVec2[0] = 4.F;
+        pfVec2[1] = -2.F;
+        pfVec2[2] = 2.F;
+
+        CHECK(3.F == CVectorFloat::distEuclidean(pfVec1, pfVec2, iLength));
+
+    }
+
+    SECTION("sort")
+    {
+        int* piIndices = 0;
+
+        CVector::alloc(piIndices, iLength);
+
+        pfVec1[0] = 1.F;
+        pfVec1[1] = 2.F;
+        pfVec1[2] = 3.F;
+
+        pfVec2[0] = -4.F;
+        pfVec2[1] = .1F;
+        pfVec2[2] = 0.F;
+
+        CVectorFloat::sort_I(pfVec1, 0, iLength, true);
+        for (auto i = 1; i < iLength; i++)
+            CHECK(pfVec1[i - 1] < pfVec1[i]);
+
+        CVectorFloat::sort_I(pfVec1, 0, iLength, false);
+        for (auto i = 1; i < iLength; i++)
+            CHECK(pfVec1[i - 1] > pfVec1[i]);
+
+        CVectorFloat::sort_I(pfVec2, piIndices, iLength, true);
+        CHECK(0 == piIndices[0]);
+        CHECK(2 == piIndices[1]);
+        CHECK(1 == piIndices[2]);
+
+        CVectorFloat::sort_I(pfVec2, piIndices, iLength, true);
+        CHECK(0 == piIndices[0]);
+        CHECK(1 == piIndices[1]);
+        CHECK(2 == piIndices[2]);
+
+        CVector::free(piIndices);
+    }
+
+    CVector::free(pfVec1);
+    CVector::free(pfVec2);
+}
 #endif //WITH_TESTS
