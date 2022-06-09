@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.6)
 project (ACA
-        VERSION 0.2.3)
+        VERSION 0.2.4)
 
 #######################################################################################################
 ## includes
@@ -19,6 +19,11 @@ include (SetOsLibs)
 # helper functions
 include(AddSrcDirectories)
 include(AddIncDirectories)
+
+message(STATUS Src Dir: ${CMAKE_SOURCE_DIR})
+message(STATUS "")
+message(STATUS Bld Dir:  ${CMAKE_BINARY_DIR})
+message(STATUS "")
 
 
 # with tests or not

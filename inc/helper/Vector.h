@@ -352,11 +352,12 @@ public:
     \param pfSrcDest buffer to be sorted
     \param piIndices new indices (optional, can be left 0)
     \param iLength number of elements to be sorted
+    \param bAscending sort order (descending -> false)
     \return void
     */
     static inline void sort_I(float* pfSrcDest, int* piIndices,  int iLength, bool bAscending = true)
     {
-        // go bubble sort!
+        // go bubble sort! ( should be replaced some time with something faster)
 
         bool bDone = false; // this flag will be used to check whether we have to continue the algorithm
 
@@ -371,7 +372,7 @@ public:
             {
                 bDone = true;
 
-                for (auto i = 0; i < iLength; i++)
+                for (auto i = 0; i < iLength-1; i++)
                 {
                     if (pfSrcDest[i] > pfSrcDest[i + 1]) // compare the current element with the following one
                     {
@@ -391,7 +392,7 @@ public:
             {
                 bDone = true;
 
-                for (auto i = 0; i < iLength; i++)
+                for (auto i = 0; i < iLength-1; i++)
                 {
                     if (pfSrcDest[i] < pfSrcDest[i + 1]) // compare the current element with the following one
                     {
@@ -424,6 +425,73 @@ public:
             pfSrcDest[i] -= pfSrc[i];
     }
 
+    /*! manhattan distance
+    \param pfSrc1 first input vector
+    \param pfSrc2 second input vector
+    \param iLength length of vectors
+    \return float
+    */
+    static inline float distManhattan(const float* pfSrc1, const float* pfSrc2, long long iLength)
+    {
+        assert(iLength >= 0);
+        assert(pfSrc1);
+        assert(pfSrc2);
+
+        float fDist = std::abs(pfSrc1[0] - pfSrc2[0]);
+        for (auto i = 1; i < iLength; i++)
+            fDist += std::abs(pfSrc1[i] - pfSrc2[i]);
+        
+        return fDist;
+    }
+
+    /*! Euclidean distance
+    \param pfSrc1 first input vector
+    \param pfSrc2 second input vector
+    \param iLength length of vectors
+    \return float
+    */
+    static inline float distEuclidean(const float* pfSrc1, const float* pfSrc2, long long iLength)
+    {
+        assert(iLength >= 0);
+        assert(pfSrc1);
+        assert(pfSrc2);
+
+        float fDist = -2.F * mulScalar(pfSrc1, pfSrc2, iLength);
+        fDist += mulScalar(pfSrc1, pfSrc1, iLength);
+        fDist += mulScalar(pfSrc2, pfSrc2, iLength);
+        //for (auto i = 0; i < iLength; i++)
+        //    fDist += (pfSrc1[i] - pfSrc2[i]) * (pfSrc1[i] - pfSrc2[i]);
+
+        return std::sqrt(fDist);
+    }
+
+    /*! Cosine distance
+    \param pfSrc1 first input vector
+    \param pfSrc2 second input vector
+    \param iLength length of vectors
+    \return float
+    */
+    static inline float distCosine(const float* pfSrc1, const float* pfSrc2, long long iLength)
+    {
+        assert(iLength >= 0);
+        assert(pfSrc1);
+        assert(pfSrc2);
+
+        float fDist = 0;
+        for (auto i = 0; i < iLength; i++)
+            fDist += pfSrc1[i] * pfSrc2[i];
+
+        return 1.F - fDist / std::sqrt(mulScalar(pfSrc1, pfSrc1, iLength) * mulScalar(pfSrc2, pfSrc2, iLength));
+    }
+
+
+    /*! weighted element-wise vector subtraction
+    \param pfSrcDest one input and output buffer
+    \param pfSrc second input buffer
+    \param fWeight weight to be applied to pfSrc entries
+    \param iLength number of element to be subtracted
+    \return void
+    */
     static inline void subW_I(float* pfSrcDest, const float* pfSrc, float fWeight, long long int iLength)
     {
         assert(iLength >= 0);
