@@ -430,7 +430,7 @@ public:
     \param iLength length of vectors
     \return float
     */
-    static inline float distManhattan(float* pfSrc1, const float* pfSrc2, long long int iLength)
+    static inline float distManhattan(const float* pfSrc1, const float* pfSrc2, long long iLength)
     {
         assert(iLength >= 0);
         assert(pfSrc1);
@@ -447,7 +447,7 @@ public:
     \param iLength length of vectors
     \return float
     */
-    static inline float distEuclidean(float* pfSrc1, const float* pfSrc2, long long int iLength)
+    static inline float distEuclidean(const float* pfSrc1, const float* pfSrc2, long long iLength)
     {
         assert(iLength >= 0);
         assert(pfSrc1);
@@ -468,7 +468,7 @@ public:
     \param iLength length of vectors
     \return float
     */
-    static inline float distCosine(float* pfSrc1, const float* pfSrc2, long long int iLength)
+    static inline float distCosine(const float* pfSrc1, const float* pfSrc2, long long iLength)
     {
         assert(iLength >= 0);
         assert(pfSrc1);
