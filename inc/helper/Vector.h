@@ -352,6 +352,7 @@ public:
     \param pfSrcDest buffer to be sorted
     \param piIndices new indices (optional, can be left 0)
     \param iLength number of elements to be sorted
+    \param bAscending sort order (descending -> false)
     \return void
     */
     static inline void sort_I(float* pfSrcDest, int* piIndices,  int iLength, bool bAscending = true)
@@ -436,9 +437,11 @@ public:
         assert(pfSrc1);
         assert(pfSrc2);
 
-        float fDist = 0;
-        for (auto i = 0; i < iLength; i++)
+        float fDist = std::abs(pfSrc1[0] - pfSrc2[0]);
+        for (auto i = 1; i < iLength; i++)
             fDist += std::abs(pfSrc1[i] - pfSrc2[i]);
+        
+        return fDist;
     }
 
     /*! Euclidean distance
