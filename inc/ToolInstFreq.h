@@ -62,15 +62,15 @@ public:
         m_pCFft->getPhase(m_apfPhase[kPhaseCurr], pfSpectrum);
 
         // calc instantaneous frequency
-        CVectorFloat::sub_I(m_apfPhase[kPhasePrev], m_apfPhase[kPhaseCurr], m_iPhaseLength);
-        CVectorFloat::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
-        CVectorFloat::mulC_I(m_apfPhase[kPhasePrev], -1.0F, m_iPhaseLength);
+        CVector::sub_I(m_apfPhase[kPhasePrev], m_apfPhase[kPhaseCurr], m_iPhaseLength);
+        CVector::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
+        CVector::mulC_I(m_apfPhase[kPhasePrev], -1.0F, m_iPhaseLength);
 
         princArg_(m_apfPhase[kPhasePrev]);
 
-        CVectorFloat::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
-        CVectorFloat::copy(pfInstFreq, m_apfPhase[kPhasePrev], m_iPhaseLength);
-        CVectorFloat::mulC_I(pfInstFreq, static_cast<float>(m_fSampleRate / (m_iHopLength * 2. * M_PI)), m_iPhaseLength);
+        CVector::add_I(m_apfPhase[kPhasePrev], m_pfOmega, m_iPhaseLength);
+        CVector::copy(pfInstFreq, m_apfPhase[kPhasePrev], m_iPhaseLength);
+        CVector::mulC_I(pfInstFreq, static_cast<float>(m_fSampleRate / (m_iHopLength * 2. * M_PI)), m_iPhaseLength);
 
         // remember phase for next call but avoid copying
         CUtil::swap(m_apfPhase[kPhasePrev], m_apfPhase[kPhaseCurr]);

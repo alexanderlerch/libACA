@@ -217,9 +217,9 @@ Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
     }
 
     // normalize
-    float fMax = CVectorFloat::getMax(pfNovelty, iNumBlocks, true);
+    float fMax = CVector::getMax(pfNovelty, iNumBlocks, true);
     if (fMax > 0)
-        CVectorFloat::mulC_I(pfNovelty, 1 / fMax, iNumBlocks);
+        CVector::mulC_I(pfNovelty, 1 / fMax, iNumBlocks);
 
     // smoothing with moving average
     m_pCLpFilter->reset();
@@ -227,22 +227,22 @@ Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
     m_pCLpFilter->filtfilt(pfNovelty, pfNovelty, iNumBlocks);
     
     // HWR
-    CVectorFloat::setZeroBelowThresh(pfNovelty, iNumBlocks);
+    CVector::setZeroBelowThresh(pfNovelty, iNumBlocks, 0.F);
 
     // threshold computation
     m_pCLpFilter->reset();
     m_pCLpFilter->setFilterParam(m_pCLpFilter->calcFilterLength(fThreshLpLenInS, m_fSampleRate / m_iHopLength));
     m_pCLpFilter->filtfilt(pfThreshold, pfNovelty, iNumBlocks);
-    CVectorFloat::addC_I(pfThreshold, .4F * CVectorFloat::getMean(&pfNovelty[1], iNumBlocks - 1), iNumBlocks);
-    CVectorFloat::sub_I(pfThreshold, pfNovelty, iNumBlocks);
-    CVectorFloat::mulC_I(pfThreshold, -1.F, iNumBlocks);
-    CVectorFloat::setZeroBelowThresh(pfThreshold, iNumBlocks);
+    CVector::addC_I(pfThreshold, .4F * CVector::getMean(&pfNovelty[1], iNumBlocks - 1), iNumBlocks);
+    CVector::sub_I(pfThreshold, pfNovelty, iNumBlocks);
+    CVector::mulC_I(pfThreshold, -1.F, iNumBlocks);
+    CVector::setZeroBelowThresh(pfThreshold, iNumBlocks, 0.F);
 
     // peak picking
     if (pbIsOnset)
     {
         CVector::setValue(pbIsOnset, false, iNumBlocks);
-        CVectorFloat::findPeaks(pbIsOnset, pfThreshold, iNumBlocks, 0.F);
+        CVector::findPeaks(pbIsOnset, pfThreshold, iNumBlocks, 0.F);
     }
 
     // clean up memory
@@ -287,7 +287,7 @@ void CNoveltyIf::computeMagSpectrum_()
     m_pCFft->compFft(m_pfProcessBuff2, m_pfProcessBuff1);
     m_pCFft->getMagnitude(m_pfProcessBuff1, m_pfProcessBuff2);
 
-    CVectorFloat::mulC_I(m_pfProcessBuff1, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
+    CVector::mulC_I(m_pfProcessBuff1, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
 }
 
 

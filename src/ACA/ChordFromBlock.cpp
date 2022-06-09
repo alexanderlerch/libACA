@@ -31,9 +31,9 @@ Error_t CChordFromBlockIf::compChordProb(float* pfChordProb, const float* pfInpu
     // compute pitch chroma
     m_pCFeatureExtractor->compFeature(m_pfPitchChroma, pfInput);
 
-    if (CVectorFloat::getSum(m_pfPitchChroma, kNumPitchClasses) <= 1e-20F)
+    if (CVector::getSum(m_pfPitchChroma, kNumPitchClasses) <= 1e-20F)
     {
-        CVectorFloat::setZero(pfChordProb, CChordIf::kNumChords);
+        CVector::setZero(pfChordProb, CChordIf::kNumChords);
         pfChordProb[CChordIf::kNoChord] = 1.F;
         return Error_t::kNoError;
     }
@@ -41,10 +41,10 @@ Error_t CChordFromBlockIf::compChordProb(float* pfChordProb, const float* pfInpu
     // get chord probs with template
     CMatrix::mulMatColVec(pfChordProb, m_ppfTemplateMatrix, m_pfPitchChroma, CChordIf::kNumChords, kNumPitchClasses);
 
-    assert(CVectorFloat::getSum(pfChordProb, CChordIf::kNumChords) > 0);
+    assert(CVector::getSum(pfChordProb, CChordIf::kNumChords) > 0);
 
     // normalize to probability of 1
-    CVectorFloat::mulC_I(pfChordProb, 1.F / CVectorFloat::getSum(pfChordProb, CChordIf::kNumChords), CChordIf::kNumChords);
+    CVector::mulC_I(pfChordProb, 1.F / CVector::getSum(pfChordProb, CChordIf::kNumChords), CChordIf::kNumChords);
 
     return Error_t::kNoError;
 }
@@ -84,5 +84,5 @@ void CChordFromBlockIf::genTemplateMatrix_()
             m_ppfTemplateMatrix[c+ kNumPitchClasses][(c + aiMinorIndices[p])%12] = 1.F / iNumChordPitches;
         }
     }
-    CVectorFloat::addC_I(m_ppfTemplateMatrix[CChordIf::kNoChord], 1.F / kNumPitchClasses, kNumPitchClasses);
+    CVector::addC_I(m_ppfTemplateMatrix[CChordIf::kNoChord], 1.F / kNumPitchClasses, kNumPitchClasses);
 }

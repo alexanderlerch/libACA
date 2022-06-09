@@ -19,7 +19,7 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
     pfBeatHisto = new float[65536];
     pfBeatTicks = new float[65536];
     pfInput = new float[iBufferLength];
-    CVectorFloat::setZero(pfInput, iBufferLength);
+    CVector::setZero(pfInput, iBufferLength);
 
 
     SECTION("Api")
@@ -53,7 +53,7 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
         for (auto s = 0; s < 20; s++)
         {
             int iStart = static_cast<int>(s * fSampleRate / 2);
-            CVectorFloat::setValue(&pfInput[iStart], 1.F, 512);
+            CVector::setValue(&pfInput[iStart], 1.F, 512);
         }
         CHECK(Error_t::kNoError == CBeatHistoIf::create(pCInstance, pfInput, iBufferLength, fSampleRate));
         CHECK_FALSE(pCInstance == 0);
@@ -63,7 +63,7 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
 
         float fMax = 0;
         long long iMax = -1;
-        CVectorFloat::findMax(pfBeatHisto, fMax, iMax, pCInstance->getNumBins(CBeatHistoIf::kBeatHistoFft));
+        CVector::findMax(pfBeatHisto, fMax, iMax, pCInstance->getNumBins(CBeatHistoIf::kBeatHistoFft));
         CHECK(1.F == Approx(fMax).margin(1e-6F).epsilon(1e-6F));
         CHECK(37 == iMax);
         CHECK(std::abs(pfBeatTicks[iMax] - 120.F) <= 1.5F);
@@ -78,7 +78,7 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
         for (auto s = 0; s < 20; s++)
         {
             int iStart = static_cast<int>(s * fSampleRate / 2);
-            CVectorFloat::setValue(&pfInput[iStart], 1.F, 512);
+            CVector::setValue(&pfInput[iStart], 1.F, 512);
         }
         CHECK(Error_t::kNoError == CBeatHistoIf::create(pCInstance, pfInput, iBufferLength, fSampleRate));
         CHECK_FALSE(pCInstance == 0);
@@ -88,7 +88,7 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
 
         float fMax = 0;
         long long iMax = -1;
-        CVectorFloat::findMax(pfBeatHisto, fMax, iMax, pCInstance->getNumBins(CBeatHistoIf::kBeatHistoCorr));
+        CVector::findMax(pfBeatHisto, fMax, iMax, pCInstance->getNumBins(CBeatHistoIf::kBeatHistoCorr));
         CHECK(1.F == Approx(fMax).margin(1e-6F).epsilon(1e-6F));
         CHECK(8271 == iMax);
         CHECK(std::abs(pfBeatTicks[iMax] - 120.F) <= 1.F);

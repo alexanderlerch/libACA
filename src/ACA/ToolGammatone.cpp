@@ -120,7 +120,7 @@ Error_t CGammatone::process(float* pfOutput, const float* pfInput, long long iNu
         pfOutput[i] = static_cast<float>(fTmp);
     }
 #else
-    CVectorFloat::copy(pfOutput, pfInput, iNumSamples);
+    CVector::copy(pfOutput, pfInput, iNumSamples);
     for (auto c = 0; c < kNumFilters; c++)
         m_apCFilter[c]->process(pfOutput, pfOutput, iNumSamples);
 #endif // ACA_USE_DOUBLE
@@ -252,7 +252,7 @@ void CGammatone::calcFilterCoeffs_(int iOrder)
         auto denominator = denom * denom * denom * denom;
         fGain = std::abs(numerator / denominator);
     }
-    CVectorFloat::mulC_I(m_aafCoeffB[0], 1.F / fGain, kNumCoeffs);
+    CVector::mulC_I(m_aafCoeffB[0], 1.F / fGain, kNumCoeffs);
 
     for (auto c = 0; c < kNumFilters; c++)
         m_apCFilter[c]->init(m_aafCoeffB[c], m_aafCoeffA[c], 3);

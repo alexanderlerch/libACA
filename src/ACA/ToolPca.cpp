@@ -53,7 +53,7 @@ Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, float** ppfIn)
     CMatrix::diag(pfEigenValues, m_ppfW, m_iNumFeatures, m_iNumFeatures);
 
     // sort eigenvalues
-    CVectorFloat::sort_I(pfEigenValues, piSortIndices, m_iNumFeatures, false);
+    CVector::sort_I(pfEigenValues, piSortIndices, m_iNumFeatures, false);
 
     // transpose T
     CMatrix::transpose(m_ppfProcTmp, m_ppfV, m_iNumFeatures, m_iNumFeatures);
@@ -82,10 +82,10 @@ Error_t CPca::compCov(float** ppfCovOut, float** ppfIn, int iNumRows, int iNumCo
 
     for (auto m = 0; m < iNumRows; m++)
     {
-        float fMean1 = CVectorFloat::getMean(ppfIn[m], iNumCols);
+        float fMean1 = CVector::getMean(ppfIn[m], iNumCols);
         for (auto n = 0; n <= m; n++)
         {
-            float fMean2 = CVectorFloat::getMean(ppfIn[n], iNumCols);
+            float fMean2 = CVector::getMean(ppfIn[n], iNumCols);
             ppfCovOut[m][n] = 0;
             for (auto j = 0; j < iNumCols; j++)
                 ppfCovOut[m][n] += (ppfIn[m][j] - fMean1) * (ppfIn[n][j] - fMean2);

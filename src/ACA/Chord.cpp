@@ -233,7 +233,7 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
         {
             float fTmp = 0;
 			long long iMaxIdx = -1;
-            CVectorFloat::findMax(afChordProb, fTmp, iMaxIdx, kNumChords);
+            CVector::findMax(afChordProb, fTmp, iMaxIdx, kNumChords);
             peChord[n] = static_cast<Chords_t>(iMaxIdx);
         }
     }
@@ -360,7 +360,7 @@ void CChordIf::computeMagSpectrum_()
     m_pCFft->compFft(m_pfProcessBuff2, m_pfProcessBuff1);
     m_pCFft->getMagnitude(m_pfProcessBuff1, m_pfProcessBuff2);
 
-    CVectorFloat::mulC_I(m_pfProcessBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
+    CVector::mulC_I(m_pfProcessBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
 }
 
 
@@ -419,7 +419,7 @@ void CChordIf::initViterbi_()
     // start probabilities
     float afStartProb[kNumChords] = { 0 };
 
-    CVectorFloat::setValue(afStartProb, 1.F / (kNumChords + 1), kNumChords);
+    CVector::setValue(afStartProb, 1.F / (kNumChords + 1), kNumChords);
     afStartProb[kNoChord] *= 2.F;
 
     /////////////////////////////
@@ -449,12 +449,12 @@ void CChordIf::initViterbi_()
     CMatrix::addC_I(ppfTransProb, 1.F, kNumChords, kNumChords);
 
     // no chord probs
-    CVectorFloat::setValue(ppfTransProb[kNoChord], 1.F / kNumChords, kNumChords);
+    CVector::setValue(ppfTransProb[kNoChord], 1.F / kNumChords, kNumChords);
     CMatrix::setCol(ppfTransProb, ppfTransProb[kNoChord], kNoChord, kNumChords);
 
     // normalization
     for (auto m = 0; m < kNumChords; m++)
-        CVectorFloat::mulC_I(ppfTransProb[m], 1.F / CVectorFloat::getSum(ppfTransProb[m], kNumChords), kNumChords);
+        CVector::mulC_I(ppfTransProb[m], 1.F / CVector::getSum(ppfTransProb[m], kNumChords), kNumChords);
 
     /////////////////////////////
     // instance creation and initialization

@@ -268,7 +268,7 @@ void CPitchIf::computeMagSpectrum_()
     m_pCFft->compFft(m_pfProcessBuff2, m_pfProcessBuff1);
     m_pCFft->getMagnitude(m_pfProcessBuff1, m_pfProcessBuff2);
 
-    CVectorFloat::mulC_I(m_pfProcessBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
+    CVector::mulC_I(m_pfProcessBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
 }
 
 

@@ -112,7 +112,7 @@ Error_t CNoveltyFromBlockIf::compNovelty(float* pfNovelty, const float* pfInput)
 {
     *pfNovelty = m_DispatchMap.at(m_eNoveltyIdx)(pfInput, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
 
-    CVectorFloat::copy(m_pfPrevSpec, pfInput, m_iDataLength);
+    CVector::copy(m_pfPrevSpec, pfInput, m_iDataLength);
 
     return Error_t::kNoError;
 }

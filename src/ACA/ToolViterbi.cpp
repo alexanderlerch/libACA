@@ -105,7 +105,7 @@ void CViterbi::compProbability_(float** ppfPEmission)
     // initialize
     for (auto m = 0; m < m_iNumStates; m++)
     {
-        CVectorFloat::setValue(m_ppfProb[m], 1, m_iNumObs);
+        CVector::setValue(m_ppfProb[m], 1.F, m_iNumObs);
         m_ppfProb[m][0] = ppfPEmission[m][0] * m_pfStart[m];
     }
 

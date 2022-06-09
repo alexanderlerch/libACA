@@ -57,17 +57,17 @@ TEST_CASE("Chord (per block)", "[ChordsBlock]")
                 float afBin[3] = { 0 };
                 CConversion::convertMidi2Freq(afFreq, afChordPitches[i], 3);
                 CConversion::convertFreq2Bin(afBin, afFreq, 3, 2 * (iBufferLength - 1), fSampleRate);
-                CVectorFloat::setZero(pfInput, iBufferLength);
+                CVector::setZero(pfInput, iBufferLength);
 
                 for (auto p = 0; p < 3; p++)
                     pfInput[CUtil::float2int<int>(afBin[p])] = 1.F;
 
                 CHECK(Error_t::kNoError == pCInstance->compChordProb(pfResult, pfInput));
 
-                CVectorFloat::findMax(pfResult, fMax, iMax, CChordIf::kNumChords);
+                CVector::findMax(pfResult, fMax, iMax, CChordIf::kNumChords);
                 CHECK(iMax == i*12+c);
 
-                CVectorFloat::addC_I(afChordPitches[i], 1.F, 3);
+                CVector::addC_I(afChordPitches[i], 1.F, 3);
             }
         }
 
@@ -129,7 +129,7 @@ TEST_CASE("Chord (per file)", "[ChordsClass]")
             for (auto l = 0; l < 3; l++)
             {
                 CSynthesis::genSine(pfTmp,  CConversion::convertMidi2Freq(12 + afChordPitches[n][l]), fSampleRate, CUtil::float2int<int>(fSampleRate));
-                CVectorFloat::add_I(&pfInput[n * CUtil::float2int<int>(fSampleRate)], pfTmp, CUtil::float2int<int>(fSampleRate));
+                CVector::add_I(&pfInput[n * CUtil::float2int<int>(fSampleRate)], pfTmp, CUtil::float2int<int>(fSampleRate));
             }
         }
 
@@ -166,14 +166,14 @@ TEST_CASE("Chord (per file)", "[ChordsClass]")
         for (auto l = 0; l < 3; l++)
         {
             CSynthesis::genSine(pfTmp, CConversion::convertMidi2Freq(12 + afChordPitches[0][l]), fSampleRate, iBufferLength, .5F);
-            CVectorFloat::add_I(pfInput, pfTmp, iBufferLength);
+            CVector::add_I(pfInput, pfTmp, iBufferLength);
         }
 
-        //CVectorFloat::setZero(&pfInput[30000], iDisruptionLength);
+        //CVector::setZero(&pfInput[30000], iDisruptionLength);
         for (auto l = 0; l < 3; l++)
         {
             CSynthesis::genSine(pfTmp, CConversion::convertMidi2Freq(12 + afChordPitches[1][l]), fSampleRate, iDisruptionLength);
-            CVectorFloat::add_I(&pfInput[30000], pfTmp, iDisruptionLength);
+            CVector::add_I(&pfInput[30000], pfTmp, iDisruptionLength);
         }
 
 

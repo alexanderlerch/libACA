@@ -26,12 +26,12 @@ public:
 
         // copy in case of not inplace processing
         if (pfOutput != ppfInput[0])
-            CVectorFloat::copy(pfOutput, ppfInput[0], iNumSamples);
+            CVector::copy(pfOutput, ppfInput[0], iNumSamples);
 
         // downmix
         for (auto c = 1; c < iNumChannels; c++)
-            CVectorFloat::add_I(pfOutput, ppfInput[c], iNumSamples);
-        CVectorFloat::mulC_I(pfOutput, 1.F / iNumChannels, iNumSamples);
+            CVector::add_I(pfOutput, ppfInput[c], iNumSamples);
+        CVector::mulC_I(pfOutput, 1.F / iNumChannels, iNumSamples);
 
         return;
     }
@@ -84,7 +84,7 @@ public:
             CPreProc::downmix(ppfAudioData[0], ppfAudioData, stFileSpec.iNumChannels, iNumSamples);
 
             // find max
-            fMax = CVectorFloat::getMax(ppfAudioData[0], iNumSamples, true);
+            fMax = CVector::getMax(ppfAudioData[0], iNumSamples, true);
             if (fMax > fGlobalMax)
                 fGlobalMax = fMax;
         }
@@ -105,7 +105,7 @@ public:
         assert(pfAudioBuff);
         assert(iAudioLength > 0);
 
-        float fGlobalMax = CVectorFloat::getMax(pfAudioBuff, iAudioLength, true);
+        float fGlobalMax = CVector::getMax(pfAudioBuff, iAudioLength, true);
         if (fGlobalMax > 0)
             m_fScaleFactor = 1.F / fGlobalMax;
     };
@@ -121,7 +121,7 @@ public:
         assert(pfAudioBlock);
         assert(iNumSamples > 0);
 
-        CVectorFloat::mulC_I(pfAudioBlock, m_fScaleFactor, iNumSamples);
+        CVector::mulC_I(pfAudioBlock, m_fScaleFactor, iNumSamples);
     };
 
     /*! performs the normalization inplace on a buffer
@@ -134,10 +134,10 @@ public:
         assert(pfAudio);
         assert(iNumSamples > 0);
 
-        float fMax = CVectorFloat::getMax(pfAudio, iNumSamples, true);
+        float fMax = CVector::getMax(pfAudio, iNumSamples, true);
 
         if (fMax > 0)
-            CVectorFloat::mulC_I(pfAudio, 1.F / fMax, iNumSamples);
+            CVector::mulC_I(pfAudio, 1.F / fMax, iNumSamples);
 
         return;
     }

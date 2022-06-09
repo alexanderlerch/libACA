@@ -139,7 +139,7 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
         pCAcf->init(m_iBeatHistoLength);
 
         // loop over novelty functions with hopsize
-        CVectorFloat::setZero(m_pfBeatHisto, m_iBeatHistoLength);
+        CVector::setZero(m_pfBeatHisto, m_iBeatHistoLength);
         for (auto n = 0; n < iNumBlocks; n++)
         {
             // get next novelty block
@@ -150,7 +150,7 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
             pCAcf->getCcf(m_pfProcessBuff, true);
 
             // accumulate average spectrum
-            CVectorFloat::add_I(m_pfBeatHisto, m_pfProcessBuff, m_iBeatHistoLength);
+            CVector::add_I(m_pfBeatHisto, m_pfProcessBuff, m_iBeatHistoLength);
         }
 
         CVector::flip_I(m_pfBeatHisto, m_iBeatHistoLength);
@@ -166,7 +166,7 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
         pCFft->init(m_iBeatHistoLength, 2);
         
         // loop over novelty functions with hopsize
-        CVectorFloat::setZero(m_pfBeatHisto, m_iBeatHistoLength);
+        CVector::setZero(m_pfBeatHisto, m_iBeatHistoLength);
         for (auto n = 0; n < iNumBlocks; n++)
         {
             // get next novelty block
@@ -177,7 +177,7 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
             pCFft->getMagnitude(m_pfProcessBuff, m_pfProcessBuff);
 
             // accumulate average spectrum
-            CVectorFloat::add_I(m_pfBeatHisto, m_pfProcessBuff, m_iBeatHistoLength);
+            CVector::add_I(m_pfBeatHisto, m_pfProcessBuff, m_iBeatHistoLength);
         }
 
         // destroy FFT instance
@@ -190,9 +190,9 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
     compHistoRange_(aiBeatHistoRange[0], aiBeatHistoRange[1], eBeatHistoComp);
 
     // copy to output
-    //CVectorFloat::moveInMem(m_pfBeatHisto, 0, aiBeatHistoRange[0], aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1);
-    //CVectorFloat::setZero(&m_pfBeatHisto[aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1], iBeatHistoLength - (aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1));
-    CVectorFloat::copy(pfBeatHisto, &m_pfBeatHisto[aiBeatHistoRange[0]], iBeatHistoLength);
+    //CVector::moveInMem(m_pfBeatHisto, 0, aiBeatHistoRange[0], aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1);
+    //CVector::setZero(&m_pfBeatHisto[aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1], iBeatHistoLength - (aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1));
+    CVector::copy(pfBeatHisto, &m_pfBeatHisto[aiBeatHistoRange[0]], iBeatHistoLength);
 
     // create BPM axis labels
 

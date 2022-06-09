@@ -77,7 +77,7 @@ Error_t CFft::overrideWindow( const float *pfNewWindow )
     if (!pfNewWindow)
         return Error_t::kFunctionInvalidArgsError;
 
-    CVectorFloat::copy(m_pfWindowBuff, pfNewWindow, m_iDataLength);
+    CVector::copy(m_pfWindowBuff, pfNewWindow, m_iDataLength);
 
     return Error_t::kNoError;
 }
@@ -89,7 +89,7 @@ Error_t CFft::getWindow( float *pfWindow ) const
     if (!pfWindow)
         return Error_t::kFunctionInvalidArgsError;
 
-    CVectorFloat::copy(pfWindow, m_pfWindowBuff, m_iDataLength);
+    CVector::copy(pfWindow, m_pfWindowBuff, m_iDataLength);
 
     return Error_t::kNoError;
 }
@@ -102,18 +102,18 @@ Error_t CFft::compFft( complex_t *pfSpectrum, const float *pfInput )
         return Error_t::kFunctionInvalidArgsError;
 
     // copy data to internal buffer
-    CVectorFloat::copy(m_pfProcessBuff, pfInput, m_iDataLength);
-    CVectorFloat::setZero(&m_pfProcessBuff[m_iDataLength], static_cast<long long>(m_iFftLength)-m_iDataLength);
+    CVector::copy(m_pfProcessBuff, pfInput, m_iDataLength);
+    CVector::setZero(&m_pfProcessBuff[m_iDataLength], static_cast<long long>(m_iFftLength)-m_iDataLength);
 
     // apply window function
     if (m_ePrePostWindowOpt & kPreWindow)
-        CVectorFloat::mul_I(m_pfProcessBuff, m_pfWindowBuff, m_iDataLength);
+        CVector::mul_I(m_pfProcessBuff, m_pfWindowBuff, m_iDataLength);
 
     // compute fft
     LaszloFft::realfft_split(m_pfProcessBuff, m_iFftLength);
 
     // copy data to output buffer
-    CVectorFloat::copy(pfSpectrum, m_pfProcessBuff, m_iFftLength);
+    CVector::copy(pfSpectrum, m_pfProcessBuff, m_iFftLength);
 
     return Error_t::kNoError;
 }
@@ -124,17 +124,17 @@ Error_t CFft::compInvFft( float *pfOutput, const complex_t *pfSpectrum )
         return Error_t::kNotInitializedError;
 
     // copy data to internal buffer
-    CVectorFloat::copy(m_pfProcessBuff, pfSpectrum, m_iFftLength);
+    CVector::copy(m_pfProcessBuff, pfSpectrum, m_iFftLength);
     
     // compute ifft
     LaszloFft::irealfft_split(m_pfProcessBuff, m_iFftLength);
 
     // apply window function
     if (m_ePrePostWindowOpt & kPostWindow)
-        CVectorFloat::mul_I(m_pfProcessBuff, m_pfWindowBuff, m_iDataLength);
+        CVector::mul_I(m_pfProcessBuff, m_pfWindowBuff, m_iDataLength);
 
     // copy data to output buffer
-    CVectorFloat::copy(pfOutput, m_pfProcessBuff, m_iFftLength);
+    CVector::copy(pfOutput, m_pfProcessBuff, m_iFftLength);
 
     return Error_t::kNoError;
 }
@@ -189,7 +189,7 @@ Error_t CFft::splitRealImag( float *pfReal, float *pfImag, const complex_t *pfSp
     // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
     int iNyq        = m_iFftLength>>1;
 
-    CVectorFloat::copy(pfReal, pfSpectrum, static_cast<long long>(iNyq)+1);
+    CVector::copy(pfReal, pfSpectrum, static_cast<long long>(iNyq)+1);
 
     pfImag[0] = 0;
     pfImag[iNyq] = 0;
@@ -209,7 +209,7 @@ Error_t CFft::mergeRealImag( complex_t *pfSpectrum, const float *pfReal, const f
     // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
     int iNyq        = m_iFftLength>>1;
 
-    CVectorFloat::copy(pfSpectrum, pfReal, static_cast<long long>(iNyq)+1);
+    CVector::copy(pfSpectrum, pfReal, static_cast<long long>(iNyq)+1);
 
     for (int i = 1, iImag = m_iFftLength-1; i < iNyq; i++, iImag--)
     {
@@ -232,7 +232,7 @@ float CFft::bin2freq( int iBinIdx, float fSampleRateInHz ) const
 void CFft::conjugate_I(complex_t* pfFftResult) const
 {
     // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
-    CVectorFloat::mulC_I(&pfFftResult[(m_iFftLength>>1)+1], -1.F, static_cast<long long>(m_iFftLength>>1)-1);
+    CVector::mulC_I(&pfFftResult[(m_iFftLength>>1)+1], -1.F, static_cast<long long>(m_iFftLength>>1)-1);
 }
 
 void CFft::multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) const

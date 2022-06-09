@@ -136,7 +136,7 @@ TEST_CASE("Spectrogram", "[Spectrogram]")
         iHopLength = 16;
 
         //reuse buffer for window setting
-        CVectorFloat::setValue(pfTimeStamps, 1.F, iBlockLength);
+        CVector::setValue(pfTimeStamps, 1.F, iBlockLength);
 
         CSynthesis::genSine(pfInput, f0, fs, static_cast<int>(fs), fAmp);
 
