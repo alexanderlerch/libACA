@@ -128,6 +128,7 @@ var menudata={children:[
 {text:"f",url:"functions_vars_f.html#index_f"},
 {text:"g",url:"functions_vars_g.html#index_g"},
 {text:"i",url:"functions_vars_i.html#index_i"},
+{text:"k",url:"functions_vars_k.html#index_k"},
 {text:"l",url:"functions_vars_l.html#index_l"},
 {text:"m",url:"functions_vars_m.html#index_m"},
 {text:"n",url:"functions_vars_n.html#index_n"},

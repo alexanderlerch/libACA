@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: ErrorDef.h Source File</title>
+<title>ACA: ComputePitch.cpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.4</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -44,54 +44,164 @@
   </div>
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.html">inc</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_46e78329c7bcc891e6f94a800d2aa205.html">ComputePitch</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">ErrorDef.h</div></div>
+  <div class="headertitle"><div class="title">ComputePitch.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00104.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#if !defined(__ErrorDef_hdr__)</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __ErrorDef_hdr__</span></div>
-<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno"><a class="line" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">    4</a></span><span class="keyword">enum class</span> <a class="code hl_enumeration" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span>{</div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>,</div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa577135037b96126023d6baf36434c44d">kFileOpenError</a>,</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa08b7f9909dfc7fef2f50b48b0f4ba908">kFileAccessError</a>,</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>,</div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">kNotInitializedError</a>,</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>,</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa8f169cba91fe547d8b5a61462301c255">kInvalidString</a>,</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">kMemError</a>,</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa4366541ea8a34268abc8b24f19fcefdd">kUnknownError</a>,</div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span> </div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa9bae059b1e865deff7c21b32d8c33b1b">kNumErrors</a></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>};</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#endif </span><span class="comment">// #if !defined(__ErrorDef_hdr__)</span></div>
+<a href="a00104.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="a00185.html">AcaAll.h</a>&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
+<div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ctime&gt;</span></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="a00203.html">Pitch.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span><a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">std::cout</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>std::endl;</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// local function declarations</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="keywordtype">void</span>    <a class="code hl_function" href="a00104.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>();</div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="comment"></span> </div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="comment">/////////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="comment"></span><span class="comment">// main function</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno"><a class="line" href="a00104.html#a0ddf1224851353fc92bfbff6f499fa97">   17</a></span><span class="keywordtype">int</span> <a class="code hl_function" href="a00104.html#a0ddf1224851353fc92bfbff6f499fa97">main</a>(<span class="keywordtype">int</span> argc, <span class="keywordtype">char</span>* argv[])</div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>{</div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    std::string             sInputFilePath,                 <span class="comment">//!&lt; file paths</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>        sOutputFilePath;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    std::string sPitchString; <span class="comment">//!&lt; string of the Pitch to be extracted</span></div>
 <div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7f"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a></div><div class="ttdeci">Error_t</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00004">ErrorDef.h:5</a></div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fa08b7f9909dfc7fef2f50b48b0f4ba908"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa08b7f9909dfc7fef2f50b48b0f4ba908">Error_t::kFileAccessError</a></div><div class="ttdeci">@ kFileAccessError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fa4366541ea8a34268abc8b24f19fcefdd"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa4366541ea8a34268abc8b24f19fcefdd">Error_t::kUnknownError</a></div><div class="ttdeci">@ kUnknownError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fa577135037b96126023d6baf36434c44d"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa577135037b96126023d6baf36434c44d">Error_t::kFileOpenError</a></div><div class="ttdeci">@ kFileOpenError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">Error_t::kMemError</a></div><div class="ttdeci">@ kMemError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fa8f169cba91fe547d8b5a61462301c255"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa8f169cba91fe547d8b5a61462301c255">Error_t::kInvalidString</a></div><div class="ttdeci">@ kInvalidString</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fa9bae059b1e865deff7c21b32d8c33b1b"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa9bae059b1e865deff7c21b32d8c33b1b">Error_t::kNumErrors</a></div><div class="ttdeci">@ kNumErrors</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">Error_t::kNotInitializedError</a></div><div class="ttdeci">@ kNotInitializedError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <span class="keywordtype">int</span> iBlockLength = 0, <span class="comment">//!&lt; block length in samples </span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>        iHopLength = 0; <span class="comment">//!&lt; hop length in samples</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    <span class="keywordtype">int</span> iNumBlocks = 0; <span class="comment">//!&lt; number of blocks</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    clock_t time = 0;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="a00481.html">CPitchIf</a>* pCInstance = 0;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00481.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx = <a class="code hl_enumvalue" href="a00481.html#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a>;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">float</span>* pfPitch = 0; <span class="comment">//!&lt; F0 result</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>    std::fstream hOutputFile;</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_function" href="a00104.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>();</div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span> </div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span>    <span class="comment">// parse command line arguments</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span> (argc &lt; 2)</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile Pitchname [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">else</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>    {</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>        sInputFilePath = argv[1];</div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span>        sPitchString = (argc &lt; 3) ? <span class="stringliteral">&quot;SpectralAcf&quot;</span> : argv[2];</div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span>        sOutputFilePath = (argc &lt; 4) ? sInputFilePath + <span class="stringliteral">&quot;.txt&quot;</span> : argv[3];</div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span>        iBlockLength = (argc &lt; 5) ? 4096 : std::stoi(argv[4]);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span>        iHopLength = (argc &lt; 6) ? 512 : std::stoi(argv[5]);</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span>    }</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span>    <span class="comment">// initialize Pitch instance</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    ePitchIdx = <a class="code hl_function" href="a00481.html#ad782102749e4f057b10a5b84ae622889">CPitchIf::getPitchIdxFromString</a>(sPitchString);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_function" href="a00481.html#aad21e51c82ea3cfb6b495b39acd40412">CPitchIf::create</a>(pCInstance, ePitchIdx, sInputFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    pCInstance-&gt;<a class="code hl_function" href="a00481.html#a253cce3499a721648eba3d7b2a9f2b16">getNumBlocks</a>(iNumBlocks);</div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);</div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_function" href="a00481.html#a4eee721e50a85ed9d48f7a84d9144a3b">CPitchIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="comment"></span>    <span class="comment">// allocate memory</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    pfPitch = <span class="keyword">new</span> <span class="keywordtype">float</span>[iNumBlocks];</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span> </div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>    <span class="keywordflow">if</span> (!pfPitch)</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    {</div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>        <a class="code hl_function" href="a00481.html#a4eee721e50a85ed9d48f7a84d9144a3b">CPitchIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>        hOutputFile.close();</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>    }</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    time = clock();</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="comment"></span> </div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing f0...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    pCInstance-&gt;<a class="code hl_function" href="a00481.html#a5c6fea7fdc8067f1d6a116b86d543aa1">compF0</a>(pfPitch);</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span> </div>
+<div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n F0 computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span> </div>
+<div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    time = clock();</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span><span class="comment"></span> </div>
+<div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span><span class="comment"></span>    <span class="comment">// file writing</span></div>
+<div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span> </div>
+<div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    {</div>
+<div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span>        hOutputFile &lt;&lt; pCInstance-&gt;<a class="code hl_function" href="a00481.html#a70543df0ca9394f9b594e4f23bacc71b">getTimeStamp</a>(n) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; pfPitch[n] &lt;&lt; endl;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    }</div>
+<div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span><span class="comment"></span> </div>
+<div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
+<div class="line"><a id="l00110" name="l00110"></a><span class="lineno">  110</span>    <a class="code hl_function" href="a00481.html#a4eee721e50a85ed9d48f7a84d9144a3b">CPitchIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00111" name="l00111"></a><span class="lineno">  111</span>    hOutputFile.close();</div>
+<div class="line"><a id="l00112" name="l00112"></a><span class="lineno">  112</span> </div>
+<div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>    <span class="keyword">delete</span>[] pfPitch;</div>
+<div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    pfPitch = 0;</div>
+<div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <span class="comment">// all done</span></div>
+<div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span> </div>
+<div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>}</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span> </div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span> </div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno"><a class="line" href="a00104.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">  122</a></span><span class="keywordtype">void</span>     <a class="code hl_function" href="a00104.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>()</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>{</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>() &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Pitch (F0) Extraction&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Build date: &quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>() &lt;&lt; endl;</div>
+<div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputePitch inputwavfile Pitchname [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00128" name="l00128"></a><span class="lineno">  128</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
+<div class="line"><a id="l00129" name="l00129"></a><span class="lineno">  129</span> </div>
+<div class="line"><a id="l00130" name="l00130"></a><span class="lineno">  130</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><a id="l00131" name="l00131"></a><span class="lineno">  131</span>}</div>
+<div class="ttc" id="aa00038_html_a352c17bde18dd0d9c3989f6050b060b0"><div class="ttname"><a href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a></div><div class="ttdeci">std::string getAcaBuildDate()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00015">AcaAll.cpp:15</a></div></div>
+<div class="ttc" id="aa00038_html_aeca12b465ae15d8b8e775e1b0cfec9f3"><div class="ttname"><a href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a></div><div class="ttdeci">std::string getAcaVersion()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00008">AcaAll.cpp:8</a></div></div>
+<div class="ttc" id="aa00104_html_a0ddf1224851353fc92bfbff6f499fa97"><div class="ttname"><a href="a00104.html#a0ddf1224851353fc92bfbff6f499fa97">main</a></div><div class="ttdeci">int main(int argc, char *argv[])</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00017">ComputePitch.cpp:17</a></div></div>
+<div class="ttc" id="aa00104_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00104.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00104_source.html#l00122">ComputePitch.cpp:122</a></div></div>
+<div class="ttc" id="aa00185_html"><div class="ttname"><a href="a00185.html">AcaAll.h</a></div></div>
+<div class="ttc" id="aa00203_html"><div class="ttname"><a href="a00203.html">Pitch.h</a></div></div>
+<div class="ttc" id="aa00257_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00257.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
+<div class="ttc" id="aa00481_html"><div class="ttname"><a href="a00481.html">CPitchIf</a></div><div class="ttdoc">class for computation of a magnitude Pitch from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00203_source.html#l00018">Pitch.h:19</a></div></div>
+<div class="ttc" id="aa00481_html_a253cce3499a721648eba3d7b2a9f2b16"><div class="ttname"><a href="a00481.html#a253cce3499a721648eba3d7b2a9f2b16">CPitchIf::getNumBlocks</a></div><div class="ttdeci">Error_t getNumBlocks(int &amp;iNumBlocks) const</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00139">Pitch.cpp:139</a></div></div>
+<div class="ttc" id="aa00481_html_a4eee721e50a85ed9d48f7a84d9144a3b"><div class="ttname"><a href="a00481.html#a4eee721e50a85ed9d48f7a84d9144a3b">CPitchIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CPitchIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00131">Pitch.cpp:131</a></div></div>
+<div class="ttc" id="aa00481_html_a5c6fea7fdc8067f1d6a116b86d543aa1"><div class="ttname"><a href="a00481.html#a5c6fea7fdc8067f1d6a116b86d543aa1">CPitchIf::compF0</a></div><div class="ttdeci">Error_t compF0(float *pfPitch)</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00191">Pitch.cpp:191</a></div></div>
+<div class="ttc" id="aa00481_html_a70543df0ca9394f9b594e4f23bacc71b"><div class="ttname"><a href="a00481.html#a70543df0ca9394f9b594e4f23bacc71b">CPitchIf::getTimeStamp</a></div><div class="ttdeci">float getTimeStamp(int iBlockIdx) const</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00165">Pitch.cpp:165</a></div></div>
+<div class="ttc" id="aa00481_html_aad21e51c82ea3cfb6b495b39acd40412"><div class="ttname"><a href="a00481.html#aad21e51c82ea3cfb6b495b39acd40412">CPitchIf::create</a></div><div class="ttdeci">static Error_t create(CPitchIf *&amp;pCInstance, PitchExtractors_t ePitchIdx, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024)</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00098">Pitch.cpp:98</a></div></div>
+<div class="ttc" id="aa00481_html_ac55ab3f8cd0b036cbb891537272342df"><div class="ttname"><a href="a00481.html#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a></div><div class="ttdeci">PitchExtractors_t</div><div class="ttdoc">enum to index all Pitch extractorss</div><div class="ttdef"><b>Definition:</b> <a href="a00203_source.html#l00023">Pitch.h:24</a></div></div>
+<div class="ttc" id="aa00481_html_ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2"><div class="ttname"><a href="a00481.html#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></div><div class="ttdeci">@ kNumPitchExtractors</div><div class="ttdef"><b>Definition:</b> <a href="a00203_source.html#l00034">Pitch.h:33</a></div></div>
+<div class="ttc" id="aa00481_html_ad782102749e4f057b10a5b84ae622889"><div class="ttname"><a href="a00481.html#ad782102749e4f057b10a5b84ae622889">CPitchIf::getPitchIdxFromString</a></div><div class="ttdeci">static PitchExtractors_t getPitchIdxFromString(std::string sPitchString)</div><div class="ttdef"><b>Definition:</b> <a href="a00071_source.html#l00244">Pitch.cpp:244</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:53 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Thu Jun 9 2022 17:10:27 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

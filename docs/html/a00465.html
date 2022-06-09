@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CNoveltyFromBlockIf Class Reference</title>
+<title>ACA: CVector Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.4</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -47,152 +47,523 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00462.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CNoveltyFromBlockIf Class Reference</div></div>
+  <div class="headertitle"><div class="title">CVector Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class for computation of a Novelty from a block of data (e.g., time or magnitude spectrum)  
+<p>class with static functions for buffer operations with type T  
  <a href="a00465.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00134_source.html">Vector.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CNoveltyFromBlockIf:</div>
+Collaboration diagram for CVector:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00463.png" border="0" usemap="#aCNoveltyFromBlockIf_coll__map" alt="Collaboration graph"/></div>
-<map name="aCNoveltyFromBlockIf_coll__map" id="aCNoveltyFromBlockIf_coll__map">
-<area shape="rect" title="class for computation of a Novelty from a block of data (e.g., time or magnitude spectrum)" alt="" coords="5,5,188,317"/>
+<div class="center"><img src="a00463.png" border="0" usemap="#aCVector_coll__map" alt="Collaboration graph"/></div>
+<map name="aCVector_coll__map" id="aCVector_coll__map">
+<area shape="rect" title="class with static functions for buffer operations with type T" alt="" coords="5,5,167,200"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a2755f4e823abb1178868ac3f5219078d"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a2755f4e823abb1178868ac3f5219078d">getNoveltyDimension</a> () const</td></tr>
-<tr class="separator:a2755f4e823abb1178868ac3f5219078d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a053b558e7cfef7c598afbb58fae99d88"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a053b558e7cfef7c598afbb58fae99d88">getNoveltyIdx</a> () const</td></tr>
-<tr class="separator:a053b558e7cfef7c598afbb58fae99d88"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afb2032a0a8448d57c5faec119b63bb71"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#afb2032a0a8448d57c5faec119b63bb71">compNovelty</a> (float *pfNovelty, const float *pfInput)</td></tr>
-<tr class="separator:afb2032a0a8448d57c5faec119b63bb71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad4c0e04f9ae0eaa7ccf48509125cab1a"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#ad4c0e04f9ae0eaa7ccf48509125cab1a">create</a> (<a class="el" href="a00465.html">CNoveltyFromBlockIf</a> *&amp;pCInstance, <a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a> eNoveltyIdx, int iDataLength, float fSampleRate=1.F)</td></tr>
-<tr class="separator:ad4c0e04f9ae0eaa7ccf48509125cab1a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2066599bb659fd90d13bc8a57dec005e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a2066599bb659fd90d13bc8a57dec005e">destroy</a> (<a class="el" href="a00465.html">CNoveltyFromBlockIf</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:a2066599bb659fd90d13bc8a57dec005e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7c60e9d5cc52b4c2f65ee62fe9ee604"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#af7c60e9d5cc52b4c2f65ee62fe9ee604">compNoveltyFlux</a> (const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
-<tr class="separator:af7c60e9d5cc52b4c2f65ee62fe9ee604"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21778c061afe83ab8e390d8c49b8baf3"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a21778c061afe83ab8e390d8c49b8baf3">compNoveltyHainsworth</a> (const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
-<tr class="separator:a21778c061afe83ab8e390d8c49b8baf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2367a408255e2c7867e79743b6d82cd"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#ad2367a408255e2c7867e79743b6d82cd">compNoveltyLaroche</a> (const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</td></tr>
-<tr class="separator:ad2367a408255e2c7867e79743b6d82cd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a55adbc3ecfeffbeb621875bb56f3bf7f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a55adbc3ecfeffbeb621875bb56f3bf7f">CNoveltyFromBlockIf</a> ()</td></tr>
-<tr class="separator:a55adbc3ecfeffbeb621875bb56f3bf7f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9bd729b91b67944f16547f85090b9eae"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a9bd729b91b67944f16547f85090b9eae">CNoveltyFromBlockIf</a> (<a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a> eNoveltyIdx, int iDataLength, float fSampleRate)</td></tr>
-<tr class="separator:a9bd729b91b67944f16547f85090b9eae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0a3ab1625c7603b3e922573dc2354bf9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a0a3ab1625c7603b3e922573dc2354bf9">~CNoveltyFromBlockIf</a> ()</td></tr>
-<tr class="separator:a0a3ab1625c7603b3e922573dc2354bf9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a309c0dba3870cb5bea82f7b08f4432f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a309c0dba3870cb5bea82f7b08f4432f2">CNoveltyFromBlockIf</a> (const <a class="el" href="a00465.html">CNoveltyFromBlockIf</a> &amp;that)</td></tr>
-<tr class="separator:a309c0dba3870cb5bea82f7b08f4432f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7d6dac2fcb2305c5736c1e5dd4cbf0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00465.html">CNoveltyFromBlockIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#af7d6dac2fcb2305c5736c1e5dd4cbf0e">operator=</a> (const <a class="el" href="a00465.html">CNoveltyFromBlockIf</a> &amp;c)</td></tr>
-<tr class="separator:af7d6dac2fcb2305c5736c1e5dd4cbf0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
-Protected Attributes</h2></td></tr>
-<tr class="memitem:acd6ab16d268e644c7e141761feede22f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#acd6ab16d268e644c7e141761feede22f">m_eNoveltyIdx</a> = <a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4ad3488ba679c6c6545742152b45e3df0c">CNoveltyIf::kNumNoveltyFunctions</a></td></tr>
-<tr class="memdesc:acd6ab16d268e644c7e141761feede22f"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of Novelty to extract  <a href="a00465.html#acd6ab16d268e644c7e141761feede22f">More...</a><br /></td></tr>
-<tr class="separator:acd6ab16d268e644c7e141761feede22f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad66c8512f67023f27e1eeac3d1c8e5d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a> = 0</td></tr>
-<tr class="memdesc:ad66c8512f67023f27e1eeac3d1c8e5d8"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00465.html#ad66c8512f67023f27e1eeac3d1c8e5d8">More...</a><br /></td></tr>
-<tr class="separator:ad66c8512f67023f27e1eeac3d1c8e5d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1edfefa2d3fbd4b3d85eab24ec8d0abf"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a1edfefa2d3fbd4b3d85eab24ec8d0abf">m_fSampleRate</a> = 0</td></tr>
-<tr class="memdesc:a1edfefa2d3fbd4b3d85eab24ec8d0abf"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00465.html#a1edfefa2d3fbd4b3d85eab24ec8d0abf">More...</a><br /></td></tr>
-<tr class="separator:a1edfefa2d3fbd4b3d85eab24ec8d0abf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a70cf68afc431f61abec9a8e95e49a14f"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a> = 0</td></tr>
-<tr class="separator:a70cf68afc431f61abec9a8e95e49a14f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7684ddb179de94eeae1f53469d903e22"><td class="memItemLeft" align="right" valign="top">const std::map&lt; <a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a>, std::function&lt; float(const float *, const float *, int, float)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html#a7684ddb179de94eeae1f53469d903e22">m_DispatchMap</a></td></tr>
-<tr class="separator:a7684ddb179de94eeae1f53469d903e22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abaadac98b1cad18b7b568852bc951696"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:abaadac98b1cad18b7b568852bc951696"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#abaadac98b1cad18b7b568852bc951696">alloc</a> (T *&amp;ptVec, long long iLength)</td></tr>
+<tr class="separator:abaadac98b1cad18b7b568852bc951696"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa86bdb0c663d4d52f2765793756f8737"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aa86bdb0c663d4d52f2765793756f8737"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#aa86bdb0c663d4d52f2765793756f8737">free</a> (T *&amp;ptVec)</td></tr>
+<tr class="separator:aa86bdb0c663d4d52f2765793756f8737"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6dbb3f9f480568b60f7fe50090d20003"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a6dbb3f9f480568b60f7fe50090d20003"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#a6dbb3f9f480568b60f7fe50090d20003">setZero</a> (T *ptSrcDest, long long iLength)</td></tr>
+<tr class="separator:a6dbb3f9f480568b60f7fe50090d20003"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#a4cf9544dd96801e3ee47fd1ef2049a1b">setValue</a> (T *ptDest, T tValue, long long iLength)</td></tr>
+<tr class="separator:a4cf9544dd96801e3ee47fd1ef2049a1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a58b564301f8eb378b8f02e5bdb282a0e"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a58b564301f8eb378b8f02e5bdb282a0e"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#a58b564301f8eb378b8f02e5bdb282a0e">setRand</a> (T *pfDest, long long iLength)</td></tr>
+<tr class="separator:a58b564301f8eb378b8f02e5bdb282a0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba07261926b4c10ed7fdbe38edf6d16d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:aba07261926b4c10ed7fdbe38edf6d16d"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#aba07261926b4c10ed7fdbe38edf6d16d">setZeroBelowThresh</a> (T *ptSrcDest, long long int iLength, T tThresh)</td></tr>
+<tr class="separator:aba07261926b4c10ed7fdbe38edf6d16d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7c5cba73e439adac77778f61c9418f0"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:ad7c5cba73e439adac77778f61c9418f0"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#ad7c5cba73e439adac77778f61c9418f0">copy</a> (T *ptDest, const T *ptSrc, long long int iLength)</td></tr>
+<tr class="separator:ad7c5cba73e439adac77778f61c9418f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a16455e414da1bc89417716b46b212ab9"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a16455e414da1bc89417716b46b212ab9"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#a16455e414da1bc89417716b46b212ab9">flip_I</a> (T *ptSrcDest, long long int iLength)</td></tr>
+<tr class="separator:a16455e414da1bc89417716b46b212ab9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a49614aaa52051b98b7f266daac9eefbb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a49614aaa52051b98b7f266daac9eefbb"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00465.html#a49614aaa52051b98b7f266daac9eefbb">moveInMem</a> (T *ptSrcDest, int iDestIdx, int iSrcIdx, long long int iLength)</td></tr>
+<tr class="separator:a49614aaa52051b98b7f266daac9eefbb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class for computation of a Novelty from a block of data (e.g., time or magnitude spectrum) </p>
+<div class="textblock"><p >class with static functions for buffer operations with type T </p>
 
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00013">13</a> of file <a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a55adbc3ecfeffbeb621875bb56f3bf7f" name="a55adbc3ecfeffbeb621875bb56f3bf7f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a55adbc3ecfeffbeb621875bb56f3bf7f">&#9670;&nbsp;</a></span>CNoveltyFromBlockIf() <span class="overload">[1/3]</span></h2>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00014">14</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="abaadac98b1cad18b7b568852bc951696" name="abaadac98b1cad18b7b568852bc951696"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abaadac98b1cad18b7b568852bc951696">&#9670;&nbsp;</a></span>alloc()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CNoveltyFromBlockIf::CNoveltyFromBlockIf </td>
+          <td class="memname">static void CVector::alloc </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">T *&amp;&#160;</td>
+          <td class="paramname"><em>ptVec</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >allocates a float buffer and inits it with zeros </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptVec</td><td>(empty pointer, to be allocated) </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of floats </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00060">60</a> of file <a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00024">24</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   25</span>    {</div>
+<div class="line"><span class="lineno">   26</span>        assert(iLength &gt; 0);</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>        ptVec = <span class="keyword">new</span> T[iLength];</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>        assert(ptVec);</div>
+<div class="line"><span class="lineno">   31</span>        <a class="code hl_function" href="a00465.html#a6dbb3f9f480568b60f7fe50090d20003">setZero</a>(ptVec, iLength);</div>
+<div class="line"><span class="lineno">   32</span>    }</div>
+<div class="ttc" id="aa00465_html_a6dbb3f9f480568b60f7fe50090d20003"><div class="ttname"><a href="a00465.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a></div><div class="ttdeci">static void setZero(T *ptSrcDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00051">Vector.h:51</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00086">create()</a>.</p>
+<p class="reference">References <a class="el" href="a00134_source.html#l00051">setZero()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00128_source.html#l00022">CMatrix::alloc()</a>, <a class="el" href="a00068_source.html#l00263">CFft::allocMemory_()</a>, <a class="el" href="a00131_source.html#l00301">CButterLp::calcCoeffs()</a>, <a class="el" href="a00059_source.html#l00100">CPca::calcSVD()</a>, <a class="el" href="a00074_source.html#l00123">CBlockAudioBuffer::CBlockAudioBuffer()</a>, <a class="el" href="a00056_source.html#l00052">CChordFromBlockIf::CChordFromBlockIf()</a>, <a class="el" href="a00041_source.html#l00331">CFeatureSpectralFlux::CFeatureSpectralFlux()</a>, <a class="el" href="a00041_source.html#l00362">CFeatureSpectralMfccs::CFeatureSpectralMfccs()</a>, <a class="el" href="a00041_source.html#l00729">CFeatureTimeMaxAcf::CFeatureTimeMaxAcf()</a>, <a class="el" href="a00170_source.html#l00021">CInstFreq::CInstFreq()</a>, <a class="el" href="a00116_source.html#l00049">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00065_source.html#l00070">CNoveltyFromBlockIf::CNoveltyFromBlockIf()</a>, <a class="el" href="a00098_source.html#l00197">CChordIf::compChords()</a>, <a class="el" href="a00086_source.html#l00184">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00089_source.html#l00019">CPitchSpectralAcf::CPitchSpectralAcf()</a>, <a class="el" href="a00089_source.html#l00092">CPitchSpectralHps::CPitchSpectralHps()</a>, <a class="el" href="a00089_source.html#l00142">CPitchTimeAcf::CPitchTimeAcf()</a>, <a class="el" href="a00089_source.html#l00216">CPitchTimeAuditory::CPitchTimeAuditory()</a>, <a class="el" href="a00179_source.html#l00234">CMovingAverage::filtfilt()</a>, <a class="el" href="a00131_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00083_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00131_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00077_source.html#l00018">CViterbi::init()</a>, <a class="el" href="a00044_source.html#l00015">CKnn::init()</a>, <a class="el" href="a00092_source.html#l00020">CCcf::init()</a>, <a class="el" href="a00059_source.html#l00009">CPca::init()</a>, <a class="el" href="a00062_source.html#l00033">CDtw::init()</a>, <a class="el" href="a00098_source.html#l00395">CChordIf::init_()</a>, <a class="el" href="a00095_source.html#l00495">CGammaToneFbIf::init_()</a>, <a class="el" href="a00080_source.html#l00227">CBeatHistoIf::init_()</a>, <a class="el" href="a00050_source.html#l00347">CFeatureIf::init_()</a>, <a class="el" href="a00083_source.html#l00260">CSpectrogramIf::init_()</a>, <a class="el" href="a00086_source.html#l00319">CNoveltyIf::init_()</a>, <a class="el" href="a00071_source.html#l00298">CPitchIf::init_()</a>, <a class="el" href="a00182_source.html#l00102">CResample::process()</a>, <a class="el" href="a00128_source.html#l00295">CMatrix::rearrangeRows()</a>, <a class="el" href="a00131_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>, and <a class="el" href="a00044_source.html#l00107">CKnn::setParam()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00465_abaadac98b1cad18b7b568852bc951696_cgraph.png" border="0" usemap="#aa00465_abaadac98b1cad18b7b568852bc951696_cgraph" alt=""/></div>
+<map name="aa00465_abaadac98b1cad18b7b568852bc951696_cgraph" id="aa00465_abaadac98b1cad18b7b568852bc951696_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,108,32"/>
+<area shape="rect" href="a00465.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="156,5,275,32"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00465_a55adbc3ecfeffbeb621875bb56f3bf7f_icgraph.png" border="0" usemap="#aa00465_a55adbc3ecfeffbeb621875bb56f3bf7f_icgraph" alt=""/></div>
-<map name="aa00465_a55adbc3ecfeffbeb621875bb56f3bf7f_icgraph" id="aa00465_a55adbc3ecfeffbeb621875bb56f3bf7f_icgraph">
-<area shape="rect" title=" " alt="" coords="595,39,747,80"/>
-<area shape="rect" href="a00465.html#ad4c0e04f9ae0eaa7ccf48509125cab1a" title=" " alt="" coords="400,39,547,80"/>
-<area shape="rect" href="a00461.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="239,46,352,73"/>
-<area shape="rect" href="a00317.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00321.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="23,71,173,112"/>
+<div class="center"><img src="a00465_abaadac98b1cad18b7b568852bc951696_icgraph.png" border="0" usemap="#aa00465_abaadac98b1cad18b7b568852bc951696_icgraph" alt=""/></div>
+<map name="aa00465_abaadac98b1cad18b7b568852bc951696_icgraph" id="aa00465_abaadac98b1cad18b7b568852bc951696_icgraph">
+<area shape="rect" title=" " alt="" coords="1153,1488,1256,1514"/>
+<area shape="rect" href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="959,532,1057,558"/>
+<area shape="rect" href="a00425.html#a2e221ac492231e16a62781a573921a9c" title=" " alt="" coords="681,108,824,150"/>
+<area shape="rect" href="a00421.html#ad48a5bd574f16b7491b70efb9998935f" title="init configuration" alt="" coords="245,213,348,240"/>
+<area shape="rect" href="a00297.html#a4ffe272900bf3ba5bbab219262506455" title=" " alt="" coords="670,43,835,84"/>
+<area shape="rect" href="a00357.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="225,1159,368,1200"/>
+<area shape="rect" href="a00489.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="668,788,837,830"/>
+<area shape="rect" href="a00561.html#a650535a050fd47b41632c2fc43e19a8d" title=" " alt="" coords="707,174,798,201"/>
+<area shape="rect" href="a00557.html#a8fe90e9d8120bb265e6bc7d5f2766c30" title=" " alt="" coords="714,854,791,881"/>
+<area shape="rect" href="a00533.html#a870d00dfd933ca6b61a274743ecd7691" title=" " alt="" coords="714,905,791,932"/>
+<area shape="rect" href="a00549.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="714,956,791,982"/>
+<area shape="rect" href="a00441.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="451,788,591,814"/>
+<area shape="rect" href="a00441.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="251,1006,343,1033"/>
+<area shape="rect" href="a00545.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,1364,147,1390"/>
+<area shape="rect" href="a00437.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="941,1412,1075,1438"/>
+<area shape="rect" href="a00513.html#a4b3af2ff4c095211a3c89701a6fdb9db" title=" " alt="" coords="449,1260,592,1286"/>
+<area shape="rect" href="a00501.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="483,1361,558,1388"/>
+<area shape="rect" href="a00317.html#a541f40820696e37cc302fc780b8313ee" title=" " alt="" coords="219,1282,374,1323"/>
+<area shape="rect" href="a00345.html#ad7f64995a5d0ca75139e400172a9ab42" title=" " alt="" coords="229,1379,364,1420"/>
+<area shape="rect" href="a00353.html#acd4920798f76cfa56accd9ba28dad6ae" title=" " alt="" coords="195,1542,399,1569"/>
+<area shape="rect" href="a00429.html#ab38ca831ee8ae42a8a95e33af4f756ba" title="init configuration" alt="" coords="464,1462,577,1489"/>
+<area shape="rect" href="a00489.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="449,1513,592,1540"/>
+<area shape="rect" href="a00473.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="464,1564,577,1590"/>
+<area shape="rect" href="a00481.html#a3a966aff4a49e12324f205b20c5f2232" title="init configuration" alt="" coords="471,1614,570,1641"/>
+<area shape="rect" href="a00445.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="447,1108,595,1134"/>
+<area shape="rect" href="a00533.html#ad4ff4cdaad1b362cecb9ffd451b3a217" title=" " alt="" coords="953,2080,1063,2106"/>
+<area shape="rect" href="a00381.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="939,1818,1077,1859"/>
+<area shape="rect" href="a00293.html#a1a45f132f54b2f2f3d63f0827dc8300f" title=" " alt="" coords="931,1883,1085,1924"/>
+<area shape="rect" href="a00541.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="911,1948,1105,1990"/>
+<area shape="rect" href="a00477.html#a9bd729b91b67944f16547f85090b9eae" title=" " alt="" coords="932,2014,1084,2055"/>
+<area shape="rect" href="a00421.html#a463c7570302112f307363ec1c7260221" title=" " alt="" coords="932,1766,1084,1793"/>
+<area shape="rect" href="a00473.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="670,2273,835,2300"/>
+<area shape="rect" href="a00349.html#a5c1be3a6a8f0517c57384938dcad343d" title=" " alt="" coords="939,2182,1077,2223"/>
+<area shape="rect" href="a00521.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="931,2298,1085,2325"/>
+<area shape="rect" href="a00441.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="479,1716,562,1742"/>
+<area shape="rect" href="a00509.html#a0b3ba7948620d116d8fcee83010c56ba" title="init configuration" alt="" coords="929,2349,1087,2376"/>
+<area shape="rect" href="a00417.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="945,2400,1071,2426"/>
+<area shape="rect" href="a00449.html#af4d76caf07c14521ca35b1d6327ea8ee" title=" " alt="" coords="929,2130,1087,2157"/>
+<area shape="rect" href="a00557.html#a1db071d2566a86d12eff34d30d495374" title=" " alt="" coords="950,2501,1066,2528"/>
+<area shape="rect" href="a00297.html#a939a14f9a0c6b6a7ac974b2899b57e95" title=" " alt="" coords="673,671,832,712"/>
+<area shape="rect" href="a00377.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="643,276,863,302"/>
+<area shape="rect" href="a00301.html#a388f9c7dd2074706d723e31b421f16fa" title=" " alt="" coords="651,378,855,419"/>
+<area shape="rect" href="a00529.html#aec1d45b63855c114d480d1a0532dc3e5" title=" " alt="" coords="481,385,560,412"/>
+<area shape="rect" href="a00421.html#a2dc9b2b2e4912e45835c5727d550aee7" title=" " alt="" coords="451,213,591,240"/>
+<area shape="rect" href="a00525.html#a4f006a4fc88addf89d0e572d08e48680" title=" " alt="" coords="695,444,811,470"/>
+<area shape="rect" href="a00449.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="703,569,803,596"/>
+<area shape="rect" href="a00425.html#ac51d13fa2b36cafa4962cb3592ebfcb7" title=" " alt="" coords="449,134,592,175"/>
+<area shape="rect" href="a00437.html#adea9b0cecccfdb5a3da3218da6f683dd" title=" " alt="" coords="717,1412,788,1438"/>
+<area shape="rect" href="a00533.html#a9e44c134c68146bdc539135f3225a2d4" title=" " alt="" coords="695,2105,810,2132"/>
+<area shape="rect" href="a00029.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="727,1766,778,1793"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a9bd729b91b67944f16547f85090b9eae" name="a9bd729b91b67944f16547f85090b9eae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9bd729b91b67944f16547f85090b9eae">&#9670;&nbsp;</a></span>CNoveltyFromBlockIf() <span class="overload">[2/3]</span></h2>
+<a id="ad7c5cba73e439adac77778f61c9418f0" name="ad7c5cba73e439adac77778f61c9418f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7c5cba73e439adac77778f61c9418f0">&#9670;&nbsp;</a></span>copy()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CNoveltyFromBlockIf::CNoveltyFromBlockIf </td>
+          <td class="memname">static void CVector::copy </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a>&#160;</td>
-          <td class="paramname"><em>eNoveltyIdx</em>, </td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>ptSrc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >copies buffer of type T </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptDest</td><td>pointer to destination memory </td></tr>
+    <tr><td class="paramname">ptSrc</td><td>pointer to source memory </td></tr>
+    <tr><td class="paramname">iLength</td><td>length of buffer </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00113">113</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  114</span>    {</div>
+<div class="line"><span class="lineno">  115</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">  118</span>        {</div>
+<div class="line"><span class="lineno">  119</span>            assert(ptDest);</div>
+<div class="line"><span class="lineno">  120</span>            assert(ptSrc);</div>
+<div class="line"><span class="lineno">  121</span>            memcpy(ptDest, ptSrc, <span class="keyword">sizeof</span>(T)*iLength);</div>
+<div class="line"><span class="lineno">  122</span>        }</div>
+<div class="line"><span class="lineno">  123</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00044_source.html#l00122">CKnn::classify()</a>, <a class="el" href="a00089_source.html#l00037">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00089_source.html#l00102">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00134_source.html#l00198">CVectorFloat::copy()</a>, <a class="el" href="a00128_source.html#l00605">CMatrix::copy()</a>, <a class="el" href="a00131_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00077_source.html#l00018">CViterbi::init()</a>, <a class="el" href="a00044_source.html#l00015">CKnn::init()</a>, <a class="el" href="a00014_source.html#l00258">CAudioFileSndLib::openFile()</a>, <a class="el" href="a00128_source.html#l00295">CMatrix::rearrangeRows()</a>, and <a class="el" href="a00128_source.html#l00624">CMatrix::setRow()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00465_ad7c5cba73e439adac77778f61c9418f0_icgraph.png" border="0" usemap="#aa00465_ad7c5cba73e439adac77778f61c9418f0_icgraph" alt=""/></div>
+<map name="aa00465_ad7c5cba73e439adac77778f61c9418f0_icgraph" id="aa00465_ad7c5cba73e439adac77778f61c9418f0_icgraph">
+<area shape="rect" title=" " alt="" coords="1343,1178,1445,1205"/>
+<area shape="rect" href="a00557.html#a16bb56f19951aee5c4986a9dc7aeb853" title=" " alt="" coords="1152,504,1256,530"/>
+<area shape="rect" href="a00345.html#a250792b516c76c54251534a33c17bea8" title=" " alt="" coords="361,795,495,836"/>
+<area shape="rect" href="a00349.html#ad6b1dafb86b44b1d31bfbe22e930d146" title=" " alt="" coords="1135,962,1273,1003"/>
+<area shape="rect" href="a00469.html#a0a8056cf61fdabd88f1ef56314f27e8d" title=" " alt="" coords="1139,554,1269,581"/>
+<area shape="rect" href="a00449.html#a38351fc34e85cfa1da2b46ec84083d38" title=" " alt="" coords="1155,1178,1253,1205"/>
+<area shape="rect" href="a00561.html#a650535a050fd47b41632c2fc43e19a8d" title=" " alt="" coords="904,1356,995,1382"/>
+<area shape="rect" href="a00441.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="908,977,991,1004"/>
+<area shape="rect" href="a00557.html#a8fe90e9d8120bb265e6bc7d5f2766c30" title=" " alt="" coords="1165,1280,1243,1306"/>
+<area shape="rect" href="a00405.html#a0eed1ac1b3dd498717add1dfa56b3148" title=" " alt="" coords="1113,1330,1295,1357"/>
+<area shape="rect" href="a00449.html#af4d76caf07c14521ca35b1d6327ea8ee" title=" " alt="" coords="1125,1381,1283,1408"/>
+<area shape="rect" href="a00449.html#ae103e51983894359c155e72398ebd8f1" title=" " alt="" coords="1146,1432,1262,1458"/>
+<area shape="rect" href="a00445.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="875,918,1023,945"/>
+<area shape="rect" href="a00381.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="881,518,1018,559"/>
+<area shape="rect" href="a00417.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,561,297,588"/>
+<area shape="rect" href="a00501.html#a4d7d19dd39b24147d9a1fab5d7e05257" title=" " alt="" coords="617,678,727,705"/>
+<area shape="rect" href="a00293.html#a7708c61b60debf97d717d637677fc36f" title=" " alt="" coords="876,686,1023,727"/>
+<area shape="rect" href="a00437.html#a3cae73896785c2f12ba979e15de48087" title=" " alt="" coords="899,584,1000,610"/>
+<area shape="rect" href="a00437.html#a2d2fa880b32c7087973ed25628002129" title=" " alt="" coords="890,752,1009,778"/>
+<area shape="rect" href="a00477.html#afb2032a0a8448d57c5faec119b63bb71" title=" " alt="" coords="599,146,745,187"/>
+<area shape="rect" href="a00537.html#af7639b7368293c01c130192067fe0f4b" title=" " alt="" coords="882,853,1017,880"/>
+<area shape="rect" href="a00501.html#af98260f965391ca3adf75bd435601236" title=" " alt="" coords="625,729,719,756"/>
+<area shape="rect" href="a00489.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="833,58,1065,99"/>
+<area shape="rect" href="a00381.html#a61dc57fda85624457a10ffa2ed7cdc2f" title=" " alt="" coords="881,123,1018,164"/>
+<area shape="rect" href="a00437.html#a71a16138f6d7e92548302f692ef92b9d" title=" " alt="" coords="891,189,1008,216"/>
+<area shape="rect" href="a00437.html#afae6f37b9bd00eaf068b9edd0fd0273d" title=" " alt="" coords="877,240,1021,266"/>
+<area shape="rect" href="a00437.html#aa613a3fa5e2e0ce0889021fdaaed8a0e" title=" " alt="" coords="877,290,1022,317"/>
+<area shape="rect" href="a00513.html#ac2e104197886d92fd1e4ac6d1c0b7e75" title=" " alt="" coords="884,341,1015,368"/>
+<area shape="rect" href="a00385.html#ad34aa3e4260873a5abce7e9e8d6189ab" title=" " alt="" coords="872,416,1027,442"/>
+<area shape="rect" href="a00437.html#a8aca99dbeeab366e72833fa09c134d9a" title=" " alt="" coords="883,466,1015,493"/>
+<area shape="rect" href="a00357.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="601,911,743,952"/>
+<area shape="rect" href="a00545.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="601,977,743,1004"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,561,56,588"/>
+<area shape="rect" href="a00353.html#a7b6c2a935434281c2e17352a3487c912" title=" " alt="" coords="347,678,509,705"/>
+<area shape="rect" href="a00357.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="359,730,497,771"/>
+<area shape="rect" href="a00317.html#af20724e23d18c1126e2edf4186cc8005" title=" " alt="" coords="354,612,502,654"/>
+<area shape="rect" href="a00421.html#ab7ff18d1911b7a8792536daad8cf0dd9" title=" " alt="" coords="563,409,781,436"/>
+<area shape="rect" href="a00429.html#a7aef37fcf40e80cbace42fe663f47bbd" title=" " alt="" coords="559,460,785,486"/>
+<area shape="rect" href="a00473.html#a9018f2beabd03a9b41d90bde402aa227" title=" " alt="" coords="559,358,785,385"/>
+<area shape="rect" href="a00481.html#aa988c75557f8281271467b000a1a1d54" title=" " alt="" coords="565,561,779,588"/>
+<area shape="rect" href="a00489.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="575,612,769,654"/>
+<area shape="rect" href="a00473.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,358,511,385"/>
+<area shape="rect" href="a00541.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="575,846,769,887"/>
+<area shape="rect" href="a00377.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="583,780,761,822"/>
+<area shape="rect" href="a00533.html#ad4ff4cdaad1b362cecb9ffd451b3a217" title=" " alt="" coords="894,1305,1005,1332"/>
+<area shape="rect" href="a00525.html#a204d6be9fd9b68686fa91bf9fc4647b1" title=" " alt="" coords="880,1254,1019,1281"/>
+<area shape="rect" href="a00449.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="899,1153,999,1180"/>
+<area shape="rect" href="a00529.html#a458bb8f3cd93482bc409b8cd446a3f21" title=" " alt="" coords="887,1204,1011,1230"/>
+<area shape="rect" href="a00533.html#a9e44c134c68146bdc539135f3225a2d4" title=" " alt="" coords="615,1305,729,1332"/>
+<area shape="rect" href="a00421.html#a2dc9b2b2e4912e45835c5727d550aee7" title=" " alt="" coords="602,1356,742,1382"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a16455e414da1bc89417716b46b212ab9" name="a16455e414da1bc89417716b46b212ab9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a16455e414da1bc89417716b46b212ab9">&#9670;&nbsp;</a></span>flip_I()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::flip_I </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >reverses buffer (last to first element) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be flipped </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of elements </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00130">130</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  131</span>    {</div>
+<div class="line"><span class="lineno">  132</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  133</span> </div>
+<div class="line"><span class="lineno">  134</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">  135</span>        {</div>
+<div class="line"><span class="lineno">  136</span>            assert(ptSrcDest);</div>
+<div class="line"><span class="lineno">  137</span> </div>
+<div class="line"><span class="lineno">  138</span>            <span class="keyword">auto</span> iLoopLength = iLength / 2; <span class="comment">// integer division!</span></div>
+<div class="line"><span class="lineno">  139</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLoopLength; i++)</div>
+<div class="line"><span class="lineno">  140</span>            {</div>
+<div class="line"><span class="lineno">  141</span>                T Tmp = ptSrcDest[i];</div>
+<div class="line"><span class="lineno">  142</span>                ptSrcDest[i] = ptSrcDest[iLength - 1 - i];</div>
+<div class="line"><span class="lineno">  143</span>                ptSrcDest[iLength - 1 - i] = Tmp;</div>
+<div class="line"><span class="lineno">  144</span>            }</div>
+<div class="line"><span class="lineno">  145</span>        }</div>
+<div class="line"><span class="lineno">  146</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00080_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, and <a class="el" href="a00134_source.html#l00208">CVectorFloat::flip_I()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00465_a16455e414da1bc89417716b46b212ab9_icgraph.png" border="0" usemap="#aa00465_a16455e414da1bc89417716b46b212ab9_icgraph" alt=""/></div>
+<map name="aa00465_a16455e414da1bc89417716b46b212ab9_icgraph" id="aa00465_a16455e414da1bc89417716b46b212ab9_icgraph">
+<area shape="rect" title=" " alt="" coords="429,35,532,61"/>
+<area shape="rect" href="a00417.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="188,8,381,35"/>
+<area shape="rect" href="a00469.html#a4939c8901691ccaacf558dee2a2e3ea4" title=" " alt="" coords="219,60,350,87"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="47,5,98,32"/>
+<area shape="rect" href="a00345.html#a250792b516c76c54251534a33c17bea8" title=" " alt="" coords="5,57,140,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aa86bdb0c663d4d52f2765793756f8737" name="aa86bdb0c663d4d52f2765793756f8737"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa86bdb0c663d4d52f2765793756f8737">&#9670;&nbsp;</a></span>free()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::free </td>
+          <td>(</td>
+          <td class="paramtype">T *&amp;&#160;</td>
+          <td class="paramname"><em>ptVec</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >frees a float buffer and sets it to zero </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptVec</td><td>(empty pointer, to be allocated) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00039">39</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>    {</div>
+<div class="line"><span class="lineno">   41</span>        <span class="keyword">delete</span>[] ptVec;</div>
+<div class="line"><span class="lineno">   42</span>        ptVec = 0;</div>
+<div class="line"><span class="lineno">   43</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00131_source.html#l00301">CButterLp::calcCoeffs()</a>, <a class="el" href="a00059_source.html#l00100">CPca::calcSVD()</a>, <a class="el" href="a00116_source.html#l00049">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00098_source.html#l00197">CChordIf::compChords()</a>, <a class="el" href="a00086_source.html#l00184">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00179_source.html#l00234">CMovingAverage::filtfilt()</a>, <a class="el" href="a00131_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00128_source.html#l00040">CMatrix::free()</a>, <a class="el" href="a00068_source.html#l00276">CFft::freeMemory_()</a>, <a class="el" href="a00182_source.html#l00102">CResample::process()</a>, <a class="el" href="a00128_source.html#l00295">CMatrix::rearrangeRows()</a>, <a class="el" href="a00092_source.html#l00044">CCcf::reset()</a>, <a class="el" href="a00059_source.html#l00027">CPca::reset()</a>, <a class="el" href="a00062_source.html#l00055">CDtw::reset()</a>, <a class="el" href="a00077_source.html#l00051">CViterbi::reset()</a>, <a class="el" href="a00044_source.html#l00087">CKnn::reset()</a>, <a class="el" href="a00131_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, <a class="el" href="a00080_source.html#l00210">CBeatHistoIf::reset_()</a>, <a class="el" href="a00098_source.html#l00367">CChordIf::reset_()</a>, <a class="el" href="a00050_source.html#l00324">CFeatureIf::reset_()</a>, <a class="el" href="a00086_source.html#l00294">CNoveltyIf::reset_()</a>, <a class="el" href="a00071_source.html#l00275">CPitchIf::reset_()</a>, <a class="el" href="a00083_source.html#l00238">CSpectrogramIf::reset_()</a>, <a class="el" href="a00095_source.html#l00478">CGammaToneFbIf::reset_()</a>, <a class="el" href="a00131_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>, <a class="el" href="a00044_source.html#l00107">CKnn::setParam()</a>, <a class="el" href="a00074_source.html#l00141">CBlockAudioBuffer::~CBlockAudioBuffer()</a>, <a class="el" href="a00074_source.html#l00041">CBlockAudioFile::~CBlockAudioFile()</a>, <a class="el" href="a00056_source.html#l00062">CChordFromBlockIf::~CChordFromBlockIf()</a>, <a class="el" href="a00098_source.html#l00028">CChordFromFile::~CChordFromFile()</a>, <a class="el" href="a00050_source.html#l00019">CFeatureFromFile::~CFeatureFromFile()</a>, <a class="el" href="a00041_source.html#l00337">CFeatureSpectralFlux::~CFeatureSpectralFlux()</a>, <a class="el" href="a00041_source.html#l00373">CFeatureSpectralMfccs::~CFeatureSpectralMfccs()</a>, <a class="el" href="a00041_source.html#l00737">CFeatureTimeMaxAcf::~CFeatureTimeMaxAcf()</a>, <a class="el" href="a00170_source.html#l00042">CInstFreq::~CInstFreq()</a>, <a class="el" href="a00065_source.html#l00081">CNoveltyFromBlockIf::~CNoveltyFromBlockIf()</a>, <a class="el" href="a00086_source.html#l00020">CNoveltyFromFile::~CNoveltyFromFile()</a>, <a class="el" href="a00071_source.html#l00022">CPitchFromFile::~CPitchFromFile()</a>, <a class="el" href="a00089_source.html#l00028">CPitchSpectralAcf::~CPitchSpectralAcf()</a>, <a class="el" href="a00089_source.html#l00097">CPitchSpectralHps::~CPitchSpectralHps()</a>, <a class="el" href="a00089_source.html#l00150">CPitchTimeAcf::~CPitchTimeAcf()</a>, <a class="el" href="a00089_source.html#l00239">CPitchTimeAuditory::~CPitchTimeAuditory()</a>, and <a class="el" href="a00083_source.html#l00022">CSpectrogramFromFile::~CSpectrogramFromFile()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00465_aa86bdb0c663d4d52f2765793756f8737_icgraph.png" border="0" usemap="#aa00465_aa86bdb0c663d4d52f2765793756f8737_icgraph" alt=""/></div>
+<map name="aa00465_aa86bdb0c663d4d52f2765793756f8737_icgraph" id="aa00465_aa86bdb0c663d4d52f2765793756f8737_icgraph">
+<area shape="rect" title=" " alt="" coords="928,1151,1025,1178"/>
+<area shape="rect" href="a00445.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="695,71,843,98"/>
+<area shape="rect" href="a00545.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,122,147,149"/>
+<area shape="rect" href="a00533.html#ad4ff4cdaad1b362cecb9ffd451b3a217" title=" " alt="" coords="713,442,824,469"/>
+<area shape="rect" href="a00541.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="671,224,866,265"/>
+<area shape="rect" href="a00421.html#a463c7570302112f307363ec1c7260221" title=" " alt="" coords="693,173,845,199"/>
+<area shape="rect" href="a00473.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="440,315,605,342"/>
+<area shape="rect" href="a00521.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="692,290,845,317"/>
+<area shape="rect" href="a00441.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="245,987,337,1014"/>
+<area shape="rect" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="721,746,816,773"/>
+<area shape="rect" href="a00297.html#abc120e956529cb5d1f6bf881d151bf19" title=" " alt="" coords="205,688,377,729"/>
+<area shape="rect" href="a00533.html#aabe6211d0934456e942340242309db42" title=" " alt="" coords="478,493,567,519"/>
+<area shape="rect" href="a00549.html#a5b1d2405bd0a819817aeff8570dead68" title=" " alt="" coords="478,543,567,570"/>
+<area shape="rect" href="a00561.html#acae19af3a95069496771f05336e4f94f" title=" " alt="" coords="471,594,574,621"/>
+<area shape="rect" href="a00557.html#a75658b6df984b6a8c00049f35de655a8" title=" " alt="" coords="478,645,567,671"/>
+<area shape="rect" href="a00421.html#a333842dc3ecbbf719eee742f1a4b1845" title="reset configuration" alt="" coords="465,813,580,839"/>
+<area shape="rect" href="a00441.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="453,863,593,890"/>
+<area shape="rect" href="a00377.html#a6781748e7339d8a7f5b35be2daca6052" title=" " alt="" coords="436,915,609,956"/>
+<area shape="rect" href="a00425.html#af783b5570bc292cf87a9421aa9272a7b" title=" " alt="" coords="451,980,594,1021"/>
+<area shape="rect" href="a00357.html#aafe950d4f08df5a8d47f44cb827ce4a0" title=" " alt="" coords="447,1045,598,1087"/>
+<area shape="rect" href="a00437.html#af48c6112f4a0d28b5badd8f317f4d191" title=" " alt="" coords="705,1050,833,1077"/>
+<area shape="rect" href="a00449.html#af4d76caf07c14521ca35b1d6327ea8ee" title=" " alt="" coords="689,493,848,519"/>
+<area shape="rect" href="a00501.html#a6edce7be75bf0b89dcc4a20e491ad8d8" title=" " alt="" coords="725,1151,812,1178"/>
+<area shape="rect" href="a00441.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="475,1111,570,1138"/>
+<area shape="rect" href="a00417.html#a3c3a39ab20e4ca9f1771bbd6f70327c9" title="reset configuration" alt="" coords="699,1253,838,1279"/>
+<area shape="rect" href="a00429.html#a7b77edaf405fefd82329d8987b16d1f2" title="reset configuration" alt="" coords="706,1303,831,1330"/>
+<area shape="rect" href="a00473.html#a119fc32e085bb978525ea9596ee2e9c1" title="reset configuration" alt="" coords="706,1354,831,1381"/>
+<area shape="rect" href="a00481.html#a0841d88981bfe343f6439b7d4174a30b" title="reset configuration" alt="" coords="713,1405,824,1431"/>
+<area shape="rect" href="a00489.html#afbe3214c599eaab59c8c5a886408630c" title="reset configuration" alt="" coords="691,1455,846,1482"/>
+<area shape="rect" href="a00509.html#acdce444c00fcae3da249963ec17c1640" title="reset configuration" alt="" coords="683,1506,854,1533"/>
+<area shape="rect" href="a00557.html#a1db071d2566a86d12eff34d30d495374" title=" " alt="" coords="711,1557,827,1583"/>
+<area shape="rect" href="a00381.html#a92783fdc7fc8ac84ee0b11076852c4c8" title=" " alt="" coords="699,1608,838,1649"/>
+<area shape="rect" href="a00277.html#aaf59366cfac9de62c1336c73ec45a767" title=" " alt="" coords="657,1674,880,1701"/>
+<area shape="rect" href="a00285.html#afb353d0d979c87299f116cf68dad722d" title=" " alt="" coords="702,1725,835,1767"/>
+<area shape="rect" href="a00293.html#a3c5685b11c974c54df140122f7cbae9d" title=" " alt="" coords="689,1791,849,1832"/>
+<area shape="rect" href="a00317.html#a48c4e7762ac0c1bbbb91a50ccc2a4ffc" title=" " alt="" coords="688,1856,849,1897"/>
+<area shape="rect" href="a00513.html#a1798e1ab9b7e57efba2582bd35fb9537" title=" " alt="" coords="694,1922,843,1949"/>
+<area shape="rect" href="a00477.html#a0a3ab1625c7603b3e922573dc2354bf9" title=" " alt="" coords="689,1973,848,2015"/>
+<area shape="rect" href="a00329.html#a5d9abf4513901cb6dfdb32a61bbb2880" title=" " alt="" coords="702,2039,835,2080"/>
+<area shape="rect" href="a00337.html#a6c446615ac9fff3378654e33cb66430b" title=" " alt="" coords="661,2105,876,2131"/>
+<area shape="rect" href="a00345.html#a451d66b67603a9d130f162720e361626" title=" " alt="" coords="701,2156,837,2197"/>
+<area shape="rect" href="a00349.html#a412ed764fc1354045d2e8e9fa5cf20fc" title=" " alt="" coords="699,2221,839,2263"/>
+<area shape="rect" href="a00353.html#a0c7cdf1cb79c1e8395db89ba56d79cbc" title=" " alt="" coords="663,2287,874,2314"/>
+<area shape="rect" href="a00369.html#adad2283c6914dad1fadb8f6757215a6d" title=" " alt="" coords="684,2339,853,2380"/>
+<area shape="rect" href="a00357.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="451,5,594,47"/>
+<area shape="rect" href="a00533.html#a9e44c134c68146bdc539135f3225a2d4" title=" " alt="" coords="465,442,580,469"/>
+<area shape="rect" href="a00029.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="497,173,548,199"/>
+<area shape="rect" href="a00417.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="195,290,388,317"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="266,341,317,367"/>
+<area shape="rect" href="a00297.html#a9ad8bb5ff88bbbfe48231eab00e5e1d4" title=" " alt="" coords="443,747,602,788"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a49614aaa52051b98b7f266daac9eefbb" name="a49614aaa52051b98b7f266daac9eefbb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a49614aaa52051b98b7f266daac9eefbb">&#9670;&nbsp;</a></span>moveInMem()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::moveInMem </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
+          <td class="paramname"><em>iDestIdx</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iSrcIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -202,790 +573,407 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00070">70</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   70</span>                                                                                                            :</div>
-<div class="line"><span class="lineno">   71</span>    <a class="code hl_variable" href="a00465.html#acd6ab16d268e644c7e141761feede22f">m_eNoveltyIdx</a>(eNoveltyIdx),</div>
-<div class="line"><span class="lineno">   72</span>    <a class="code hl_variable" href="a00465.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>(iDataLength),</div>
-<div class="line"><span class="lineno">   73</span>    <a class="code hl_variable" href="a00465.html#a1edfefa2d3fbd4b3d85eab24ec8d0abf">m_fSampleRate</a>(fSampleRate)</div>
-<div class="line"><span class="lineno">   74</span>{</div>
-<div class="line"><span class="lineno">   75</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   76</span>    assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <a class="code hl_function" href="a00453.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00465.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00465.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>);</div>
-<div class="line"><span class="lineno">   79</span>}</div>
-<div class="ttc" id="aa00453_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00453.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.html#l00024">Vector.h:24</a></div></div>
-<div class="ttc" id="aa00465_html_a1edfefa2d3fbd4b3d85eab24ec8d0abf"><div class="ttname"><a href="a00465.html#a1edfefa2d3fbd4b3d85eab24ec8d0abf">CNoveltyFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.html#l00071">NoveltyFromBlock.h:71</a></div></div>
-<div class="ttc" id="aa00465_html_a70cf68afc431f61abec9a8e95e49a14f"><div class="ttname"><a href="a00465.html#a70cf68afc431f61abec9a8e95e49a14f">CNoveltyFromBlockIf::m_pfPrevSpec</a></div><div class="ttdeci">float * m_pfPrevSpec</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.html#l00073">NoveltyFromBlock.h:73</a></div></div>
-<div class="ttc" id="aa00465_html_acd6ab16d268e644c7e141761feede22f"><div class="ttname"><a href="a00465.html#acd6ab16d268e644c7e141761feede22f">CNoveltyFromBlockIf::m_eNoveltyIdx</a></div><div class="ttdeci">CNoveltyIf::Novelty_t m_eNoveltyIdx</div><div class="ttdoc">index of Novelty to extract</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.html#l00067">NoveltyFromBlock.h:67</a></div></div>
-<div class="ttc" id="aa00465_html_ad66c8512f67023f27e1eeac3d1c8e5d8"><div class="ttname"><a href="a00465.html#ad66c8512f67023f27e1eeac3d1c8e5d8">CNoveltyFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.html#l00069">NoveltyFromBlock.h:69</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00125_source.html#l00024">CVector::alloc()</a>, <a class="el" href="a00179_source.html#l00069">m_iDataLength</a>, and <a class="el" href="a00179_source.html#l00073">m_pfPrevSpec</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00465_a9bd729b91b67944f16547f85090b9eae_cgraph.png" border="0" usemap="#aa00465_a9bd729b91b67944f16547f85090b9eae_cgraph" alt=""/></div>
-<map name="aa00465_a9bd729b91b67944f16547f85090b9eae_cgraph" id="aa00465_a9bd729b91b67944f16547f85090b9eae_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,157,47"/>
-<area shape="rect" href="a00453.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="205,13,308,39"/>
-<area shape="rect" href="a00453.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="356,13,475,39"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a0a3ab1625c7603b3e922573dc2354bf9" name="a0a3ab1625c7603b3e922573dc2354bf9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0a3ab1625c7603b3e922573dc2354bf9">&#9670;&nbsp;</a></span>~CNoveltyFromBlockIf()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CNoveltyFromBlockIf::~CNoveltyFromBlockIf </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00081">81</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   82</span>{</div>
-<div class="line"><span class="lineno">   83</span>    <a class="code hl_function" href="a00453.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00465.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>);</div>
-<div class="line"><span class="lineno">   84</span>}</div>
-<div class="ttc" id="aa00453_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00453.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.html#l00039">Vector.h:39</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00125_source.html#l00039">CVector::free()</a>, and <a class="el" href="a00179_source.html#l00073">m_pfPrevSpec</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00465_a0a3ab1625c7603b3e922573dc2354bf9_cgraph.png" border="0" usemap="#aa00465_a0a3ab1625c7603b3e922573dc2354bf9_cgraph" alt=""/></div>
-<map name="aa00465_a0a3ab1625c7603b3e922573dc2354bf9_cgraph" id="aa00465_a0a3ab1625c7603b3e922573dc2354bf9_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,164,47"/>
-<area shape="rect" href="a00453.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="212,13,309,39"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a309c0dba3870cb5bea82f7b08f4432f2" name="a309c0dba3870cb5bea82f7b08f4432f2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a309c0dba3870cb5bea82f7b08f4432f2">&#9670;&nbsp;</a></span>CNoveltyFromBlockIf() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CNoveltyFromBlockIf::CNoveltyFromBlockIf </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00465.html">CNoveltyFromBlockIf</a> &amp;&#160;</td>
-          <td class="paramname"><em>that</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="afb2032a0a8448d57c5faec119b63bb71" name="afb2032a0a8448d57c5faec119b63bb71"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb2032a0a8448d57c5faec119b63bb71">&#9670;&nbsp;</a></span>compNovelty()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNoveltyFromBlockIf::compNovelty </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfNovelty</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfInput</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >performs the NoveltyFromBlock computation </p><dl class="params"><dt>Parameters</dt><dd>
+<p >moves a subset of the current buffer </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pfNovelty</td><td>Novelty result (user-allocated, to be written, length from <a class="el" href="a00465.html#a2755f4e823abb1178868ac3f5219078d">CNoveltyFromBlockIf::getNoveltyDimension</a>) </td></tr>
-    <tr><td class="paramname">pfInput</td><td>input data of length iDataLength </td></tr>
+    <tr><td class="paramname">ptSrcDest</td><td>source and destination </td></tr>
+    <tr><td class="paramname">iDestIdx</td><td>destination index </td></tr>
+    <tr><td class="paramname">iSrcIdx</td><td>source index </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of elements to be moved </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00111">111</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  112</span>{</div>
-<div class="line"><span class="lineno">  113</span>    *pfNovelty = <a class="code hl_variable" href="a00465.html#a7684ddb179de94eeae1f53469d903e22">m_DispatchMap</a>.at(<a class="code hl_variable" href="a00465.html#acd6ab16d268e644c7e141761feede22f">m_eNoveltyIdx</a>)(pfInput, <a class="code hl_variable" href="a00465.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, <a class="code hl_variable" href="a00465.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>, <a class="code hl_variable" href="a00465.html#a1edfefa2d3fbd4b3d85eab24ec8d0abf">m_fSampleRate</a>);</div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>    <a class="code hl_function" href="a00457.html#a0a8056cf61fdabd88f1ef56314f27e8d">CVectorFloat::copy</a>(<a class="code hl_variable" href="a00465.html#a70cf68afc431f61abec9a8e95e49a14f">m_pfPrevSpec</a>, pfInput, <a class="code hl_variable" href="a00465.html#ad66c8512f67023f27e1eeac3d1c8e5d8">m_iDataLength</a>);</div>
-<div class="line"><span class="lineno">  116</span> </div>
-<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  118</span>}</div>
-<div class="ttc" id="aa00101_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
-<div class="ttc" id="aa00457_html_a0a8056cf61fdabd88f1ef56314f27e8d"><div class="ttname"><a href="a00457.html#a0a8056cf61fdabd88f1ef56314f27e8d">CVectorFloat::copy</a></div><div class="ttdeci">static void copy(float *pfDest, const float *pfSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.html#l00198">Vector.h:198</a></div></div>
-<div class="ttc" id="aa00465_html_a7684ddb179de94eeae1f53469d903e22"><div class="ttname"><a href="a00465.html#a7684ddb179de94eeae1f53469d903e22">CNoveltyFromBlockIf::m_DispatchMap</a></div><div class="ttdeci">const std::map&lt; CNoveltyIf::Novelty_t, std::function&lt; float(const float *, const float *, int, float)&gt; &gt; m_DispatchMap</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.html#l00076">NoveltyFromBlock.h:77</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00155">155</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  156</span>    {</div>
+<div class="line"><span class="lineno">  157</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  158</span>        assert (ptSrcDest);</div>
+<div class="line"><span class="lineno">  159</span> </div>
+<div class="line"><span class="lineno">  160</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">  161</span>            memmove (&amp;ptSrcDest[iDestIdx], &amp;ptSrcDest[iSrcIdx], <span class="keyword">sizeof</span>(T)*iLength);</div>
+<div class="line"><span class="lineno">  162</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00125_source.html#l00198">CVectorFloat::copy()</a>, <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00179_source.html#l00077">m_DispatchMap</a>, <a class="el" href="a00179_source.html#l00067">m_eNoveltyIdx</a>, <a class="el" href="a00179_source.html#l00071">m_fSampleRate</a>, <a class="el" href="a00179_source.html#l00069">m_iDataLength</a>, and <a class="el" href="a00179_source.html#l00073">m_pfPrevSpec</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00220">CVectorFloat::moveInMem()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00465_a49614aaa52051b98b7f266daac9eefbb_icgraph.png" border="0" usemap="#aa00465_a49614aaa52051b98b7f266daac9eefbb_icgraph" alt=""/></div>
+<map name="aa00465_a49614aaa52051b98b7f266daac9eefbb_icgraph" id="aa00465_a49614aaa52051b98b7f266daac9eefbb_icgraph">
+<area shape="rect" title=" " alt="" coords="229,5,376,32"/>
+<area shape="rect" href="a00469.html#aa61715dbd068db45281c419aa004b309" title=" " alt="" coords="5,5,181,32"/>
+</map>
+</div>
 
-<p class="reference">Referenced by <a class="el" href="a00080_source.html#l00184">CNoveltyIf::compNovelty()</a>.</p>
+</div>
+</div>
+<a id="a58b564301f8eb378b8f02e5bdb282a0e" name="a58b564301f8eb378b8f02e5bdb282a0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58b564301f8eb378b8f02e5bdb282a0e">&#9670;&nbsp;</a></span>setRand()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::setRand </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pfDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >initializes the buffer with random noise </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfDest</td><td>pointer to memory to be initialized </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of elements to be set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00082">82</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>    {</div>
+<div class="line"><span class="lineno">   84</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">   85</span>        assert(pfDest);</div>
+<div class="line"><span class="lineno">   86</span> </div>
+<div class="line"><span class="lineno">   87</span>        <a class="code hl_function" href="a00457.html#a67eaa8b4b86a5c507f1fe0f1b9c92ce6">CSynthesis::genNoise</a>(pfDest, iLength);</div>
+<div class="line"><span class="lineno">   88</span>    }</div>
+<div class="ttc" id="aa00457_html_a67eaa8b4b86a5c507f1fe0f1b9c92ce6"><div class="ttname"><a href="a00457.html#a67eaa8b4b86a5c507f1fe0f1b9c92ce6">CSynthesis::genNoise</a></div><div class="ttdeci">static Error_t genNoise(T *pfOutBuf, long long iLength, T fAmplitude=1.)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00121">Synthesis.h:121</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00137_source.html#l00121">CSynthesis::genNoise()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00245">CVectorFloat::setRand()</a>, and <a class="el" href="a00128_source.html#l00096">CMatrix::setRand()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00465_afb2032a0a8448d57c5faec119b63bb71_cgraph.png" border="0" usemap="#aa00465_afb2032a0a8448d57c5faec119b63bb71_cgraph" alt=""/></div>
-<map name="aa00465_afb2032a0a8448d57c5faec119b63bb71_cgraph" id="aa00465_afb2032a0a8448d57c5faec119b63bb71_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,152,47"/>
-<area shape="rect" href="a00457.html#a0a8056cf61fdabd88f1ef56314f27e8d" title=" " alt="" coords="200,13,331,39"/>
-<area shape="rect" href="a00453.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="379,13,481,39"/>
+<div class="center"><img src="a00465_a58b564301f8eb378b8f02e5bdb282a0e_cgraph.png" border="0" usemap="#aa00465_a58b564301f8eb378b8f02e5bdb282a0e_cgraph" alt=""/></div>
+<map name="aa00465_a58b564301f8eb378b8f02e5bdb282a0e_cgraph" id="aa00465_a58b564301f8eb378b8f02e5bdb282a0e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,128,32"/>
+<area shape="rect" href="a00457.html#a67eaa8b4b86a5c507f1fe0f1b9c92ce6" title=" " alt="" coords="176,5,325,32"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00465_afb2032a0a8448d57c5faec119b63bb71_icgraph.png" border="0" usemap="#aa00465_afb2032a0a8448d57c5faec119b63bb71_icgraph" alt=""/></div>
-<map name="aa00465_afb2032a0a8448d57c5faec119b63bb71_icgraph" id="aa00465_afb2032a0a8448d57c5faec119b63bb71_icgraph">
-<area shape="rect" title=" " alt="" coords="559,23,705,65"/>
-<area shape="rect" href="a00461.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00405.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
+<div class="center"><img src="a00465_a58b564301f8eb378b8f02e5bdb282a0e_icgraph.png" border="0" usemap="#aa00465_a58b564301f8eb378b8f02e5bdb282a0e_icgraph" alt=""/></div>
+<map name="aa00465_a58b564301f8eb378b8f02e5bdb282a0e_icgraph" id="aa00465_a58b564301f8eb378b8f02e5bdb282a0e_icgraph">
+<area shape="rect" title=" " alt="" coords="496,31,619,57"/>
+<area shape="rect" href="a00469.html#ad5d75665945f4d02ce4f4d5cd35ab822" title=" " alt="" coords="296,5,448,32"/>
+<area shape="rect" href="a00449.html#aab4b96d92f9b9482e217d7740a559f88" title=" " alt="" coords="312,56,432,83"/>
+<area shape="rect" href="a00525.html#a4f006a4fc88addf89d0e572d08e48680" title=" " alt="" coords="132,56,248,83"/>
+<area shape="rect" href="a00529.html#aec1d45b63855c114d480d1a0532dc3e5" title=" " alt="" coords="5,56,84,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a4cf9544dd96801e3ee47fd1ef2049a1b" name="a4cf9544dd96801e3ee47fd1ef2049a1b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4cf9544dd96801e3ee47fd1ef2049a1b">&#9670;&nbsp;</a></span>setValue()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::setValue </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>tValue</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >initializes the buffer to a specific value </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptDest</td><td>pointer to memory to be set </td></tr>
+    <tr><td class="paramname">tValue</td><td>value to use </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of elements to be set </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00067">67</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   68</span>    {</div>
+<div class="line"><span class="lineno">   69</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">   70</span>        assert(ptDest);</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">   73</span>            ptDest[i] = tValue;</div>
+<div class="line"><span class="lineno">   74</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00044_source.html#l00156">CKnn::buildHistogram_()</a>, <a class="el" href="a00086_source.html#l00184">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00134_source.html#l00643">CVectorFloat::findPeaks()</a>, <a class="el" href="a00044_source.html#l00015">CKnn::init()</a>, and <a class="el" href="a00128_source.html#l00078">CMatrix::setValue()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00465_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph.png" border="0" usemap="#aa00465_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph" alt=""/></div>
+<map name="aa00465_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph" id="aa00465_a4cf9544dd96801e3ee47fd1ef2049a1b_icgraph">
+<area shape="rect" title=" " alt="" coords="768,107,895,133"/>
+<area shape="rect" href="a00557.html#a875c603ba28294ac2575eb6e06407018" title=" " alt="" coords="562,5,717,32"/>
+<area shape="rect" href="a00473.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,81,511,108"/>
+<area shape="rect" href="a00469.html#acad30e028ad5639629a36820d6bb064b" title=" " alt="" coords="559,107,720,133"/>
+<area shape="rect" href="a00557.html#a8fe90e9d8120bb265e6bc7d5f2766c30" title=" " alt="" coords="601,157,678,184"/>
+<area shape="rect" href="a00449.html#a0ae383e7642531506618691fffe25755" title=" " alt="" coords="578,208,701,235"/>
+<area shape="rect" href="a00557.html#a16bb56f19951aee5c4986a9dc7aeb853" title=" " alt="" coords="376,5,480,32"/>
+<area shape="rect" href="a00417.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,56,297,83"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,107,226,133"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,56,56,83"/>
+<area shape="rect" href="a00529.html#aec1d45b63855c114d480d1a0532dc3e5" title=" " alt="" coords="389,208,467,235"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a6dbb3f9f480568b60f7fe50090d20003" name="a6dbb3f9f480568b60f7fe50090d20003"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6dbb3f9f480568b60f7fe50090d20003">&#9670;&nbsp;</a></span>setZero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::setZero </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >sets a buffer to zero </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be modified </td></tr>
+    <tr><td class="paramname">iLength</td><td>buffer length </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00051">51</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>    {</div>
+<div class="line"><span class="lineno">   53</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">   54</span>        assert (ptSrcDest);</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">   57</span>            memset (ptSrcDest, 0, <span class="keyword">sizeof</span>(T)*iLength);</div>
+<div class="line"><span class="lineno">   58</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00024">alloc()</a>, <a class="el" href="a00062_source.html#l00015">CDtw::CDtw()</a>, <a class="el" href="a00131_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00044_source.html#l00015">CKnn::init()</a>, <a class="el" href="a00053_source.html#l00207">CNmfResult::reset()</a>, <a class="el" href="a00131_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, <a class="el" href="a00134_source.html#l00176">CVectorFloat::setZero()</a>, and <a class="el" href="a00128_source.html#l00059">CMatrix::setZero()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00465_a6dbb3f9f480568b60f7fe50090d20003_icgraph.png" border="0" usemap="#aa00465_a6dbb3f9f480568b60f7fe50090d20003_icgraph" alt=""/></div>
+<map name="aa00465_a6dbb3f9f480568b60f7fe50090d20003_icgraph" id="aa00465_a6dbb3f9f480568b60f7fe50090d20003_icgraph">
+<area shape="rect" title=" " alt="" coords="1127,1496,1245,1523"/>
+<area shape="rect" href="a00465.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="953,1252,1056,1279"/>
+<area shape="rect" href="a00557.html#a8fe90e9d8120bb265e6bc7d5f2766c30" title=" " alt="" coords="499,2175,577,2201"/>
+<area shape="rect" href="a00441.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="744,157,827,184"/>
+<area shape="rect" href="a00549.html#a9c81702f9537b30c7617ac9042efc950" title=" " alt="" coords="959,2327,1051,2353"/>
+<area shape="rect" href="a00525.html#a6f17d7b8bfbf182632345f9742e2b579" title=" " alt="" coords="941,2377,1069,2404"/>
+<area shape="rect" href="a00441.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="957,107,1052,133"/>
+<area shape="rect" href="a00469.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="931,332,1079,359"/>
+<area shape="rect" href="a00449.html#a5c64eb95776c6a1f65e2089835a778e0" title=" " alt="" coords="947,1983,1063,2009"/>
+<area shape="rect" href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="736,1404,835,1431"/>
+<area shape="rect" href="a00425.html#a2e221ac492231e16a62781a573921a9c" title=" " alt="" coords="467,1689,609,1730"/>
+<area shape="rect" href="a00297.html#a4ffe272900bf3ba5bbab219262506455" title=" " alt="" coords="455,1761,621,1802"/>
+<area shape="rect" href="a00357.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="467,662,609,703"/>
+<area shape="rect" href="a00489.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="453,1255,623,1297"/>
+<area shape="rect" href="a00561.html#a650535a050fd47b41632c2fc43e19a8d" title=" " alt="" coords="493,1325,583,1352"/>
+<area shape="rect" href="a00533.html#a870d00dfd933ca6b61a274743ecd7691" title=" " alt="" coords="499,1384,577,1411"/>
+<area shape="rect" href="a00549.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="499,1452,577,1479"/>
+<area shape="rect" href="a00421.html#ad48a5bd574f16b7491b70efb9998935f" title="init configuration" alt="" coords="487,1548,589,1575"/>
+<area shape="rect" href="a00441.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="468,728,608,755"/>
+<area shape="rect" href="a00441.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="245,492,337,519"/>
+<area shape="rect" href="a00545.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,467,147,493"/>
+<area shape="rect" href="a00437.html#adf2bc81be5029515f69907765ecc2476" title=" " alt="" coords="719,1505,852,1532"/>
+<area shape="rect" href="a00445.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="711,441,859,468"/>
+<area shape="rect" href="a00533.html#ad4ff4cdaad1b362cecb9ffd451b3a217" title=" " alt="" coords="730,2225,841,2252"/>
+<area shape="rect" href="a00381.html#ab670104b0f9ebde805e9219ae21cc6a9" title=" " alt="" coords="717,1557,854,1598"/>
+<area shape="rect" href="a00293.html#a1a45f132f54b2f2f3d63f0827dc8300f" title=" " alt="" coords="709,325,862,366"/>
+<area shape="rect" href="a00317.html#a541f40820696e37cc302fc780b8313ee" title=" " alt="" coords="461,1070,615,1111"/>
+<area shape="rect" href="a00513.html#a4b3af2ff4c095211a3c89701a6fdb9db" title=" " alt="" coords="714,1623,857,1649"/>
+<area shape="rect" href="a00541.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e" title=" " alt="" coords="688,1826,883,1867"/>
+<area shape="rect" href="a00477.html#a9bd729b91b67944f16547f85090b9eae" title=" " alt="" coords="709,1891,861,1933"/>
+<area shape="rect" href="a00421.html#a463c7570302112f307363ec1c7260221" title=" " alt="" coords="462,328,614,355"/>
+<area shape="rect" href="a00473.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="455,872,621,899"/>
+<area shape="rect" href="a00345.html#ad7f64995a5d0ca75139e400172a9ab42" title=" " alt="" coords="471,1135,605,1177"/>
+<area shape="rect" href="a00349.html#a5c1be3a6a8f0517c57384938dcad343d" title=" " alt="" coords="716,1957,855,1998"/>
+<area shape="rect" href="a00353.html#acd4920798f76cfa56accd9ba28dad6ae" title=" " alt="" coords="436,968,640,995"/>
+<area shape="rect" href="a00521.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="709,847,862,873"/>
+<area shape="rect" href="a00501.html#af683b1b5e37ca2039424af02f4bfb3c5" title=" " alt="" coords="748,1049,823,1076"/>
+<area shape="rect" href="a00509.html#a0b3ba7948620d116d8fcee83010c56ba" title="init configuration" alt="" coords="706,2023,865,2049"/>
+<area shape="rect" href="a00417.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="722,2073,849,2100"/>
+<area shape="rect" href="a00429.html#ab38ca831ee8ae42a8a95e33af4f756ba" title="init configuration" alt="" coords="729,2124,842,2151"/>
+<area shape="rect" href="a00489.html#a9c4b2db2031256e48ade8c9fa235b6f2" title="init configuration" alt="" coords="714,593,857,620"/>
+<area shape="rect" href="a00473.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="729,644,842,671"/>
+<area shape="rect" href="a00481.html#a3a966aff4a49e12324f205b20c5f2232" title="init configuration" alt="" coords="736,695,835,721"/>
+<area shape="rect" href="a00449.html#af4d76caf07c14521ca35b1d6327ea8ee" title=" " alt="" coords="706,745,865,772"/>
+<area shape="rect" href="a00557.html#a1db071d2566a86d12eff34d30d495374" title=" " alt="" coords="727,948,843,975"/>
+<area shape="rect" href="a00417.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="195,872,388,899"/>
+<area shape="rect" href="a00525.html#af947c33214ea5a51331b07a59b2428ae" title=" " alt="" coords="697,2377,874,2404"/>
+<area shape="rect" href="a00385.html#ac8a53e2ced024bccde0f5941404068d0" title=" " alt="" coords="717,56,854,83"/>
+<area shape="rect" href="a00441.html#a98c26369ca6c2941cba4874e6bfef3a7" title=" " alt="" coords="730,5,841,32"/>
+<area shape="rect" href="a00425.html#a3996cacb83a90e37284ca5abd2608c17" title=" " alt="" coords="714,259,857,301"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aba07261926b4c10ed7fdbe38edf6d16d" name="aba07261926b4c10ed7fdbe38edf6d16d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba07261926b4c10ed7fdbe38edf6d16d">&#9670;&nbsp;</a></span>setZeroBelowThresh()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::setZeroBelowThresh </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>tThresh</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >sets all values smaller than a threshold to 0 </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptSrcDest</td><td>pointer to memory to be modified </td></tr>
+    <tr><td class="paramname">iLength</td><td>buffer length </td></tr>
+    <tr><td class="paramname">tThresh</td><td>threshold value </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00097">97</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>    {</div>
+<div class="line"><span class="lineno">   99</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  100</span>        assert (ptSrcDest);</div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">  103</span>            <span class="keywordflow">if</span> (ptSrcDest[i] &lt; tThresh)</div>
+<div class="line"><span class="lineno">  104</span>                ptSrcDest[i] = 0;</div>
+<div class="line"><span class="lineno">  105</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00187">CVectorFloat::setZeroBelowThresh()</a>, and <a class="el" href="a00128_source.html#l00134">CMatrix::setZeroBelowThresh()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00465_aba07261926b4c10ed7fdbe38edf6d16d_icgraph.png" border="0" usemap="#aa00465_aba07261926b4c10ed7fdbe38edf6d16d_icgraph" alt=""/></div>
+<map name="aa00465_aba07261926b4c10ed7fdbe38edf6d16d_icgraph" id="aa00465_aba07261926b4c10ed7fdbe38edf6d16d_icgraph">
+<area shape="rect" title=" " alt="" coords="799,81,993,108"/>
+<area shape="rect" href="a00469.html#a0778309dd31c594ef11e7f811449228b" title=" " alt="" coords="563,45,747,86"/>
+<area shape="rect" href="a00449.html#a2d4f47826ff87a03fd220d61f326ac5b" title=" " alt="" coords="559,111,751,137"/>
+<area shape="rect" href="a00473.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,52,511,79"/>
+<area shape="rect" href="a00417.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
 <area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
 <area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+<area shape="rect" href="a00529.html#a458bb8f3cd93482bc409b8cd446a3f21" title=" " alt="" coords="366,111,490,137"/>
+<area shape="rect" href="a00529.html#a298f5a0187b09abaec14570da9239187" title=" " alt="" coords="141,111,260,137"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="af7c60e9d5cc52b4c2f65ee62fe9ee604" name="af7c60e9d5cc52b4c2f65ee62fe9ee604"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7c60e9d5cc52b4c2f65ee62fe9ee604">&#9670;&nbsp;</a></span>compNoveltyFlux()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CNoveltyFromBlockIf::compNoveltyFlux </td>
-          <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfMagSpec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfPrevSpec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>1.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00012">12</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
-<div class="line"><span class="lineno">   14</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">   15</span>    assert(pfPrevSpec);</div>
-<div class="line"><span class="lineno">   16</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>    <span class="keywordtype">float</span> fSum = 0;</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">   20</span>    {</div>
-<div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>        <span class="keywordtype">float</span> fDiff = pfMagSpec[k] - pfPrevSpec[k];</div>
-<div class="line"><span class="lineno">   23</span>        fSum += (fDiff &gt; 0) ? fDiff * fDiff : 0.F;</div>
-<div class="line"><span class="lineno">   24</span>    }</div>
-<div class="line"><span class="lineno">   25</span> </div>
-<div class="line"><span class="lineno">   26</span>    <span class="keywordflow">return</span> std::sqrt(fSum) / iDataLength;</div>
-<div class="line"><span class="lineno">   27</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a21778c061afe83ab8e390d8c49b8baf3" name="a21778c061afe83ab8e390d8c49b8baf3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21778c061afe83ab8e390d8c49b8baf3">&#9670;&nbsp;</a></span>compNoveltyHainsworth()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CNoveltyFromBlockIf::compNoveltyHainsworth </td>
-          <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfMagSpec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfPrevSpec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>1.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00029">29</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   30</span>{</div>
-<div class="line"><span class="lineno">   31</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">   32</span>    assert(pfPrevSpec);</div>
-<div class="line"><span class="lineno">   33</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> fEpsilon = 1e-5F;</div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordtype">float</span> fSum = 0;</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">   39</span>    {</div>
-<div class="line"><span class="lineno">   40</span>        <span class="keywordtype">float</span> fMag = (pfMagSpec[k] &gt; 0) ? pfMagSpec[k] : fEpsilon;</div>
-<div class="line"><span class="lineno">   41</span>        <span class="keywordtype">float</span> fPrev = (pfPrevSpec[k] &gt; 0) ? pfPrevSpec[k] : fEpsilon;</div>
-<div class="line"><span class="lineno">   42</span>        fSum += std::log2(fMag / fPrev);</div>
-<div class="line"><span class="lineno">   43</span>    }</div>
-<div class="line"><span class="lineno">   44</span> </div>
-<div class="line"><span class="lineno">   45</span>    <span class="keywordflow">return</span> fSum / iDataLength;</div>
-<div class="line"><span class="lineno">   46</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ad2367a408255e2c7867e79743b6d82cd" name="ad2367a408255e2c7867e79743b6d82cd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2367a408255e2c7867e79743b6d82cd">&#9670;&nbsp;</a></span>compNoveltyLaroche()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CNoveltyFromBlockIf::compNoveltyLaroche </td>
-          <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfMagSpec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfPrevSpec</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>1.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00048">48</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   49</span>{</div>
-<div class="line"><span class="lineno">   50</span>    assert(pfMagSpec);</div>
-<div class="line"><span class="lineno">   51</span>    assert(pfPrevSpec);</div>
-<div class="line"><span class="lineno">   52</span>    assert(iDataLength &gt; 0);</div>
-<div class="line"><span class="lineno">   53</span> </div>
-<div class="line"><span class="lineno">   54</span>    <span class="keywordtype">float</span> fSum = 0;</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iDataLength; k++)</div>
-<div class="line"><span class="lineno">   57</span>    {</div>
-<div class="line"><span class="lineno">   58</span> </div>
-<div class="line"><span class="lineno">   59</span>        <span class="keywordtype">float</span> fDiff = std::sqrt(pfMagSpec[k]) - std::sqrt(pfPrevSpec[k]);</div>
-<div class="line"><span class="lineno">   60</span>        fSum += (fDiff &gt; 0) ? fDiff : 0.F;</div>
-<div class="line"><span class="lineno">   61</span>    }</div>
-<div class="line"><span class="lineno">   62</span> </div>
-<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">return</span> fSum / iDataLength;</div>
-<div class="line"><span class="lineno">   64</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ad4c0e04f9ae0eaa7ccf48509125cab1a" name="ad4c0e04f9ae0eaa7ccf48509125cab1a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4c0e04f9ae0eaa7ccf48509125cab1a">&#9670;&nbsp;</a></span>create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNoveltyFromBlockIf::create </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00465.html">CNoveltyFromBlockIf</a> *&amp;&#160;</td>
-          <td class="paramname"><em>pCInstance</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a>&#160;</td>
-          <td class="paramname"><em>eNoveltyIdx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>1.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >initializes a NoveltyFromBlock instance </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
-    <tr><td class="paramname">eNoveltyIdx</td><td>index of Novelty to extract </td></tr>
-    <tr><td class="paramname">iDataLength</td><td>block length </td></tr>
-    <tr><td class="paramname">fSampleRate</td><td>sample rate (only used when needed) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00086">86</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   87</span>{</div>
-<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
-<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">   90</span> </div>
-<div class="line"><span class="lineno">   91</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00465.html#a55adbc3ecfeffbeb621875bb56f3bf7f">CNoveltyFromBlockIf</a>(eNoveltyIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">   92</span> </div>
-<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   94</span>}</div>
-<div class="ttc" id="aa00101_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00465_html_a55adbc3ecfeffbeb621875bb56f3bf7f"><div class="ttname"><a href="a00465.html#a55adbc3ecfeffbeb621875bb56f3bf7f">CNoveltyFromBlockIf::CNoveltyFromBlockIf</a></div><div class="ttdeci">CNoveltyFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.html#l00060">NoveltyFromBlock.h:60</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00179_source.html#l00060">CNoveltyFromBlockIf()</a>, <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00080_source.html#l00319">CNoveltyIf::init_()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00465_ad4c0e04f9ae0eaa7ccf48509125cab1a_cgraph.png" border="0" usemap="#aa00465_ad4c0e04f9ae0eaa7ccf48509125cab1a_cgraph" alt=""/></div>
-<map name="aa00465_ad4c0e04f9ae0eaa7ccf48509125cab1a_cgraph" id="aa00465_ad4c0e04f9ae0eaa7ccf48509125cab1a_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,152,47"/>
-<area shape="rect" href="a00465.html#a55adbc3ecfeffbeb621875bb56f3bf7f" title=" " alt="" coords="200,5,352,47"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00465_ad4c0e04f9ae0eaa7ccf48509125cab1a_icgraph.png" border="0" usemap="#aa00465_ad4c0e04f9ae0eaa7ccf48509125cab1a_icgraph" alt=""/></div>
-<map name="aa00465_ad4c0e04f9ae0eaa7ccf48509125cab1a_icgraph" id="aa00465_ad4c0e04f9ae0eaa7ccf48509125cab1a_icgraph">
-<area shape="rect" title=" " alt="" coords="400,39,547,80"/>
-<area shape="rect" href="a00461.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="239,46,352,73"/>
-<area shape="rect" href="a00317.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00321.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="23,71,173,112"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a2066599bb659fd90d13bc8a57dec005e" name="a2066599bb659fd90d13bc8a57dec005e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2066599bb659fd90d13bc8a57dec005e">&#9670;&nbsp;</a></span>destroy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNoveltyFromBlockIf::destroy </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00465.html">CNoveltyFromBlockIf</a> *&amp;&#160;</td>
-          <td class="paramname"><em>pCInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >destroys a NoveltyFromBlock instance </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be destroyed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00096">96</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   97</span>{</div>
-<div class="line"><span class="lineno">   98</span>    <span class="keyword">delete</span> pCInstance;</div>
-<div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>    pCInstance = 0;</div>
-<div class="line"><span class="lineno">  101</span> </div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  103</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00080_source.html#l00294">CNoveltyIf::reset_()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00465_a2066599bb659fd90d13bc8a57dec005e_icgraph.png" border="0" usemap="#aa00465_a2066599bb659fd90d13bc8a57dec005e_icgraph" alt=""/></div>
-<map name="aa00465_a2066599bb659fd90d13bc8a57dec005e_icgraph" id="aa00465_a2066599bb659fd90d13bc8a57dec005e_icgraph">
-<area shape="rect" title=" " alt="" coords="412,64,559,105"/>
-<area shape="rect" href="a00461.html#a119fc32e085bb978525ea9596ee2e9c1" title="reset configuration" alt="" coords="239,71,364,98"/>
-<area shape="rect" href="a00317.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00461.html#a120b69bf1f92d3f00ef515518a9dc604" title=" " alt="" coords="23,71,173,98"/>
-<area shape="rect" href="a00461.html#ad5ef9568b2492898ee428c60ae4d5ca5" title=" " alt="" coords="19,122,177,149"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a2755f4e823abb1178868ac3f5219078d" name="a2755f4e823abb1178868ac3f5219078d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2755f4e823abb1178868ac3f5219078d">&#9670;&nbsp;</a></span>getNoveltyDimension()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int CNoveltyFromBlockIf::getNoveltyDimension </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >returns size of output Novelty (1 in all currently implemented cases) </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00105">105</a> of file <a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
-<div class="line"><span class="lineno">  107</span>    <span class="comment">// default: 1 value per block</span></div>
-<div class="line"><span class="lineno">  108</span>    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno">  109</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a053b558e7cfef7c598afbb58fae99d88" name="a053b558e7cfef7c598afbb58fae99d88"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a053b558e7cfef7c598afbb58fae99d88">&#9670;&nbsp;</a></span>getNoveltyIdx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a> CNoveltyFromBlockIf::getNoveltyIdx </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >returns index of the Novelty to extract </p><dl class="section return"><dt>Returns</dt><dd>Novelty_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00040">40</a> of file <a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>    {</div>
-<div class="line"><span class="lineno">   42</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00465.html#acd6ab16d268e644c7e141761feede22f">m_eNoveltyIdx</a>;</div>
-<div class="line"><span class="lineno">   43</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00179_source.html#l00067">m_eNoveltyIdx</a>.</p>
-
-</div>
-</div>
-<a id="af7d6dac2fcb2305c5736c1e5dd4cbf0e" name="af7d6dac2fcb2305c5736c1e5dd4cbf0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7d6dac2fcb2305c5736c1e5dd4cbf0e">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00465.html">CNoveltyFromBlockIf</a> &amp; CNoveltyFromBlockIf::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00465.html">CNoveltyFromBlockIf</a> &amp;&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="a7684ddb179de94eeae1f53469d903e22" name="a7684ddb179de94eeae1f53469d903e22"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7684ddb179de94eeae1f53469d903e22">&#9670;&nbsp;</a></span>m_DispatchMap</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const std::map&lt;<a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a>, std::function&lt;float(const float*, const float*, int, float)&gt; &gt; CNoveltyFromBlockIf::m_DispatchMap</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">            {<a class="code hl_enumvalue" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4ab54085095907f70fca3bee22d3bc5d38">CNoveltyIf::kNoveltyFlux</a>, &amp;<a class="code hl_function" href="a00465.html#af7c60e9d5cc52b4c2f65ee62fe9ee604">compNoveltyFlux</a>},</div>
-<div class="line">            {<a class="code hl_enumvalue" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4a792ea51409c928b6fa36da69498c725e">CNoveltyIf::kNoveltyHainsworth</a>, &amp;<a class="code hl_function" href="a00465.html#a21778c061afe83ab8e390d8c49b8baf3">compNoveltyHainsworth</a>},</div>
-<div class="line">            {<a class="code hl_enumvalue" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4a8aa84a1abfabedffd2c7477607a1501c">CNoveltyIf::kNoveltyLaroche</a>, &amp;<a class="code hl_function" href="a00465.html#ad2367a408255e2c7867e79743b6d82cd">compNoveltyLaroche</a>}</div>
-<div class="line">    }</div>
-<div class="ttc" id="aa00461_html_aaaa808da8acb1f5df095f6178faeb4f4a792ea51409c928b6fa36da69498c725e"><div class="ttname"><a href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4a792ea51409c928b6fa36da69498c725e">CNoveltyIf::kNoveltyHainsworth</a></div><div class="ttdeci">@ kNoveltyHainsworth</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00027">Novelty.h:27</a></div></div>
-<div class="ttc" id="aa00461_html_aaaa808da8acb1f5df095f6178faeb4f4a8aa84a1abfabedffd2c7477607a1501c"><div class="ttname"><a href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4a8aa84a1abfabedffd2c7477607a1501c">CNoveltyIf::kNoveltyLaroche</a></div><div class="ttdeci">@ kNoveltyLaroche</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00028">Novelty.h:28</a></div></div>
-<div class="ttc" id="aa00461_html_aaaa808da8acb1f5df095f6178faeb4f4ab54085095907f70fca3bee22d3bc5d38"><div class="ttname"><a href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4ab54085095907f70fca3bee22d3bc5d38">CNoveltyIf::kNoveltyFlux</a></div><div class="ttdeci">@ kNoveltyFlux</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00026">Novelty.h:26</a></div></div>
-<div class="ttc" id="aa00465_html_a21778c061afe83ab8e390d8c49b8baf3"><div class="ttname"><a href="a00465.html#a21778c061afe83ab8e390d8c49b8baf3">CNoveltyFromBlockIf::compNoveltyHainsworth</a></div><div class="ttdeci">static float compNoveltyHainsworth(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00029">NoveltyFromBlock.cpp:29</a></div></div>
-<div class="ttc" id="aa00465_html_ad2367a408255e2c7867e79743b6d82cd"><div class="ttname"><a href="a00465.html#ad2367a408255e2c7867e79743b6d82cd">CNoveltyFromBlockIf::compNoveltyLaroche</a></div><div class="ttdeci">static float compNoveltyLaroche(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00048">NoveltyFromBlock.cpp:48</a></div></div>
-<div class="ttc" id="aa00465_html_af7c60e9d5cc52b4c2f65ee62fe9ee604"><div class="ttname"><a href="a00465.html#af7c60e9d5cc52b4c2f65ee62fe9ee604">CNoveltyFromBlockIf::compNoveltyFlux</a></div><div class="ttdeci">static float compNoveltyFlux(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00012">NoveltyFromBlock.cpp:12</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00076">76</a> of file <a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00111">compNovelty()</a>.</p>
-
-</div>
-</div>
-<a id="acd6ab16d268e644c7e141761feede22f" name="acd6ab16d268e644c7e141761feede22f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acd6ab16d268e644c7e141761feede22f">&#9670;&nbsp;</a></span>m_eNoveltyIdx</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4">CNoveltyIf::Novelty_t</a> CNoveltyFromBlockIf::m_eNoveltyIdx = <a class="el" href="a00461.html#aaaa808da8acb1f5df095f6178faeb4f4ad3488ba679c6c6545742152b45e3df0c">CNoveltyIf::kNumNoveltyFunctions</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>index of Novelty to extract </p>
-
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00067">67</a> of file <a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00111">compNovelty()</a>, and <a class="el" href="a00179_source.html#l00040">getNoveltyIdx()</a>.</p>
-
-</div>
-</div>
-<a id="a1edfefa2d3fbd4b3d85eab24ec8d0abf" name="a1edfefa2d3fbd4b3d85eab24ec8d0abf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1edfefa2d3fbd4b3d85eab24ec8d0abf">&#9670;&nbsp;</a></span>m_fSampleRate</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CNoveltyFromBlockIf::m_fSampleRate = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>sample rate </p>
-
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00071">71</a> of file <a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00111">compNovelty()</a>.</p>
-
-</div>
-</div>
-<a id="ad66c8512f67023f27e1eeac3d1c8e5d8" name="ad66c8512f67023f27e1eeac3d1c8e5d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad66c8512f67023f27e1eeac3d1c8e5d8">&#9670;&nbsp;</a></span>m_iDataLength</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int CNoveltyFromBlockIf::m_iDataLength = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>block length </p>
-
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00069">69</a> of file <a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00070">CNoveltyFromBlockIf()</a>, and <a class="el" href="a00059_source.html#l00111">compNovelty()</a>.</p>
-
-</div>
-</div>
-<a id="a70cf68afc431f61abec9a8e95e49a14f" name="a70cf68afc431f61abec9a8e95e49a14f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a70cf68afc431f61abec9a8e95e49a14f">&#9670;&nbsp;</a></span>m_pfPrevSpec</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float* CNoveltyFromBlockIf::m_pfPrevSpec = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00073">73</a> of file <a class="el" href="a00179_source.html">NoveltyFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00070">CNoveltyFromBlockIf()</a>, <a class="el" href="a00059_source.html#l00111">compNovelty()</a>, and <a class="el" href="a00059_source.html#l00081">~CNoveltyFromBlockIf()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00179_source.html">NoveltyFromBlock.h</a></li>
-<li><a class="el" href="a00059_source.html">NoveltyFromBlock.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00134_source.html">Vector.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 6 2022 17:03:36 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Thu Jun 9 2022 17:10:28 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

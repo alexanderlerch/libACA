@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CResample Class Reference</title>
+<title>ACA: CNmf Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.2</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.4</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -48,126 +48,124 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="a00526.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CResample Class Reference</div></div>
+  <div class="headertitle"><div class="title">CNmf Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class for simple interpolation/sample rate conversion  
+<p>computation of non-negative matrix factorization  
  <a href="a00529.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00173_source.html">ToolResample.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00194_source.html">ToolNmf.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CResample:</div>
+Collaboration diagram for CNmf:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00527.png" border="0" usemap="#aCResample_coll__map" alt="Collaboration graph"/></div>
-<map name="aCResample_coll__map" id="aCResample_coll__map">
-<area shape="rect" title="class for simple interpolation/sample rate conversion" alt="" coords="85,1100,228,1280"/>
-<area shape="rect" href="a00429.html" title=" " alt="" coords="85,784,229,1037"/>
-<area shape="rect" href="a00441.html" title=" " alt="" coords="5,395,143,721"/>
-<area shape="rect" href="a00441.html" title="implement a circular buffer of type T" alt="" coords="13,5,135,332"/>
-<area shape="rect" href="a00429.html" title="class providing a generic filter implementation" alt="" coords="167,424,311,692"/>
+<div class="center"><img src="a00527.png" border="0" usemap="#aCNmf_coll__map" alt="Collaboration graph"/></div>
+<map name="aCNmf_coll__map" id="aCNmf_coll__map">
+<area shape="rect" title="computation of non&#45;negative matrix factorization" alt="" coords="5,5,124,332"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6af73d34704579d5d18ef456fe54a983"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a6af73d34704579d5d18ef456fe54a983">CResample</a> (float fInSampleRate, float fOutSampleRate)</td></tr>
-<tr class="separator:a6af73d34704579d5d18ef456fe54a983"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf7624c3daf78a13e5bb949a242c3034"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#abf7624c3daf78a13e5bb949a242c3034">~CResample</a> ()</td></tr>
-<tr class="separator:abf7624c3daf78a13e5bb949a242c3034"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa6003e640ba66531236277eddc5158"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a1fa6003e640ba66531236277eddc5158">getOutputLength</a> (long long iNumInSamples) const</td></tr>
-<tr class="separator:a1fa6003e640ba66531236277eddc5158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040a6674ec0ff9171d6b4cb4b8436cb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a040a6674ec0ff9171d6b4cb4b8436cb2">process</a> (float *pfOut, const float *pfIn, long long iNumInSamples)</td></tr>
-<tr class="separator:a040a6674ec0ff9171d6b4cb4b8436cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a02a81c6177894649b0524b684118839e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a02a81c6177894649b0524b684118839e">interp1d</a> (float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)</td></tr>
-<tr class="separator:a02a81c6177894649b0524b684118839e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a09232b6ba993abb0842570a0eba87188"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a09232b6ba993abb0842570a0eba87188">CNmf</a> (void)</td></tr>
+<tr class="separator:a09232b6ba993abb0842570a0eba87188"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e12d213a05cc61bb86c9e5fbed0b18b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a4e12d213a05cc61bb86c9e5fbed0b18b">~CNmf</a> (void)</td></tr>
+<tr class="separator:a4e12d213a05cc61bb86c9e5fbed0b18b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec1d45b63855c114d480d1a0532dc3e5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#aec1d45b63855c114d480d1a0532dc3e5">init</a> (<a class="el" href="a00525.html">CNmfResult</a> *pCNmfResult, int iRank, int iNumRows, int iNumCols, int iMaxIter=300, float fSparsity=0)</td></tr>
+<tr class="separator:aec1d45b63855c114d480d1a0532dc3e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5d2839f6b53201ddd0eefc744988a15b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a5d2839f6b53201ddd0eefc744988a15b">reset</a> ()</td></tr>
+<tr class="separator:a5d2839f6b53201ddd0eefc744988a15b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a298f5a0187b09abaec14570da9239187"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a298f5a0187b09abaec14570da9239187">compNmf</a> (<a class="el" href="a00525.html">CNmfResult</a> *pCNmfResult, float **ppfInput)</td></tr>
+<tr class="separator:a298f5a0187b09abaec14570da9239187"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:aa35aba2e70d5325d5b3098faa79ba05d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#aa35aba2e70d5325d5b3098faa79ba05d">CResample</a> (const <a class="el" href="a00529.html">CResample</a> &amp;that)</td></tr>
-<tr class="separator:aa35aba2e70d5325d5b3098faa79ba05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0db33ae459e827fc0258b7b9ae3cf738"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00529.html">CResample</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a0db33ae459e827fc0258b7b9ae3cf738">operator=</a> (const <a class="el" href="a00529.html">CResample</a> &amp;c)</td></tr>
-<tr class="separator:a0db33ae459e827fc0258b7b9ae3cf738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e7496e9eaaf63c02c980dc30325584c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a7e7496e9eaaf63c02c980dc30325584c">CNmf</a> (const <a class="el" href="a00529.html">CNmf</a> &amp;that)</td></tr>
+<tr class="memdesc:a7e7496e9eaaf63c02c980dc30325584c"><td class="mdescLeft">&#160;</td><td class="mdescRight">disallow copy construction <br  />
+  <a href="a00529.html#a7e7496e9eaaf63c02c980dc30325584c">More...</a><br /></td></tr>
+<tr class="separator:a7e7496e9eaaf63c02c980dc30325584c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a76a0a76e95f7d948df393d740a203a83"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00529.html">CNmf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a76a0a76e95f7d948df393d740a203a83">operator=</a> (const <a class="el" href="a00529.html">CNmf</a> &amp;c)</td></tr>
+<tr class="separator:a76a0a76e95f7d948df393d740a203a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a458bb8f3cd93482bc409b8cd446a3f21"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a458bb8f3cd93482bc409b8cd446a3f21">runNmfIter</a> (<a class="el" href="a00525.html">CNmfResult</a> *pNmfResult, float **ppfInput)</td></tr>
+<tr class="separator:a458bb8f3cd93482bc409b8cd446a3f21"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a9d56139a9c202823fe57a189146a9b8c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> = 0.F</td></tr>
-<tr class="memdesc:a9d56139a9c202823fe57a189146a9b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate of input  <a href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">More...</a><br /></td></tr>
-<tr class="separator:a9d56139a9c202823fe57a189146a9b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e704946c8bfe078190cdf36818e40db"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> = 0.F</td></tr>
-<tr class="memdesc:a4e704946c8bfe078190cdf36818e40db"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate of output  <a href="a00529.html#a4e704946c8bfe078190cdf36818e40db">More...</a><br /></td></tr>
-<tr class="separator:a4e704946c8bfe078190cdf36818e40db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad227a6fd0acf022e8a41a1d4ab2b27c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00429.html">CFilter</a>&lt; float &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a> = 0</td></tr>
-<tr class="memdesc:ad227a6fd0acf022e8a41a1d4ab2b27c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">low pass filter processing  <a href="a00529.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">More...</a><br /></td></tr>
-<tr class="separator:ad227a6fd0acf022e8a41a1d4ab2b27c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4f07a5b1403b61a30f9cc6dfaad0c0f5"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a4f07a5b1403b61a30f9cc6dfaad0c0f5">m_ppfX</a> = 0</td></tr>
+<tr class="separator:a4f07a5b1403b61a30f9cc6dfaad0c0f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9711f933cc2e7eb6ccb443e6884baffc"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a9711f933cc2e7eb6ccb443e6884baffc">m_ppfOnes</a> = 0</td></tr>
+<tr class="separator:a9711f933cc2e7eb6ccb443e6884baffc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8885c0c52ee2f947dbabd0ce7f45778f"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a> = 0</td></tr>
+<tr class="separator:a8885c0c52ee2f947dbabd0ce7f45778f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aca8ced874ebb30a6e3f7265aad2c8358"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a> = 0</td></tr>
+<tr class="separator:aca8ced874ebb30a6e3f7265aad2c8358"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1e19848e9e16e89a891f1e3cea81dea6"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a> = 0</td></tr>
+<tr class="separator:a1e19848e9e16e89a891f1e3cea81dea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a349068352587bfb4a8b39b8d5b7c5cfb"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a349068352587bfb4a8b39b8d5b7c5cfb">m_fSparsity</a> = 0</td></tr>
+<tr class="separator:a349068352587bfb4a8b39b8d5b7c5cfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a138171bcd9323577aa3d7a8c64633975"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a138171bcd9323577aa3d7a8c64633975">m_iMaxIter</a> = 0</td></tr>
+<tr class="separator:a138171bcd9323577aa3d7a8c64633975"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad995fff5ef33e7f6c288aa6ad566aea6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a> = 0</td></tr>
+<tr class="separator:ad995fff5ef33e7f6c288aa6ad566aea6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1545716f5d6cb6e75762148a4a7893d0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#a1545716f5d6cb6e75762148a4a7893d0">m_iNumRows</a> = 0</td></tr>
+<tr class="separator:a1545716f5d6cb6e75762148a4a7893d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9f06c5bcde5c8a7e3e8d92a061775b9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00215.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#ac9f06c5bcde5c8a7e3e8d92a061775b9">m_bIsInitialized</a> = <a class="el" href="a00215.html#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
+<tr class="memdesc:ac9f06c5bcde5c8a7e3e8d92a061775b9"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if init has been called  <a href="a00529.html#ac9f06c5bcde5c8a7e3e8d92a061775b9">More...</a><br /></td></tr>
+<tr class="separator:ac9f06c5bcde5c8a7e3e8d92a061775b9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
+Static Private Attributes</h2></td></tr>
+<tr class="memitem:af5efbe3fee2a569abe774d86e08579e0"><td class="memItemLeft" align="right" valign="top">static const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">m_kMinOffset</a> = 1e-30F</td></tr>
+<tr class="separator:af5efbe3fee2a569abe774d86e08579e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class for simple interpolation/sample rate conversion </p>
+<div class="textblock"><p >computation of non-negative matrix factorization </p>
 
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00011">11</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00047">47</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6af73d34704579d5d18ef456fe54a983" name="a6af73d34704579d5d18ef456fe54a983"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6af73d34704579d5d18ef456fe54a983">&#9670;&nbsp;</a></span>CResample() <span class="overload">[1/2]</span></h2>
+<a id="a09232b6ba993abb0842570a0eba87188" name="a09232b6ba993abb0842570a0eba87188"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a09232b6ba993abb0842570a0eba87188">&#9670;&nbsp;</a></span>CNmf() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CResample::CResample </td>
+          <td class="memname">CNmf::CNmf </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fInSampleRate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fOutSampleRate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00072">72</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   72</span>                                                                  :</div>
-<div class="line"><span class="lineno">   73</span>        <a class="code hl_variable" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>(fInSampleRate),</div>
-<div class="line"><span class="lineno">   74</span>        <a class="code hl_variable" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a>(fOutSampleRate)</div>
-<div class="line"><span class="lineno">   75</span>    {</div>
-<div class="line"><span class="lineno">   76</span>        assert(<a class="code hl_variable" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> &gt; 0);</div>
-<div class="line"><span class="lineno">   77</span>        assert(<a class="code hl_variable" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> &gt; 0);</div>
-<div class="line"><span class="lineno">   78</span> </div>
-<div class="line"><span class="lineno">   79</span>        <a class="code hl_variable" href="a00529.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00429.html">CFilter&lt;float&gt;</a>();</div>
-<div class="line"><span class="lineno">   80</span>    }</div>
-<div class="ttc" id="aa00429_html"><div class="ttname"><a href="a00429.html">CFilter&lt; float &gt;</a></div></div>
-<div class="ttc" id="aa00529_html_a4e704946c8bfe078190cdf36818e40db"><div class="ttname"><a href="a00529.html#a4e704946c8bfe078190cdf36818e40db">CResample::m_fOutSampleRate</a></div><div class="ttdeci">float m_fOutSampleRate</div><div class="ttdoc">sample rate of output</div><div class="ttdef"><b>Definition:</b> <a href="a00173_source.html#l00155">ToolResample.h:155</a></div></div>
-<div class="ttc" id="aa00529_html_a9d56139a9c202823fe57a189146a9b8c"><div class="ttname"><a href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">CResample::m_fInSampleRate</a></div><div class="ttdeci">float m_fInSampleRate</div><div class="ttdoc">sample rate of input</div><div class="ttdef"><b>Definition:</b> <a href="a00173_source.html#l00154">ToolResample.h:154</a></div></div>
-<div class="ttc" id="aa00529_html_ad227a6fd0acf022e8a41a1d4ab2b27c9"><div class="ttname"><a href="a00529.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">CResample::m_pCFilter</a></div><div class="ttdeci">CFilter&lt; float &gt; * m_pCFilter</div><div class="ttdoc">low pass filter processing</div><div class="ttdef"><b>Definition:</b> <a href="a00173_source.html#l00157">ToolResample.h:157</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00053_source.html#l00009">9</a> of file <a class="el" href="a00053_source.html">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>{</div>
+<div class="line"><span class="lineno">   11</span>   <a class="code hl_function" href="a00529.html#a5d2839f6b53201ddd0eefc744988a15b">reset</a>();</div>
+<div class="line"><span class="lineno">   12</span>}</div>
+<div class="ttc" id="aa00529_html_a5d2839f6b53201ddd0eefc744988a15b"><div class="ttname"><a href="a00529.html#a5d2839f6b53201ddd0eefc744988a15b">CNmf::reset</a></div><div class="ttdeci">Error_t reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00053_source.html#l00044">ToolNmf.cpp:44</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00173_source.html#l00154">m_fInSampleRate</a>, <a class="el" href="a00173_source.html#l00155">m_fOutSampleRate</a>, and <a class="el" href="a00173_source.html#l00157">m_pCFilter</a>.</p>
+<p class="reference">References <a class="el" href="a00053_source.html#l00044">reset()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00529_a09232b6ba993abb0842570a0eba87188_cgraph.png" border="0" usemap="#aa00529_a09232b6ba993abb0842570a0eba87188_cgraph" alt=""/></div>
+<map name="aa00529_a09232b6ba993abb0842570a0eba87188_cgraph" id="aa00529_a09232b6ba993abb0842570a0eba87188_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,101,32"/>
+<area shape="rect" href="a00529.html#a5d2839f6b53201ddd0eefc744988a15b" title=" " alt="" coords="149,5,240,32"/>
+<area shape="rect" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="288,5,383,32"/>
+<area shape="rect" href="a00465.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="431,5,528,32"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="abf7624c3daf78a13e5bb949a242c3034" name="abf7624c3daf78a13e5bb949a242c3034"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf7624c3daf78a13e5bb949a242c3034">&#9670;&nbsp;</a></span>~CResample()</h2>
+<a id="a4e12d213a05cc61bb86c9e5fbed0b18b" name="a4e12d213a05cc61bb86c9e5fbed0b18b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e12d213a05cc61bb86c9e5fbed0b18b">&#9670;&nbsp;</a></span>~CNmf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,30 +174,42 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CResample::~CResample </td>
+          <td class="memname">CNmf::~CNmf </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00082">82</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>    {</div>
-<div class="line"><span class="lineno">   84</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00529.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>;</div>
-<div class="line"><span class="lineno">   85</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00053_source.html#l00014">14</a> of file <a class="el" href="a00053_source.html">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>{</div>
+<div class="line"><span class="lineno">   16</span>    <a class="code hl_function" href="a00529.html#a5d2839f6b53201ddd0eefc744988a15b">reset</a>();</div>
+<div class="line"><span class="lineno">   17</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00173_source.html#l00157">m_pCFilter</a>.</p>
+<p class="reference">References <a class="el" href="a00053_source.html#l00044">reset()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00529_a4e12d213a05cc61bb86c9e5fbed0b18b_cgraph.png" border="0" usemap="#aa00529_a4e12d213a05cc61bb86c9e5fbed0b18b_cgraph" alt=""/></div>
+<map name="aa00529_a4e12d213a05cc61bb86c9e5fbed0b18b_cgraph" id="aa00529_a4e12d213a05cc61bb86c9e5fbed0b18b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,108,32"/>
+<area shape="rect" href="a00529.html#a5d2839f6b53201ddd0eefc744988a15b" title=" " alt="" coords="156,5,247,32"/>
+<area shape="rect" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="295,5,389,32"/>
+<area shape="rect" href="a00465.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="437,5,535,32"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="aa35aba2e70d5325d5b3098faa79ba05d" name="aa35aba2e70d5325d5b3098faa79ba05d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa35aba2e70d5325d5b3098faa79ba05d">&#9670;&nbsp;</a></span>CResample() <span class="overload">[2/2]</span></h2>
+<a id="a7e7496e9eaaf63c02c980dc30325584c" name="a7e7496e9eaaf63c02c980dc30325584c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e7496e9eaaf63c02c980dc30325584c">&#9670;&nbsp;</a></span>CNmf() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -208,9 +218,9 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CResample::CResample </td>
+          <td class="memname">CNmf::CNmf </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00529.html">CResample</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00529.html">CNmf</a> &amp;&#160;</td>
           <td class="paramname"><em>that</em></td><td>)</td>
           <td></td>
         </tr>
@@ -222,92 +232,29 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>disallow copy construction <br  />
+ </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1fa6003e640ba66531236277eddc5158" name="a1fa6003e640ba66531236277eddc5158"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa6003e640ba66531236277eddc5158">&#9670;&nbsp;</a></span>getOutputLength()</h2>
+<a id="a298f5a0187b09abaec14570da9239187" name="a298f5a0187b09abaec14570da9239187"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a298f5a0187b09abaec14570da9239187">&#9670;&nbsp;</a></span>compNmf()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">long long CResample::getOutputLength </td>
+          <td class="memname"><a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNmf::compNmf </td>
           <td>(</td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumInSamples</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >returns the length of the output in case of iNumInSamples as input </p><dl class="section return"><dt>Returns</dt><dd>long long </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00091">91</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   92</span>    {</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">return</span> CUtil::float2int&lt;long long&gt;(iNumInSamples/<a class="code hl_variable" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>*<a class="code hl_variable" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a>);</div>
-<div class="line"><span class="lineno">   94</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00173_source.html#l00154">m_fInSampleRate</a>, and <a class="el" href="a00173_source.html#l00155">m_fOutSampleRate</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00173_source.html#l00102">process()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00529_a1fa6003e640ba66531236277eddc5158_icgraph.png" border="0" usemap="#aa00529_a1fa6003e640ba66531236277eddc5158_icgraph" alt=""/></div>
-<map name="aa00529_a1fa6003e640ba66531236277eddc5158_icgraph" id="aa00529_a1fa6003e640ba66531236277eddc5158_icgraph">
-<area shape="rect" title=" " alt="" coords="195,5,387,32"/>
-<area shape="rect" href="a00529.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,5,147,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a02a81c6177894649b0524b684118839e" name="a02a81c6177894649b0524b684118839e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02a81c6177894649b0524b684118839e">&#9670;&nbsp;</a></span>interp1d()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CResample::interp1d </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfOut</em>, </td>
+          <td class="paramtype"><a class="el" href="a00525.html">CNmfResult</a> *&#160;</td>
+          <td class="paramname"><em>pCNmfResult</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfNewIdx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfIn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumOutSamples</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumInSamples</em>&#160;</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfInput</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -315,91 +262,206 @@ Here is the caller graph for this function:</div>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p >simple linear interpolation, static function can be used without instantiation </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pfOut</td><td>buffer with interpolated output samples (user allocated of length iNumOutSamples) </td></tr>
-    <tr><td class="paramname">pfNewIdx</td><td>indication of location of outputs on the input index scale, e.g., if the output sample rate is 3x the input sample rate, this vector will start with 0, 0.33, 0.66, 1, 1.33, ... </td></tr>
-    <tr><td class="paramname">pfIn</td><td>original samples </td></tr>
-    <tr><td class="paramname">iNumOutSamples</td><td>length of pfOut and pfNewIdx </td></tr>
-    <tr><td class="paramname">iNumInSamples</td><td>length of pfIn </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00024">24</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>    {</div>
-<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">if</span> (!pfNewIdx || !pfOut || !pfIn || iNumInSamples &lt;= 0 || iNumOutSamples &lt;= 0)</div>
-<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iStart = 0,</div>
-<div class="line"><span class="lineno">   30</span>            iEnd = iNumOutSamples - 1;</div>
-<div class="line"><span class="lineno">   31</span> </div>
-<div class="line"><span class="lineno">   32</span>        <span class="comment">// treat first samples</span></div>
-<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">while</span> ((iStart &lt; iNumOutSamples) &amp;&amp; (pfNewIdx[iStart] &lt; 0))</div>
-<div class="line"><span class="lineno">   34</span>        {</div>
-<div class="line"><span class="lineno">   35</span>            <span class="keywordflow">if</span> (pfNewIdx[iStart] &lt; -1)</div>
-<div class="line"><span class="lineno">   36</span>                pfOut[iStart] = 0;</div>
-<div class="line"><span class="lineno">   37</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   38</span>            {</div>
-<div class="line"><span class="lineno">   39</span>                <span class="keywordtype">int</span>     iIdx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(pfNewIdx[iStart]));</div>
-<div class="line"><span class="lineno">   40</span>                <span class="keywordtype">float</span>   fFrac = pfNewIdx[iStart] - iIdx;</div>
-<div class="line"><span class="lineno">   41</span>                pfOut[iStart] = fFrac * pfIn[0];</div>
-<div class="line"><span class="lineno">   42</span>            }</div>
-<div class="line"><span class="lineno">   43</span>            iStart++;</div>
-<div class="line"><span class="lineno">   44</span>        }</div>
-<div class="line"><span class="lineno">   45</span> </div>
-<div class="line"><span class="lineno">   46</span>        <span class="comment">// treat last samples</span></div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">while</span> ((pfNewIdx[iEnd] &gt; iNumInSamples - 1) &amp;&amp; (iEnd &gt;= 0))</div>
-<div class="line"><span class="lineno">   48</span>        {</div>
-<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">if</span> (pfNewIdx[iEnd] &gt; iNumInSamples)</div>
-<div class="line"><span class="lineno">   50</span>                pfOut[iEnd] = 0;</div>
-<div class="line"><span class="lineno">   51</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   52</span>            {</div>
-<div class="line"><span class="lineno">   53</span>                <span class="keywordtype">int</span>     iIdx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(pfNewIdx[iEnd]));</div>
-<div class="line"><span class="lineno">   54</span>                <span class="keywordtype">float</span>   fFrac = pfNewIdx[iEnd] - iIdx;</div>
-<div class="line"><span class="lineno">   55</span>                pfOut[iEnd] = (1 - fFrac) * pfIn[iNumInSamples - 1];</div>
-<div class="line"><span class="lineno">   56</span>            }</div>
-<div class="line"><span class="lineno">   57</span>            iEnd--;</div>
-<div class="line"><span class="lineno">   58</span>        }</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>        <span class="comment">// now go through the buffer</span></div>
-<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = iStart; i &lt;= iEnd; i++)</div>
-<div class="line"><span class="lineno">   62</span>        {</div>
-<div class="line"><span class="lineno">   63</span>            <span class="keywordtype">int</span>     iIdx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(pfNewIdx[i]));</div>
-<div class="line"><span class="lineno">   64</span>            <span class="keywordtype">float</span>   fFrac = pfNewIdx[i] - iIdx;</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>            pfOut[i] = (1 - fFrac) * pfIn[iIdx] + fFrac * pfIn[iIdx + 1];</div>
-<div class="line"><span class="lineno">   67</span>        }</div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   70</span>    }</div>
-<div class="ttc" id="aa00101_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00101_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<p class="definition">Definition at line <a class="el" href="a00053_source.html#l00059">59</a> of file <a class="el" href="a00053_source.html">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>{</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">if</span> (!pCNmfResult || !ppfInput)</div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00529.html#ac9f06c5bcde5c8a7e3e8d92a061775b9">m_bIsInitialized</a> || !pCNmfResult-&gt;<a class="code hl_function" href="a00525.html#ad023a8d9278037df6a75f3639e28b05d">isInitialized</a>())</div>
+<div class="line"><span class="lineno">   66</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">   67</span>    </div>
+<div class="line"><span class="lineno">   68</span>    <span class="keyword">enum</span> Cost_t</div>
+<div class="line"><span class="lineno">   69</span>    {</div>
+<div class="line"><span class="lineno">   70</span>        kStartCost,</div>
+<div class="line"><span class="lineno">   71</span>        kPrevCost,</div>
+<div class="line"><span class="lineno">   72</span>        kCurrCost,</div>
+<div class="line"><span class="lineno">   73</span> </div>
+<div class="line"><span class="lineno">   74</span>        kNumCosts</div>
+<div class="line"><span class="lineno">   75</span>    };</div>
+<div class="line"><span class="lineno">   76</span>    <span class="keywordtype">float</span> afCost[kNumCosts] = { 0 };</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; <a class="code hl_variable" href="a00529.html#a138171bcd9323577aa3d7a8c64633975">m_iMaxIter</a>; k++)</div>
+<div class="line"><span class="lineno">   79</span>    {</div>
+<div class="line"><span class="lineno">   80</span>        afCost[kCurrCost] = <a class="code hl_function" href="a00529.html#a458bb8f3cd93482bc409b8cd446a3f21">runNmfIter</a>(pCNmfResult, ppfInput);</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>        assert(!std::isnan(afCost[kCurrCost]));</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>        <span class="keywordflow">if</span> (k &gt; 0)</div>
+<div class="line"><span class="lineno">   85</span>        {</div>
+<div class="line"><span class="lineno">   86</span>            <span class="keywordflow">if</span> (std::abs((afCost[kCurrCost] - afCost[kPrevCost]) / (afCost[kStartCost] - afCost[kCurrCost] + <a class="code hl_variable" href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">m_kMinOffset</a>)) &lt; .001F)</div>
+<div class="line"><span class="lineno">   87</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">   88</span>        }</div>
+<div class="line"><span class="lineno">   89</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   90</span>            afCost[kStartCost] = afCost[kCurrCost];</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>        afCost[kPrevCost] = afCost[kCurrCost];</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
+<div class="line"><span class="lineno">   94</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   95</span>}</div>
+<div class="ttc" id="aa00107_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
+<div class="ttc" id="aa00107_html_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
+<div class="ttc" id="aa00107_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00525_html_ad023a8d9278037df6a75f3639e28b05d"><div class="ttname"><a href="a00525.html#ad023a8d9278037df6a75f3639e28b05d">CNmfResult::isInitialized</a></div><div class="ttdeci">bool isInitialized() const</div><div class="ttdef"><b>Definition:</b> <a href="a00053_source.html#l00251">ToolNmf.cpp:251</a></div></div>
+<div class="ttc" id="aa00529_html_a138171bcd9323577aa3d7a8c64633975"><div class="ttname"><a href="a00529.html#a138171bcd9323577aa3d7a8c64633975">CNmf::m_iMaxIter</a></div><div class="ttdeci">int m_iMaxIter</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00085">ToolNmf.h:85</a></div></div>
+<div class="ttc" id="aa00529_html_a458bb8f3cd93482bc409b8cd446a3f21"><div class="ttname"><a href="a00529.html#a458bb8f3cd93482bc409b8cd446a3f21">CNmf::runNmfIter</a></div><div class="ttdeci">float runNmfIter(CNmfResult *pNmfResult, float **ppfInput)</div><div class="ttdef"><b>Definition:</b> <a href="a00053_source.html#l00097">ToolNmf.cpp:97</a></div></div>
+<div class="ttc" id="aa00529_html_ac9f06c5bcde5c8a7e3e8d92a061775b9"><div class="ttname"><a href="a00529.html#ac9f06c5bcde5c8a7e3e8d92a061775b9">CNmf::m_bIsInitialized</a></div><div class="ttdeci">bool m_bIsInitialized</div><div class="ttdoc">true if init has been called</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00089">ToolNmf.h:89</a></div></div>
+<div class="ttc" id="aa00529_html_af5efbe3fee2a569abe774d86e08579e0"><div class="ttname"><a href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">CNmf::m_kMinOffset</a></div><div class="ttdeci">static const float m_kMinOffset</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00091">ToolNmf.h:91</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00173_source.html#l00102">process()</a>.</p>
+<p class="reference">References <a class="el" href="a00053_source.html#l00251">CNmfResult::isInitialized()</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00194_source.html#l00089">m_bIsInitialized</a>, <a class="el" href="a00194_source.html#l00085">m_iMaxIter</a>, <a class="el" href="a00194_source.html#l00091">m_kMinOffset</a>, and <a class="el" href="a00053_source.html#l00097">runNmfIter()</a>.</p>
 <div class="dynheader">
-Here is the caller graph for this function:</div>
+Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00529_a02a81c6177894649b0524b684118839e_icgraph.png" border="0" usemap="#aa00529_a02a81c6177894649b0524b684118839e_icgraph" alt=""/></div>
-<map name="aa00529_a02a81c6177894649b0524b684118839e_icgraph" id="aa00529_a02a81c6177894649b0524b684118839e_icgraph">
-<area shape="rect" title=" " alt="" coords="195,5,336,32"/>
-<area shape="rect" href="a00529.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,5,147,32"/>
+<div class="center"><img src="a00529_a298f5a0187b09abaec14570da9239187_cgraph.png" border="0" usemap="#aa00529_a298f5a0187b09abaec14570da9239187_cgraph" alt=""/></div>
+<map name="aa00529_a298f5a0187b09abaec14570da9239187_cgraph" id="aa00529_a298f5a0187b09abaec14570da9239187_cgraph">
+<area shape="rect" title=" " alt="" coords="5,284,124,311"/>
+<area shape="rect" href="a00525.html#ad023a8d9278037df6a75f3639e28b05d" title=" " alt="" coords="172,259,335,285"/>
+<area shape="rect" href="a00529.html#a458bb8f3cd93482bc409b8cd446a3f21" title=" " alt="" coords="191,309,315,336"/>
+<area shape="rect" href="a00449.html#a80c3acdf185e2aa6ed7c5dd2a253efde" title=" " alt="" coords="422,5,535,32"/>
+<area shape="rect" href="a00449.html#a30a6c3d224cd3e5e601e99f517eaa8a2" title=" " alt="" coords="392,56,565,83"/>
+<area shape="rect" href="a00449.html#a38351fc34e85cfa1da2b46ec84083d38" title=" " alt="" coords="429,107,528,133"/>
+<area shape="rect" href="a00449.html#a7fbde9461acdc6a4ac9dfbcff614339f" title=" " alt="" coords="429,157,529,184"/>
+<area shape="rect" href="a00525.html#a9809e7b2289abd238e992df3b7ad65a0" title=" " alt="" coords="396,208,561,235"/>
+<area shape="rect" href="a00525.html#a85d97245bb91969264671387706cd372" title=" " alt="" coords="389,259,569,285"/>
+<area shape="rect" href="a00525.html#a6c61324a24caf454344400a728e09387" title=" " alt="" coords="393,309,565,336"/>
+<area shape="rect" href="a00449.html#a9e984c33f178b827bd5d9525bc86363c" title=" " alt="" coords="417,360,540,387"/>
+<area shape="rect" href="a00449.html#a1d2fd141b49c287db7b826a43e723ee3" title=" " alt="" coords="427,411,531,437"/>
+<area shape="rect" href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37" title=" " alt="" coords="410,461,547,488"/>
+<area shape="rect" href="a00449.html#a2d4f47826ff87a03fd220d61f326ac5b" title=" " alt="" coords="383,512,575,539"/>
+<area shape="rect" href="a00449.html#ad853a511232f954cfd9ae2211759c6bf" title=" " alt="" coords="414,563,543,589"/>
+<area shape="rect" href="a00449.html#a8711751fc46abb0e242f40cd5cb02e15" title=" " alt="" coords="412,613,545,640"/>
+<area shape="rect" href="a00469.html#af10e45e34254ef453abff50282a8b746" title=" " alt="" coords="647,5,793,32"/>
+<area shape="rect" href="a00465.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="669,107,771,133"/>
+<area shape="rect" href="a00465.html#aba07261926b4c10ed7fdbe38edf6d16d" title=" " alt="" coords="623,512,817,539"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a0db33ae459e827fc0258b7b9ae3cf738" name="a0db33ae459e827fc0258b7b9ae3cf738"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0db33ae459e827fc0258b7b9ae3cf738">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="aec1d45b63855c114d480d1a0532dc3e5" name="aec1d45b63855c114d480d1a0532dc3e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1d45b63855c114d480d1a0532dc3e5">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNmf::init </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00525.html">CNmfResult</a> *&#160;</td>
+          <td class="paramname"><em>pCNmfResult</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iRank</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iMaxIter</em> = <code>300</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fSparsity</em> = <code>0</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >initializes the class with the size of the distance matrix </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pCNmfResult</td><td>class holding the result to be initialized (user allocated) </td></tr>
+    <tr><td class="paramname">iRank</td><td>NMF rank </td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows of matrix to be factorized </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns of matrix to be factorized </td></tr>
+    <tr><td class="paramname">iMaxIter</td><td>maximum number of iterations </td></tr>
+    <tr><td class="paramname">fSparsity</td><td>sparsity weight </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00053_source.html#l00019">19</a> of file <a class="el" href="a00053_source.html">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>{</div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">if</span> (!pCNmfResult || iRank &lt;= 0 || iNumRows &lt;= 0 || iNumCols &lt;= 0 || iMaxIter &lt;= 0)</div>
+<div class="line"><span class="lineno">   22</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    pCNmfResult-&gt;<a class="code hl_function" href="a00525.html#a4f006a4fc88addf89d0e572d08e48680">init</a>(iRank, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">   25</span>    <a class="code hl_variable" href="a00529.html#a1545716f5d6cb6e75762148a4a7893d0">m_iNumRows</a> = iNumRows;</div>
+<div class="line"><span class="lineno">   26</span> </div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_variable" href="a00529.html#a138171bcd9323577aa3d7a8c64633975">m_iMaxIter</a> = iMaxIter;</div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_variable" href="a00529.html#a349068352587bfb4a8b39b8d5b7c5cfb">m_fSparsity</a> = fSparsity;</div>
+<div class="line"><span class="lineno">   29</span> </div>
+<div class="line"><span class="lineno">   30</span>    <a class="code hl_function" href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00529.html#a4f07a5b1403b61a30f9cc6dfaad0c0f5">m_ppfX</a>, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_function" href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00529.html#a9711f933cc2e7eb6ccb443e6884baffc">m_ppfOnes</a>, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_function" href="a00449.html#a0ae383e7642531506618691fffe25755">CMatrix::setValue</a>(<a class="code hl_variable" href="a00529.html#a9711f933cc2e7eb6ccb443e6884baffc">m_ppfOnes</a>, 1.F, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">   33</span> </div>
+<div class="line"><span class="lineno">   34</span>    <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a> = std::max(std::max(iRank, iNumRows), iNumCols);</div>
+<div class="line"><span class="lineno">   35</span>    <a class="code hl_function" href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>);</div>
+<div class="line"><span class="lineno">   36</span>    <a class="code hl_function" href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>);</div>
+<div class="line"><span class="lineno">   37</span>    <a class="code hl_function" href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>);</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_variable" href="a00529.html#ac9f06c5bcde5c8a7e3e8d92a061775b9">m_bIsInitialized</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   42</span>}</div>
+<div class="ttc" id="aa00449_html_a0ae383e7642531506618691fffe25755"><div class="ttname"><a href="a00449.html#a0ae383e7642531506618691fffe25755">CMatrix::setValue</a></div><div class="ttdeci">static void setValue(T **ppfMat, T tValue, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00078">Matrix.h:78</a></div></div>
+<div class="ttc" id="aa00449_html_ae669c592fc063391aeb77e07cbc9d4bc"><div class="ttname"><a href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00022">Matrix.h:22</a></div></div>
+<div class="ttc" id="aa00525_html_a4f006a4fc88addf89d0e572d08e48680"><div class="ttname"><a href="a00525.html#a4f006a4fc88addf89d0e572d08e48680">CNmfResult::init</a></div><div class="ttdeci">Error_t init(int iRank, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00053_source.html#l00178">ToolNmf.cpp:178</a></div></div>
+<div class="ttc" id="aa00529_html_a1545716f5d6cb6e75762148a4a7893d0"><div class="ttname"><a href="a00529.html#a1545716f5d6cb6e75762148a4a7893d0">CNmf::m_iNumRows</a></div><div class="ttdeci">int m_iNumRows</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00087">ToolNmf.h:87</a></div></div>
+<div class="ttc" id="aa00529_html_a1e19848e9e16e89a891f1e3cea81dea6"><div class="ttname"><a href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">CNmf::m_ppfDenom</a></div><div class="ttdeci">float ** m_ppfDenom</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00083">ToolNmf.h:83</a></div></div>
+<div class="ttc" id="aa00529_html_a349068352587bfb4a8b39b8d5b7c5cfb"><div class="ttname"><a href="a00529.html#a349068352587bfb4a8b39b8d5b7c5cfb">CNmf::m_fSparsity</a></div><div class="ttdeci">float m_fSparsity</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00084">ToolNmf.h:84</a></div></div>
+<div class="ttc" id="aa00529_html_a4f07a5b1403b61a30f9cc6dfaad0c0f5"><div class="ttname"><a href="a00529.html#a4f07a5b1403b61a30f9cc6dfaad0c0f5">CNmf::m_ppfX</a></div><div class="ttdeci">float ** m_ppfX</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00079">ToolNmf.h:79</a></div></div>
+<div class="ttc" id="aa00529_html_a8885c0c52ee2f947dbabd0ce7f45778f"><div class="ttname"><a href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">CNmf::m_ppfTransp</a></div><div class="ttdeci">float ** m_ppfTransp</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00081">ToolNmf.h:81</a></div></div>
+<div class="ttc" id="aa00529_html_a9711f933cc2e7eb6ccb443e6884baffc"><div class="ttname"><a href="a00529.html#a9711f933cc2e7eb6ccb443e6884baffc">CNmf::m_ppfOnes</a></div><div class="ttdeci">float ** m_ppfOnes</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00080">ToolNmf.h:80</a></div></div>
+<div class="ttc" id="aa00529_html_aca8ced874ebb30a6e3f7265aad2c8358"><div class="ttname"><a href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">CNmf::m_ppfNum</a></div><div class="ttdeci">float ** m_ppfNum</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00082">ToolNmf.h:82</a></div></div>
+<div class="ttc" id="aa00529_html_ad995fff5ef33e7f6c288aa6ad566aea6"><div class="ttname"><a href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">CNmf::m_iAllocSize</a></div><div class="ttdeci">int m_iAllocSize</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00086">ToolNmf.h:86</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00128_source.html#l00022">CMatrix::alloc()</a>, <a class="el" href="a00053_source.html#l00178">CNmfResult::init()</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00194_source.html#l00089">m_bIsInitialized</a>, <a class="el" href="a00194_source.html#l00084">m_fSparsity</a>, <a class="el" href="a00194_source.html#l00086">m_iAllocSize</a>, <a class="el" href="a00194_source.html#l00085">m_iMaxIter</a>, <a class="el" href="a00194_source.html#l00087">m_iNumRows</a>, <a class="el" href="a00194_source.html#l00083">m_ppfDenom</a>, <a class="el" href="a00194_source.html#l00082">m_ppfNum</a>, <a class="el" href="a00194_source.html#l00080">m_ppfOnes</a>, <a class="el" href="a00194_source.html#l00081">m_ppfTransp</a>, <a class="el" href="a00194_source.html#l00079">m_ppfX</a>, and <a class="el" href="a00128_source.html#l00078">CMatrix::setValue()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00529_aec1d45b63855c114d480d1a0532dc3e5_cgraph.png" border="0" usemap="#aa00529_aec1d45b63855c114d480d1a0532dc3e5_cgraph" alt=""/></div>
+<map name="aa00529_aec1d45b63855c114d480d1a0532dc3e5_cgraph" id="aa00529_aec1d45b63855c114d480d1a0532dc3e5_cgraph">
+<area shape="rect" title=" " alt="" coords="5,56,84,83"/>
+<area shape="rect" href="a00449.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="320,5,419,32"/>
+<area shape="rect" href="a00525.html#a4f006a4fc88addf89d0e572d08e48680" title=" " alt="" coords="135,56,251,83"/>
+<area shape="rect" href="a00449.html#a0ae383e7642531506618691fffe25755" title=" " alt="" coords="132,132,255,159"/>
+<area shape="rect" href="a00465.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="494,5,597,32"/>
+<area shape="rect" href="a00465.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="670,5,789,32"/>
+<area shape="rect" href="a00449.html#aab4b96d92f9b9482e217d7740a559f88" title=" " alt="" coords="309,56,429,83"/>
+<area shape="rect" href="a00449.html#a8711751fc46abb0e242f40cd5cb02e15" title=" " alt="" coords="303,107,436,133"/>
+<area shape="rect" href="a00465.html#a58b564301f8eb378b8f02e5bdb282a0e" title=" " alt="" coords="484,56,607,83"/>
+<area shape="rect" href="a00457.html#a67eaa8b4b86a5c507f1fe0f1b9c92ce6" title=" " alt="" coords="655,56,804,83"/>
+<area shape="rect" href="a00465.html#a4cf9544dd96801e3ee47fd1ef2049a1b" title=" " alt="" coords="306,157,433,184"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a76a0a76e95f7d948df393d740a203a83" name="a76a0a76e95f7d948df393d740a203a83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a76a0a76e95f7d948df393d740a203a83">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -408,9 +470,9 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00529.html">CResample</a> &amp; CResample::operator= </td>
+          <td class="memname"><a class="el" href="a00529.html">CNmf</a> &amp; CNmf::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00529.html">CResample</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00529.html">CNmf</a> &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -424,8 +486,67 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a040a6674ec0ff9171d6b4cb4b8436cb2" name="a040a6674ec0ff9171d6b4cb4b8436cb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a040a6674ec0ff9171d6b4cb4b8436cb2">&#9670;&nbsp;</a></span>process()</h2>
+<a id="a5d2839f6b53201ddd0eefc744988a15b" name="a5d2839f6b53201ddd0eefc744988a15b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d2839f6b53201ddd0eefc744988a15b">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNmf::reset </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >resets all internal class members </p><dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00053_source.html#l00044">44</a> of file <a class="el" href="a00053_source.html">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>{</div>
+<div class="line"><span class="lineno">   46</span>    <a class="code hl_variable" href="a00529.html#ac9f06c5bcde5c8a7e3e8d92a061775b9">m_bIsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   47</span>    <a class="code hl_function" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00529.html#a4f07a5b1403b61a30f9cc6dfaad0c0f5">m_ppfX</a>, <a class="code hl_variable" href="a00529.html#a1545716f5d6cb6e75762148a4a7893d0">m_iNumRows</a>);</div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00529.html#a9711f933cc2e7eb6ccb443e6884baffc">m_ppfOnes</a>, <a class="code hl_variable" href="a00529.html#a1545716f5d6cb6e75762148a4a7893d0">m_iNumRows</a>);</div>
+<div class="line"><span class="lineno">   49</span>    <a class="code hl_function" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>);</div>
+<div class="line"><span class="lineno">   50</span>    <a class="code hl_function" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>);</div>
+<div class="line"><span class="lineno">   51</span>    <a class="code hl_function" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a>, <a class="code hl_variable" href="a00529.html#ad995fff5ef33e7f6c288aa6ad566aea6">m_iAllocSize</a>);</div>
+<div class="line"><span class="lineno">   52</span> </div>
+<div class="line"><span class="lineno">   53</span>    <a class="code hl_variable" href="a00529.html#a138171bcd9323577aa3d7a8c64633975">m_iMaxIter</a> = 0;</div>
+<div class="line"><span class="lineno">   54</span>    <a class="code hl_variable" href="a00529.html#a349068352587bfb4a8b39b8d5b7c5cfb">m_fSparsity</a> = 0;</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   57</span>}</div>
+<div class="ttc" id="aa00449_html_afbf24cb4ce4f9b46456419d939eab052"><div class="ttname"><a href="a00449.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;ppfMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00040">Matrix.h:40</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00128_source.html#l00040">CMatrix::free()</a>, <a class="el" href="a00107.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00194_source.html#l00089">m_bIsInitialized</a>, <a class="el" href="a00194_source.html#l00084">m_fSparsity</a>, <a class="el" href="a00194_source.html#l00086">m_iAllocSize</a>, <a class="el" href="a00194_source.html#l00085">m_iMaxIter</a>, <a class="el" href="a00194_source.html#l00087">m_iNumRows</a>, <a class="el" href="a00194_source.html#l00083">m_ppfDenom</a>, <a class="el" href="a00194_source.html#l00082">m_ppfNum</a>, <a class="el" href="a00194_source.html#l00080">m_ppfOnes</a>, <a class="el" href="a00194_source.html#l00081">m_ppfTransp</a>, and <a class="el" href="a00194_source.html#l00079">m_ppfX</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00009">CNmf()</a>, and <a class="el" href="a00053_source.html#l00014">~CNmf()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00529_a5d2839f6b53201ddd0eefc744988a15b_cgraph.png" border="0" usemap="#aa00529_a5d2839f6b53201ddd0eefc744988a15b_cgraph" alt=""/></div>
+<map name="aa00529_a5d2839f6b53201ddd0eefc744988a15b_cgraph" id="aa00529_a5d2839f6b53201ddd0eefc744988a15b_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,96,32"/>
+<area shape="rect" href="a00449.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="144,5,239,32"/>
+<area shape="rect" href="a00465.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="287,5,384,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00529_a5d2839f6b53201ddd0eefc744988a15b_icgraph.png" border="0" usemap="#aa00529_a5d2839f6b53201ddd0eefc744988a15b_icgraph" alt=""/></div>
+<map name="aa00529_a5d2839f6b53201ddd0eefc744988a15b_icgraph" id="aa00529_a5d2839f6b53201ddd0eefc744988a15b_icgraph">
+<area shape="rect" title=" " alt="" coords="156,31,247,57"/>
+<area shape="rect" href="a00529.html#a09232b6ba993abb0842570a0eba87188" title=" " alt="" coords="9,5,105,32"/>
+<area shape="rect" href="a00529.html#a4e12d213a05cc61bb86c9e5fbed0b18b" title=" " alt="" coords="5,56,108,83"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a458bb8f3cd93482bc409b8cd446a3f21" name="a458bb8f3cd93482bc409b8cd446a3f21"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a458bb8f3cd93482bc409b8cd446a3f21">&#9670;&nbsp;</a></span>runNmfIter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -434,22 +555,16 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CResample::process </td>
+          <td class="memname">float CNmf::runNmfIter </td>
           <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfOut</em>, </td>
+          <td class="paramtype"><a class="el" href="a00525.html">CNmfResult</a> *&#160;</td>
+          <td class="paramname"><em>pNmfResult</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfIn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumInSamples</em>&#160;</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfInput</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -459,118 +574,136 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >does the sample rate conversion (filtered linear interpolation) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pfOut</td><td>output buffer (to be written, user allocated, length see <a class="el" href="a00529.html#a1fa6003e640ba66531236277eddc5158">CResample::getOutputLength</a>) </td></tr>
-    <tr><td class="paramname">pfIn</td><td>input buffer of length iNumInSamples </td></tr>
-    <tr><td class="paramname">iNumInSamples</td><td>length of input buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00102">102</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>    {</div>
-<div class="line"><span class="lineno">  104</span>        <span class="keywordflow">if</span> (!pfOut || !pfIn || iNumInSamples &lt;= 0)</div>
-<div class="line"><span class="lineno">  105</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<p class="definition">Definition at line <a class="el" href="a00053_source.html#l00097">97</a> of file <a class="el" href="a00053_source.html">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   98</span>{</div>
+<div class="line"><span class="lineno">   99</span>    <span class="keywordtype">float</span>** ppfW = pCNmfResult-&gt;getMatPointer(<a class="code hl_enumvalue" href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">CNmfResult::kW</a>);</div>
+<div class="line"><span class="lineno">  100</span>    <span class="keywordtype">float</span>** ppfH = pCNmfResult-&gt;getMatPointer(<a class="code hl_enumvalue" href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">CNmfResult::kH</a>);</div>
+<div class="line"><span class="lineno">  101</span>    <span class="keywordtype">float</span>** ppfXHat = pCNmfResult-&gt;getMatPointer(<a class="code hl_enumvalue" href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821">CNmfResult::kXHat</a>);</div>
+<div class="line"><span class="lineno">  102</span> </div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordtype">int</span> iRank = pCNmfResult-&gt;getMatCols(<a class="code hl_enumvalue" href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">CNmfResult::kW</a>);</div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordtype">int</span> iNumObs = pCNmfResult-&gt;getMatCols(<a class="code hl_enumvalue" href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">CNmfResult::kH</a>);</div>
+<div class="line"><span class="lineno">  105</span>    <span class="keywordtype">int</span> iNumBins = pCNmfResult-&gt;getMatRows(<a class="code hl_enumvalue" href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">CNmfResult::kW</a>);</div>
 <div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  107</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> iOrder = 4;</div>
-<div class="line"><span class="lineno">  108</span>        <span class="keywordtype">float</span> fOmegaCutoff = (<a class="code hl_variable" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> &gt; <a class="code hl_variable" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>) ? <a class="code hl_variable" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> / <a class="code hl_variable" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> : <a class="code hl_variable" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> / <a class="code hl_variable" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>;</div>
+<div class="line"><span class="lineno">  107</span>    <span class="keyword">const</span> <span class="keywordtype">bool</span> bUpdateH = <span class="keyword">true</span>,</div>
+<div class="line"><span class="lineno">  108</span>        bUpdateW = <span class="keyword">true</span>;</div>
 <div class="line"><span class="lineno">  109</span> </div>
-<div class="line"><span class="lineno">  110</span>        <span class="comment">// compute index axis</span></div>
-<div class="line"><span class="lineno">  111</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumOutSamples = <a class="code hl_function" href="a00529.html#a1fa6003e640ba66531236277eddc5158">getOutputLength</a>(iNumInSamples);</div>
-<div class="line"><span class="lineno">  112</span>        <span class="keywordtype">float</span>* pfOutIdx = 0;</div>
-<div class="line"><span class="lineno">  113</span>        <a class="code hl_function" href="a00453.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfOutIdx, iNumOutSamples);</div>
-<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iNumOutSamples; i++)</div>
-<div class="line"><span class="lineno">  115</span>            pfOutIdx[i] = i * <a class="code hl_variable" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> / <a class="code hl_variable" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a>;</div>
-<div class="line"><span class="lineno">  116</span> </div>
-<div class="line"><span class="lineno">  117</span>        <span class="comment">// compute butterworth low pass filter coefficients</span></div>
-<div class="line"><span class="lineno">  118</span>        <span class="keywordtype">float</span> aafCoeffs[2][iOrder+1] = { 0 };</div>
-<div class="line"><span class="lineno">  119</span>        <a class="code hl_function" href="a00433.html#a3878460603a6e6e1a64de6021b2bb73e">CButterLp::calcCoeffs</a>(aafCoeffs[0], aafCoeffs[1], iOrder, .9F * fOmegaCutoff);</div>
-<div class="line"><span class="lineno">  120</span>        <a class="code hl_variable" href="a00529.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>-&gt;<a class="code hl_function" href="a00429.html#add0db9a0cf605eb3f57c80b52d2bda0e">init</a>(aafCoeffs[0], aafCoeffs[1], iOrder+1);</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00529.html#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> &gt; <a class="code hl_variable" href="a00529.html#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>) <span class="comment">// upsample</span></div>
-<div class="line"><span class="lineno">  123</span>        {</div>
-<div class="line"><span class="lineno">  124</span>            <span class="comment">// interpolate</span></div>
-<div class="line"><span class="lineno">  125</span>            <a class="code hl_function" href="a00529.html#a02a81c6177894649b0524b684118839e">interp1d</a>(pfOut, pfOutIdx, pfIn, iNumOutSamples, iNumInSamples);</div>
+<div class="line"><span class="lineno">  110</span>    <span class="comment">// compute current estimate</span></div>
+<div class="line"><span class="lineno">  111</span>    <a class="code hl_function" href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37">CMatrix::mulMatMat</a>(ppfXHat, ppfW, ppfH, iNumBins, iRank, iRank, iNumObs);</div>
+<div class="line"><span class="lineno">  112</span>    <a class="code hl_function" href="a00449.html#a80c3acdf185e2aa6ed7c5dd2a253efde">CMatrix::addC_I</a>(ppfXHat, <a class="code hl_variable" href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">m_kMinOffset</a>, iNumBins, iNumObs);</div>
+<div class="line"><span class="lineno">  113</span> </div>
+<div class="line"><span class="lineno">  114</span>    <span class="comment">//m_ppfX</span></div>
+<div class="line"><span class="lineno">  115</span>    <a class="code hl_function" href="a00449.html#a38351fc34e85cfa1da2b46ec84083d38">CMatrix::copy</a>(<a class="code hl_variable" href="a00529.html#a4f07a5b1403b61a30f9cc6dfaad0c0f5">m_ppfX</a>, ppfInput, iNumBins, iNumObs);</div>
+<div class="line"><span class="lineno">  116</span>    <a class="code hl_function" href="a00449.html#a7fbde9461acdc6a4ac9dfbcff614339f">CMatrix::div_I</a>(<a class="code hl_variable" href="a00529.html#a4f07a5b1403b61a30f9cc6dfaad0c0f5">m_ppfX</a>, ppfXHat, iNumBins, iNumObs);</div>
+<div class="line"><span class="lineno">  117</span> </div>
+<div class="line"><span class="lineno">  118</span>    <span class="comment">// update H</span></div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">if</span> (bUpdateH)</div>
+<div class="line"><span class="lineno">  120</span>    {</div>
+<div class="line"><span class="lineno">  121</span>        <a class="code hl_function" href="a00449.html#ad853a511232f954cfd9ae2211759c6bf">CMatrix::transpose</a>(<a class="code hl_variable" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a>, ppfW, iNumBins, iRank);</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>        <span class="comment">// denominator</span></div>
+<div class="line"><span class="lineno">  124</span>        <a class="code hl_function" href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37">CMatrix::mulMatMat</a>(<a class="code hl_variable" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a>, <a class="code hl_variable" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a>, <a class="code hl_variable" href="a00529.html#a9711f933cc2e7eb6ccb443e6884baffc">m_ppfOnes</a>, iRank, iNumBins, iNumBins, iNumObs);</div>
+<div class="line"><span class="lineno">  125</span>        <a class="code hl_function" href="a00449.html#a80c3acdf185e2aa6ed7c5dd2a253efde">CMatrix::addC_I</a>(<a class="code hl_variable" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a>, <a class="code hl_variable" href="a00529.html#a349068352587bfb4a8b39b8d5b7c5cfb">m_fSparsity</a> + <a class="code hl_variable" href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">m_kMinOffset</a>, iRank, iNumObs);</div>
 <div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>            <span class="comment">// apply zero phase filter</span></div>
-<div class="line"><span class="lineno">  128</span>            <a class="code hl_variable" href="a00529.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>-&gt;<a class="code hl_function" href="a00429.html#a04bf94ff97e5e270210954864025ea06">filtfilt</a>(pfOut, pfOut, iNumOutSamples);</div>
-<div class="line"><span class="lineno">  129</span>        }</div>
-<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">else</span> <span class="comment">// downsample</span></div>
-<div class="line"><span class="lineno">  131</span>        {</div>
-<div class="line"><span class="lineno">  132</span>            <span class="keywordtype">float</span>* pfFiltered = 0;</div>
-<div class="line"><span class="lineno">  133</span>            <a class="code hl_function" href="a00453.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfFiltered, iNumInSamples);</div>
-<div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>            <span class="comment">// apply zero phase filter</span></div>
-<div class="line"><span class="lineno">  136</span>            <a class="code hl_variable" href="a00529.html#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>-&gt;<a class="code hl_function" href="a00429.html#a04bf94ff97e5e270210954864025ea06">filtfilt</a>(pfFiltered, pfIn, iNumInSamples);</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>            <span class="comment">// interpolate</span></div>
-<div class="line"><span class="lineno">  139</span>            <a class="code hl_function" href="a00529.html#a02a81c6177894649b0524b684118839e">interp1d</a>(pfOut, pfOutIdx, pfFiltered, iNumOutSamples, iNumInSamples);</div>
+<div class="line"><span class="lineno">  127</span>        <span class="comment">// numerator</span></div>
+<div class="line"><span class="lineno">  128</span>        <a class="code hl_function" href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37">CMatrix::mulMatMat</a>(<a class="code hl_variable" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a>, <a class="code hl_variable" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a>, <a class="code hl_variable" href="a00529.html#a4f07a5b1403b61a30f9cc6dfaad0c0f5">m_ppfX</a>, iRank, iNumBins, iNumBins, iNumObs);</div>
+<div class="line"><span class="lineno">  129</span>        <a class="code hl_function" href="a00449.html#a7fbde9461acdc6a4ac9dfbcff614339f">CMatrix::div_I</a>(<a class="code hl_variable" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a>, <a class="code hl_variable" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a>, iRank, iNumObs);</div>
+<div class="line"><span class="lineno">  130</span>        <a class="code hl_function" href="a00449.html#a1d2fd141b49c287db7b826a43e723ee3">CMatrix::mul_I</a>(ppfH, <a class="code hl_variable" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a>, iRank, iNumObs);</div>
+<div class="line"><span class="lineno">  131</span> </div>
+<div class="line"><span class="lineno">  132</span>        <span class="comment">// clean small values</span></div>
+<div class="line"><span class="lineno">  133</span>        <a class="code hl_function" href="a00449.html#a2d4f47826ff87a03fd220d61f326ac5b">CMatrix::setZeroBelowThresh</a>(ppfH, iRank, iNumObs, <a class="code hl_variable" href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">m_kMinOffset</a>);</div>
+<div class="line"><span class="lineno">  134</span>    }</div>
+<div class="line"><span class="lineno">  135</span> </div>
+<div class="line"><span class="lineno">  136</span>    <span class="comment">// update W</span></div>
+<div class="line"><span class="lineno">  137</span>    <span class="keywordflow">if</span> (bUpdateW)</div>
+<div class="line"><span class="lineno">  138</span>    {</div>
+<div class="line"><span class="lineno">  139</span>        <a class="code hl_function" href="a00449.html#ad853a511232f954cfd9ae2211759c6bf">CMatrix::transpose</a>(<a class="code hl_variable" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a>, ppfH, iRank, iNumObs);</div>
 <div class="line"><span class="lineno">  140</span> </div>
-<div class="line"><span class="lineno">  141</span>            <a class="code hl_function" href="a00453.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfFiltered);</div>
-<div class="line"><span class="lineno">  142</span>        }</div>
-<div class="line"><span class="lineno">  143</span> </div>
-<div class="line"><span class="lineno">  144</span>        <span class="comment">// free internal memory</span></div>
-<div class="line"><span class="lineno">  145</span>        <a class="code hl_function" href="a00453.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfOutIdx);</div>
-<div class="line"><span class="lineno">  146</span> </div>
-<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  148</span>    }</div>
-<div class="ttc" id="aa00429_html_a04bf94ff97e5e270210954864025ea06"><div class="ttname"><a href="a00429.html#a04bf94ff97e5e270210954864025ea06">CFilter::filtfilt</a></div><div class="ttdeci">Error_t filtfilt(T *pfOut, const T *pfIn, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00166">Filter.h:166</a></div></div>
-<div class="ttc" id="aa00429_html_add0db9a0cf605eb3f57c80b52d2bda0e"><div class="ttname"><a href="a00429.html#add0db9a0cf605eb3f57c80b52d2bda0e">CFilter::init</a></div><div class="ttdeci">Error_t init(const T *pfB, const T *pfA, int iNumCoeffs)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00033">Filter.h:33</a></div></div>
-<div class="ttc" id="aa00433_html_a3878460603a6e6e1a64de6021b2bb73e"><div class="ttname"><a href="a00433.html#a3878460603a6e6e1a64de6021b2bb73e">CButterLp::calcCoeffs</a></div><div class="ttdeci">static Error_t calcCoeffs(T *pfB, T *pfA, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00301">Filter.h:301</a></div></div>
-<div class="ttc" id="aa00453_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00453.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.html#l00039">Vector.h:39</a></div></div>
-<div class="ttc" id="aa00453_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00453.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.html#l00024">Vector.h:24</a></div></div>
-<div class="ttc" id="aa00529_html_a02a81c6177894649b0524b684118839e"><div class="ttname"><a href="a00529.html#a02a81c6177894649b0524b684118839e">CResample::interp1d</a></div><div class="ttdeci">static Error_t interp1d(float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00173_source.html#l00024">ToolResample.h:24</a></div></div>
-<div class="ttc" id="aa00529_html_a1fa6003e640ba66531236277eddc5158"><div class="ttname"><a href="a00529.html#a1fa6003e640ba66531236277eddc5158">CResample::getOutputLength</a></div><div class="ttdeci">long long getOutputLength(long long iNumInSamples) const</div><div class="ttdef"><b>Definition:</b> <a href="a00173_source.html#l00091">ToolResample.h:91</a></div></div>
+<div class="line"><span class="lineno">  141</span>        <span class="comment">// denominator</span></div>
+<div class="line"><span class="lineno">  142</span>        <a class="code hl_function" href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37">CMatrix::mulMatMat</a>(<a class="code hl_variable" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a>, <a class="code hl_variable" href="a00529.html#a9711f933cc2e7eb6ccb443e6884baffc">m_ppfOnes</a>, <a class="code hl_variable" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a>, iNumBins, iNumObs, iNumObs, iRank);</div>
+<div class="line"><span class="lineno">  143</span>        <a class="code hl_function" href="a00449.html#a80c3acdf185e2aa6ed7c5dd2a253efde">CMatrix::addC_I</a>(<a class="code hl_variable" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a>, <a class="code hl_variable" href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">m_kMinOffset</a>, iNumBins, iRank);</div>
+<div class="line"><span class="lineno">  144</span> </div>
+<div class="line"><span class="lineno">  145</span>        <span class="comment">// numerator</span></div>
+<div class="line"><span class="lineno">  146</span>        <a class="code hl_function" href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37">CMatrix::mulMatMat</a>(<a class="code hl_variable" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a>, <a class="code hl_variable" href="a00529.html#a4f07a5b1403b61a30f9cc6dfaad0c0f5">m_ppfX</a>, <a class="code hl_variable" href="a00529.html#a8885c0c52ee2f947dbabd0ce7f45778f">m_ppfTransp</a>, iNumBins, iNumObs, iNumObs, iRank);</div>
+<div class="line"><span class="lineno">  147</span>        <a class="code hl_function" href="a00449.html#a7fbde9461acdc6a4ac9dfbcff614339f">CMatrix::div_I</a>(<a class="code hl_variable" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a>, <a class="code hl_variable" href="a00529.html#a1e19848e9e16e89a891f1e3cea81dea6">m_ppfDenom</a>, iNumBins, iRank);</div>
+<div class="line"><span class="lineno">  148</span>        <a class="code hl_function" href="a00449.html#a1d2fd141b49c287db7b826a43e723ee3">CMatrix::mul_I</a>(ppfW, <a class="code hl_variable" href="a00529.html#aca8ced874ebb30a6e3f7265aad2c8358">m_ppfNum</a>, iNumBins, iRank);</div>
+<div class="line"><span class="lineno">  149</span> </div>
+<div class="line"><span class="lineno">  150</span>        <span class="comment">// normalize</span></div>
+<div class="line"><span class="lineno">  151</span>        <a class="code hl_function" href="a00449.html#a8711751fc46abb0e242f40cd5cb02e15">CMatrix::vecnorm_I</a>(ppfW, iNumBins, iRank);</div>
+<div class="line"><span class="lineno">  152</span> </div>
+<div class="line"><span class="lineno">  153</span>        <span class="comment">// clean small values</span></div>
+<div class="line"><span class="lineno">  154</span>        <a class="code hl_function" href="a00449.html#a2d4f47826ff87a03fd220d61f326ac5b">CMatrix::setZeroBelowThresh</a>(ppfW, iNumBins, iRank, <a class="code hl_variable" href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">m_kMinOffset</a>);</div>
+<div class="line"><span class="lineno">  155</span>    }</div>
+<div class="line"><span class="lineno">  156</span> </div>
+<div class="line"><span class="lineno">  157</span>    <span class="comment">// compute error</span></div>
+<div class="line"><span class="lineno">  158</span>    <a class="code hl_function" href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37">CMatrix::mulMatMat</a>(ppfXHat, ppfW, ppfH, iNumBins, iRank, iRank, iNumObs);</div>
+<div class="line"><span class="lineno">  159</span>    <a class="code hl_function" href="a00449.html#a80c3acdf185e2aa6ed7c5dd2a253efde">CMatrix::addC_I</a>(ppfXHat, <a class="code hl_variable" href="a00529.html#af5efbe3fee2a569abe774d86e08579e0">m_kMinOffset</a>, iNumBins, iNumObs);</div>
+<div class="line"><span class="lineno">  160</span> </div>
+<div class="line"><span class="lineno">  161</span>    <span class="comment">// deal with sparsity</span></div>
+<div class="line"><span class="lineno">  162</span>    <a class="code hl_function" href="a00449.html#a80c3acdf185e2aa6ed7c5dd2a253efde">CMatrix::addC_I</a>(ppfXHat, <a class="code hl_variable" href="a00529.html#a349068352587bfb4a8b39b8d5b7c5cfb">m_fSparsity</a> * <a class="code hl_function" href="a00449.html#a9e984c33f178b827bd5d9525bc86363c">CMatrix::getNorm</a>(ppfXHat, iNumBins, iNumObs), iNumBins, iNumObs);</div>
+<div class="line"><span class="lineno">  163</span> </div>
+<div class="line"><span class="lineno">  164</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00449.html#a30a6c3d224cd3e5e601e99f517eaa8a2">CMatrix::calcKlDivergence</a>(ppfInput, ppfXHat, iNumBins, iNumObs); </div>
+<div class="line"><span class="lineno">  165</span>}</div>
+<div class="ttc" id="aa00449_html_a19520bbcd8ef17a0f14bcc66f9f9df37"><div class="ttname"><a href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37">CMatrix::mulMatMat</a></div><div class="ttdeci">static void mulMatMat(float **ppfDest, float **ppfSrc1, float **ppfSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00392">Matrix.h:392</a></div></div>
+<div class="ttc" id="aa00449_html_a1d2fd141b49c287db7b826a43e723ee3"><div class="ttname"><a href="a00449.html#a1d2fd141b49c287db7b826a43e723ee3">CMatrix::mul_I</a></div><div class="ttdeci">static void mul_I(float **ppfSrcDest, float **ppfSrc, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00426">Matrix.h:426</a></div></div>
+<div class="ttc" id="aa00449_html_a2d4f47826ff87a03fd220d61f326ac5b"><div class="ttname"><a href="a00449.html#a2d4f47826ff87a03fd220d61f326ac5b">CMatrix::setZeroBelowThresh</a></div><div class="ttdeci">static void setZeroBelowThresh(T **ppfMat, int iNumRows, int iNumCols, T tThresh)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00134">Matrix.h:134</a></div></div>
+<div class="ttc" id="aa00449_html_a30a6c3d224cd3e5e601e99f517eaa8a2"><div class="ttname"><a href="a00449.html#a30a6c3d224cd3e5e601e99f517eaa8a2">CMatrix::calcKlDivergence</a></div><div class="ttdeci">static float calcKlDivergence(float **ppfSrc1, float **ppfSrc2, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00246">Matrix.h:246</a></div></div>
+<div class="ttc" id="aa00449_html_a38351fc34e85cfa1da2b46ec84083d38"><div class="ttname"><a href="a00449.html#a38351fc34e85cfa1da2b46ec84083d38">CMatrix::copy</a></div><div class="ttdeci">static void copy(T **ppfDestMat, T **ppfSrcMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00605">Matrix.h:605</a></div></div>
+<div class="ttc" id="aa00449_html_a7fbde9461acdc6a4ac9dfbcff614339f"><div class="ttname"><a href="a00449.html#a7fbde9461acdc6a4ac9dfbcff614339f">CMatrix::div_I</a></div><div class="ttdeci">static void div_I(float **ppfSrcDest, float **ppfSrc, int iNumRows, int iNumCols, bool bAddSmallConst=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00496">Matrix.h:496</a></div></div>
+<div class="ttc" id="aa00449_html_a80c3acdf185e2aa6ed7c5dd2a253efde"><div class="ttname"><a href="a00449.html#a80c3acdf185e2aa6ed7c5dd2a253efde">CMatrix::addC_I</a></div><div class="ttdeci">static void addC_I(float **ppfMat, float fAdd, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00544">Matrix.h:544</a></div></div>
+<div class="ttc" id="aa00449_html_a8711751fc46abb0e242f40cd5cb02e15"><div class="ttname"><a href="a00449.html#a8711751fc46abb0e242f40cd5cb02e15">CMatrix::vecnorm_I</a></div><div class="ttdeci">static void vecnorm_I(float **ppfSrcDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00221">Matrix.h:221</a></div></div>
+<div class="ttc" id="aa00449_html_a9e984c33f178b827bd5d9525bc86363c"><div class="ttname"><a href="a00449.html#a9e984c33f178b827bd5d9525bc86363c">CMatrix::getNorm</a></div><div class="ttdeci">static float getNorm(float **ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00193">Matrix.h:193</a></div></div>
+<div class="ttc" id="aa00449_html_ad853a511232f954cfd9ae2211759c6bf"><div class="ttname"><a href="a00449.html#ad853a511232f954cfd9ae2211759c6bf">CMatrix::transpose</a></div><div class="ttdeci">static void transpose(float **ppfDest, float **ppfSrc, int iNumSrcRows, int iNumSrcCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00273">Matrix.h:273</a></div></div>
+<div class="ttc" id="aa00525_html_a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550"><div class="ttname"><a href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">CNmfResult::kW</a></div><div class="ttdeci">@ kW</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00015">ToolNmf.h:15</a></div></div>
+<div class="ttc" id="aa00525_html_a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b"><div class="ttname"><a href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">CNmfResult::kH</a></div><div class="ttdeci">@ kH</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00016">ToolNmf.h:16</a></div></div>
+<div class="ttc" id="aa00525_html_a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821"><div class="ttname"><a href="a00525.html#a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821">CNmfResult::kXHat</a></div><div class="ttdeci">@ kXHat</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.html#l00017">ToolNmf.h:17</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00125_source.html#l00024">CVector::alloc()</a>, <a class="el" href="a00122_source.html#l00301">CButterLp::calcCoeffs()</a>, <a class="el" href="a00122_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00125_source.html#l00039">CVector::free()</a>, <a class="el" href="a00173_source.html#l00091">getOutputLength()</a>, <a class="el" href="a00122_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00173_source.html#l00024">interp1d()</a>, <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00101.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00173_source.html#l00154">m_fInSampleRate</a>, <a class="el" href="a00173_source.html#l00155">m_fOutSampleRate</a>, and <a class="el" href="a00173_source.html#l00157">m_pCFilter</a>.</p>
+<p class="reference">References <a class="el" href="a00128_source.html#l00544">CMatrix::addC_I()</a>, <a class="el" href="a00128_source.html#l00246">CMatrix::calcKlDivergence()</a>, <a class="el" href="a00128_source.html#l00605">CMatrix::copy()</a>, <a class="el" href="a00128_source.html#l00496">CMatrix::div_I()</a>, <a class="el" href="a00053_source.html#l00220">CNmfResult::getMatCols()</a>, <a class="el" href="a00053_source.html#l00256">CNmfResult::getMatPointer()</a>, <a class="el" href="a00053_source.html#l00225">CNmfResult::getMatRows()</a>, <a class="el" href="a00128_source.html#l00193">CMatrix::getNorm()</a>, <a class="el" href="a00194_source.html#l00016">CNmfResult::kH</a>, <a class="el" href="a00194_source.html#l00015">CNmfResult::kW</a>, <a class="el" href="a00194_source.html#l00017">CNmfResult::kXHat</a>, <a class="el" href="a00194_source.html#l00084">m_fSparsity</a>, <a class="el" href="a00194_source.html#l00091">m_kMinOffset</a>, <a class="el" href="a00194_source.html#l00083">m_ppfDenom</a>, <a class="el" href="a00194_source.html#l00082">m_ppfNum</a>, <a class="el" href="a00194_source.html#l00080">m_ppfOnes</a>, <a class="el" href="a00194_source.html#l00081">m_ppfTransp</a>, <a class="el" href="a00194_source.html#l00079">m_ppfX</a>, <a class="el" href="a00128_source.html#l00426">CMatrix::mul_I()</a>, <a class="el" href="a00128_source.html#l00392">CMatrix::mulMatMat()</a>, <a class="el" href="a00128_source.html#l00134">CMatrix::setZeroBelowThresh()</a>, <a class="el" href="a00128_source.html#l00273">CMatrix::transpose()</a>, and <a class="el" href="a00128_source.html#l00221">CMatrix::vecnorm_I()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00059">compNmf()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00529_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph.png" border="0" usemap="#aa00529_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph" alt=""/></div>
-<map name="aa00529_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph" id="aa00529_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph">
-<area shape="rect" title=" " alt="" coords="5,903,147,929"/>
-<area shape="rect" href="a00453.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="1069,436,1171,463"/>
-<area shape="rect" href="a00433.html#a3878460603a6e6e1a64de6021b2bb73e" title=" " alt="" coords="627,157,775,184"/>
-<area shape="rect" href="a00453.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="1071,1044,1169,1071"/>
-<area shape="rect" href="a00429.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="245,903,337,929"/>
-<area shape="rect" href="a00529.html#a1fa6003e640ba66531236277eddc5158" title=" " alt="" coords="195,1221,387,1248"/>
-<area shape="rect" href="a00429.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="660,360,743,387"/>
-<area shape="rect" href="a00529.html#a02a81c6177894649b0524b684118839e" title=" " alt="" coords="220,1272,361,1299"/>
-<area shape="rect" href="a00453.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="1249,411,1368,437"/>
-<area shape="rect" href="a00433.html#a4a70bdde7f075d2591fd03c52c16145c" title=" " alt="" coords="849,5,969,32"/>
-<area shape="rect" href="a00433.html#a9c08c0b6f891bb37fb4230088f94b0a0" title=" " alt="" coords="849,56,969,83"/>
-<area shape="rect" href="a00457.html#a0a8056cf61fdabd88f1ef56314f27e8d" title=" " alt="" coords="844,107,975,133"/>
-<area shape="rect" href="a00457.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="1046,385,1194,412"/>
-<area shape="rect" href="a00433.html#ab4432f6b6d2f1bad850a13a0573615c4" title=" " alt="" coords="1039,5,1201,32"/>
-<area shape="rect" href="a00433.html#a93b25bb8ef71fc7221ae53efe9212d67" title=" " alt="" coords="1048,56,1192,83"/>
-<area shape="rect" href="a00453.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="1069,309,1171,336"/>
-<area shape="rect" href="a00429.html#a1c35f3511dcdc32517db3cea9c327ae8" title=" " alt="" coords="449,1120,561,1147"/>
-<area shape="rect" href="a00429.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="862,563,957,589"/>
-<area shape="rect" href="a00429.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="435,903,575,929"/>
-<area shape="rect" href="a00437.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="860,968,959,995"/>
-<area shape="rect" href="a00437.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="862,1019,957,1045"/>
-<area shape="rect" href="a00437.html#a2beb6cc20e6596997993a552b1bb4a70" title=" " alt="" coords="651,873,751,900"/>
-<area shape="rect" href="a00437.html#af8f217a73d7c2503e0435da5f1ed52a0" title=" " alt="" coords="623,731,780,757"/>
-<area shape="rect" href="a00437.html#a38351fc34e85cfa1da2b46ec84083d38" title=" " alt="" coords="860,715,959,741"/>
-<area shape="rect" href="a00457.html#afc9a413a88b0c7143252dac95050af33" title=" " alt="" coords="837,816,982,843"/>
-<area shape="rect" href="a00437.html#ac471bc59a137aa4fdccb56b2297ab95d" title=" " alt="" coords="854,765,965,792"/>
-<area shape="rect" href="a00457.html#a6dc46873ff8f2f3e2d697399f78c81c0" title=" " alt="" coords="835,867,983,893"/>
-<area shape="rect" href="a00437.html#a47882391a9274df66406eba4be082019" title=" " alt="" coords="835,917,983,944"/>
-<area shape="rect" href="a00457.html#ab572a4fece01255657935ed18afdeadd" title=" " alt="" coords="828,664,991,691"/>
+<div class="center"><img src="a00529_a458bb8f3cd93482bc409b8cd446a3f21_cgraph.png" border="0" usemap="#aa00529_a458bb8f3cd93482bc409b8cd446a3f21_cgraph" alt=""/></div>
+<map name="aa00529_a458bb8f3cd93482bc409b8cd446a3f21_cgraph" id="aa00529_a458bb8f3cd93482bc409b8cd446a3f21_cgraph">
+<area shape="rect" title=" " alt="" coords="5,309,129,336"/>
+<area shape="rect" href="a00449.html#a80c3acdf185e2aa6ed7c5dd2a253efde" title=" " alt="" coords="217,5,330,32"/>
+<area shape="rect" href="a00449.html#a30a6c3d224cd3e5e601e99f517eaa8a2" title=" " alt="" coords="187,56,360,83"/>
+<area shape="rect" href="a00449.html#a38351fc34e85cfa1da2b46ec84083d38" title=" " alt="" coords="224,107,323,133"/>
+<area shape="rect" href="a00449.html#a7fbde9461acdc6a4ac9dfbcff614339f" title=" " alt="" coords="223,157,323,184"/>
+<area shape="rect" href="a00525.html#a9809e7b2289abd238e992df3b7ad65a0" title=" " alt="" coords="191,208,356,235"/>
+<area shape="rect" href="a00525.html#a85d97245bb91969264671387706cd372" title=" " alt="" coords="183,259,363,285"/>
+<area shape="rect" href="a00525.html#a6c61324a24caf454344400a728e09387" title=" " alt="" coords="187,309,359,336"/>
+<area shape="rect" href="a00449.html#a9e984c33f178b827bd5d9525bc86363c" title=" " alt="" coords="212,360,335,387"/>
+<area shape="rect" href="a00449.html#a1d2fd141b49c287db7b826a43e723ee3" title=" " alt="" coords="221,411,325,437"/>
+<area shape="rect" href="a00449.html#a19520bbcd8ef17a0f14bcc66f9f9df37" title=" " alt="" coords="205,461,342,488"/>
+<area shape="rect" href="a00449.html#a2d4f47826ff87a03fd220d61f326ac5b" title=" " alt="" coords="177,512,369,539"/>
+<area shape="rect" href="a00449.html#ad853a511232f954cfd9ae2211759c6bf" title=" " alt="" coords="209,563,338,589"/>
+<area shape="rect" href="a00449.html#a8711751fc46abb0e242f40cd5cb02e15" title=" " alt="" coords="207,613,340,640"/>
+<area shape="rect" href="a00469.html#af10e45e34254ef453abff50282a8b746" title=" " alt="" coords="442,5,587,32"/>
+<area shape="rect" href="a00465.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="463,107,566,133"/>
+<area shape="rect" href="a00465.html#aba07261926b4c10ed7fdbe38edf6d16d" title=" " alt="" coords="417,512,612,539"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00529_a458bb8f3cd93482bc409b8cd446a3f21_icgraph.png" border="0" usemap="#aa00529_a458bb8f3cd93482bc409b8cd446a3f21_icgraph" alt=""/></div>
+<map name="aa00529_a458bb8f3cd93482bc409b8cd446a3f21_icgraph" id="aa00529_a458bb8f3cd93482bc409b8cd446a3f21_icgraph">
+<area shape="rect" title=" " alt="" coords="172,5,296,32"/>
+<area shape="rect" href="a00529.html#a298f5a0187b09abaec14570da9239187" title=" " alt="" coords="5,5,124,32"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9d56139a9c202823fe57a189146a9b8c" name="a9d56139a9c202823fe57a189146a9b8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d56139a9c202823fe57a189146a9b8c">&#9670;&nbsp;</a></span>m_fInSampleRate</h2>
+<a id="ac9f06c5bcde5c8a7e3e8d92a061775b9" name="ac9f06c5bcde5c8a7e3e8d92a061775b9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac9f06c5bcde5c8a7e3e8d92a061775b9">&#9670;&nbsp;</a></span>m_bIsInitialized</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -579,7 +712,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CResample::m_fInSampleRate = 0.F</td>
+          <td class="memname"><a class="el" href="a00215.html#abb452686968e48b67397da5f97445f5b">bool</a> CNmf::m_bIsInitialized = <a class="el" href="a00215.html#a65e9886d74aaee76545e83dd09011727">false</a></td>
         </tr>
       </table>
   </td>
@@ -589,16 +722,16 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>sample rate of input </p>
+<p>true if init has been called </p>
 
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00154">154</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00089">89</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00173_source.html#l00072">CResample()</a>, <a class="el" href="a00173_source.html#l00091">getOutputLength()</a>, and <a class="el" href="a00173_source.html#l00102">process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00059">compNmf()</a>, <a class="el" href="a00053_source.html#l00019">init()</a>, and <a class="el" href="a00053_source.html#l00044">reset()</a>.</p>
 
 </div>
 </div>
-<a id="a4e704946c8bfe078190cdf36818e40db" name="a4e704946c8bfe078190cdf36818e40db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e704946c8bfe078190cdf36818e40db">&#9670;&nbsp;</a></span>m_fOutSampleRate</h2>
+<a id="a349068352587bfb4a8b39b8d5b7c5cfb" name="a349068352587bfb4a8b39b8d5b7c5cfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a349068352587bfb4a8b39b8d5b7c5cfb">&#9670;&nbsp;</a></span>m_fSparsity</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -607,7 +740,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CResample::m_fOutSampleRate = 0.F</td>
+          <td class="memname">float CNmf::m_fSparsity = 0</td>
         </tr>
       </table>
   </td>
@@ -617,16 +750,14 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>sample rate of output </p>
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00084">84</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00155">155</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00173_source.html#l00072">CResample()</a>, <a class="el" href="a00173_source.html#l00091">getOutputLength()</a>, and <a class="el" href="a00173_source.html#l00102">process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00019">init()</a>, <a class="el" href="a00053_source.html#l00044">reset()</a>, and <a class="el" href="a00053_source.html#l00097">runNmfIter()</a>.</p>
 
 </div>
 </div>
-<a id="ad227a6fd0acf022e8a41a1d4ab2b27c9" name="ad227a6fd0acf022e8a41a1d4ab2b27c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad227a6fd0acf022e8a41a1d4ab2b27c9">&#9670;&nbsp;</a></span>m_pCFilter</h2>
+<a id="ad995fff5ef33e7f6c288aa6ad566aea6" name="ad995fff5ef33e7f6c288aa6ad566aea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad995fff5ef33e7f6c288aa6ad566aea6">&#9670;&nbsp;</a></span>m_iAllocSize</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -635,7 +766,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00429.html">CFilter</a>&lt;float&gt;* CResample::m_pCFilter = 0</td>
+          <td class="memname">int CNmf::m_iAllocSize = 0</td>
         </tr>
       </table>
   </td>
@@ -645,21 +776,228 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>low pass filter processing </p>
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00086">86</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00173_source.html#l00157">157</a> of file <a class="el" href="a00173_source.html">ToolResample.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00173_source.html#l00072">CResample()</a>, <a class="el" href="a00173_source.html#l00102">process()</a>, and <a class="el" href="a00173_source.html#l00082">~CResample()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00019">init()</a>, and <a class="el" href="a00053_source.html#l00044">reset()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00173_source.html">ToolResample.h</a></li>
+<a id="a138171bcd9323577aa3d7a8c64633975" name="a138171bcd9323577aa3d7a8c64633975"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a138171bcd9323577aa3d7a8c64633975">&#9670;&nbsp;</a></span>m_iMaxIter</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CNmf::m_iMaxIter = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00085">85</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00059">compNmf()</a>, <a class="el" href="a00053_source.html#l00019">init()</a>, and <a class="el" href="a00053_source.html#l00044">reset()</a>.</p>
+
+</div>
+</div>
+<a id="a1545716f5d6cb6e75762148a4a7893d0" name="a1545716f5d6cb6e75762148a4a7893d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1545716f5d6cb6e75762148a4a7893d0">&#9670;&nbsp;</a></span>m_iNumRows</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CNmf::m_iNumRows = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00087">87</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00019">init()</a>, and <a class="el" href="a00053_source.html#l00044">reset()</a>.</p>
+
+</div>
+</div>
+<a id="af5efbe3fee2a569abe774d86e08579e0" name="af5efbe3fee2a569abe774d86e08579e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af5efbe3fee2a569abe774d86e08579e0">&#9670;&nbsp;</a></span>m_kMinOffset</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const float CNmf::m_kMinOffset = 1e-30F</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00091">91</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00059">compNmf()</a>, and <a class="el" href="a00053_source.html#l00097">runNmfIter()</a>.</p>
+
+</div>
+</div>
+<a id="a1e19848e9e16e89a891f1e3cea81dea6" name="a1e19848e9e16e89a891f1e3cea81dea6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1e19848e9e16e89a891f1e3cea81dea6">&#9670;&nbsp;</a></span>m_ppfDenom</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ** CNmf::m_ppfDenom = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00083">83</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00019">init()</a>, <a class="el" href="a00053_source.html#l00044">reset()</a>, and <a class="el" href="a00053_source.html#l00097">runNmfIter()</a>.</p>
+
+</div>
+</div>
+<a id="aca8ced874ebb30a6e3f7265aad2c8358" name="aca8ced874ebb30a6e3f7265aad2c8358"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aca8ced874ebb30a6e3f7265aad2c8358">&#9670;&nbsp;</a></span>m_ppfNum</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ** CNmf::m_ppfNum = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00082">82</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00019">init()</a>, <a class="el" href="a00053_source.html#l00044">reset()</a>, and <a class="el" href="a00053_source.html#l00097">runNmfIter()</a>.</p>
+
+</div>
+</div>
+<a id="a9711f933cc2e7eb6ccb443e6884baffc" name="a9711f933cc2e7eb6ccb443e6884baffc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9711f933cc2e7eb6ccb443e6884baffc">&#9670;&nbsp;</a></span>m_ppfOnes</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ** CNmf::m_ppfOnes = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00080">80</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00019">init()</a>, <a class="el" href="a00053_source.html#l00044">reset()</a>, and <a class="el" href="a00053_source.html#l00097">runNmfIter()</a>.</p>
+
+</div>
+</div>
+<a id="a8885c0c52ee2f947dbabd0ce7f45778f" name="a8885c0c52ee2f947dbabd0ce7f45778f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8885c0c52ee2f947dbabd0ce7f45778f">&#9670;&nbsp;</a></span>m_ppfTransp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float ** CNmf::m_ppfTransp = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00081">81</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00019">init()</a>, <a class="el" href="a00053_source.html#l00044">reset()</a>, and <a class="el" href="a00053_source.html#l00097">runNmfIter()</a>.</p>
+
+</div>
+</div>
+<a id="a4f07a5b1403b61a30f9cc6dfaad0c0f5" name="a4f07a5b1403b61a30f9cc6dfaad0c0f5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f07a5b1403b61a30f9cc6dfaad0c0f5">&#9670;&nbsp;</a></span>m_ppfX</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float** CNmf::m_ppfX = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00194_source.html#l00079">79</a> of file <a class="el" href="a00194_source.html">ToolNmf.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.html#l00019">init()</a>, <a class="el" href="a00053_source.html#l00044">reset()</a>, and <a class="el" href="a00053_source.html#l00097">runNmfIter()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="a00194_source.html">ToolNmf.h</a></li>
+<li><a class="el" href="a00053_source.html">ToolNmf.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Mon Jun 6 2022 17:03:36 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Thu Jun 9 2022 17:10:28 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

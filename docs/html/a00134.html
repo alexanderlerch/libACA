@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Util.h File Reference</title>
+<title>ACA: Vector.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.4</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -49,66 +49,72 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#nested-classes">Classes</a>  </div>
-  <div class="headertitle"><div class="title">Util.h File Reference</div></div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">Vector.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><code>#include &lt;cassert&gt;</code><br />
 <code>#include &lt;cstring&gt;</code><br />
 <code>#include &lt;limits&gt;</code><br />
+<code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00137_source.html">Synthesis.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Util.h:</div>
+Include dependency graph for Vector.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00135.png" border="0" usemap="#aUtil_8h" alt=""/></div>
-<map name="aUtil_8h" id="aUtil_8h">
-<area shape="rect" title=" " alt="" coords="100,5,152,32"/>
-<area shape="rect" title=" " alt="" coords="5,80,71,107"/>
-<area shape="rect" title=" " alt="" coords="95,80,157,107"/>
-<area shape="rect" title=" " alt="" coords="181,80,234,107"/>
+<div class="center"><img src="a00135.png" border="0" usemap="#aVector_8h" alt=""/></div>
+<map name="aVector_8h" id="aVector_8h">
+<area shape="rect" title=" " alt="" coords="145,5,216,32"/>
+<area shape="rect" title=" " alt="" coords="81,229,147,256"/>
+<area shape="rect" title=" " alt="" coords="294,229,355,256"/>
+<area shape="rect" title=" " alt="" coords="395,229,449,256"/>
+<area shape="rect" title=" " alt="" coords="21,155,79,181"/>
+<area shape="rect" href="a00137.html" title=" " alt="" coords="136,80,225,107"/>
+<area shape="rect" title=" " alt="" coords="104,155,164,181"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="188,155,267,181"/>
+<area shape="rect" href="a00140.html" title=" " alt="" coords="291,155,343,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00136.png" border="0" usemap="#aUtil_8hdep" alt=""/></div>
-<map name="aUtil_8hdep" id="aUtil_8hdep">
-<area shape="rect" title=" " alt="" coords="506,5,558,32"/>
-<area shape="rect" href="a00014.html" title=" " alt="" coords="482,229,582,256"/>
-<area shape="rect" href="a00011.html" title=" " alt="" coords="45,80,153,107"/>
-<area shape="rect" href="a00077.html" title=" " alt="" coords="1740,304,1844,331"/>
-<area shape="rect" href="a00095.html" title=" " alt="" coords="655,304,735,331"/>
-<area shape="rect" href="a00047.html" title=" " alt="" coords="45,304,136,331"/>
-<area shape="rect" href="a00041.html" title=" " alt="" coords="426,304,579,331"/>
-<area shape="rect" href="a00065.html" title=" " alt="" coords="606,229,669,256"/>
-<area shape="rect" href="a00083.html" title=" " alt="" coords="160,304,251,331"/>
-<area shape="rect" href="a00062.html" title=" " alt="" coords="693,229,846,256"/>
-<area shape="rect" href="a00068.html" title=" " alt="" coords="326,304,402,331"/>
-<area shape="rect" href="a00086.html" title=" " alt="" coords="219,379,357,405"/>
-<area shape="rect" href="a00080.html" title=" " alt="" coords="759,304,879,331"/>
-<area shape="rect" href="a00131.html" title=" " alt="" coords="1029,80,1118,107"/>
-<area shape="rect" href="a00176.html" title=" " alt="" coords="1759,379,1873,405"/>
-<area shape="rect" href="a00059.html" title=" " alt="" coords="1869,304,2003,331"/>
-<area shape="rect" href="a00089.html" title=" " alt="" coords="1545,229,1636,256"/>
-<area shape="rect" href="a00164.html" title=" " alt="" coords="1762,229,1867,256"/>
-<area shape="rect" href="a00128.html" title=" " alt="" coords="1129,155,1199,181"/>
-<area shape="rect" href="a00053.html" title=" " alt="" coords="1115,304,1258,331"/>
-<area shape="rect" href="a00125.html" title=" " alt="" coords="1655,304,1716,331"/>
-<area shape="rect" href="a00122.html" title=" " alt="" coords="1201,229,1268,256"/>
-<area shape="rect" href="a00071.html" title=" " alt="" coords="954,304,1091,331"/>
-<area shape="rect" href="a00056.html" title=" " alt="" coords="1403,304,1498,331"/>
-<area shape="rect" href="a00074.html" title=" " alt="" coords="1522,304,1630,331"/>
-<area shape="rect" href="a00110.html" title=" " alt="" coords="972,229,1076,256"/>
-<area shape="rect" href="a00092.html" title=" " alt="" coords="1218,379,1361,405"/>
-<area shape="rect" href="a00179.html" title=" " alt="" coords="1781,453,1851,480"/>
-<area shape="rect" href="a00038.html" title=" " alt="" coords="1197,528,1281,555"/>
-<area shape="rect" href="a00023.html" title=" " alt="" coords="1305,528,1461,555"/>
-<area shape="rect" href="a00029.html" title=" " alt="" coords="1485,528,1624,555"/>
-<area shape="rect" href="a00002.html" title=" " alt="" coords="1649,528,1791,555"/>
-<area shape="rect" href="a00098.html" title=" " alt="" coords="1815,528,2009,555"/>
-<area shape="rect" href="a00035.html" title=" " alt="" coords="2033,528,2225,555"/>
-<area shape="rect" href="a00101.html" title=" " alt="" coords="2249,528,2377,555"/>
-<area shape="rect" href="a00020.html" title=" " alt="" coords="2402,528,2574,555"/>
-<area shape="rect" href="a00050.html" title=" " alt="" coords="1283,304,1379,331"/>
+<div class="center"><img src="a00136.png" border="0" usemap="#aVector_8hdep" alt=""/></div>
+<map name="aVector_8hdep" id="aVector_8hdep">
+<area shape="rect" title=" " alt="" coords="1609,5,1680,32"/>
+<area shape="rect" href="a00014.html" title=" " alt="" coords="257,80,357,107"/>
+<area shape="rect" href="a00080.html" title=" " alt="" coords="483,155,587,181"/>
+<area shape="rect" href="a00056.html" title=" " alt="" coords="1539,155,1681,181"/>
+<area shape="rect" href="a00041.html" title=" " alt="" coords="1827,155,1980,181"/>
+<area shape="rect" href="a00068.html" title=" " alt="" coords="1956,80,2019,107"/>
+<area shape="rect" href="a00131.html" title=" " alt="" coords="1453,155,1514,181"/>
+<area shape="rect" href="a00089.html" title=" " alt="" coords="878,229,1017,256"/>
+<area shape="rect" href="a00128.html" title=" " alt="" coords="1611,80,1678,107"/>
+<area shape="rect" href="a00074.html" title=" " alt="" coords="1043,155,1180,181"/>
+<area shape="rect" href="a00059.html" title=" " alt="" coords="2004,155,2099,181"/>
+<area shape="rect" href="a00062.html" title=" " alt="" coords="2123,155,2257,181"/>
+<area shape="rect" href="a00044.html" title=" " alt="" coords="2281,155,2416,181"/>
+<area shape="rect" href="a00077.html" title=" " alt="" coords="2440,155,2548,181"/>
+<area shape="rect" href="a00065.html" title=" " alt="" coords="2043,80,2196,107"/>
+<area shape="rect" href="a00092.html" title=" " alt="" coords="2221,80,2311,107"/>
+<area shape="rect" href="a00170.html" title=" " alt="" coords="412,229,517,256"/>
+<area shape="rect" href="a00116.html" title=" " alt="" coords="874,80,978,107"/>
+<area shape="rect" href="a00095.html" title=" " alt="" coords="1149,229,1292,256"/>
+<area shape="rect" href="a00182.html" title=" " alt="" coords="1371,229,1486,256"/>
+<area shape="rect" href="a00185.html" title=" " alt="" coords="589,304,660,331"/>
+<area shape="rect" href="a00038.html" title=" " alt="" coords="5,379,89,405"/>
+<area shape="rect" href="a00023.html" title=" " alt="" coords="113,379,269,405"/>
+<area shape="rect" href="a00029.html" title=" " alt="" coords="294,379,433,405"/>
+<area shape="rect" href="a00002.html" title=" " alt="" coords="457,379,600,405"/>
+<area shape="rect" href="a00101.html" title=" " alt="" coords="624,379,817,405"/>
+<area shape="rect" href="a00035.html" title=" " alt="" coords="842,379,1034,405"/>
+<area shape="rect" href="a00104.html" title=" " alt="" coords="1058,379,1186,405"/>
+<area shape="rect" href="a00020.html" title=" " alt="" coords="1211,379,1383,405"/>
+<area shape="rect" href="a00098.html" title=" " alt="" coords="1349,155,1429,181"/>
+<area shape="rect" href="a00083.html" title=" " alt="" coords="1205,155,1325,181"/>
+<area shape="rect" href="a00053.html" title=" " alt="" coords="1706,155,1802,181"/>
+<area shape="rect" href="a00050.html" title=" " alt="" coords="713,155,803,181"/>
+<area shape="rect" href="a00086.html" title=" " alt="" coords="827,155,918,181"/>
+<area shape="rect" href="a00071.html" title=" " alt="" coords="943,155,1019,181"/>
 </map>
 </div>
 </div>
@@ -116,14 +122,39 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00455.html">CUtil</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class with static utility functions  <a href="a00455.html#details">More...</a><br /></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00465.html">CVector</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class with static functions for buffer operations with type T  <a href="a00465.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00469.html">CVectorFloat</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class with static functions for buffer operations with type float  <a href="a00469.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a525335710b53cb064ca56b936120431e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00134.html#a525335710b53cb064ca56b936120431e">_USE_MATH_DEFINES</a></td></tr>
+<tr class="separator:a525335710b53cb064ca56b936120431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a525335710b53cb064ca56b936120431e" name="a525335710b53cb064ca56b936120431e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525335710b53cb064ca56b936120431e">&#9670;&nbsp;</a></span>_USE_MATH_DEFINES</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define _USE_MATH_DEFINES</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00004">4</a> of file <a class="el" href="a00134_source.html">Vector.h</a>.</p>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:54 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Thu Jun 9 2022 17:10:27 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

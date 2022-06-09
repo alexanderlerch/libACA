@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.4</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -51,15 +51,15 @@
   <div class="headertitle"><div class="title">ComputeFeature.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00002.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="a00179.html">AcaAll.h</a>&quot;</span></div>
+<a href="a00002.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="a00185.html">AcaAll.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ctime&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="a00185.html">Feature.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="a00191.html">Feature.h</a>&quot;</span></div>
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span><a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">std::cout</a>;</div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">using </span><a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">std::cout</a>;</div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span>std::endl;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">// local function declarations</span></div>
@@ -81,8 +81,8 @@
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span> </div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    clock_t time = 0;</div>
 <div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span> </div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="a00423.html">CFeatureIf</a>* pCInstance = 0;</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00423.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a> eFeatureIdx = <a class="code hl_enumvalue" href="a00423.html#a47ca14941c604beb42d60164b3e5e6b3abe9b4914b84bc00da1aacb5f0068545d">CFeatureIf::kNumFeatures</a>;</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    <a class="code hl_class" href="a00429.html">CFeatureIf</a>* pCInstance = 0;</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00429.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a> eFeatureIdx = <a class="code hl_enumvalue" href="a00429.html#a47ca14941c604beb42d60164b3e5e6b3abe9b4914b84bc00da1aacb5f0068545d">CFeatureIf::kNumFeatures</a>;</div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    <span class="keywordtype">float</span>** ppfFeature = 0; <span class="comment">//!&lt; feature result</span></div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
@@ -94,8 +94,8 @@
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment"></span>    <span class="comment">// parse command line arguments</span></div>
 <div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>    <span class="keywordflow">if</span> (argc &lt; 2)</div>
 <div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>    {</div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile featurename [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile featurename [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span>    }</div>
 <div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>    <span class="keywordflow">else</span></div>
@@ -109,17 +109,17 @@
 <div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="comment"></span> </div>
 <div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span>    <span class="comment">// initialize feature instance</span></div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    eFeatureIdx = <a class="code hl_function" href="a00423.html#a159bc708acb32dd40d529531f418b0fc">CFeatureIf::getFeatureIdxFromString</a>(sFeatureString);</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_function" href="a00423.html#af448569c0950f36034d84326d564cce9">CFeatureIf::create</a>(pCInstance, eFeatureIdx, sInputFilePath, iBlockLength, iHopLength);</div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    pCInstance-&gt;<a class="code hl_function" href="a00423.html#ad7e4c2c40aa96ea2d91eafffcde0608a">getFeatureDimensions</a>(aiFeatureDimensions[0], aiFeatureDimensions[1]);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span>    eFeatureIdx = <a class="code hl_function" href="a00429.html#a159bc708acb32dd40d529531f418b0fc">CFeatureIf::getFeatureIdxFromString</a>(sFeatureString);</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span>    <a class="code hl_function" href="a00429.html#af448569c0950f36034d84326d564cce9">CFeatureIf::create</a>(pCInstance, eFeatureIdx, sInputFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    pCInstance-&gt;<a class="code hl_function" href="a00429.html#ad7e4c2c40aa96ea2d91eafffcde0608a">getFeatureDimensions</a>(aiFeatureDimensions[0], aiFeatureDimensions[1]);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
 <div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    {</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_function" href="a00423.html#ab0b833a2f828e941e08f84a47dcfcda8">CFeatureIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>        <a class="code hl_function" href="a00429.html#ab0b833a2f828e941e08f84a47dcfcda8">CFeatureIf::destroy</a>(pCInstance);</div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    }</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="comment"></span> </div>
@@ -132,7 +132,7 @@
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
 <div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span>    <span class="keywordflow">if</span> (!ppfFeature)</div>
 <div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>    {</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_function" href="a00423.html#ab0b833a2f828e941e08f84a47dcfcda8">CFeatureIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span>        <a class="code hl_function" href="a00429.html#ab0b833a2f828e941e08f84a47dcfcda8">CFeatureIf::destroy</a>(pCInstance);</div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span>        hOutputFile.close();</div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    }</div>
@@ -141,20 +141,20 @@
 <div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span><span class="comment"></span> </div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span><span class="comment"></span>    <span class="comment">// compute feature</span></div>
-<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing feature...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing feature...&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span>    <span class="keywordflow">if</span> (aiFeatureDimensions[0] == 1)</div>
-<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        pCInstance-&gt;<a class="code hl_function" href="a00423.html#a30248aa1fb336095d4d86d0bd3d2bdb8">compFeature1Dim</a>(ppfFeature[0]);</div>
+<div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span>        pCInstance-&gt;<a class="code hl_function" href="a00429.html#a30248aa1fb336095d4d86d0bd3d2bdb8">compFeature1Dim</a>(ppfFeature[0]);</div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span>    <span class="keywordflow">else</span></div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        pCInstance-&gt;<a class="code hl_function" href="a00423.html#ad734d1e300583449f51e6ca80aa3e7b8">compFeatureNDim</a>(ppfFeature);</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>        pCInstance-&gt;<a class="code hl_function" href="a00429.html#ad734d1e300583449f51e6ca80aa3e7b8">compFeatureNDim</a>(ppfFeature);</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
-<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n feature computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n feature computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span> </div>
 <div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>    time = clock();</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span><span class="comment"></span> </div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span><span class="comment"></span>    <span class="comment">// file writing</span></div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span> </div>
-<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span> </div>
 <div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; aiFeatureDimensions[0]; k++)</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    {</div>
@@ -166,11 +166,11 @@
 <div class="line"><a id="l00113" name="l00113"></a><span class="lineno">  113</span>        hOutputFile &lt;&lt; endl;</div>
 <div class="line"><a id="l00114" name="l00114"></a><span class="lineno">  114</span>    }</div>
 <div class="line"><a id="l00115" name="l00115"></a><span class="lineno">  115</span> </div>
-<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00116" name="l00116"></a><span class="lineno">  116</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span><span class="comment"></span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno">  118</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_function" href="a00423.html#ab0b833a2f828e941e08f84a47dcfcda8">CFeatureIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_function" href="a00429.html#ab0b833a2f828e941e08f84a47dcfcda8">CFeatureIf::destroy</a>(pCInstance);</div>
 <div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    hOutputFile.close();</div>
 <div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span> </div>
 <div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> k = 0; k &lt; aiFeatureDimensions[0]; k++)</div>
@@ -186,11 +186,11 @@
 <div class="line"><a id="l00133" name="l00133"></a><span class="lineno">  133</span> </div>
 <div class="line"><a id="l00134" name="l00134"></a><span class="lineno"><a class="line" href="a00002.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">  134</a></span><span class="keywordtype">void</span>     <a class="code hl_function" href="a00002.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>()</div>
 <div class="line"><a id="l00135" name="l00135"></a><span class="lineno">  135</span>{</div>
-<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>() &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Feature Extraction&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Build date: &quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>() &lt;&lt; endl;</div>
-<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeFeature inputwavfile featurename [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <a class="code hl_function" href="a00251.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
+<div class="line"><a id="l00136" name="l00136"></a><span class="lineno">  136</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>() &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Feature Extraction&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00137" name="l00137"></a><span class="lineno">  137</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Build date: &quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>() &lt;&lt; endl;</div>
+<div class="line"><a id="l00138" name="l00138"></a><span class="lineno">  138</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00139" name="l00139"></a><span class="lineno">  139</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeFeature inputwavfile featurename [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00140" name="l00140"></a><span class="lineno">  140</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
 <div class="line"><a id="l00141" name="l00141"></a><span class="lineno">  141</span> </div>
 <div class="line"><a id="l00142" name="l00142"></a><span class="lineno">  142</span>    <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00143" name="l00143"></a><span class="lineno">  143</span>}</div>
@@ -199,22 +199,22 @@
 <div class="ttc" id="aa00002_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00002.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00002_source.html#l00134">ComputeFeature.cpp:134</a></div></div>
 <div class="ttc" id="aa00038_html_a352c17bde18dd0d9c3989f6050b060b0"><div class="ttname"><a href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a></div><div class="ttdeci">std::string getAcaBuildDate()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00015">AcaAll.cpp:15</a></div></div>
 <div class="ttc" id="aa00038_html_aeca12b465ae15d8b8e775e1b0cfec9f3"><div class="ttname"><a href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a></div><div class="ttdeci">std::string getAcaVersion()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00008">AcaAll.cpp:8</a></div></div>
-<div class="ttc" id="aa00179_html"><div class="ttname"><a href="a00179.html">AcaAll.h</a></div></div>
-<div class="ttc" id="aa00185_html"><div class="ttname"><a href="a00185.html">Feature.h</a></div></div>
-<div class="ttc" id="aa00251_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00251.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
-<div class="ttc" id="aa00423_html"><div class="ttname"><a href="a00423.html">CFeatureIf</a></div><div class="ttdoc">class for computation of a magnitude Feature from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00185_source.html#l00017">Feature.h:18</a></div></div>
-<div class="ttc" id="aa00423_html_a159bc708acb32dd40d529531f418b0fc"><div class="ttname"><a href="a00423.html#a159bc708acb32dd40d529531f418b0fc">CFeatureIf::getFeatureIdxFromString</a></div><div class="ttdeci">static Feature_t getFeatureIdxFromString(std::string sFeatureString)</div><div class="ttdef"><b>Definition:</b> <a href="a00047_source.html#l00280">Feature.cpp:280</a></div></div>
-<div class="ttc" id="aa00423_html_a30248aa1fb336095d4d86d0bd3d2bdb8"><div class="ttname"><a href="a00423.html#a30248aa1fb336095d4d86d0bd3d2bdb8">CFeatureIf::compFeature1Dim</a></div><div class="ttdeci">Error_t compFeature1Dim(float *pfFeature)</div><div class="ttdef"><b>Definition:</b> <a href="a00047_source.html#l00177">Feature.cpp:177</a></div></div>
-<div class="ttc" id="aa00423_html_a47ca14941c604beb42d60164b3e5e6b3"><div class="ttname"><a href="a00423.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a></div><div class="ttdeci">Feature_t</div><div class="ttdoc">enum to index all features note: update CFeatureIf::isFeatureSpectral_() when modifying</div><div class="ttdef"><b>Definition:</b> <a href="a00185_source.html#l00023">Feature.h:24</a></div></div>
-<div class="ttc" id="aa00423_html_a47ca14941c604beb42d60164b3e5e6b3abe9b4914b84bc00da1aacb5f0068545d"><div class="ttname"><a href="a00423.html#a47ca14941c604beb42d60164b3e5e6b3abe9b4914b84bc00da1aacb5f0068545d">CFeatureIf::kNumFeatures</a></div><div class="ttdeci">@ kNumFeatures</div><div class="ttdef"><b>Definition:</b> <a href="a00185_source.html#l00047">Feature.h:46</a></div></div>
-<div class="ttc" id="aa00423_html_ab0b833a2f828e941e08f84a47dcfcda8"><div class="ttname"><a href="a00423.html#ab0b833a2f828e941e08f84a47dcfcda8">CFeatureIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CFeatureIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00047_source.html#l00128">Feature.cpp:128</a></div></div>
-<div class="ttc" id="aa00423_html_ad734d1e300583449f51e6ca80aa3e7b8"><div class="ttname"><a href="a00423.html#ad734d1e300583449f51e6ca80aa3e7b8">CFeatureIf::compFeatureNDim</a></div><div class="ttdeci">Error_t compFeatureNDim(float **ppfFeature)</div><div class="ttdef"><b>Definition:</b> <a href="a00047_source.html#l00211">Feature.cpp:211</a></div></div>
-<div class="ttc" id="aa00423_html_ad7e4c2c40aa96ea2d91eafffcde0608a"><div class="ttname"><a href="a00423.html#ad7e4c2c40aa96ea2d91eafffcde0608a">CFeatureIf::getFeatureDimensions</a></div><div class="ttdeci">Error_t getFeatureDimensions(int &amp;iNumRows, int &amp;iNumCols) const</div><div class="ttdef"><b>Definition:</b> <a href="a00047_source.html#l00136">Feature.cpp:136</a></div></div>
-<div class="ttc" id="aa00423_html_af448569c0950f36034d84326d564cce9"><div class="ttname"><a href="a00423.html#af448569c0950f36034d84326d564cce9">CFeatureIf::create</a></div><div class="ttdeci">static Error_t create(CFeatureIf *&amp;pCInstance, Feature_t eFeatureIdx, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024)</div><div class="ttdef"><b>Definition:</b> <a href="a00047_source.html#l00095">Feature.cpp:95</a></div></div>
+<div class="ttc" id="aa00185_html"><div class="ttname"><a href="a00185.html">AcaAll.h</a></div></div>
+<div class="ttc" id="aa00191_html"><div class="ttname"><a href="a00191.html">Feature.h</a></div></div>
+<div class="ttc" id="aa00257_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00257.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
+<div class="ttc" id="aa00429_html"><div class="ttname"><a href="a00429.html">CFeatureIf</a></div><div class="ttdoc">class for computation of a magnitude Feature from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00191_source.html#l00017">Feature.h:18</a></div></div>
+<div class="ttc" id="aa00429_html_a159bc708acb32dd40d529531f418b0fc"><div class="ttname"><a href="a00429.html#a159bc708acb32dd40d529531f418b0fc">CFeatureIf::getFeatureIdxFromString</a></div><div class="ttdeci">static Feature_t getFeatureIdxFromString(std::string sFeatureString)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00280">Feature.cpp:280</a></div></div>
+<div class="ttc" id="aa00429_html_a30248aa1fb336095d4d86d0bd3d2bdb8"><div class="ttname"><a href="a00429.html#a30248aa1fb336095d4d86d0bd3d2bdb8">CFeatureIf::compFeature1Dim</a></div><div class="ttdeci">Error_t compFeature1Dim(float *pfFeature)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00177">Feature.cpp:177</a></div></div>
+<div class="ttc" id="aa00429_html_a47ca14941c604beb42d60164b3e5e6b3"><div class="ttname"><a href="a00429.html#a47ca14941c604beb42d60164b3e5e6b3">CFeatureIf::Feature_t</a></div><div class="ttdeci">Feature_t</div><div class="ttdoc">enum to index all features note: update CFeatureIf::isFeatureSpectral_() when modifying</div><div class="ttdef"><b>Definition:</b> <a href="a00191_source.html#l00023">Feature.h:24</a></div></div>
+<div class="ttc" id="aa00429_html_a47ca14941c604beb42d60164b3e5e6b3abe9b4914b84bc00da1aacb5f0068545d"><div class="ttname"><a href="a00429.html#a47ca14941c604beb42d60164b3e5e6b3abe9b4914b84bc00da1aacb5f0068545d">CFeatureIf::kNumFeatures</a></div><div class="ttdeci">@ kNumFeatures</div><div class="ttdef"><b>Definition:</b> <a href="a00191_source.html#l00047">Feature.h:46</a></div></div>
+<div class="ttc" id="aa00429_html_ab0b833a2f828e941e08f84a47dcfcda8"><div class="ttname"><a href="a00429.html#ab0b833a2f828e941e08f84a47dcfcda8">CFeatureIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CFeatureIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00128">Feature.cpp:128</a></div></div>
+<div class="ttc" id="aa00429_html_ad734d1e300583449f51e6ca80aa3e7b8"><div class="ttname"><a href="a00429.html#ad734d1e300583449f51e6ca80aa3e7b8">CFeatureIf::compFeatureNDim</a></div><div class="ttdeci">Error_t compFeatureNDim(float **ppfFeature)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00211">Feature.cpp:211</a></div></div>
+<div class="ttc" id="aa00429_html_ad7e4c2c40aa96ea2d91eafffcde0608a"><div class="ttname"><a href="a00429.html#ad7e4c2c40aa96ea2d91eafffcde0608a">CFeatureIf::getFeatureDimensions</a></div><div class="ttdeci">Error_t getFeatureDimensions(int &amp;iNumRows, int &amp;iNumCols) const</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00136">Feature.cpp:136</a></div></div>
+<div class="ttc" id="aa00429_html_af448569c0950f36034d84326d564cce9"><div class="ttname"><a href="a00429.html#af448569c0950f36034d84326d564cce9">CFeatureIf::create</a></div><div class="ttdeci">static Error_t create(CFeatureIf *&amp;pCInstance, Feature_t eFeatureIdx, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.html#l00095">Feature.cpp:95</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:54 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Thu Jun 9 2022 17:10:27 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

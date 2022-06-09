@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: AcaAll.h File Reference</title>
+<title>ACA: ToolLowPass.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.4</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -49,191 +49,85 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#func-members">Functions</a>  </div>
-  <div class="headertitle"><div class="title">AcaAll.h File Reference</div></div>
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#define-members">Macros</a>  </div>
+  <div class="headertitle"><div class="title">ToolLowPass.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &quot;ACAConfig.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00140_source.html">AudioFileIf.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00191_source.html">BeatHisto.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00149_source.html">Chord.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00113_source.html">ChordFromBlock.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00104_source.html">ErrorDef.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00185_source.html">Feature.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00107_source.html">FeatureFromBlock.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00161_source.html">Novelty.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00182_source.html">NoveltyFromBlock.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00197_source.html">Pitch.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00170_source.html">PitchFromBlock.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00143_source.html">Spectrogram.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00155_source.html">ToolBlockAudio.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00167_source.html">ToolCcf.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00146_source.html">ToolConversion.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00116_source.html">ToolGammatone.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00164_source.html">ToolInstFreq.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00173_source.html">ToolLowPass.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00188_source.html">ToolNmf.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00194_source.html">ToolPca.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00110_source.html">ToolPreProc.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00176_source.html">ToolResample.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00152_source.html">ToolViterbi.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
+<code>#include &quot;<a class="el" href="a00143_source.html">RingBuffer.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00107_source.html">ErrorDef.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for AcaAll.h:</div>
+Include dependency graph for ToolLowPass.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00180.png" border="0" usemap="#aAcaAll_8h" alt=""/></div>
-<map name="aAcaAll_8h" id="aAcaAll_8h">
-<area shape="rect" title=" " alt="" coords="1034,5,1105,32"/>
-<area shape="rect" title=" " alt="" coords="13,80,107,107"/>
-<area shape="rect" href="a00140.html" title=" " alt="" coords="1669,379,1763,405"/>
-<area shape="rect" href="a00104.html" title=" " alt="" coords="1262,453,1341,480"/>
-<area shape="rect" href="a00191.html" title=" " alt="" coords="5,379,96,405"/>
-<area shape="rect" href="a00149.html" title=" " alt="" coords="403,379,469,405"/>
-<area shape="rect" href="a00113.html" title=" " alt="" coords="1109,304,1238,331"/>
-<area shape="rect" href="a00185.html" title=" " alt="" coords="783,379,859,405"/>
-<area shape="rect" href="a00107.html" title=" " alt="" coords="799,304,937,331"/>
-<area shape="rect" href="a00161.html" title=" " alt="" coords="683,379,759,405"/>
-<area shape="rect" href="a00182.html" title=" " alt="" coords="636,304,775,331"/>
-<area shape="rect" href="a00197.html" title=" " alt="" coords="494,379,557,405"/>
-<area shape="rect" href="a00170.html" title=" " alt="" coords="385,304,511,331"/>
-<area shape="rect" href="a00143.html" title=" " alt="" coords="120,379,227,405"/>
-<area shape="rect" href="a00155.html" title=" " alt="" coords="1839,379,1961,405"/>
-<area shape="rect" href="a00167.html" title=" " alt="" coords="1535,155,1612,181"/>
-<area shape="rect" href="a00146.html" title=" " alt="" coords="961,304,1084,331"/>
-<area shape="rect" href="a00116.html" title=" " alt="" coords="251,379,379,405"/>
-<area shape="rect" href="a00164.html" title=" " alt="" coords="2194,229,2299,256"/>
-<area shape="rect" href="a00173.html" title=" " alt="" coords="2097,304,2209,331"/>
-<area shape="rect" href="a00188.html" title=" " alt="" coords="1324,155,1407,181"/>
-<area shape="rect" href="a00194.html" title=" " alt="" coords="1431,155,1511,181"/>
-<area shape="rect" href="a00110.html" title=" " alt="" coords="1839,229,1943,256"/>
-<area shape="rect" href="a00176.html" title=" " alt="" coords="2313,80,2428,107"/>
-<area shape="rect" href="a00158.html" title=" " alt="" coords="1157,80,1277,107"/>
-<area shape="rect" href="a00152.html" title=" " alt="" coords="1293,229,1387,256"/>
-<area shape="rect" title=" " alt="" coords="453,453,507,480"/>
-<area shape="rect" title=" " alt="" coords="1683,453,1749,480"/>
-<area shape="rect" title=" " alt="" coords="2239,453,2313,480"/>
-<area shape="rect" title=" " alt="" coords="1090,379,1137,405"/>
-<area shape="rect" title=" " alt="" coords="935,379,1014,405"/>
-<area shape="rect" title=" " alt="" coords="2243,528,2309,555"/>
-<area shape="rect" title=" " alt="" coords="2441,453,2500,480"/>
-<area shape="rect" href="a00134.html" title=" " alt="" coords="2877,453,2929,480"/>
-<area shape="rect" href="a00128.html" title=" " alt="" coords="2619,304,2690,331"/>
-<area shape="rect" href="a00119.html" title=" " alt="" coords="2025,304,2073,331"/>
-<area shape="rect" title=" " alt="" coords="2757,528,2819,555"/>
-<area shape="rect" title=" " alt="" coords="2908,528,2961,555"/>
-<area shape="rect" href="a00131.html" title=" " alt="" coords="2610,379,2699,405"/>
-<area shape="rect" title=" " alt="" coords="2625,453,2685,480"/>
-<area shape="rect" href="a00137.html" title=" " alt="" coords="2290,379,2382,405"/>
-<area shape="rect" href="a00125.html" title=" " alt="" coords="2456,155,2517,181"/>
-<area shape="rect" href="a00122.html" title=" " alt="" coords="2559,229,2625,256"/>
+<div class="center"><img src="a00180.png" border="0" usemap="#aToolLowPass_8h" alt=""/></div>
+<map name="aToolLowPass_8h" id="aToolLowPass_8h">
+<area shape="rect" title=" " alt="" coords="65,5,177,32"/>
+<area shape="rect" title=" " alt="" coords="5,155,64,181"/>
+<area shape="rect" href="a00143.html" title=" " alt="" coords="75,80,167,107"/>
+<area shape="rect" href="a00107.html" title=" " alt="" coords="191,80,270,107"/>
+<area shape="rect" title=" " alt="" coords="89,155,154,181"/>
+<area shape="rect" title=" " alt="" coords="179,155,253,181"/>
+<area shape="rect" title=" " alt="" coords="277,155,339,181"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00181.png" border="0" usemap="#aAcaAll_8hdep" alt=""/></div>
-<map name="aAcaAll_8hdep" id="aAcaAll_8hdep">
-<area shape="rect" title=" " alt="" coords="589,5,660,32"/>
-<area shape="rect" href="a00038.html" title=" " alt="" coords="5,80,89,107"/>
-<area shape="rect" href="a00023.html" title=" " alt="" coords="113,80,269,107"/>
-<area shape="rect" href="a00029.html" title=" " alt="" coords="294,80,433,107"/>
-<area shape="rect" href="a00002.html" title=" " alt="" coords="457,80,600,107"/>
-<area shape="rect" href="a00098.html" title=" " alt="" coords="624,80,817,107"/>
-<area shape="rect" href="a00035.html" title=" " alt="" coords="842,80,1034,107"/>
-<area shape="rect" href="a00101.html" title=" " alt="" coords="1058,80,1186,107"/>
-<area shape="rect" href="a00020.html" title=" " alt="" coords="1211,80,1383,107"/>
+<div class="center"><img src="a00181.png" border="0" usemap="#aToolLowPass_8hdep" alt=""/></div>
+<map name="aToolLowPass_8hdep" id="aToolLowPass_8hdep">
+<area shape="rect" title=" " alt="" coords="705,5,817,32"/>
+<area shape="rect" href="a00185.html" title=" " alt="" coords="589,80,660,107"/>
+<area shape="rect" href="a00041.html" title=" " alt="" coords="684,80,837,107"/>
+<area shape="rect" href="a00086.html" title=" " alt="" coords="862,80,953,107"/>
+<area shape="rect" href="a00038.html" title=" " alt="" coords="5,155,89,181"/>
+<area shape="rect" href="a00023.html" title=" " alt="" coords="113,155,269,181"/>
+<area shape="rect" href="a00029.html" title=" " alt="" coords="294,155,433,181"/>
+<area shape="rect" href="a00002.html" title=" " alt="" coords="457,155,600,181"/>
+<area shape="rect" href="a00101.html" title=" " alt="" coords="624,155,817,181"/>
+<area shape="rect" href="a00035.html" title=" " alt="" coords="842,155,1034,181"/>
+<area shape="rect" href="a00104.html" title=" " alt="" coords="1058,155,1186,181"/>
+<area shape="rect" href="a00020.html" title=" " alt="" coords="1211,155,1383,181"/>
 </map>
 </div>
 </div>
 <p><a href="a00179_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="func-members" name="func-members"></a>
-Functions</h2></td></tr>
-<tr class="memitem:aeca12b465ae15d8b8e775e1b0cfec9f3"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a> ()</td></tr>
-<tr class="separator:aeca12b465ae15d8b8e775e1b0cfec9f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a352c17bde18dd0d9c3989f6050b060b0"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a> ()</td></tr>
-<tr class="separator:a352c17bde18dd0d9c3989f6050b060b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00517.html">CSinglePoleLp</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for single-pole low pass filtering  <a href="a00517.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00521.html">CMovingAverage</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">class for single-pole low pass filtering  <a href="a00521.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:a525335710b53cb064ca56b936120431e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00179.html#a525335710b53cb064ca56b936120431e">_USE_MATH_DEFINES</a></td></tr>
+<tr class="separator:a525335710b53cb064ca56b936120431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<h2 class="groupheader">Function Documentation</h2>
-<a id="a352c17bde18dd0d9c3989f6050b060b0" name="a352c17bde18dd0d9c3989f6050b060b0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a352c17bde18dd0d9c3989f6050b060b0">&#9670;&nbsp;</a></span>getAcaBuildDate()</h2>
+<h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="a525335710b53cb064ca56b936120431e" name="a525335710b53cb064ca56b936120431e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525335710b53cb064ca56b936120431e">&#9670;&nbsp;</a></span>_USE_MATH_DEFINES</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">std::string getAcaBuildDate </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">#define _USE_MATH_DEFINES</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >returns the build date string of libACA </p><dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00015">15</a> of file <a class="el" href="a00038_source.html">AcaAll.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>{</div>
-<div class="line"><span class="lineno">   17</span>    <span class="keywordflow">return</span>  <a class="code hl_variable" href="a00038.html#aa5d4bb2cfbabc0c204d2de941c9cfa71">kAcaBuildDate</a>;</div>
-<div class="line"><span class="lineno">   18</span>}</div>
-<div class="ttc" id="aa00038_html_aa5d4bb2cfbabc0c204d2de941c9cfa71"><div class="ttname"><a href="a00038.html#aa5d4bb2cfbabc0c204d2de941c9cfa71">kAcaBuildDate</a></div><div class="ttdeci">static const std::string kAcaBuildDate</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00006">AcaAll.cpp:6</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00038_source.html#l00006">kAcaBuildDate</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00117">showClInfo()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00179_a352c17bde18dd0d9c3989f6050b060b0_icgraph.png" border="0" usemap="#aa00179_a352c17bde18dd0d9c3989f6050b060b0_icgraph" alt=""/></div>
-<map name="aa00179_a352c17bde18dd0d9c3989f6050b060b0_icgraph" id="aa00179_a352c17bde18dd0d9c3989f6050b060b0_icgraph">
-<area shape="rect" title=" " alt="" coords="239,5,357,32"/>
-<area shape="rect" href="a00023.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="104,5,191,32"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aeca12b465ae15d8b8e775e1b0cfec9f3" name="aeca12b465ae15d8b8e775e1b0cfec9f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeca12b465ae15d8b8e775e1b0cfec9f3">&#9670;&nbsp;</a></span>getAcaVersion()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">std::string getAcaVersion </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >returns the version string of libACA </p><dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00038_source.html#l00008">8</a> of file <a class="el" href="a00038_source.html">AcaAll.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    9</span>{</div>
-<div class="line"><span class="lineno">   10</span>    std::string sVersion = std::to_string(ACA_VERSION_MAJOR) + <span class="stringliteral">&quot;.&quot;</span> + std::to_string(ACA_VERSION_MINOR) + <span class="stringliteral">&quot;.&quot;</span> + std::to_string(ACA_VERSION_PATCH);</div>
-<div class="line"><span class="lineno">   11</span> </div>
-<div class="line"><span class="lineno">   12</span>    <span class="keywordflow">return</span> sVersion;</div>
-<div class="line"><span class="lineno">   13</span>}</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00023_source.html#l00117">showClInfo()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00179_aeca12b465ae15d8b8e775e1b0cfec9f3_icgraph.png" border="0" usemap="#aa00179_aeca12b465ae15d8b8e775e1b0cfec9f3_icgraph" alt=""/></div>
-<map name="aa00179_aeca12b465ae15d8b8e775e1b0cfec9f3_icgraph" id="aa00179_aeca12b465ae15d8b8e775e1b0cfec9f3_icgraph">
-<area shape="rect" title=" " alt="" coords="239,5,345,32"/>
-<area shape="rect" href="a00023.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64" title=" " alt="" coords="104,5,191,32"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-</map>
-</div>
+<p class="definition">Definition at line <a class="el" href="a00179_source.html#l00004">4</a> of file <a class="el" href="a00179_source.html">ToolLowPass.h</a>.</p>
 
 </div>
 </div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:54 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Thu Jun 9 2022 17:10:27 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
