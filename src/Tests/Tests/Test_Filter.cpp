@@ -65,21 +65,21 @@ TEST_CASE("Filter", "[Filter]")
         pfCoeffs[iNumCoeffs] = 1; pfCoeffs[iNumCoeffs+1] = - 1.56101807580072F; pfCoeffs[iNumCoeffs+2] = 0.641351538057563F;
         //butterlp, cutoff .1*fs/2
 
-        CSynthesis::genSine(pfIn, 50.5F, 48000.F, 1000*iDataLength);
+        CSynthesis::genSine(pfIn, 50.5F, 48000.F, static_cast<long long>(1000)*iDataLength);
 
         CHECK(Error_t::kNoError == pCFilter->init(&pfCoeffs[0], &pfCoeffs[iNumCoeffs], iNumCoeffs));
         CHECK(Error_t::kNoError == pCFilter->process(pfOut, pfIn, 1000*iDataLength));
 
         CHECK(1.F == Approx(CVector::getMax(pfOut, 1000*iDataLength)).margin(1e-4F).epsilon(1e-4F));
 
-        CSynthesis::genSine(pfIn, 2401.F, 48000.F, 1000 * iDataLength);
+        CSynthesis::genSine(pfIn, 2401.F, 48000.F, static_cast<long long>(1000) * iDataLength);
 
         CHECK(Error_t::kNoError == pCFilter->init(&pfCoeffs[0], &pfCoeffs[iNumCoeffs], iNumCoeffs));
         CHECK(Error_t::kNoError == pCFilter->process(pfOut, pfIn, 1000 * iDataLength));
 
         CHECK(1.F/sqrt(2.F) == Approx(CVector::getMax(pfOut, 1000 * iDataLength)).margin(1e-1F).epsilon(1e-1F));
         CHECK(Error_t::kNoError == pCFilter->processDFII(pfIn, pfIn, 1000 * iDataLength));
-        CHECK(1.F / sqrt(2.F) == Approx(CVector::getMax(pfIn, 1000 * iDataLength)).margin(1e-1F).epsilon(1e-1F));
+        CHECK(1.F / sqrt(2.F) == Approx(CVector::getMax(pfIn, static_cast<long long>(1000) * iDataLength)).margin(1e-1F).epsilon(1e-1F));
         CVector::sub_I(pfOut, pfIn, static_cast<long long>(1000 * iDataLength));
         CHECK(0.F == Approx(CVector::getMax(pfOut, 1000 * iDataLength, true)).margin(1e-4F).epsilon(1e-4F));
     }

@@ -104,7 +104,7 @@ Error_t CKnn::reset()
     return Error_t::kNoError;
 }
 
-Error_t CKnn::setParam(int iK)
+Error_t CKnn::setParamK(int iK)
 {
     if (iK <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -117,6 +117,10 @@ Error_t CKnn::setParam(int iK)
     CVector::alloc(m_piHistLabel, m_iK);
 
     return Error_t::kNoError;
+}
+int CKnn::getParamK() const
+{
+    return m_iK;
 }
 
 int CKnn::classify(const float* pfQuery)
@@ -144,11 +148,13 @@ int CKnn::classify(const float* pfQuery)
     buildHistogram_(false);
 
     // handle multiple maxima (first, use distances, then, reduce K)
+    int iK = m_iK;  //!< remember m_iK
     while (countMaxima_() > 1)
     {
         buildHistogram_(true);
         m_iK--;
     }
+    m_iK = iK;
 
     return m_piHistLabel[0];
 }
