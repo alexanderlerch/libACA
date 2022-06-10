@@ -303,12 +303,12 @@ public:
         const long long iTmpOrder = static_cast<long long>(iOrder); // silly compiler warnings get annoying
         float* pfTmpA = 0;
         CVector::alloc(pfTmpA, 2 * iTmpOrder);
-        CVectorFloat::setZero(pfB, iTmpOrder + 1);
-        CVectorFloat::setZero(pfTmpA, 2 * iTmpOrder);
+        CVector::setZero(pfB, iTmpOrder + 1);
+        CVector::setZero(pfTmpA, 2 * iTmpOrder);
 
         calcB(pfB, iOrder, fCutOff);
         calcA(pfTmpA, iOrder, fCutOff);
-        CVectorFloat::copy(pfA, pfTmpA, iTmpOrder + 1);
+        CVector::copy(pfA, pfTmpA, iTmpOrder + 1);
 
         CVector::free(pfTmpA);
 

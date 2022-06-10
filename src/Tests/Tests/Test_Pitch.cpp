@@ -254,7 +254,7 @@ TEST_CASE("Pitch (per array)", "[PitchClass]")
         for (auto k = 1; k <= 4; k++)
         {
             CSynthesis::genSine(pfTmp, k*fFreq, fSampleRate, iBufferLength, 1.F/k);
-            CVectorFloat::add_I(pfInput, pfTmp, iBufferLength);
+            CVector::add_I(pfInput, pfTmp, iBufferLength);
         }
 
         CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));

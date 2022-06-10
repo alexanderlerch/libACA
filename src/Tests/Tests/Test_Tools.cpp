@@ -116,8 +116,8 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
     pfInput = new float[iNumValues];
     pfOut = new float[2 * iNumValues];
 
-    CVectorFloat::setZero(pfInput, iNumValues);
-    CVectorFloat::setZero(pfOut, 2 * static_cast<long long>(iNumValues));
+    CVector::setZero(pfInput, iNumValues);
+    CVector::setZero(pfOut, 2 * static_cast<long long>(iNumValues));
 
     SECTION("Api")
     {
@@ -151,12 +151,12 @@ TEST_CASE("ToolsCcf", "[ToolsCcf]")
         CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, pfInput));
         CHECK(11 == pCCcf->getCcfLength());
         CHECK(Error_t::kNoError == pCCcf->getCcf(pfOut));
-        CHECK(0 == CVectorFloat::getSum(pfOut, 6));
+        CHECK(0 == CVector::getSum(pfOut, 6));
         CHECK(0 == pCCcf->getCcfMax());
         CHECK(0 == pCCcf->getCcfMaxIdx());
 
         // dc input
-        CVectorFloat::setValue(pfInput, 1.F, 16);
+        CVector::setValue(pfInput, 1.F, 16);
         CHECK(Error_t::kNoError == pCCcf->init(16));
         CHECK(Error_t::kNoError == pCCcf->compCcf(pfInput, pfInput, false));
         CHECK(16 == pCCcf->getCcfLength(true));
@@ -404,7 +404,7 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
         CHECK(Error_t::kNoError == pCGammatone->process(ppfOut));
 
         for (auto c = 0; c < iNumBands; c++)
-            CHECK(0.F == CVectorFloat::getSum(ppfOut[c], iBufferLength, true));
+            CHECK(0.F == CVector::getSum(ppfOut[c], iBufferLength, true));
 
         CHECK(fStartFreq == pCGammatone->getCenterFreq(0));
 
@@ -423,10 +423,10 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
 
         CHECK(Error_t::kNoError == pCGammatone->process(ppfOut));
 
-        CHECK(1.F == Approx(CVectorFloat::getMax(ppfOut[0], iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
-        CHECK(-1.F == Approx(CVectorFloat::getMin(ppfOut[0], iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(1.F == Approx(CVector::getMax(ppfOut[0], iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(-1.F == Approx(CVector::getMin(ppfOut[0], iBufferLength, false)).margin(1e-4F).epsilon(1e-4F));
 
-        CHECK(.01F > CVectorFloat::getMax(ppfOut[10], iBufferLength, false));
+        CHECK(.01F > CVector::getMax(ppfOut[10], iBufferLength, false));
 
         CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(pCGammatone));
     }
@@ -454,8 +454,8 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
             pCGammatone->process(ppfRtOut, &pfIn[n * iBlockLength], iBlockLength);
             for (auto c = 0; c < iNumBands; c++)
             {
-                CVectorFloat::sub_I(ppfRtOut[c], &ppfOut[c][n * iBlockLength], iBlockLength);
-                CHECK(0.F == CVectorFloat::getSum(ppfRtOut[c], iBlockLength));
+                CVector::sub_I(ppfRtOut[c], &ppfOut[c][n * iBlockLength], iBlockLength);
+                CHECK(0.F == CVector::getSum(ppfRtOut[c], iBlockLength));
             }
         }
         CMatrix::free(ppfRtOut, iNumBands);
@@ -470,6 +470,78 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
     CVector::free(pfIn);
     CMatrix::free(ppfOut, iNumBands);
 
+}
+
+TEST_CASE("ToolsKmeans", "[ToolsKmeans]")
+{
+    float aafMu[2][2] = { {-5,5},{5,-5} };
+    int aiDim[2] = { 2,128 };
+
+    int iK = 2;
+    int iMaxIter = 100;
+
+    float** ppfData = 0;
+
+    int* piResult = 0;
+
+    CKmeans* pCInstance = new CKmeans();
+
+    CVector::alloc(piResult, aiDim[1]);
+    CMatrix::alloc(ppfData, aiDim[0], aiDim[1]);
+    SECTION("Api")
+    {
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[0], aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, 0, aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, aiDim[0], 0, iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, aiDim[0], aiDim[1], 0));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->compKmeans(piResult, ppfData));
+
+        CHECK(Error_t::kNoError == pCInstance->init(iK, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compKmeans(0, ppfData));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compKmeans(piResult, 0));
+
+        CHECK(Error_t::kNoError == pCInstance->compKmeans(piResult, ppfData));
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+    SECTION("Simple2Cluster")
+    {
+        for (auto n = 0; n < aiDim[1] / 4; n++)
+        {
+            //cluster 1
+            ppfData[0][n] = static_cast<float>(aafMu[0][0] + .1 * std::cos(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[1][n] = static_cast<float>(aafMu[1][0] + .1 * std::sin(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[0][n + aiDim[1] / 4] = static_cast<float>(aafMu[0][0] + .5 * std::cos(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[1][n + aiDim[1] / 4] = static_cast<float>(aafMu[1][0] + .5 * std::sin(4. * n * 2. * M_PI / aiDim[1]));
+
+            //cluster 2
+            ppfData[0][n + aiDim[1] / 2] = static_cast<float>(aafMu[0][1] + .1 * std::cos(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[1][n + aiDim[1] / 2] = static_cast<float>(aafMu[1][1] + .1 * std::sin(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[0][n + aiDim[1] / 2 + aiDim[1] / 4] = static_cast<float>(aafMu[0][1] + .5 * std::cos(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[1][n + aiDim[1] / 2 + aiDim[1] / 4] = static_cast<float>(aafMu[1][1] + .5 * std::sin(4. * n * 2. * M_PI / aiDim[1]));
+        }
+
+        CHECK(Error_t::kNoError == pCInstance->init(iK, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kNoError == pCInstance->compKmeans(piResult, ppfData));
+
+        for (auto n = 0; n < aiDim[1] / 2; n++)
+            CHECK(1 == std::abs(piResult[n] - piResult[n + aiDim[1] / 2]));
+
+    }
+
+    CMatrix::free(ppfData, 2);
+    CVector::free(piResult);
+
+    delete pCInstance;
+
+    //    [clusterIdx, state] = pyACA.ToolSimpleKmeans(V, 2)
+
+    //    self.assertEqual(np.sum(np.diff(clusterIdx[0:2 * iNumObs])), 0, "KM 1: block content incorrect")
+    //    self.assertEqual(np.sum(np.diff(clusterIdx[2 * iNumObs:-1])), 0, "KM 2: block content incorrect")
+    //    self.assertEqual(np.abs(clusterIdx[0] - clusterIdx[-1]), 1, "KM 3: block content incorrect")
 }
 
 TEST_CASE("ToolsKnn", "[ToolsKnn]")
@@ -490,7 +562,6 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
 
     SECTION("Api")
     {
-
         CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, piClass, aiDim[0], aiDim[1]));
         CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTrainFeatures, 0, aiDim[0], aiDim[1]));
         CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTrainFeatures, piClass, 0, aiDim[1]));
@@ -500,8 +571,8 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, aiDim[0], aiDim[1]));
         CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(0));
 
-        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->setParam(0));
-        CHECK(Error_t::kNoError == pCInstance->setParam(17));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->setParamK(0));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(17));
 
         // zero test
         CHECK(0 == pCInstance->classify(ppfTrainFeatures[0]));
@@ -521,7 +592,7 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, aiDim[0], aiDim[1]));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(1));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(1));
 
         pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
         CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
@@ -539,7 +610,7 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(2));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(2));
 
         pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
         CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
@@ -557,7 +628,7 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(5));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(5));
 
         pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
         CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
@@ -590,15 +661,15 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, 2, 4));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(1));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(1));
         CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(3));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(3));
         CHECK(piQueryGT[1] == pCInstance->classify(pfQuery));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(4));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(4));
         CHECK(piQueryGT[2] == pCInstance->classify(pfQuery));
 
         CHECK(Error_t::kNoError == pCInstance->reset());
@@ -630,9 +701,9 @@ TEST_CASE("ToolsInstFreq", "[ToolsInstFreq]")
     CInstFreq* pCInstFreq = new CInstFreq(iBlockLength, iHopLength, fSampleRate);
 
     pCFft->init(iBlockLength);
-    CVectorFloat::setZero(pfIn, iBuffLength);
-    CVectorFloat::setZero(pfOut, iFreqLength);
-    CVectorFloat::setZero(pfSpectrum, iBlockLength);
+    CVector::setZero(pfIn, iBuffLength);
+    CVector::setZero(pfOut, iFreqLength);
+    CVector::setZero(pfSpectrum, iBlockLength);
 
     SECTION("Api")
     {
@@ -652,7 +723,7 @@ TEST_CASE("ToolsInstFreq", "[ToolsInstFreq]")
             afFreq[s] = fSampleRate / iBlockLength * (aiBins[s] + afBinOffset[s]);
             CSynthesis::genSine(pfTmp, afFreq[s], fSampleRate, iBuffLength);
 
-            CVectorFloat::add_I(pfIn, pfTmp, iBuffLength);
+            CVector::add_I(pfIn, pfTmp, iBuffLength);
         }
 
         // compute FFTs
@@ -690,8 +761,8 @@ TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
     pfInput = new float[iNumValues];
     pfOut = new float[2 * iNumValues];
 
-    CVectorFloat::setZero(pfInput, iNumValues);
-    CVectorFloat::setZero(pfOut, iNumValues);
+    CVector::setZero(pfInput, iNumValues);
+    CVector::setZero(pfOut, iNumValues);
 
     SECTION("Api")
     {
@@ -723,7 +794,7 @@ TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
         }
 
         // ones
-        CVectorFloat::setValue(pfInput, 1.F, iNumValues);
+        CVector::setValue(pfInput, 1.F, iNumValues);
         pCLowPass->reset();
         pCLowPass->setFilterParam(1);
         CHECK(Error_t::kNoError == pCLowPass->process(pfOut, pfInput, iNumValues));
@@ -754,9 +825,9 @@ TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
 
         pCLowPass->filtfilt(pfOut, pfInput, iSignalLength);
         
-        CHECK(.2F == Approx(CVectorFloat::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.2F == Approx(CVector::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
         CHECK(.2F == Approx(pfOut[iMaxIdx]).margin(1e-6F).epsilon(1e-6F));
-        CHECK(.0F == Approx(CVectorFloat::getMin(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.0F == Approx(CVector::getMin(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
 
         for (auto i = iMaxIdx-iFilterLength+1; i <= iMaxIdx; i++)
             CHECK(pfOut[i - 1] < pfOut[i]);
@@ -768,9 +839,9 @@ TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
 
         pCLowPass->filtfilt(pfOut, pfInput, iSignalLength);
 
-        CHECK(.25F == Approx(CVectorFloat::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.25F == Approx(CVector::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
         CHECK(.25F == Approx(pfOut[iMaxIdx]).margin(1e-6F).epsilon(1e-6F));
-        CHECK(.0F == Approx(CVectorFloat::getMin(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(.0F == Approx(CVector::getMin(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
 
         for (auto i = iMaxIdx - iFilterLength + 1; i <= iMaxIdx; i++)
             CHECK(pfOut[i - 1] < pfOut[i]);
@@ -781,10 +852,10 @@ TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
         //DC input
         iFilterLength = 3;
         pCLowPass->setFilterParam(iFilterLength);
-        CVectorFloat::setValue(pfInput, 1.F, iSignalLength);
+        CVector::setValue(pfInput, 1.F, iSignalLength);
         pCLowPass->filtfilt(pfOut, pfInput, iSignalLength);
-        CHECK(1.F == Approx(CVectorFloat::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(1.F == Approx(CVectorFloat::getMean(&pfOut[iFilterLength - 1], iSignalLength - 2 * (iFilterLength - 1))).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(CVector::getMax(pfOut, iSignalLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(CVector::getMean(&pfOut[iFilterLength - 1], iSignalLength - 2 * (iFilterLength - 1))).margin(1e-6F).epsilon(1e-6F));
     }
 
     CMovingAverage::destroy(pCLowPass);
@@ -818,18 +889,18 @@ TEST_CASE("ToolsInterp", "[ToolsInterp]")
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i - 500.F;
         CHECK(Error_t::kNoError == CResample::interp1d( pfOut, pfOutIdx,pfIn, iOutputLength, iInputLength));
-        CHECK(0.F == CVectorFloat::getSum(pfOut, iOutputLength));
+        CHECK(0.F == CVector::getSum(pfOut, iOutputLength));
 
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i + 500.F;
         CHECK(Error_t::kNoError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, iInputLength));
-        CHECK(0.F == CVectorFloat::getSum(pfOut, iOutputLength));
+        CHECK(0.F == CVector::getSum(pfOut, iOutputLength));
 
         for (auto i = 0; i < iOutputLength; i++)
             pfOutIdx[i] = i - 3.4F;
         CHECK(Error_t::kNoError == CResample::interp1d(pfOut, pfOutIdx, pfIn, iOutputLength, iInputLength));
-        CHECK(0.F == CVectorFloat::getSum(pfOut, 3));
-        CHECK(0.F == CVectorFloat::getSum(&pfOut[iInputLength + 4], iOutputLength - iInputLength - 4));
+        CHECK(0.F == CVector::getSum(pfOut, 3));
+        CHECK(0.F == CVector::getSum(&pfOut[iInputLength + 4], iOutputLength - iInputLength - 4));
 
         for (auto i = 3; i < iInputLength + 3; i++)
             CHECK((i - 3) + .6F == Approx(pfOut[i]).margin(1e-6F).epsilon(1e-6F));
@@ -1148,14 +1219,14 @@ TEST_CASE("ToolsPca", "[ToolsPca]")
 
         CHECK(0.F == Approx(pfEigenValues[1]).margin(1e-6F).epsilon(1e-6F));
 
-        CHECK(0.F == Approx(CVectorFloat::getSum(ppfOut[1], aiDim[1])).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVector::getSum(ppfOut[1], aiDim[1])).margin(1e-6F).epsilon(1e-6F));
     }
 
     SECTION("SimpleMatrix")
     {
         ppfIn[0][0] = -2.F; ppfIn[0][1] = -1.F; ppfIn[0][2] = 1.F; ppfIn[0][3] = 2.F; ppfIn[0][4] = -1.F; ppfIn[0][5] = -.5F; ppfIn[0][6] = .5F; ppfIn[0][7] = 1.F;
         CVector::copy(ppfIn[1], ppfIn[0], aiDim[1]);
-        CVectorFloat::mulC_I(&ppfIn[1][4], -1.F, 4);
+        CVector::mulC_I(&ppfIn[1][4], -1.F, 4);
 
 
         CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
@@ -1164,8 +1235,8 @@ TEST_CASE("ToolsPca", "[ToolsPca]")
         CHECK(2.85714285714286F == Approx(pfEigenValues[0]).margin(1e-6F).epsilon(1e-6F));
         CHECK(0.714285714285714F == Approx(pfEigenValues[1]).margin(1e-6F).epsilon(1e-6F));
 
-        CHECK(0.F == Approx(CVectorFloat::getSum(ppfOut[1], 4)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(0.F == Approx(CVectorFloat::getSum(&ppfOut[0][4], 4)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVector::getSum(ppfOut[1], 4)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVector::getSum(&ppfOut[0][4], 4)).margin(1e-6F).epsilon(1e-6F));
         CHECK(ppfOut[0][3] == Approx(-ppfOut[0][0]).margin(1e-6F).epsilon(1e-6F));
         CHECK(ppfOut[0][2] == Approx(-ppfOut[0][1]).margin(1e-6F).epsilon(1e-6F));
         CHECK(ppfOut[1][7] == Approx(-ppfOut[1][4]).margin(1e-6F).epsilon(1e-6F));
@@ -1252,8 +1323,8 @@ TEST_CASE("ToolsResample", "[ToolsResample]")
 
     CResample* pCResample = new CResample(fInSampleRate, fOutSampleRate);
     
-    CVectorFloat::setZero(pfIn, iInputLength);
-    CVectorFloat::setZero(pfOut, iOutputLength);
+    CVector::setZero(pfIn, iInputLength);
+    CVector::setZero(pfOut, iOutputLength);
 
     SECTION("Api")
     {
@@ -1265,11 +1336,11 @@ TEST_CASE("ToolsResample", "[ToolsResample]")
 
     SECTION("Zeros")
     {
-        CVectorFloat::setValue(pfOut, 1, iOutputLength);
+        CVector::setValue(pfOut, 1.F, iOutputLength);
         CHECK(fOutSampleRate/fInSampleRate*iInputLength == pCResample->getOutputLength(iInputLength));
         CHECK(Error_t::kNoError == pCResample->process(pfOut, pfIn, iInputLength));
-        CHECK(0.F == CVectorFloat::getSum(pfOut, pCResample->getOutputLength(iInputLength)));
-        CHECK(1.F == CVectorFloat::getMean(&pfOut[pCResample->getOutputLength(iInputLength)], iOutputLength - pCResample->getOutputLength(iInputLength)));
+        CHECK(0.F == CVector::getSum(pfOut, pCResample->getOutputLength(iInputLength)));
+        CHECK(1.F == CVector::getMean(&pfOut[pCResample->getOutputLength(iInputLength)], iOutputLength - pCResample->getOutputLength(iInputLength)));
     }
 
     SECTION("Sine")
@@ -1312,8 +1383,8 @@ TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
     pfInput = new float[iNumValues];
     pfOut = new float[2 * iNumValues];
 
-    CVectorFloat::setZero(pfInput, iNumValues);
-    CVectorFloat::setZero(pfOut, iNumValues);
+    CVector::setZero(pfInput, iNumValues);
+    CVector::setZero(pfOut, iNumValues);
 
     SECTION("Api")
     {
@@ -1346,7 +1417,7 @@ TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
         }
 
         // ones
-        CVectorFloat::setValue(pfInput, 1.F, iNumValues);
+        CVector::setValue(pfInput, 1.F, iNumValues);
         for (auto c = 0; c < 10; c++)
         {
             float fAlpha = c / 10.1F;

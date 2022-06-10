@@ -36,7 +36,7 @@ TEST_CASE("Fft", "[FFT]")
         pCFftInstance->compInvFft(pfTmp, pfFreq);
 
         CHECK(1.F == Approx(pfTmp[1]).margin(1e-6F).epsilon(1e-6F));
-        CHECK(1.F == Approx(CVectorFloat::getSum(pfTmp, iBlockLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(CVector::getSum(pfTmp, iBlockLength)).margin(1e-6F).epsilon(1e-6F));
 
         pCFftInstance->init(iBlockLength, 2, CFft::kWindowHann, CFft::kNoWindow);
         pfTime[0] = 1;
@@ -45,7 +45,7 @@ TEST_CASE("Fft", "[FFT]")
         pCFftInstance->compInvFft(pfTmp, pfFreq);
 
         CHECK(1.F == Approx(pfTmp[0]).margin(1e-6F).epsilon(1e-6F));
-        CHECK(1.F == Approx(CVectorFloat::getSum(pfTmp, iBlockLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(CVector::getSum(pfTmp, iBlockLength)).margin(1e-6F).epsilon(1e-6F));
 
         pCFftInstance->init(iFftLength, 1, CFft::kWindowHann, CFft::kNoWindow);
     }
@@ -184,21 +184,21 @@ TEST_CASE("Fft", "[FFT]")
 
         // compute fft inplace and compare
         pCFftInstance->compFft(pfFreq, pfTime);
-        CVectorFloat::copy(pfTmp, pfTime, iFftLength);
+        CVector::copy(pfTmp, pfTime, iFftLength);
         pCFftInstance->compFft(pfTmp, pfTmp);
         for (auto i = 0; i < iFftLength; i++)
             CHECK(pfFreq[i] == Approx(pfTmp[i]).margin(1e-3F).epsilon(1e-3F));
 
         // get magnitude in-place and compare
         pCFftInstance->getMagnitude(pfReal, pfFreq);
-        CVectorFloat::copy(pfTmp, reinterpret_cast<float*>(pfFreq), iFftLength);
+        CVector::copy(pfTmp, reinterpret_cast<float*>(pfFreq), iFftLength);
         pCFftInstance->getMagnitude(pfTmp, pfTmp);
         for (auto i = 0; i < pCFftInstance->getLength(CFft::kLengthMagnitude); i++)
             CHECK(pfReal[i] == Approx(pfTmp[i]).margin(1e-3F).epsilon(1e-3F));
 
         // get phase in-place and compare
         pCFftInstance->getPhase(pfReal, pfFreq);
-        CVectorFloat::copy(pfTmp, reinterpret_cast<float*>(pfFreq), iFftLength);
+        CVector::copy(pfTmp, reinterpret_cast<float*>(pfFreq), iFftLength);
         pCFftInstance->getPhase(pfTmp, pfTmp);
         for (auto i = 0; i < pCFftInstance->getLength(CFft::kLengthPhase); i++)
             CHECK(pfReal[i] == Approx(pfTmp[i]).margin(1e-3F).epsilon(1e-3F));

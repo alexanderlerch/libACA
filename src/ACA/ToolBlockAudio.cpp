@@ -67,7 +67,7 @@ public:
         if (iNumFrames < m_iBlockLength)
         {
             for (int c = 0; c < m_iNumChannels; c++)
-                CVectorFloat::setZero(&pfBlock[iNumFrames], static_cast<long long>(m_iBlockLength) - iNumFrames);
+                CVector::setZero(&pfBlock[iNumFrames], static_cast<long long>(m_iBlockLength) - iNumFrames);
 
             iNumFrames = m_iHopLength;
         }
@@ -98,7 +98,7 @@ private:
         if (iNumFrames < m_iHopLength)
         {
             for (int c = 0; c < m_iNumChannels; c++)
-                CVectorFloat::setZero(&m_ppfAudioData[c][iNumFrames], m_iHopLength - iNumFrames);
+                CVector::setZero(&m_ppfAudioData[c][iNumFrames], m_iHopLength - iNumFrames);
             
             iNumFrames = m_iHopLength;
         }
@@ -135,7 +135,7 @@ public:
 
         // initialize read buffers
         CVector::alloc(m_pfAudioData, m_iAudioLength);
-        CVectorFloat::copy(m_pfAudioData, pfAudioBuff, m_iAudioLength);
+        CVector::copy(m_pfAudioData, pfAudioBuff, m_iAudioLength);
     }
 
     virtual ~CBlockAudioBuffer()
@@ -158,8 +158,8 @@ public:
 
         int iNumFramesInBlock = m_iAudioLength - m_iCurrIdx < m_iBlockLength ? static_cast<int>(m_iAudioLength - m_iCurrIdx) : m_iBlockLength;
 
-        CVectorFloat::copy(pfBlock, &m_pfAudioData[m_iCurrIdx], iNumFramesInBlock);
-        CVectorFloat::setZero(&pfBlock[iNumFramesInBlock], static_cast<long long>(m_iBlockLength) - iNumFramesInBlock);
+        CVector::copy(pfBlock, &m_pfAudioData[m_iCurrIdx], iNumFramesInBlock);
+        CVector::setZero(&pfBlock[iNumFramesInBlock], static_cast<long long>(m_iBlockLength) - iNumFramesInBlock);
 
         if (pfTimeStamp)
             *pfTimeStamp = getTimeStamp(m_iCurrBlock);

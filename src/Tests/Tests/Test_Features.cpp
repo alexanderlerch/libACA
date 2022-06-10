@@ -11,7 +11,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
     int iBufferLength = 1025;
 
     pfInput = new float[iBufferLength];
-    CVectorFloat::setZero(pfInput, iBufferLength);
+    CVector::setZero(pfInput, iBufferLength);
 
     SECTION("SpectralCentroid")
     {
@@ -26,11 +26,11 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(10.F == Approx(CFeatureFromBlockIf::compFeatureSpectralCentroid(pfInput, 17, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
 
         // 'noise' test
-        CVectorFloat::setValue(pfInput, 1, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         CHECK(fSampleRate / 4.F == Approx(CFeatureFromBlockIf::compFeatureSpectralCentroid(pfInput, iBufferLength, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
 
         // symmetric spectrum test
-        CVectorFloat::setZero(&pfInput[1], static_cast<long long>(iBufferLength) - 2);
+        CVector::setZero(&pfInput[1], static_cast<long long>(iBufferLength) - 2);
         CHECK(fSampleRate / 4.F == Approx(CFeatureFromBlockIf::compFeatureSpectralCentroid(pfInput, iBufferLength, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
     }
 
@@ -47,11 +47,11 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(1.F == CFeatureFromBlockIf::compFeatureSpectralCrestFactor(pfInput, 17, fSampleRate));
 
         // 'noise' test
-        CVectorFloat::setValue(pfInput, 1, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         CHECK(1.F / iBufferLength == Approx(CFeatureFromBlockIf::compFeatureSpectralCrestFactor(pfInput, iBufferLength)).margin(1e-6F).epsilon(1e-6F));
 
         // symmetric spectrum test
-        CVectorFloat::setZero(&pfInput[1], static_cast<long long>(iBufferLength) - 2);
+        CVector::setZero(&pfInput[1], static_cast<long long>(iBufferLength) - 2);
         CHECK(.5F == Approx(CFeatureFromBlockIf::compFeatureSpectralCrestFactor(pfInput, iBufferLength, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
     }
 
@@ -64,7 +64,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         for (auto k = 0; k < iBufferLength; k++)
             pfInput[k] = static_cast<float>(k);
 
-        CHECK((iBufferLength - 1) / CVectorFloat::getSum(pfInput, iBufferLength) == Approx(CFeatureFromBlockIf::compFeatureSpectralDecrease(pfInput, iBufferLength)).margin(1e-6F).epsilon(1e-6F));
+        CHECK((iBufferLength - 1) / CVector::getSum(pfInput, iBufferLength) == Approx(CFeatureFromBlockIf::compFeatureSpectralDecrease(pfInput, iBufferLength)).margin(1e-6F).epsilon(1e-6F));
     }
 
     SECTION("SpectralFlatness")
@@ -80,14 +80,14 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(0.F == Approx(CFeatureFromBlockIf::compFeatureSpectralFlatness(pfInput, 17, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
 
         // 'noise' test
-        CVectorFloat::setValue(pfInput, 1, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         CHECK(1.F == CFeatureFromBlockIf::compFeatureSpectralFlatness(pfInput, iBufferLength));
 
         // one value zero
         pfInput[10] = 0;
         CHECK(0.F == Approx(CFeatureFromBlockIf::compFeatureSpectralFlatness(pfInput, 20, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
         // 'sine w noise' test
-        CVectorFloat::setValue(pfInput, 1, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         pfInput[2] = 10;
         CHECK(std::sqrt(std::sqrt(10)) / (13.F / 4) == Approx(CFeatureFromBlockIf::compFeatureSpectralFlatness(pfInput, 4)).margin(1e-6F).epsilon(1e-6F));
     }
@@ -107,16 +107,16 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(0.F == Approx(CFeatureFromBlockIf::compFeatureSpectralFlux(pfInput, &pfInput[iIdx], iBufferLength / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
 
         // 'noise' test
-        CVectorFloat::setValue(pfInput, 1, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         CHECK(0.F == Approx(CFeatureFromBlockIf::compFeatureSpectralFlux(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-6F).epsilon(1e-6F));
 
         // one spectrum zero, the other one
-        CVectorFloat::setZero(pfInput, iBufferLength / 2);
+        CVector::setZero(pfInput, iBufferLength / 2);
         CHECK(1.F / std::sqrt(iBufferLength / 2.F) == Approx(CFeatureFromBlockIf::compFeatureSpectralFlux(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
         CHECK(1.F / std::sqrt(iBufferLength / 2.F) == Approx(CFeatureFromBlockIf::compFeatureSpectralFlux(&pfInput[iIdx], pfInput, iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
 
         // one spectrum zero, the other two
-        CVectorFloat::mulC_I(pfInput, 2.F, iBufferLength);
+        CVector::mulC_I(pfInput, 2.F, iBufferLength);
         CHECK(std::sqrt(4.F * (iBufferLength / 2)) / (iBufferLength / 2) == Approx(CFeatureFromBlockIf::compFeatureSpectralFlux(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
         CHECK(std::sqrt(4.F * (iBufferLength / 2)) / (iBufferLength / 2) == Approx(CFeatureFromBlockIf::compFeatureSpectralFlux(&pfInput[iIdx], pfInput, iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
 
@@ -144,7 +144,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // flat spectrum test
         fSampleRate = 1;
-        CVectorFloat::setValue(pfInput, 1.F, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         CHECK(-1.2F == Approx(CFeatureFromBlockIf::compFeatureSpectralKurtosis(pfInput, iBufferLength, fSampleRate)).margin(1e-4F).epsilon(1e-4F));
     }
 
@@ -155,7 +155,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // flat spectrum test
         fSampleRate = 200;
-        CVectorFloat::setValue(pfInput, 1.F, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         CHECK(85.F == Approx(CFeatureFromBlockIf::compFeatureSpectralRolloff(pfInput, 101, fSampleRate)).margin(1e-4F).epsilon(1e-4F));
         CHECK(75.F == Approx(CFeatureFromBlockIf::compFeatureSpectralRolloff(pfInput, 101, fSampleRate, .75F)).margin(1e-4F).epsilon(1e-4F));
     }
@@ -174,7 +174,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // flat spectrum test
         fSampleRate = 1;
-        CVectorFloat::setValue(pfInput, 1.F, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         CHECK(0.F == Approx(CFeatureFromBlockIf::compFeatureSpectralSkewness(pfInput, iBufferLength, fSampleRate)).margin(1e-4F).epsilon(1e-4F));
 
         // decreasing spectrum -> positive skewness
@@ -205,7 +205,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureSpectralSlope(pfInput, iBufferLength)).margin(1e-2F).epsilon(1e-2F));
 
         // flat spectrum
-        CVectorFloat::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfInput, iBufferLength);
         CHECK(0.F == Approx(CFeatureFromBlockIf::compFeatureSpectralSlope(pfInput, 5)).margin(1e-6F).epsilon(1e-6F));
         CHECK(0.F == Approx(CFeatureFromBlockIf::compFeatureSpectralSlope(pfInput, iBufferLength)).margin(1e-2F).epsilon(1e-2F));
     }
@@ -224,8 +224,8 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
 
         // flat spectrum test
         fSampleRate = 1;
-        CVectorFloat::setZero(pfInput, iBufferLength);
-        CVectorFloat::setValue(&pfInput[5], 1.F, 5);
+        CVector::setZero(pfInput, iBufferLength);
+        CVector::setValue(&pfInput[5], 1.F, 5);
         iBufferLength = 17;
         CHECK(std::sqrt(10.F / 5.F) / (2 * (iBufferLength - 1)) == Approx(CFeatureFromBlockIf::compFeatureSpectralSpread(pfInput, iBufferLength, fSampleRate)).margin(1e-4F).epsilon(1e-4F));
     }
@@ -243,7 +243,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(1.F == CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(pfInput, 17, fSampleRate));
 
         // multiple maxima 
-        CVectorFloat::setValue(pfInput, .5F, iBufferLength);
+        CVector::setValue(pfInput, .5F, iBufferLength);
         pfInput[100] = 2.F;
         pfInput[200] = 2.F;
         pfInput[300] = 2.F;
@@ -260,7 +260,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(0.F == CFeatureFromBlockIf::compFeatureTimeAcfCoeff(pfInput, iBufferLength));
 
         // dc input
-        CVectorFloat::setValue(pfInput, 1.F, 20);
+        CVector::setValue(pfInput, 1.F, 20);
         for (eta = 0; eta < 19; eta++)
             CHECK(CFeatureFromBlockIf::compFeatureTimeAcfCoeff(pfInput, 20, fSampleRate, eta) > CFeatureFromBlockIf::compFeatureTimeAcfCoeff(pfInput, 20, fSampleRate, eta + 1));
 
@@ -277,7 +277,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(0.F == CFeatureFromBlockIf::compFeatureTimePeakEnvelope(pfInput, iBufferLength));
 
         // offset
-        CVectorFloat::setValue(pfInput, 1.F, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureTimePeakEnvelope(pfInput, iBufferLength)).margin(1e-3F).epsilon(1e-3F));
 
         // one maximum
@@ -285,7 +285,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(2.F == Approx(CFeatureFromBlockIf::compFeatureTimePeakEnvelope(pfInput, iBufferLength)).margin(1e-3F).epsilon(1e-3F));
 
         // negative maximm
-        CVectorFloat::addC_I(pfInput, -5.F, iBufferLength);
+        CVector::addC_I(pfInput, -5.F, iBufferLength);
         CHECK(-3.F == Approx(CFeatureFromBlockIf::compFeatureTimePeakEnvelope(pfInput, iBufferLength)).margin(1e-3F).epsilon(1e-3F));
 
         // sine wave
@@ -310,7 +310,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureTimeRms(pfInput, 1000)).margin(1e-3F).epsilon(1e-3F));
 
         // square wave with offset
-        CVectorFloat::addC_I(pfInput, 1, iBufferLength);
+        CVector::addC_I(pfInput, 1.F, iBufferLength);
         CHECK(std::sqrt(2.F) == Approx(CFeatureFromBlockIf::compFeatureTimeRms(pfInput, 1000)).margin(1e-3F).epsilon(1e-3F));
     }
 
@@ -330,7 +330,7 @@ TEST_CASE("Features (static functions)", "[FeaturesStatic]")
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureTimeStd(pfInput, 1000)).margin(1e-3F).epsilon(1e-3F));
 
         // square wave with offset
-        CVectorFloat::addC_I(pfInput, 1, iBufferLength);
+        CVector::addC_I(pfInput, 1.F, iBufferLength);
         CHECK(1.F == Approx(CFeatureFromBlockIf::compFeatureTimeStd(pfInput, 1000)).margin(1e-3F).epsilon(1e-3F));
     }
 
@@ -361,7 +361,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
     int iBufferLength = 1025;
     
     pfInput = new float[iBufferLength];
-    CVectorFloat::setValue(pfInput, 1.F, iBufferLength);
+    CVector::setValue(pfInput, 1.F, iBufferLength);
 
     SECTION("Api")
     {
@@ -399,7 +399,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(fResult == Approx(1.F).margin(1e-6F).epsilon(1e-6F));
 
         // zeros
-        CVectorFloat::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfInput, iBufferLength);
         CHECK(Error_t::kNoError == pCInstance->compFeature(&fResult, pfInput));
         CHECK(fResult == Approx(0.F).margin(1e-6F).epsilon(1e-6F));
 
@@ -420,15 +420,15 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
 
         // ones
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
-        CHECK(1.F == Approx(CVectorFloat::getSum(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(1.F / 12.F == Approx(CVectorFloat::getMax(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(1.F / 12.F == Approx(CVectorFloat::getMin(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(CVector::getSum(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F / 12.F == Approx(CVector::getMax(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F / 12.F == Approx(CVector::getMin(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
 
         // zeros
-        CVectorFloat::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfInput, iBufferLength);
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
-        CHECK(0.F == Approx(CVectorFloat::getSum(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(0.F == Approx(CVectorFloat::getMin(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVector::getSum(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVector::getMin(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
 
         // sine 
         fSampleRate = 44000;
@@ -450,10 +450,10 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
             fNorm += 1.F / std::sqrt(k + 1.F);
         }
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
-        CHECK(afResult[9] == Approx(CVectorFloat::getMax(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(afResult[9] == Approx(CVector::getMax(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
         CHECK(afResult[1] > 0);
         CHECK(afResult[4] > 0);
-        CHECK(1.F == Approx(CVectorFloat::getSum(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(1.F == Approx(CVector::getSum(afResult, 12)).margin(1e-6F).epsilon(1e-6F));
     }
 
     SECTION("SpectralMfccs")
@@ -465,15 +465,15 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
 
         // ones
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
-        CHECK(0.F == Approx(CVectorFloat::getSum(&afResult[1], 12)).margin(1e-2F).epsilon(1e-2F));
-        CHECK(afResult[0] == Approx(CVectorFloat::getMin(afResult, 13)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVector::getSum(&afResult[1], 12)).margin(1e-2F).epsilon(1e-2F));
+        CHECK(afResult[0] == Approx(CVector::getMin(afResult, 13)).margin(1e-6F).epsilon(1e-6F));
         CHECK(-7.55021658F == Approx(afResult[0]).margin(1e-6F).epsilon(1e-6F));
 
         // zeros
-        CVectorFloat::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfInput, iBufferLength);
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
-        CHECK(0.F == Approx(CVectorFloat::getMean(&afResult[1], 12)).margin(1e-6F).epsilon(1e-6F));
-        CHECK(afResult[0] == Approx(CVectorFloat::getMin(afResult, 13)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CVector::getMean(&afResult[1], 12)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(afResult[0] == Approx(CVector::getMin(afResult, 13)).margin(1e-6F).epsilon(1e-6F));
         CHECK(afResult[0] < -100);
     }
 
@@ -485,13 +485,13 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(2 == pCInstance->getFeatureDimensions());
 
         // zeros
-        CVectorFloat::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfInput, iBufferLength);
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
         CHECK(0.F == Approx(afResult[1]).margin(1e-6F).epsilon(1e-6F));
 
         // ones
         float fTmp = 0;
-        CVectorFloat::setValue(pfInput, 1.F, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         for (auto n = 0; n < 2000; n++)
         {
             CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
@@ -501,7 +501,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(1.F == Approx(afResult[1]).margin(1e-4F).epsilon(1e-4F));
 
         // zeros
-        CVectorFloat::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfInput, iBufferLength);
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
         float fAlpha = CSinglePoleLp::calcFilterParam(.3F, fSampleRate);
         CHECK(std::sqrt(fAlpha) == Approx(afResult[1]).margin(1e-4F).epsilon(1e-4F));
@@ -517,13 +517,13 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(2 == pCInstance->getFeatureDimensions());
 
         // zeros
-        CVectorFloat::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfInput, iBufferLength);
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
         CHECK(0.F == Approx(afResult[1]).margin(1e-6F).epsilon(1e-6F));
 
         // ones
         float fTmp = 0;
-        CVectorFloat::setValue(pfInput, 1.F, iBufferLength);
+        CVector::setValue(pfInput, 1.F, iBufferLength);
         for (auto n = 0; n < 2000; n++)
         {
             CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
@@ -533,7 +533,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(1.F == Approx(afResult[1]).margin(1e-4F).epsilon(1e-4F));
 
         // zeros
-        CVectorFloat::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfInput, iBufferLength);
         CHECK(Error_t::kNoError == pCInstance->compFeature(afResult, pfInput));
         float fAlpha = CSinglePoleLp::calcFilterParam(1.5F, fSampleRate);
         CHECK(fAlpha == Approx(afResult[1]).margin(1e-4F).epsilon(1e-4F));
@@ -557,7 +557,7 @@ TEST_CASE("Features (per array)", "[FeaturesClass]")
         iBufferLength = 96000;
     
     pfInput = new float[iBufferLength];
-    CVectorFloat::setValue(pfInput, 1.F, iBufferLength);
+    CVector::setValue(pfInput, 1.F, iBufferLength);
 
 
     SECTION("Api")

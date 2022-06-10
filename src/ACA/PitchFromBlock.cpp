@@ -45,9 +45,9 @@ public:
 
         // flip data so it's more robust and set bin 0 to max
         CVector::copy(m_pfProcBuff, pfInput, m_iDataLength);
-        CVectorFloat::flip_I(m_pfProcBuff, m_iDataLength);
+        CVector::flip_I(m_pfProcBuff, m_iDataLength);
         CVector::copy(&m_pfProcBuff[m_iDataLength - 1], pfInput, m_iDataLength - static_cast<long long>(1));
-        m_pfProcBuff[m_iDataLength - 1] = CVectorFloat::getMax(pfInput, m_iDataLength);
+        m_pfProcBuff[m_iDataLength - 1] = CVector::getMax(pfInput, m_iDataLength);
 
         // compute acf
         m_pCCcf->compCcf(m_pfProcBuff, m_pfProcBuff, true);
@@ -69,7 +69,7 @@ public:
             return 0.F;
 
         // now find the maximum
-        CVectorFloat::findMax(&m_pfAcf[iMin], fTmp, iMaxIdx, m_iDataLength - static_cast<long long>(1) - iMin);
+        CVector::findMax(&m_pfAcf[iMin], fTmp, iMaxIdx, m_iDataLength - static_cast<long long>(1) - iMin);
 
         return CConversion::convertBin2Freq((iMin+iMaxIdx) * 1.F, (m_iDataLength - 1) * 2, m_fSampleRate);
     };
@@ -107,8 +107,8 @@ public:
         long long iMaxIdx = 0;
         int iMin = CUtil::float2int<int>(CConversion::convertFreq2Bin(m_fMin, (m_iDataLength - 1) * 2, m_fSampleRate));
         CVector::copy(m_pfProcBuff, pfInput, m_iDataLength);
-        CVectorFloat::setZero(m_pfProcBuff, iMin);
-        CVectorFloat::setZero(&m_pfProcBuff[m_iDataLength/m_iOrder], static_cast<long long>(m_iDataLength) - (m_iDataLength / m_iOrder));
+        CVector::setZero(m_pfProcBuff, iMin);
+        CVector::setZero(&m_pfProcBuff[m_iDataLength/m_iOrder], static_cast<long long>(m_iDataLength) - (m_iDataLength / m_iOrder));
 
         // do the actual product sum
         for (auto j = 2; j <= m_iOrder; j++)
@@ -118,7 +118,7 @@ public:
         }
 
         // this could be restricted a bit, but is it worth it?
-        CVectorFloat::findMax(m_pfProcBuff, fTmp, iMaxIdx, m_iDataLength);
+        CVector::findMax(m_pfProcBuff, fTmp, iMaxIdx, m_iDataLength);
 
         // sanity check
         if (fTmp <= 1e-30F)
@@ -188,7 +188,7 @@ public:
         // get the maximum given the constraints above
         float fMax = 0;
         long long iMax = -1;
-        CVectorFloat::findMax(&m_pfAcf[iEtaMin], fMax, iMax, static_cast<long long>(m_iDataLength) - iEtaMin);
+        CVector::findMax(&m_pfAcf[iEtaMin], fMax, iMax, static_cast<long long>(m_iDataLength) - iEtaMin);
 
         if (fMax <= 0)
             return 0.F;
@@ -255,7 +255,7 @@ public:
     {
         assert(pfInput);
 
-        CVectorFloat::setZero(m_pfSumAcf, m_iDataLength);
+        CVector::setZero(m_pfSumAcf, m_iDataLength);
 
         m_pCFilterBank->process(m_ppfProcBuff, pfInput, m_iDataLength);
         
@@ -269,7 +269,7 @@ public:
             m_pCCcf->getCcf(m_pfAcf, true);
 
             // compute sum of acfs
-            CVectorFloat::add_I(m_pfSumAcf, m_pfAcf, m_iDataLength);
+            CVector::add_I(m_pfSumAcf, m_pfAcf, m_iDataLength);
         }
 
         int iEta = getAcfMax_(m_pfSumAcf);
@@ -310,7 +310,7 @@ private:
         // get the maximum given the constraints above
         float fMax = 0;
         long long iMax = -1;
-        CVectorFloat::findMax(&pfInput[iEtaMin], fMax, iMax, static_cast<long long>(m_iDataLength) - iEtaMin);
+        CVector::findMax(&pfInput[iEtaMin], fMax, iMax, static_cast<long long>(m_iDataLength) - iEtaMin);
 
         if (fMax <= 0)
             return 0;
@@ -354,7 +354,7 @@ public:
         if (iEtaMax > m_iDataLength)
             iEtaMax = m_iDataLength;
 
-        if (CVectorFloat::getSum(pfInput, m_iDataLength, true) <= 0)
+        if (CVector::getSum(pfInput, m_iDataLength, true) <= 0)
             return 0.F;
 
         // compute amdf

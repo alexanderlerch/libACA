@@ -53,11 +53,17 @@ public:
     */
     Error_t reset() override;
 
-    /*! set the number of neighbors K
+    /*! sets the number of neighbors K
     \param iK number of nearest neighbors taken into consideration
     \return Error_t
     */
-    Error_t setParam(int iK = 3);
+    Error_t setParamK(int iK = 3);
+
+
+    /*! returns the parameter K
+    \return int iK
+    */
+    int getParamK() const;
 
     /*! classifies a new query vector
     \param pfQuery vector of length iNumFeatures to classify

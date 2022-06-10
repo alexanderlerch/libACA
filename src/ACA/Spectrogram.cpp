@@ -227,7 +227,7 @@ void CSpectrogramIf::computeMagSpectrum_(int iLength)
     m_pCFft->compFft(m_pfSpectrum, m_pfProcessBuff);
     m_pCFft->getMagnitude(m_pfSpectrum, m_pfSpectrum);
 
-    CVectorFloat::mulC_I(m_pfSpectrum, 2.F, iLength);
+    CVector::mulC_I(m_pfSpectrum, 2.F, iLength);
 }
 
 void CSpectrogramIf::destroyMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig)
@@ -322,7 +322,7 @@ Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float* pfAxisTicks, AxisLab
         assert(m_pffcMel);
 
         // note that we start with 1 to look at the center freqs only
-        CVectorFloat::copy(pfAxisTicks, &m_pffcMel[1], pMelSpecConfig->iNumMelBins);
+        CVector::copy(pfAxisTicks, &m_pffcMel[1], pMelSpecConfig->iNumMelBins);
 
         destroyMelFb_(pMelSpecConfig);
     }
@@ -361,7 +361,7 @@ Error_t CSpectrogramIf::compMelSpectrogram(float** ppfMelSpectrogram, const MelS
         for (auto k = 0; k < pMelSpecConfig->iNumMelBins; k++)
         {
             assert(m_ppfHMel[k]);
-            ppfMelSpectrogram[k][n] = CVectorFloat::mulScalar(m_ppfHMel[k], m_pfSpectrum, iLength);
+            ppfMelSpectrogram[k][n] = CVector::mulScalar(m_ppfHMel[k], m_pfSpectrum, iLength);
         }
 
         if (pMelSpecConfig->bIsLogarithmic)

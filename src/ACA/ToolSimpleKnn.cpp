@@ -46,8 +46,8 @@ Error_t CKnn::init(float** ppfTrainFeatures, const int* piTrainClassIndices, int
     {
         for (auto f = 0; f < m_iNumFeatures; f++)
         {
-            m_pfNormSub[f] = CVectorFloat::getMean(ppfTrainFeatures[f], m_iNumObs);
-            m_pfNormScale[f] = CVectorFloat::getStd(ppfTrainFeatures[f], m_iNumObs, m_pfNormSub[f]);
+            m_pfNormSub[f] = CVector::getMean(ppfTrainFeatures[f], m_iNumObs);
+            m_pfNormScale[f] = CVector::getStd(ppfTrainFeatures[f], m_iNumObs, m_pfNormSub[f]);
             if (m_pfNormScale[f] > 0)
                 m_pfNormScale[f] = 1.F / m_pfNormScale[f];
         }
@@ -56,8 +56,8 @@ Error_t CKnn::init(float** ppfTrainFeatures, const int* piTrainClassIndices, int
     {
         for (auto f = 0; f < m_iNumFeatures; f++)
         {
-            m_pfNormSub[f] = CVectorFloat::getMin(ppfTrainFeatures[f], m_iNumObs);
-            m_pfNormScale[f] = CVectorFloat::getMax(ppfTrainFeatures[f], m_iNumObs) - m_pfNormSub[f];
+            m_pfNormSub[f] = CVector::getMin(ppfTrainFeatures[f], m_iNumObs);
+            m_pfNormScale[f] = CVector::getMax(ppfTrainFeatures[f], m_iNumObs) - m_pfNormSub[f];
             if (m_pfNormScale[f] != 0)
                 m_pfNormScale[f] = 1.F / m_pfNormScale[f];
         }
@@ -71,8 +71,8 @@ Error_t CKnn::init(float** ppfTrainFeatures, const int* piTrainClassIndices, int
     // normalize features
     for (auto n = 0; n < m_iNumObs; n++)
     {
-        CVectorFloat::sub_I(m_ppfTrain[n], m_pfNormSub, m_iNumFeatures);
-        CVectorFloat::mul_I(m_ppfTrain[n], m_pfNormScale, m_iNumFeatures);
+        CVector::sub_I(m_ppfTrain[n], m_pfNormSub, m_iNumFeatures);
+        CVector::mul_I(m_ppfTrain[n], m_pfNormScale, m_iNumFeatures);
     }
 
     m_bIsInitialized = true;
@@ -104,7 +104,7 @@ Error_t CKnn::reset()
     return Error_t::kNoError;
 }
 
-Error_t CKnn::setParam(int iK)
+Error_t CKnn::setParamK(int iK)
 {
     if (iK <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -118,6 +118,10 @@ Error_t CKnn::setParam(int iK)
 
     return Error_t::kNoError;
 }
+int CKnn::getParamK() const
+{
+    return m_iK;
+}
 
 int CKnn::classify(const float* pfQuery)
 {
@@ -126,15 +130,15 @@ int CKnn::classify(const float* pfQuery)
 
     // normalize
     CVector::copy(m_pfQuery, pfQuery, m_iNumFeatures);
-    CVectorFloat::sub_I(m_pfQuery, m_pfNormSub, m_iNumFeatures);
-    CVectorFloat::mul_I(m_pfQuery, m_pfNormScale, m_iNumFeatures);
+    CVector::sub_I(m_pfQuery, m_pfNormSub, m_iNumFeatures);
+    CVector::mul_I(m_pfQuery, m_pfNormScale, m_iNumFeatures);
 
     // compute distance to all training observations
     for (auto n = 0; n < m_iNumObs; n++)
-        m_pfDist[n] = CVectorFloat::distEuclidean(pfQuery, m_ppfTrain[n], m_iNumFeatures);
+        m_pfDist[n] = CVector::distEuclidean(pfQuery, m_ppfTrain[n], m_iNumFeatures);
 
     // sort distances
-    CVectorFloat::sort_I(m_pfDist, m_piSortIdx, m_iNumObs);
+    CVector::sort_I(m_pfDist, m_piSortIdx, m_iNumObs);
 
     // take care of weird scenarios
     if (m_iK > m_iNumObs)
@@ -144,11 +148,13 @@ int CKnn::classify(const float* pfQuery)
     buildHistogram_(false);
 
     // handle multiple maxima (first, use distances, then, reduce K)
+    int iK = m_iK;  //!< remember m_iK
     while (countMaxima_() > 1)
     {
         buildHistogram_(true);
         m_iK--;
     }
+    m_iK = iK;
 
     return m_piHistLabel[0];
 }
@@ -185,7 +191,7 @@ int CKnn::countMaxima_()
     int iNumMax = 0;
     float fMax = 0;
     long long iMax = 0;
-    CVectorFloat::findMax(m_pfHist, fMax, iMax, m_iK);
+    CVector::findMax(m_pfHist, fMax, iMax, m_iK);
     CUtil::swap(m_pfHist[iNumMax], m_pfHist[iMax]);
     CUtil::swap(m_piHistLabel[iNumMax], m_piHistLabel[iMax]);
     iNumMax++;

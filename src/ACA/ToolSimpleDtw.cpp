@@ -81,7 +81,7 @@ Error_t CDtw::compDtw(float **ppfDistanceMatrix)
     float fFirstColCost     = 0;        //!< variable that will only contain the cost of the first column (for the current row to be processed)
 
     // initialize
-    CVectorFloat::setZero(m_apfCost[kRowNext], m_aiMatrixDimensions[kCol]);
+    CVector::setZero(m_apfCost[kRowNext], m_aiMatrixDimensions[kCol]);
     m_apfCost[kRowCurr][0]  = ppfDistanceMatrix[0][0];
     fFirstColCost           = ppfDistanceMatrix[0][0];
     m_ppePathIdx[0][0]      = kDiag;

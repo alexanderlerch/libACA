@@ -40,12 +40,12 @@ float CFeatureFromBlockIf::compFeatureSpectralCrestFactor(const float* pfMagSpec
     assert(pfMagSpec);
     assert(iDataLength > 0);
 
-    float fNorm = CVectorFloat::getSum(pfMagSpec, iDataLength);
+    float fNorm = CVector::getSum(pfMagSpec, iDataLength);
 
     if (fNorm < m_kfFloatThresh)
         return 0;
 
-    return CVectorFloat::getMax(pfMagSpec, iDataLength) / fNorm;
+    return CVector::getMax(pfMagSpec, iDataLength) / fNorm;
 }
 
 float CFeatureFromBlockIf::compFeatureSpectralDecrease(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
@@ -73,11 +73,11 @@ float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float* pfMagSpec, i
     assert(pfMagSpec);
     assert(iDataLength > 0);
 
-    float fNorm = CVectorFloat::getMean(pfMagSpec, iDataLength);
+    float fNorm = CVector::getMean(pfMagSpec, iDataLength);
     float fGeoMean = 0;
 
     // avoid unnecessary complications
-    if (fNorm < m_kfFloatThresh || CVectorFloat::getMin(pfMagSpec, iDataLength) < m_kfFloatThresh)
+    if (fNorm < m_kfFloatThresh || CVector::getMin(pfMagSpec, iDataLength) < m_kfFloatThresh)
         return 0;
 
     // compute geometric mean through log
@@ -162,7 +162,7 @@ float CFeatureFromBlockIf::compFeatureSpectralRolloff(const float* pfMagSpec, in
     assert(fSampleRate > 0);
     assert(fKappa > 0 && fKappa <= 1);
 
-    float fNorm = CVectorFloat::getSum(pfMagSpec, iDataLength);
+    float fNorm = CVector::getSum(pfMagSpec, iDataLength);
     float fSum = 0;
     int k = 0;
 
@@ -274,7 +274,7 @@ float CFeatureFromBlockIf::compFeatureTimeAcfCoeff(const float* pfSamples, int i
     assert(iDataLength > iEta);
     assert(iEta >= 0);
 
-    return CVectorFloat::mulScalar(pfSamples, &pfSamples[iEta], static_cast<long long>(iDataLength) - iEta);
+    return CVector::mulScalar(pfSamples, &pfSamples[iEta], static_cast<long long>(iDataLength) - iEta);
 }
 
 float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
@@ -282,7 +282,7 @@ float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, i
     assert(pfSamples);
     assert(iDataLength > 0);
 
-    return CVectorFloat::getMax(pfSamples, iDataLength);
+    return CVector::getMax(pfSamples, iDataLength);
 }
 
 float CFeatureFromBlockIf::compFeatureTimeStd(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
@@ -290,7 +290,7 @@ float CFeatureFromBlockIf::compFeatureTimeStd(const float* pfSamples, int iDataL
     assert(pfSamples);
     assert(iDataLength > 0);
 
-    return CVectorFloat::getStd(pfSamples, iDataLength);
+    return CVector::getStd(pfSamples, iDataLength);
 }
 
 float CFeatureFromBlockIf::compFeatureTimeRms(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
@@ -298,7 +298,7 @@ float CFeatureFromBlockIf::compFeatureTimeRms(const float* pfSamples, int iDataL
     assert(pfSamples);
     assert(iDataLength > 0);
 
-    return CVectorFloat::getStd(pfSamples, iDataLength, 0.F);
+    return CVector::getStd(pfSamples, iDataLength, 0.F);
 }
 
 float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
@@ -331,7 +331,7 @@ public:
     CFeatureSpectralFlux(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate) : CFeatureFromBlockIf(eFeatureIdx, iDataLength, fSampleRate)
     {
         CVector::alloc(m_pfPrevSpec, m_iDataLength);
-        CVectorFloat::setZero(m_pfPrevSpec, m_iDataLength);
+        CVector::setZero(m_pfPrevSpec, m_iDataLength);
     };
 
     virtual ~CFeatureSpectralFlux() 
@@ -343,7 +343,7 @@ public:
     {
         *pfFeature = compFeatureSpectralFlux(pfInput, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
 
-        CVectorFloat::copy(m_pfPrevSpec, pfInput, m_iDataLength);
+        CVector::copy(m_pfPrevSpec, pfInput, m_iDataLength);
 
         return Error_t::kNoError;
     };
@@ -384,15 +384,15 @@ public:
         assert(pfFeature);
         assert(pfInput);
 
-        CVectorFloat::setZero(pfFeature, m_iNumMfcCoeffs);
+        CVector::setZero(pfFeature, m_iNumMfcCoeffs);
 
         // compute mel spectrum
         for (auto c = 0; c < m_iNumBands; c++)
-            m_pfMelSpec[c] = std::log10(CVectorFloat::mulScalar(m_ppfH[c], pfInput, m_iDataLength) + 1e-20F);
+            m_pfMelSpec[c] = std::log10(CVector::mulScalar(m_ppfH[c], pfInput, m_iDataLength) + 1e-20F);
 
         // compute dct
         for (auto j = 0; j < m_iNumMfcCoeffs; j++)
-            pfFeature[j] = CVectorFloat::mulScalar(m_ppfDct[j], m_pfMelSpec, m_iNumBands);
+            pfFeature[j] = CVector::mulScalar(m_ppfDct[j], m_pfMelSpec, m_iNumBands);
 
          return Error_t::kNoError;
     };
@@ -480,9 +480,9 @@ private:
             for (auto b = 0; b < m_iNumBands; b++)
                 m_ppfDct[c][b] = static_cast<float>(std::cos(c * (2. * b + 1) * M_PI / 2. / m_iNumBands));
 
-            CVectorFloat::mulC_I(m_ppfDct[c], 1/std::sqrt(m_iNumBands / 2.F), m_iNumBands);
+            CVector::mulC_I(m_ppfDct[c], 1/std::sqrt(m_iNumBands / 2.F), m_iNumBands);
         }
-        CVectorFloat::mulC_I(m_ppfDct[0], 1.F / std::sqrt(2.f), m_iNumBands);
+        CVector::mulC_I(m_ppfDct[0], 1.F / std::sqrt(2.f), m_iNumBands);
 
         m_iNumMfcCoeffs = iNumCoeffs;
     }
@@ -527,21 +527,21 @@ public:
         assert(pfFeature);
         assert(pfInput);
 
-        CVectorFloat::setZero(pfFeature, m_iNumPitchClasses);
+        CVector::setZero(pfFeature, m_iNumPitchClasses);
 
         for (auto p = 0; p < m_iNumPitchClasses; p++)
         {
-            // we could do this nicer with CVectorFloat::mulScalar if we allocated memory
+            // we could do this nicer with CVector::mulScalar if we allocated memory
             for (auto k = 0; k < m_iDataLength; k++)
             {
                 pfFeature[p] += m_ppfH[p][k] * (pfInput[k] * pfInput[k]);
             }
         }
 
-        float fSum = CVectorFloat::getSum(pfFeature, m_iNumPitchClasses);
+        float fSum = CVector::getSum(pfFeature, m_iNumPitchClasses);
 
         if (fSum > 0)
-            CVectorFloat::mulC_I(pfFeature, 1.F/fSum, m_iNumPitchClasses);
+            CVector::mulC_I(pfFeature, 1.F/fSum, m_iNumPitchClasses);
 
         return Error_t::kNoError;
     };
@@ -598,7 +598,7 @@ private:
                     static_cast<int>(CConversion::convertFreq2Bin(afBoundFreqs[1], (m_iDataLength - 1) * 2, m_fSampleRate)) };
 
                 // set transfer function
-                CVectorFloat::setValue(&m_ppfH[p][aiBoundIdx[0]], 1.F / (aiBoundIdx[1] - aiBoundIdx[0] + 1), static_cast<long long>(aiBoundIdx[1]) - aiBoundIdx[0] + 1);
+                CVector::setValue(&m_ppfH[p][aiBoundIdx[0]], 1.F / (aiBoundIdx[1] - aiBoundIdx[0] + 1), static_cast<long long>(aiBoundIdx[1]) - aiBoundIdx[0] + 1);
 
                 // proceed to next octave
                 for (auto i = 0; i < 2; i++)
@@ -774,7 +774,7 @@ public:
             iEtaMin = iEta;
 
         // get the maximum given the constraints above
-        *pfFeature = CVectorFloat::getMax(&m_pfAcf[iEtaMin], static_cast<long long>(m_iDataLength) - iEtaMin);
+        *pfFeature = CVector::getMax(&m_pfAcf[iEtaMin], static_cast<long long>(m_iDataLength) - iEtaMin);
 
         return Error_t::kNoError;
     };

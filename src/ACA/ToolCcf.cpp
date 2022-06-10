@@ -71,9 +71,9 @@ Error_t CCcf::compCcf(const float* pfInput1, const float* pfInput2, bool bNormal
     float afStd[2] = { 1.F, 1.F };
     if (bNormalize)
     {
-        float fPower = std::sqrt(CVectorFloat::mulScalar(pfInput1, pfInput1, m_iBlockLength));
+        float fPower = std::sqrt(CVector::mulScalar(pfInput1, pfInput1, m_iBlockLength));
         afStd[0] = fPower > 0 ? fPower : 1.F;
-        fPower = std::sqrt(CVectorFloat::mulScalar(pfInput2, pfInput2, m_iBlockLength));
+        fPower = std::sqrt(CVector::mulScalar(pfInput2, pfInput2, m_iBlockLength));
         afStd[1] = fPower > 0 ? fPower : 1.F;
     }
 
@@ -82,19 +82,19 @@ Error_t CCcf::compCcf(const float* pfInput1, const float* pfInput2, bool bNormal
     m_pCFft->compFft(m_apfData[1], pfInput2);
 
     // conjugate complex multiply
-    CVectorFloat::mulC_I(m_apfData[1], static_cast<float>(m_iFftLength), m_iFftLength);
+    CVector::mulC_I(m_apfData[1], static_cast<float>(m_iFftLength), m_iFftLength);
     m_pCFft->conjugate_I(m_apfData[1]);
     m_pCFft->multiply_I(m_apfData[0], m_apfData[1]);
 
     // normalization
-    CVectorFloat::mulC_I(m_apfData[0], 1.F / (afStd[0] * afStd[1]), m_iFftLength);
+    CVector::mulC_I(m_apfData[0], 1.F / (afStd[0] * afStd[1]), m_iFftLength);
 
     // inverse Fft
     m_pCFft->compInvFft(m_apfData[0], m_apfData[0]);
 
     // copy results
-    CVectorFloat::copy(m_apfData[1], &m_apfData[0][static_cast<long long>(m_iFftLength) - m_iBlockLength + 1], static_cast<long long>(m_iBlockLength) - 1);
-    CVectorFloat::copy(&m_apfData[1][m_iBlockLength - 1], m_apfData[0], m_iBlockLength);
+    CVector::copy(m_apfData[1], &m_apfData[0][static_cast<long long>(m_iFftLength) - m_iBlockLength + 1], static_cast<long long>(m_iBlockLength) - 1);
+    CVector::copy(&m_apfData[1][m_iBlockLength - 1], m_apfData[0], m_iBlockLength);
 
     m_bWasProcessed = true;
     return Error_t::kNoError;
@@ -116,7 +116,7 @@ Error_t CCcf::getCcf(float* pfCcfResult, bool bIsAcf) const
         return Error_t::kFunctionInvalidArgsError;
 
     int iStartIdx = bIsAcf ? m_iBlockLength - 1 : 0;
-    CVectorFloat::copy(pfCcfResult, &m_apfData[1][iStartIdx], static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
+    CVector::copy(pfCcfResult, &m_apfData[1][iStartIdx], static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
 
     return Error_t::kNoError;
 }
@@ -127,7 +127,7 @@ float CCcf::getCcfMax(bool bIsAcf) const
         return -1.F;
 
     int iStartIdx = bIsAcf ? m_iBlockLength - 1 : 0;
-    return CVectorFloat::getMax(&m_apfData[1][iStartIdx], static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
+    return CVector::getMax(&m_apfData[1][iStartIdx], static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
 }
 
 int CCcf::getCcfMaxIdx(bool bIsAcf) const
@@ -138,7 +138,7 @@ int CCcf::getCcfMaxIdx(bool bIsAcf) const
     long long iMax = -1;
     int iStartIdx = bIsAcf ? m_iBlockLength - 1 : 0;
     
-    CVectorFloat::findMax(&m_apfData[1][iStartIdx], fMax, iMax, static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
+    CVector::findMax(&m_apfData[1][iStartIdx], fMax, iMax, static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
 
     return static_cast<int>(iMax);
 }

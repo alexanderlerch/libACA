@@ -99,7 +99,7 @@ TEST_CASE("Matrix", "[Matrix]")
 
         for (auto m = 0; m < aiDims[0]; m++)
         {
-            CHECK(1.F == Approx(CVectorFloat::getSum(ppfResult[m], aiDims[1])).margin(1e-6F).epsilon(1e-6F));
+            CHECK(1.F == Approx(CVector::getSum(ppfResult[m], aiDims[1])).margin(1e-6F).epsilon(1e-6F));
             CHECK(1.F == Approx(ppfResult[m][m]).margin(1e-6F).epsilon(1e-6F));
         }
 
@@ -137,7 +137,7 @@ TEST_CASE("MatrixVector", "[Vector]")
     SECTION("Euc")
     {
         // zero check
-        CHECK(0 == CVectorFloat::distEuclidean(pfVec1, pfVec2, iLength));
+        CHECK(0 == CVector::distEuclidean(pfVec1, pfVec2, iLength));
 
         pfVec1[0] = 3.F;
         pfVec1[1] = 0.F;
@@ -147,7 +147,7 @@ TEST_CASE("MatrixVector", "[Vector]")
         pfVec2[1] = -2.F;
         pfVec2[2] = 2.F;
 
-        CHECK(3.F == CVectorFloat::distEuclidean(pfVec1, pfVec2, iLength));
+        CHECK(3.F == CVector::distEuclidean(pfVec1, pfVec2, iLength));
 
     }
 
@@ -165,20 +165,20 @@ TEST_CASE("MatrixVector", "[Vector]")
         pfVec2[1] = .1F;
         pfVec2[2] = 0.F;
 
-        CVectorFloat::sort_I(pfVec1, 0, iLength, true);
+        CVector::sort_I(pfVec1, 0, iLength, true);
         for (auto i = 1; i < iLength; i++)
             CHECK(pfVec1[i - 1] < pfVec1[i]);
 
-        CVectorFloat::sort_I(pfVec1, 0, iLength, false);
+        CVector::sort_I(pfVec1, 0, iLength, false);
         for (auto i = 1; i < iLength; i++)
             CHECK(pfVec1[i - 1] > pfVec1[i]);
 
-        CVectorFloat::sort_I(pfVec2, piIndices, iLength, true);
+        CVector::sort_I(pfVec2, piIndices, iLength, true);
         CHECK(0 == piIndices[0]);
         CHECK(2 == piIndices[1]);
         CHECK(1 == piIndices[2]);
 
-        CVectorFloat::sort_I(pfVec2, piIndices, iLength, true);
+        CVector::sort_I(pfVec2, piIndices, iLength, true);
         CHECK(0 == piIndices[0]);
         CHECK(1 == piIndices[1]);
         CHECK(2 == piIndices[2]);
