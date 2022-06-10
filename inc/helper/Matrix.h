@@ -171,17 +171,17 @@ public:
     */
     static void getCol(float *ptDest, float** pptMat, int iColIdx, int iNumRows, int iNumCols)
     {
-        assert(iColIdx > 0 && iColIdx < iNumCols);
+        assert(iColIdx >= 0 && iColIdx < iNumCols);
         assert(iNumRows > 0);
         assert(iNumCols > 0);
         assert(pptMat);
         assert(ptDest);
         assert(pptMat[0]);
 
-        iNumCols = iNumCols;
-
         for (auto m = 0; m < iNumRows; m++)
             ptDest[m] = pptMat[m][iColIdx];
+
+        iColIdx = iNumCols; // trying to avoid compiler warnings
     }
 
     /*! adds all matrix elements

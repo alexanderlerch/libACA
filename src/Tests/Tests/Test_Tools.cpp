@@ -472,6 +472,78 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
 
 }
 
+TEST_CASE("ToolsKmeans", "[ToolsKmeans]")
+{
+    float aafMu[2][2] = { {-5,5},{5,-5} };
+    int aiDim[2] = { 2,128 };
+
+    int iK = 2;
+    int iMaxIter = 100;
+
+    float** ppfData = 0;
+
+    int* piResult = 0;
+
+    CKmeans* pCInstance = new CKmeans();
+
+    CVector::alloc(piResult, aiDim[1]);
+    CMatrix::alloc(ppfData, aiDim[0], aiDim[1]);
+    SECTION("Api")
+    {
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[0], aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, 0, aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, aiDim[0], 0, iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, aiDim[0], aiDim[1], 0));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->compKmeans(piResult, ppfData));
+
+        CHECK(Error_t::kNoError == pCInstance->init(iK, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compKmeans(0, ppfData));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compKmeans(piResult, 0));
+
+        CHECK(Error_t::kNoError == pCInstance->compKmeans(piResult, ppfData));
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+    SECTION("Simple2Cluster")
+    {
+        for (auto n = 0; n < aiDim[1] / 4; n++)
+        {
+            //cluster 1
+            ppfData[0][n] = static_cast<float>(aafMu[0][0] + .1 * std::cos(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[1][n] = static_cast<float>(aafMu[1][0] + .1 * std::sin(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[0][n + aiDim[1] / 4] = static_cast<float>(aafMu[0][0] + .5 * std::cos(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[1][n + aiDim[1] / 4] = static_cast<float>(aafMu[1][0] + .5 * std::sin(4. * n * 2. * M_PI / aiDim[1]));
+
+            //cluster 2
+            ppfData[0][n + aiDim[1] / 2] = static_cast<float>(aafMu[0][1] + .1 * std::cos(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[1][n + aiDim[1] / 2] = static_cast<float>(aafMu[1][1] + .1 * std::sin(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[0][n + aiDim[1] / 2 + aiDim[1] / 4] = static_cast<float>(aafMu[0][1] + .5 * std::cos(4. * n * 2. * M_PI / aiDim[1]));
+            ppfData[1][n + aiDim[1] / 2 + aiDim[1] / 4] = static_cast<float>(aafMu[1][1] + .5 * std::sin(4. * n * 2. * M_PI / aiDim[1]));
+        }
+
+        CHECK(Error_t::kNoError == pCInstance->init(iK, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kNoError == pCInstance->compKmeans(piResult, ppfData));
+
+        for (auto n = 0; n < aiDim[1] / 2; n++)
+            CHECK(1 == std::abs(piResult[n] - piResult[n + aiDim[1] / 2]));
+
+    }
+
+    CMatrix::free(ppfData, 2);
+    CVector::free(piResult);
+
+    delete pCInstance;
+
+    //    [clusterIdx, state] = pyACA.ToolSimpleKmeans(V, 2)
+
+    //    self.assertEqual(np.sum(np.diff(clusterIdx[0:2 * iNumObs])), 0, "KM 1: block content incorrect")
+    //    self.assertEqual(np.sum(np.diff(clusterIdx[2 * iNumObs:-1])), 0, "KM 2: block content incorrect")
+    //    self.assertEqual(np.abs(clusterIdx[0] - clusterIdx[-1]), 1, "KM 3: block content incorrect")
+}
+
 TEST_CASE("ToolsKnn", "[ToolsKnn]")
 {
     CKnn* pCInstance = new CKnn();
@@ -490,7 +562,6 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
 
     SECTION("Api")
     {
-
         CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, piClass, aiDim[0], aiDim[1]));
         CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTrainFeatures, 0, aiDim[0], aiDim[1]));
         CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTrainFeatures, piClass, 0, aiDim[1]));
@@ -500,8 +571,8 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, aiDim[0], aiDim[1]));
         CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(0));
 
-        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->setParam(0));
-        CHECK(Error_t::kNoError == pCInstance->setParam(17));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->setParamK(0));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(17));
 
         // zero test
         CHECK(0 == pCInstance->classify(ppfTrainFeatures[0]));
@@ -521,7 +592,7 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, aiDim[0], aiDim[1]));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(1));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(1));
 
         pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
         CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
@@ -539,7 +610,7 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(2));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(2));
 
         pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
         CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
@@ -557,7 +628,7 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(5));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(5));
 
         pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
         CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
@@ -590,15 +661,15 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, 2, 4));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(1));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(1));
         CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(3));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(3));
         CHECK(piQueryGT[1] == pCInstance->classify(pfQuery));
 
         //////////////////////////////////////////////////////////////
-        CHECK(Error_t::kNoError == pCInstance->setParam(4));
+        CHECK(Error_t::kNoError == pCInstance->setParamK(4));
         CHECK(piQueryGT[2] == pCInstance->classify(pfQuery));
 
         CHECK(Error_t::kNoError == pCInstance->reset());

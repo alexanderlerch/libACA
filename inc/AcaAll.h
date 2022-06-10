@@ -27,6 +27,7 @@
 #include "ToolPreProc.h"
 #include "ToolResample.h"
 #include "ToolSimpleDtw.h"
+#include "ToolSimpleKmeans.h"
 #include "ToolSimpleKnn.h"
 #include "ToolViterbi.h"
 
