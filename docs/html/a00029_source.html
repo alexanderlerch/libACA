@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.4</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.5</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -51,16 +51,16 @@
   <div class="headertitle"><div class="title">ComputeChords.cpp</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00029.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="a00185.html">AcaAll.h</a>&quot;</span></div>
+<a href="a00029.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;<a class="code" href="a00191.html">AcaAll.h</a>&quot;</span></div>
 <div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span> </div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;iostream&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;fstream&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &lt;ctime&gt;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
 <div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="a00155.html">Chord.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="a00158.html">Chord.h</a>&quot;</span></div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span><a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">std::cout</a>;</div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="keyword">using </span><a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">std::cout</a>;</div>
 <div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="keyword">using </span>std::endl;</div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
 <div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="comment">// local function declarations</span></div>
@@ -80,9 +80,9 @@
 <div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
 <div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    clock_t time = 0;</div>
 <div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="a00421.html">CChordIf</a>* pCInstance = 0;</div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="a00427.html">CChordIf</a>* pCInstance = 0;</div>
 <div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00421.html#ad5f8c359b49a2a976c2ed1b789ef0dad">CChordIf::Chords_t</a>* peChord = 0; <span class="comment">//!&lt; chord result</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>    <a class="code hl_enumeration" href="a00427.html#ad5f8c359b49a2a976c2ed1b789ef0dad">CChordIf::Chords_t</a>* peChord = 0; <span class="comment">//!&lt; chord result</span></div>
 <div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    std::fstream hOutputFile;</div>
 <div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
@@ -92,8 +92,8 @@
 <div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span>    <span class="comment">// parse command line arguments</span></div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span>    <span class="keywordflow">if</span> (argc &lt; 2)</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span>    {</div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span>        <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span>        <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span>    }</div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span>    <span class="keywordflow">else</span></div>
@@ -106,27 +106,27 @@
 <div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment"></span> </div>
 <div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment"></span>    <span class="comment">// initialize Chord instance</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="a00421.html#a49eaa5eea529fe7545a698b91b7e6216">CChordIf::create</a>(pCInstance, sInputFilePath, iBlockLength, iHopLength);</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    pCInstance-&gt;<a class="code hl_function" href="a00421.html#a91455e2af2bd01006c1fc085e3904643">getNumBlocks</a>(iNumBlocks);</div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <a class="code hl_function" href="a00427.html#a49eaa5eea529fe7545a698b91b7e6216">CChordIf::create</a>(pCInstance, sInputFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span>    pCInstance-&gt;<a class="code hl_function" href="a00427.html#a91455e2af2bd01006c1fc085e3904643">getNumBlocks</a>(iNumBlocks);</div>
 <div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="comment"></span> </div>
 <div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
 <div class="line"><a id="l00061" name="l00061"></a><span class="lineno">   61</span>    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);</div>
 <div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span>    <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
 <div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span>    {</div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_function" href="a00421.html#a8f184fd60056e658f22caf63ddee941d">CChordIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span>        <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span>        <a class="code hl_function" href="a00427.html#a8f184fd60056e658f22caf63ddee941d">CChordIf::destroy</a>(pCInstance);</div>
 <div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    }</div>
 <div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="comment"></span> </div>
 <div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="comment"></span>    <span class="comment">// allocate memory</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    peChord = <span class="keyword">new</span> <a class="code hl_enumeration" href="a00421.html#ad5f8c359b49a2a976c2ed1b789ef0dad">CChordIf::Chords_t</a>[iNumBlocks];</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span>    peChord = <span class="keyword">new</span> <a class="code hl_enumeration" href="a00427.html#ad5f8c359b49a2a976c2ed1b789ef0dad">CChordIf::Chords_t</a>[iNumBlocks];</div>
 <div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span> </div>
 <div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
 <div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span>    <span class="keywordflow">if</span> (!peChord)</div>
 <div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span>    {</div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_function" href="a00421.html#a8f184fd60056e658f22caf63ddee941d">CChordIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span>        <a class="code hl_function" href="a00427.html#a8f184fd60056e658f22caf63ddee941d">CChordIf::destroy</a>(pCInstance);</div>
 <div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span>        hOutputFile.close();</div>
 <div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span>        <span class="keywordflow">return</span> -1;</div>
 <div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span>    }</div>
@@ -135,28 +135,28 @@
 <div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span><span class="comment"></span> </div>
 <div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="comment"></span>    <span class="comment">// compute spectrogram</span></div>
-<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing chord progression...&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    pCInstance-&gt;<a class="code hl_function" href="a00421.html#a463c7570302112f307363ec1c7260221">compChords</a>(peChord);</div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing chord progression...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span>    pCInstance-&gt;<a class="code hl_function" href="a00427.html#a463c7570302112f307363ec1c7260221">compChords</a>(peChord);</div>
 <div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span> </div>
-<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n F0 computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n F0 computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span> </div>
 <div class="line"><a id="l00090" name="l00090"></a><span class="lineno">   90</span>    time = clock();</div>
 <div class="line"><a id="l00091" name="l00091"></a><span class="lineno">   91</span><span class="comment"></span> </div>
 <div class="line"><a id="l00092" name="l00092"></a><span class="lineno">   92</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00093" name="l00093"></a><span class="lineno">   93</span><span class="comment"></span>    <span class="comment">// file writing</span></div>
 <div class="line"><a id="l00094" name="l00094"></a><span class="lineno">   94</span> </div>
-<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00095" name="l00095"></a><span class="lineno">   95</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00096" name="l00096"></a><span class="lineno">   96</span> </div>
 <div class="line"><a id="l00097" name="l00097"></a><span class="lineno">   97</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
 <div class="line"><a id="l00098" name="l00098"></a><span class="lineno">   98</span>    {</div>
-<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        hOutputFile  &lt;&lt; pCInstance-&gt;<a class="code hl_function" href="a00421.html#af2428223392b9084f6cf23bfb676eddc">getTimeStamp</a>(n) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; pCInstance-&gt;<a class="code hl_function" href="a00421.html#a5b94769328edf985eb6752293316a412">getChordString</a>(peChord[n]) &lt;&lt; endl;</div>
+<div class="line"><a id="l00099" name="l00099"></a><span class="lineno">   99</span>        hOutputFile  &lt;&lt; pCInstance-&gt;<a class="code hl_function" href="a00427.html#af2428223392b9084f6cf23bfb676eddc">getTimeStamp</a>(n) &lt;&lt; <span class="stringliteral">&quot;\t&quot;</span> &lt;&lt; pCInstance-&gt;<a class="code hl_function" href="a00427.html#a5b94769328edf985eb6752293316a412">getChordString</a>(peChord[n]) &lt;&lt; endl;</div>
 <div class="line"><a id="l00100" name="l00100"></a><span class="lineno">  100</span>    }</div>
 <div class="line"><a id="l00101" name="l00101"></a><span class="lineno">  101</span> </div>
-<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00102" name="l00102"></a><span class="lineno">  102</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
 <div class="line"><a id="l00103" name="l00103"></a><span class="lineno">  103</span><span class="comment"></span> </div>
 <div class="line"><a id="l00104" name="l00104"></a><span class="lineno">  104</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
 <div class="line"><a id="l00105" name="l00105"></a><span class="lineno">  105</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
-<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="a00421.html#a8f184fd60056e658f22caf63ddee941d">CChordIf::destroy</a>(pCInstance);</div>
+<div class="line"><a id="l00106" name="l00106"></a><span class="lineno">  106</span>    <a class="code hl_function" href="a00427.html#a8f184fd60056e658f22caf63ddee941d">CChordIf::destroy</a>(pCInstance);</div>
 <div class="line"><a id="l00107" name="l00107"></a><span class="lineno">  107</span>    hOutputFile.close();</div>
 <div class="line"><a id="l00108" name="l00108"></a><span class="lineno">  108</span> </div>
 <div class="line"><a id="l00109" name="l00109"></a><span class="lineno">  109</span>    <span class="keyword">delete</span>[] peChord;</div>
@@ -170,11 +170,11 @@
 <div class="line"><a id="l00117" name="l00117"></a><span class="lineno">  117</span> </div>
 <div class="line"><a id="l00118" name="l00118"></a><span class="lineno"><a class="line" href="a00029.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">  118</a></span><span class="keywordtype">void</span>     <a class="code hl_function" href="a00029.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>()</div>
 <div class="line"><a id="l00119" name="l00119"></a><span class="lineno">  119</span>{</div>
-<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>() &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Chord Extraction&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Build date: &quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>() &lt;&lt; endl;</div>
-<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeChord inputwavfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_function" href="a00257.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
+<div class="line"><a id="l00120" name="l00120"></a><span class="lineno">  120</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>() &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Chord Extraction&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00121" name="l00121"></a><span class="lineno">  121</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Build date: &quot;</span> &lt;&lt; <a class="code hl_function" href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>() &lt;&lt; endl;</div>
+<div class="line"><a id="l00122" name="l00122"></a><span class="lineno">  122</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00123" name="l00123"></a><span class="lineno">  123</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeChord inputwavfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><a id="l00124" name="l00124"></a><span class="lineno">  124</span>    <a class="code hl_function" href="a00263.html#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
 <div class="line"><a id="l00125" name="l00125"></a><span class="lineno">  125</span> </div>
 <div class="line"><a id="l00126" name="l00126"></a><span class="lineno">  126</span>    <span class="keywordflow">return</span>;</div>
 <div class="line"><a id="l00127" name="l00127"></a><span class="lineno">  127</span>}</div>
@@ -182,21 +182,21 @@
 <div class="ttc" id="aa00029_html_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00029.html#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00029_source.html#l00118">ComputeChords.cpp:118</a></div></div>
 <div class="ttc" id="aa00038_html_a352c17bde18dd0d9c3989f6050b060b0"><div class="ttname"><a href="a00038.html#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a></div><div class="ttdeci">std::string getAcaBuildDate()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00015">AcaAll.cpp:15</a></div></div>
 <div class="ttc" id="aa00038_html_aeca12b465ae15d8b8e775e1b0cfec9f3"><div class="ttname"><a href="a00038.html#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a></div><div class="ttdeci">std::string getAcaVersion()</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.html#l00008">AcaAll.cpp:8</a></div></div>
-<div class="ttc" id="aa00155_html"><div class="ttname"><a href="a00155.html">Chord.h</a></div></div>
-<div class="ttc" id="aa00185_html"><div class="ttname"><a href="a00185.html">AcaAll.h</a></div></div>
-<div class="ttc" id="aa00257_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00257.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
-<div class="ttc" id="aa00421_html"><div class="ttname"><a href="a00421.html">CChordIf</a></div><div class="ttdoc">class for computation of a magnitude Chord from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.html#l00018">Chord.h:19</a></div></div>
-<div class="ttc" id="aa00421_html_a463c7570302112f307363ec1c7260221"><div class="ttname"><a href="a00421.html#a463c7570302112f307363ec1c7260221">CChordIf::compChords</a></div><div class="ttdeci">Error_t compChords(Chords_t *peChord, bool bWithViterbi=true)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00197">Chord.cpp:197</a></div></div>
-<div class="ttc" id="aa00421_html_a49eaa5eea529fe7545a698b91b7e6216"><div class="ttname"><a href="a00421.html#a49eaa5eea529fe7545a698b91b7e6216">CChordIf::create</a></div><div class="ttdeci">static Error_t create(CChordIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=8192, int iHopLength=2048)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00104">Chord.cpp:104</a></div></div>
-<div class="ttc" id="aa00421_html_a5b94769328edf985eb6752293316a412"><div class="ttname"><a href="a00421.html#a5b94769328edf985eb6752293316a412">CChordIf::getChordString</a></div><div class="ttdeci">static std::string getChordString(Chords_t eChordIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00259">Chord.cpp:259</a></div></div>
-<div class="ttc" id="aa00421_html_a8f184fd60056e658f22caf63ddee941d"><div class="ttname"><a href="a00421.html#a8f184fd60056e658f22caf63ddee941d">CChordIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CChordIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00137">Chord.cpp:137</a></div></div>
-<div class="ttc" id="aa00421_html_a91455e2af2bd01006c1fc085e3904643"><div class="ttname"><a href="a00421.html#a91455e2af2bd01006c1fc085e3904643">CChordIf::getNumBlocks</a></div><div class="ttdeci">Error_t getNumBlocks(int &amp;iNumBlocks) const</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00145">Chord.cpp:145</a></div></div>
-<div class="ttc" id="aa00421_html_ad5f8c359b49a2a976c2ed1b789ef0dad"><div class="ttname"><a href="a00421.html#ad5f8c359b49a2a976c2ed1b789ef0dad">CChordIf::Chords_t</a></div><div class="ttdeci">Chords_t</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.html#l00023">Chord.h:24</a></div></div>
-<div class="ttc" id="aa00421_html_af2428223392b9084f6cf23bfb676eddc"><div class="ttname"><a href="a00421.html#af2428223392b9084f6cf23bfb676eddc">CChordIf::getTimeStamp</a></div><div class="ttdeci">float getTimeStamp(int iBlockIdx) const</div><div class="ttdef"><b>Definition:</b> <a href="a00098_source.html#l00171">Chord.cpp:171</a></div></div>
+<div class="ttc" id="aa00158_html"><div class="ttname"><a href="a00158.html">Chord.h</a></div></div>
+<div class="ttc" id="aa00191_html"><div class="ttname"><a href="a00191.html">AcaAll.h</a></div></div>
+<div class="ttc" id="aa00263_html_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00263.html#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
+<div class="ttc" id="aa00427_html"><div class="ttname"><a href="a00427.html">CChordIf</a></div><div class="ttdoc">class for computation of a magnitude Chord from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00018">Chord.h:19</a></div></div>
+<div class="ttc" id="aa00427_html_a463c7570302112f307363ec1c7260221"><div class="ttname"><a href="a00427.html#a463c7570302112f307363ec1c7260221">CChordIf::compChords</a></div><div class="ttdeci">Error_t compChords(Chords_t *peChord, bool bWithViterbi=true)</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00197">Chord.cpp:197</a></div></div>
+<div class="ttc" id="aa00427_html_a49eaa5eea529fe7545a698b91b7e6216"><div class="ttname"><a href="a00427.html#a49eaa5eea529fe7545a698b91b7e6216">CChordIf::create</a></div><div class="ttdeci">static Error_t create(CChordIf *&amp;pCInstance, const std::string &amp;strAudioFilePath, int iBlockLength=8192, int iHopLength=2048)</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00104">Chord.cpp:104</a></div></div>
+<div class="ttc" id="aa00427_html_a5b94769328edf985eb6752293316a412"><div class="ttname"><a href="a00427.html#a5b94769328edf985eb6752293316a412">CChordIf::getChordString</a></div><div class="ttdeci">static std::string getChordString(Chords_t eChordIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00259">Chord.cpp:259</a></div></div>
+<div class="ttc" id="aa00427_html_a8f184fd60056e658f22caf63ddee941d"><div class="ttname"><a href="a00427.html#a8f184fd60056e658f22caf63ddee941d">CChordIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CChordIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00137">Chord.cpp:137</a></div></div>
+<div class="ttc" id="aa00427_html_a91455e2af2bd01006c1fc085e3904643"><div class="ttname"><a href="a00427.html#a91455e2af2bd01006c1fc085e3904643">CChordIf::getNumBlocks</a></div><div class="ttdeci">Error_t getNumBlocks(int &amp;iNumBlocks) const</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00145">Chord.cpp:145</a></div></div>
+<div class="ttc" id="aa00427_html_ad5f8c359b49a2a976c2ed1b789ef0dad"><div class="ttname"><a href="a00427.html#ad5f8c359b49a2a976c2ed1b789ef0dad">CChordIf::Chords_t</a></div><div class="ttdeci">Chords_t</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00023">Chord.h:24</a></div></div>
+<div class="ttc" id="aa00427_html_af2428223392b9084f6cf23bfb676eddc"><div class="ttname"><a href="a00427.html#af2428223392b9084f6cf23bfb676eddc">CChordIf::getTimeStamp</a></div><div class="ttdeci">float getTimeStamp(int iBlockIdx) const</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.html#l00171">Chord.cpp:171</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 9 2022 17:10:27 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 10 2022 15:40:01 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

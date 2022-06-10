@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Fft.cpp File Reference</title>
+<title>ACA: NoveltyFromBlock.cpp File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.4</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.5</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -48,64 +48,40 @@
 </div>
 </div><!-- top -->
 <div class="header">
-  <div class="summary">
-<a href="#define-members">Macros</a>  </div>
-  <div class="headertitle"><div class="title">Fft.cpp File Reference</div></div>
+  <div class="headertitle"><div class="title">NoveltyFromBlock.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;cmath&gt;</code><br />
-<code>#include &quot;<a class="el" href="a00140_source.html">Util.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00134_source.html">Vector.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00125_source.html">Fft.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00248_source.html">rvfft.h</a>&quot;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00137_source.html">Vector.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00143_source.html">Util.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00194_source.html">NoveltyFromBlock.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
-Include dependency graph for Fft.cpp:</div>
+Include dependency graph for NoveltyFromBlock.cpp:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00069.png" border="0" usemap="#aFft_8cpp" alt=""/></div>
-<map name="aFft_8cpp" id="aFft_8cpp">
-<area shape="rect" title=" " alt="" coords="337,5,399,32"/>
-<area shape="rect" title=" " alt="" coords="5,229,64,256"/>
-<area shape="rect" href="a00140.html" title=" " alt="" coords="274,229,326,256"/>
-<area shape="rect" href="a00134.html" title=" " alt="" coords="158,80,229,107"/>
-<area shape="rect" href="a00125.html" title=" " alt="" coords="405,155,453,181"/>
-<area shape="rect" href="a00248.html" title=" " alt="" coords="457,80,511,107"/>
-<area shape="rect" title=" " alt="" coords="122,304,187,331"/>
-<area shape="rect" title=" " alt="" coords="313,304,375,331"/>
-<area shape="rect" title=" " alt="" coords="228,304,281,331"/>
-<area shape="rect" href="a00137.html" title=" " alt="" coords="190,155,279,181"/>
-<area shape="rect" title=" " alt="" coords="190,229,250,256"/>
-<area shape="rect" href="a00107.html" title=" " alt="" coords="350,229,429,256"/>
+<div class="center"><img src="a00069.png" border="0" usemap="#aNoveltyFromBlock_8cpp" alt=""/></div>
+<map name="aNoveltyFromBlock_8cpp" id="aNoveltyFromBlock_8cpp">
+<area shape="rect" title=" " alt="" coords="239,5,393,32"/>
+<area shape="rect" href="a00137.html" title=" " alt="" coords="86,80,157,107"/>
+<area shape="rect" href="a00143.html" title=" " alt="" coords="294,229,346,256"/>
+<area shape="rect" href="a00194.html" title=" " alt="" coords="401,80,540,107"/>
+<area shape="rect" title=" " alt="" coords="37,304,102,331"/>
+<area shape="rect" title=" " alt="" coords="167,304,228,331"/>
+<area shape="rect" title=" " alt="" coords="272,304,325,331"/>
+<area shape="rect" title=" " alt="" coords="127,229,185,256"/>
+<area shape="rect" href="a00140.html" title=" " alt="" coords="189,155,278,181"/>
+<area shape="rect" title=" " alt="" coords="210,229,270,256"/>
+<area shape="rect" href="a00110.html" title=" " alt="" coords="423,229,502,256"/>
+<area shape="rect" title=" " alt="" coords="609,155,655,181"/>
+<area shape="rect" title=" " alt="" coords="354,155,433,181"/>
+<area shape="rect" href="a00173.html" title=" " alt="" coords="509,155,585,181"/>
+<area shape="rect" title=" " alt="" coords="526,229,581,256"/>
 </map>
 </div>
 </div>
 <p><a href="a00068_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="define-members" name="define-members"></a>
-Macros</h2></td></tr>
-<tr class="memitem:a525335710b53cb064ca56b936120431e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00068.html#a525335710b53cb064ca56b936120431e">_USE_MATH_DEFINES</a></td></tr>
-<tr class="separator:a525335710b53cb064ca56b936120431e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<h2 class="groupheader">Macro Definition Documentation</h2>
-<a id="a525335710b53cb064ca56b936120431e" name="a525335710b53cb064ca56b936120431e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a525335710b53cb064ca56b936120431e">&#9670;&nbsp;</a></span>_USE_MATH_DEFINES</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">#define _USE_MATH_DEFINES</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00068_source.html#l00002">2</a> of file <a class="el" href="a00068_source.html">Fft.cpp</a>.</p>
-
-</div>
-</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Thu Jun 9 2022 17:10:27 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 10 2022 15:40:01 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

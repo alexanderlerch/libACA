@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CDtw Class Reference</title>
+<title>ACA: CNormalizeAudio Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.5</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -47,121 +47,71 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-static-methods">Static Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
 <a href="a00540.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CDtw Class Reference</div></div>
+  <div class="headertitle"><div class="title">CNormalizeAudio Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>simple dynamic time warping  
+<p>class for audio normalization offering three options  
  <a href="a00543.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00119_source.html">ToolPreProc.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CDtw:</div>
+Collaboration diagram for CNormalizeAudio:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00541.png" border="0" usemap="#aCDtw_coll__map" alt="Collaboration graph"/></div>
-<map name="aCDtw_coll__map" id="aCDtw_coll__map">
-<area shape="rect" title="simple dynamic time warping" alt="" coords="5,5,165,332"/>
+<div class="center"><img src="a00541.png" border="0" usemap="#aCNormalizeAudio_coll__map" alt="Collaboration graph"/></div>
+<map name="aCNormalizeAudio_coll__map" id="aCNormalizeAudio_coll__map">
+<area shape="rect" title="class for audio normalization offering three options" alt="" coords="5,5,153,185"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:acdd40f3bfb01336401e145c0a8b1c19a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19a">MatrixDimension_t</a> { <a class="el" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>
-, <a class="el" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>
-, <a class="el" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8">kNumMatrixDimensions</a>
- }</td></tr>
-<tr class="separator:acdd40f3bfb01336401e145c0a8b1c19a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a9c81702f9537b30c7617ac9042efc950"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a9c81702f9537b30c7617ac9042efc950">CDtw</a> (void)</td></tr>
-<tr class="separator:a9c81702f9537b30c7617ac9042efc950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42e62c6146b79e4f7fe3bcda0e4a7f8d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a42e62c6146b79e4f7fe3bcda0e4a7f8d">~CDtw</a> (void)</td></tr>
-<tr class="separator:a42e62c6146b79e4f7fe3bcda0e4a7f8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d2996c3f1403a60b5f63ead12540c02"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a7d2996c3f1403a60b5f63ead12540c02">init</a> (int iNumRows, int iNumCols)</td></tr>
-<tr class="separator:a7d2996c3f1403a60b5f63ead12540c02"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5b1d2405bd0a819817aeff8570dead68"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a5b1d2405bd0a819817aeff8570dead68">reset</a> ()</td></tr>
-<tr class="separator:a5b1d2405bd0a819817aeff8570dead68"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a27d97d54ec23bdc32778a75204d22842"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a27d97d54ec23bdc32778a75204d22842">compDtw</a> (float **ppfDistanceMatrix)</td></tr>
-<tr class="separator:a27d97d54ec23bdc32778a75204d22842"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae09e20ce6b9304f01432703690c0348c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ae09e20ce6b9304f01432703690c0348c">getPathLength</a> ()</td></tr>
-<tr class="separator:ae09e20ce6b9304f01432703690c0348c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abe81d89a7409c0be04dd442de5d0e4e7"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#abe81d89a7409c0be04dd442de5d0e4e7">getPathCost</a> () const</td></tr>
-<tr class="separator:abe81d89a7409c0be04dd442de5d0e4e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aee6c75c20122f52d76af2f4f45d0340d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#aee6c75c20122f52d76af2f4f45d0340d">getPath</a> (int **ppiPathResult) const</td></tr>
-<tr class="separator:aee6c75c20122f52d76af2f4f45d0340d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0f2e96a9c1a1ab0b85e1410b00f0aa8e"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a0f2e96a9c1a1ab0b85e1410b00f0aa8e">CNormalizeAudio</a> (<a class="el" href="a00415.html">CAudioFileIf</a> *pCAudioFile)</td></tr>
+<tr class="separator:a0f2e96a9c1a1ab0b85e1410b00f0aa8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3b8b30f591e731707afa5cfc76a03bc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ae3b8b30f591e731707afa5cfc76a03bc">CNormalizeAudio</a> (const float *pfAudioBuff, long long iAudioLength)</td></tr>
+<tr class="separator:ae3b8b30f591e731707afa5cfc76a03bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83e53e0b1e4883b8733e8bad48f565e5"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a83e53e0b1e4883b8733e8bad48f565e5">~CNormalizeAudio</a> ()</td></tr>
+<tr class="separator:a83e53e0b1e4883b8733e8bad48f565e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa8a561b4133585586c5b595116a9217f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#aa8a561b4133585586c5b595116a9217f">normalizeBlock</a> (float *pfAudioBlock, long long iNumSamples)</td></tr>
+<tr class="separator:aa8a561b4133585586c5b595116a9217f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:a952828125cfee61b5dc7023a6942d8d8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8">Directions_t</a> { <a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9">kHoriz</a>
-, <a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215">kVert</a>
-, <a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f">kDiag</a>
-, <a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580">kNumDirections</a>
- }</td></tr>
-<tr class="separator:a952828125cfee61b5dc7023a6942d8d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8bba3580a2af5fb3aa30a261e92f4e8e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8e">InternalMemory_t</a> { <a class="el" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>
-, <a class="el" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">kRowNext</a>
-, <a class="el" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa">kNumVectors</a>
- }</td></tr>
-<tr class="separator:a8bba3580a2af5fb3aa30a261e92f4e8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:a9a0dbb8f97c757a13062370113d661c4"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a9a0dbb8f97c757a13062370113d661c4">normalizeSignal</a> (float *pfAudio, long long iNumSamples)</td></tr>
+<tr class="separator:a9a0dbb8f97c757a13062370113d661c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:aa9fdcc3dc151af77aa0d76ae4fd43f5f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#aa9fdcc3dc151af77aa0d76ae4fd43f5f">CDtw</a> (const <a class="el" href="a00543.html">CDtw</a> &amp;that)</td></tr>
-<tr class="separator:aa9fdcc3dc151af77aa0d76ae4fd43f5f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11f2be0ffe9b8d051fb5da72182afa62"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00543.html">CDtw</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a11f2be0ffe9b8d051fb5da72182afa62">operator=</a> (const <a class="el" href="a00543.html">CDtw</a> &amp;c)</td></tr>
-<tr class="separator:a11f2be0ffe9b8d051fb5da72182afa62"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-methods" name="pri-static-methods"></a>
-Static Private Member Functions</h2></td></tr>
-<tr class="memitem:a91a31c5e78ab3531487f88efdb1f692b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8">Directions_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a91a31c5e78ab3531487f88efdb1f692b">findMin_</a> (float fHorizCost, float fVertCost, float fDiagCost, float &amp;fResultCost)</td></tr>
-<tr class="separator:a91a31c5e78ab3531487f88efdb1f692b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9a1dda606c9e5ed2671f9b8f5ff67f36"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a9a1dda606c9e5ed2671f9b8f5ff67f36">CNormalizeAudio</a> ()</td></tr>
+<tr class="separator:a9a1dda606c9e5ed2671f9b8f5ff67f36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf6489c5dbf137788c7b2cdd8712699a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#aaf6489c5dbf137788c7b2cdd8712699a">CNormalizeAudio</a> (const <a class="el" href="a00543.html">CNormalizeAudio</a> &amp;that)</td></tr>
+<tr class="separator:aaf6489c5dbf137788c7b2cdd8712699a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6e402e21d79f8b31104bcf89027e380"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00543.html">CNormalizeAudio</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ac6e402e21d79f8b31104bcf89027e380">operator=</a> (const <a class="el" href="a00543.html">CNormalizeAudio</a> &amp;c)</td></tr>
+<tr class="separator:ac6e402e21d79f8b31104bcf89027e380"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a56fd00d026c18c656bcd17a3b7a188b4"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00209.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a56fd00d026c18c656bcd17a3b7a188b4">m_bIsInitialized</a> = <a class="el" href="a00209.html#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
-<tr class="memdesc:a56fd00d026c18c656bcd17a3b7a188b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if init has been called  <a href="a00543.html#a56fd00d026c18c656bcd17a3b7a188b4">More...</a><br /></td></tr>
-<tr class="separator:a56fd00d026c18c656bcd17a3b7a188b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab54aa8518a3e355b5a473aadd27348d0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00209.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ab54aa8518a3e355b5a473aadd27348d0">m_bWasProcessed</a> = <a class="el" href="a00209.html#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
-<tr class="memdesc:ab54aa8518a3e355b5a473aadd27348d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if compDtw has been called  <a href="a00543.html#ab54aa8518a3e355b5a473aadd27348d0">More...</a><br /></td></tr>
-<tr class="separator:ab54aa8518a3e355b5a473aadd27348d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a093e77dbbc6b8f0050920fcced7c1fae"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a> [<a class="el" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa">kNumVectors</a>] = {0,0}</td></tr>
-<tr class="memdesc:a093e77dbbc6b8f0050920fcced7c1fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">only allocate two rows instead of a whole matrix for the cost  <a href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">More...</a><br /></td></tr>
-<tr class="separator:a093e77dbbc6b8f0050920fcced7c1fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac425769f0fe862aeb097bc999c3e76a3"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ac425769f0fe862aeb097bc999c3e76a3">m_fOverallCost</a> = 0</td></tr>
-<tr class="memdesc:ac425769f0fe862aeb097bc999c3e76a3"><td class="mdescLeft">&#160;</td><td class="mdescRight">overall cost  <a href="a00543.html#ac425769f0fe862aeb097bc999c3e76a3">More...</a><br /></td></tr>
-<tr class="separator:ac425769f0fe862aeb097bc999c3e76a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1324ec2c82f7cda3557e620b6232de98"><td class="memItemLeft" align="right" valign="top">unsigned char **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a> = 0</td></tr>
-<tr class="memdesc:a1324ec2c82f7cda3557e620b6232de98"><td class="mdescLeft">&#160;</td><td class="mdescRight">matrix with directions for traceback  <a href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">More...</a><br /></td></tr>
-<tr class="separator:a1324ec2c82f7cda3557e620b6232de98"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad009bf3fbd8554a07eaa6ef72099485b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">m_iLengthOfPath</a> = 0</td></tr>
-<tr class="memdesc:ad009bf3fbd8554a07eaa6ef72099485b"><td class="mdescLeft">&#160;</td><td class="mdescRight">overall length of path  <a href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">More...</a><br /></td></tr>
-<tr class="separator:ad009bf3fbd8554a07eaa6ef72099485b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4c6ae811ccd18d2db85034456741de6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a> [<a class="el" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8">kNumMatrixDimensions</a>] = {0,0}</td></tr>
-<tr class="memdesc:ad4c6ae811ccd18d2db85034456741de6"><td class="mdescLeft">&#160;</td><td class="mdescRight">size of distance matrix  <a href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">More...</a><br /></td></tr>
-<tr class="separator:ad4c6ae811ccd18d2db85034456741de6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:ab94c3f74b1e97b765b56f5dd026903e5"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#ab94c3f74b1e97b765b56f5dd026903e5">aiDecrement</a> [<a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580">kNumDirections</a>][<a class="el" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8">kNumMatrixDimensions</a>]</td></tr>
-<tr class="memdesc:ab94c3f74b1e97b765b56f5dd026903e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">index changes for directions  <a href="a00543.html#ab94c3f74b1e97b765b56f5dd026903e5">More...</a><br /></td></tr>
-<tr class="separator:ab94c3f74b1e97b765b56f5dd026903e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a34d6ccbfca0389641039b4eab35b32c4"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00543.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a></td></tr>
+<tr class="memdesc:a34d6ccbfca0389641039b4eab35b32c4"><td class="mdescLeft">&#160;</td><td class="mdescRight">factor to normalize  <a href="a00543.html#a34d6ccbfca0389641039b4eab35b32c4">More...</a><br /></td></tr>
+<tr class="separator:a34d6ccbfca0389641039b4eab35b32c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >simple dynamic time warping </p>
+<div class="textblock"><p >class for audio normalization offering three options </p>
+<ol type="1">
+<li>normalize an audio file during blockwise reading with normalizeBlock (requires instance with audio file)</li>
+<li>normalize an audio vector with blockwise reading with normalizeBlock (requires instance with buffer)</li>
+<li>normalize an entire vector at once with normalizeSignal (static function does not require instance) </li>
+</ol>
 
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00010">10</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a952828125cfee61b5dc7023a6942d8d8" name="a952828125cfee61b5dc7023a6942d8d8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a952828125cfee61b5dc7023a6942d8d8">&#9670;&nbsp;</a></span>Directions_t</h2>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00046">46</a> of file <a class="el" href="a00119_source.html">ToolPreProc.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a0f2e96a9c1a1ab0b85e1410b00f0aa8e" name="a0f2e96a9c1a1ab0b85e1410b00f0aa8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0f2e96a9c1a1ab0b85e1410b00f0aa8e">&#9670;&nbsp;</a></span>CNormalizeAudio() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -170,7 +120,221 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8">CDtw::Directions_t</a></td>
+          <td class="memname">CNormalizeAudio::CNormalizeAudio </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00415.html">CAudioFileIf</a> *&#160;</td>
+          <td class="paramname"><em>pCAudioFile</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00049">49</a> of file <a class="el" href="a00119_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>                                                        :</div>
+<div class="line"><span class="lineno">   50</span>        <a class="code hl_variable" href="a00543.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a>(1.F)</div>
+<div class="line"><span class="lineno">   51</span>    {</div>
+<div class="line"><span class="lineno">   52</span>        assert(pCAudioFile);</div>
+<div class="line"><span class="lineno">   53</span> </div>
+<div class="line"><span class="lineno">   54</span>        <a class="code hl_struct" href="a00419.html">CAudioFileIf::FileSpec_t</a> stFileSpec;</div>
+<div class="line"><span class="lineno">   55</span>        pCAudioFile-&gt;<a class="code hl_function" href="a00415.html#a7ddbbf5f828e61db7fd75dbf47a33832">getFileSpec</a>(stFileSpec);</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> iBlockLength = 4096;</div>
+<div class="line"><span class="lineno">   58</span>        <span class="keywordtype">float</span> fGlobalMax = 0.F;</div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iCurrPos = 0;</div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordtype">float</span>** ppfAudioData = 0;</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>        <span class="comment">// alloc read buffer</span></div>
+<div class="line"><span class="lineno">   63</span>        <a class="code hl_function" href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(ppfAudioData, stFileSpec.<a class="code hl_variable" href="a00419.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>);</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; stFileSpec.<a class="code hl_variable" href="a00419.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>; c++)</div>
+<div class="line"><span class="lineno">   65</span>            <a class="code hl_function" href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(ppfAudioData[c], iBlockLength);</div>
+<div class="line"><span class="lineno">   66</span> </div>
+<div class="line"><span class="lineno">   67</span>        <span class="comment">// store current file position for resetting later</span></div>
+<div class="line"><span class="lineno">   68</span>        pCAudioFile-&gt;<a class="code hl_function" href="a00415.html#a498e98b28fe76b712ef266faabce1b51">getPosition</a>(iCurrPos);</div>
+<div class="line"><span class="lineno">   69</span> </div>
+<div class="line"><span class="lineno">   70</span>        pCAudioFile-&gt;<a class="code hl_function" href="a00415.html#a7ddbbf5f828e61db7fd75dbf47a33832">getFileSpec</a>(stFileSpec);</div>
+<div class="line"><span class="lineno">   71</span> </div>
+<div class="line"><span class="lineno">   72</span>        <span class="comment">// </span></div>
+<div class="line"><span class="lineno">   73</span>        pCAudioFile-&gt;<a class="code hl_function" href="a00415.html#a6f8c0aace3c8825c11a4ef106bc53ce1">setPosition</a>(0.);</div>
+<div class="line"><span class="lineno">   74</span>        <span class="keywordflow">while</span> (!pCAudioFile-&gt;<a class="code hl_function" href="a00415.html#a02a1c69fa0fc5b9aa8cb275315697be4">isEof</a>())</div>
+<div class="line"><span class="lineno">   75</span>        {</div>
+<div class="line"><span class="lineno">   76</span>            <span class="comment">// set block length variable</span></div>
+<div class="line"><span class="lineno">   77</span>            <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumSamples = iBlockLength;</div>
+<div class="line"><span class="lineno">   78</span>            <span class="keywordtype">float</span> fMax = 0;</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span>            <span class="comment">// read data (iNumOfFrames might be updated!)</span></div>
+<div class="line"><span class="lineno">   81</span>            pCAudioFile-&gt;<a class="code hl_function" href="a00415.html#ad86676f86c5a0c1fb23617b5e00014c4">readData</a>(ppfAudioData, iNumSamples);</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>            <span class="comment">//downmix if multichannel</span></div>
+<div class="line"><span class="lineno">   84</span>            <a class="code hl_function" href="a00539.html#af7639b7368293c01c130192067fe0f4b">CPreProc::downmix</a>(ppfAudioData[0], ppfAudioData, stFileSpec.<a class="code hl_variable" href="a00419.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>, iNumSamples);</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>            <span class="comment">// find max</span></div>
+<div class="line"><span class="lineno">   87</span>            fMax = <a class="code hl_function" href="a00471.html#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a>(ppfAudioData[0], iNumSamples, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">   88</span>            <span class="keywordflow">if</span> (fMax &gt; fGlobalMax)</div>
+<div class="line"><span class="lineno">   89</span>                fGlobalMax = fMax;</div>
+<div class="line"><span class="lineno">   90</span>        }</div>
+<div class="line"><span class="lineno">   91</span>        <span class="keywordflow">if</span> (fGlobalMax &gt; 0)</div>
+<div class="line"><span class="lineno">   92</span>            <a class="code hl_variable" href="a00543.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a> = 1.F / fGlobalMax;</div>
+<div class="line"><span class="lineno">   93</span> </div>
+<div class="line"><span class="lineno">   94</span>        <span class="comment">// reset file read position</span></div>
+<div class="line"><span class="lineno">   95</span>        pCAudioFile-&gt;<a class="code hl_function" href="a00415.html#a6f8c0aace3c8825c11a4ef106bc53ce1">setPosition</a>(iCurrPos);</div>
+<div class="line"><span class="lineno">   96</span> </div>
+<div class="line"><span class="lineno">   97</span>        <span class="comment">//free internal memory</span></div>
+<div class="line"><span class="lineno">   98</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 0; c &lt; stFileSpec.<a class="code hl_variable" href="a00419.html#a6bde1a697754401008208afbde6f368e">iNumChannels</a>; c++)</div>
+<div class="line"><span class="lineno">   99</span>            <a class="code hl_function" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(ppfAudioData[c]);</div>
+<div class="line"><span class="lineno">  100</span>        <a class="code hl_function" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(ppfAudioData);</div>
+<div class="line"><span class="lineno">  101</span>    };</div>
+<div class="ttc" id="aa00415_html_a02a1c69fa0fc5b9aa8cb275315697be4"><div class="ttname"><a href="a00415.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof</a></div><div class="ttdeci">virtual bool isEof()=0</div></div>
+<div class="ttc" id="aa00415_html_a498e98b28fe76b712ef266faabce1b51"><div class="ttname"><a href="a00415.html#a498e98b28fe76b712ef266faabce1b51">CAudioFileIf::getPosition</a></div><div class="ttdeci">Error_t getPosition(long long &amp;iFrame)</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00206">AudioFileIf.cpp:206</a></div></div>
+<div class="ttc" id="aa00415_html_a6f8c0aace3c8825c11a4ef106bc53ce1"><div class="ttname"><a href="a00415.html#a6f8c0aace3c8825c11a4ef106bc53ce1">CAudioFileIf::setPosition</a></div><div class="ttdeci">virtual Error_t setPosition(long long iFrame=0)</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00165">AudioFileIf.cpp:165</a></div></div>
+<div class="ttc" id="aa00415_html_a7ddbbf5f828e61db7fd75dbf47a33832"><div class="ttname"><a href="a00415.html#a7ddbbf5f828e61db7fd75dbf47a33832">CAudioFileIf::getFileSpec</a></div><div class="ttdeci">Error_t getFileSpec(FileSpec_t &amp;sFileSpec)</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00152">AudioFileIf.cpp:152</a></div></div>
+<div class="ttc" id="aa00415_html_ad86676f86c5a0c1fb23617b5e00014c4"><div class="ttname"><a href="a00415.html#ad86676f86c5a0c1fb23617b5e00014c4">CAudioFileIf::readData</a></div><div class="ttdeci">virtual Error_t readData(float **ppfAudioData, long long int &amp;iNumFrames)</div><div class="ttdef"><b>Definition:</b> <a href="a00011_source.html#l00097">AudioFileIf.cpp:97</a></div></div>
+<div class="ttc" id="aa00419_html"><div class="ttname"><a href="a00419.html">CAudioFileIf::FileSpec_t</a></div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00038">AudioFileIf.h:39</a></div></div>
+<div class="ttc" id="aa00419_html_a6bde1a697754401008208afbde6f368e"><div class="ttname"><a href="a00419.html#a6bde1a697754401008208afbde6f368e">CAudioFileIf::FileSpec_t::iNumChannels</a></div><div class="ttdeci">int iNumChannels</div><div class="ttdoc">number of audio channels</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.html#l00042">AudioFileIf.h:42</a></div></div>
+<div class="ttc" id="aa00471_html_a9f5be871090bc5a64a7732cebfb4f8ec"><div class="ttname"><a href="a00471.html#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a></div><div class="ttdeci">static T getMax(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00559">Vector.h:559</a></div></div>
+<div class="ttc" id="aa00471_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00039">Vector.h:39</a></div></div>
+<div class="ttc" id="aa00471_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00024">Vector.h:24</a></div></div>
+<div class="ttc" id="aa00539_html_af7639b7368293c01c130192067fe0f4b"><div class="ttname"><a href="a00539.html#af7639b7368293c01c130192067fe0f4b">CPreProc::downmix</a></div><div class="ttdeci">static void downmix(float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00018">ToolPreProc.h:18</a></div></div>
+<div class="ttc" id="aa00543_html_a34d6ccbfca0389641039b4eab35b32c4"><div class="ttname"><a href="a00543.html#a34d6ccbfca0389641039b4eab35b32c4">CNormalizeAudio::m_fScaleFactor</a></div><div class="ttdeci">float m_fScaleFactor</div><div class="ttdoc">factor to normalize</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.html#l00148">ToolPreProc.h:148</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00137_source.html#l00024">CVector::alloc()</a>, <a class="el" href="a00119_source.html#l00018">CPreProc::downmix()</a>, <a class="el" href="a00137_source.html#l00039">CVector::free()</a>, <a class="el" href="a00011_source.html#l00152">CAudioFileIf::getFileSpec()</a>, <a class="el" href="a00137_source.html#l00559">CVector::getMax()</a>, <a class="el" href="a00011_source.html#l00206">CAudioFileIf::getPosition()</a>, <a class="el" href="a00149_source.html#l00042">CAudioFileIf::FileSpec_t::iNumChannels</a>, <a class="el" href="a00415.html#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof()</a>, <a class="el" href="a00119_source.html#l00148">m_fScaleFactor</a>, <a class="el" href="a00011_source.html#l00097">CAudioFileIf::readData()</a>, and <a class="el" href="a00011_source.html#l00165">CAudioFileIf::setPosition()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00543_a0f2e96a9c1a1ab0b85e1410b00f0aa8e_cgraph.png" border="0" usemap="#aa00543_a0f2e96a9c1a1ab0b85e1410b00f0aa8e_cgraph" alt=""/></div>
+<map name="aa00543_a0f2e96a9c1a1ab0b85e1410b00f0aa8e_cgraph" id="aa00543_a0f2e96a9c1a1ab0b85e1410b00f0aa8e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,251,200,293"/>
+<area shape="rect" href="a00471.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="281,31,383,57"/>
+<area shape="rect" href="a00539.html#af7639b7368293c01c130192067fe0f4b" title=" " alt="" coords="265,107,399,133"/>
+<area shape="rect" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="283,157,381,184"/>
+<area shape="rect" href="a00415.html#a7ddbbf5f828e61db7fd75dbf47a33832" title=" " alt="" coords="248,208,416,235"/>
+<area shape="rect" href="a00471.html#a9f5be871090bc5a64a7732cebfb4f8ec" title=" " alt="" coords="273,259,391,285"/>
+<area shape="rect" href="a00415.html#a498e98b28fe76b712ef266faabce1b51" title=" " alt="" coords="250,309,414,336"/>
+<area shape="rect" href="a00415.html#a02a1c69fa0fc5b9aa8cb275315697be4" title=" " alt="" coords="268,461,396,488"/>
+<area shape="rect" href="a00415.html#ad86676f86c5a0c1fb23617b5e00014c4" title=" " alt="" coords="257,360,407,387"/>
+<area shape="rect" href="a00415.html#a6f8c0aace3c8825c11a4ef106bc53ce1" title=" " alt="" coords="250,411,414,437"/>
+<area shape="rect" href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="503,5,622,32"/>
+<area shape="rect" href="a00471.html#a3a052b83e62e5c5cc44829c64ffe42eb" title=" " alt="" coords="509,56,616,83"/>
+<area shape="rect" href="a00471.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="511,107,614,133"/>
+<area shape="rect" href="a00471.html#a9811f50434dd058d201290b2dc98bfcd" title=" " alt="" coords="505,157,621,184"/>
+<area shape="rect" href="a00471.html#a34a5c0abd80cd982df8a8bae7cbcea19" title=" " alt="" coords="503,208,622,235"/>
+<area shape="rect" href="a00415.html#afa4e52309d9c05cabe46dbb6f13b819a" title=" " alt="" coords="481,259,645,301"/>
+<area shape="rect" href="a00415.html#a01d2aae56dd6295aee8ad10088f2cb27" title=" " alt="" coords="481,325,644,352"/>
+<area shape="rect" href="a00415.html#a7d946177a6591600dc03a423feb38cb3" title=" " alt="" coords="493,376,633,403"/>
+<area shape="rect" href="a00415.html#aa8d6db73dae5cc9bf7c0beb15b36bea4" title=" " alt="" coords="467,427,658,453"/>
+<area shape="rect" href="a00415.html#ae2bd8bd21bd04b0b9e9b8716bddfb7e1" title=" " alt="" coords="464,544,661,571"/>
+<area shape="rect" href="a00415.html#a2c22b805d8b0aefafc5436b1e275f832" title=" " alt="" coords="481,478,645,519"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae3b8b30f591e731707afa5cfc76a03bc" name="ae3b8b30f591e731707afa5cfc76a03bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3b8b30f591e731707afa5cfc76a03bc">&#9670;&nbsp;</a></span>CNormalizeAudio() <span class="overload">[2/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CNormalizeAudio::CNormalizeAudio </td>
+          <td>(</td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>pfAudioBuff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iAudioLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00102">102</a> of file <a class="el" href="a00119_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  102</span>                                                                      :</div>
+<div class="line"><span class="lineno">  103</span>        <a class="code hl_variable" href="a00543.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a>(1.F)</div>
+<div class="line"><span class="lineno">  104</span>    {</div>
+<div class="line"><span class="lineno">  105</span>        assert(pfAudioBuff);</div>
+<div class="line"><span class="lineno">  106</span>        assert(iAudioLength &gt; 0);</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>        <span class="keywordtype">float</span> fGlobalMax = <a class="code hl_function" href="a00471.html#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a>(pfAudioBuff, iAudioLength, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  109</span>        <span class="keywordflow">if</span> (fGlobalMax &gt; 0)</div>
+<div class="line"><span class="lineno">  110</span>            <a class="code hl_variable" href="a00543.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a> = 1.F / fGlobalMax;</div>
+<div class="line"><span class="lineno">  111</span>    };</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00137_source.html#l00559">CVector::getMax()</a>, and <a class="el" href="a00119_source.html#l00148">m_fScaleFactor</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00543_ae3b8b30f591e731707afa5cfc76a03bc_cgraph.png" border="0" usemap="#aa00543_ae3b8b30f591e731707afa5cfc76a03bc_cgraph" alt=""/></div>
+<map name="aa00543_ae3b8b30f591e731707afa5cfc76a03bc_cgraph" id="aa00543_ae3b8b30f591e731707afa5cfc76a03bc_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,200,47"/>
+<area shape="rect" href="a00471.html#a9f5be871090bc5a64a7732cebfb4f8ec" title=" " alt="" coords="248,13,365,39"/>
+<area shape="rect" href="a00471.html#a34a5c0abd80cd982df8a8bae7cbcea19" title=" " alt="" coords="413,13,532,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a83e53e0b1e4883b8733e8bad48f565e5" name="a83e53e0b1e4883b8733e8bad48f565e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83e53e0b1e4883b8733e8bad48f565e5">&#9670;&nbsp;</a></span>~CNormalizeAudio()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual CNormalizeAudio::~CNormalizeAudio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00112">112</a> of file <a class="el" href="a00119_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  112</span>{};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a9a1dda606c9e5ed2671f9b8f5ff67f36" name="a9a1dda606c9e5ed2671f9b8f5ff67f36"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a1dda606c9e5ed2671f9b8f5ff67f36">&#9670;&nbsp;</a></span>CNormalizeAudio() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CNormalizeAudio::CNormalizeAudio </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -179,33 +343,11 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9" name="a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9"></a>kHoriz&#160;</td><td class="fielddoc"><p >move horizontally </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215" name="a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215"></a>kVert&#160;</td><td class="fielddoc"><p >move vertically </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f" name="a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f"></a>kDiag&#160;</td><td class="fielddoc"><p >move diagonally </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580" name="a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580"></a>kNumDirections&#160;</td><td class="fielddoc"></td></tr>
-</table>
 
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00062">62</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   63</span>    {</div>
-<div class="line"><span class="lineno">   64</span>        <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9">kHoriz</a>, <span class="comment">//!&lt; move horizontally</span></div>
-<div class="line"><span class="lineno">   65</span>        <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215">kVert</a>, <span class="comment">//!&lt; move vertically</span></div>
-<div class="line"><span class="lineno">   66</span>        <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f">kDiag</a>, <span class="comment">//!&lt; move diagonally</span></div>
-<div class="line"><span class="lineno">   67</span> </div>
-<div class="line"><span class="lineno">   68</span>        <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580">kNumDirections</a></div>
-<div class="line"><span class="lineno">   69</span>    };</div>
-<div class="ttc" id="aa00543_html_a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f"><div class="ttname"><a href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f">CDtw::kDiag</a></div><div class="ttdeci">@ kDiag</div><div class="ttdoc">move diagonally</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00066">ToolSimpleDtw.h:66</a></div></div>
-<div class="ttc" id="aa00543_html_a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215"><div class="ttname"><a href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215">CDtw::kVert</a></div><div class="ttdeci">@ kVert</div><div class="ttdoc">move vertically</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00065">ToolSimpleDtw.h:65</a></div></div>
-<div class="ttc" id="aa00543_html_a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580"><div class="ttname"><a href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580">CDtw::kNumDirections</a></div><div class="ttdeci">@ kNumDirections</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00069">ToolSimpleDtw.h:68</a></div></div>
-<div class="ttc" id="aa00543_html_a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9"><div class="ttname"><a href="a00543.html#a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9">CDtw::kHoriz</a></div><div class="ttdeci">@ kHoriz</div><div class="ttdoc">move horizontally</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00064">ToolSimpleDtw.h:64</a></div></div>
-</div><!-- fragment -->
 </div>
 </div>
-<a id="a8bba3580a2af5fb3aa30a261e92f4e8e" name="a8bba3580a2af5fb3aa30a261e92f4e8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8bba3580a2af5fb3aa30a261e92f4e8e">&#9670;&nbsp;</a></span>InternalMemory_t</h2>
+<a id="aaf6489c5dbf137788c7b2cdd8712699a" name="aaf6489c5dbf137788c7b2cdd8712699a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf6489c5dbf137788c7b2cdd8712699a">&#9670;&nbsp;</a></span>CNormalizeAudio() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -214,179 +356,9 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8e">CDtw::InternalMemory_t</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98" name="a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98"></a>kRowCurr&#160;</td><td class="fielddoc"><p >current row index (cost calculation) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9" name="a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9"></a>kRowNext&#160;</td><td class="fielddoc"><p >next row index (cost calculation) </p>
-</td></tr>
-<tr><td class="fieldname"><a id="a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa" name="a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa"></a>kNumVectors&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00070">70</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>    {</div>
-<div class="line"><span class="lineno">   72</span>        <a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>, <span class="comment">//!&lt; current row index (cost calculation)</span></div>
-<div class="line"><span class="lineno">   73</span>        <a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">kRowNext</a>, <span class="comment">//!&lt; next row index (cost calculation)</span></div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span>        <a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa">kNumVectors</a></div>
-<div class="line"><span class="lineno">   76</span>    };</div>
-<div class="ttc" id="aa00543_html_a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9"><div class="ttname"><a href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">CDtw::kRowNext</a></div><div class="ttdeci">@ kRowNext</div><div class="ttdoc">next row index (cost calculation)</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00073">ToolSimpleDtw.h:73</a></div></div>
-<div class="ttc" id="aa00543_html_a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa"><div class="ttname"><a href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa">CDtw::kNumVectors</a></div><div class="ttdeci">@ kNumVectors</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00076">ToolSimpleDtw.h:75</a></div></div>
-<div class="ttc" id="aa00543_html_a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98"><div class="ttname"><a href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">CDtw::kRowCurr</a></div><div class="ttdeci">@ kRowCurr</div><div class="ttdoc">current row index (cost calculation)</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00072">ToolSimpleDtw.h:72</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="acdd40f3bfb01336401e145c0a8b1c19a" name="acdd40f3bfb01336401e145c0a8b1c19a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acdd40f3bfb01336401e145c0a8b1c19a">&#9670;&nbsp;</a></span>MatrixDimension_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19a">CDtw::MatrixDimension_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7" name="acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7"></a>kRow&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f" name="acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f"></a>kCol&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8" name="acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8"></a>kNumMatrixDimensions&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00013">13</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>    {</div>
-<div class="line"><span class="lineno">   15</span>        <a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>,</div>
-<div class="line"><span class="lineno">   16</span>        <a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>,</div>
-<div class="line"><span class="lineno">   17</span> </div>
-<div class="line"><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8">kNumMatrixDimensions</a></div>
-<div class="line"><span class="lineno">   19</span>    };</div>
-<div class="ttc" id="aa00543_html_acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8"><div class="ttname"><a href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8">CDtw::kNumMatrixDimensions</a></div><div class="ttdeci">@ kNumMatrixDimensions</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00019">ToolSimpleDtw.h:18</a></div></div>
-<div class="ttc" id="aa00543_html_acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7"><div class="ttname"><a href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">CDtw::kRow</a></div><div class="ttdeci">@ kRow</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00015">ToolSimpleDtw.h:15</a></div></div>
-<div class="ttc" id="aa00543_html_acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f"><div class="ttname"><a href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">CDtw::kCol</a></div><div class="ttdeci">@ kCol</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00016">ToolSimpleDtw.h:16</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9c81702f9537b30c7617ac9042efc950" name="a9c81702f9537b30c7617ac9042efc950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9c81702f9537b30c7617ac9042efc950">&#9670;&nbsp;</a></span>CDtw() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CDtw::CDtw </td>
+          <td class="memname">CNormalizeAudio::CNormalizeAudio </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00015">15</a> of file <a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>                 :</div>
-<div class="line"><span class="lineno">   16</span>    <a class="code hl_variable" href="a00543.html#a56fd00d026c18c656bcd17a3b7a188b4">m_bIsInitialized</a>(<span class="keyword">false</span>),</div>
-<div class="line"><span class="lineno">   17</span>    <a class="code hl_variable" href="a00543.html#ab54aa8518a3e355b5a473aadd27348d0">m_bWasProcessed</a>(<span class="keyword">false</span>),</div>
-<div class="line"><span class="lineno">   18</span>    <a class="code hl_variable" href="a00543.html#ac425769f0fe862aeb097bc999c3e76a3">m_fOverallCost</a>(0),</div>
-<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>(0),</div>
-<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">m_iLengthOfPath</a>(0)</div>
-<div class="line"><span class="lineno">   21</span>{</div>
-<div class="line"><span class="lineno">   22</span>    <a class="code hl_function" href="a00459.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a>(<a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>, <a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa">kNumVectors</a>);</div>
-<div class="line"><span class="lineno">   23</span>    <a class="code hl_function" href="a00459.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a>(<a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>, <a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8">kNumMatrixDimensions</a>);</div>
-<div class="line"><span class="lineno">   24</span> </div>
-<div class="line"><span class="lineno">   25</span>    <a class="code hl_function" href="a00543.html#a5b1d2405bd0a819817aeff8570dead68">reset</a>();</div>
-<div class="line"><span class="lineno">   26</span>}</div>
-<div class="ttc" id="aa00459_html_a6dbb3f9f480568b60f7fe50090d20003"><div class="ttname"><a href="a00459.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a></div><div class="ttdeci">static void setZero(T *ptSrcDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00051">Vector.h:51</a></div></div>
-<div class="ttc" id="aa00543_html_a093e77dbbc6b8f0050920fcced7c1fae"><div class="ttname"><a href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">CDtw::m_apfCost</a></div><div class="ttdeci">float * m_apfCost[kNumVectors]</div><div class="ttdoc">only allocate two rows instead of a whole matrix for the cost</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00101">ToolSimpleDtw.h:101</a></div></div>
-<div class="ttc" id="aa00543_html_a1324ec2c82f7cda3557e620b6232de98"><div class="ttname"><a href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">CDtw::m_ppePathIdx</a></div><div class="ttdeci">unsigned char ** m_ppePathIdx</div><div class="ttdoc">matrix with directions for traceback</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00104">ToolSimpleDtw.h:104</a></div></div>
-<div class="ttc" id="aa00543_html_a56fd00d026c18c656bcd17a3b7a188b4"><div class="ttname"><a href="a00543.html#a56fd00d026c18c656bcd17a3b7a188b4">CDtw::m_bIsInitialized</a></div><div class="ttdeci">bool m_bIsInitialized</div><div class="ttdoc">true if init has been called</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00098">ToolSimpleDtw.h:98</a></div></div>
-<div class="ttc" id="aa00543_html_a5b1d2405bd0a819817aeff8570dead68"><div class="ttname"><a href="a00543.html#a5b1d2405bd0a819817aeff8570dead68">CDtw::reset</a></div><div class="ttdeci">Error_t reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.html#l00055">ToolSimpleDtw.cpp:55</a></div></div>
-<div class="ttc" id="aa00543_html_ab54aa8518a3e355b5a473aadd27348d0"><div class="ttname"><a href="a00543.html#ab54aa8518a3e355b5a473aadd27348d0">CDtw::m_bWasProcessed</a></div><div class="ttdeci">bool m_bWasProcessed</div><div class="ttdoc">true if compDtw has been called</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00099">ToolSimpleDtw.h:99</a></div></div>
-<div class="ttc" id="aa00543_html_ac425769f0fe862aeb097bc999c3e76a3"><div class="ttname"><a href="a00543.html#ac425769f0fe862aeb097bc999c3e76a3">CDtw::m_fOverallCost</a></div><div class="ttdeci">float m_fOverallCost</div><div class="ttdoc">overall cost</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00102">ToolSimpleDtw.h:102</a></div></div>
-<div class="ttc" id="aa00543_html_ad009bf3fbd8554a07eaa6ef72099485b"><div class="ttname"><a href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">CDtw::m_iLengthOfPath</a></div><div class="ttdeci">int m_iLengthOfPath</div><div class="ttdoc">overall length of path</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00105">ToolSimpleDtw.h:105</a></div></div>
-<div class="ttc" id="aa00543_html_ad4c6ae811ccd18d2db85034456741de6"><div class="ttname"><a href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">CDtw::m_aiMatrixDimensions</a></div><div class="ttdeci">int m_aiMatrixDimensions[kNumMatrixDimensions]</div><div class="ttdoc">size of distance matrix</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00107">ToolSimpleDtw.h:107</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00158_source.html#l00018">kNumMatrixDimensions</a>, <a class="el" href="a00158_source.html#l00075">kNumVectors</a>, <a class="el" href="a00158_source.html#l00107">m_aiMatrixDimensions</a>, <a class="el" href="a00158_source.html#l00101">m_apfCost</a>, <a class="el" href="a00059_source.html#l00055">reset()</a>, and <a class="el" href="a00128_source.html#l00051">CVector::setZero()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00543_a9c81702f9537b30c7617ac9042efc950_cgraph.png" border="0" usemap="#aa00543_a9c81702f9537b30c7617ac9042efc950_cgraph" alt=""/></div>
-<map name="aa00543_a9c81702f9537b30c7617ac9042efc950_cgraph" id="aa00543_a9c81702f9537b30c7617ac9042efc950_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,97,57"/>
-<area shape="rect" href="a00543.html#a5b1d2405bd0a819817aeff8570dead68" title=" " alt="" coords="160,5,249,32"/>
-<area shape="rect" href="a00459.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="145,56,264,83"/>
-<area shape="rect" href="a00459.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="455,5,552,32"/>
-<area shape="rect" href="a00443.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="312,31,407,57"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a42e62c6146b79e4f7fe3bcda0e4a7f8d" name="a42e62c6146b79e4f7fe3bcda0e4a7f8d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a42e62c6146b79e4f7fe3bcda0e4a7f8d">&#9670;&nbsp;</a></span>~CDtw()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CDtw::~CDtw </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00028">28</a> of file <a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   29</span>{</div>
-<div class="line"><span class="lineno">   30</span>    <a class="code hl_function" href="a00543.html#a5b1d2405bd0a819817aeff8570dead68">reset</a>();</div>
-<div class="line"><span class="lineno">   31</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00543_a42e62c6146b79e4f7fe3bcda0e4a7f8d_cgraph.png" border="0" usemap="#aa00543_a42e62c6146b79e4f7fe3bcda0e4a7f8d_cgraph" alt=""/></div>
-<map name="aa00543_a42e62c6146b79e4f7fe3bcda0e4a7f8d_cgraph" id="aa00543_a42e62c6146b79e4f7fe3bcda0e4a7f8d_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,104,32"/>
-<area shape="rect" href="a00543.html#a5b1d2405bd0a819817aeff8570dead68" title=" " alt="" coords="152,5,241,32"/>
-<area shape="rect" href="a00459.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="432,5,529,32"/>
-<area shape="rect" href="a00443.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="289,31,384,57"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aa9fdcc3dc151af77aa0d76ae4fd43f5f" name="aa9fdcc3dc151af77aa0d76ae4fd43f5f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa9fdcc3dc151af77aa0d76ae4fd43f5f">&#9670;&nbsp;</a></span>CDtw() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">CDtw::CDtw </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00543.html">CDtw</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00543.html">CNormalizeAudio</a> &amp;&#160;</td>
           <td class="paramname"><em>that</em></td><td>)</td>
           <td></td>
         </tr>
@@ -401,106 +373,8 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a27d97d54ec23bdc32778a75204d22842" name="a27d97d54ec23bdc32778a75204d22842"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27d97d54ec23bdc32778a75204d22842">&#9670;&nbsp;</a></span>compDtw()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CDtw::compDtw </td>
-          <td>(</td>
-          <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfDistanceMatrix</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >computes cost and path w/o back-tracking </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ppfDistanceMatrix</td><td>(dimensions [rows][columns]) </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-<p >&lt; variable that will only contain the cost of the first column (for the current row to be processed)</p>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00073">73</a> of file <a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   74</span>{</div>
-<div class="line"><span class="lineno">   75</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00543.html#a56fd00d026c18c656bcd17a3b7a188b4">m_bIsInitialized</a>)</div>
-<div class="line"><span class="lineno">   76</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">Error_t::kNotInitializedError</a>;</div>
-<div class="line"><span class="lineno">   77</span> </div>
-<div class="line"><span class="lineno">   78</span>    <span class="keywordflow">if</span> (!ppfDistanceMatrix)</div>
-<div class="line"><span class="lineno">   79</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">   80</span> </div>
-<div class="line"><span class="lineno">   81</span>    <span class="keywordtype">float</span> fFirstColCost     = 0;        <span class="comment">//!&lt; variable that will only contain the cost of the first column (for the current row to be processed)</span></div>
-<div class="line"><span class="lineno">   82</span> </div>
-<div class="line"><span class="lineno">   83</span>    <span class="comment">// initialize</span></div>
-<div class="line"><span class="lineno">   84</span>    <a class="code hl_function" href="a00463.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a>(<a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">kRowNext</a>], <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]);</div>
-<div class="line"><span class="lineno">   85</span>    <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>][0]  = ppfDistanceMatrix[0][0];</div>
-<div class="line"><span class="lineno">   86</span>    fFirstColCost           = ppfDistanceMatrix[0][0];</div>
-<div class="line"><span class="lineno">   87</span>    <a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>[0][0]      = <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f">kDiag</a>;</div>
-<div class="line"><span class="lineno">   88</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt; <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]; j++)</div>
-<div class="line"><span class="lineno">   89</span>    {</div>
-<div class="line"><span class="lineno">   90</span>        <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>][j]  = <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>][j-1] + ppfDistanceMatrix[0][j];</div>
-<div class="line"><span class="lineno">   91</span>        <a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>[0][j] = <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9">kHoriz</a>;</div>
-<div class="line"><span class="lineno">   92</span>    }</div>
-<div class="line"><span class="lineno">   93</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>]; i++)</div>
-<div class="line"><span class="lineno">   94</span>    {</div>
-<div class="line"><span class="lineno">   95</span>        <a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>[i][0] = <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215">kVert</a>;</div>
-<div class="line"><span class="lineno">   96</span>    }</div>
-<div class="line"><span class="lineno">   97</span> </div>
-<div class="line"><span class="lineno">   98</span>    <span class="comment">// compute cost &#39;matrix&#39; (we only use two rows here) and store backtracking path</span></div>
-<div class="line"><span class="lineno">   99</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 1; i &lt; <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>]; i++)</div>
-<div class="line"><span class="lineno">  100</span>    {</div>
-<div class="line"><span class="lineno">  101</span>        <span class="comment">// init the variables we need for the current row (remember the cost in the first column, and then increment it)</span></div>
-<div class="line"><span class="lineno">  102</span>        <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>][0]  = fFirstColCost;</div>
-<div class="line"><span class="lineno">  103</span>        fFirstColCost          += ppfDistanceMatrix[i][0];</div>
-<div class="line"><span class="lineno">  104</span>        <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">kRowNext</a>][0]  = fFirstColCost;</div>
-<div class="line"><span class="lineno">  105</span> </div>
-<div class="line"><span class="lineno">  106</span>        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j = 1; j &lt; <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]; j++)</div>
-<div class="line"><span class="lineno">  107</span>        {</div>
-<div class="line"><span class="lineno">  108</span>            <a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>[i][j] = <span class="keyword">static_cast&lt;</span><span class="keywordtype">unsigned</span> <span class="keywordtype">char</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00543.html#a91a31c5e78ab3531487f88efdb1f692b">findMin_</a>(    <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">kRowNext</a>][j-1],   <span class="comment">// horiz</span></div>
-<div class="line"><span class="lineno">  109</span>                                                                            <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>][j],     <span class="comment">// vert</span></div>
-<div class="line"><span class="lineno">  110</span>                                                                            <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>][j-1],   <span class="comment">// diag</span></div>
-<div class="line"><span class="lineno">  111</span>                                                                            <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">kRowNext</a>][j]));   <span class="comment">// minimum cost output</span></div>
-<div class="line"><span class="lineno">  112</span>            <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">kRowNext</a>][j] += ppfDistanceMatrix[i][j];</div>
-<div class="line"><span class="lineno">  113</span>        }</div>
-<div class="line"><span class="lineno">  114</span> </div>
-<div class="line"><span class="lineno">  115</span>        <span class="comment">// swap the pointers of our two buffers as we proceed to the next row</span></div>
-<div class="line"><span class="lineno">  116</span>        <a class="code hl_function" href="a00455.html#a4518cf65aacb5732281b35ee427d0fc2">CUtil::swap</a>(<a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>], <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9">kRowNext</a>]);</div>
-<div class="line"><span class="lineno">  117</span>    }</div>
-<div class="line"><span class="lineno">  118</span> </div>
-<div class="line"><span class="lineno">  119</span>    <span class="comment">// all done</span></div>
-<div class="line"><span class="lineno">  120</span>    <a class="code hl_variable" href="a00543.html#ab54aa8518a3e355b5a473aadd27348d0">m_bWasProcessed</a> = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  123</span>}</div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">Error_t::kNotInitializedError</a></div><div class="ttdeci">@ kNotInitializedError</div></div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
-<div class="ttc" id="aa00455_html_a4518cf65aacb5732281b35ee427d0fc2"><div class="ttname"><a href="a00455.html#a4518cf65aacb5732281b35ee427d0fc2">CUtil::swap</a></div><div class="ttdeci">static void swap(T &amp;tValue1, T &amp;tValue2)</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00073">Util.h:73</a></div></div>
-<div class="ttc" id="aa00463_html_a1d4dfb2b0462cadd25aae6fcd4cc978e"><div class="ttname"><a href="a00463.html#a1d4dfb2b0462cadd25aae6fcd4cc978e">CVectorFloat::setZero</a></div><div class="ttdeci">static void setZero(float *pfSrcDest, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00176">Vector.h:176</a></div></div>
-<div class="ttc" id="aa00543_html_a91a31c5e78ab3531487f88efdb1f692b"><div class="ttname"><a href="a00543.html#a91a31c5e78ab3531487f88efdb1f692b">CDtw::findMin_</a></div><div class="ttdeci">static Directions_t findMin_(float fHorizCost, float fVertCost, float fDiagCost, float &amp;fResultCost)</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00078">ToolSimpleDtw.h:78</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00158_source.html#l00078">findMin_()</a>, <a class="el" href="a00158_source.html#l00016">kCol</a>, <a class="el" href="a00158_source.html#l00066">kDiag</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00158_source.html#l00064">kHoriz</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad0b37fe7dcc839e4cda4d7f5553d52cb">kNotInitializedError</a>, <a class="el" href="a00158_source.html#l00015">kRow</a>, <a class="el" href="a00158_source.html#l00072">kRowCurr</a>, <a class="el" href="a00158_source.html#l00073">kRowNext</a>, <a class="el" href="a00158_source.html#l00065">kVert</a>, <a class="el" href="a00158_source.html#l00107">m_aiMatrixDimensions</a>, <a class="el" href="a00158_source.html#l00101">m_apfCost</a>, <a class="el" href="a00158_source.html#l00098">m_bIsInitialized</a>, <a class="el" href="a00158_source.html#l00099">m_bWasProcessed</a>, <a class="el" href="a00158_source.html#l00104">m_ppePathIdx</a>, <a class="el" href="a00128_source.html#l00176">CVectorFloat::setZero()</a>, and <a class="el" href="a00134_source.html#l00073">CUtil::swap()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00543_a27d97d54ec23bdc32778a75204d22842_cgraph.png" border="0" usemap="#aa00543_a27d97d54ec23bdc32778a75204d22842_cgraph" alt=""/></div>
-<map name="aa00543_a27d97d54ec23bdc32778a75204d22842_cgraph" id="aa00543_a27d97d54ec23bdc32778a75204d22842_cgraph">
-<area shape="rect" title=" " alt="" coords="5,56,120,83"/>
-<area shape="rect" href="a00543.html#a91a31c5e78ab3531487f88efdb1f692b" title=" " alt="" coords="188,5,296,32"/>
-<area shape="rect" href="a00463.html#a1d4dfb2b0462cadd25aae6fcd4cc978e" title=" " alt="" coords="168,56,316,83"/>
-<area shape="rect" href="a00455.html#a4518cf65aacb5732281b35ee427d0fc2" title=" " alt="" coords="198,107,286,133"/>
-<area shape="rect" href="a00459.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="364,56,483,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a91a31c5e78ab3531487f88efdb1f692b" name="a91a31c5e78ab3531487f88efdb1f692b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91a31c5e78ab3531487f88efdb1f692b">&#9670;&nbsp;</a></span>findMin_()</h2>
+<a id="aa8a561b4133585586c5b595116a9217f" name="aa8a561b4133585586c5b595116a9217f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa8a561b4133585586c5b595116a9217f">&#9670;&nbsp;</a></span>normalizeBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -509,28 +383,16 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8">Directions_t</a> CDtw::findMin_ </td>
+          <td class="memname">void CNormalizeAudio::normalizeBlock </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fHorizCost</em>, </td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>pfAudioBlock</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fVertCost</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fDiagCost</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float &amp;&#160;</td>
-          <td class="paramname"><em>fResultCost</em>&#160;</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iNumSamples</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -540,246 +402,71 @@ Here is the call graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00078">78</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   79</span>    {</div>
-<div class="line"><span class="lineno">   80</span>        <a class="code hl_enumeration" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8">Directions_t</a> eDirection = <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f">kDiag</a>;</div>
-<div class="line"><span class="lineno">   81</span>        fResultCost = fDiagCost;</div>
-<div class="line"><span class="lineno">   82</span> </div>
-<div class="line"><span class="lineno">   83</span>        <span class="keywordflow">if</span> (fHorizCost &lt; fDiagCost)</div>
-<div class="line"><span class="lineno">   84</span>        {</div>
-<div class="line"><span class="lineno">   85</span>            eDirection  = <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9">kHoriz</a>;</div>
-<div class="line"><span class="lineno">   86</span>            fResultCost = fHorizCost;</div>
-<div class="line"><span class="lineno">   87</span>        }</div>
-<div class="line"><span class="lineno">   88</span>        <span class="keywordflow">if</span> (fVertCost &lt; fHorizCost &amp;&amp; fVertCost &lt; fDiagCost)</div>
-<div class="line"><span class="lineno">   89</span>        {</div>
-<div class="line"><span class="lineno">   90</span>            eDirection  = <a class="code hl_enumvalue" href="a00543.html#a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215">kVert</a>;</div>
-<div class="line"><span class="lineno">   91</span>            fResultCost = fVertCost;</div>
-<div class="line"><span class="lineno">   92</span>        }</div>
-<div class="line"><span class="lineno">   93</span> </div>
-<div class="line"><span class="lineno">   94</span>        <span class="keywordflow">return</span> eDirection;</div>
-<div class="line"><span class="lineno">   95</span>    }</div>
-<div class="ttc" id="aa00543_html_a952828125cfee61b5dc7023a6942d8d8"><div class="ttname"><a href="a00543.html#a952828125cfee61b5dc7023a6942d8d8">CDtw::Directions_t</a></div><div class="ttdeci">Directions_t</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00062">ToolSimpleDtw.h:63</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00158_source.html#l00066">kDiag</a>, <a class="el" href="a00158_source.html#l00064">kHoriz</a>, and <a class="el" href="a00158_source.html#l00065">kVert</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00073">compDtw()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00543_a91a31c5e78ab3531487f88efdb1f692b_icgraph.png" border="0" usemap="#aa00543_a91a31c5e78ab3531487f88efdb1f692b_icgraph" alt=""/></div>
-<map name="aa00543_a91a31c5e78ab3531487f88efdb1f692b_icgraph" id="aa00543_a91a31c5e78ab3531487f88efdb1f692b_icgraph">
-<area shape="rect" title=" " alt="" coords="168,5,276,32"/>
-<area shape="rect" href="a00543.html#a27d97d54ec23bdc32778a75204d22842" title=" " alt="" coords="5,5,120,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aee6c75c20122f52d76af2f4f45d0340d" name="aee6c75c20122f52d76af2f4f45d0340d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aee6c75c20122f52d76af2f4f45d0340d">&#9670;&nbsp;</a></span>getPath()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CDtw::getPath </td>
-          <td>(</td>
-          <td class="paramtype">int **&#160;</td>
-          <td class="paramname"><em>ppiPathResult</em></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >returns the path </p><dl class="section see"><dt>See also</dt><dd><a class="el" href="a00543.html#ae09e20ce6b9304f01432703690c0348c">getPathLength</a> </dd></dl>
-<dl class="params"><dt>Parameters</dt><dd>
+<p >performs the normalization on a buffer after previous file parsing to get the maximum </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ppiPathResult</td><td>pointer to memory the result is written to (dimensions [2][length_of_path]) </td></tr>
+    <tr><td class="paramname">pfAudioBlock</td><td>audio data, to be over-written </td></tr>
+    <tr><td class="paramname">iNumSamples</td><td>legnth of pfAudio </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00151">151</a> of file <a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  152</span>{</div>
-<div class="line"><span class="lineno">  153</span>    <span class="keywordflow">if</span> (!ppiPathResult)</div>
-<div class="line"><span class="lineno">  154</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  155</span> </div>
-<div class="line"><span class="lineno">  156</span>    <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">m_iLengthOfPath</a> &lt;= 0)</div>
-<div class="line"><span class="lineno">  157</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>    <span class="keywordtype">int</span> iIdx = <a class="code hl_variable" href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">m_iLengthOfPath</a> - 1;</div>
-<div class="line"><span class="lineno">  160</span> </div>
-<div class="line"><span class="lineno">  161</span>    <span class="comment">// init</span></div>
-<div class="line"><span class="lineno">  162</span>    ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>][0] = 0;</div>
-<div class="line"><span class="lineno">  163</span>    ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>][0] = 0;</div>
-<div class="line"><span class="lineno">  164</span>    ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>][iIdx] = <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>] - 1;</div>
-<div class="line"><span class="lineno">  165</span>    ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>][iIdx] = <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>] - 1;</div>
-<div class="line"><span class="lineno">  166</span> </div>
-<div class="line"><span class="lineno">  167</span>    <span class="keywordflow">while</span> (iIdx &gt; 0)</div>
-<div class="line"><span class="lineno">  168</span>    {</div>
-<div class="line"><span class="lineno">  169</span>        ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>][iIdx-1] = ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>][iIdx] + <a class="code hl_variable" href="a00543.html#ab94c3f74b1e97b765b56f5dd026903e5">aiDecrement</a>[<a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>[ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>][iIdx]][ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>][iIdx]]][<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>];</div>
-<div class="line"><span class="lineno">  170</span>        ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>][iIdx-1] = ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>][iIdx] + <a class="code hl_variable" href="a00543.html#ab94c3f74b1e97b765b56f5dd026903e5">aiDecrement</a>[<a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>[ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>][iIdx]][ppiPathResult[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>][iIdx]]][<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>];</div>
-<div class="line"><span class="lineno">  171</span>        iIdx--;</div>
-<div class="line"><span class="lineno">  172</span>    }</div>
-<div class="line"><span class="lineno">  173</span> </div>
-<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  175</span>}</div>
-<div class="ttc" id="aa00104_html_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
-<div class="ttc" id="aa00543_html_ab94c3f74b1e97b765b56f5dd026903e5"><div class="ttname"><a href="a00543.html#ab94c3f74b1e97b765b56f5dd026903e5">CDtw::aiDecrement</a></div><div class="ttdeci">static const int aiDecrement[kNumDirections][kNumMatrixDimensions]</div><div class="ttdoc">index changes for directions</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.html#l00109">ToolSimpleDtw.h:109</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00119">119</a> of file <a class="el" href="a00119_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  120</span>    {</div>
+<div class="line"><span class="lineno">  121</span>        assert(pfAudioBlock);</div>
+<div class="line"><span class="lineno">  122</span>        assert(iNumSamples &gt; 0);</div>
+<div class="line"><span class="lineno">  123</span> </div>
+<div class="line"><span class="lineno">  124</span>        <a class="code hl_function" href="a00471.html#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pfAudioBlock, <a class="code hl_variable" href="a00543.html#a34d6ccbfca0389641039b4eab35b32c4">m_fScaleFactor</a>, iNumSamples);</div>
+<div class="line"><span class="lineno">  125</span>    };</div>
+<div class="ttc" id="aa00471_html_a9811f50434dd058d201290b2dc98bfcd"><div class="ttname"><a href="a00471.html#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a></div><div class="ttdeci">static void mulC_I(T *ptSrcDest, T fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00172">Vector.h:172</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00158_source.html#l00109">aiDecrement</a>, <a class="el" href="a00158_source.html#l00016">kCol</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00158_source.html#l00015">kRow</a>, <a class="el" href="a00158_source.html#l00107">m_aiMatrixDimensions</a>, <a class="el" href="a00158_source.html#l00105">m_iLengthOfPath</a>, and <a class="el" href="a00158_source.html#l00104">m_ppePathIdx</a>.</p>
+<p class="reference">References <a class="el" href="a00119_source.html#l00148">m_fScaleFactor</a>, and <a class="el" href="a00137_source.html#l00172">CVector::mulC_I()</a>.</p>
 
-</div>
-</div>
-<a id="abe81d89a7409c0be04dd442de5d0e4e7" name="abe81d89a7409c0be04dd442de5d0e4e7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abe81d89a7409c0be04dd442de5d0e4e7">&#9670;&nbsp;</a></span>getPathCost()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CDtw::getPathCost </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >returns the overall cost </p><dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00146">146</a> of file <a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  147</span>{</div>
-<div class="line"><span class="lineno">  148</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[<a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98">kRowCurr</a>][<a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]-1];</div>
-<div class="line"><span class="lineno">  149</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00158_source.html#l00016">kCol</a>, <a class="el" href="a00158_source.html#l00072">kRowCurr</a>, <a class="el" href="a00158_source.html#l00107">m_aiMatrixDimensions</a>, and <a class="el" href="a00158_source.html#l00101">m_apfCost</a>.</p>
-
-</div>
-</div>
-<a id="ae09e20ce6b9304f01432703690c0348c" name="ae09e20ce6b9304f01432703690c0348c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae09e20ce6b9304f01432703690c0348c">&#9670;&nbsp;</a></span>getPathLength()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int CDtw::getPathLength </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >returns the length of the path </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00125">125</a> of file <a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  126</span>{</div>
-<div class="line"><span class="lineno">  127</span>    <span class="keywordtype">int</span> i = <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>]-1;</div>
-<div class="line"><span class="lineno">  128</span>    <span class="keywordtype">int</span> j = <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]-1;</div>
-<div class="line"><span class="lineno">  129</span> </div>
-<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00543.html#ab54aa8518a3e355b5a473aadd27348d0">m_bWasProcessed</a>)</div>
-<div class="line"><span class="lineno">  131</span>        <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  132</span> </div>
-<div class="line"><span class="lineno">  133</span>    <a class="code hl_variable" href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">m_iLengthOfPath</a> = 1;</div>
-<div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>    <span class="keywordflow">while</span> (i &gt; 0 || j &gt; 0)</div>
-<div class="line"><span class="lineno">  136</span>    {</div>
-<div class="line"><span class="lineno">  137</span>        <span class="keywordtype">int</span> iNewI   = i + <a class="code hl_variable" href="a00543.html#ab94c3f74b1e97b765b56f5dd026903e5">aiDecrement</a>[<a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>[i][j]][<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>];</div>
-<div class="line"><span class="lineno">  138</span>        j          += <a class="code hl_variable" href="a00543.html#ab94c3f74b1e97b765b56f5dd026903e5">aiDecrement</a>[<a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>[i][j]][<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>];</div>
-<div class="line"><span class="lineno">  139</span>        i           = iNewI;</div>
-<div class="line"><span class="lineno">  140</span>        <a class="code hl_variable" href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">m_iLengthOfPath</a>++;</div>
-<div class="line"><span class="lineno">  141</span>    }</div>
-<div class="line"><span class="lineno">  142</span>    </div>
-<div class="line"><span class="lineno">  143</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">m_iLengthOfPath</a>;</div>
-<div class="line"><span class="lineno">  144</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00158_source.html#l00109">aiDecrement</a>, <a class="el" href="a00158_source.html#l00016">kCol</a>, <a class="el" href="a00158_source.html#l00015">kRow</a>, <a class="el" href="a00158_source.html#l00107">m_aiMatrixDimensions</a>, <a class="el" href="a00158_source.html#l00099">m_bWasProcessed</a>, <a class="el" href="a00158_source.html#l00105">m_iLengthOfPath</a>, and <a class="el" href="a00158_source.html#l00104">m_ppePathIdx</a>.</p>
-
-</div>
-</div>
-<a id="a7d2996c3f1403a60b5f63ead12540c02" name="a7d2996c3f1403a60b5f63ead12540c02"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7d2996c3f1403a60b5f63ead12540c02">&#9670;&nbsp;</a></span>init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CDtw::init </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNumRows</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNumCols</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >initializes the class with the size of the distance matrix </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iNumRows</td><td></td></tr>
-    <tr><td class="paramname">iNumCols</td><td></td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00033">33</a> of file <a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   34</span>{</div>
-<div class="line"><span class="lineno">   35</span>    <span class="keywordflow">if</span> (iNumRows &lt;= 0 || iNumCols &lt;= 0)</div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_function" href="a00543.html#a5b1d2405bd0a819817aeff8570dead68">reset</a>();</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span>    <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>]  = iNumRows;</div>
-<div class="line"><span class="lineno">   41</span>    <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]  = iNumCols;</div>
-<div class="line"><span class="lineno">   42</span> </div>
-<div class="line"><span class="lineno">   43</span>    <span class="comment">// allocate memory</span></div>
-<div class="line"><span class="lineno">   44</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa">kNumVectors</a>; i++)</div>
-<div class="line"><span class="lineno">   45</span>        <a class="code hl_function" href="a00459.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[i], <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]);</div>
-<div class="line"><span class="lineno">   46</span> </div>
-<div class="line"><span class="lineno">   47</span>    <a class="code hl_function" href="a00443.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a>(<a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>, <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>], <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]);</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>    <span class="comment">// all done here</span></div>
-<div class="line"><span class="lineno">   50</span>    <a class="code hl_variable" href="a00543.html#a56fd00d026c18c656bcd17a3b7a188b4">m_bIsInitialized</a>    = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">   51</span> </div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   53</span>}</div>
-<div class="ttc" id="aa00443_html_ae669c592fc063391aeb77e07cbc9d4bc"><div class="ttname"><a href="a00443.html#ae669c592fc063391aeb77e07cbc9d4bc">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;ppfMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00022">Matrix.h:22</a></div></div>
-<div class="ttc" id="aa00459_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00459.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00024">Vector.h:24</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00128_source.html#l00024">CVector::alloc()</a>, <a class="el" href="a00122_source.html#l00022">CMatrix::alloc()</a>, <a class="el" href="a00158_source.html#l00016">kCol</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00158_source.html#l00075">kNumVectors</a>, <a class="el" href="a00158_source.html#l00015">kRow</a>, <a class="el" href="a00158_source.html#l00107">m_aiMatrixDimensions</a>, <a class="el" href="a00158_source.html#l00101">m_apfCost</a>, <a class="el" href="a00158_source.html#l00098">m_bIsInitialized</a>, <a class="el" href="a00158_source.html#l00104">m_ppePathIdx</a>, and <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00101_source.html#l00197">CChordIf::compChords()</a>, <a class="el" href="a00074_source.html#l00191">CPitchIf::compF0()</a>, <a class="el" href="a00053_source.html#l00177">CFeatureIf::compFeature1Dim()</a>, <a class="el" href="a00053_source.html#l00211">CFeatureIf::compFeatureNDim()</a>, <a class="el" href="a00089_source.html#l00184">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00086_source.html#l00217">CSpectrogramIf::computeMagSpectrum_()</a>, and <a class="el" href="a00098_source.html#l00434">CGammaToneFbIf::process()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00543_a7d2996c3f1403a60b5f63ead12540c02_cgraph.png" border="0" usemap="#aa00543_a7d2996c3f1403a60b5f63ead12540c02_cgraph" alt=""/></div>
-<map name="aa00543_a7d2996c3f1403a60b5f63ead12540c02_cgraph" id="aa00543_a7d2996c3f1403a60b5f63ead12540c02_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,83,57"/>
-<area shape="rect" href="a00459.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="277,5,380,32"/>
-<area shape="rect" href="a00443.html#ae669c592fc063391aeb77e07cbc9d4bc" title=" " alt="" coords="131,31,229,57"/>
-<area shape="rect" href="a00543.html#a5b1d2405bd0a819817aeff8570dead68" title=" " alt="" coords="135,81,225,108"/>
-<area shape="rect" href="a00459.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="428,5,547,32"/>
-<area shape="rect" href="a00459.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="439,81,536,108"/>
-<area shape="rect" href="a00443.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="281,107,376,133"/>
+<div class="center"><img src="a00543_aa8a561b4133585586c5b595116a9217f_cgraph.png" border="0" usemap="#aa00543_aa8a561b4133585586c5b595116a9217f_cgraph" alt=""/></div>
+<map name="aa00543_aa8a561b4133585586c5b595116a9217f_cgraph" id="aa00543_aa8a561b4133585586c5b595116a9217f_cgraph">
+<area shape="rect" title=" " alt="" coords="5,5,188,47"/>
+<area shape="rect" href="a00471.html#a9811f50434dd058d201290b2dc98bfcd" title=" " alt="" coords="236,13,352,39"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00543_aa8a561b4133585586c5b595116a9217f_icgraph.png" border="0" usemap="#aa00543_aa8a561b4133585586c5b595116a9217f_icgraph" alt=""/></div>
+<map name="aa00543_aa8a561b4133585586c5b595116a9217f_icgraph" id="aa00543_aa8a561b4133585586c5b595116a9217f_icgraph">
+<area shape="rect" title=" " alt="" coords="645,150,828,191"/>
+<area shape="rect" href="a00427.html#a463c7570302112f307363ec1c7260221" title=" " alt="" coords="422,5,574,32"/>
+<area shape="rect" href="a00483.html#a5c6fea7fdc8067f1d6a116b86d543aa1" title=" " alt="" coords="437,56,559,83"/>
+<area shape="rect" href="a00435.html#a30248aa1fb336095d4d86d0bd3d2bdb8" title=" " alt="" coords="401,107,595,133"/>
+<area shape="rect" href="a00435.html#ad734d1e300583449f51e6ca80aa3e7b8" title=" " alt="" coords="399,157,597,184"/>
+<area shape="rect" href="a00475.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="415,208,581,235"/>
+<area shape="rect" href="a00491.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="401,259,595,301"/>
+<area shape="rect" href="a00511.html#a213a39329bd7d70dbd90df71d1cf0735" title=" " alt="" coords="407,347,589,373"/>
+<area shape="rect" href="a00029.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="202,5,253,32"/>
+<area shape="rect" href="a00107.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="202,56,253,83"/>
+<area shape="rect" href="a00002.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="202,107,253,133"/>
+<area shape="rect" href="a00423.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="131,157,324,184"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="202,208,253,235"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,157,56,184"/>
+<area shape="rect" href="a00491.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="104,259,351,285"/>
+<area shape="rect" href="a00491.html#ae041a770ec2b092761d9a88cc87946bb" title=" " alt="" coords="115,309,340,336"/>
+<area shape="rect" href="a00104.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,259,56,285"/>
+<area shape="rect" href="a00020.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,309,56,336"/>
+<area shape="rect" href="a00363.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="159,361,296,402"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a11f2be0ffe9b8d051fb5da72182afa62" name="a11f2be0ffe9b8d051fb5da72182afa62"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a11f2be0ffe9b8d051fb5da72182afa62">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a9a0dbb8f97c757a13062370113d661c4" name="a9a0dbb8f97c757a13062370113d661c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9a0dbb8f97c757a13062370113d661c4">&#9670;&nbsp;</a></span>normalizeSignal()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -788,9 +475,91 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00543.html">CDtw</a> &amp; CDtw::operator= </td>
+          <td class="memname">static void CNormalizeAudio::normalizeSignal </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00543.html">CDtw</a> &amp;&#160;</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>pfAudio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iNumSamples</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >performs the normalization inplace on a buffer </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfAudio</td><td>audio data, to be over-written </td></tr>
+    <tr><td class="paramname">iNumSamples</td><td>legnth of pfAudio </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00132">132</a> of file <a class="el" href="a00119_source.html">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  133</span>    {</div>
+<div class="line"><span class="lineno">  134</span>        assert(pfAudio);</div>
+<div class="line"><span class="lineno">  135</span>        assert(iNumSamples &gt; 0);</div>
+<div class="line"><span class="lineno">  136</span> </div>
+<div class="line"><span class="lineno">  137</span>        <span class="keywordtype">float</span> fMax = <a class="code hl_function" href="a00471.html#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a>(pfAudio, iNumSamples, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>        <span class="keywordflow">if</span> (fMax &gt; 0)</div>
+<div class="line"><span class="lineno">  140</span>            <a class="code hl_function" href="a00471.html#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pfAudio, 1.F / fMax, iNumSamples);</div>
+<div class="line"><span class="lineno">  141</span> </div>
+<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  143</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00137_source.html#l00559">CVector::getMax()</a>, and <a class="el" href="a00137_source.html#l00172">CVector::mulC_I()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00083_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00543_a9a0dbb8f97c757a13062370113d661c4_cgraph.png" border="0" usemap="#aa00543_a9a0dbb8f97c757a13062370113d661c4_cgraph" alt=""/></div>
+<map name="aa00543_a9a0dbb8f97c757a13062370113d661c4_cgraph" id="aa00543_a9a0dbb8f97c757a13062370113d661c4_cgraph">
+<area shape="rect" title=" " alt="" coords="5,23,188,65"/>
+<area shape="rect" href="a00471.html#a9f5be871090bc5a64a7732cebfb4f8ec" title=" " alt="" coords="236,5,353,32"/>
+<area shape="rect" href="a00471.html#a9811f50434dd058d201290b2dc98bfcd" title=" " alt="" coords="237,56,353,83"/>
+<area shape="rect" href="a00471.html#a34a5c0abd80cd982df8a8bae7cbcea19" title=" " alt="" coords="401,5,520,32"/>
+</map>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00543_a9a0dbb8f97c757a13062370113d661c4_icgraph.png" border="0" usemap="#aa00543_a9a0dbb8f97c757a13062370113d661c4_icgraph" alt=""/></div>
+<map name="aa00543_a9a0dbb8f97c757a13062370113d661c4_icgraph" id="aa00543_a9a0dbb8f97c757a13062370113d661c4_icgraph">
+<area shape="rect" title=" " alt="" coords="345,5,528,47"/>
+<area shape="rect" href="a00423.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,13,297,39"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,13,56,39"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ac6e402e21d79f8b31104bcf89027e380" name="ac6e402e21d79f8b31104bcf89027e380"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6e402e21d79f8b31104bcf89027e380">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00543.html">CNormalizeAudio</a> &amp; CNormalizeAudio::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00543.html">CNormalizeAudio</a> &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -804,73 +573,9 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a5b1d2405bd0a819817aeff8570dead68" name="a5b1d2405bd0a819817aeff8570dead68"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5b1d2405bd0a819817aeff8570dead68">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CDtw::reset </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p >resets all internal class members </p><dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00059_source.html#l00055">55</a> of file <a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
-<div class="line"><span class="lineno">   57</span>    <a class="code hl_variable" href="a00543.html#a56fd00d026c18c656bcd17a3b7a188b4">m_bIsInitialized</a>    = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   58</span>    <a class="code hl_variable" href="a00543.html#ab54aa8518a3e355b5a473aadd27348d0">m_bWasProcessed</a>     = <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>    <a class="code hl_function" href="a00443.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a>(<a class="code hl_variable" href="a00543.html#a1324ec2c82f7cda3557e620b6232de98">m_ppePathIdx</a>, <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>]);</div>
-<div class="line"><span class="lineno">   61</span> </div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; <a class="code hl_enumvalue" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa">kNumVectors</a>; i++)</div>
-<div class="line"><span class="lineno">   63</span>        <a class="code hl_function" href="a00459.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00543.html#a093e77dbbc6b8f0050920fcced7c1fae">m_apfCost</a>[i]);</div>
-<div class="line"><span class="lineno">   64</span> </div>
-<div class="line"><span class="lineno">   65</span>    <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7">kRow</a>]  = 0;</div>
-<div class="line"><span class="lineno">   66</span>    <a class="code hl_variable" href="a00543.html#ad4c6ae811ccd18d2db85034456741de6">m_aiMatrixDimensions</a>[<a class="code hl_enumvalue" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f">kCol</a>]  = 0;</div>
-<div class="line"><span class="lineno">   67</span>    <a class="code hl_variable" href="a00543.html#ac425769f0fe862aeb097bc999c3e76a3">m_fOverallCost</a>              = 0;</div>
-<div class="line"><span class="lineno">   68</span>    <a class="code hl_variable" href="a00543.html#ad009bf3fbd8554a07eaa6ef72099485b">m_iLengthOfPath</a>             = 0;</div>
-<div class="line"><span class="lineno">   69</span> </div>
-<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   71</span>}</div>
-<div class="ttc" id="aa00443_html_afbf24cb4ce4f9b46456419d939eab052"><div class="ttname"><a href="a00443.html#afbf24cb4ce4f9b46456419d939eab052">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;ppfMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.html#l00040">Matrix.h:40</a></div></div>
-<div class="ttc" id="aa00459_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00459.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.html#l00039">Vector.h:39</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00128_source.html#l00039">CVector::free()</a>, <a class="el" href="a00122_source.html#l00040">CMatrix::free()</a>, <a class="el" href="a00158_source.html#l00016">kCol</a>, <a class="el" href="a00104.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00158_source.html#l00075">kNumVectors</a>, <a class="el" href="a00158_source.html#l00015">kRow</a>, <a class="el" href="a00158_source.html#l00107">m_aiMatrixDimensions</a>, <a class="el" href="a00158_source.html#l00101">m_apfCost</a>, <a class="el" href="a00158_source.html#l00098">m_bIsInitialized</a>, <a class="el" href="a00158_source.html#l00099">m_bWasProcessed</a>, <a class="el" href="a00158_source.html#l00102">m_fOverallCost</a>, <a class="el" href="a00158_source.html#l00105">m_iLengthOfPath</a>, and <a class="el" href="a00158_source.html#l00104">m_ppePathIdx</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00015">CDtw()</a>, <a class="el" href="a00059_source.html#l00033">init()</a>, and <a class="el" href="a00059_source.html#l00028">~CDtw()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00543_a5b1d2405bd0a819817aeff8570dead68_cgraph.png" border="0" usemap="#aa00543_a5b1d2405bd0a819817aeff8570dead68_cgraph" alt=""/></div>
-<map name="aa00543_a5b1d2405bd0a819817aeff8570dead68_cgraph" id="aa00543_a5b1d2405bd0a819817aeff8570dead68_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,95,32"/>
-<area shape="rect" href="a00459.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="285,5,383,32"/>
-<area shape="rect" href="a00443.html#afbf24cb4ce4f9b46456419d939eab052" title=" " alt="" coords="143,31,237,57"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00543_a5b1d2405bd0a819817aeff8570dead68_icgraph.png" border="0" usemap="#aa00543_a5b1d2405bd0a819817aeff8570dead68_icgraph" alt=""/></div>
-<map name="aa00543_a5b1d2405bd0a819817aeff8570dead68_icgraph" id="aa00543_a5b1d2405bd0a819817aeff8570dead68_icgraph">
-<area shape="rect" title=" " alt="" coords="152,56,241,83"/>
-<area shape="rect" href="a00543.html#a9c81702f9537b30c7617ac9042efc950" title=" " alt="" coords="9,5,101,32"/>
-<area shape="rect" href="a00543.html#a7d2996c3f1403a60b5f63ead12540c02" title=" " alt="" coords="16,56,93,83"/>
-<area shape="rect" href="a00543.html#a42e62c6146b79e4f7fe3bcda0e4a7f8d" title=" " alt="" coords="5,107,104,133"/>
-</map>
-</div>
-
-</div>
-</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ab94c3f74b1e97b765b56f5dd026903e5" name="ab94c3f74b1e97b765b56f5dd026903e5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab94c3f74b1e97b765b56f5dd026903e5">&#9670;&nbsp;</a></span>aiDecrement</h2>
+<a id="a34d6ccbfca0389641039b4eab35b32c4" name="a34d6ccbfca0389641039b4eab35b32c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a34d6ccbfca0389641039b4eab35b32c4">&#9670;&nbsp;</a></span>m_fScaleFactor</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -879,41 +584,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const int CDtw::aiDecrement</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">=</div>
-<div class="line">{</div>
-<div class="line">    { 0, -1 }, </div>
-<div class="line">    { -1, 0 }, </div>
-<div class="line">    { -1, -1 } </div>
-<div class="line">}</div>
-</div><!-- fragment -->
-<p>index changes for directions </p>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00109">109</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00151">getPath()</a>, and <a class="el" href="a00059_source.html#l00125">getPathLength()</a>.</p>
-
-</div>
-</div>
-<a id="ad4c6ae811ccd18d2db85034456741de6" name="ad4c6ae811ccd18d2db85034456741de6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad4c6ae811ccd18d2db85034456741de6">&#9670;&nbsp;</a></span>m_aiMatrixDimensions</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int CDtw::m_aiMatrixDimensions[<a class="el" href="a00543.html#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8">kNumMatrixDimensions</a>] = {0,0}</td>
+          <td class="memname">float CNormalizeAudio::m_fScaleFactor</td>
         </tr>
       </table>
   </td>
@@ -923,190 +594,21 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>size of distance matrix </p>
+<p>factor to normalize </p>
 
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00107">107</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00119_source.html#l00148">148</a> of file <a class="el" href="a00119_source.html">ToolPreProc.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00015">CDtw()</a>, <a class="el" href="a00059_source.html#l00073">compDtw()</a>, <a class="el" href="a00059_source.html#l00151">getPath()</a>, <a class="el" href="a00059_source.html#l00146">getPathCost()</a>, <a class="el" href="a00059_source.html#l00125">getPathLength()</a>, <a class="el" href="a00059_source.html#l00033">init()</a>, and <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
-
-</div>
-</div>
-<a id="a093e77dbbc6b8f0050920fcced7c1fae" name="a093e77dbbc6b8f0050920fcced7c1fae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a093e77dbbc6b8f0050920fcced7c1fae">&#9670;&nbsp;</a></span>m_apfCost</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float* CDtw::m_apfCost[<a class="el" href="a00543.html#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa">kNumVectors</a>] = {0,0}</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>only allocate two rows instead of a whole matrix for the cost </p>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00101">101</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00015">CDtw()</a>, <a class="el" href="a00059_source.html#l00073">compDtw()</a>, <a class="el" href="a00059_source.html#l00146">getPathCost()</a>, <a class="el" href="a00059_source.html#l00033">init()</a>, and <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00119_source.html#l00049">CNormalizeAudio()</a>, and <a class="el" href="a00119_source.html#l00119">normalizeBlock()</a>.</p>
 
 </div>
 </div>
-<a id="a56fd00d026c18c656bcd17a3b7a188b4" name="a56fd00d026c18c656bcd17a3b7a188b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a56fd00d026c18c656bcd17a3b7a188b4">&#9670;&nbsp;</a></span>m_bIsInitialized</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00209.html#abb452686968e48b67397da5f97445f5b">bool</a> CDtw::m_bIsInitialized = <a class="el" href="a00209.html#a65e9886d74aaee76545e83dd09011727">false</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>true if init has been called </p>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00098">98</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00073">compDtw()</a>, <a class="el" href="a00059_source.html#l00033">init()</a>, and <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
-
-</div>
-</div>
-<a id="ab54aa8518a3e355b5a473aadd27348d0" name="ab54aa8518a3e355b5a473aadd27348d0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab54aa8518a3e355b5a473aadd27348d0">&#9670;&nbsp;</a></span>m_bWasProcessed</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00209.html#abb452686968e48b67397da5f97445f5b">bool</a> CDtw::m_bWasProcessed = <a class="el" href="a00209.html#a65e9886d74aaee76545e83dd09011727">false</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>true if compDtw has been called </p>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00099">99</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00073">compDtw()</a>, <a class="el" href="a00059_source.html#l00125">getPathLength()</a>, and <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
-
-</div>
-</div>
-<a id="ac425769f0fe862aeb097bc999c3e76a3" name="ac425769f0fe862aeb097bc999c3e76a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac425769f0fe862aeb097bc999c3e76a3">&#9670;&nbsp;</a></span>m_fOverallCost</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CDtw::m_fOverallCost = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>overall cost </p>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00102">102</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
-
-</div>
-</div>
-<a id="ad009bf3fbd8554a07eaa6ef72099485b" name="ad009bf3fbd8554a07eaa6ef72099485b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad009bf3fbd8554a07eaa6ef72099485b">&#9670;&nbsp;</a></span>m_iLengthOfPath</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int CDtw::m_iLengthOfPath = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>overall length of path </p>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00105">105</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00151">getPath()</a>, <a class="el" href="a00059_source.html#l00125">getPathLength()</a>, and <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
-
-</div>
-</div>
-<a id="a1324ec2c82f7cda3557e620b6232de98" name="a1324ec2c82f7cda3557e620b6232de98"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1324ec2c82f7cda3557e620b6232de98">&#9670;&nbsp;</a></span>m_ppePathIdx</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">unsigned char** CDtw::m_ppePathIdx = 0</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>matrix with directions for traceback </p>
-
-<p class="definition">Definition at line <a class="el" href="a00158_source.html#l00104">104</a> of file <a class="el" href="a00158_source.html">ToolSimpleDtw.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00059_source.html#l00073">compDtw()</a>, <a class="el" href="a00059_source.html#l00151">getPath()</a>, <a class="el" href="a00059_source.html#l00125">getPathLength()</a>, <a class="el" href="a00059_source.html#l00033">init()</a>, and <a class="el" href="a00059_source.html#l00055">reset()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00158_source.html">ToolSimpleDtw.h</a></li>
-<li><a class="el" href="a00059_source.html">ToolSimpleDtw.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00119_source.html">ToolPreProc.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:54 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 10 2022 15:40:02 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

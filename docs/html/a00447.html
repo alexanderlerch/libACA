@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CRingBuffer&lt; T &gt; Class Template Reference</title>
+<title>ACA: CFilter&lt; T &gt; Class Template Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.5</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -48,106 +48,96 @@
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-types">Private Types</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="a00444.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CRingBuffer&lt; T &gt; Class Template Reference</div></div>
+  <div class="headertitle"><div class="title">CFilter&lt; T &gt; Class Template Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>implement a circular buffer of type T  
+<p>class providing a generic filter implementation  
  <a href="a00447.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00137_source.html">RingBuffer.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00134_source.html">Filter.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for CRingBuffer&lt; T &gt;:</div>
+Inheritance diagram for CFilter&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00446.png" border="0" usemap="#aCRingBuffer_3_01T_01_4_inherit__map" alt="Inheritance graph"/></div>
-<map name="aCRingBuffer_3_01T_01_4_inherit__map" id="aCRingBuffer_3_01T_01_4_inherit__map">
-<area shape="rect" title="implement a circular buffer of type T" alt="" coords="13,5,135,332"/>
-<area shape="rect" href="a00447.html" title=" " alt="" coords="5,395,143,721"/>
+<div class="center"><img src="a00446.png" border="0" usemap="#aCFilter_3_01T_01_4_inherit__map" alt="Inheritance graph"/></div>
+<map name="aCFilter_3_01T_01_4_inherit__map" id="aCFilter_3_01T_01_4_inherit__map">
+<area shape="rect" title="class providing a generic filter implementation" alt="" coords="5,5,149,273"/>
+<area shape="rect" href="a00447.html" title=" " alt="" coords="5,336,149,604"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for CRingBuffer&lt; T &gt;:</div>
+Collaboration diagram for CFilter&lt; T &gt;:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00445.png" border="0" usemap="#aCRingBuffer_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
-<map name="aCRingBuffer_3_01T_01_4_coll__map" id="aCRingBuffer_3_01T_01_4_coll__map">
-<area shape="rect" title="implement a circular buffer of type T" alt="" coords="5,5,127,332"/>
+<div class="center"><img src="a00445.png" border="0" usemap="#aCFilter_3_01T_01_4_coll__map" alt="Collaboration graph"/></div>
+<map name="aCFilter_3_01T_01_4_coll__map" id="aCFilter_3_01T_01_4_coll__map">
+<area shape="rect" title="class providing a generic filter implementation" alt="" coords="5,5,149,273"/>
 </map>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a0e007e130e9190892274dde988e40a59"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a0e007e130e9190892274dde988e40a59">CRingBuffer</a> (int iBufferLengthInSamples)</td></tr>
-<tr class="separator:a0e007e130e9190892274dde988e40a59"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a97c8bb4689fcef14d595e897ea72cba9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a97c8bb4689fcef14d595e897ea72cba9">~CRingBuffer</a> ()</td></tr>
-<tr class="separator:a97c8bb4689fcef14d595e897ea72cba9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2bd848181a662312600bc590b9040d2a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a2bd848181a662312600bc590b9040d2a">putPostInc</a> (T tNewValue)</td></tr>
-<tr class="separator:a2bd848181a662312600bc590b9040d2a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a21568ce259aa8e97ea3f3d7aec4828b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a21568ce259aa8e97ea3f3d7aec4828b7">putPostInc</a> (const T *ptNewBuff, int iLength)</td></tr>
-<tr class="separator:a21568ce259aa8e97ea3f3d7aec4828b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a702eb6314380082795f735df74a816c9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a702eb6314380082795f735df74a816c9">put</a> (T tNewValue)</td></tr>
-<tr class="separator:a702eb6314380082795f735df74a816c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a15f6463cfcafd855157d33d253011dc7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a15f6463cfcafd855157d33d253011dc7">put</a> (const T *ptNewBuff, int iLength)</td></tr>
-<tr class="separator:a15f6463cfcafd855157d33d253011dc7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0f25eadaafa6a2e7bfe2f9ef6af1104b"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a0f25eadaafa6a2e7bfe2f9ef6af1104b">getPostInc</a> ()</td></tr>
-<tr class="separator:a0f25eadaafa6a2e7bfe2f9ef6af1104b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aeb86fd660cbaadd93a9d89dc529d5b76"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#aeb86fd660cbaadd93a9d89dc529d5b76">getPostInc</a> (T *ptBuff, int iLength)</td></tr>
-<tr class="separator:aeb86fd660cbaadd93a9d89dc529d5b76"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23d9877584d712c17811a9833835605e"><td class="memItemLeft" align="right" valign="top">T&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a23d9877584d712c17811a9833835605e">get</a> (float fOffset=0) const</td></tr>
-<tr class="separator:a23d9877584d712c17811a9833835605e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a047d589f30b02374de2aabdbc6892912"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a047d589f30b02374de2aabdbc6892912">get</a> (T *ptBuff, int iLength) const</td></tr>
-<tr class="separator:a047d589f30b02374de2aabdbc6892912"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a716fb4acc03355a73cc7d96f3ceb2995"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a716fb4acc03355a73cc7d96f3ceb2995">reset</a> ()</td></tr>
-<tr class="separator:a716fb4acc03355a73cc7d96f3ceb2995"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8173fd5abe5c4ff4e78ffad4b14ea88b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a8173fd5abe5c4ff4e78ffad4b14ea88b">getWriteIdx</a> () const</td></tr>
-<tr class="separator:a8173fd5abe5c4ff4e78ffad4b14ea88b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a408e0ec5855fca27bd2dc5862fa913ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a408e0ec5855fca27bd2dc5862fa913ab">setWriteIdx</a> (int iNewWriteIdx)</td></tr>
-<tr class="separator:a408e0ec5855fca27bd2dc5862fa913ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab18fac37cac4e8bde0419fe04845ac9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#ab18fac37cac4e8bde0419fe04845ac9d">getReadIdx</a> () const</td></tr>
-<tr class="separator:ab18fac37cac4e8bde0419fe04845ac9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af265a6322c4b1584c880def00d31e663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#af265a6322c4b1584c880def00d31e663">setReadIdx</a> (int iNewReadIdx)</td></tr>
-<tr class="separator:af265a6322c4b1584c880def00d31e663"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa04a6cb30d486a6ddd5f7929db1eef9d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#aa04a6cb30d486a6ddd5f7929db1eef9d">getNumValuesInBuffer</a> () const</td></tr>
-<tr class="separator:aa04a6cb30d486a6ddd5f7929db1eef9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ec2bd62a49e5078d3ca0a03fa123c9e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a0ec2bd62a49e5078d3ca0a03fa123c9e">getLength</a> () const</td></tr>
-<tr class="separator:a0ec2bd62a49e5078d3ca0a03fa123c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04c3fba6b847217b8689a7cac54d5b86"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a04c3fba6b847217b8689a7cac54d5b86">CFilter</a> ()</td></tr>
+<tr class="separator:a04c3fba6b847217b8689a7cac54d5b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a98c26369ca6c2941cba4874e6bfef3a7"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a98c26369ca6c2941cba4874e6bfef3a7">~CFilter</a> ()</td></tr>
+<tr class="separator:a98c26369ca6c2941cba4874e6bfef3a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:add0db9a0cf605eb3f57c80b52d2bda0e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#add0db9a0cf605eb3f57c80b52d2bda0e">init</a> (const T *pfB, const T *pfA, int iNumCoeffs)</td></tr>
+<tr class="separator:add0db9a0cf605eb3f57c80b52d2bda0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8d6a8f20ea178eda7352a89bf7a4d200"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200">reset</a> (<a class="el" href="a00221.html#abb452686968e48b67397da5f97445f5b">bool</a> bFreeMem=<a class="el" href="a00221.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a>)</td></tr>
+<tr class="separator:a8d6a8f20ea178eda7352a89bf7a4d200"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1c35f3511dcdc32517db3cea9c327ae8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a1c35f3511dcdc32517db3cea9c327ae8">process</a> (T *pfOut, const T *pfIn, long long iNumSamples)</td></tr>
+<tr class="separator:a1c35f3511dcdc32517db3cea9c327ae8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a525b94fcc4e3ff6c061c6d9e667c4790"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a525b94fcc4e3ff6c061c6d9e667c4790">processDFII</a> (T *pfOut, const T *pfIn, long long iNumSamples)</td></tr>
+<tr class="separator:a525b94fcc4e3ff6c061c6d9e667c4790"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04bf94ff97e5e270210954864025ea06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a04bf94ff97e5e270210954864025ea06">filtfilt</a> (T *pfOut, const T *pfIn, long long iNumSamples)</td></tr>
+<tr class="separator:a04bf94ff97e5e270210954864025ea06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
+Private Types</h2></td></tr>
+<tr class="memitem:af77365faa392bc427be2607834ab39bc"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#af77365faa392bc427be2607834ab39bc">FilterCoeffs_t</a> { <a class="el" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>
+, <a class="el" href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">kIir</a>
+, <a class="el" href="a00447.html#af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4">kNumFilterDims</a>
+ }</td></tr>
+<tr class="separator:af77365faa392bc427be2607834ab39bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:a16631e41f7e79a0da11a5246dfcade5c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a16631e41f7e79a0da11a5246dfcade5c">CRingBuffer</a> ()</td></tr>
-<tr class="separator:a16631e41f7e79a0da11a5246dfcade5c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add36d66b9e45b08cb8bb11b1fbc83e1b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#add36d66b9e45b08cb8bb11b1fbc83e1b">CRingBuffer</a> (const <a class="el" href="a00447.html">CRingBuffer</a> &amp;that)</td></tr>
-<tr class="separator:add36d66b9e45b08cb8bb11b1fbc83e1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a76a236cd8dcd7e464abd9416dd445f2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00447.html">CRingBuffer</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a76a236cd8dcd7e464abd9416dd445f2c">operator=</a> (const <a class="el" href="a00447.html">CRingBuffer</a> &amp;c)</td></tr>
-<tr class="separator:a76a236cd8dcd7e464abd9416dd445f2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a67eddecd2a880c52c80093774bc37c24"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a67eddecd2a880c52c80093774bc37c24">incIdx</a> (int &amp;iIdx, int iOffset=1)</td></tr>
-<tr class="separator:a67eddecd2a880c52c80093774bc37c24"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc3b70aa36740bc560377c7d43a358f2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#afc3b70aa36740bc560377c7d43a358f2">CFilter</a> (const <a class="el" href="a00447.html">CFilter</a> &amp;that)</td></tr>
+<tr class="separator:afc3b70aa36740bc560377c7d43a358f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8d1ef97269ec1b5408605731b009ae2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00447.html">CFilter</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#ab8d1ef97269ec1b5408605731b009ae2">operator=</a> (const <a class="el" href="a00447.html">CFilter</a> &amp;c)</td></tr>
+<tr class="separator:ab8d1ef97269ec1b5408605731b009ae2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a68eafbce2417e9c8e7934953e85199e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a68eafbce2417e9c8e7934953e85199e7">setInitState_</a> (float fWeight)</td></tr>
+<tr class="separator:a68eafbce2417e9c8e7934953e85199e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a3f35b48aa5632a863a85d09de775fb0b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a> = 0</td></tr>
-<tr class="memdesc:a3f35b48aa5632a863a85d09de775fb0b"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of the internal buffer  <a href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">More...</a><br /></td></tr>
-<tr class="separator:a3f35b48aa5632a863a85d09de775fb0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a17237cdeda2b10e77e1815def129debd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a> = 0</td></tr>
-<tr class="memdesc:a17237cdeda2b10e77e1815def129debd"><td class="mdescLeft">&#160;</td><td class="mdescRight">current read index  <a href="a00447.html#a17237cdeda2b10e77e1815def129debd">More...</a><br /></td></tr>
-<tr class="separator:a17237cdeda2b10e77e1815def129debd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad2bfd60fbefec3403b6a2a420b8695a5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a> = 0</td></tr>
-<tr class="memdesc:ad2bfd60fbefec3403b6a2a420b8695a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">current write index  <a href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">More...</a><br /></td></tr>
-<tr class="separator:ad2bfd60fbefec3403b6a2a420b8695a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c82ffd2218093776e8952e15309c51e"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a> = 0</td></tr>
-<tr class="memdesc:a6c82ffd2218093776e8952e15309c51e"><td class="mdescLeft">&#160;</td><td class="mdescRight">data buffer  <a href="a00447.html#a6c82ffd2218093776e8952e15309c51e">More...</a><br /></td></tr>
-<tr class="separator:a6c82ffd2218093776e8952e15309c51e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac44bd773d4652641a423b5291f13d337"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00459.html">CRingBuffer</a>&lt; T &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a> = 0</td></tr>
+<tr class="memdesc:ac44bd773d4652641a423b5291f13d337"><td class="mdescLeft">&#160;</td><td class="mdescRight">internal ring buffer for filter (only used for direct form II implementation <a class="el" href="a00447.html#a525b94fcc4e3ff6c061c6d9e667c4790">CFilter::processDFII</a>)  <a href="a00447.html#ac44bd773d4652641a423b5291f13d337">More...</a><br /></td></tr>
+<tr class="separator:ac44bd773d4652641a423b5291f13d337"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4e31c29ccb288a7227e65e2b925deb02"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a> [<a class="el" href="a00447.html#af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4">kNumFilterDims</a>] = { 0,0 }</td></tr>
+<tr class="memdesc:a4e31c29ccb288a7227e65e2b925deb02"><td class="mdescLeft">&#160;</td><td class="mdescRight">filter coefficients  <a href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">More...</a><br /></td></tr>
+<tr class="separator:a4e31c29ccb288a7227e65e2b925deb02"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adc33d7fd0caf47e30d1d4e3634819bac"><td class="memItemLeft" align="right" valign="top">T *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a> = 0</td></tr>
+<tr class="memdesc:adc33d7fd0caf47e30d1d4e3634819bac"><td class="mdescLeft">&#160;</td><td class="mdescRight">temp buffer for processing  <a href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">More...</a><br /></td></tr>
+<tr class="separator:adc33d7fd0caf47e30d1d4e3634819bac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aed0a614dce6816b55f0b3f17bdf991e5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> = 0</td></tr>
+<tr class="memdesc:aed0a614dce6816b55f0b3f17bdf991e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of filter coefficients  <a href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">More...</a><br /></td></tr>
+<tr class="separator:aed0a614dce6816b55f0b3f17bdf991e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a08878b88194b75c579748ca740db6444"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00221.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00447.html#a08878b88194b75c579748ca740db6444">m_bIsInitialized</a> = <a class="el" href="a00221.html#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
+<tr class="memdesc:a08878b88194b75c579748ca740db6444"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if initialized  <a href="a00447.html#a08878b88194b75c579748ca740db6444">More...</a><br /></td></tr>
+<tr class="separator:a08878b88194b75c579748ca740db6444"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><div class="compoundTemplParams">template&lt;class T&gt;<br />
-class CRingBuffer&lt; T &gt;</div><p >implement a circular buffer of type T </p>
+class CFilter&lt; T &gt;</div><p >class providing a generic filter implementation </p>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00013">13</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a0e007e130e9190892274dde988e40a59" name="a0e007e130e9190892274dde988e40a59"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e007e130e9190892274dde988e40a59">&#9670;&nbsp;</a></span>CRingBuffer() <span class="overload">[1/3]</span></h2>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00016">16</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="af77365faa392bc427be2607834ab39bc" name="af77365faa392bc427be2607834ab39bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af77365faa392bc427be2607834ab39bc">&#9670;&nbsp;</a></span>FilterCoeffs_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -158,53 +148,67 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;<a class="el" href="a00447.html">::CRingBuffer</a> </td>
+          <td class="memname">enum <a class="el" href="a00447.html#af77365faa392bc427be2607834ab39bc">CFilter::FilterCoeffs_t</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8" name="af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8"></a>kFir&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54" name="af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54"></a>kIir&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4" name="af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4"></a>kNumFilterDims&#160;</td><td class="fielddoc"></td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00229">229</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  230</span>    {</div>
+<div class="line"><span class="lineno">  231</span>        <a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>,</div>
+<div class="line"><span class="lineno">  232</span>        <a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">kIir</a>,</div>
+<div class="line"><span class="lineno">  233</span> </div>
+<div class="line"><span class="lineno">  234</span>        <a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4">kNumFilterDims</a></div>
+<div class="line"><span class="lineno">  235</span>    };</div>
+<div class="ttc" id="aa00447_html_af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8"><div class="ttname"><a href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">CFilter::kFir</a></div><div class="ttdeci">@ kFir</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00231">Filter.h:231</a></div></div>
+<div class="ttc" id="aa00447_html_af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4"><div class="ttname"><a href="a00447.html#af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4">CFilter::kNumFilterDims</a></div><div class="ttdeci">@ kNumFilterDims</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00235">Filter.h:234</a></div></div>
+<div class="ttc" id="aa00447_html_af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54"><div class="ttname"><a href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">CFilter::kIir</a></div><div class="ttdeci">@ kIir</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00232">Filter.h:232</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a04c3fba6b847217b8689a7cac54d5b86" name="a04c3fba6b847217b8689a7cac54d5b86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04c3fba6b847217b8689a7cac54d5b86">&#9670;&nbsp;</a></span>CFilter() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00447.html">CFilter</a>&lt; T &gt;<a class="el" href="a00447.html">::CFilter</a> </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iBufferLengthInSamples</em></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00016">16</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   16</span>                                                     :</div>
-<div class="line"><span class="lineno">   17</span>        <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>(iBufferLengthInSamples),</div>
-<div class="line"><span class="lineno">   18</span>        <a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>(0),</div>
-<div class="line"><span class="lineno">   19</span>        <a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>(0),</div>
-<div class="line"><span class="lineno">   20</span>        <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>(0)</div>
-<div class="line"><span class="lineno">   21</span>    {</div>
-<div class="line"><span class="lineno">   22</span>        assert(iBufferLengthInSamples &gt; 0);</div>
-<div class="line"><span class="lineno">   23</span> </div>
-<div class="line"><span class="lineno">   24</span>        <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a> = <span class="keyword">new</span> T[<a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>];</div>
-<div class="line"><span class="lineno">   25</span>        <a class="code hl_function" href="a00447.html#a716fb4acc03355a73cc7d96f3ceb2995">reset</a>();</div>
-<div class="line"><span class="lineno">   26</span>    }</div>
-<div class="ttc" id="aa00447_html_a17237cdeda2b10e77e1815def129debd"><div class="ttname"><a href="a00447.html#a17237cdeda2b10e77e1815def129debd">CRingBuffer::m_iReadIdx</a></div><div class="ttdeci">int m_iReadIdx</div><div class="ttdoc">current read index</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00219">RingBuffer.h:219</a></div></div>
-<div class="ttc" id="aa00447_html_a3f35b48aa5632a863a85d09de775fb0b"><div class="ttname"><a href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">CRingBuffer::m_iBuffLength</a></div><div class="ttdeci">int m_iBuffLength</div><div class="ttdoc">length of the internal buffer</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00218">RingBuffer.h:218</a></div></div>
-<div class="ttc" id="aa00447_html_a6c82ffd2218093776e8952e15309c51e"><div class="ttname"><a href="a00447.html#a6c82ffd2218093776e8952e15309c51e">CRingBuffer::m_ptBuff</a></div><div class="ttdeci">T * m_ptBuff</div><div class="ttdoc">data buffer</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00222">RingBuffer.h:222</a></div></div>
-<div class="ttc" id="aa00447_html_a716fb4acc03355a73cc7d96f3ceb2995"><div class="ttname"><a href="a00447.html#a716fb4acc03355a73cc7d96f3ceb2995">CRingBuffer::reset</a></div><div class="ttdeci">void reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00147">RingBuffer.h:147</a></div></div>
-<div class="ttc" id="aa00447_html_ad2bfd60fbefec3403b6a2a420b8695a5"><div class="ttname"><a href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">CRingBuffer::m_iWriteIdx</a></div><div class="ttdeci">int m_iWriteIdx</div><div class="ttdoc">current write index</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00220">RingBuffer.h:220</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00020">20</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00218">CRingBuffer&lt; T &gt;::m_iBuffLength</a>, <a class="el" href="a00137_source.html#l00222">CRingBuffer&lt; T &gt;::m_ptBuff</a>, and <a class="el" href="a00137_source.html#l00147">CRingBuffer&lt; T &gt;::reset()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a0e007e130e9190892274dde988e40a59_cgraph.png" border="0" usemap="#aa00447_a0e007e130e9190892274dde988e40a59_cgraph" alt=""/></div>
-<map name="aa00447_a0e007e130e9190892274dde988e40a59_cgraph" id="aa00447_a0e007e130e9190892274dde988e40a59_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,172,32"/>
-<area shape="rect" href="a00447.html#a716fb4acc03355a73cc7d96f3ceb2995" title=" " alt="" coords="220,5,347,32"/>
-</map>
-</div>
-
 </div>
 </div>
-<a id="a97c8bb4689fcef14d595e897ea72cba9" name="a97c8bb4689fcef14d595e897ea72cba9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a97c8bb4689fcef14d595e897ea72cba9">&#9670;&nbsp;</a></span>~CRingBuffer()</h2>
+<a id="a98c26369ca6c2941cba4874e6bfef3a7" name="a98c26369ca6c2941cba4874e6bfef3a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a98c26369ca6c2941cba4874e6bfef3a7">&#9670;&nbsp;</a></span>~CFilter()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,7 +219,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::~<a class="el" href="a00447.html">CRingBuffer</a> </td>
+          <td class="memname">virtual <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::~<a class="el" href="a00447.html">CFilter</a> </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -228,45 +232,29 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00028">28</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   29</span>    {</div>
-<div class="line"><span class="lineno">   30</span>        <span class="keyword">delete</span>[] <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>;</div>
-<div class="line"><span class="lineno">   31</span>        <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a> = 0;</div>
-<div class="line"><span class="lineno">   32</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00021">21</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   22</span>    {</div>
+<div class="line"><span class="lineno">   23</span>        <a class="code hl_function" href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200">reset</a>();</div>
+<div class="line"><span class="lineno">   24</span>    };</div>
+<div class="ttc" id="aa00447_html_a8d6a8f20ea178eda7352a89bf7a4d200"><div class="ttname"><a href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200">CFilter::reset</a></div><div class="ttdeci">Error_t reset(bool bFreeMem=true)</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00066">Filter.h:66</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00222">CRingBuffer&lt; T &gt;::m_ptBuff</a>.</p>
+<p class="reference">References <a class="el" href="a00134_source.html#l00066">CFilter&lt; T &gt;::reset()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00447_a98c26369ca6c2941cba4874e6bfef3a7_cgraph.png" border="0" usemap="#aa00447_a98c26369ca6c2941cba4874e6bfef3a7_cgraph" alt=""/></div>
+<map name="aa00447_a98c26369ca6c2941cba4874e6bfef3a7_cgraph" id="aa00447_a98c26369ca6c2941cba4874e6bfef3a7_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,116,57"/>
+<area shape="rect" href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="164,31,259,57"/>
+<area shape="rect" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="317,5,415,32"/>
+<area shape="rect" href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="307,56,425,83"/>
+</map>
+</div>
 
 </div>
 </div>
-<a id="a16631e41f7e79a0da11a5246dfcade5c" name="a16631e41f7e79a0da11a5246dfcade5c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a16631e41f7e79a0da11a5246dfcade5c">&#9670;&nbsp;</a></span>CRingBuffer() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;<a class="el" href="a00447.html">::CRingBuffer</a> </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="add36d66b9e45b08cb8bb11b1fbc83e1b" name="add36d66b9e45b08cb8bb11b1fbc83e1b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#add36d66b9e45b08cb8bb11b1fbc83e1b">&#9670;&nbsp;</a></span>CRingBuffer() <span class="overload">[3/3]</span></h2>
+<a id="afc3b70aa36740bc560377c7d43a358f2" name="afc3b70aa36740bc560377c7d43a358f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afc3b70aa36740bc560377c7d43a358f2">&#9670;&nbsp;</a></span>CFilter() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -277,9 +265,9 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;<a class="el" href="a00447.html">::CRingBuffer</a> </td>
+          <td class="memname"><a class="el" href="a00447.html">CFilter</a>&lt; T &gt;<a class="el" href="a00447.html">::CFilter</a> </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00447.html">CFilter</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>that</em></td><td>)</td>
           <td></td>
         </tr>
@@ -294,8 +282,8 @@ template&lt;class T &gt; </div>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a23d9877584d712c17811a9833835605e" name="a23d9877584d712c17811a9833835605e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a23d9877584d712c17811a9833835605e">&#9670;&nbsp;</a></span>get() <span class="overload">[1/2]</span></h2>
+<a id="a04bf94ff97e5e270210954864025ea06" name="a04bf94ff97e5e270210954864025ea06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a04bf94ff97e5e270210954864025ea06">&#9670;&nbsp;</a></span>filtfilt()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,323 +294,22 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::get </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fOffset</em> = <code>0</code></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >return the value at the current read index </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fOffset</td><td>read at offset from read index </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>float the value from the read index </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00106">106</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  107</span>    {</div>
-<div class="line"><span class="lineno">  108</span>        <span class="keywordflow">if</span> (fOffset == 0)</div>
-<div class="line"><span class="lineno">  109</span>            <span class="keywordflow">return</span> <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>[<a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>];</div>
-<div class="line"><span class="lineno">  110</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  111</span>        {</div>
-<div class="line"><span class="lineno">  112</span> </div>
-<div class="line"><span class="lineno">  113</span>            <span class="comment">// compute fraction for linear interpolation </span></div>
-<div class="line"><span class="lineno">  114</span>            <span class="keywordtype">int</span>     iOffset = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(fOffset));</div>
-<div class="line"><span class="lineno">  115</span>            <span class="keywordtype">float</span>   fFrac = fOffset - iOffset;</div>
-<div class="line"><span class="lineno">  116</span>            <span class="keywordtype">int</span>     iRead = <a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a> + iOffset;</div>
-<div class="line"><span class="lineno">  117</span>            <span class="keywordflow">while</span> (iRead &gt; <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a> - 1)</div>
-<div class="line"><span class="lineno">  118</span>                iRead -= <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>;</div>
-<div class="line"><span class="lineno">  119</span>            <span class="keywordflow">while</span> (iRead &lt; 0)</div>
-<div class="line"><span class="lineno">  120</span>                iRead += <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>;</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>            <span class="keywordflow">return</span> (1 - fFrac) * <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>[iRead] +</div>
-<div class="line"><span class="lineno">  123</span>                fFrac * <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>[(iRead + 1) % <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>];</div>
-<div class="line"><span class="lineno">  124</span>        }</div>
-<div class="line"><span class="lineno">  125</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00218">CRingBuffer&lt; T &gt;::m_iBuffLength</a>, <a class="el" href="a00137_source.html#l00219">CRingBuffer&lt; T &gt;::m_iReadIdx</a>, and <a class="el" href="a00137_source.html#l00222">CRingBuffer&lt; T &gt;::m_ptBuff</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00053">CBlockAudioFile::getNextBlock()</a>, and <a class="el" href="a00137_source.html#l00084">CRingBuffer&lt; T &gt;::getPostInc()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a23d9877584d712c17811a9833835605e_icgraph.png" border="0" usemap="#aa00447_a23d9877584d712c17811a9833835605e_icgraph" alt=""/></div>
-<map name="aa00447_a23d9877584d712c17811a9833835605e_icgraph" id="aa00447_a23d9877584d712c17811a9833835605e_icgraph">
-<area shape="rect" title=" " alt="" coords="1199,42,1313,69"/>
-<area shape="rect" href="a00371.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="981,5,1151,47"/>
-<area shape="rect" href="a00447.html#a0f25eadaafa6a2e7bfe2f9ef6af1104b" title=" " alt="" coords="986,71,1146,98"/>
-<area shape="rect" href="a00515.html#a4e86e5be0bc6ad928397d99eda2d1978" title=" " alt="" coords="760,71,933,98"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="559,71,712,98"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,71,511,98"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,46,297,73"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,97,226,123"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,46,56,73"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a047d589f30b02374de2aabdbc6892912" name="a047d589f30b02374de2aabdbc6892912"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a047d589f30b02374de2aabdbc6892912">&#9670;&nbsp;</a></span>get() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::get </td>
+          <td class="memname"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::filtfilt </td>
           <td>(</td>
           <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptBuff</em>, </td>
+          <td class="paramname"><em>pfOut</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >return the values starting at the current read index </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptBuff</td><td>to where the values will be written </td></tr>
-    <tr><td class="paramname">iLength</td><td>number of values </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00132">132</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  133</span>    {</div>
-<div class="line"><span class="lineno">  134</span>        assert(iLength &lt;= m_iBuffLength &amp;&amp; iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  135</span> </div>
-<div class="line"><span class="lineno">  136</span>        <span class="comment">// copy two parts: to the end of buffer and after wrap around</span></div>
-<div class="line"><span class="lineno">  137</span>        <span class="keywordtype">int</span> iNumValues2End = std::min(iLength, <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a> - <a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>);</div>
-<div class="line"><span class="lineno">  138</span> </div>
-<div class="line"><span class="lineno">  139</span>        std::memcpy (ptBuff, &amp;<a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>[<a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>], <span class="keyword">sizeof</span>(T)*iNumValues2End);</div>
-<div class="line"><span class="lineno">  140</span>        <span class="keywordflow">if</span> ((iLength - iNumValues2End)&gt;0)</div>
-<div class="line"><span class="lineno">  141</span>            std::memcpy (&amp;ptBuff[iNumValues2End], <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>, <span class="keyword">sizeof</span>(T)*(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iLength) - iNumValues2End));</div>
-<div class="line"><span class="lineno">  142</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00218">CRingBuffer&lt; T &gt;::m_iBuffLength</a>, <a class="el" href="a00137_source.html#l00219">CRingBuffer&lt; T &gt;::m_iReadIdx</a>, and <a class="el" href="a00137_source.html#l00222">CRingBuffer&lt; T &gt;::m_ptBuff</a>.</p>
-
-</div>
-</div>
-<a id="a0ec2bd62a49e5078d3ca0a03fa123c9e" name="a0ec2bd62a49e5078d3ca0a03fa123c9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0ec2bd62a49e5078d3ca0a03fa123c9e">&#9670;&nbsp;</a></span>getLength()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::getLength </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >returns the length of the internal buffer </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00199">199</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  200</span>    {</div>
-<div class="line"><span class="lineno">  201</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>;</div>
-<div class="line"><span class="lineno">  202</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00218">CRingBuffer&lt; T &gt;::m_iBuffLength</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, and <a class="el" href="a00173_source.html#l00154">CMovingAverage::setFilterParam()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a0ec2bd62a49e5078d3ca0a03fa123c9e_icgraph.png" border="0" usemap="#aa00447_a0ec2bd62a49e5078d3ca0a03fa123c9e_icgraph" alt=""/></div>
-<map name="aa00447_a0ec2bd62a49e5078d3ca0a03fa123c9e_icgraph" id="aa00447_a0ec2bd62a49e5078d3ca0a03fa123c9e_icgraph">
-<area shape="rect" title=" " alt="" coords="1028,35,1183,61"/>
-<area shape="rect" href="a00371.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="760,5,980,32"/>
-<area shape="rect" href="a00515.html#a1a014af5490675e140d6069561b00eb1" title=" " alt="" coords="783,57,957,98"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,64,511,91"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="559,89,712,116"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,39,297,65"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,89,226,116"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,39,56,65"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aa04a6cb30d486a6ddd5f7929db1eef9d" name="aa04a6cb30d486a6ddd5f7929db1eef9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa04a6cb30d486a6ddd5f7929db1eef9d">&#9670;&nbsp;</a></span>getNumValuesInBuffer()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::getNumValuesInBuffer </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >returns the number of values currently buffered (note: 0 could also mean the buffer is full!) </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00191">191</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  192</span>    {</div>
-<div class="line"><span class="lineno">  193</span>        <span class="keywordflow">return</span> (<a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a> - <a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a> + <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>) % <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>;</div>
-<div class="line"><span class="lineno">  194</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00218">CRingBuffer&lt; T &gt;::m_iBuffLength</a>, <a class="el" href="a00137_source.html#l00219">CRingBuffer&lt; T &gt;::m_iReadIdx</a>, and <a class="el" href="a00137_source.html#l00220">CRingBuffer&lt; T &gt;::m_iWriteIdx</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00173_source.html#l00172">CMovingAverage::getFilterParam()</a>, <a class="el" href="a00071_source.html#l00053">CBlockAudioFile::getNextBlock()</a>, and <a class="el" href="a00173_source.html#l00198">CMovingAverage::process()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_aa04a6cb30d486a6ddd5f7929db1eef9d_icgraph.png" border="0" usemap="#aa00447_aa04a6cb30d486a6ddd5f7929db1eef9d_icgraph" alt=""/></div>
-<map name="aa00447_aa04a6cb30d486a6ddd5f7929db1eef9d_icgraph" id="aa00447_aa04a6cb30d486a6ddd5f7929db1eef9d_icgraph">
-<area shape="rect" title=" " alt="" coords="1028,90,1211,131"/>
-<area shape="rect" href="a00371.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="760,5,980,32"/>
-<area shape="rect" href="a00515.html#a9704ba1d710c82a1b92af175b0b07538" title=" " alt="" coords="783,57,957,98"/>
-<area shape="rect" href="a00371.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="785,122,955,163"/>
-<area shape="rect" href="a00515.html#a4e86e5be0bc6ad928397d99eda2d1978" title=" " alt="" coords="783,188,957,215"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="559,127,712,153"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,127,511,153"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,101,297,128"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,152,226,179"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,101,56,128"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a0f25eadaafa6a2e7bfe2f9ef6af1104b" name="a0f25eadaafa6a2e7bfe2f9ef6af1104b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0f25eadaafa6a2e7bfe2f9ef6af1104b">&#9670;&nbsp;</a></span>getPostInc() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">T <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::getPostInc </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >return the value at the current read index and increment the read pointer </p><dl class="section return"><dt>Returns</dt><dd>float the value from the read index </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00084">84</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   85</span>    {</div>
-<div class="line"><span class="lineno">   86</span>        T tValue = <a class="code hl_function" href="a00447.html#a23d9877584d712c17811a9833835605e">get</a>();</div>
-<div class="line"><span class="lineno">   87</span>        <a class="code hl_function" href="a00447.html#a67eddecd2a880c52c80093774bc37c24">incIdx</a>(<a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>);</div>
-<div class="line"><span class="lineno">   88</span>        <span class="keywordflow">return</span> tValue;</div>
-<div class="line"><span class="lineno">   89</span>    }</div>
-<div class="ttc" id="aa00447_html_a23d9877584d712c17811a9833835605e"><div class="ttname"><a href="a00447.html#a23d9877584d712c17811a9833835605e">CRingBuffer::get</a></div><div class="ttdeci">T get(float fOffset=0) const</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00106">RingBuffer.h:106</a></div></div>
-<div class="ttc" id="aa00447_html_a67eddecd2a880c52c80093774bc37c24"><div class="ttname"><a href="a00447.html#a67eddecd2a880c52c80093774bc37c24">CRingBuffer::incIdx</a></div><div class="ttdeci">void incIdx(int &amp;iIdx, int iOffset=1)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00208">RingBuffer.h:208</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00106">CRingBuffer&lt; T &gt;::get()</a>, <a class="el" href="a00137_source.html#l00208">CRingBuffer&lt; T &gt;::incIdx()</a>, and <a class="el" href="a00137_source.html#l00219">CRingBuffer&lt; T &gt;::m_iReadIdx</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00173_source.html#l00198">CMovingAverage::process()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a0f25eadaafa6a2e7bfe2f9ef6af1104b_cgraph.png" border="0" usemap="#aa00447_a0f25eadaafa6a2e7bfe2f9ef6af1104b_cgraph" alt=""/></div>
-<map name="aa00447_a0f25eadaafa6a2e7bfe2f9ef6af1104b_cgraph" id="aa00447_a0f25eadaafa6a2e7bfe2f9ef6af1104b_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,165,57"/>
-<area shape="rect" href="a00447.html#a23d9877584d712c17811a9833835605e" title=" " alt="" coords="221,5,336,32"/>
-<area shape="rect" href="a00447.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="213,56,344,83"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a0f25eadaafa6a2e7bfe2f9ef6af1104b_icgraph.png" border="0" usemap="#aa00447_a0f25eadaafa6a2e7bfe2f9ef6af1104b_icgraph" alt=""/></div>
-<map name="aa00447_a0f25eadaafa6a2e7bfe2f9ef6af1104b_icgraph" id="aa00447_a0f25eadaafa6a2e7bfe2f9ef6af1104b_icgraph">
-<area shape="rect" title=" " alt="" coords="981,31,1141,57"/>
-<area shape="rect" href="a00515.html#a4e86e5be0bc6ad928397d99eda2d1978" title=" " alt="" coords="760,31,933,57"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="559,31,712,57"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aeb86fd660cbaadd93a9d89dc529d5b76" name="aeb86fd660cbaadd93a9d89dc529d5b76"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aeb86fd660cbaadd93a9d89dc529d5b76">&#9670;&nbsp;</a></span>getPostInc() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::getPostInc </td>
-          <td>(</td>
-          <td class="paramtype">T *&#160;</td>
-          <td class="paramname"><em>ptBuff</em>, </td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>pfIn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iNumSamples</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -636,83 +323,126 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >return the values starting at the current read index and increment the read pointer </p><dl class="params"><dt>Parameters</dt><dd>
+<p >zero phase filtering (can only be called with a complete signal, not block by block) </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ptBuff</td><td>pointer to where the values will be written </td></tr>
-    <tr><td class="paramname">iLength</td><td>number of values </td></tr>
+    <tr><td class="paramname">pfOut</td><td>output signal (to be written, allocated by user) </td></tr>
+    <tr><td class="paramname">pfIn</td><td>input signal </td></tr>
+    <tr><td class="paramname">iNumSamples</td><td>length of both pfOut and pfIn </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00096">96</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   97</span>    {</div>
-<div class="line"><span class="lineno">   98</span>        <a class="code hl_function" href="a00447.html#a23d9877584d712c17811a9833835605e">get</a>(ptBuff, iLength);</div>
-<div class="line"><span class="lineno">   99</span>        <a class="code hl_function" href="a00447.html#a67eddecd2a880c52c80093774bc37c24">incIdx</a>(<a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>, iLength);</div>
-<div class="line"><span class="lineno">  100</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00166">166</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  167</span>    {</div>
+<div class="line"><span class="lineno">  168</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00447.html#a08878b88194b75c579748ca740db6444">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  169</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  170</span>        <span class="keywordflow">if</span> (!pfOut || !pfIn || iNumSamples &lt;= 0)</div>
+<div class="line"><span class="lineno">  171</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  172</span> </div>
+<div class="line"><span class="lineno">  173</span>        <span class="comment">// reset filter but don&#39;t delete memory</span></div>
+<div class="line"><span class="lineno">  174</span>        this-&gt;<a class="code hl_function" href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200">reset</a>(<span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">  175</span> </div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordtype">float</span>* pfTmpBuff = 0;</div>
+<div class="line"><span class="lineno">  177</span>        <span class="keywordtype">float</span>* pfPadding = 0;</div>
+<div class="line"><span class="lineno">  178</span>        <span class="keywordtype">int</span> iPadLength = 3 * (<a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - 1);</div>
+<div class="line"><span class="lineno">  179</span> </div>
+<div class="line"><span class="lineno">  180</span>        <span class="keywordflow">if</span> (iPadLength &gt; iNumSamples)</div>
+<div class="line"><span class="lineno">  181</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  182</span> </div>
+<div class="line"><span class="lineno">  183</span>        <span class="comment">// alloc necessary memory</span></div>
+<div class="line"><span class="lineno">  184</span>        <a class="code hl_function" href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfTmpBuff, iNumSamples + iPadLength);</div>
+<div class="line"><span class="lineno">  185</span>        <a class="code hl_function" href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfPadding, iPadLength);</div>
+<div class="line"><span class="lineno">  186</span> </div>
+<div class="line"><span class="lineno">  187</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iPadLength; i++)</div>
+<div class="line"><span class="lineno">  188</span>            pfPadding[iPadLength - 1 - i] = 2 * pfIn[0] - pfIn[i + 1];</div>
+<div class="line"><span class="lineno">  189</span> </div>
+<div class="line"><span class="lineno">  190</span>        <span class="comment">// set initial state</span></div>
+<div class="line"><span class="lineno">  191</span>        this-&gt;<a class="code hl_function" href="a00447.html#a68eafbce2417e9c8e7934953e85199e7">setInitState_</a>(pfPadding[0]);</div>
+<div class="line"><span class="lineno">  192</span> </div>
+<div class="line"><span class="lineno">  193</span>        <span class="comment">// front padding (discard results)</span></div>
+<div class="line"><span class="lineno">  194</span>        this-&gt;<a class="code hl_function" href="a00447.html#a1c35f3511dcdc32517db3cea9c327ae8">process</a>(pfTmpBuff, pfPadding, iPadLength);</div>
+<div class="line"><span class="lineno">  195</span>        </div>
+<div class="line"><span class="lineno">  196</span>        <span class="comment">// forward path</span></div>
+<div class="line"><span class="lineno">  197</span>        this-&gt;<a class="code hl_function" href="a00447.html#a1c35f3511dcdc32517db3cea9c327ae8">process</a>(pfTmpBuff, pfIn, iNumSamples);</div>
+<div class="line"><span class="lineno">  198</span>        </div>
+<div class="line"><span class="lineno">  199</span>        <span class="comment">// back padding in forward path</span></div>
+<div class="line"><span class="lineno">  200</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iPadLength; i++)</div>
+<div class="line"><span class="lineno">  201</span>            pfPadding[i] = 2 * pfIn[iNumSamples - 1] - pfIn[iNumSamples - 2 - i];</div>
+<div class="line"><span class="lineno">  202</span>        this-&gt;<a class="code hl_function" href="a00447.html#a1c35f3511dcdc32517db3cea9c327ae8">process</a>(&amp;pfTmpBuff[iNumSamples], pfPadding, iPadLength);</div>
+<div class="line"><span class="lineno">  203</span> </div>
+<div class="line"><span class="lineno">  204</span>        <span class="comment">// set initial state</span></div>
+<div class="line"><span class="lineno">  205</span>        this-&gt;<a class="code hl_function" href="a00447.html#a68eafbce2417e9c8e7934953e85199e7">setInitState_</a>(pfTmpBuff[iNumSamples+iPadLength-1]);</div>
+<div class="line"><span class="lineno">  206</span> </div>
+<div class="line"><span class="lineno">  207</span>        <span class="comment">// padded backward path (discard results)</span></div>
+<div class="line"><span class="lineno">  208</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = iNumSamples + iPadLength - 1; i &gt;= iNumSamples; i--)</div>
+<div class="line"><span class="lineno">  209</span>            this-&gt;<a class="code hl_function" href="a00447.html#a1c35f3511dcdc32517db3cea9c327ae8">process</a>(pfOut, &amp;pfTmpBuff[i], 1);</div>
+<div class="line"><span class="lineno">  210</span>        </div>
+<div class="line"><span class="lineno">  211</span>        <span class="comment">// backward path</span></div>
+<div class="line"><span class="lineno">  212</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = iNumSamples - 1; i &gt;= 0; i--)</div>
+<div class="line"><span class="lineno">  213</span>            this-&gt;<a class="code hl_function" href="a00447.html#a1c35f3511dcdc32517db3cea9c327ae8">process</a>(&amp;pfOut[i], &amp;pfTmpBuff[i], 1);</div>
+<div class="line"><span class="lineno">  214</span> </div>
+<div class="line"><span class="lineno">  215</span>        <span class="comment">// reset filter but don&#39;t delete memory</span></div>
+<div class="line"><span class="lineno">  216</span>        this-&gt;<a class="code hl_function" href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200">reset</a>(<span class="keyword">false</span>);</div>
+<div class="line"><span class="lineno">  217</span> </div>
+<div class="line"><span class="lineno">  218</span>        <span class="comment">// free memory</span></div>
+<div class="line"><span class="lineno">  219</span>        <a class="code hl_function" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfTmpBuff);</div>
+<div class="line"><span class="lineno">  220</span>        <a class="code hl_function" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfPadding);</div>
+<div class="line"><span class="lineno">  221</span> </div>
+<div class="line"><span class="lineno">  222</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  223</span>    }</div>
+<div class="ttc" id="aa00110_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
+<div class="ttc" id="aa00110_html_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
+<div class="ttc" id="aa00110_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00447_html_a08878b88194b75c579748ca740db6444"><div class="ttname"><a href="a00447.html#a08878b88194b75c579748ca740db6444">CFilter::m_bIsInitialized</a></div><div class="ttdeci">bool m_bIsInitialized</div><div class="ttdoc">true if initialized</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00283">Filter.h:283</a></div></div>
+<div class="ttc" id="aa00447_html_a1c35f3511dcdc32517db3cea9c327ae8"><div class="ttname"><a href="a00447.html#a1c35f3511dcdc32517db3cea9c327ae8">CFilter::process</a></div><div class="ttdeci">Error_t process(T *pfOut, const T *pfIn, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00101">Filter.h:101</a></div></div>
+<div class="ttc" id="aa00447_html_a68eafbce2417e9c8e7934953e85199e7"><div class="ttname"><a href="a00447.html#a68eafbce2417e9c8e7934953e85199e7">CFilter::setInitState_</a></div><div class="ttdeci">void setInitState_(float fWeight)</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00238">Filter.h:238</a></div></div>
+<div class="ttc" id="aa00447_html_aed0a614dce6816b55f0b3f17bdf991e5"><div class="ttname"><a href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">CFilter::m_iNumFilterCoeffs</a></div><div class="ttdeci">int m_iNumFilterCoeffs</div><div class="ttdoc">number of filter coefficients</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00281">Filter.h:281</a></div></div>
+<div class="ttc" id="aa00471_html_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00039">Vector.h:39</a></div></div>
+<div class="ttc" id="aa00471_html_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00024">Vector.h:24</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00106">CRingBuffer&lt; T &gt;::get()</a>, <a class="el" href="a00137_source.html#l00208">CRingBuffer&lt; T &gt;::incIdx()</a>, and <a class="el" href="a00137_source.html#l00219">CRingBuffer&lt; T &gt;::m_iReadIdx</a>.</p>
+<p class="reference">References <a class="el" href="a00137_source.html#l00024">CVector::alloc()</a>, <a class="el" href="a00137_source.html#l00039">CVector::free()</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00134_source.html#l00283">CFilter&lt; T &gt;::m_bIsInitialized</a>, <a class="el" href="a00134_source.html#l00281">CFilter&lt; T &gt;::m_iNumFilterCoeffs</a>, <a class="el" href="a00134_source.html#l00101">CFilter&lt; T &gt;::process()</a>, <a class="el" href="a00134_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, and <a class="el" href="a00134_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00188_source.html#l00102">CResample::process()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00447_aeb86fd660cbaadd93a9d89dc529d5b76_cgraph.png" border="0" usemap="#aa00447_aeb86fd660cbaadd93a9d89dc529d5b76_cgraph" alt=""/></div>
-<map name="aa00447_aeb86fd660cbaadd93a9d89dc529d5b76_cgraph" id="aa00447_aeb86fd660cbaadd93a9d89dc529d5b76_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,165,57"/>
-<area shape="rect" href="a00447.html#a23d9877584d712c17811a9833835605e" title=" " alt="" coords="221,5,336,32"/>
-<area shape="rect" href="a00447.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="213,56,344,83"/>
+<div class="center"><img src="a00447_a04bf94ff97e5e270210954864025ea06_cgraph.png" border="0" usemap="#aa00447_a04bf94ff97e5e270210954864025ea06_cgraph" alt=""/></div>
+<map name="aa00447_a04bf94ff97e5e270210954864025ea06_cgraph" id="aa00447_a04bf94ff97e5e270210954864025ea06_cgraph">
+<area shape="rect" title=" " alt="" coords="5,511,97,537"/>
+<area shape="rect" href="a00471.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="739,29,841,56"/>
+<area shape="rect" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="741,485,839,512"/>
+<area shape="rect" href="a00447.html#a1c35f3511dcdc32517db3cea9c327ae8" title=" " alt="" coords="159,612,271,639"/>
+<area shape="rect" href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="565,561,660,588"/>
+<area shape="rect" href="a00447.html#a68eafbce2417e9c8e7934953e85199e7" title=" " alt="" coords="145,359,285,385"/>
+<area shape="rect" href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="893,308,1012,335"/>
+<area shape="rect" href="a00455.html#a6501b78d76c912d49eee88c8f7242923" title=" " alt="" coords="563,55,662,81"/>
+<area shape="rect" href="a00455.html#a591097c6b1935c4d6273b3445f8f552b" title=" " alt="" coords="565,359,660,385"/>
+<area shape="rect" href="a00455.html#a75f6eded6d5ee17fe45386eac3878a60" title=" " alt="" coords="362,232,462,259"/>
+<area shape="rect" href="a00455.html#ab0ca8e552db389f6323e1c3d26e59902" title=" " alt="" coords="333,409,491,436"/>
+<area shape="rect" href="a00455.html#a9f723a71e61f425d0ee9a51aa2162bf3" title=" " alt="" coords="563,257,662,284"/>
+<area shape="rect" href="a00471.html#a9811f50434dd058d201290b2dc98bfcd" title=" " alt="" coords="555,207,671,233"/>
+<area shape="rect" href="a00455.html#a95b2436caee0cd232126f78c642238dd" title=" " alt="" coords="735,308,845,335"/>
+<area shape="rect" href="a00471.html#a4e5b5163bb46b8de5ac4013bde1ded00" title=" " alt="" coords="553,105,672,132"/>
+<area shape="rect" href="a00455.html#a036ce0072f4da74a8809550d21eac9dd" title=" " alt="" coords="539,156,687,183"/>
+<area shape="rect" href="a00471.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="739,257,841,284"/>
+<area shape="rect" href="a00471.html#a269d316eeb6000aac4f57ade32c83127" title=" " alt="" coords="546,409,679,436"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="ab18fac37cac4e8bde0419fe04845ac9d" name="ab18fac37cac4e8bde0419fe04845ac9d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab18fac37cac4e8bde0419fe04845ac9d">&#9670;&nbsp;</a></span>getReadIdx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">int <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::getReadIdx </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >return the current index for reading/get </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00174">174</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  175</span>    {</div>
-<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>;</div>
-<div class="line"><span class="lineno">  177</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00219">CRingBuffer&lt; T &gt;::m_iReadIdx</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00053">CBlockAudioFile::getNextBlock()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00447_ab18fac37cac4e8bde0419fe04845ac9d_icgraph.png" border="0" usemap="#aa00447_ab18fac37cac4e8bde0419fe04845ac9d_icgraph" alt=""/></div>
-<map name="aa00447_ab18fac37cac4e8bde0419fe04845ac9d_icgraph" id="aa00447_ab18fac37cac4e8bde0419fe04845ac9d_icgraph">
-<area shape="rect" title=" " alt="" coords="223,13,385,39"/>
-<area shape="rect" href="a00371.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="5,5,175,47"/>
+<div class="center"><img src="a00447_a04bf94ff97e5e270210954864025ea06_icgraph.png" border="0" usemap="#aa00447_a04bf94ff97e5e270210954864025ea06_icgraph" alt=""/></div>
+<map name="aa00447_a04bf94ff97e5e270210954864025ea06_icgraph" id="aa00447_a04bf94ff97e5e270210954864025ea06_icgraph">
+<area shape="rect" title=" " alt="" coords="195,5,287,32"/>
+<area shape="rect" href="a00547.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,5,147,32"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a8173fd5abe5c4ff4e78ffad4b14ea88b" name="a8173fd5abe5c4ff4e78ffad4b14ea88b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8173fd5abe5c4ff4e78ffad4b14ea88b">&#9670;&nbsp;</a></span>getWriteIdx()</h2>
+<a id="add0db9a0cf605eb3f57c80b52d2bda0e" name="add0db9a0cf605eb3f57c80b52d2bda0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#add0db9a0cf605eb3f57c80b52d2bda0e">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -723,51 +453,22 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::getWriteIdx </td>
+          <td class="memname"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::init </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>pfB</em>, </td>
         </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >return the current index for writing/put </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00157">157</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  158</span>    {</div>
-<div class="line"><span class="lineno">  159</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>;</div>
-<div class="line"><span class="lineno">  160</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00220">CRingBuffer&lt; T &gt;::m_iWriteIdx</a>.</p>
-
-</div>
-</div>
-<a id="a67eddecd2a880c52c80093774bc37c24" name="a67eddecd2a880c52c80093774bc37c24"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a67eddecd2a880c52c80093774bc37c24">&#9670;&nbsp;</a></span>incIdx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::incIdx </td>
-          <td>(</td>
-          <td class="paramtype">int &amp;&#160;</td>
-          <td class="paramname"><em>iIdx</em>, </td>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>pfA</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iOffset</em> = <code>1</code>&#160;</td>
+          <td class="paramname"><em>iNumCoeffs</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -777,57 +478,87 @@ template&lt;class T &gt; </div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >initializes the filter </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfB</td><td>numerator coefficients </td></tr>
+    <tr><td class="paramname">pfA</td><td>denominator coefficients (normalized: pfA[0] = 1) </td></tr>
+    <tr><td class="paramname">iNumCoeffs</td><td>length of both pfB, and pfA </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00208">208</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  209</span>    {</div>
-<div class="line"><span class="lineno">  210</span>        <span class="keywordflow">while</span> ((iIdx + iOffset) &lt; 0)</div>
-<div class="line"><span class="lineno">  211</span>        {</div>
-<div class="line"><span class="lineno">  212</span>            <span class="comment">// avoid negative buffer indices</span></div>
-<div class="line"><span class="lineno">  213</span>            iOffset += <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>;</div>
-<div class="line"><span class="lineno">  214</span>        }</div>
-<div class="line"><span class="lineno">  215</span>        iIdx = (iIdx + iOffset) % <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>;</div>
-<div class="line"><span class="lineno">  216</span>    };</div>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00033">33</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   34</span>    {</div>
+<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">if</span> (!pfA || !pfB || iNumCoeffs &lt;= 0)</div>
+<div class="line"><span class="lineno">   36</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_function" href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200">reset</a>();</div>
+<div class="line"><span class="lineno">   39</span> </div>
+<div class="line"><span class="lineno">   40</span>        <span class="comment">// alloc internal coefficients</span></div>
+<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; <a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4">kNumFilterDims</a>; i++)</div>
+<div class="line"><span class="lineno">   42</span>        {</div>
+<div class="line"><span class="lineno">   43</span>            <a class="code hl_function" href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[i], iNumCoeffs);</div>
+<div class="line"><span class="lineno">   44</span>            <a class="code hl_function" href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a>(<a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[i], iNumCoeffs);</div>
+<div class="line"><span class="lineno">   45</span>        }</div>
+<div class="line"><span class="lineno">   46</span> </div>
+<div class="line"><span class="lineno">   47</span>        <span class="comment">// set coefficients</span></div>
+<div class="line"><span class="lineno">   48</span>        <a class="code hl_function" href="a00471.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(<a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>], pfB, iNumCoeffs);</div>
+<div class="line"><span class="lineno">   49</span>        <a class="code hl_function" href="a00471.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(<a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">kIir</a>], pfA, iNumCoeffs);</div>
+<div class="line"><span class="lineno">   50</span>        <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> = iNumCoeffs;</div>
+<div class="line"><span class="lineno">   51</span> </div>
+<div class="line"><span class="lineno">   52</span>        <span class="comment">// initialize other internal memory</span></div>
+<div class="line"><span class="lineno">   53</span>        <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00459.html">CRingBuffer&lt;T&gt;</a>(iNumCoeffs);</div>
+<div class="line"><span class="lineno">   54</span>        <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a>-&gt;setWriteIdx(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iNumCoeffs - 1));</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>        <a class="code hl_function" href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>, <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iNumCoeffs)-1);</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>        <a class="code hl_variable" href="a00447.html#a08878b88194b75c579748ca740db6444">m_bIsInitialized</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   59</span> </div>
+<div class="line"><span class="lineno">   60</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   61</span>    }</div>
+<div class="ttc" id="aa00447_html_a4e31c29ccb288a7227e65e2b925deb02"><div class="ttname"><a href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">CFilter::m_aptCoeff</a></div><div class="ttdeci">T * m_aptCoeff[kNumFilterDims]</div><div class="ttdoc">filter coefficients</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00277">Filter.h:277</a></div></div>
+<div class="ttc" id="aa00447_html_ac44bd773d4652641a423b5291f13d337"><div class="ttname"><a href="a00447.html#ac44bd773d4652641a423b5291f13d337">CFilter::m_pCFilterBuff</a></div><div class="ttdeci">CRingBuffer&lt; T &gt; * m_pCFilterBuff</div><div class="ttdoc">internal ring buffer for filter (only used for direct form II implementation CFilter::processDFII)</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00275">Filter.h:275</a></div></div>
+<div class="ttc" id="aa00447_html_adc33d7fd0caf47e30d1d4e3634819bac"><div class="ttname"><a href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">CFilter::m_ptProcBuff</a></div><div class="ttdeci">T * m_ptProcBuff</div><div class="ttdoc">temp buffer for processing</div><div class="ttdef"><b>Definition:</b> <a href="a00134_source.html#l00279">Filter.h:279</a></div></div>
+<div class="ttc" id="aa00459_html"><div class="ttname"><a href="a00459.html">CRingBuffer</a></div><div class="ttdoc">implement a circular buffer of type T</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00013">RingBuffer.h:14</a></div></div>
+<div class="ttc" id="aa00471_html_a6dbb3f9f480568b60f7fe50090d20003"><div class="ttname"><a href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a></div><div class="ttdeci">static void setZero(T *ptSrcDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00051">Vector.h:51</a></div></div>
+<div class="ttc" id="aa00471_html_ad7c5cba73e439adac77778f61c9418f0"><div class="ttname"><a href="a00471.html#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a></div><div class="ttdeci">static void copy(T *ptDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00113">Vector.h:113</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00218">CRingBuffer&lt; T &gt;::m_iBuffLength</a>.</p>
+<p class="reference">References <a class="el" href="a00137_source.html#l00024">CVector::alloc()</a>, <a class="el" href="a00137_source.html#l00113">CVector::copy()</a>, <a class="el" href="a00134_source.html#l00231">CFilter&lt; T &gt;::kFir</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00134_source.html#l00232">CFilter&lt; T &gt;::kIir</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00134_source.html#l00234">CFilter&lt; T &gt;::kNumFilterDims</a>, <a class="el" href="a00134_source.html#l00277">CFilter&lt; T &gt;::m_aptCoeff</a>, <a class="el" href="a00134_source.html#l00283">CFilter&lt; T &gt;::m_bIsInitialized</a>, <a class="el" href="a00134_source.html#l00281">CFilter&lt; T &gt;::m_iNumFilterCoeffs</a>, <a class="el" href="a00134_source.html#l00275">CFilter&lt; T &gt;::m_pCFilterBuff</a>, <a class="el" href="a00134_source.html#l00279">CFilter&lt; T &gt;::m_ptProcBuff</a>, <a class="el" href="a00134_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, and <a class="el" href="a00137_source.html#l00051">CVector::setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00137_source.html#l00084">CRingBuffer&lt; T &gt;::getPostInc()</a>, <a class="el" href="a00137_source.html#l00038">CRingBuffer&lt; T &gt;::putPostInc()</a>, <a class="el" href="a00137_source.html#l00183">CRingBuffer&lt; T &gt;::setReadIdx()</a>, and <a class="el" href="a00137_source.html#l00166">CRingBuffer&lt; T &gt;::setWriteIdx()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00092_source.html#l00216">CPitchTimeAuditory::CPitchTimeAuditory()</a>, and <a class="el" href="a00188_source.html#l00102">CResample::process()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00447_add0db9a0cf605eb3f57c80b52d2bda0e_cgraph.png" border="0" usemap="#aa00447_add0db9a0cf605eb3f57c80b52d2bda0e_cgraph" alt=""/></div>
+<map name="aa00447_add0db9a0cf605eb3f57c80b52d2bda0e_cgraph" id="aa00447_add0db9a0cf605eb3f57c80b52d2bda0e_cgraph">
+<area shape="rect" title=" " alt="" coords="5,81,88,108"/>
+<area shape="rect" href="a00471.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="136,5,239,32"/>
+<area shape="rect" href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="287,56,405,83"/>
+<area shape="rect" href="a00471.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="136,107,239,133"/>
+<area shape="rect" href="a00447.html#a8d6a8f20ea178eda7352a89bf7a4d200" title=" " alt="" coords="140,157,235,184"/>
+<area shape="rect" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="297,157,395,184"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00447_a67eddecd2a880c52c80093774bc37c24_icgraph.png" border="0" usemap="#aa00447_a67eddecd2a880c52c80093774bc37c24_icgraph" alt=""/></div>
-<map name="aa00447_a67eddecd2a880c52c80093774bc37c24_icgraph" id="aa00447_a67eddecd2a880c52c80093774bc37c24_icgraph">
-<area shape="rect" title=" " alt="" coords="1404,122,1535,149"/>
-<area shape="rect" href="a00447.html#a0f25eadaafa6a2e7bfe2f9ef6af1104b" title=" " alt="" coords="1195,97,1355,123"/>
-<area shape="rect" href="a00447.html#a2bd848181a662312600bc590b9040d2a" title=" " alt="" coords="1195,46,1355,73"/>
-<area shape="rect" href="a00447.html#af265a6322c4b1584c880def00d31e663" title=" " alt="" coords="1193,147,1356,174"/>
-<area shape="rect" href="a00447.html#a408e0ec5855fca27bd2dc5862fa913ab" title=" " alt="" coords="1193,198,1356,225"/>
-<area shape="rect" href="a00515.html#a4e86e5be0bc6ad928397d99eda2d1978" title=" " alt="" coords="970,71,1143,98"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="730,185,883,211"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="480,185,645,211"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="239,159,432,186"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="310,210,361,237"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="73,159,123,186"/>
-<area shape="rect" href="a00371.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="968,5,1145,47"/>
-<area shape="rect" href="a00371.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="697,13,917,39"/>
-<area shape="rect" href="a00371.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="722,64,891,105"/>
-<area shape="rect" href="a00515.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="979,239,1135,266"/>
-<area shape="rect" href="a00515.html#a1a014af5490675e140d6069561b00eb1" title=" " alt="" coords="969,173,1144,215"/>
-<area shape="rect" href="a00515.html#aa02ee977828ff103f3e2c25889131122" title=" " alt="" coords="693,286,920,313"/>
-<area shape="rect" href="a00515.html#a9008feaaece203a6bf1220ab81e1b983" title=" " alt="" coords="481,286,644,313"/>
-<area shape="rect" href="a00467.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="279,286,392,313"/>
-<area shape="rect" href="a00323.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,245,191,287"/>
-<area shape="rect" href="a00327.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="23,311,173,352"/>
+<div class="center"><img src="a00447_add0db9a0cf605eb3f57c80b52d2bda0e_icgraph.png" border="0" usemap="#aa00447_add0db9a0cf605eb3f57c80b52d2bda0e_icgraph" alt=""/></div>
+<map name="aa00447_add0db9a0cf605eb3f57c80b52d2bda0e_icgraph" id="aa00447_add0db9a0cf605eb3f57c80b52d2bda0e_icgraph">
+<area shape="rect" title=" " alt="" coords="196,42,279,69"/>
+<area shape="rect" href="a00363.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="5,5,148,47"/>
+<area shape="rect" href="a00547.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="6,71,147,98"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a76a236cd8dcd7e464abd9416dd445f2c" name="a76a236cd8dcd7e464abd9416dd445f2c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a76a236cd8dcd7e464abd9416dd445f2c">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="ab8d1ef97269ec1b5408605731b009ae2" name="ab8d1ef97269ec1b5408605731b009ae2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8d1ef97269ec1b5408605731b009ae2">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -838,9 +569,9 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00447.html">CRingBuffer</a> &amp; <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::operator= </td>
+          <td class="memname"><a class="el" href="a00447.html">CFilter</a> &amp; <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt; &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00447.html">CFilter</a>&lt; T &gt; &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -854,8 +585,8 @@ template&lt;class T &gt; </div>
 
 </div>
 </div>
-<a id="a15f6463cfcafd855157d33d253011dc7" name="a15f6463cfcafd855157d33d253011dc7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a15f6463cfcafd855157d33d253011dc7">&#9670;&nbsp;</a></span>put() <span class="overload">[1/2]</span></h2>
+<a id="a1c35f3511dcdc32517db3cea9c327ae8" name="a1c35f3511dcdc32517db3cea9c327ae8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c35f3511dcdc32517db3cea9c327ae8">&#9670;&nbsp;</a></span>process()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -866,16 +597,22 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::put </td>
+          <td class="memname"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::process </td>
           <td>(</td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>ptNewBuff</em>, </td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pfOut</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>pfIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iNumSamples</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -889,232 +626,229 @@ template&lt;class T &gt; </div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >add new values of type T to write index </p><dl class="params"><dt>Parameters</dt><dd>
+<p >filters the signal (transposed direct form II implementation), can be called block by block </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">ptNewBuff</td><td>new values </td></tr>
-    <tr><td class="paramname">iLength</td><td>number of values </td></tr>
+    <tr><td class="paramname">pfOut</td><td>output signal (to be written, allocated by user) </td></tr>
+    <tr><td class="paramname">pfIn</td><td>input signal </td></tr>
+    <tr><td class="paramname">iNumSamples</td><td>length of both pfOut and pfIn </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00069">69</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   70</span>    {</div>
-<div class="line"><span class="lineno">   71</span>        assert(iLength &lt;= m_iBuffLength &amp;&amp; iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">   72</span> </div>
-<div class="line"><span class="lineno">   73</span>        <span class="comment">// copy two parts: to the end of buffer and after wrap around</span></div>
-<div class="line"><span class="lineno">   74</span>        <span class="keywordtype">int</span> iNumValues2End = std::min(iLength, <a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a> - <a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>);</div>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00101">101</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  102</span>    {</div>
+<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00447.html#a08878b88194b75c579748ca740db6444">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  104</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">if</span> (!pfOut || !pfIn || iNumSamples &lt;= 0)</div>
+<div class="line"><span class="lineno">  106</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  107</span> </div>
+<div class="line"><span class="lineno">  108</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iNumSamples; i++)</div>
+<div class="line"><span class="lineno">  109</span>        {</div>
+<div class="line"><span class="lineno">  110</span>            T fTmp = <a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>[0] + <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>][0] * pfIn[i];</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 1; j &lt; <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - 1; j++)</div>
+<div class="line"><span class="lineno">  113</span>                <a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>[j - 1] = <a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>[j] - <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">kIir</a>][j] * fTmp + <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>][j] * pfIn[i];</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>            <a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>[<a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a>-2] = -<a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">kIir</a>][<a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - 1] * fTmp + <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>][<a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a>-1] * pfIn[i];</div>
+<div class="line"><span class="lineno">  116</span> </div>
+<div class="line"><span class="lineno">  117</span>            pfOut[i] = fTmp;</div>
+<div class="line"><span class="lineno">  118</span>        }</div>
+<div class="line"><span class="lineno">  119</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  120</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00134_source.html#l00231">CFilter&lt; T &gt;::kFir</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00134_source.html#l00232">CFilter&lt; T &gt;::kIir</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00134_source.html#l00277">CFilter&lt; T &gt;::m_aptCoeff</a>, <a class="el" href="a00134_source.html#l00283">CFilter&lt; T &gt;::m_bIsInitialized</a>, <a class="el" href="a00134_source.html#l00281">CFilter&lt; T &gt;::m_iNumFilterCoeffs</a>, and <a class="el" href="a00134_source.html#l00279">CFilter&lt; T &gt;::m_ptProcBuff</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00092_source.html#l00254">CPitchTimeAuditory::compF0()</a>, and <a class="el" href="a00134_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00447_a1c35f3511dcdc32517db3cea9c327ae8_icgraph.png" border="0" usemap="#aa00447_a1c35f3511dcdc32517db3cea9c327ae8_icgraph" alt=""/></div>
+<map name="aa00447_a1c35f3511dcdc32517db3cea9c327ae8_icgraph" id="aa00447_a1c35f3511dcdc32517db3cea9c327ae8_icgraph">
+<area shape="rect" title=" " alt="" coords="380,42,492,69"/>
+<area shape="rect" href="a00363.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="195,5,332,47"/>
+<area shape="rect" href="a00447.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="217,71,309,98"/>
+<area shape="rect" href="a00547.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,71,147,98"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a525b94fcc4e3ff6c061c6d9e667c4790" name="a525b94fcc4e3ff6c061c6d9e667c4790"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a525b94fcc4e3ff6c061c6d9e667c4790">&#9670;&nbsp;</a></span>processDFII()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::processDFII </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>pfOut</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>pfIn</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iNumSamples</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >filters the signal (direct form II implementation, here as "informative" implementation) </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfOut</td><td>output signal (to be written, allocated by user) </td></tr>
+    <tr><td class="paramname">pfIn</td><td>input signal </td></tr>
+    <tr><td class="paramname">iNumSamples</td><td>length of both pfOut and pfIn </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00128">128</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  129</span>    {</div>
+<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00447.html#a08878b88194b75c579748ca740db6444">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  131</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  132</span>        <span class="keywordflow">if</span> (!pfOut || !pfIn || iNumSamples &lt;= 0)</div>
+<div class="line"><span class="lineno">  133</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  134</span> </div>
+<div class="line"><span class="lineno">  135</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iNumSamples; i++)</div>
+<div class="line"><span class="lineno">  136</span>        {</div>
+<div class="line"><span class="lineno">  137</span>            T fTmp = pfIn[i];</div>
+<div class="line"><span class="lineno">  138</span> </div>
+<div class="line"><span class="lineno">  139</span>            <span class="comment">// get buffer values</span></div>
+<div class="line"><span class="lineno">  140</span>            <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a>-&gt;get(<a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>, <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - 1);</div>
+<div class="line"><span class="lineno">  141</span> </div>
+<div class="line"><span class="lineno">  142</span>            <span class="comment">// IIR part</span></div>
+<div class="line"><span class="lineno">  143</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 1; j &lt; <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a>; j++)</div>
+<div class="line"><span class="lineno">  144</span>                fTmp -= <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">kIir</a>][j] * <a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>[<a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - 1 - j];</div>
+<div class="line"><span class="lineno">  145</span> </div>
+<div class="line"><span class="lineno">  146</span>            <span class="comment">//put new value into buffer</span></div>
+<div class="line"><span class="lineno">  147</span>            <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a>-&gt;putPostInc(fTmp);</div>
+<div class="line"><span class="lineno">  148</span> </div>
+<div class="line"><span class="lineno">  149</span>            <span class="comment">// FIR part</span></div>
+<div class="line"><span class="lineno">  150</span>            pfOut[i] = <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>][0] * fTmp;</div>
+<div class="line"><span class="lineno">  151</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> j = 1; j &lt; <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a>; j++)</div>
+<div class="line"><span class="lineno">  152</span>                pfOut[i] += <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>][j] * <a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>[<a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - 1 - j];</div>
+<div class="line"><span class="lineno">  153</span> </div>
+<div class="line"><span class="lineno">  154</span>            <span class="comment">// increment read index</span></div>
+<div class="line"><span class="lineno">  155</span>            <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a>-&gt;getPostInc();</div>
+<div class="line"><span class="lineno">  156</span>        }</div>
+<div class="line"><span class="lineno">  157</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  158</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00134_source.html#l00231">CFilter&lt; T &gt;::kFir</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00134_source.html#l00232">CFilter&lt; T &gt;::kIir</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00134_source.html#l00277">CFilter&lt; T &gt;::m_aptCoeff</a>, <a class="el" href="a00134_source.html#l00283">CFilter&lt; T &gt;::m_bIsInitialized</a>, <a class="el" href="a00134_source.html#l00281">CFilter&lt; T &gt;::m_iNumFilterCoeffs</a>, <a class="el" href="a00134_source.html#l00275">CFilter&lt; T &gt;::m_pCFilterBuff</a>, and <a class="el" href="a00134_source.html#l00279">CFilter&lt; T &gt;::m_ptProcBuff</a>.</p>
+
+</div>
+</div>
+<a id="a8d6a8f20ea178eda7352a89bf7a4d200" name="a8d6a8f20ea178eda7352a89bf7a4d200"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8d6a8f20ea178eda7352a89bf7a4d200">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::reset </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00221.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td>
+          <td class="paramname"><em>bFreeMem</em> = <code><a class="el" href="a00221.html#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a></code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >resets a Filter instance </p><dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00066">66</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   67</span>    {</div>
+<div class="line"><span class="lineno">   68</span>        <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00447.html#a08878b88194b75c579748ca740db6444">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">   69</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   70</span> </div>
+<div class="line"><span class="lineno">   71</span>        <span class="keywordflow">if</span> (bFreeMem)</div>
+<div class="line"><span class="lineno">   72</span>        {</div>
+<div class="line"><span class="lineno">   73</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; <a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4">kNumFilterDims</a>; i++)</div>
+<div class="line"><span class="lineno">   74</span>                <a class="code hl_function" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[i]);</div>
 <div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>        std::memcpy (&amp;<a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>[<a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>], ptNewBuff, <span class="keyword">sizeof</span>(T)*iNumValues2End);</div>
-<div class="line"><span class="lineno">   77</span>        <span class="keywordflow">if</span> ((iLength - iNumValues2End) &gt; 0)</div>
-<div class="line"><span class="lineno">   78</span>            std::memcpy (<a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>, &amp;ptNewBuff[iNumValues2End], <span class="keyword">sizeof</span>(T)*(<span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(iLength) - iNumValues2End));</div>
-<div class="line"><span class="lineno">   79</span>    }</div>
+<div class="line"><span class="lineno">   76</span>            <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> = 0;</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>            <span class="keyword">delete</span> <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a>;</div>
+<div class="line"><span class="lineno">   79</span>            <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a> = 0;</div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>            <a class="code hl_function" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>);</div>
+<div class="line"><span class="lineno">   82</span> </div>
+<div class="line"><span class="lineno">   83</span>            <a class="code hl_variable" href="a00447.html#a08878b88194b75c579748ca740db6444">m_bIsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   84</span>        }</div>
+<div class="line"><span class="lineno">   85</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">   86</span>        {</div>
+<div class="line"><span class="lineno">   87</span>            <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a>-&gt;reset();</div>
+<div class="line"><span class="lineno">   88</span>            <a class="code hl_variable" href="a00447.html#ac44bd773d4652641a423b5291f13d337">m_pCFilterBuff</a>-&gt;setWriteIdx(<a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - 1);</div>
+<div class="line"><span class="lineno">   89</span>            <a class="code hl_function" href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a>(<a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>, <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(1));</div>
+<div class="line"><span class="lineno">   90</span>        }</div>
+<div class="line"><span class="lineno">   91</span> </div>
+<div class="line"><span class="lineno">   92</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   93</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00218">CRingBuffer&lt; T &gt;::m_iBuffLength</a>, <a class="el" href="a00137_source.html#l00220">CRingBuffer&lt; T &gt;::m_iWriteIdx</a>, and <a class="el" href="a00137_source.html#l00222">CRingBuffer&lt; T &gt;::m_ptBuff</a>.</p>
+<p class="reference">References <a class="el" href="a00137_source.html#l00039">CVector::free()</a>, <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00134_source.html#l00234">CFilter&lt; T &gt;::kNumFilterDims</a>, <a class="el" href="a00134_source.html#l00277">CFilter&lt; T &gt;::m_aptCoeff</a>, <a class="el" href="a00134_source.html#l00283">CFilter&lt; T &gt;::m_bIsInitialized</a>, <a class="el" href="a00134_source.html#l00281">CFilter&lt; T &gt;::m_iNumFilterCoeffs</a>, <a class="el" href="a00134_source.html#l00275">CFilter&lt; T &gt;::m_pCFilterBuff</a>, <a class="el" href="a00134_source.html#l00279">CFilter&lt; T &gt;::m_ptProcBuff</a>, and <a class="el" href="a00137_source.html#l00051">CVector::setZero()</a>.</p>
 
-</div>
-</div>
-<a id="a702eb6314380082795f735df74a816c9" name="a702eb6314380082795f735df74a816c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a702eb6314380082795f735df74a816c9">&#9670;&nbsp;</a></span>put() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::put </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>tNewValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >add a new value of type T to write index </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tNewValue</td><td>the new value </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00059">59</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   60</span>    {</div>
-<div class="line"><span class="lineno">   61</span>        <a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>[<a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>] = tNewValue;</div>
-<div class="line"><span class="lineno">   62</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00220">CRingBuffer&lt; T &gt;::m_iWriteIdx</a>, and <a class="el" href="a00137_source.html#l00222">CRingBuffer&lt; T &gt;::m_ptBuff</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00137_source.html#l00038">CRingBuffer&lt; T &gt;::putPostInc()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a702eb6314380082795f735df74a816c9_icgraph.png" border="0" usemap="#aa00447_a702eb6314380082795f735df74a816c9_icgraph" alt=""/></div>
-<map name="aa00447_a702eb6314380082795f735df74a816c9_icgraph" id="aa00447_a702eb6314380082795f735df74a816c9_icgraph">
-<area shape="rect" title=" " alt="" coords="1260,60,1375,87"/>
-<area shape="rect" href="a00447.html#a2bd848181a662312600bc590b9040d2a" title=" " alt="" coords="1052,60,1212,87"/>
-<area shape="rect" href="a00515.html#a4e86e5be0bc6ad928397d99eda2d1978" title=" " alt="" coords="829,31,1002,57"/>
-<area shape="rect" href="a00371.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="827,82,1004,123"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="592,31,745,57"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-<area shape="rect" href="a00371.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="559,85,779,112"/>
-<area shape="rect" href="a00371.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="584,137,753,178"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a21568ce259aa8e97ea3f3d7aec4828b7" name="a21568ce259aa8e97ea3f3d7aec4828b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a21568ce259aa8e97ea3f3d7aec4828b7">&#9670;&nbsp;</a></span>putPostInc() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::putPostInc </td>
-          <td>(</td>
-          <td class="paramtype">const T *&#160;</td>
-          <td class="paramname"><em>ptNewBuff</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLength</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >add new values of type T to write index and increment write index </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">ptNewBuff</td><td>new values </td></tr>
-    <tr><td class="paramname">iLength</td><td>number of values </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00049">49</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>    {</div>
-<div class="line"><span class="lineno">   51</span>        <a class="code hl_function" href="a00447.html#a702eb6314380082795f735df74a816c9">put</a>(ptNewBuff, iLength);</div>
-<div class="line"><span class="lineno">   52</span>        <a class="code hl_function" href="a00447.html#a67eddecd2a880c52c80093774bc37c24">incIdx</a>(<a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>, iLength);</div>
-<div class="line"><span class="lineno">   53</span>    }</div>
-<div class="ttc" id="aa00447_html_a702eb6314380082795f735df74a816c9"><div class="ttname"><a href="a00447.html#a702eb6314380082795f735df74a816c9">CRingBuffer::put</a></div><div class="ttdeci">void put(T tNewValue)</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.html#l00059">RingBuffer.h:59</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00208">CRingBuffer&lt; T &gt;::incIdx()</a>, <a class="el" href="a00137_source.html#l00220">CRingBuffer&lt; T &gt;::m_iWriteIdx</a>, and <a class="el" href="a00137_source.html#l00059">CRingBuffer&lt; T &gt;::put()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00134_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00098_source.html#l00131">CGammatone::reset()</a>, and <a class="el" href="a00134_source.html#l00021">CFilter&lt; T &gt;::~CFilter()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00447_a21568ce259aa8e97ea3f3d7aec4828b7_cgraph.png" border="0" usemap="#aa00447_a21568ce259aa8e97ea3f3d7aec4828b7_cgraph" alt=""/></div>
-<map name="aa00447_a21568ce259aa8e97ea3f3d7aec4828b7_cgraph" id="aa00447_a21568ce259aa8e97ea3f3d7aec4828b7_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,165,57"/>
-<area shape="rect" href="a00447.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="213,5,344,32"/>
-<area shape="rect" href="a00447.html#a702eb6314380082795f735df74a816c9" title=" " alt="" coords="221,56,336,83"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a2bd848181a662312600bc590b9040d2a" name="a2bd848181a662312600bc590b9040d2a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2bd848181a662312600bc590b9040d2a">&#9670;&nbsp;</a></span>putPostInc() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::putPostInc </td>
-          <td>(</td>
-          <td class="paramtype">T&#160;</td>
-          <td class="paramname"><em>tNewValue</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >add a new value of type T to write index and increment write index </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">tNewValue</td><td>the new value </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00038">38</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   39</span>    {</div>
-<div class="line"><span class="lineno">   40</span>        <a class="code hl_function" href="a00447.html#a702eb6314380082795f735df74a816c9">put</a>(tNewValue);</div>
-<div class="line"><span class="lineno">   41</span>        <a class="code hl_function" href="a00447.html#a67eddecd2a880c52c80093774bc37c24">incIdx</a>(<a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>);</div>
-<div class="line"><span class="lineno">   42</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00208">CRingBuffer&lt; T &gt;::incIdx()</a>, <a class="el" href="a00137_source.html#l00220">CRingBuffer&lt; T &gt;::m_iWriteIdx</a>, and <a class="el" href="a00137_source.html#l00059">CRingBuffer&lt; T &gt;::put()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00173_source.html#l00198">CMovingAverage::process()</a>, and <a class="el" href="a00071_source.html#l00088">CBlockAudioFile::readFile2RingBuff()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a2bd848181a662312600bc590b9040d2a_cgraph.png" border="0" usemap="#aa00447_a2bd848181a662312600bc590b9040d2a_cgraph" alt=""/></div>
-<map name="aa00447_a2bd848181a662312600bc590b9040d2a_cgraph" id="aa00447_a2bd848181a662312600bc590b9040d2a_cgraph">
-<area shape="rect" title=" " alt="" coords="5,31,165,57"/>
-<area shape="rect" href="a00447.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="213,5,344,32"/>
-<area shape="rect" href="a00447.html#a702eb6314380082795f735df74a816c9" title=" " alt="" coords="221,56,336,83"/>
+<div class="center"><img src="a00447_a8d6a8f20ea178eda7352a89bf7a4d200_cgraph.png" border="0" usemap="#aa00447_a8d6a8f20ea178eda7352a89bf7a4d200_cgraph" alt=""/></div>
+<map name="aa00447_a8d6a8f20ea178eda7352a89bf7a4d200_cgraph" id="aa00447_a8d6a8f20ea178eda7352a89bf7a4d200_cgraph">
+<area shape="rect" title=" " alt="" coords="5,31,100,57"/>
+<area shape="rect" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="159,5,256,32"/>
+<area shape="rect" href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="148,56,267,83"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00447_a2bd848181a662312600bc590b9040d2a_icgraph.png" border="0" usemap="#aa00447_a2bd848181a662312600bc590b9040d2a_icgraph" alt=""/></div>
-<map name="aa00447_a2bd848181a662312600bc590b9040d2a_icgraph" id="aa00447_a2bd848181a662312600bc590b9040d2a_icgraph">
-<area shape="rect" title=" " alt="" coords="1052,60,1212,87"/>
-<area shape="rect" href="a00515.html#a4e86e5be0bc6ad928397d99eda2d1978" title=" " alt="" coords="829,31,1002,57"/>
-<area shape="rect" href="a00371.html#ac77d15abc29183765326f7212dd523a1" title=" " alt="" coords="827,82,1004,123"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="592,31,745,57"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="345,31,511,57"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="104,5,297,32"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="175,56,226,83"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
-<area shape="rect" href="a00371.html#ae12716ee8473becf462624698243f761" title=" " alt="" coords="559,85,779,112"/>
-<area shape="rect" href="a00371.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="584,137,753,178"/>
+<div class="center"><img src="a00447_a8d6a8f20ea178eda7352a89bf7a4d200_icgraph.png" border="0" usemap="#aa00447_a8d6a8f20ea178eda7352a89bf7a4d200_icgraph" alt=""/></div>
+<map name="aa00447_a8d6a8f20ea178eda7352a89bf7a4d200_icgraph" id="aa00447_a8d6a8f20ea178eda7352a89bf7a4d200_icgraph">
+<area shape="rect" title=" " alt="" coords="381,81,476,108"/>
+<area shape="rect" href="a00447.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="219,5,311,32"/>
+<area shape="rect" href="a00447.html#add0db9a0cf605eb3f57c80b52d2bda0e" title=" " alt="" coords="223,56,306,83"/>
+<area shape="rect" href="a00391.html#ac8a53e2ced024bccde0f5941404068d0" title=" " alt="" coords="196,107,333,133"/>
+<area shape="rect" href="a00447.html#a98c26369ca6c2941cba4874e6bfef3a7" title=" " alt="" coords="209,157,320,184"/>
+<area shape="rect" href="a00547.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="6,5,147,32"/>
+<area shape="rect" href="a00363.html#af5f08be46100a7ecbc5450f52a96c77e" title=" " alt="" coords="5,57,148,98"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a716fb4acc03355a73cc7d96f3ceb2995" name="a716fb4acc03355a73cc7d96f3ceb2995"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a716fb4acc03355a73cc7d96f3ceb2995">&#9670;&nbsp;</a></span>reset()</h2>
+<a id="a68eafbce2417e9c8e7934953e85199e7" name="a68eafbce2417e9c8e7934953e85199e7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a68eafbce2417e9c8e7934953e85199e7">&#9670;&nbsp;</a></span>setInitState_()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1125,181 +859,102 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::reset </td>
+          <td class="memname">void <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::setInitState_ </td>
           <td>(</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fWeight</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >set buffer content and indices to 0 </p><dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00147">147</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  148</span>    {</div>
-<div class="line"><span class="lineno">  149</span>        std::memset (<a class="code hl_variable" href="a00447.html#a6c82ffd2218093776e8952e15309c51e">m_ptBuff</a>, 0, <span class="keyword">sizeof</span>(T)*<a class="code hl_variable" href="a00447.html#a3f35b48aa5632a863a85d09de775fb0b">m_iBuffLength</a>);</div>
-<div class="line"><span class="lineno">  150</span>        <a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>  = 0;</div>
-<div class="line"><span class="lineno">  151</span>        <a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a> = 0;</div>
-<div class="line"><span class="lineno">  152</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00238">238</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  239</span>    {</div>
+<div class="line"><span class="lineno">  240</span>        <span class="keywordtype">float</span>** ppfA = 0;</div>
+<div class="line"><span class="lineno">  241</span>        <span class="keywordtype">float</span>* pfB = 0;</div>
+<div class="line"><span class="lineno">  242</span>        <span class="keywordtype">float</span>* pfZi = 0;</div>
+<div class="line"><span class="lineno">  243</span> </div>
+<div class="line"><span class="lineno">  244</span>        <span class="keywordtype">int</span> iLengthOfCoeffBuffers = <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a> - 1; </div>
+<div class="line"><span class="lineno">  245</span> </div>
+<div class="line"><span class="lineno">  246</span>        <a class="code hl_function" href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfB, iLengthOfCoeffBuffers);</div>
+<div class="line"><span class="lineno">  247</span>        <a class="code hl_function" href="a00471.html#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfZi, iLengthOfCoeffBuffers);</div>
+<div class="line"><span class="lineno">  248</span>        <a class="code hl_function" href="a00455.html#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a>(ppfA, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);</div>
+<div class="line"><span class="lineno">  249</span> </div>
+<div class="line"><span class="lineno">  250</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 1; i &lt; <a class="code hl_variable" href="a00447.html#aed0a614dce6816b55f0b3f17bdf991e5">m_iNumFilterCoeffs</a>; i++)</div>
+<div class="line"><span class="lineno">  251</span>            pfB[i - 1] = <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>][i] - <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca29cc20553a29d08db9ce9d3995f134e8">kFir</a>][0] * <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">kIir</a>][i];</div>
+<div class="line"><span class="lineno">  252</span> </div>
+<div class="line"><span class="lineno">  253</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; iLengthOfCoeffBuffers; m++)</div>
+<div class="line"><span class="lineno">  254</span>        {</div>
+<div class="line"><span class="lineno">  255</span>            ppfA[m][m] = 1;</div>
+<div class="line"><span class="lineno">  256</span>            ppfA[m][0] += <a class="code hl_variable" href="a00447.html#a4e31c29ccb288a7227e65e2b925deb02">m_aptCoeff</a>[<a class="code hl_enumvalue" href="a00447.html#af77365faa392bc427be2607834ab39bca61b3a34d4b72be6e92f0d40eee575d54">kIir</a>][m + 1];</div>
+<div class="line"><span class="lineno">  257</span>            <span class="keywordflow">if</span> (m &lt; iLengthOfCoeffBuffers-1)</div>
+<div class="line"><span class="lineno">  258</span>                ppfA[m][m + 1] = -1;</div>
+<div class="line"><span class="lineno">  259</span>        }</div>
+<div class="line"><span class="lineno">  260</span> </div>
+<div class="line"><span class="lineno">  261</span>        <span class="comment">// solve linear equation</span></div>
+<div class="line"><span class="lineno">  262</span>        <a class="code hl_function" href="a00455.html#a75f6eded6d5ee17fe45386eac3878a60">CMatrix::inv_I</a>(ppfA, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);</div>
+<div class="line"><span class="lineno">  263</span>        <a class="code hl_function" href="a00455.html#ab0ca8e552db389f6323e1c3d26e59902">CMatrix::mulMatColVec</a>(pfZi, ppfA, pfB, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);</div>
+<div class="line"><span class="lineno">  264</span> </div>
+<div class="line"><span class="lineno">  265</span>        <span class="comment">// set internal state</span></div>
+<div class="line"><span class="lineno">  266</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLengthOfCoeffBuffers; i++)</div>
+<div class="line"><span class="lineno">  267</span>            <a class="code hl_variable" href="a00447.html#adc33d7fd0caf47e30d1d4e3634819bac">m_ptProcBuff</a>[i] = fWeight * pfZi[i];</div>
+<div class="line"><span class="lineno">  268</span> </div>
+<div class="line"><span class="lineno">  269</span>        <span class="comment">// clean up</span></div>
+<div class="line"><span class="lineno">  270</span>        <a class="code hl_function" href="a00455.html#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfA, iLengthOfCoeffBuffers);</div>
+<div class="line"><span class="lineno">  271</span>        <a class="code hl_function" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfB);</div>
+<div class="line"><span class="lineno">  272</span>        <a class="code hl_function" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfZi);</div>
+<div class="line"><span class="lineno">  273</span>    }</div>
+<div class="ttc" id="aa00455_html_a591097c6b1935c4d6273b3445f8f552b"><div class="ttname"><a href="a00455.html#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;pptMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00040">Matrix.h:40</a></div></div>
+<div class="ttc" id="aa00455_html_a6501b78d76c912d49eee88c8f7242923"><div class="ttname"><a href="a00455.html#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;pptMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00022">Matrix.h:22</a></div></div>
+<div class="ttc" id="aa00455_html_a75f6eded6d5ee17fe45386eac3878a60"><div class="ttname"><a href="a00455.html#a75f6eded6d5ee17fe45386eac3878a60">CMatrix::inv_I</a></div><div class="ttdeci">static void inv_I(float **pptSrcDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00662">Matrix.h:662</a></div></div>
+<div class="ttc" id="aa00455_html_ab0ca8e552db389f6323e1c3d26e59902"><div class="ttname"><a href="a00455.html#ab0ca8e552db389f6323e1c3d26e59902">CMatrix::mulMatColVec</a></div><div class="ttdeci">static void mulMatColVec(float *ptDestColVec, float **pptMat, const float *ptSrcColVec, int iNumMatRows, int iNumMatCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.html#l00368">Matrix.h:368</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00218">CRingBuffer&lt; T &gt;::m_iBuffLength</a>, <a class="el" href="a00137_source.html#l00219">CRingBuffer&lt; T &gt;::m_iReadIdx</a>, <a class="el" href="a00137_source.html#l00220">CRingBuffer&lt; T &gt;::m_iWriteIdx</a>, and <a class="el" href="a00137_source.html#l00222">CRingBuffer&lt; T &gt;::m_ptBuff</a>.</p>
+<p class="reference">References <a class="el" href="a00137_source.html#l00024">CVector::alloc()</a>, <a class="el" href="a00131_source.html#l00022">CMatrix::alloc()</a>, <a class="el" href="a00137_source.html#l00039">CVector::free()</a>, <a class="el" href="a00131_source.html#l00040">CMatrix::free()</a>, <a class="el" href="a00131_source.html#l00662">CMatrix::inv_I()</a>, <a class="el" href="a00134_source.html#l00231">CFilter&lt; T &gt;::kFir</a>, <a class="el" href="a00134_source.html#l00232">CFilter&lt; T &gt;::kIir</a>, <a class="el" href="a00134_source.html#l00277">CFilter&lt; T &gt;::m_aptCoeff</a>, <a class="el" href="a00134_source.html#l00281">CFilter&lt; T &gt;::m_iNumFilterCoeffs</a>, <a class="el" href="a00134_source.html#l00279">CFilter&lt; T &gt;::m_ptProcBuff</a>, and <a class="el" href="a00131_source.html#l00368">CMatrix::mulMatColVec()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00137_source.html#l00016">CRingBuffer&lt; T &gt;::CRingBuffer()</a>, and <a class="el" href="a00173_source.html#l00219">CMovingAverage::reset()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a716fb4acc03355a73cc7d96f3ceb2995_icgraph.png" border="0" usemap="#aa00447_a716fb4acc03355a73cc7d96f3ceb2995_icgraph" alt=""/></div>
-<map name="aa00447_a716fb4acc03355a73cc7d96f3ceb2995_icgraph" id="aa00447_a716fb4acc03355a73cc7d96f3ceb2995_icgraph">
-<area shape="rect" title=" " alt="" coords="1183,98,1309,125"/>
-<area shape="rect" href="a00447.html#a0e007e130e9190892274dde988e40a59" title=" " alt="" coords="968,73,1135,99"/>
-<area shape="rect" href="a00515.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="973,123,1129,150"/>
-<area shape="rect" href="a00515.html#aa02ee977828ff103f3e2c25889131122" title=" " alt="" coords="693,73,920,99"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="480,153,645,179"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="730,174,883,201"/>
-<area shape="rect" href="a00515.html#a9008feaaece203a6bf1220ab81e1b983" title=" " alt="" coords="481,73,644,99"/>
-<area shape="rect" href="a00467.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="279,73,392,99"/>
-<area shape="rect" href="a00323.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00327.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="23,71,173,112"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="239,142,432,169"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="310,193,361,219"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="73,142,123,169"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="af265a6322c4b1584c880def00d31e663" name="af265a6322c4b1584c880def00d31e663"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af265a6322c4b1584c880def00d31e663">&#9670;&nbsp;</a></span>setReadIdx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::setReadIdx </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNewReadIdx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >move the read index to a new position </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iNewReadIdx</td><td>new position </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00183">183</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  184</span>    {</div>
-<div class="line"><span class="lineno">  185</span>        <a class="code hl_function" href="a00447.html#a67eddecd2a880c52c80093774bc37c24">incIdx</a>(<a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>, iNewReadIdx - <a class="code hl_variable" href="a00447.html#a17237cdeda2b10e77e1815def129debd">m_iReadIdx</a>);</div>
-<div class="line"><span class="lineno">  186</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00208">CRingBuffer&lt; T &gt;::incIdx()</a>, and <a class="el" href="a00137_source.html#l00219">CRingBuffer&lt; T &gt;::m_iReadIdx</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00071_source.html#l00053">CBlockAudioFile::getNextBlock()</a>, <a class="el" href="a00173_source.html#l00219">CMovingAverage::reset()</a>, and <a class="el" href="a00173_source.html#l00154">CMovingAverage::setFilterParam()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00447_af265a6322c4b1584c880def00d31e663_cgraph.png" border="0" usemap="#aa00447_af265a6322c4b1584c880def00d31e663_cgraph" alt=""/></div>
-<map name="aa00447_af265a6322c4b1584c880def00d31e663_cgraph" id="aa00447_af265a6322c4b1584c880def00d31e663_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,168,32"/>
-<area shape="rect" href="a00447.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="216,5,347,32"/>
+<div class="center"><img src="a00447_a68eafbce2417e9c8e7934953e85199e7_cgraph.png" border="0" usemap="#aa00447_a68eafbce2417e9c8e7934953e85199e7_cgraph" alt=""/></div>
+<map name="aa00447_a68eafbce2417e9c8e7934953e85199e7_cgraph" id="aa00447_a68eafbce2417e9c8e7934953e85199e7_cgraph">
+<area shape="rect" title=" " alt="" coords="5,109,145,135"/>
+<area shape="rect" href="a00471.html#abaadac98b1cad18b7b568852bc951696" title=" " alt="" coords="599,33,701,59"/>
+<area shape="rect" href="a00455.html#a6501b78d76c912d49eee88c8f7242923" title=" " alt="" coords="423,33,522,59"/>
+<area shape="rect" href="a00471.html#aa86bdb0c663d4d52f2765793756f8737" title=" " alt="" coords="601,109,699,135"/>
+<area shape="rect" href="a00455.html#a591097c6b1935c4d6273b3445f8f552b" title=" " alt="" coords="425,134,520,161"/>
+<area shape="rect" href="a00455.html#a75f6eded6d5ee17fe45386eac3878a60" title=" " alt="" coords="222,222,322,249"/>
+<area shape="rect" href="a00455.html#ab0ca8e552db389f6323e1c3d26e59902" title=" " alt="" coords="193,362,351,389"/>
+<area shape="rect" href="a00471.html#a6dbb3f9f480568b60f7fe50090d20003" title=" " alt="" coords="753,159,872,186"/>
+<area shape="rect" href="a00455.html#a9f723a71e61f425d0ee9a51aa2162bf3" title=" " alt="" coords="423,235,522,262"/>
+<area shape="rect" href="a00471.html#a9811f50434dd058d201290b2dc98bfcd" title=" " alt="" coords="415,286,531,313"/>
+<area shape="rect" href="a00455.html#a95b2436caee0cd232126f78c642238dd" title=" " alt="" coords="595,311,705,338"/>
+<area shape="rect" href="a00471.html#a4e5b5163bb46b8de5ac4013bde1ded00" title=" " alt="" coords="413,387,532,414"/>
+<area shape="rect" href="a00455.html#a036ce0072f4da74a8809550d21eac9dd" title=" " alt="" coords="399,185,547,211"/>
+<area shape="rect" href="a00471.html#ad7c5cba73e439adac77778f61c9418f0" title=" " alt="" coords="599,235,701,262"/>
+<area shape="rect" href="a00471.html#a269d316eeb6000aac4f57ade32c83127" title=" " alt="" coords="406,438,539,465"/>
 </map>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00447_af265a6322c4b1584c880def00d31e663_icgraph.png" border="0" usemap="#aa00447_af265a6322c4b1584c880def00d31e663_icgraph" alt=""/></div>
-<map name="aa00447_af265a6322c4b1584c880def00d31e663_icgraph" id="aa00447_af265a6322c4b1584c880def00d31e663_icgraph">
-<area shape="rect" title=" " alt="" coords="1191,118,1353,145"/>
-<area shape="rect" href="a00371.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="971,52,1140,93"/>
-<area shape="rect" href="a00515.html#a9681799055b5a4622d25a70901a65af3" title=" " alt="" coords="977,118,1133,145"/>
-<area shape="rect" href="a00515.html#a1a014af5490675e140d6069561b00eb1" title=" " alt="" coords="968,169,1143,211"/>
-<area shape="rect" href="a00515.html#aa02ee977828ff103f3e2c25889131122" title=" " alt="" coords="693,67,920,94"/>
-<area shape="rect" href="a00467.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="480,169,645,195"/>
-<area shape="rect" href="a00515.html#ab6f5f359e79f0ede5aedc7775ae3bece" title=" " alt="" coords="730,169,883,195"/>
-<area shape="rect" href="a00515.html#a9008feaaece203a6bf1220ab81e1b983" title=" " alt="" coords="481,67,644,94"/>
-<area shape="rect" href="a00467.html#a4beb226d8e7dd927c253667647e837ec" title="init configuration" alt="" coords="279,67,392,94"/>
-<area shape="rect" href="a00323.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="5,5,191,47"/>
-<area shape="rect" href="a00327.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="23,71,173,112"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="239,147,432,174"/>
-<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="310,198,361,225"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="73,147,123,174"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="a408e0ec5855fca27bd2dc5862fa913ab" name="a408e0ec5855fca27bd2dc5862fa913ab"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a408e0ec5855fca27bd2dc5862fa913ab">&#9670;&nbsp;</a></span>setWriteIdx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;class T &gt; </div>
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::setWriteIdx </td>
-          <td>(</td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNewWriteIdx</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >move the write index to a new position </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">iNewWriteIdx</td><td>new position </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00166">166</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  167</span>    {</div>
-<div class="line"><span class="lineno">  168</span>        <a class="code hl_function" href="a00447.html#a67eddecd2a880c52c80093774bc37c24">incIdx</a>(<a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>, iNewWriteIdx - <a class="code hl_variable" href="a00447.html#ad2bfd60fbefec3403b6a2a420b8695a5">m_iWriteIdx</a>);</div>
-<div class="line"><span class="lineno">  169</span>    }</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00137_source.html#l00208">CRingBuffer&lt; T &gt;::incIdx()</a>, and <a class="el" href="a00137_source.html#l00220">CRingBuffer&lt; T &gt;::m_iWriteIdx</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00447_a408e0ec5855fca27bd2dc5862fa913ab_cgraph.png" border="0" usemap="#aa00447_a408e0ec5855fca27bd2dc5862fa913ab_cgraph" alt=""/></div>
-<map name="aa00447_a408e0ec5855fca27bd2dc5862fa913ab_cgraph" id="aa00447_a408e0ec5855fca27bd2dc5862fa913ab_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,168,32"/>
-<area shape="rect" href="a00447.html#a67eddecd2a880c52c80093774bc37c24" title=" " alt="" coords="216,5,347,32"/>
+<div class="center"><img src="a00447_a68eafbce2417e9c8e7934953e85199e7_icgraph.png" border="0" usemap="#aa00447_a68eafbce2417e9c8e7934953e85199e7_icgraph" alt=""/></div>
+<map name="aa00447_a68eafbce2417e9c8e7934953e85199e7_icgraph" id="aa00447_a68eafbce2417e9c8e7934953e85199e7_icgraph">
+<area shape="rect" title=" " alt="" coords="335,5,475,32"/>
+<area shape="rect" href="a00447.html#a04bf94ff97e5e270210954864025ea06" title=" " alt="" coords="195,5,287,32"/>
+<area shape="rect" href="a00547.html#a040a6674ec0ff9171d6b4cb4b8436cb2" title=" " alt="" coords="5,5,147,32"/>
 </map>
 </div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a3f35b48aa5632a863a85d09de775fb0b" name="a3f35b48aa5632a863a85d09de775fb0b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3f35b48aa5632a863a85d09de775fb0b">&#9670;&nbsp;</a></span>m_iBuffLength</h2>
+<a id="a4e31c29ccb288a7227e65e2b925deb02" name="a4e31c29ccb288a7227e65e2b925deb02"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4e31c29ccb288a7227e65e2b925deb02">&#9670;&nbsp;</a></span>m_aptCoeff</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1310,7 +965,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::m_iBuffLength = 0</td>
+          <td class="memname">T* <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::m_aptCoeff[<a class="el" href="a00447.html#af77365faa392bc427be2607834ab39bca4e70b0db4e767b7ab3dc858a94bcc2f4">kNumFilterDims</a>] = { 0,0 }</td>
         </tr>
       </table>
   </td>
@@ -1320,16 +975,16 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>length of the internal buffer </p>
+<p>filter coefficients </p>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00218">218</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00277">277</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00137_source.html#l00016">CRingBuffer&lt; T &gt;::CRingBuffer()</a>, <a class="el" href="a00137_source.html#l00106">CRingBuffer&lt; T &gt;::get()</a>, <a class="el" href="a00137_source.html#l00199">CRingBuffer&lt; T &gt;::getLength()</a>, <a class="el" href="a00137_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, <a class="el" href="a00137_source.html#l00208">CRingBuffer&lt; T &gt;::incIdx()</a>, <a class="el" href="a00137_source.html#l00069">CRingBuffer&lt; T &gt;::put()</a>, and <a class="el" href="a00137_source.html#l00147">CRingBuffer&lt; T &gt;::reset()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00134_source.html#l00101">CFilter&lt; T &gt;::process()</a>, <a class="el" href="a00134_source.html#l00128">CFilter&lt; T &gt;::processDFII()</a>, <a class="el" href="a00134_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, and <a class="el" href="a00134_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 
 </div>
 </div>
-<a id="a17237cdeda2b10e77e1815def129debd" name="a17237cdeda2b10e77e1815def129debd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a17237cdeda2b10e77e1815def129debd">&#9670;&nbsp;</a></span>m_iReadIdx</h2>
+<a id="a08878b88194b75c579748ca740db6444" name="a08878b88194b75c579748ca740db6444"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a08878b88194b75c579748ca740db6444">&#9670;&nbsp;</a></span>m_bIsInitialized</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1340,7 +995,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::m_iReadIdx = 0</td>
+          <td class="memname"><a class="el" href="a00221.html#abb452686968e48b67397da5f97445f5b">bool</a> <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::m_bIsInitialized = <a class="el" href="a00221.html#a65e9886d74aaee76545e83dd09011727">false</a></td>
         </tr>
       </table>
   </td>
@@ -1350,16 +1005,16 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>current read index </p>
+<p>true if initialized </p>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00219">219</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00283">283</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00137_source.html#l00106">CRingBuffer&lt; T &gt;::get()</a>, <a class="el" href="a00137_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, <a class="el" href="a00137_source.html#l00084">CRingBuffer&lt; T &gt;::getPostInc()</a>, <a class="el" href="a00137_source.html#l00174">CRingBuffer&lt; T &gt;::getReadIdx()</a>, <a class="el" href="a00137_source.html#l00147">CRingBuffer&lt; T &gt;::reset()</a>, and <a class="el" href="a00137_source.html#l00183">CRingBuffer&lt; T &gt;::setReadIdx()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00134_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00134_source.html#l00101">CFilter&lt; T &gt;::process()</a>, <a class="el" href="a00134_source.html#l00128">CFilter&lt; T &gt;::processDFII()</a>, and <a class="el" href="a00134_source.html#l00066">CFilter&lt; T &gt;::reset()</a>.</p>
 
 </div>
 </div>
-<a id="ad2bfd60fbefec3403b6a2a420b8695a5" name="ad2bfd60fbefec3403b6a2a420b8695a5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad2bfd60fbefec3403b6a2a420b8695a5">&#9670;&nbsp;</a></span>m_iWriteIdx</h2>
+<a id="aed0a614dce6816b55f0b3f17bdf991e5" name="aed0a614dce6816b55f0b3f17bdf991e5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aed0a614dce6816b55f0b3f17bdf991e5">&#9670;&nbsp;</a></span>m_iNumFilterCoeffs</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1370,7 +1025,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::m_iWriteIdx = 0</td>
+          <td class="memname">int <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::m_iNumFilterCoeffs = 0</td>
         </tr>
       </table>
   </td>
@@ -1380,16 +1035,16 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>current write index </p>
+<p>number of filter coefficients </p>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00220">220</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00281">281</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00137_source.html#l00191">CRingBuffer&lt; T &gt;::getNumValuesInBuffer()</a>, <a class="el" href="a00137_source.html#l00157">CRingBuffer&lt; T &gt;::getWriteIdx()</a>, <a class="el" href="a00137_source.html#l00059">CRingBuffer&lt; T &gt;::put()</a>, <a class="el" href="a00137_source.html#l00038">CRingBuffer&lt; T &gt;::putPostInc()</a>, <a class="el" href="a00137_source.html#l00147">CRingBuffer&lt; T &gt;::reset()</a>, and <a class="el" href="a00137_source.html#l00166">CRingBuffer&lt; T &gt;::setWriteIdx()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00134_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00134_source.html#l00101">CFilter&lt; T &gt;::process()</a>, <a class="el" href="a00134_source.html#l00128">CFilter&lt; T &gt;::processDFII()</a>, <a class="el" href="a00134_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, and <a class="el" href="a00134_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 
 </div>
 </div>
-<a id="a6c82ffd2218093776e8952e15309c51e" name="a6c82ffd2218093776e8952e15309c51e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c82ffd2218093776e8952e15309c51e">&#9670;&nbsp;</a></span>m_ptBuff</h2>
+<a id="ac44bd773d4652641a423b5291f13d337" name="ac44bd773d4652641a423b5291f13d337"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac44bd773d4652641a423b5291f13d337">&#9670;&nbsp;</a></span>m_pCFilterBuff</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1400,7 +1055,7 @@ template&lt;class T &gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T* <a class="el" href="a00447.html">CRingBuffer</a>&lt; T &gt;::m_ptBuff = 0</td>
+          <td class="memname"><a class="el" href="a00459.html">CRingBuffer</a>&lt;T&gt;* <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::m_pCFilterBuff = 0</td>
         </tr>
       </table>
   </td>
@@ -1410,21 +1065,51 @@ template&lt;class T &gt; </div>
 </table>
 </div><div class="memdoc">
 
-<p>data buffer </p>
+<p>internal ring buffer for filter (only used for direct form II implementation <a class="el" href="a00447.html#a525b94fcc4e3ff6c061c6d9e667c4790">CFilter::processDFII</a>) </p>
 
-<p class="definition">Definition at line <a class="el" href="a00137_source.html#l00222">222</a> of file <a class="el" href="a00137_source.html">RingBuffer.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00275">275</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00137_source.html#l00016">CRingBuffer&lt; T &gt;::CRingBuffer()</a>, <a class="el" href="a00137_source.html#l00106">CRingBuffer&lt; T &gt;::get()</a>, <a class="el" href="a00137_source.html#l00059">CRingBuffer&lt; T &gt;::put()</a>, <a class="el" href="a00137_source.html#l00147">CRingBuffer&lt; T &gt;::reset()</a>, and <a class="el" href="a00137_source.html#l00028">CRingBuffer&lt; T &gt;::~CRingBuffer()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00134_source.html#l00128">CFilter&lt; T &gt;::processDFII()</a>, and <a class="el" href="a00134_source.html#l00066">CFilter&lt; T &gt;::reset()</a>.</p>
+
+</div>
+</div>
+<a id="adc33d7fd0caf47e30d1d4e3634819bac" name="adc33d7fd0caf47e30d1d4e3634819bac"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc33d7fd0caf47e30d1d4e3634819bac">&#9670;&nbsp;</a></span>m_ptProcBuff</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;class T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">T* <a class="el" href="a00447.html">CFilter</a>&lt; T &gt;::m_ptProcBuff = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>temp buffer for processing </p>
+
+<p class="definition">Definition at line <a class="el" href="a00134_source.html#l00279">279</a> of file <a class="el" href="a00134_source.html">Filter.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00134_source.html#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00134_source.html#l00101">CFilter&lt; T &gt;::process()</a>, <a class="el" href="a00134_source.html#l00128">CFilter&lt; T &gt;::processDFII()</a>, <a class="el" href="a00134_source.html#l00066">CFilter&lt; T &gt;::reset()</a>, and <a class="el" href="a00134_source.html#l00238">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00137_source.html">RingBuffer.h</a></li>
+<li><a class="el" href="a00134_source.html">Filter.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:55 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 10 2022 15:40:02 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

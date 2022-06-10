@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.5</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -44,28 +44,27 @@
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="a00251.html">Catch</a></li><li class="navelem"><a class="el" href="a00559.html">NonCopyable</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
-  <div class="headertitle"><div class="title">Catch::NonCopyable Member List</div></div>
+  <div class="headertitle"><div class="title">CClassifierBase Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a00559.html">Catch::NonCopyable</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a00559.html">CClassifierBase</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00559.html#a74cf3e4aa051c284941e39b436b2f693">NonCopyable</a>(NonCopyable const &amp;)=delete</td><td class="entry"><a class="el" href="a00559.html">Catch::NonCopyable</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00559.html#a09d1d8775db8c495fa40c285b034faa3">NonCopyable</a>(NonCopyable &amp;&amp;)=delete</td><td class="entry"><a class="el" href="a00559.html">Catch::NonCopyable</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00559.html#a4b492dd5753f9952350fb64dc6cb9fe2">NonCopyable</a>()</td><td class="entry"><a class="el" href="a00559.html">Catch::NonCopyable</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00559.html#ac8be822f5ed1abc8e31e17d09200c493">operator=</a>(NonCopyable const &amp;)=delete</td><td class="entry"><a class="el" href="a00559.html">Catch::NonCopyable</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00559.html#ae70adfd1bdbaa8d2207a290ffdb70578">operator=</a>(NonCopyable &amp;&amp;)=delete</td><td class="entry"><a class="el" href="a00559.html">Catch::NonCopyable</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00559.html#a81254677280fef337eb4a676e91e3293">~NonCopyable</a>()</td><td class="entry"><a class="el" href="a00559.html">Catch::NonCopyable</a></td><td class="entry"><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00559.html#ae187572c8c6af54f060105b91cf72e9f">classify</a>(const float *pfQuery)=0</td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00559.html#a2b989d8b0b21727525366839a117d40c">init</a>(float **ppfTrainFeatures, const int *piTrainClassIndices, int iNumFeatures, int iNumObservations, Normalization_t eNorm)=0</td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00559.html#ac4365e3be5e1cc7ac964fcb6294aaae1">kIllegalClassLabel</a></td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">kMinmaxNormalization</a> enum value</td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">kNoNormalization</a> enum value</td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">kNumNormModes</a> enum value</td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">kZscoreNormalization</a> enum value</td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a> enum name</td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00559.html#a132f6c33b7f0ec539dabce8c970eac9e">reset</a>()=0</td><td class="entry"><a class="el" href="a00559.html">CClassifierBase</a></td><td class="entry"><span class="mlabel">pure virtual</span></td></tr>
 </table></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:55 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 10 2022 15:40:01 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Catch::NonCopyable Class Reference</title>
+<title>ACA: CClassifierBase Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.5</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -44,169 +44,103 @@
       <li><a href="functions.html"><span>Class&#160;Members</span></a></li>
     </ul>
   </div>
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="a00251.html">Catch</a></li><li class="navelem"><a class="el" href="a00559.html">NonCopyable</a></li>  </ul>
-</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pro-methods">Protected Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
 <a href="a00556.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Catch::NonCopyable Class Reference</div></div>
+  <div class="headertitle"><div class="title">CClassifierBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00245_source.html">catch.hpp</a>&gt;</code></p>
+<p>abstract base class for traditional classifiers  
+ <a href="a00559.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="a00113_source.html">ToolSimpleKnn.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for Catch::NonCopyable:</div>
+Inheritance diagram for CClassifierBase:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00558.png" border="0" usemap="#aCatch_1_1NonCopyable_inherit__map" alt="Inheritance graph"/></div>
-<map name="aCatch_1_1NonCopyable_inherit__map" id="aCatch_1_1NonCopyable_inherit__map">
-<area shape="rect" title=" " alt="" coords="289,5,428,156"/>
-<area shape="rect" href="a00615.html" title=" " alt="" coords="5,270,117,362"/>
-<area shape="rect" href="a01079.html" title=" " alt="" coords="141,204,352,428"/>
-<area shape="rect" href="a00635.html" title=" " alt="" coords="376,241,568,391"/>
-<area shape="rect" href="a00855.html" title=" " alt="" coords="592,233,731,399"/>
+<div class="center"><img src="a00558.png" border="0" usemap="#aCClassifierBase_inherit__map" alt="Inheritance graph"/></div>
+<map name="aCClassifierBase_inherit__map" id="aCClassifierBase_inherit__map">
+<area shape="rect" title="abstract base class for traditional classifiers" alt="" coords="5,5,144,112"/>
+<area shape="rect" href="a00563.html" title="computation of k nearest neighbor" alt="" coords="9,160,140,560"/>
 </map>
 </div>
 <div class="dynheader">
-Collaboration diagram for Catch::NonCopyable:</div>
+Collaboration diagram for CClassifierBase:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00557.png" border="0" usemap="#aCatch_1_1NonCopyable_coll__map" alt="Collaboration graph"/></div>
-<map name="aCatch_1_1NonCopyable_coll__map" id="aCatch_1_1NonCopyable_coll__map">
-<area shape="rect" title=" " alt="" coords="5,5,144,156"/>
+<div class="center"><img src="a00557.png" border="0" usemap="#aCClassifierBase_coll__map" alt="Collaboration graph"/></div>
+<map name="aCClassifierBase_coll__map" id="aCClassifierBase_coll__map">
+<area shape="rect" title="abstract base class for traditional classifiers" alt="" coords="5,5,144,112"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:a4b492dd5753f9952350fb64dc6cb9fe2"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#a4b492dd5753f9952350fb64dc6cb9fe2">NonCopyable</a> ()</td></tr>
-<tr class="separator:a4b492dd5753f9952350fb64dc6cb9fe2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81254677280fef337eb4a676e91e3293"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#a81254677280fef337eb4a676e91e3293">~NonCopyable</a> ()</td></tr>
-<tr class="separator:a81254677280fef337eb4a676e91e3293"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:af377eef1d7dfdfabcdf7da4b069b5e7a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a> { <a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">kNoNormalization</a>
+, <a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">kZscoreNormalization</a>
+, <a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">kMinmaxNormalization</a>
+, <a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">kNumNormModes</a>
+ }</td></tr>
+<tr class="separator:af377eef1d7dfdfabcdf7da4b069b5e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a74cf3e4aa051c284941e39b436b2f693"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#a74cf3e4aa051c284941e39b436b2f693">NonCopyable</a> (<a class="el" href="a00559.html">NonCopyable</a> const &amp;)=delete</td></tr>
-<tr class="separator:a74cf3e4aa051c284941e39b436b2f693"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a09d1d8775db8c495fa40c285b034faa3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#a09d1d8775db8c495fa40c285b034faa3">NonCopyable</a> (<a class="el" href="a00559.html">NonCopyable</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:a09d1d8775db8c495fa40c285b034faa3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac8be822f5ed1abc8e31e17d09200c493"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00559.html">NonCopyable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#ac8be822f5ed1abc8e31e17d09200c493">operator=</a> (<a class="el" href="a00559.html">NonCopyable</a> const &amp;)=delete</td></tr>
-<tr class="separator:ac8be822f5ed1abc8e31e17d09200c493"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae70adfd1bdbaa8d2207a290ffdb70578"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00559.html">NonCopyable</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#ae70adfd1bdbaa8d2207a290ffdb70578">operator=</a> (<a class="el" href="a00559.html">NonCopyable</a> &amp;&amp;)=delete</td></tr>
-<tr class="separator:ae70adfd1bdbaa8d2207a290ffdb70578"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a2b989d8b0b21727525366839a117d40c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#a2b989d8b0b21727525366839a117d40c">init</a> (float **ppfTrainFeatures, const int *piTrainClassIndices, int iNumFeatures, int iNumObservations, <a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a> eNorm)=0</td></tr>
+<tr class="separator:a2b989d8b0b21727525366839a117d40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a132f6c33b7f0ec539dabce8c970eac9e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#a132f6c33b7f0ec539dabce8c970eac9e">reset</a> ()=0</td></tr>
+<tr class="separator:a132f6c33b7f0ec539dabce8c970eac9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae187572c8c6af54f060105b91cf72e9f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#ae187572c8c6af54f060105b91cf72e9f">classify</a> (const float *pfQuery)=0</td></tr>
+<tr class="separator:ae187572c8c6af54f060105b91cf72e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
+Static Public Attributes</h2></td></tr>
+<tr class="memitem:ac4365e3be5e1cc7ac964fcb6294aaae1"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00559.html#ac4365e3be5e1cc7ac964fcb6294aaae1">kIllegalClassLabel</a> = -1111111111</td></tr>
+<tr class="separator:ac4365e3be5e1cc7ac964fcb6294aaae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00245_source.html#l00491">491</a> of file <a class="el" href="a00245_source.html">catch.hpp</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a74cf3e4aa051c284941e39b436b2f693" name="a74cf3e4aa051c284941e39b436b2f693"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a74cf3e4aa051c284941e39b436b2f693">&#9670;&nbsp;</a></span>NonCopyable() <span class="overload">[1/3]</span></h2>
+<div class="textblock"><p >abstract base class for traditional classifiers </p>
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00011">11</a> of file <a class="el" href="a00113_source.html">ToolSimpleKnn.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="af377eef1d7dfdfabcdf7da4b069b5e7a" name="af377eef1d7dfdfabcdf7da4b069b5e7a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af377eef1d7dfdfabcdf7da4b069b5e7a">&#9670;&nbsp;</a></span>Normalization_t</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">Catch::NonCopyable::NonCopyable </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00559.html">NonCopyable</a> const &amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">enum <a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7a">CClassifierBase::Normalization_t</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-
-</div>
-</div>
-<a id="a09d1d8775db8c495fa40c285b034faa3" name="a09d1d8775db8c495fa40c285b034faa3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a09d1d8775db8c495fa40c285b034faa3">&#9670;&nbsp;</a></span>NonCopyable() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Catch::NonCopyable::NonCopyable </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00559.html">NonCopyable</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
-  </tr>
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009" name="af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009"></a>kNoNormalization&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a" name="af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a"></a>kZscoreNormalization&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a" name="af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a"></a>kMinmaxNormalization&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801" name="af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801"></a>kNumNormModes&#160;</td><td class="fielddoc"></td></tr>
 </table>
-</div><div class="memdoc">
 
-</div>
-</div>
-<a id="a4b492dd5753f9952350fb64dc6cb9fe2" name="a4b492dd5753f9952350fb64dc6cb9fe2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4b492dd5753f9952350fb64dc6cb9fe2">&#9670;&nbsp;</a></span>NonCopyable() <span class="overload">[3/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">Catch::NonCopyable::NonCopyable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a81254677280fef337eb4a676e91e3293" name="a81254677280fef337eb4a676e91e3293"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81254677280fef337eb4a676e91e3293">&#9670;&nbsp;</a></span>~NonCopyable()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual Catch::NonCopyable::~NonCopyable </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00014">14</a> of file <a class="el" href="a00113_source.html">ToolSimpleKnn.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   15</span>    {</div>
+<div class="line"><span class="lineno">   16</span>        <a class="code hl_enumvalue" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">kNoNormalization</a>,</div>
+<div class="line"><span class="lineno">   17</span>        <a class="code hl_enumvalue" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">kZscoreNormalization</a>,</div>
+<div class="line"><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">kMinmaxNormalization</a>,</div>
+<div class="line"><span class="lineno">   19</span> </div>
+<div class="line"><span class="lineno">   20</span>        <a class="code hl_enumvalue" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">kNumNormModes</a></div>
+<div class="line"><span class="lineno">   21</span>    };</div>
+<div class="ttc" id="aa00559_html_af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009"><div class="ttname"><a href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">CClassifierBase::kNoNormalization</a></div><div class="ttdeci">@ kNoNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00113_source.html#l00016">ToolSimpleKnn.h:16</a></div></div>
+<div class="ttc" id="aa00559_html_af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a"><div class="ttname"><a href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">CClassifierBase::kMinmaxNormalization</a></div><div class="ttdeci">@ kMinmaxNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00113_source.html#l00018">ToolSimpleKnn.h:18</a></div></div>
+<div class="ttc" id="aa00559_html_af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801"><div class="ttname"><a href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">CClassifierBase::kNumNormModes</a></div><div class="ttdeci">@ kNumNormModes</div><div class="ttdef"><b>Definition:</b> <a href="a00113_source.html#l00021">ToolSimpleKnn.h:20</a></div></div>
+<div class="ttc" id="aa00559_html_af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a"><div class="ttname"><a href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">CClassifierBase::kZscoreNormalization</a></div><div class="ttdeci">@ kZscoreNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00113_source.html#l00017">ToolSimpleKnn.h:17</a></div></div>
+</div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae70adfd1bdbaa8d2207a290ffdb70578" name="ae70adfd1bdbaa8d2207a290ffdb70578"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae70adfd1bdbaa8d2207a290ffdb70578">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="ae187572c8c6af54f060105b91cf72e9f" name="ae187572c8c6af54f060105b91cf72e9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae187572c8c6af54f060105b91cf72e9f">&#9670;&nbsp;</a></span>classify()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -215,24 +149,26 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00559.html">NonCopyable</a> &amp; Catch::NonCopyable::operator= </td>
+          <td class="memname">virtual int CClassifierBase::classify </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00559.html">NonCopyable</a> &amp;&amp;&#160;</td>
-          <td class="paramname"></td><td>)</td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>pfQuery</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="a00563.html#a16bb56f19951aee5c4986a9dc7aeb853">CKnn</a>.</p>
+
 </div>
 </div>
-<a id="ac8be822f5ed1abc8e31e17d09200c493" name="ac8be822f5ed1abc8e31e17d09200c493"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac8be822f5ed1abc8e31e17d09200c493">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a2b989d8b0b21727525366839a117d40c" name="a2b989d8b0b21727525366839a117d40c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2b989d8b0b21727525366839a117d40c">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -241,29 +177,114 @@ Private Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00559.html">NonCopyable</a> &amp; Catch::NonCopyable::operator= </td>
+          <td class="memname">virtual <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CClassifierBase::init </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00559.html">NonCopyable</a> const &amp;&#160;</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfTrainFeatures</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>piTrainClassIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumFeatures</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumObservations</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00559.html#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a>&#160;</td>
+          <td class="paramname"><em>eNorm</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Implemented in <a class="el" href="a00563.html#a8fe90e9d8120bb265e6bc7d5f2766c30">CKnn</a>.</p>
+
+</div>
+</div>
+<a id="a132f6c33b7f0ec539dabce8c970eac9e" name="a132f6c33b7f0ec539dabce8c970eac9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a132f6c33b7f0ec539dabce8c970eac9e">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CClassifierBase::reset </td>
+          <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span><span class="mlabel">delete</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
+<p>Implemented in <a class="el" href="a00563.html#a75658b6df984b6a8c00049f35de655a8">CKnn</a>.</p>
+
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00245_source.html">catch.hpp</a></li>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac4365e3be5e1cc7ac964fcb6294aaae1" name="ac4365e3be5e1cc7ac964fcb6294aaae1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac4365e3be5e1cc7ac964fcb6294aaae1">&#9670;&nbsp;</a></span>kIllegalClassLabel</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int CClassifierBase::kIllegalClassLabel = -1111111111</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00113_source.html#l00022">22</a> of file <a class="el" href="a00113_source.html">ToolSimpleKnn.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00047_source.html#l00162">CKnn::buildHistogram_()</a>, and <a class="el" href="a00047_source.html#l00126">CKnn::classify()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="a00113_source.html">ToolSimpleKnn.h</a></li>
+<li><a class="el" href="a00047_source.html">ToolSimpleKnn.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:55 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 10 2022 15:40:01 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CConversion Class Reference</title>
+<title>ACA: CBlockAudioIf Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -18,7 +18,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.3</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.5</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -47,218 +47,103 @@
 </div><!-- top -->
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="#pro-static-methods">Static Protected Member Functions</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-static-attribs">Static Private Attributes</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00496.html">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CConversion Class Reference</div></div>
+  <div class="headertitle"><div class="title">CBlockAudioIf Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class for various frequency conversion functions  
+<p>forward declaration  
  <a href="a00499.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00146_source.html">ToolConversion.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00164_source.html">ToolBlockAudio.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CConversion:</div>
+Inheritance diagram for CBlockAudioIf:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00497.png" border="0" usemap="#aCConversion_coll__map" alt="Collaboration graph"/></div>
-<map name="aCConversion_coll__map" id="aCConversion_coll__map">
-<area shape="rect" title="class for various frequency conversion functions" alt="" coords="5,5,220,479"/>
+<div class="center"><img src="a00498.png" border="0" usemap="#aCBlockAudioIf_inherit__map" alt="Inheritance graph"/></div>
+<map name="aCBlockAudioIf_inherit__map" id="aCBlockAudioIf_inherit__map">
+<area shape="rect" title="forward declaration" alt="" coords="90,5,251,332"/>
+<area shape="rect" href="a00387.html" title=" " alt="" coords="5,395,163,560"/>
+<area shape="rect" href="a00383.html" title=" " alt="" coords="187,380,331,575"/>
+</map>
+</div>
+<div class="dynheader">
+Collaboration diagram for CBlockAudioIf:</div>
+<div class="dyncontent">
+<div class="center"><img src="a00497.png" border="0" usemap="#aCBlockAudioIf_coll__map" alt="Collaboration graph"/></div>
+<map name="aCBlockAudioIf_coll__map" id="aCBlockAudioIf_coll__map">
+<area shape="rect" title="forward declaration" alt="" coords="5,5,167,332"/>
 </map>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:afb2c9d1110fec95804ccec7fe8196829"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a> { <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a>
-, <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a16a9d12c2905cb442c5e818f18a6cb37">kShaughnessy</a>
-, <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef014545d73bd308d2834e9472c90dc1">kUmesh</a>
-, <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1">kNumMelConversionFunctions</a>
- }</td></tr>
-<tr class="memdesc:afb2c9d1110fec95804ccec7fe8196829"><td class="mdescLeft">&#160;</td><td class="mdescRight">different methods for frequency to mel conversion  <a href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">More...</a><br /></td></tr>
-<tr class="separator:afb2c9d1110fec95804ccec7fe8196829"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa2fceaa05fdd52addf05887fa270d671"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a> { <br />
-&#160;&#160;<a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a>
-, <a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a4599b264318a69ee39bd92abb863ddca">kTerhardt</a>
-, <a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a54ef7f149c3da118be856d07cdd7ffb3">kZwicker</a>
-, <a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a488c5cac9caa956ad026e8c2b4998320">kTraunmuller</a>
-, <br />
-&#160;&#160;<a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">kNumBarkConversionFunctions</a>
-<br />
- }</td></tr>
-<tr class="memdesc:aa2fceaa05fdd52addf05887fa270d671"><td class="mdescLeft">&#160;</td><td class="mdescRight">different methods for frequency to bark conversion  <a href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">More...</a><br /></td></tr>
-<tr class="separator:aa2fceaa05fdd52addf05887fa270d671"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a595b3a391e2540a1dc9e53edf8634494"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a595b3a391e2540a1dc9e53edf8634494">getNumBlocks</a> () const</td></tr>
+<tr class="separator:a595b3a391e2540a1dc9e53edf8634494"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8a0b909dcabb5e445d7386b149e8b104"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a8a0b909dcabb5e445d7386b149e8b104">getLengthInSamples</a> () const</td></tr>
+<tr class="separator:a8a0b909dcabb5e445d7386b149e8b104"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a95d0310c888433e7e45806538dc0d347"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a> (long long iBlockIdx)</td></tr>
+<tr class="separator:a95d0310c888433e7e45806538dc0d347"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aeb97b95bec6d4cbeaab928febab59baa"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00221.html#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#aeb97b95bec6d4cbeaab928febab59baa">IsEndOfData</a> () const =0</td></tr>
+<tr class="separator:aeb97b95bec6d4cbeaab928febab59baa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a531920b36b04ecdb562bfbb09dd2e856"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a531920b36b04ecdb562bfbb09dd2e856">getNextBlock</a> (float *pfBlock, float *pfTimeStampInS=0)=0</td></tr>
+<tr class="separator:a531920b36b04ecdb562bfbb09dd2e856"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:ad0d26c7c6a5edaa81527e68fe0c0c46f"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ad0d26c7c6a5edaa81527e68fe0c0c46f">convertFreq2Mel</a> (float fInHz, <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a> eFunc=<a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a>)</td></tr>
-<tr class="separator:ad0d26c7c6a5edaa81527e68fe0c0c46f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbcadd75a3a33ca9e9453a17a9336318"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#adbcadd75a3a33ca9e9453a17a9336318">convertMel2Freq</a> (float fMel, <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a> eFunc=<a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a>)</td></tr>
-<tr class="separator:adbcadd75a3a33ca9e9453a17a9336318"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed54c096c6fb379848ef1cd882ca7b43"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#aed54c096c6fb379848ef1cd882ca7b43">convertFreq2Mel</a> (float *pfMel, const float *pffInHz, int iLengthBuff, <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a> eFunc=<a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a>)</td></tr>
-<tr class="separator:aed54c096c6fb379848ef1cd882ca7b43"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad8d907d49dc6a44bdd8152e4bf33b94a"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ad8d907d49dc6a44bdd8152e4bf33b94a">convertMel2Freq</a> (float *pffInHz, const float *pfMel, int iLengthBuff, <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a> eFunc=<a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a>)</td></tr>
-<tr class="separator:ad8d907d49dc6a44bdd8152e4bf33b94a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0847c5f906d2239f9500b0c438ce8ead"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a0847c5f906d2239f9500b0c438ce8ead">convertFreq2Bark</a> (float fInHz, <a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a> eFunc=<a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a>)</td></tr>
-<tr class="separator:a0847c5f906d2239f9500b0c438ce8ead"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0980b6263cca5410e2f63c1dc6df2edc"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a0980b6263cca5410e2f63c1dc6df2edc">convertBark2Freq</a> (float fBark, <a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a> eFunc=<a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a>)</td></tr>
-<tr class="separator:a0980b6263cca5410e2f63c1dc6df2edc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33feba1dca002766f14f9cd89a0154e0"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a33feba1dca002766f14f9cd89a0154e0">convertFreq2Bark</a> (float *pfBark, const float *pffInHz, int iLengthBuff, <a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a> eFunc=<a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a>)</td></tr>
-<tr class="separator:a33feba1dca002766f14f9cd89a0154e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afe86bf9fe7f1a6f3cf01f16178656061"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#afe86bf9fe7f1a6f3cf01f16178656061">convertBark2Freq</a> (float *pffInHz, const float *pfBark, int iLengthBuff, <a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a> eFunc=<a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a>)</td></tr>
-<tr class="separator:afe86bf9fe7f1a6f3cf01f16178656061"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ade267323a6a537a150141fa4f0ab570a"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ade267323a6a537a150141fa4f0ab570a">convertFreq2Midi</a> (float fInHz, float fA4InHz=440.F)</td></tr>
-<tr class="separator:ade267323a6a537a150141fa4f0ab570a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81ba4ad719a2c8ce194af937d5050d17"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a81ba4ad719a2c8ce194af937d5050d17">convertFreq2Midi</a> (float *pfMidi, const float *pffInHz, int iLengthBuff, float fA4InHz=440.F)</td></tr>
-<tr class="separator:a81ba4ad719a2c8ce194af937d5050d17"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3461898be6be7ae7059904860f5231e1"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a3461898be6be7ae7059904860f5231e1">convertMidi2Freq</a> (float fMidi, float fA4InHz=440.F)</td></tr>
-<tr class="separator:a3461898be6be7ae7059904860f5231e1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a555296e5af0d5ae0b9effdc6be642a2d"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a555296e5af0d5ae0b9effdc6be642a2d">convertMidi2Freq</a> (float *pffInHz, const float *pfMidi, int iLengthBuff, float fA4InHz=440.F)</td></tr>
-<tr class="separator:a555296e5af0d5ae0b9effdc6be642a2d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ada82d84a69f4c77266835f1f06ca2ecb"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ada82d84a69f4c77266835f1f06ca2ecb">convertFreq2Bin</a> (float fInHz, int iFftLength, float fSampleRate=44100.F)</td></tr>
-<tr class="separator:ada82d84a69f4c77266835f1f06ca2ecb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a588044409f07aff268246ced2d71ee29"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a588044409f07aff268246ced2d71ee29">convertFreq2Bin</a> (float *pfBin, const float *pffInHz, int iLengthBuff, int iFftLength, float fSampleRate=44100.F)</td></tr>
-<tr class="separator:a588044409f07aff268246ced2d71ee29"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebe59f905b1dd02058cccbb062de6507"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#aebe59f905b1dd02058cccbb062de6507">convertBin2Freq</a> (float fBin, int iFftLength, float fSampleRate=44100.F)</td></tr>
-<tr class="separator:aebe59f905b1dd02058cccbb062de6507"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6c50a36eba57e9a21aff9eb4093ea786"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a6c50a36eba57e9a21aff9eb4093ea786">convertBin2Freq</a> (float *pffInHz, const float *pfBin, int iLengthBuff, int iFftLength, float fSampleRate=44100.F)</td></tr>
-<tr class="separator:a6c50a36eba57e9a21aff9eb4093ea786"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84f0c2bf28007ef7749ab0e90c8011d2"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a84f0c2bf28007ef7749ab0e90c8011d2">create</a> (<a class="el" href="a00499.html">CBlockAudioIf</a> *&amp;pCInstance, <a class="el" href="a00415.html">CAudioFileIf</a> *pCAudioFile, int iBlockLength, int iHopLength)</td></tr>
+<tr class="separator:a84f0c2bf28007ef7749ab0e90c8011d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a77052d7f4c67ade6d753402fd31f50"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a3a77052d7f4c67ade6d753402fd31f50">create</a> (<a class="el" href="a00499.html">CBlockAudioIf</a> *&amp;pCInstance, const float *pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate)</td></tr>
+<tr class="separator:a3a77052d7f4c67ade6d753402fd31f50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a13d2bd6e36210dde0c64d188c1266b88"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a13d2bd6e36210dde0c64d188c1266b88">destroy</a> (<a class="el" href="a00499.html">CBlockAudioIf</a> *&amp;pCInstance)</td></tr>
+<tr class="separator:a13d2bd6e36210dde0c64d188c1266b88"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-static-methods" name="pro-static-methods"></a>
-Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:afded0983d477928d9f0be2b61ea22273"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#afded0983d477928d9f0be2b61ea22273">convertFreq2MelFant</a> (float fFrequency)</td></tr>
-<tr class="separator:afded0983d477928d9f0be2b61ea22273"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8cbe4cd5f8373f1cff28debbf3c0d90a"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a8cbe4cd5f8373f1cff28debbf3c0d90a">convertMel2FreqFant</a> (float fMel)</td></tr>
-<tr class="separator:a8cbe4cd5f8373f1cff28debbf3c0d90a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad1cbd90f3bff81014eaeb2d97f5c6ae5"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ad1cbd90f3bff81014eaeb2d97f5c6ae5">convertFreq2MelShaughnessy</a> (float fFrequency)</td></tr>
-<tr class="separator:ad1cbd90f3bff81014eaeb2d97f5c6ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a373985144ef6567b889701a027dbceaf"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a373985144ef6567b889701a027dbceaf">convertMel2FreqShaughnessy</a> (float fMel)</td></tr>
-<tr class="separator:a373985144ef6567b889701a027dbceaf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a69295613ff347523c49bc96951aaa437"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a69295613ff347523c49bc96951aaa437">convertFreq2MelUmesh</a> (float fFrequency)</td></tr>
-<tr class="separator:a69295613ff347523c49bc96951aaa437"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac5ad6c7835eb3e7c3eed431d29e53e85"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ac5ad6c7835eb3e7c3eed431d29e53e85">convertMel2FreqUmesh</a> (float fMel)</td></tr>
-<tr class="separator:ac5ad6c7835eb3e7c3eed431d29e53e85"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aadc66ab6659cdf6e8137b1f69b645ae4"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#aadc66ab6659cdf6e8137b1f69b645ae4">convertFreq2BarkSchroeder</a> (float fFrequency)</td></tr>
-<tr class="separator:aadc66ab6659cdf6e8137b1f69b645ae4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ea1fb5474b55958df71bfe80b73773e"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a4ea1fb5474b55958df71bfe80b73773e">convertBark2FreqSchroeder</a> (float fBark)</td></tr>
-<tr class="separator:a4ea1fb5474b55958df71bfe80b73773e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefc1f257a1adbde4f46dfc3c5c6fb0ae"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#aefc1f257a1adbde4f46dfc3c5c6fb0ae">convertFreq2BarkTerhardt</a> (float fFrequency)</td></tr>
-<tr class="separator:aefc1f257a1adbde4f46dfc3c5c6fb0ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af9caed8b86edcc69b34cccd78b42fa27"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#af9caed8b86edcc69b34cccd78b42fa27">convertBark2FreqTerhardt</a> (float fBark)</td></tr>
-<tr class="separator:af9caed8b86edcc69b34cccd78b42fa27"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6b01bdcc2df1c829455ba9cafcec0a44"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a6b01bdcc2df1c829455ba9cafcec0a44">convertFreq2BarkZwicker</a> (float fFrequency)</td></tr>
-<tr class="separator:a6b01bdcc2df1c829455ba9cafcec0a44"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afefc9864b5de040f8aa0e0b51dbe8096"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#afefc9864b5de040f8aa0e0b51dbe8096">convertBark2FreqZwicker</a> (float fBark)</td></tr>
-<tr class="separator:afefc9864b5de040f8aa0e0b51dbe8096"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a54f9ba7eb05601c56b6df67e51fb2aa7"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a54f9ba7eb05601c56b6df67e51fb2aa7">convertFreq2BarkTraunmuller</a> (float fFrequency)</td></tr>
-<tr class="separator:a54f9ba7eb05601c56b6df67e51fb2aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4aa5c16cc761a141e7a122eeaf855c46"><td class="memItemLeft" align="right" valign="top">static float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a4aa5c16cc761a141e7a122eeaf855c46">convertBark2FreqTraunmuller</a> (float fBark)</td></tr>
-<tr class="separator:a4aa5c16cc761a141e7a122eeaf855c46"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a25b4acfbc219a671933702aaf97229fd"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a25b4acfbc219a671933702aaf97229fd">CBlockAudioIf</a> ()</td></tr>
+<tr class="separator:a25b4acfbc219a671933702aaf97229fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83a5f36f783bde516db5001bc1c772c2"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a83a5f36f783bde516db5001bc1c772c2">~CBlockAudioIf</a> ()</td></tr>
+<tr class="separator:a83a5f36f783bde516db5001bc1c772c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae5cfb151e790bfa82b68c50202a9e95b"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ae5cfb151e790bfa82b68c50202a9e95b">CBlockAudioIf</a> (const <a class="el" href="a00499.html">CBlockAudioIf</a> &amp;that)</td></tr>
+<tr class="separator:ae5cfb151e790bfa82b68c50202a9e95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3dc2cba685f611a6fc2ae652e3a9885a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00499.html">CBlockAudioIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a3dc2cba685f611a6fc2ae652e3a9885a">operator=</a> (const <a class="el" href="a00499.html">CBlockAudioIf</a> &amp;c)</td></tr>
+<tr class="separator:a3dc2cba685f611a6fc2ae652e3a9885a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:a9972633ab858c0566e59aa7edd6dd9c3"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a9972633ab858c0566e59aa7edd6dd9c3">CConversion</a> ()</td></tr>
-<tr class="separator:a9972633ab858c0566e59aa7edd6dd9c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a44280bc6f495dda44039122a351005c9"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a44280bc6f495dda44039122a351005c9">~CConversion</a> ()</td></tr>
-<tr class="separator:a44280bc6f495dda44039122a351005c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-static-attribs" name="pri-static-attribs"></a>
-Static Private Attributes</h2></td></tr>
-<tr class="memitem:a1ddc8df24c34d327e77dcebe71924ea3"><td class="memItemLeft" align="right" valign="top">static const std::map&lt; int, std::function&lt; float(float)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a1ddc8df24c34d327e77dcebe71924ea3">m_MelDispatchMap</a></td></tr>
-<tr class="separator:a1ddc8df24c34d327e77dcebe71924ea3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4ee9640a8dc6cfedef832789c60670c3"><td class="memItemLeft" align="right" valign="top">static const std::map&lt; int, std::function&lt; float(float)&gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a4ee9640a8dc6cfedef832789c60670c3">m_BarkDispatchMap</a></td></tr>
-<tr class="separator:a4ee9640a8dc6cfedef832789c60670c3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a1c97a35fe0a4e37aeebc8e809eed64d7"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a1c97a35fe0a4e37aeebc8e809eed64d7">m_iNumBlocks</a> = 0</td></tr>
+<tr class="memdesc:a1c97a35fe0a4e37aeebc8e809eed64d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of blocks  <a href="a00499.html#a1c97a35fe0a4e37aeebc8e809eed64d7">More...</a><br /></td></tr>
+<tr class="separator:a1c97a35fe0a4e37aeebc8e809eed64d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9728cd91204bd050e5eff0e4e209e653"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a9728cd91204bd050e5eff0e4e209e653">m_iCurrBlock</a> = 0</td></tr>
+<tr class="memdesc:a9728cd91204bd050e5eff0e4e209e653"><td class="mdescLeft">&#160;</td><td class="mdescRight">current block index  <a href="a00499.html#a9728cd91204bd050e5eff0e4e209e653">More...</a><br /></td></tr>
+<tr class="separator:a9728cd91204bd050e5eff0e4e209e653"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c7154e29bd4a88a2e54487f746045f4"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a> = 0</td></tr>
+<tr class="memdesc:a6c7154e29bd4a88a2e54487f746045f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">length of audio buffer  <a href="a00499.html#a6c7154e29bd4a88a2e54487f746045f4">More...</a><br /></td></tr>
+<tr class="separator:a6c7154e29bd4a88a2e54487f746045f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a610f9e4b612d573aba67d0c67fe19628"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a> = 0</td></tr>
+<tr class="memdesc:a610f9e4b612d573aba67d0c67fe19628"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00499.html#a610f9e4b612d573aba67d0c67fe19628">More...</a><br /></td></tr>
+<tr class="separator:a610f9e4b612d573aba67d0c67fe19628"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3d7564f84a614c7e257686b062bd68f2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#a3d7564f84a614c7e257686b062bd68f2">m_iNumChannels</a> = 0</td></tr>
+<tr class="memdesc:a3d7564f84a614c7e257686b062bd68f2"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of channels  <a href="a00499.html#a3d7564f84a614c7e257686b062bd68f2">More...</a><br /></td></tr>
+<tr class="separator:a3d7564f84a614c7e257686b062bd68f2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adda73bca9caf7deefed613cac1d8363c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a> = 0</td></tr>
+<tr class="memdesc:adda73bca9caf7deefed613cac1d8363c"><td class="mdescLeft">&#160;</td><td class="mdescRight">hop length  <a href="a00499.html#adda73bca9caf7deefed613cac1d8363c">More...</a><br /></td></tr>
+<tr class="separator:adda73bca9caf7deefed613cac1d8363c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace027af2234bb8a5abff65743385f1ee"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00499.html#ace027af2234bb8a5abff65743385f1ee">m_fSampleRate</a> = 0</td></tr>
+<tr class="memdesc:ace027af2234bb8a5abff65743385f1ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00499.html#ace027af2234bb8a5abff65743385f1ee">More...</a><br /></td></tr>
+<tr class="separator:ace027af2234bb8a5abff65743385f1ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class for various frequency conversion functions </p>
+<div class="textblock"><p >forward declaration </p>
+<p >class for audio blocking, supports both an audio file or an audio buffer as source to block </p>
 
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00012">12</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="aa2fceaa05fdd52addf05887fa270d671" name="aa2fceaa05fdd52addf05887fa270d671"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa2fceaa05fdd52addf05887fa270d671">&#9670;&nbsp;</a></span>BarkConversionFunctions_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">CConversion::BarkConversionFunctions_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>different methods for frequency to bark conversion </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa" name="aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa"></a>kSchroeder&#160;</td><td class="fielddoc"><p >conversion acc. to Schroeder </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa2fceaa05fdd52addf05887fa270d671a4599b264318a69ee39bd92abb863ddca" name="aa2fceaa05fdd52addf05887fa270d671a4599b264318a69ee39bd92abb863ddca"></a>kTerhardt&#160;</td><td class="fielddoc"><p >conversion acc. to Terhardt </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa2fceaa05fdd52addf05887fa270d671a54ef7f149c3da118be856d07cdd7ffb3" name="aa2fceaa05fdd52addf05887fa270d671a54ef7f149c3da118be856d07cdd7ffb3"></a>kZwicker&#160;</td><td class="fielddoc"><p >conversion acc. to Zwicker </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa2fceaa05fdd52addf05887fa270d671a488c5cac9caa956ad026e8c2b4998320" name="aa2fceaa05fdd52addf05887fa270d671a488c5cac9caa956ad026e8c2b4998320"></a>kTraunmuller&#160;</td><td class="fielddoc"><p >conversion acc. to Traunmuller </p>
-</td></tr>
-<tr><td class="fieldname"><a id="aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c" name="aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c"></a>kNumBarkConversionFunctions&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00026">26</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   27</span>    {</div>
-<div class="line"><span class="lineno">   28</span>        <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a>,     <span class="comment">//!&lt; conversion acc. to Schroeder</span></div>
-<div class="line"><span class="lineno">   29</span>        <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a4599b264318a69ee39bd92abb863ddca">kTerhardt</a>,      <span class="comment">//!&lt; conversion acc. to Terhardt</span></div>
-<div class="line"><span class="lineno">   30</span>        <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a54ef7f149c3da118be856d07cdd7ffb3">kZwicker</a>,       <span class="comment">//!&lt; conversion acc. to Zwicker</span></div>
-<div class="line"><span class="lineno">   31</span>        <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a488c5cac9caa956ad026e8c2b4998320">kTraunmuller</a>,   <span class="comment">//!&lt; conversion acc. to Traunmuller</span></div>
-<div class="line"><span class="lineno">   32</span> </div>
-<div class="line"><span class="lineno">   33</span>        <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">kNumBarkConversionFunctions</a></div>
-<div class="line"><span class="lineno">   34</span>    };</div>
-<div class="ttc" id="aa00499_html_aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c"><div class="ttname"><a href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">CConversion::kNumBarkConversionFunctions</a></div><div class="ttdeci">@ kNumBarkConversionFunctions</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00034">ToolConversion.h:33</a></div></div>
-<div class="ttc" id="aa00499_html_aa2fceaa05fdd52addf05887fa270d671a4599b264318a69ee39bd92abb863ddca"><div class="ttname"><a href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a4599b264318a69ee39bd92abb863ddca">CConversion::kTerhardt</a></div><div class="ttdeci">@ kTerhardt</div><div class="ttdoc">conversion acc. to Terhardt</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00029">ToolConversion.h:29</a></div></div>
-<div class="ttc" id="aa00499_html_aa2fceaa05fdd52addf05887fa270d671a488c5cac9caa956ad026e8c2b4998320"><div class="ttname"><a href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a488c5cac9caa956ad026e8c2b4998320">CConversion::kTraunmuller</a></div><div class="ttdeci">@ kTraunmuller</div><div class="ttdoc">conversion acc. to Traunmuller</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00031">ToolConversion.h:31</a></div></div>
-<div class="ttc" id="aa00499_html_aa2fceaa05fdd52addf05887fa270d671a54ef7f149c3da118be856d07cdd7ffb3"><div class="ttname"><a href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a54ef7f149c3da118be856d07cdd7ffb3">CConversion::kZwicker</a></div><div class="ttdeci">@ kZwicker</div><div class="ttdoc">conversion acc. to Zwicker</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00030">ToolConversion.h:30</a></div></div>
-<div class="ttc" id="aa00499_html_aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa"><div class="ttname"><a href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">CConversion::kSchroeder</a></div><div class="ttdeci">@ kSchroeder</div><div class="ttdoc">conversion acc. to Schroeder</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00028">ToolConversion.h:28</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="afb2c9d1110fec95804ccec7fe8196829" name="afb2c9d1110fec95804ccec7fe8196829"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afb2c9d1110fec95804ccec7fe8196829">&#9670;&nbsp;</a></span>MelConversionFunctions_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">CConversion::MelConversionFunctions_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>different methods for frequency to mel conversion </p>
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e" name="afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e"></a>kFant&#160;</td><td class="fielddoc"><p >conversion acc. to Fant </p>
-</td></tr>
-<tr><td class="fieldname"><a id="afb2c9d1110fec95804ccec7fe8196829a16a9d12c2905cb442c5e818f18a6cb37" name="afb2c9d1110fec95804ccec7fe8196829a16a9d12c2905cb442c5e818f18a6cb37"></a>kShaughnessy&#160;</td><td class="fielddoc"><p >conversion acc. to Shaughnessy </p>
-</td></tr>
-<tr><td class="fieldname"><a id="afb2c9d1110fec95804ccec7fe8196829aef014545d73bd308d2834e9472c90dc1" name="afb2c9d1110fec95804ccec7fe8196829aef014545d73bd308d2834e9472c90dc1"></a>kUmesh&#160;</td><td class="fielddoc"><p >conversion acc. to Umesh </p>
-</td></tr>
-<tr><td class="fieldname"><a id="afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1" name="afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1"></a>kNumMelConversionFunctions&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00016">16</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   17</span>    {</div>
-<div class="line"><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a>,          <span class="comment">//!&lt; conversion acc. to Fant</span></div>
-<div class="line"><span class="lineno">   19</span>        <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a16a9d12c2905cb442c5e818f18a6cb37">kShaughnessy</a>,   <span class="comment">//!&lt; conversion acc. to Shaughnessy</span></div>
-<div class="line"><span class="lineno">   20</span>        <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef014545d73bd308d2834e9472c90dc1">kUmesh</a>,         <span class="comment">//!&lt; conversion acc. to Umesh</span></div>
-<div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>        <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1">kNumMelConversionFunctions</a></div>
-<div class="line"><span class="lineno">   23</span>    };</div>
-<div class="ttc" id="aa00499_html_afb2c9d1110fec95804ccec7fe8196829a16a9d12c2905cb442c5e818f18a6cb37"><div class="ttname"><a href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a16a9d12c2905cb442c5e818f18a6cb37">CConversion::kShaughnessy</a></div><div class="ttdeci">@ kShaughnessy</div><div class="ttdoc">conversion acc. to Shaughnessy</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00019">ToolConversion.h:19</a></div></div>
-<div class="ttc" id="aa00499_html_afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e"><div class="ttname"><a href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">CConversion::kFant</a></div><div class="ttdeci">@ kFant</div><div class="ttdoc">conversion acc. to Fant</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00018">ToolConversion.h:18</a></div></div>
-<div class="ttc" id="aa00499_html_afb2c9d1110fec95804ccec7fe8196829aef014545d73bd308d2834e9472c90dc1"><div class="ttname"><a href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef014545d73bd308d2834e9472c90dc1">CConversion::kUmesh</a></div><div class="ttdeci">@ kUmesh</div><div class="ttdoc">conversion acc. to Umesh</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00020">ToolConversion.h:20</a></div></div>
-<div class="ttc" id="aa00499_html_afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1"><div class="ttname"><a href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1">CConversion::kNumMelConversionFunctions</a></div><div class="ttdeci">@ kNumMelConversionFunctions</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00023">ToolConversion.h:22</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a9972633ab858c0566e59aa7edd6dd9c3" name="a9972633ab858c0566e59aa7edd6dd9c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9972633ab858c0566e59aa7edd6dd9c3">&#9670;&nbsp;</a></span>CConversion()</h2>
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00012">12</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a25b4acfbc219a671933702aaf97229fd" name="a25b4acfbc219a671933702aaf97229fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a25b4acfbc219a671933702aaf97229fd">&#9670;&nbsp;</a></span>CBlockAudioIf() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -267,7 +152,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CConversion::CConversion </td>
+          <td class="memname">CBlockAudioIf::CBlockAudioIf </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -275,18 +160,18 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00249">249</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  249</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00086">86</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   86</span>{};</div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a44280bc6f495dda44039122a351005c9" name="a44280bc6f495dda44039122a351005c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a44280bc6f495dda44039122a351005c9">&#9670;&nbsp;</a></span>~CConversion()</h2>
+<a id="a83a5f36f783bde516db5001bc1c772c2" name="a83a5f36f783bde516db5001bc1c772c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83a5f36f783bde516db5001bc1c772c2">&#9670;&nbsp;</a></span>~CBlockAudioIf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -295,7 +180,7 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CConversion::~CConversion </td>
+          <td class="memname">virtual CBlockAudioIf::~CBlockAudioIf </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -303,19 +188,45 @@ Static Private Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00250">250</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  250</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00087">87</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   87</span>{};</div>
 </div><!-- fragment -->
+</div>
+</div>
+<a id="ae5cfb151e790bfa82b68c50202a9e95b" name="ae5cfb151e790bfa82b68c50202a9e95b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae5cfb151e790bfa82b68c50202a9e95b">&#9670;&nbsp;</a></span>CBlockAudioIf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CBlockAudioIf::CBlockAudioIf </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00499.html">CBlockAudioIf</a> &amp;&#160;</td>
+          <td class="paramname"><em>that</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="afe86bf9fe7f1a6f3cf01f16178656061" name="afe86bf9fe7f1a6f3cf01f16178656061"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afe86bf9fe7f1a6f3cf01f16178656061">&#9670;&nbsp;</a></span>convertBark2Freq() <span class="overload">[1/2]</span></h2>
+<a id="a84f0c2bf28007ef7749ab0e90c8011d2" name="a84f0c2bf28007ef7749ab0e90c8011d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84f0c2bf28007ef7749ab0e90c8011d2">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,28 +235,28 @@ Static Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CConversion::convertBark2Freq </td>
+          <td class="memname"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CBlockAudioIf::create </td>
           <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pffInHz</em>, </td>
+          <td class="paramtype"><a class="el" href="a00499.html">CBlockAudioIf</a> *&amp;&#160;</td>
+          <td class="paramname"><em>pCInstance</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfBark</em>, </td>
+          <td class="paramtype"><a class="el" href="a00415.html">CAudioFileIf</a> *&#160;</td>
+          <td class="paramname"><em>pCAudioFile</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLengthBuff</em>, </td>
+          <td class="paramname"><em>iBlockLength</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a>&#160;</td>
-          <td class="paramname"><em>eFunc</em> = <code><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a></code>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iHopLength</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -359,384 +270,62 @@ Static Private Attributes</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >converts a Bark array to a frequency array </p><dl class="params"><dt>Parameters</dt><dd>
+<p >creates an instance for blocking from file </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pffInHz</td><td>output frequency values in Hz (length iLenghBuff, to be written) </td></tr>
-    <tr><td class="paramname">pfBark</td><td>input Bark values (length iLenghBuff) </td></tr>
-    <tr><td class="paramname">iLengthBuff</td><td>length of buffers </td></tr>
-    <tr><td class="paramname">eFunc</td><td>index for conversion function selection </td></tr>
+    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
+    <tr><td class="paramname">pCAudioFile</td><td>pointer to audio file </td></tr>
+    <tr><td class="paramname">iBlockLength</td><td>block length in frames </td></tr>
+    <tr><td class="paramname">iHopLength</td><td>hop length in frames </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00115">115</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  116</span>{</div>
-<div class="line"><span class="lineno">  117</span>    assert(pfBark);</div>
-<div class="line"><span class="lineno">  118</span>    assert(pffInHz);</div>
-<div class="line"><span class="lineno">  119</span>    assert(iLengthBuff &gt; 0);</div>
-<div class="line"><span class="lineno">  120</span> </div>
-<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iLengthBuff; k++)</div>
-<div class="line"><span class="lineno">  122</span>        pffInHz[k] = <a class="code hl_variable" href="a00499.html#a4ee9640a8dc6cfedef832789c60670c3">m_BarkDispatchMap</a>.at(eFunc + <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">kNumBarkConversionFunctions</a>)(pfBark[k]);</div>
-<div class="line"><span class="lineno">  123</span>}</div>
-<div class="ttc" id="aa00499_html_a4ee9640a8dc6cfedef832789c60670c3"><div class="ttname"><a href="a00499.html#a4ee9640a8dc6cfedef832789c60670c3">CConversion::m_BarkDispatchMap</a></div><div class="ttdeci">static const std::map&lt; int, std::function&lt; float(float)&gt; &gt; m_BarkDispatchMap</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00254">ToolConversion.h:254</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00182">182</a> of file <a class="el" href="a00077_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  183</span>{</div>
+<div class="line"><span class="lineno">  184</span>    <span class="keywordflow">if</span> (!pCAudioFile)</div>
+<div class="line"><span class="lineno">  185</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  186</span>    <span class="keywordflow">if</span> (iBlockLength &lt;= 0 || iHopLength &lt;= 0 || iHopLength &gt; iBlockLength)</div>
+<div class="line"><span class="lineno">  187</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  188</span> </div>
+<div class="line"><span class="lineno">  189</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00383.html">CBlockAudioFile</a>(pCAudioFile, iBlockLength, iHopLength);</div>
+<div class="line"><span class="lineno">  190</span> </div>
+<div class="line"><span class="lineno">  191</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  192</span>}</div>
+<div class="ttc" id="aa00110_html_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
+<div class="ttc" id="aa00110_html_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00383_html"><div class="ttname"><a href="a00383.html">CBlockAudioFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00077_source.html#l00010">ToolBlockAudio.cpp:11</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00033">kNumBarkConversionFunctions</a>, and <a class="el" href="a00146_source.html#l00254">m_BarkDispatchMap</a>.</p>
+<p class="reference">References <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
-</div>
-</div>
-<a id="a0980b6263cca5410e2f63c1dc6df2edc" name="a0980b6263cca5410e2f63c1dc6df2edc"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0980b6263cca5410e2f63c1dc6df2edc">&#9670;&nbsp;</a></span>convertBark2Freq() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertBark2Freq </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fBark</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a>&#160;</td>
-          <td class="paramname"><em>eFunc</em> = <code><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a Bark scalar to a frequency </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fBark</td><td>Bark value </td></tr>
-    <tr><td class="paramname">eFunc</td><td>index for conversion function selection </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>frequency value in Hz </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00099">99</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  100</span>{</div>
-<div class="line"><span class="lineno">  101</span>    assert(fBark &gt;= 0);</div>
-<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00499.html#a4ee9640a8dc6cfedef832789c60670c3">m_BarkDispatchMap</a>.at(eFunc + <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">kNumBarkConversionFunctions</a>)(fBark);</div>
-<div class="line"><span class="lineno">  103</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00033">kNumBarkConversionFunctions</a>, and <a class="el" href="a00146_source.html#l00254">m_BarkDispatchMap</a>.</p>
-
-</div>
-</div>
-<a id="a4ea1fb5474b55958df71bfe80b73773e" name="a4ea1fb5474b55958df71bfe80b73773e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ea1fb5474b55958df71bfe80b73773e">&#9670;&nbsp;</a></span>convertBark2FreqSchroeder()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertBark2FreqSchroeder </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fBark</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00131">131</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  132</span>{</div>
-<div class="line"><span class="lineno">  133</span>    assert(fBark &gt; 0);</div>
-<div class="line"><span class="lineno">  134</span>    <span class="keywordflow">return</span> 650.F * std::sinh(fBark / 7.F);</div>
-<div class="line"><span class="lineno">  135</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="af9caed8b86edcc69b34cccd78b42fa27" name="af9caed8b86edcc69b34cccd78b42fa27"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af9caed8b86edcc69b34cccd78b42fa27">&#9670;&nbsp;</a></span>convertBark2FreqTerhardt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertBark2FreqTerhardt </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fBark</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00142">142</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  143</span>{</div>
-<div class="line"><span class="lineno">  144</span>    assert(fBark &gt; 0);</div>
-<div class="line"><span class="lineno">  145</span>    <span class="keywordflow">return</span> 4.F / 3.F * 1000.F * std::tan(fBark / 13.3F);</div>
-<div class="line"><span class="lineno">  146</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a4aa5c16cc761a141e7a122eeaf855c46" name="a4aa5c16cc761a141e7a122eeaf855c46"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4aa5c16cc761a141e7a122eeaf855c46">&#9670;&nbsp;</a></span>convertBark2FreqTraunmuller()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertBark2FreqTraunmuller </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fBark</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00163">163</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  164</span>{</div>
-<div class="line"><span class="lineno">  165</span>    assert(fBark &gt; 0);</div>
-<div class="line"><span class="lineno">  166</span>    <span class="comment">//return 1960.F * (fBark + 0.53F) / (26.81F - fBark);</span></div>
-<div class="line"><span class="lineno">  167</span>    <span class="keywordflow">return</span> 1960.F / (26.81F / (fBark + 0.53F) - 1.F);</div>
-<div class="line"><span class="lineno">  168</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="afefc9864b5de040f8aa0e0b51dbe8096" name="afefc9864b5de040f8aa0e0b51dbe8096"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afefc9864b5de040f8aa0e0b51dbe8096">&#9670;&nbsp;</a></span>convertBark2FreqZwicker()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertBark2FreqZwicker </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fBark</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00153">153</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  154</span>{</div>
-<div class="line"><span class="lineno">  155</span>    <span class="keywordflow">return</span> -1.F;</div>
-<div class="line"><span class="lineno">  156</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a6c50a36eba57e9a21aff9eb4093ea786" name="a6c50a36eba57e9a21aff9eb4093ea786"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6c50a36eba57e9a21aff9eb4093ea786">&#9670;&nbsp;</a></span>convertBin2Freq() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">void CConversion::convertBin2Freq </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pffInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfBin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLengthBuff</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iFftLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>44100.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts an FFT bin vector to a frequency vector </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pffInHz</td><td>frequency in Hz output buffer (length iLengthBuff, to be written) </td></tr>
-    <tr><td class="paramname">pfBin</td><td>input buffer with FFT bin indices (length iLengthBuff) </td></tr>
-    <tr><td class="paramname">iLengthBuff</td><td>length of buffers </td></tr>
-    <tr><td class="paramname">iFftLength</td><td>length of FFT </td></tr>
-    <tr><td class="paramname">fSampleRate</td><td>sample rate frequency in Hz </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00171">171</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  172</span>{</div>
-<div class="line"><span class="lineno">  173</span>    assert(pfBin);</div>
-<div class="line"><span class="lineno">  174</span>    assert(pffInHz);</div>
-<div class="line"><span class="lineno">  175</span>    assert(iLengthBuff &gt; 0);</div>
-<div class="line"><span class="lineno">  176</span>    assert(iFftLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  177</span>    assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  178</span> </div>
-<div class="line"><span class="lineno">  179</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iLengthBuff; n++)</div>
-<div class="line"><span class="lineno">  180</span>        pffInHz[n] = <a class="code hl_function" href="a00499.html#aebe59f905b1dd02058cccbb062de6507">convertBin2Freq</a>(pfBin[n], iFftLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  181</span>}</div>
-<div class="ttc" id="aa00499_html_aebe59f905b1dd02058cccbb062de6507"><div class="ttname"><a href="a00499.html#aebe59f905b1dd02058cccbb062de6507">CConversion::convertBin2Freq</a></div><div class="ttdeci">static float convertBin2Freq(float fBin, int iFftLength, float fSampleRate=44100.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00206">ToolConversion.h:206</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00206">convertBin2Freq()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00499_a6c50a36eba57e9a21aff9eb4093ea786_cgraph.png" border="0" usemap="#aa00499_a6c50a36eba57e9a21aff9eb4093ea786_cgraph" alt=""/></div>
-<map name="aa00499_a6c50a36eba57e9a21aff9eb4093ea786_cgraph" id="aa00499_a6c50a36eba57e9a21aff9eb4093ea786_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,203,32"/>
-<area shape="rect" href="a00499.html#aebe59f905b1dd02058cccbb062de6507" title=" " alt="" coords="251,5,448,32"/>
-</map>
-</div>
-
-</div>
-</div>
-<a id="aebe59f905b1dd02058cccbb062de6507" name="aebe59f905b1dd02058cccbb062de6507"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aebe59f905b1dd02058cccbb062de6507">&#9670;&nbsp;</a></span>convertBin2Freq() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static float CConversion::convertBin2Freq </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fBin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iFftLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>44100.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a FFT bin index to a frequency scalar </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fBin</td><td>FFT bin index </td></tr>
-    <tr><td class="paramname">iFftLength</td><td>length of FFT </td></tr>
-    <tr><td class="paramname">fSampleRate</td><td>sample rate frequency in Hz </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>frequency in Hz </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00206">206</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  207</span>    {</div>
-<div class="line"><span class="lineno">  208</span>        assert(fBin &gt;= 0);</div>
-<div class="line"><span class="lineno">  209</span>        assert(iFftLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  210</span>        assert(fBin &lt; iFftLength);</div>
-<div class="line"><span class="lineno">  211</span>        assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  212</span>        </div>
-<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">return</span> fBin * fSampleRate / <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(iFftLength);</div>
-<div class="line"><span class="lineno">  214</span>    };</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00086_source.html#l00037">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00086_source.html#l00102">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00044_source.html#l00171">convertBin2Freq()</a>, <a class="el" href="a00080_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00041_source.html#l00425">CFeatureSpectralMfccs::genMfccFilters_()</a>, and <a class="el" href="a00077_source.html#l00082">CBeatHistoIf::getBeatHistoAxisTicks()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00101_source.html#l00043">CChordFromFile::CChordFromFile()</a>, <a class="el" href="a00101_source.html#l00075">CChordFromVector::CChordFromVector()</a>, <a class="el" href="a00053_source.html#l00034">CFeatureFromFile::CFeatureFromFile()</a>, <a class="el" href="a00053_source.html#l00066">CFeatureFromVector::CFeatureFromVector()</a>, <a class="el" href="a00098_source.html#l00283">CGammaToneFbFromFile::CGammaToneFbFromFile()</a>, <a class="el" href="a00098_source.html#l00315">CGammaToneFbFromVector::CGammaToneFbFromVector()</a>, <a class="el" href="a00089_source.html#l00035">CNoveltyFromFile::CNoveltyFromFile()</a>, <a class="el" href="a00089_source.html#l00067">CNoveltyFromVector::CNoveltyFromVector()</a>, <a class="el" href="a00083_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00074_source.html#l00037">CPitchFromFile::CPitchFromFile()</a>, <a class="el" href="a00074_source.html#l00069">CPitchFromVector::CPitchFromVector()</a>, <a class="el" href="a00086_source.html#l00037">CSpectrogramFromFile::CSpectrogramFromFile()</a>, and <a class="el" href="a00086_source.html#l00070">CSpectrogramFromVector::CSpectrogramFromVector()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00499_aebe59f905b1dd02058cccbb062de6507_icgraph.png" border="0" usemap="#aa00499_aebe59f905b1dd02058cccbb062de6507_icgraph" alt=""/></div>
-<map name="aa00499_aebe59f905b1dd02058cccbb062de6507_icgraph" id="aa00499_aebe59f905b1dd02058cccbb062de6507_icgraph">
-<area shape="rect" title=" " alt="" coords="644,166,841,193"/>
-<area shape="rect" href="a00339.html#a250792b516c76c54251534a33c17bea8" title=" " alt="" coords="430,5,565,47"/>
-<area shape="rect" href="a00343.html#ad6b1dafb86b44b1d31bfbe22e930d146" title=" " alt="" coords="428,71,567,112"/>
-<area shape="rect" href="a00499.html#a6c50a36eba57e9a21aff9eb4093ea786" title=" " alt="" coords="399,137,596,163"/>
-<area shape="rect" href="a00483.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="413,188,582,229"/>
-<area shape="rect" href="a00291.html#a2123af520406a1b09fcf2437043c3b92" title=" " alt="" coords="418,253,577,295"/>
-<area shape="rect" href="a00411.html#ab14aabd3d1e26ba1f0c9ce1777eaddf9" title=" " alt="" coords="408,319,587,360"/>
-<area shape="rect" href="a00483.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="104,137,351,163"/>
-<area shape="rect" href="a00483.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="111,188,343,229"/>
-<area shape="rect" href="a00098.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,137,56,163"/>
-<area shape="rect" href="a00291.html#a4ffe272900bf3ba5bbab219262506455" title=" " alt="" coords="145,253,310,295"/>
+<div class="center"><img src="a00499_a84f0c2bf28007ef7749ab0e90c8011d2_icgraph.png" border="0" usemap="#aa00499_a84f0c2bf28007ef7749ab0e90c8011d2_icgraph" alt=""/></div>
+<map name="aa00499_a84f0c2bf28007ef7749ab0e90c8011d2_icgraph" id="aa00499_a84f0c2bf28007ef7749ab0e90c8011d2_icgraph">
+<area shape="rect" title=" " alt="" coords="368,391,515,417"/>
+<area shape="rect" href="a00283.html#a6df404d2eb3d4c8f9dc2071930fc9e7e" title=" " alt="" coords="104,5,320,32"/>
+<area shape="rect" href="a00287.html#ac9c41c2ddc441df7e0ae80c25971c260" title=" " alt="" coords="121,57,303,98"/>
+<area shape="rect" href="a00291.html#abdd90edbfe131bcd181d9ffac77fab8e" title=" " alt="" coords="119,122,305,163"/>
+<area shape="rect" href="a00295.html#a686d96f3eac3a33378fcea886d687305" title=" " alt="" coords="137,187,287,229"/>
+<area shape="rect" href="a00395.html#aec7867658e2991c8526c78666c960920" title=" " alt="" coords="123,253,301,294"/>
+<area shape="rect" href="a00399.html#a01a1b74d93af0810f5f4962b2578ca11" title=" " alt="" coords="115,318,309,359"/>
+<area shape="rect" href="a00335.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="119,383,305,425"/>
+<area shape="rect" href="a00339.html#a8730189fe1aa6b0e557afc04faad9966" title=" " alt="" coords="137,449,287,490"/>
+<area shape="rect" href="a00423.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="115,515,309,541"/>
+<area shape="rect" href="a00343.html#ab74f454ce0bbdccd22a38066ce26b16a" title=" " alt="" coords="108,565,316,592"/>
+<area shape="rect" href="a00347.html#a383eb44fd89db6be0119177effcf90bd" title=" " alt="" coords="125,617,299,658"/>
+<area shape="rect" href="a00375.html#aeac8291805613de79ed584829d3d5f30" title=" " alt="" coords="131,682,293,723"/>
+<area shape="rect" href="a00379.html#a2c6b75c7c05204bec34db9c8ec6c40d1" title=" " alt="" coords="123,747,301,789"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,515,56,541"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a33feba1dca002766f14f9cd89a0154e0" name="a33feba1dca002766f14f9cd89a0154e0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33feba1dca002766f14f9cd89a0154e0">&#9670;&nbsp;</a></span>convertFreq2Bark() <span class="overload">[1/2]</span></h2>
+<a id="a3a77052d7f4c67ade6d753402fd31f50" name="a3a77052d7f4c67ade6d753402fd31f50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a77052d7f4c67ade6d753402fd31f50">&#9670;&nbsp;</a></span>create() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -745,28 +334,40 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CConversion::convertFreq2Bark </td>
+          <td class="memname"><a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CBlockAudioIf::create </td>
           <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfBark</em>, </td>
+          <td class="paramtype"><a class="el" href="a00499.html">CBlockAudioIf</a> *&amp;&#160;</td>
+          <td class="paramname"><em>pCInstance</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pffInHz</em>, </td>
+          <td class="paramname"><em>pfAudioBuff</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iAudioLength</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLengthBuff</em>, </td>
+          <td class="paramname"><em>iBlockLength</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a>&#160;</td>
-          <td class="paramname"><em>eFunc</em> = <code><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a></code>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iHopLength</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fSampleRate</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -780,33 +381,38 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >converts a frequency array to a Bark array </p><dl class="params"><dt>Parameters</dt><dd>
+<p >creates an instance for blocking from vector </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pfBark</td><td>output Bark values (length iLenghBuff, to be written) </td></tr>
-    <tr><td class="paramname">pffInHz</td><td>input frequency values in Hz (length iLenghBuff) </td></tr>
-    <tr><td class="paramname">iLengthBuff</td><td>length of buffers </td></tr>
-    <tr><td class="paramname">eFunc</td><td>index for conversion function selection </td></tr>
+    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
+    <tr><td class="paramname">pfAudioBuff</td><td>buffer with audio data </td></tr>
+    <tr><td class="paramname">iAudioLength</td><td>length of pfAudioBuff in frames </td></tr>
+    <tr><td class="paramname">iBlockLength</td><td>block length in frames </td></tr>
+    <tr><td class="paramname">iHopLength</td><td>hop length in frames </td></tr>
+    <tr><td class="paramname">fSampleRate</td><td>sample rate in Hz </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00105">105</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
-<div class="line"><span class="lineno">  107</span>    assert(pfBark);</div>
-<div class="line"><span class="lineno">  108</span>    assert(pffInHz);</div>
-<div class="line"><span class="lineno">  109</span>    assert(iLengthBuff &gt; 0);</div>
-<div class="line"><span class="lineno">  110</span> </div>
-<div class="line"><span class="lineno">  111</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iLengthBuff; k++)</div>
-<div class="line"><span class="lineno">  112</span>        pfBark[k] = <a class="code hl_variable" href="a00499.html#a4ee9640a8dc6cfedef832789c60670c3">m_BarkDispatchMap</a>.at(eFunc)(pffInHz[k]);</div>
-<div class="line"><span class="lineno">  113</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00077_source.html#l00194">194</a> of file <a class="el" href="a00077_source.html">ToolBlockAudio.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  195</span>{</div>
+<div class="line"><span class="lineno">  196</span>    <span class="keywordflow">if</span> (!pfAudioBuff)</div>
+<div class="line"><span class="lineno">  197</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  198</span>    <span class="keywordflow">if</span> (iAudioLength &lt;= 0 || iBlockLength &lt;= 0 || iHopLength &lt;= 0 || iHopLength &gt; iBlockLength || fSampleRate &lt;= 0)</div>
+<div class="line"><span class="lineno">  199</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  200</span> </div>
+<div class="line"><span class="lineno">  201</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00387.html">CBlockAudioBuffer</a>(pfAudioBuff, iAudioLength, iBlockLength, iHopLength, fSampleRate);</div>
+<div class="line"><span class="lineno">  202</span> </div>
+<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  204</span>}</div>
+<div class="ttc" id="aa00387_html"><div class="ttname"><a href="a00387.html">CBlockAudioBuffer</a></div><div class="ttdef"><b>Definition:</b> <a href="a00077_source.html#l00120">ToolBlockAudio.cpp:121</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00254">m_BarkDispatchMap</a>.</p>
+<p class="reference">References <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
 </div>
 </div>
-<a id="a0847c5f906d2239f9500b0c438ce8ead" name="a0847c5f906d2239f9500b0c438ce8ead"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0847c5f906d2239f9500b0c438ce8ead">&#9670;&nbsp;</a></span>convertFreq2Bark() <span class="overload">[2/2]</span></h2>
+<a id="a13d2bd6e36210dde0c64d188c1266b88" name="a13d2bd6e36210dde0c64d188c1266b88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a13d2bd6e36210dde0c64d188c1266b88">&#9670;&nbsp;</a></span>destroy()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -815,219 +421,11 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CConversion::convertFreq2Bark </td>
+          <td class="memname">static <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CBlockAudioIf::destroy </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="a00499.html">CBlockAudioIf</a> *&amp;&#160;</td>
+          <td class="paramname"><em>pCInstance</em></td><td>)</td>
           <td></td>
-          <td class="paramtype"><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671">BarkConversionFunctions_t</a>&#160;</td>
-          <td class="paramname"><em>eFunc</em> = <code><a class="el" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a frequency scalar to a Bark value </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fInHz</td><td>frequency in Hz </td></tr>
-    <tr><td class="paramname">eFunc</td><td>index for conversion function selection </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Bark value </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00093">93</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   94</span>{</div>
-<div class="line"><span class="lineno">   95</span>    assert(fInHz &gt;= 0);</div>
-<div class="line"><span class="lineno">   96</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00499.html#a4ee9640a8dc6cfedef832789c60670c3">m_BarkDispatchMap</a>.at(eFunc)(fInHz);</div>
-<div class="line"><span class="lineno">   97</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00254">m_BarkDispatchMap</a>.</p>
-
-</div>
-</div>
-<a id="aadc66ab6659cdf6e8137b1f69b645ae4" name="aadc66ab6659cdf6e8137b1f69b645ae4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aadc66ab6659cdf6e8137b1f69b645ae4">&#9670;&nbsp;</a></span>convertFreq2BarkSchroeder()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertFreq2BarkSchroeder </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fFrequency</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00126">126</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  127</span>{</div>
-<div class="line"><span class="lineno">  128</span>    assert(fFrequency &gt; 0);</div>
-<div class="line"><span class="lineno">  129</span>    <span class="keywordflow">return</span> 7.F * std::asinh(fFrequency / 650.F);</div>
-<div class="line"><span class="lineno">  130</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="aefc1f257a1adbde4f46dfc3c5c6fb0ae" name="aefc1f257a1adbde4f46dfc3c5c6fb0ae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aefc1f257a1adbde4f46dfc3c5c6fb0ae">&#9670;&nbsp;</a></span>convertFreq2BarkTerhardt()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertFreq2BarkTerhardt </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fFrequency</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00137">137</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  138</span>{</div>
-<div class="line"><span class="lineno">  139</span>    assert(fFrequency &gt; 0);</div>
-<div class="line"><span class="lineno">  140</span>    <span class="keywordflow">return</span> 13.3F * std::atan(0.75F * fFrequency / 1000.F);</div>
-<div class="line"><span class="lineno">  141</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a54f9ba7eb05601c56b6df67e51fb2aa7" name="a54f9ba7eb05601c56b6df67e51fb2aa7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54f9ba7eb05601c56b6df67e51fb2aa7">&#9670;&nbsp;</a></span>convertFreq2BarkTraunmuller()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertFreq2BarkTraunmuller </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fFrequency</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00158">158</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  159</span>{</div>
-<div class="line"><span class="lineno">  160</span>    assert(fFrequency &gt; 0);</div>
-<div class="line"><span class="lineno">  161</span>    <span class="keywordflow">return</span> 26.81F / (1.F + 1960.F / fFrequency) - 0.53F;</div>
-<div class="line"><span class="lineno">  162</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a6b01bdcc2df1c829455ba9cafcec0a44" name="a6b01bdcc2df1c829455ba9cafcec0a44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6b01bdcc2df1c829455ba9cafcec0a44">&#9670;&nbsp;</a></span>convertFreq2BarkZwicker()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertFreq2BarkZwicker </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fFrequency</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00148">148</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  149</span>{</div>
-<div class="line"><span class="lineno">  150</span>    assert(fFrequency &gt; 0);</div>
-<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">return</span> 13.F * std::atan(0.76F  * fFrequency / 1000.F) + 3.5F * std::atan(fFrequency / 7500.F);</div>
-<div class="line"><span class="lineno">  152</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a588044409f07aff268246ced2d71ee29" name="a588044409f07aff268246ced2d71ee29"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a588044409f07aff268246ced2d71ee29">&#9670;&nbsp;</a></span>convertFreq2Bin() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void CConversion::convertFreq2Bin </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfBin</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pffInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLengthBuff</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iFftLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>44100.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
   </td>
@@ -1036,130 +434,64 @@ Here is the caller graph for this function:</div>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >converts a frequency vector into a FFT bin vector </p><dl class="params"><dt>Parameters</dt><dd>
+<p >destroys a block audio instance </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pfBin</td><td>output buffer with FFT bin indices (length iLengthBuff, to be written) </td></tr>
-    <tr><td class="paramname">pffInHz</td><td>frequency in Hz input buffer (length iLengthBuff) </td></tr>
-    <tr><td class="paramname">iLengthBuff</td><td>length of buffers </td></tr>
-    <tr><td class="paramname">iFftLength</td><td>length of FFT </td></tr>
-    <tr><td class="paramname">fSampleRate</td><td>sample rate frequency in Hz </td></tr>
+    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00188">188</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  189</span>    {</div>
-<div class="line"><span class="lineno">  190</span>        assert(pfBin);</div>
-<div class="line"><span class="lineno">  191</span>        assert(pffInHz);</div>
-<div class="line"><span class="lineno">  192</span>        assert(iLengthBuff &gt; 0);</div>
-<div class="line"><span class="lineno">  193</span>        assert(iFftLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  194</span>        assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  195</span> </div>
-<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iLengthBuff; n++)</div>
-<div class="line"><span class="lineno">  197</span>            pfBin[n] = <a class="code hl_function" href="a00499.html#ada82d84a69f4c77266835f1f06ca2ecb">convertFreq2Bin</a>(pffInHz[n], iFftLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  198</span>    };</div>
-<div class="ttc" id="aa00499_html_ada82d84a69f4c77266835f1f06ca2ecb"><div class="ttname"><a href="a00499.html#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a></div><div class="ttdeci">static float convertFreq2Bin(float fInHz, int iFftLength, float fSampleRate=44100.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00170">ToolConversion.h:170</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00040">40</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   41</span>    {</div>
+<div class="line"><span class="lineno">   42</span>        <span class="keyword">delete</span> pCInstance;</div>
+<div class="line"><span class="lineno">   43</span>        pCInstance = 0;</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   46</span>    };</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00170">convertFreq2Bin()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00499_a588044409f07aff268246ced2d71ee29_cgraph.png" border="0" usemap="#aa00499_a588044409f07aff268246ced2d71ee29_cgraph" alt=""/></div>
-<map name="aa00499_a588044409f07aff268246ced2d71ee29_cgraph" id="aa00499_a588044409f07aff268246ced2d71ee29_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,203,32"/>
-<area shape="rect" href="a00499.html#ada82d84a69f4c77266835f1f06ca2ecb" title=" " alt="" coords="251,5,448,32"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="a00110.html#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
-</div>
-</div>
-<a id="ada82d84a69f4c77266835f1f06ca2ecb" name="ada82d84a69f4c77266835f1f06ca2ecb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ada82d84a69f4c77266835f1f06ca2ecb">&#9670;&nbsp;</a></span>convertFreq2Bin() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static float CConversion::convertFreq2Bin </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iFftLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>44100.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a frequency scalar to an FFT bin index </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fInHz</td><td>frequency value in Hz </td></tr>
-    <tr><td class="paramname">iFftLength</td><td>length of FFT </td></tr>
-    <tr><td class="paramname">fSampleRate</td><td>sample rate frequency in Hz </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>bin index (float) </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00170">170</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  171</span>    {</div>
-<div class="line"><span class="lineno">  172</span>        assert(fInHz &gt;= 0);</div>
-<div class="line"><span class="lineno">  173</span>        assert(iFftLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  174</span>        assert(fInHz &lt; fSampleRate);</div>
-<div class="line"><span class="lineno">  175</span>        assert(fSampleRate &gt; 0);</div>
-<div class="line"><span class="lineno">  176</span> </div>
-<div class="line"><span class="lineno">  177</span>        <span class="keywordflow">return</span> fInHz / fSampleRate * <span class="keyword">static_cast&lt;</span><span class="keywordtype">float</span><span class="keyword">&gt;</span>(iFftLength);</div>
-<div class="line"><span class="lineno">  178</span>    };</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00086_source.html#l00037">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00086_source.html#l00102">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00077_source.html#l00270">CBeatHistoIf::compHistoRange_()</a>, <a class="el" href="a00146_source.html#l00188">convertFreq2Bin()</a>, <a class="el" href="a00041_source.html#l00425">CFeatureSpectralMfccs::genMfccFilters_()</a>, and <a class="el" href="a00041_source.html#l00577">CFeatureSpectralPitchChroma::genPcFilters_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00083_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00101_source.html#l00367">CChordIf::reset_()</a>, <a class="el" href="a00053_source.html#l00324">CFeatureIf::reset_()</a>, <a class="el" href="a00089_source.html#l00294">CNoveltyIf::reset_()</a>, <a class="el" href="a00074_source.html#l00275">CPitchIf::reset_()</a>, <a class="el" href="a00086_source.html#l00238">CSpectrogramIf::reset_()</a>, and <a class="el" href="a00098_source.html#l00478">CGammaToneFbIf::reset_()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00499_ada82d84a69f4c77266835f1f06ca2ecb_icgraph.png" border="0" usemap="#aa00499_ada82d84a69f4c77266835f1f06ca2ecb_icgraph" alt=""/></div>
-<map name="aa00499_ada82d84a69f4c77266835f1f06ca2ecb_icgraph" id="aa00499_ada82d84a69f4c77266835f1f06ca2ecb_icgraph">
-<area shape="rect" title=" " alt="" coords="615,162,812,189"/>
-<area shape="rect" href="a00339.html#a250792b516c76c54251534a33c17bea8" title=" " alt="" coords="394,5,529,47"/>
-<area shape="rect" href="a00343.html#ad6b1dafb86b44b1d31bfbe22e930d146" title=" " alt="" coords="392,71,531,112"/>
-<area shape="rect" href="a00411.html#aab00ef7ee1267d939e78e6b27e86848e" title=" " alt="" coords="356,137,567,163"/>
-<area shape="rect" href="a00499.html#a588044409f07aff268246ced2d71ee29" title=" " alt="" coords="363,187,560,214"/>
-<area shape="rect" href="a00291.html#a2123af520406a1b09fcf2437043c3b92" title=" " alt="" coords="382,239,541,280"/>
-<area shape="rect" href="a00295.html#a88b4352ab8251a177a5351c638ad5b3c" title=" " alt="" coords="362,304,561,345"/>
-<area shape="rect" href="a00411.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="109,70,303,97"/>
-<area shape="rect" href="a00411.html#ab14aabd3d1e26ba1f0c9ce1777eaddf9" title=" " alt="" coords="117,121,295,163"/>
-<area shape="rect" href="a00411.html#ac757ed7ecb081dbf61745108165ee30b" title=" " alt="" coords="119,187,293,214"/>
-<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,70,56,97"/>
-<area shape="rect" href="a00291.html#a4ffe272900bf3ba5bbab219262506455" title=" " alt="" coords="123,239,289,280"/>
-<area shape="rect" href="a00295.html#a388f9c7dd2074706d723e31b421f16fa" title=" " alt="" coords="104,304,308,345"/>
-<area shape="rect" href="a00295.html#a6b4b3032eb9b09d9f64811613448c994" title=" " alt="" coords="107,369,305,411"/>
+<div class="center"><img src="a00499_a13d2bd6e36210dde0c64d188c1266b88_icgraph.png" border="0" usemap="#aa00499_a13d2bd6e36210dde0c64d188c1266b88_icgraph" alt=""/></div>
+<map name="aa00499_a13d2bd6e36210dde0c64d188c1266b88_icgraph" id="aa00499_a13d2bd6e36210dde0c64d188c1266b88_icgraph">
+<area shape="rect" title=" " alt="" coords="544,443,697,469"/>
+<area shape="rect" href="a00423.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="303,31,496,57"/>
+<area shape="rect" href="a00427.html#a333842dc3ecbbf719eee742f1a4b1845" title="reset configuration" alt="" coords="342,132,457,159"/>
+<area shape="rect" href="a00435.html#a7b77edaf405fefd82329d8987b16d1f2" title="reset configuration" alt="" coords="337,300,462,327"/>
+<area shape="rect" href="a00475.html#a119fc32e085bb978525ea9596ee2e9c1" title="reset configuration" alt="" coords="337,443,462,469"/>
+<area shape="rect" href="a00483.html#a0841d88981bfe343f6439b7d4174a30b" title="reset configuration" alt="" coords="344,569,455,596"/>
+<area shape="rect" href="a00491.html#afbe3214c599eaab59c8c5a886408630c" title="reset configuration" alt="" coords="322,733,477,760"/>
+<area shape="rect" href="a00511.html#acdce444c00fcae3da249963ec17c1640" title="reset configuration" alt="" coords="314,901,485,928"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="105,5,155,32"/>
+<area shape="rect" href="a00283.html#a6df404d2eb3d4c8f9dc2071930fc9e7e" title=" " alt="" coords="22,56,238,83"/>
+<area shape="rect" href="a00427.html#a46a40c5a1fa7415337653bec30255245" title=" " alt="" coords="65,107,195,133"/>
+<area shape="rect" href="a00427.html#aa778bd3dadb1442280d4a076c10769d4" title=" " alt="" coords="61,157,199,184"/>
+<area shape="rect" href="a00291.html#abdd90edbfe131bcd181d9ffac77fab8e" title=" " alt="" coords="37,209,223,250"/>
+<area shape="rect" href="a00435.html#a9893395e4967a4db2d021994e6917e70" title=" " alt="" coords="55,275,205,301"/>
+<area shape="rect" href="a00435.html#af5da45fe4709e1dd028638a533822c98" title=" " alt="" coords="51,325,209,352"/>
+<area shape="rect" href="a00335.html#a0247bb6d1818b840d1182d5ee50214d5" title=" " alt="" coords="37,377,223,418"/>
+<area shape="rect" href="a00475.html#a120b69bf1f92d3f00ef515518a9dc604" title=" " alt="" coords="55,443,205,469"/>
+<area shape="rect" href="a00475.html#ad5ef9568b2492898ee428c60ae4d5ca5" title=" " alt="" coords="51,493,209,520"/>
+<area shape="rect" href="a00343.html#ab74f454ce0bbdccd22a38066ce26b16a" title=" " alt="" coords="26,544,234,571"/>
+<area shape="rect" href="a00483.html#a6e2c59c5b6bb651075bd0e9d65edd383" title=" " alt="" coords="69,595,191,621"/>
+<area shape="rect" href="a00483.html#a4df4a76c5c6a23618ad9889dd8855f2b" title=" " alt="" coords="65,645,195,672"/>
+<area shape="rect" href="a00375.html#aeac8291805613de79ed584829d3d5f30" title=" " alt="" coords="49,697,211,738"/>
+<area shape="rect" href="a00491.html#a8808d63b1b795444056e6ccdf46fc2b0" title=" " alt="" coords="25,763,235,789"/>
+<area shape="rect" href="a00491.html#a321f47e4165fa5c8b78c0fa47286b53b" title=" " alt="" coords="21,813,239,840"/>
+<area shape="rect" href="a00395.html#aec7867658e2991c8526c78666c960920" title=" " alt="" coords="41,865,219,906"/>
+<area shape="rect" href="a00511.html#ac2de88f207d4482f3aa0c7be334da9c4" title=" " alt="" coords="9,931,251,957"/>
+<area shape="rect" href="a00511.html#a901b757125a9622199ffc7ee63fd91ae" title=" " alt="" coords="5,981,255,1008"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="aed54c096c6fb379848ef1cd882ca7b43" name="aed54c096c6fb379848ef1cd882ca7b43"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed54c096c6fb379848ef1cd882ca7b43">&#9670;&nbsp;</a></span>convertFreq2Mel() <span class="overload">[1/2]</span></h2>
+<a id="a8a0b909dcabb5e445d7386b149e8b104" name="a8a0b909dcabb5e445d7386b149e8b104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8a0b909dcabb5e445d7386b149e8b104">&#9670;&nbsp;</a></span>getLengthInSamples()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1168,135 +500,43 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CConversion::convertFreq2Mel </td>
+          <td class="memname">long long CBlockAudioIf::getLengthInSamples </td>
           <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfMel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pffInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLengthBuff</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a>&#160;</td>
-          <td class="paramname"><em>eFunc</em> = <code><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >converts a frequency array to a mel array </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pfMel</td><td>output mel values (length iLenghBuff, to be written) </td></tr>
-    <tr><td class="paramname">pffInHz</td><td>input frequency values in Hz (length iLenghBuff) </td></tr>
-    <tr><td class="paramname">iLengthBuff</td><td>length of buffers </td></tr>
-    <tr><td class="paramname">eFunc</td><td>index for conversion function selection </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<p >returns number of samples </p><dl class="section return"><dt>Returns</dt><dd>number of samples for current audio </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00030">30</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   31</span>{</div>
-<div class="line"><span class="lineno">   32</span>    assert(pfMel);</div>
-<div class="line"><span class="lineno">   33</span>    assert(pffInHz);</div>
-<div class="line"><span class="lineno">   34</span>    assert(iLengthBuff &gt; 0);</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iLengthBuff; k++)</div>
-<div class="line"><span class="lineno">   37</span>        pfMel[k] = <a class="code hl_variable" href="a00499.html#a1ddc8df24c34d327e77dcebe71924ea3">m_MelDispatchMap</a>.at(eFunc)(pffInHz[k]);</div>
-<div class="line"><span class="lineno">   38</span>}</div>
-<div class="ttc" id="aa00499_html_a1ddc8df24c34d327e77dcebe71924ea3"><div class="ttname"><a href="a00499.html#a1ddc8df24c34d327e77dcebe71924ea3">CConversion::m_MelDispatchMap</a></div><div class="ttdeci">static const std::map&lt; int, std::function&lt; float(float)&gt; &gt; m_MelDispatchMap</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00252">ToolConversion.h:252</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00059">59</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   60</span>    {</div>
+<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00499.html#a6c7154e29bd4a88a2e54487f746045f4">m_iAudioLength</a>;</div>
+<div class="line"><span class="lineno">   62</span>    };</div>
+<div class="ttc" id="aa00499_html_a6c7154e29bd4a88a2e54487f746045f4"><div class="ttname"><a href="a00499.html#a6c7154e29bd4a88a2e54487f746045f4">CBlockAudioIf::m_iAudioLength</a></div><div class="ttdeci">long long m_iAudioLength</div><div class="ttdoc">length of audio buffer</div><div class="ttdef"><b>Definition:</b> <a href="a00164_source.html#l00093">ToolBlockAudio.h:93</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00252">m_MelDispatchMap</a>.</p>
+<p class="reference">References <a class="el" href="a00164_source.html#l00093">m_iAudioLength</a>.</p>
 
-</div>
-</div>
-<a id="ad0d26c7c6a5edaa81527e68fe0c0c46f" name="ad0d26c7c6a5edaa81527e68fe0c0c46f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad0d26c7c6a5edaa81527e68fe0c0c46f">&#9670;&nbsp;</a></span>convertFreq2Mel() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertFreq2Mel </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a>&#160;</td>
-          <td class="paramname"><em>eFunc</em> = <code><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a frequency scalar to a mel value </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fInHz</td><td>frequency in Hz </td></tr>
-    <tr><td class="paramname">eFunc</td><td>index for conversion function selection </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>mel value </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00018">18</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>{</div>
-<div class="line"><span class="lineno">   20</span>    assert(fInHz &gt;= 0);</div>
-<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00499.html#a1ddc8df24c34d327e77dcebe71924ea3">m_MelDispatchMap</a>.at(eFunc)(fInHz);</div>
-<div class="line"><span class="lineno">   22</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00252">m_MelDispatchMap</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00080_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00098_source.html#l00414">CGammaToneFbIf::getOutputDimensions()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00499_ad0d26c7c6a5edaa81527e68fe0c0c46f_icgraph.png" border="0" usemap="#aa00499_ad0d26c7c6a5edaa81527e68fe0c0c46f_icgraph" alt=""/></div>
-<map name="aa00499_ad0d26c7c6a5edaa81527e68fe0c0c46f_icgraph" id="aa00499_ad0d26c7c6a5edaa81527e68fe0c0c46f_icgraph">
-<area shape="rect" title=" " alt="" coords="616,35,815,61"/>
-<area shape="rect" href="a00483.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="399,27,568,69"/>
-<area shape="rect" href="a00483.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="104,5,351,32"/>
-<area shape="rect" href="a00483.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="111,57,343,98"/>
-<area shape="rect" href="a00098.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+<div class="center"><img src="a00499_a8a0b909dcabb5e445d7386b149e8b104_icgraph.png" border="0" usemap="#aa00499_a8a0b909dcabb5e445d7386b149e8b104_icgraph" alt=""/></div>
+<map name="aa00499_a8a0b909dcabb5e445d7386b149e8b104_icgraph" id="aa00499_a8a0b909dcabb5e445d7386b149e8b104_icgraph">
+<area shape="rect" title=" " alt="" coords="245,5,415,47"/>
+<area shape="rect" href="a00511.html#ae9588434e58fd751b6ec1b4f13a78356" title=" " alt="" coords="5,5,197,47"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="afded0983d477928d9f0be2b61ea22273" name="afded0983d477928d9f0be2b61ea22273"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afded0983d477928d9f0be2b61ea22273">&#9670;&nbsp;</a></span>convertFreq2MelFant()</h2>
+<a id="a531920b36b04ecdb562bfbb09dd2e856" name="a531920b36b04ecdb562bfbb09dd2e856"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a531920b36b04ecdb562bfbb09dd2e856">&#9670;&nbsp;</a></span>getNextBlock()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1305,121 +545,16 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CConversion::convertFreq2MelFant </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fFrequency</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00050">50</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   51</span>{</div>
-<div class="line"><span class="lineno">   52</span>    <span class="keywordflow">return</span> 1000.F * std::log2(1.F + fFrequency / 1000.F);</div>
-<div class="line"><span class="lineno">   53</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ad1cbd90f3bff81014eaeb2d97f5c6ae5" name="ad1cbd90f3bff81014eaeb2d97f5c6ae5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad1cbd90f3bff81014eaeb2d97f5c6ae5">&#9670;&nbsp;</a></span>convertFreq2MelShaughnessy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertFreq2MelShaughnessy </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fFrequency</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00060">60</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   61</span>{</div>
-<div class="line"><span class="lineno">   62</span>    <span class="keywordflow">return</span> 2595.F * std::log10(1.F + fFrequency / 700.F);</div>
-<div class="line"><span class="lineno">   63</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a69295613ff347523c49bc96951aaa437" name="a69295613ff347523c49bc96951aaa437"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a69295613ff347523c49bc96951aaa437">&#9670;&nbsp;</a></span>convertFreq2MelUmesh()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertFreq2MelUmesh </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fFrequency</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00070">70</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   71</span>{</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">return</span> fFrequency / (2.4e-4F * fFrequency + 0.741F);</div>
-<div class="line"><span class="lineno">   73</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a81ba4ad719a2c8ce194af937d5050d17" name="a81ba4ad719a2c8ce194af937d5050d17"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81ba4ad719a2c8ce194af937d5050d17">&#9670;&nbsp;</a></span>convertFreq2Midi() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void CConversion::convertFreq2Midi </td>
+          <td class="memname">virtual int CBlockAudioIf::getNextBlock </td>
           <td>(</td>
           <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfMidi</em>, </td>
+          <td class="paramname"><em>pfBlock</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pffInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLengthBuff</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fA4InHz</em> = <code>440.F</code>&#160;</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>pfTimeStampInS</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1429,110 +564,53 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >converts a frequency vector to midi (float) </p><dl class="params"><dt>Parameters</dt><dd>
+<p >retrieves audio data for next block </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pfMidi</td><td>output buffer (length iLengthBuff, to be written) </td></tr>
-    <tr><td class="paramname">pffInHz</td><td>input buffer with frequency values in Hz (length iLengthBuff) </td></tr>
-    <tr><td class="paramname">iLengthBuff</td><td>length of buffers </td></tr>
-    <tr><td class="paramname">fA4InHz</td><td>tuning (reference) frequency in Hz </td></tr>
+    <tr><td class="paramname">pfBlock</td><td>(to be written) of length blocklength </td></tr>
+    <tr><td class="paramname">pfTimeStampInS</td><td>(to be written, optional) for current time stamp </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>int iNumFramesRead </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00122">122</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  123</span>    {</div>
-<div class="line"><span class="lineno">  124</span>        assert(pfMidi);</div>
-<div class="line"><span class="lineno">  125</span>        assert(pffInHz);</div>
-<div class="line"><span class="lineno">  126</span>        assert(iLengthBuff &gt; 0);</div>
-<div class="line"><span class="lineno">  127</span>        assert(fA4InHz &gt; 0);</div>
-<div class="line"><span class="lineno">  128</span> </div>
-<div class="line"><span class="lineno">  129</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iLengthBuff; n++)</div>
-<div class="line"><span class="lineno">  130</span>            pfMidi[n] = <a class="code hl_function" href="a00499.html#ade267323a6a537a150141fa4f0ab570a">convertFreq2Midi</a>(pffInHz[n], fA4InHz);</div>
-<div class="line"><span class="lineno">  131</span>    };</div>
-<div class="ttc" id="aa00499_html_ade267323a6a537a150141fa4f0ab570a"><div class="ttname"><a href="a00499.html#ade267323a6a537a150141fa4f0ab570a">CConversion::convertFreq2Midi</a></div><div class="ttdeci">static float convertFreq2Midi(float fInHz, float fA4InHz=440.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00108">ToolConversion.h:108</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00108">convertFreq2Midi()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00499_a81ba4ad719a2c8ce194af937d5050d17_cgraph.png" border="0" usemap="#aa00499_a81ba4ad719a2c8ce194af937d5050d17_cgraph" alt=""/></div>
-<map name="aa00499_a81ba4ad719a2c8ce194af937d5050d17_cgraph" id="aa00499_a81ba4ad719a2c8ce194af937d5050d17_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,208,32"/>
-<area shape="rect" href="a00499.html#ade267323a6a537a150141fa4f0ab570a" title=" " alt="" coords="256,5,459,32"/>
-</map>
-</div>
+<p>Implemented in <a class="el" href="a00383.html#a9c2bd8b51ec72c82eb202d70f379d3ac">CBlockAudioFile</a>, and <a class="el" href="a00387.html#a61dc57fda85624457a10ffa2ed7cdc2f">CBlockAudioBuffer</a>.</p>
 
-</div>
-</div>
-<a id="ade267323a6a537a150141fa4f0ab570a" name="ade267323a6a537a150141fa4f0ab570a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ade267323a6a537a150141fa4f0ab570a">&#9670;&nbsp;</a></span>convertFreq2Midi() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static float CConversion::convertFreq2Midi </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fA4InHz</em> = <code>440.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a frequency scalar to midi (float) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fInHz</td><td>frequency value in Hz </td></tr>
-    <tr><td class="paramname">fA4InHz</td><td>tuning (reference) frequency in Hz </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Midi value </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00108">108</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  109</span>    {</div>
-<div class="line"><span class="lineno">  110</span>        assert(fInHz &gt; 0);</div>
-<div class="line"><span class="lineno">  111</span>        assert(fA4InHz &gt; 0);</div>
-<div class="line"><span class="lineno">  112</span>        <span class="keywordflow">return</span> 69.F + 12.F * std::log2(fInHz / fA4InHz);</div>
-<div class="line"><span class="lineno">  113</span>    };</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00146_source.html#l00122">convertFreq2Midi()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00083_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00101_source.html#l00197">CChordIf::compChords()</a>, <a class="el" href="a00074_source.html#l00191">CPitchIf::compF0()</a>, <a class="el" href="a00053_source.html#l00177">CFeatureIf::compFeature1Dim()</a>, <a class="el" href="a00053_source.html#l00211">CFeatureIf::compFeatureNDim()</a>, <a class="el" href="a00089_source.html#l00184">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00086_source.html#l00217">CSpectrogramIf::computeMagSpectrum_()</a>, and <a class="el" href="a00098_source.html#l00434">CGammaToneFbIf::process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00499_ade267323a6a537a150141fa4f0ab570a_icgraph.png" border="0" usemap="#aa00499_ade267323a6a537a150141fa4f0ab570a_icgraph" alt=""/></div>
-<map name="aa00499_ade267323a6a537a150141fa4f0ab570a_icgraph" id="aa00499_ade267323a6a537a150141fa4f0ab570a_icgraph">
-<area shape="rect" title=" " alt="" coords="256,5,459,32"/>
-<area shape="rect" href="a00499.html#a81ba4ad719a2c8ce194af937d5050d17" title=" " alt="" coords="5,5,208,32"/>
+<div class="center"><img src="a00499_a531920b36b04ecdb562bfbb09dd2e856_icgraph.png" border="0" usemap="#aa00499_a531920b36b04ecdb562bfbb09dd2e856_icgraph" alt=""/></div>
+<map name="aa00499_a531920b36b04ecdb562bfbb09dd2e856_icgraph" id="aa00499_a531920b36b04ecdb562bfbb09dd2e856_icgraph">
+<area shape="rect" title=" " alt="" coords="645,183,835,209"/>
+<area shape="rect" href="a00423.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="131,208,324,235"/>
+<area shape="rect" href="a00427.html#a463c7570302112f307363ec1c7260221" title=" " alt="" coords="422,5,574,32"/>
+<area shape="rect" href="a00483.html#a5c6fea7fdc8067f1d6a116b86d543aa1" title=" " alt="" coords="437,56,559,83"/>
+<area shape="rect" href="a00435.html#a30248aa1fb336095d4d86d0bd3d2bdb8" title=" " alt="" coords="401,157,595,184"/>
+<area shape="rect" href="a00435.html#ad734d1e300583449f51e6ca80aa3e7b8" title=" " alt="" coords="399,107,597,133"/>
+<area shape="rect" href="a00475.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="415,259,581,285"/>
+<area shape="rect" href="a00491.html#abe25089ec6ef77b0b9952c33a7a8d739" title=" " alt="" coords="401,310,595,351"/>
+<area shape="rect" href="a00511.html#a213a39329bd7d70dbd90df71d1cf0735" title=" " alt="" coords="407,397,589,424"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,208,56,235"/>
+<area shape="rect" href="a00029.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="202,5,253,32"/>
+<area shape="rect" href="a00107.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="202,56,253,83"/>
+<area shape="rect" href="a00002.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="202,132,253,159"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="202,259,253,285"/>
+<area shape="rect" href="a00491.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="104,309,351,336"/>
+<area shape="rect" href="a00491.html#ae041a770ec2b092761d9a88cc87946bb" title=" " alt="" coords="115,360,340,387"/>
+<area shape="rect" href="a00104.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,309,56,336"/>
+<area shape="rect" href="a00020.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,360,56,387"/>
+<area shape="rect" href="a00363.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="159,411,296,453"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="ad8d907d49dc6a44bdd8152e4bf33b94a" name="ad8d907d49dc6a44bdd8152e4bf33b94a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad8d907d49dc6a44bdd8152e4bf33b94a">&#9670;&nbsp;</a></span>convertMel2Freq() <span class="overload">[1/2]</span></h2>
+<a id="a595b3a391e2540a1dc9e53edf8634494" name="a595b3a391e2540a1dc9e53edf8634494"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a595b3a391e2540a1dc9e53edf8634494">&#9670;&nbsp;</a></span>getNumBlocks()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1541,134 +619,80 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void CConversion::convertMel2Freq </td>
+          <td class="memname">long long CBlockAudioIf::getNumBlocks </td>
           <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pffInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfMel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLengthBuff</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a>&#160;</td>
-          <td class="paramname"><em>eFunc</em> = <code><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >converts a mel array to a frequency array </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pffInHz</td><td>output frequency values in Hz (length iLenghBuff, to be written) </td></tr>
-    <tr><td class="paramname">pfMel</td><td>input mel values (length iLenghBuff) </td></tr>
-    <tr><td class="paramname">iLengthBuff</td><td>length of buffers </td></tr>
-    <tr><td class="paramname">eFunc</td><td>index for conversion function selection </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<p >returns number of blocks </p><dl class="section return"><dt>Returns</dt><dd>number of blocks for current audio </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00040">40</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   41</span>{</div>
-<div class="line"><span class="lineno">   42</span>    assert(pfMel);</div>
-<div class="line"><span class="lineno">   43</span>    assert(pffInHz);</div>
-<div class="line"><span class="lineno">   44</span>    assert(iLengthBuff &gt; 0);</div>
-<div class="line"><span class="lineno">   45</span> </div>
-<div class="line"><span class="lineno">   46</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; iLengthBuff; k++)</div>
-<div class="line"><span class="lineno">   47</span>        pffInHz[k] = <a class="code hl_variable" href="a00499.html#a1ddc8df24c34d327e77dcebe71924ea3">m_MelDispatchMap</a>.at(eFunc + <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1">kNumMelConversionFunctions</a>)(pfMel[k]);</div>
-<div class="line"><span class="lineno">   48</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00051">51</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   52</span>    {</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00499.html#a1c97a35fe0a4e37aeebc8e809eed64d7">m_iNumBlocks</a>;</div>
+<div class="line"><span class="lineno">   54</span>    };</div>
+<div class="ttc" id="aa00499_html_a1c97a35fe0a4e37aeebc8e809eed64d7"><div class="ttname"><a href="a00499.html#a1c97a35fe0a4e37aeebc8e809eed64d7">CBlockAudioIf::m_iNumBlocks</a></div><div class="ttdeci">long long m_iNumBlocks</div><div class="ttdoc">number of blocks</div><div class="ttdef"><b>Definition:</b> <a href="a00164_source.html#l00091">ToolBlockAudio.h:91</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00022">kNumMelConversionFunctions</a>, and <a class="el" href="a00146_source.html#l00252">m_MelDispatchMap</a>.</p>
+<p class="reference">References <a class="el" href="a00164_source.html#l00091">m_iNumBlocks</a>.</p>
 
-</div>
-</div>
-<a id="adbcadd75a3a33ca9e9453a17a9336318" name="adbcadd75a3a33ca9e9453a17a9336318"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adbcadd75a3a33ca9e9453a17a9336318">&#9670;&nbsp;</a></span>convertMel2Freq() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertMel2Freq </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fMel</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829">MelConversionFunctions_t</a>&#160;</td>
-          <td class="paramname"><em>eFunc</em> = <code><a class="el" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a></code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a mel scalar to a frequency </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fMel</td><td>mel value </td></tr>
-    <tr><td class="paramname">eFunc</td><td>index for conversion function selection </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>frequency value in Hz </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00024">24</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>{</div>
-<div class="line"><span class="lineno">   26</span>    assert(fMel &gt;= 0);</div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00499.html#a1ddc8df24c34d327e77dcebe71924ea3">m_MelDispatchMap</a>.at(eFunc + <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1">kNumMelConversionFunctions</a>)(fMel);</div>
-<div class="line"><span class="lineno">   28</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00022">kNumMelConversionFunctions</a>, and <a class="el" href="a00146_source.html#l00252">m_MelDispatchMap</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00080_source.html#l00380">CSpectrogramIf::generateMelFb_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00083_source.html#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00101_source.html#l00197">CChordIf::compChords()</a>, <a class="el" href="a00074_source.html#l00191">CPitchIf::compF0()</a>, <a class="el" href="a00053_source.html#l00177">CFeatureIf::compFeature1Dim()</a>, <a class="el" href="a00053_source.html#l00211">CFeatureIf::compFeatureNDim()</a>, <a class="el" href="a00086_source.html#l00333">CSpectrogramIf::compMelSpectrogram()</a>, <a class="el" href="a00089_source.html#l00184">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00086_source.html#l00188">CSpectrogramIf::compSpectrogram()</a>, <a class="el" href="a00053_source.html#l00136">CFeatureIf::getFeatureDimensions()</a>, <a class="el" href="a00086_source.html#l00296">CSpectrogramIf::getMelSpectrogramAxisVectors()</a>, <a class="el" href="a00086_source.html#l00278">CSpectrogramIf::getMelSpectrogramDimensions()</a>, <a class="el" href="a00101_source.html#l00163">CChordIf::getNumBlocks()</a>, <a class="el" href="a00089_source.html#l00150">CNoveltyIf::getNumBlocks()</a>, <a class="el" href="a00074_source.html#l00157">CPitchIf::getNumBlocks()</a>, <a class="el" href="a00086_source.html#l00156">CSpectrogramIf::getSpectrogramAxisVectors()</a>, <a class="el" href="a00086_source.html#l00141">CSpectrogramIf::getSpectrogramDimensions()</a>, <a class="el" href="a00101_source.html#l00176">CChordIf::getTimeStamps()</a>, <a class="el" href="a00053_source.html#l00156">CFeatureIf::getTimeStamps()</a>, <a class="el" href="a00089_source.html#l00163">CNoveltyIf::getTimeStamps()</a>, <a class="el" href="a00074_source.html#l00170">CPitchIf::getTimeStamps()</a>, <a class="el" href="a00101_source.html#l00395">CChordIf::init_()</a>, <a class="el" href="a00101_source.html#l00414">CChordIf::initViterbi_()</a>, and <a class="el" href="a00098_source.html#l00434">CGammaToneFbIf::process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00499_adbcadd75a3a33ca9e9453a17a9336318_icgraph.png" border="0" usemap="#aa00499_adbcadd75a3a33ca9e9453a17a9336318_icgraph" alt=""/></div>
-<map name="aa00499_adbcadd75a3a33ca9e9453a17a9336318_icgraph" id="aa00499_adbcadd75a3a33ca9e9453a17a9336318_icgraph">
-<area shape="rect" title=" " alt="" coords="616,35,815,61"/>
-<area shape="rect" href="a00483.html#a04d8f71d4562f2a4efc8a8537826d8c3" title=" " alt="" coords="399,27,568,69"/>
-<area shape="rect" href="a00483.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="104,5,351,32"/>
-<area shape="rect" href="a00483.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="111,57,343,98"/>
-<area shape="rect" href="a00098.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,5,56,32"/>
+<div class="center"><img src="a00499_a595b3a391e2540a1dc9e53edf8634494_icgraph.png" border="0" usemap="#aa00499_a595b3a391e2540a1dc9e53edf8634494_icgraph" alt=""/></div>
+<map name="aa00499_a595b3a391e2540a1dc9e53edf8634494_icgraph" id="aa00499_a595b3a391e2540a1dc9e53edf8634494_icgraph">
+<area shape="rect" title=" " alt="" coords="1079,599,1276,625"/>
+<area shape="rect" href="a00423.html#a58a9a3d685f448ced2e843a60028e472" title=" " alt="" coords="302,84,495,111"/>
+<area shape="rect" href="a00427.html#a463c7570302112f307363ec1c7260221" title=" " alt="" coords="569,287,721,313"/>
+<area shape="rect" href="a00483.html#a5c6fea7fdc8067f1d6a116b86d543aa1" title=" " alt="" coords="584,388,707,415"/>
+<area shape="rect" href="a00435.html#a30248aa1fb336095d4d86d0bd3d2bdb8" title=" " alt="" coords="810,439,1005,465"/>
+<area shape="rect" href="a00435.html#ad734d1e300583449f51e6ca80aa3e7b8" title=" " alt="" coords="808,489,1007,516"/>
+<area shape="rect" href="a00491.html#ae89af275cdd54029bbf7f0f25ddf7945" title=" " alt="" coords="784,657,1031,684"/>
+<area shape="rect" href="a00475.html#aae9467a0a531230e0c4271055f0d2710" title=" " alt="" coords="563,84,728,111"/>
+<area shape="rect" href="a00491.html#ae041a770ec2b092761d9a88cc87946bb" title=" " alt="" coords="795,775,1020,801"/>
+<area shape="rect" href="a00435.html#ad7e4c2c40aa96ea2d91eafffcde0608a" title=" " alt="" coords="798,540,1017,567"/>
+<area shape="rect" href="a00491.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="791,826,1023,867"/>
+<area shape="rect" href="a00491.html#af50a3669266ad696a1159b1bb80b1c8a" title=" " alt="" coords="791,591,1023,633"/>
+<area shape="rect" href="a00427.html#a2c48f69f930e943cc5dbeaa8ca9e9e72" title=" " alt="" coords="825,236,990,263"/>
+<area shape="rect" href="a00475.html#a2957fc23663fb6b67fabb6ecda9ae0bd" title=" " alt="" coords="820,135,995,161"/>
+<area shape="rect" href="a00483.html#af2ce0d31ee7e368ebc1889507972f9c2" title=" " alt="" coords="827,337,988,364"/>
+<area shape="rect" href="a00491.html#a2efaeb2df2ddfdc633ba53b2bb49b528" title=" " alt="" coords="802,891,1013,933"/>
+<area shape="rect" href="a00491.html#afb50af1070f5876b4706f5891879fcd8" title=" " alt="" coords="802,709,1013,750"/>
+<area shape="rect" href="a00427.html#ac0b670cde920707c7ccb1864d2a1f673" title=" " alt="" coords="822,957,993,984"/>
+<area shape="rect" href="a00435.html#a5013a2baa00e09d8d157c7e443c15b5f" title=" " alt="" coords="817,1008,998,1035"/>
+<area shape="rect" href="a00475.html#afeb1d21ee59d7f745fca0e22ab33a65b" title=" " alt="" coords="555,185,736,212"/>
+<area shape="rect" href="a00483.html#a0a4814909e09b3f8a21ec69de72f9f52" title=" " alt="" coords="824,1059,991,1085"/>
+<area shape="rect" href="a00427.html#ad48a5bd574f16b7491b70efb9998935f" title="init configuration" alt="" coords="594,1131,697,1157"/>
+<area shape="rect" href="a00427.html#a2dc9b2b2e4912e45835c5727d550aee7" title=" " alt="" coords="837,1109,977,1136"/>
+<area shape="rect" href="a00511.html#a213a39329bd7d70dbd90df71d1cf0735" title=" " alt="" coords="817,1211,998,1237"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,135,56,161"/>
+<area shape="rect" href="a00029.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="373,261,424,288"/>
+<area shape="rect" href="a00107.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="373,363,424,389"/>
+<area shape="rect" href="a00002.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="620,489,671,516"/>
+<area shape="rect" href="a00104.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="620,628,671,655"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="373,135,424,161"/>
+<area shape="rect" href="a00020.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="620,745,671,772"/>
+<area shape="rect" href="a00427.html#a91455e2af2bd01006c1fc085e3904643" title=" " alt="" coords="563,236,728,263"/>
+<area shape="rect" href="a00475.html#aa4193070cac8cac64ad8dc222fb612e8" title=" " alt="" coords="558,135,733,161"/>
+<area shape="rect" href="a00423.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="335,185,462,212"/>
+<area shape="rect" href="a00423.html#a9b3f72cb0d46466cf0aa38540b9980a5" title=" " alt="" coords="104,160,243,187"/>
+<area shape="rect" href="a00483.html#a253cce3499a721648eba3d7b2a9f2b16" title=" " alt="" coords="565,337,726,364"/>
+<area shape="rect" href="a00283.html#a6df404d2eb3d4c8f9dc2071930fc9e7e" title=" " alt="" coords="291,1160,507,1187"/>
+<area shape="rect" href="a00287.html#ac9c41c2ddc441df7e0ae80c25971c260" title=" " alt="" coords="307,1094,490,1135"/>
+<area shape="rect" href="a00363.html#a7fa2c23a2108dc313f319ec803a6181f" title=" " alt="" coords="577,1203,714,1245"/>
 </map>
 </div>
 
 </div>
 </div>
-<a id="a8cbe4cd5f8373f1cff28debbf3c0d90a" name="a8cbe4cd5f8373f1cff28debbf3c0d90a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8cbe4cd5f8373f1cff28debbf3c0d90a">&#9670;&nbsp;</a></span>convertMel2FreqFant()</h2>
+<a id="a95d0310c888433e7e45806538dc0d347" name="a95d0310c888433e7e45806538dc0d347"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95d0310c888433e7e45806538dc0d347">&#9670;&nbsp;</a></span>getTimeStamp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1677,238 +701,124 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CConversion::convertMel2FreqFant </td>
+          <td class="memname">float CBlockAudioIf::getTimeStamp </td>
           <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fMel</em></td><td>)</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iBlockIdx</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00055">55</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   56</span>{</div>
-<div class="line"><span class="lineno">   57</span>    <span class="keywordflow">return</span> 1000.F * (std::exp2(fMel / 1000.F) - 1.F);</div>
-<div class="line"><span class="lineno">   58</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a373985144ef6567b889701a027dbceaf" name="a373985144ef6567b889701a027dbceaf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a373985144ef6567b889701a027dbceaf">&#9670;&nbsp;</a></span>convertMel2FreqShaughnessy()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertMel2FreqShaughnessy </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fMel</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00065">65</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   66</span>{</div>
-<div class="line"><span class="lineno">   67</span>    <span class="keywordflow">return</span> 700.F * (std::pow(10.F, fMel / 2595.F) - 1.F);</div>
-<div class="line"><span class="lineno">   68</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="ac5ad6c7835eb3e7c3eed431d29e53e85" name="ac5ad6c7835eb3e7c3eed431d29e53e85"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac5ad6c7835eb3e7c3eed431d29e53e85">&#9670;&nbsp;</a></span>convertMel2FreqUmesh()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">float CConversion::convertMel2FreqUmesh </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fMel</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00044_source.html#l00075">75</a> of file <a class="el" href="a00044_source.html">ToolConversion.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   76</span>{</div>
-<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">return</span>  fMel * 0.741F / (1.F - fMel * 2.4e-4F);</div>
-<div class="line"><span class="lineno">   78</span>}</div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="a555296e5af0d5ae0b9effdc6be642a2d" name="a555296e5af0d5ae0b9effdc6be642a2d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a555296e5af0d5ae0b9effdc6be642a2d">&#9670;&nbsp;</a></span>convertMidi2Freq() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void CConversion::convertMidi2Freq </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pffInHz</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfMidi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iLengthBuff</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fA4InHz</em> = <code>440.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a midi vector to frequency </p><dl class="params"><dt>Parameters</dt><dd>
+<p >returns time stamp in s for a given block index </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pffInHz</td><td>output buffer with frequency values in Hz (length iLengthBuff) </td></tr>
-    <tr><td class="paramname">pfMidi</td><td>input buffer (length iLengthBuff, to be written) </td></tr>
-    <tr><td class="paramname">iLengthBuff</td><td>length of buffers </td></tr>
-    <tr><td class="paramname">fA4InHz</td><td>tuning (reference) frequency in Hz </td></tr>
+    <tr><td class="paramname">iBlockIdx</td><td>index for requested time stamp </td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>float </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00152">152</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  153</span>    {</div>
-<div class="line"><span class="lineno">  154</span>        assert(pfMidi);</div>
-<div class="line"><span class="lineno">  155</span>        assert(pffInHz);</div>
-<div class="line"><span class="lineno">  156</span>        assert(iLengthBuff &gt; 0);</div>
-<div class="line"><span class="lineno">  157</span>        assert(fA4InHz &gt; 0);</div>
-<div class="line"><span class="lineno">  158</span> </div>
-<div class="line"><span class="lineno">  159</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iLengthBuff; n++)</div>
-<div class="line"><span class="lineno">  160</span>            pffInHz[n] = <a class="code hl_function" href="a00499.html#a3461898be6be7ae7059904860f5231e1">convertMidi2Freq</a>(pfMidi[n], fA4InHz);</div>
-<div class="line"><span class="lineno">  161</span>    };</div>
-<div class="ttc" id="aa00499_html_a3461898be6be7ae7059904860f5231e1"><div class="ttname"><a href="a00499.html#a3461898be6be7ae7059904860f5231e1">CConversion::convertMidi2Freq</a></div><div class="ttdeci">static float convertMidi2Freq(float fMidi, float fA4InHz=440.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.html#l00138">ToolConversion.h:138</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00068">68</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>    {</div>
+<div class="line"><span class="lineno">   70</span>        <span class="keywordflow">return</span> (<a class="code hl_variable" href="a00499.html#a610f9e4b612d573aba67d0c67fe19628">m_iBlockLength</a> / 2.F + iBlockIdx * <a class="code hl_variable" href="a00499.html#adda73bca9caf7deefed613cac1d8363c">m_iHopLength</a>) / <a class="code hl_variable" href="a00499.html#ace027af2234bb8a5abff65743385f1ee">m_fSampleRate</a>;</div>
+<div class="line"><span class="lineno">   71</span>    }</div>
+<div class="ttc" id="aa00499_html_a610f9e4b612d573aba67d0c67fe19628"><div class="ttname"><a href="a00499.html#a610f9e4b612d573aba67d0c67fe19628">CBlockAudioIf::m_iBlockLength</a></div><div class="ttdeci">int m_iBlockLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00164_source.html#l00095">ToolBlockAudio.h:95</a></div></div>
+<div class="ttc" id="aa00499_html_ace027af2234bb8a5abff65743385f1ee"><div class="ttname"><a href="a00499.html#ace027af2234bb8a5abff65743385f1ee">CBlockAudioIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00164_source.html#l00099">ToolBlockAudio.h:99</a></div></div>
+<div class="ttc" id="aa00499_html_adda73bca9caf7deefed613cac1d8363c"><div class="ttname"><a href="a00499.html#adda73bca9caf7deefed613cac1d8363c">CBlockAudioIf::m_iHopLength</a></div><div class="ttdeci">int m_iHopLength</div><div class="ttdoc">hop length</div><div class="ttdef"><b>Definition:</b> <a href="a00164_source.html#l00097">ToolBlockAudio.h:97</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.html#l00138">convertMidi2Freq()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="a00499_a555296e5af0d5ae0b9effdc6be642a2d_cgraph.png" border="0" usemap="#aa00499_a555296e5af0d5ae0b9effdc6be642a2d_cgraph" alt=""/></div>
-<map name="aa00499_a555296e5af0d5ae0b9effdc6be642a2d_cgraph" id="aa00499_a555296e5af0d5ae0b9effdc6be642a2d_cgraph">
-<area shape="rect" title=" " alt="" coords="5,5,208,32"/>
-<area shape="rect" href="a00499.html#a3461898be6be7ae7059904860f5231e1" title=" " alt="" coords="256,5,459,32"/>
-</map>
-</div>
+<p class="reference">References <a class="el" href="a00164_source.html#l00099">m_fSampleRate</a>, <a class="el" href="a00164_source.html#l00095">m_iBlockLength</a>, and <a class="el" href="a00164_source.html#l00097">m_iHopLength</a>.</p>
 
-</div>
-</div>
-<a id="a3461898be6be7ae7059904860f5231e1" name="a3461898be6be7ae7059904860f5231e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3461898be6be7ae7059904860f5231e1">&#9670;&nbsp;</a></span>convertMidi2Freq() <span class="overload">[2/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static float CConversion::convertMidi2Freq </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fMidi</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fA4InHz</em> = <code>440.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >converts a midi scalar to frequency </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">fMidi</td><td>value </td></tr>
-    <tr><td class="paramname">fA4InHz</td><td>tuning (reference) frequency in Hz </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>frequency value in Hz </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00138">138</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  139</span>    {</div>
-<div class="line"><span class="lineno">  140</span>        assert(fMidi &gt;= 0);</div>
-<div class="line"><span class="lineno">  141</span>        assert(fA4InHz &gt; 0);</div>
-<div class="line"><span class="lineno">  142</span>        <span class="keywordflow">return</span> fA4InHz * std::exp2((fMidi - 69.F) / 12.F);</div>
-<div class="line"><span class="lineno">  143</span>    };</div>
-</div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00146_source.html#l00152">convertMidi2Freq()</a>, and <a class="el" href="a00041_source.html#l00577">CFeatureSpectralPitchChroma::genPcFilters_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00086_source.html#l00296">CSpectrogramIf::getMelSpectrogramAxisVectors()</a>, <a class="el" href="a00077_source.html#l00053">CBlockAudioFile::getNextBlock()</a>, <a class="el" href="a00077_source.html#l00154">CBlockAudioBuffer::getNextBlock()</a>, <a class="el" href="a00086_source.html#l00156">CSpectrogramIf::getSpectrogramAxisVectors()</a>, <a class="el" href="a00101_source.html#l00171">CChordIf::getTimeStamp()</a>, <a class="el" href="a00053_source.html#l00151">CFeatureIf::getTimeStamp()</a>, <a class="el" href="a00089_source.html#l00158">CNoveltyIf::getTimeStamp()</a>, <a class="el" href="a00074_source.html#l00165">CPitchIf::getTimeStamp()</a>, <a class="el" href="a00101_source.html#l00176">CChordIf::getTimeStamps()</a>, <a class="el" href="a00053_source.html#l00156">CFeatureIf::getTimeStamps()</a>, <a class="el" href="a00089_source.html#l00163">CNoveltyIf::getTimeStamps()</a>, and <a class="el" href="a00074_source.html#l00170">CPitchIf::getTimeStamps()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="a00499_a3461898be6be7ae7059904860f5231e1_icgraph.png" border="0" usemap="#aa00499_a3461898be6be7ae7059904860f5231e1_icgraph" alt=""/></div>
-<map name="aa00499_a3461898be6be7ae7059904860f5231e1_icgraph" id="aa00499_a3461898be6be7ae7059904860f5231e1_icgraph">
-<area shape="rect" title=" " alt="" coords="508,35,711,61"/>
-<area shape="rect" href="a00499.html#a555296e5af0d5ae0b9effdc6be642a2d" title=" " alt="" coords="257,5,460,32"/>
-<area shape="rect" href="a00295.html#a88b4352ab8251a177a5351c638ad5b3c" title=" " alt="" coords="259,57,458,98"/>
-<area shape="rect" href="a00295.html#a388f9c7dd2074706d723e31b421f16fa" title=" " alt="" coords="5,23,209,65"/>
-<area shape="rect" href="a00295.html#a6b4b3032eb9b09d9f64811613448c994" title=" " alt="" coords="8,89,207,130"/>
+<div class="center"><img src="a00499_a95d0310c888433e7e45806538dc0d347_icgraph.png" border="0" usemap="#aa00499_a95d0310c888433e7e45806538dc0d347_icgraph" alt=""/></div>
+<map name="aa00499_a95d0310c888433e7e45806538dc0d347_icgraph" id="aa00499_a95d0310c888433e7e45806538dc0d347_icgraph">
+<area shape="rect" title=" " alt="" coords="745,343,941,370"/>
+<area shape="rect" href="a00491.html#afbc5337ad3646cbba2b189323de6ce3a" title=" " alt="" coords="465,5,697,47"/>
+<area shape="rect" href="a00383.html#a9c2bd8b51ec72c82eb202d70f379d3ac" title=" " alt="" coords="497,71,666,112"/>
+<area shape="rect" href="a00387.html#a61dc57fda85624457a10ffa2ed7cdc2f" title=" " alt="" coords="513,136,650,177"/>
+<area shape="rect" href="a00491.html#a2efaeb2df2ddfdc633ba53b2bb49b528" title=" " alt="" coords="476,201,687,243"/>
+<area shape="rect" href="a00427.html#af2428223392b9084f6cf23bfb676eddc" title=" " alt="" coords="499,267,663,294"/>
+<area shape="rect" href="a00435.html#ad93a887c59ee3297e735416bccbf64fa" title=" " alt="" coords="494,318,669,345"/>
+<area shape="rect" href="a00475.html#a97fd24dca5d494d038486b7c6cb74cce" title=" " alt="" coords="494,369,669,395"/>
+<area shape="rect" href="a00483.html#a70543df0ca9394f9b594e4f23bacc71b" title=" " alt="" coords="501,419,661,446"/>
+<area shape="rect" href="a00427.html#ac0b670cde920707c7ccb1864d2a1f673" title=" " alt="" coords="496,470,667,497"/>
+<area shape="rect" href="a00435.html#a5013a2baa00e09d8d157c7e443c15b5f" title=" " alt="" coords="491,521,672,547"/>
+<area shape="rect" href="a00475.html#afeb1d21ee59d7f745fca0e22ab33a65b" title=" " alt="" coords="491,571,672,598"/>
+<area shape="rect" href="a00483.html#a0a4814909e09b3f8a21ec69de72f9f52" title=" " alt="" coords="498,622,665,649"/>
+<area shape="rect" href="a00029.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="329,267,379,294"/>
+<area shape="rect" href="a00035.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="329,369,379,395"/>
+<area shape="rect" href="a00107.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="329,419,379,446"/>
+<area shape="rect" href="a00423.html#abc96a9de9093f6617510f4dbe02b82ce" title="init configuration" alt="" coords="291,571,417,598"/>
+<area shape="rect" href="a00423.html#a9b3f72cb0d46466cf0aa38540b9980a5" title=" " alt="" coords="104,571,243,598"/>
+<area shape="rect" href="a00023.html#a0ddf1224851353fc92bfbff6f499fa97" title=" " alt="" coords="5,571,56,598"/>
 </map>
 </div>
+
+</div>
+</div>
+<a id="aeb97b95bec6d4cbeaab928febab59baa" name="aeb97b95bec6d4cbeaab928febab59baa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb97b95bec6d4cbeaab928febab59baa">&#9670;&nbsp;</a></span>IsEndOfData()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00221.html#abb452686968e48b67397da5f97445f5b">bool</a> CBlockAudioIf::IsEndOfData </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >checks for end of data </p><dl class="section return"><dt>Returns</dt><dd>bool true if end of audio data is reached </dd></dl>
+
+<p>Implemented in <a class="el" href="a00383.html#a8ce9964eed8c9db541ed4c88d837bff7">CBlockAudioFile</a>, and <a class="el" href="a00387.html#a797e0327d9ded0996210c245d262e1e5">CBlockAudioBuffer</a>.</p>
+
+</div>
+</div>
+<a id="a3dc2cba685f611a6fc2ae652e3a9885a" name="a3dc2cba685f611a6fc2ae652e3a9885a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3dc2cba685f611a6fc2ae652e3a9885a">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00499.html">CBlockAudioIf</a> &amp; CBlockAudioIf::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00499.html">CBlockAudioIf</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a4ee9640a8dc6cfedef832789c60670c3" name="a4ee9640a8dc6cfedef832789c60670c3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4ee9640a8dc6cfedef832789c60670c3">&#9670;&nbsp;</a></span>m_BarkDispatchMap</h2>
+<a id="ace027af2234bb8a5abff65743385f1ee" name="ace027af2234bb8a5abff65743385f1ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace027af2234bb8a5abff65743385f1ee">&#9670;&nbsp;</a></span>m_fSampleRate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1917,42 +827,26 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::map&lt; int, std::function&lt; float(float)&gt; &gt; CConversion::m_BarkDispatchMap</td>
+          <td class="memname">float CBlockAudioIf::m_fSampleRate = 0</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a>, &amp;<a class="code hl_function" href="a00499.html#aadc66ab6659cdf6e8137b1f69b645ae4">convertFreq2BarkSchroeder</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a4599b264318a69ee39bd92abb863ddca">kTerhardt</a>, &amp;<a class="code hl_function" href="a00499.html#aefc1f257a1adbde4f46dfc3c5c6fb0ae">convertFreq2BarkTerhardt</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a54ef7f149c3da118be856d07cdd7ffb3">kZwicker</a>, &amp;<a class="code hl_function" href="a00499.html#a6b01bdcc2df1c829455ba9cafcec0a44">convertFreq2BarkZwicker</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a488c5cac9caa956ad026e8c2b4998320">kTraunmuller</a>, &amp;<a class="code hl_function" href="a00499.html#a54f9ba7eb05601c56b6df67e51fb2aa7">convertFreq2BarkTraunmuller</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671ae1052f8ed5db7bf6625477d2e3888bfa">kSchroeder</a> + <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">kNumBarkConversionFunctions</a>, &amp;<a class="code hl_function" href="a00499.html#a4ea1fb5474b55958df71bfe80b73773e">convertBark2FreqSchroeder</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a4599b264318a69ee39bd92abb863ddca">kTerhardt</a> + <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">kNumBarkConversionFunctions</a>, &amp;<a class="code hl_function" href="a00499.html#af9caed8b86edcc69b34cccd78b42fa27">convertBark2FreqTerhardt</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a54ef7f149c3da118be856d07cdd7ffb3">kZwicker</a> + <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">kNumBarkConversionFunctions</a>, &amp;<a class="code hl_function" href="a00499.html#afefc9864b5de040f8aa0e0b51dbe8096">convertBark2FreqZwicker</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a488c5cac9caa956ad026e8c2b4998320">kTraunmuller</a> + <a class="code hl_enumvalue" href="a00499.html#aa2fceaa05fdd52addf05887fa270d671a023992bb2b1ea27640e38827f9414c6c">kNumBarkConversionFunctions</a>,&amp;<a class="code hl_function" href="a00499.html#a4aa5c16cc761a141e7a122eeaf855c46">convertBark2FreqTraunmuller</a>}</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00499_html_a4aa5c16cc761a141e7a122eeaf855c46"><div class="ttname"><a href="a00499.html#a4aa5c16cc761a141e7a122eeaf855c46">CConversion::convertBark2FreqTraunmuller</a></div><div class="ttdeci">static float convertBark2FreqTraunmuller(float fBark)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00163">ToolConversion.cpp:163</a></div></div>
-<div class="ttc" id="aa00499_html_a4ea1fb5474b55958df71bfe80b73773e"><div class="ttname"><a href="a00499.html#a4ea1fb5474b55958df71bfe80b73773e">CConversion::convertBark2FreqSchroeder</a></div><div class="ttdeci">static float convertBark2FreqSchroeder(float fBark)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00131">ToolConversion.cpp:131</a></div></div>
-<div class="ttc" id="aa00499_html_a54f9ba7eb05601c56b6df67e51fb2aa7"><div class="ttname"><a href="a00499.html#a54f9ba7eb05601c56b6df67e51fb2aa7">CConversion::convertFreq2BarkTraunmuller</a></div><div class="ttdeci">static float convertFreq2BarkTraunmuller(float fFrequency)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00158">ToolConversion.cpp:158</a></div></div>
-<div class="ttc" id="aa00499_html_a6b01bdcc2df1c829455ba9cafcec0a44"><div class="ttname"><a href="a00499.html#a6b01bdcc2df1c829455ba9cafcec0a44">CConversion::convertFreq2BarkZwicker</a></div><div class="ttdeci">static float convertFreq2BarkZwicker(float fFrequency)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00148">ToolConversion.cpp:148</a></div></div>
-<div class="ttc" id="aa00499_html_aadc66ab6659cdf6e8137b1f69b645ae4"><div class="ttname"><a href="a00499.html#aadc66ab6659cdf6e8137b1f69b645ae4">CConversion::convertFreq2BarkSchroeder</a></div><div class="ttdeci">static float convertFreq2BarkSchroeder(float fFrequency)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00126">ToolConversion.cpp:126</a></div></div>
-<div class="ttc" id="aa00499_html_aefc1f257a1adbde4f46dfc3c5c6fb0ae"><div class="ttname"><a href="a00499.html#aefc1f257a1adbde4f46dfc3c5c6fb0ae">CConversion::convertFreq2BarkTerhardt</a></div><div class="ttdeci">static float convertFreq2BarkTerhardt(float fFrequency)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00137">ToolConversion.cpp:137</a></div></div>
-<div class="ttc" id="aa00499_html_af9caed8b86edcc69b34cccd78b42fa27"><div class="ttname"><a href="a00499.html#af9caed8b86edcc69b34cccd78b42fa27">CConversion::convertBark2FreqTerhardt</a></div><div class="ttdeci">static float convertBark2FreqTerhardt(float fBark)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00142">ToolConversion.cpp:142</a></div></div>
-<div class="ttc" id="aa00499_html_afefc9864b5de040f8aa0e0b51dbe8096"><div class="ttname"><a href="a00499.html#afefc9864b5de040f8aa0e0b51dbe8096">CConversion::convertBark2FreqZwicker</a></div><div class="ttdeci">static float convertBark2FreqZwicker(float fBark)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00153">ToolConversion.cpp:153</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00254">254</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00044_source.html#l00099">convertBark2Freq()</a>, and <a class="el" href="a00044_source.html#l00093">convertFreq2Bark()</a>.</p>
+<p>sample rate </p>
+
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00099">99</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00077_source.html#l00123">CBlockAudioBuffer::CBlockAudioBuffer()</a>, <a class="el" href="a00077_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, and <a class="el" href="a00164_source.html#l00068">getTimeStamp()</a>.</p>
 
 </div>
 </div>
-<a id="a1ddc8df24c34d327e77dcebe71924ea3" name="a1ddc8df24c34d327e77dcebe71924ea3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1ddc8df24c34d327e77dcebe71924ea3">&#9670;&nbsp;</a></span>m_MelDispatchMap</h2>
+<a id="a6c7154e29bd4a88a2e54487f746045f4" name="a6c7154e29bd4a88a2e54487f746045f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c7154e29bd4a88a2e54487f746045f4">&#9670;&nbsp;</a></span>m_iAudioLength</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1961,44 +855,172 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const std::map&lt; int, std::function&lt; float(float)&gt; &gt; CConversion::m_MelDispatchMap</td>
+          <td class="memname">long long CBlockAudioIf::m_iAudioLength = 0</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">{</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a>, &amp;<a class="code hl_function" href="a00499.html#afded0983d477928d9f0be2b61ea22273">convertFreq2MelFant</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a16a9d12c2905cb442c5e818f18a6cb37">kShaughnessy</a>, &amp;<a class="code hl_function" href="a00499.html#ad1cbd90f3bff81014eaeb2d97f5c6ae5">convertFreq2MelShaughnessy</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef014545d73bd308d2834e9472c90dc1">kUmesh</a>, &amp;<a class="code hl_function" href="a00499.html#a69295613ff347523c49bc96951aaa437">convertFreq2MelUmesh</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a68759166341f3045e7d639d0c6cb397e">kFant</a> + <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1">kNumMelConversionFunctions</a>, &amp;<a class="code hl_function" href="a00499.html#a8cbe4cd5f8373f1cff28debbf3c0d90a">convertMel2FreqFant</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829a16a9d12c2905cb442c5e818f18a6cb37">kShaughnessy</a> + <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1">kNumMelConversionFunctions</a>, &amp;<a class="code hl_function" href="a00499.html#a373985144ef6567b889701a027dbceaf">convertMel2FreqShaughnessy</a>},</div>
-<div class="line">        {<a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef014545d73bd308d2834e9472c90dc1">kUmesh</a> + <a class="code hl_enumvalue" href="a00499.html#afb2c9d1110fec95804ccec7fe8196829aef805fa78b88a2ef2ea5e562cac68fa1">kNumMelConversionFunctions</a>, &amp;<a class="code hl_function" href="a00499.html#ac5ad6c7835eb3e7c3eed431d29e53e85">convertMel2FreqUmesh</a>}</div>
-<div class="line">}</div>
-<div class="ttc" id="aa00499_html_a373985144ef6567b889701a027dbceaf"><div class="ttname"><a href="a00499.html#a373985144ef6567b889701a027dbceaf">CConversion::convertMel2FreqShaughnessy</a></div><div class="ttdeci">static float convertMel2FreqShaughnessy(float fMel)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00065">ToolConversion.cpp:65</a></div></div>
-<div class="ttc" id="aa00499_html_a69295613ff347523c49bc96951aaa437"><div class="ttname"><a href="a00499.html#a69295613ff347523c49bc96951aaa437">CConversion::convertFreq2MelUmesh</a></div><div class="ttdeci">static float convertFreq2MelUmesh(float fFrequency)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00070">ToolConversion.cpp:70</a></div></div>
-<div class="ttc" id="aa00499_html_a8cbe4cd5f8373f1cff28debbf3c0d90a"><div class="ttname"><a href="a00499.html#a8cbe4cd5f8373f1cff28debbf3c0d90a">CConversion::convertMel2FreqFant</a></div><div class="ttdeci">static float convertMel2FreqFant(float fMel)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00055">ToolConversion.cpp:55</a></div></div>
-<div class="ttc" id="aa00499_html_ac5ad6c7835eb3e7c3eed431d29e53e85"><div class="ttname"><a href="a00499.html#ac5ad6c7835eb3e7c3eed431d29e53e85">CConversion::convertMel2FreqUmesh</a></div><div class="ttdeci">static float convertMel2FreqUmesh(float fMel)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00075">ToolConversion.cpp:75</a></div></div>
-<div class="ttc" id="aa00499_html_ad1cbd90f3bff81014eaeb2d97f5c6ae5"><div class="ttname"><a href="a00499.html#ad1cbd90f3bff81014eaeb2d97f5c6ae5">CConversion::convertFreq2MelShaughnessy</a></div><div class="ttdeci">static float convertFreq2MelShaughnessy(float fFrequency)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00060">ToolConversion.cpp:60</a></div></div>
-<div class="ttc" id="aa00499_html_afded0983d477928d9f0be2b61ea22273"><div class="ttname"><a href="a00499.html#afded0983d477928d9f0be2b61ea22273">CConversion::convertFreq2MelFant</a></div><div class="ttdeci">static float convertFreq2MelFant(float fFrequency)</div><div class="ttdef"><b>Definition:</b> <a href="a00044_source.html#l00050">ToolConversion.cpp:50</a></div></div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00146_source.html#l00252">252</a> of file <a class="el" href="a00146_source.html">ToolConversion.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00044_source.html#l00018">convertFreq2Mel()</a>, and <a class="el" href="a00044_source.html#l00024">convertMel2Freq()</a>.</p>
+<p>length of audio buffer </p>
+
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00093">93</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00077_source.html#l00123">CBlockAudioBuffer::CBlockAudioBuffer()</a>, <a class="el" href="a00077_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00164_source.html#l00059">getLengthInSamples()</a>, <a class="el" href="a00077_source.html#l00154">CBlockAudioBuffer::getNextBlock()</a>, <a class="el" href="a00077_source.html#l00149">CBlockAudioBuffer::IsEndOfData()</a>, and <a class="el" href="a00077_source.html#l00141">CBlockAudioBuffer::~CBlockAudioBuffer()</a>.</p>
+
+</div>
+</div>
+<a id="a610f9e4b612d573aba67d0c67fe19628" name="a610f9e4b612d573aba67d0c67fe19628"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a610f9e4b612d573aba67d0c67fe19628">&#9670;&nbsp;</a></span>m_iBlockLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CBlockAudioIf::m_iBlockLength = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>block length </p>
+
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00095">95</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00077_source.html#l00123">CBlockAudioBuffer::CBlockAudioBuffer()</a>, <a class="el" href="a00077_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00077_source.html#l00053">CBlockAudioFile::getNextBlock()</a>, <a class="el" href="a00077_source.html#l00154">CBlockAudioBuffer::getNextBlock()</a>, and <a class="el" href="a00164_source.html#l00068">getTimeStamp()</a>.</p>
+
+</div>
+</div>
+<a id="a9728cd91204bd050e5eff0e4e209e653" name="a9728cd91204bd050e5eff0e4e209e653"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9728cd91204bd050e5eff0e4e209e653">&#9670;&nbsp;</a></span>m_iCurrBlock</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long CBlockAudioIf::m_iCurrBlock = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>current block index </p>
+
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00092">92</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00077_source.html#l00053">CBlockAudioFile::getNextBlock()</a>, and <a class="el" href="a00077_source.html#l00154">CBlockAudioBuffer::getNextBlock()</a>.</p>
+
+</div>
+</div>
+<a id="adda73bca9caf7deefed613cac1d8363c" name="adda73bca9caf7deefed613cac1d8363c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adda73bca9caf7deefed613cac1d8363c">&#9670;&nbsp;</a></span>m_iHopLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CBlockAudioIf::m_iHopLength = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>hop length </p>
+
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00097">97</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00077_source.html#l00123">CBlockAudioBuffer::CBlockAudioBuffer()</a>, <a class="el" href="a00077_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00077_source.html#l00053">CBlockAudioFile::getNextBlock()</a>, <a class="el" href="a00077_source.html#l00154">CBlockAudioBuffer::getNextBlock()</a>, <a class="el" href="a00164_source.html#l00068">getTimeStamp()</a>, and <a class="el" href="a00077_source.html#l00088">CBlockAudioFile::readFile2RingBuff()</a>.</p>
+
+</div>
+</div>
+<a id="a1c97a35fe0a4e37aeebc8e809eed64d7" name="a1c97a35fe0a4e37aeebc8e809eed64d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1c97a35fe0a4e37aeebc8e809eed64d7">&#9670;&nbsp;</a></span>m_iNumBlocks</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">long long CBlockAudioIf::m_iNumBlocks = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of blocks </p>
+
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00091">91</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00077_source.html#l00123">CBlockAudioBuffer::CBlockAudioBuffer()</a>, <a class="el" href="a00077_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, and <a class="el" href="a00164_source.html#l00051">getNumBlocks()</a>.</p>
+
+</div>
+</div>
+<a id="a3d7564f84a614c7e257686b062bd68f2" name="a3d7564f84a614c7e257686b062bd68f2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3d7564f84a614c7e257686b062bd68f2">&#9670;&nbsp;</a></span>m_iNumChannels</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CBlockAudioIf::m_iNumChannels = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of channels </p>
+
+<p class="definition">Definition at line <a class="el" href="a00164_source.html#l00096">96</a> of file <a class="el" href="a00164_source.html">ToolBlockAudio.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00077_source.html#l00013">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00077_source.html#l00053">CBlockAudioFile::getNextBlock()</a>, <a class="el" href="a00077_source.html#l00088">CBlockAudioFile::readFile2RingBuff()</a>, and <a class="el" href="a00077_source.html#l00041">CBlockAudioFile::~CBlockAudioFile()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00146_source.html">ToolConversion.h</a></li>
-<li><a class="el" href="a00044_source.html">ToolConversion.cpp</a></li>
+<li><a class="el" href="a00164_source.html">ToolBlockAudio.h</a></li>
+<li><a class="el" href="a00077_source.html">ToolBlockAudio.cpp</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Tue Jun 7 2022 19:55:54 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
+Generated on Fri Jun 10 2022 15:40:01 for ACA by&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4
 </small></address>
 </body>
 </html>
