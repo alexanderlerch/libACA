@@ -1,6 +1,6 @@
 cmake_minimum_required (VERSION 3.6)
 project (ACA
-        VERSION 0.2.5)
+        VERSION 0.2.6)
 
 #######################################################################################################
 ## includes
@@ -20,12 +20,6 @@ include (SetOsLibs)
 include(AddSrcDirectories)
 include(AddIncDirectories)
 
-message(STATUS Src Dir: ${CMAKE_SOURCE_DIR})
-message(STATUS "")
-message(STATUS Bld Dir:  ${CMAKE_BINARY_DIR})
-message(STATUS "")
-
-
 # with tests or not
 option (WITH_TESTS "Use googletest for testing" ON)
 
@@ -41,7 +35,7 @@ list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeBeatHisto)
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeChords)      
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFeature)       
 #list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFingerprint)       
-#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeKey)       
+list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeKey)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeMelSpectrogram)   
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeNoveltyFunction)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputePitch)       
@@ -84,6 +78,7 @@ if (WITH_TESTS)
     add_test(Features ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Feature*)
     add_test(Filter ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Filter*)
     add_test(Fft ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Fft*)
+    add_test(Key ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Key*)
     add_test(Matrix ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Matrix*)
     add_test(Novelty ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Novelty*)
     add_test(Pitch ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/TestExec Pitch*)
