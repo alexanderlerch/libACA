@@ -1,5 +1,5 @@
 #if !defined(__Pca_HEADER_INCLUDED__)
-#define __Pca_HEADER_INCLUDED__
+#define __ACA_Pca_HEADER_INCLUDED__
 
 #pragma once
 

@@ -1,5 +1,5 @@
-#if !defined(__Resample_hdr__)
-#define __Resample_hdr__
+#if !defined(__ACA_Resample_HEADER_INCLUDED__)
+#define __ACA_Resample_HEADER_INCLUDED__
 
 #include "ErrorDef.h"
 
@@ -26,21 +26,21 @@ public:
         if (!pfNewIdx || !pfOut || !pfIn || iNumInSamples <= 0 || iNumOutSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
 
-        long long iStart = 0,
+        long long istart = 0,
             iEnd = iNumOutSamples - 1;
 
         // treat first samples
-        while ((iStart < iNumOutSamples) && (pfNewIdx[iStart] < 0))
+        while ((istart < iNumOutSamples) && (pfNewIdx[istart] < 0))
         {
-            if (pfNewIdx[iStart] < -1)
-                pfOut[iStart] = 0;
+            if (pfNewIdx[istart] < -1)
+                pfOut[istart] = 0;
             else
             {
-                int     iIdx = static_cast<int>(std::floor(pfNewIdx[iStart]));
-                float   fFrac = pfNewIdx[iStart] - iIdx;
-                pfOut[iStart] = fFrac * pfIn[0];
+                int     iIdx = static_cast<int>(std::floor(pfNewIdx[istart]));
+                float   fFrac = pfNewIdx[istart] - iIdx;
+                pfOut[istart] = fFrac * pfIn[0];
             }
-            iStart++;
+            istart++;
         }
 
         // treat last samples
@@ -58,7 +58,7 @@ public:
         }
 
         // now go through the buffer
-        for (auto i = iStart; i <= iEnd; i++)
+        for (auto i = istart; i <= iEnd; i++)
         {
             int     iIdx = static_cast<int>(std::floor(pfNewIdx[i]));
             float   fFrac = pfNewIdx[i] - iIdx;
@@ -157,7 +157,7 @@ private:
     CFilter<float>* m_pCFilter = 0; //!< low pass filter processing
 };
 
-#endif // #if !defined(__Resample_hdr__)
+#endif // #if !defined(__ACA_Resample_HEADER_INCLUDED__)
 
 
 

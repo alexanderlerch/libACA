@@ -1,5 +1,5 @@
-#if !defined(__Chord_hdr__)
-#define __Chord_hdr__
+#if !defined(__ACA_Chord_HEADER_INCLUDED__)
+#define __ACA_Chord_HEADER_INCLUDED__
 
 #include <string>
 
@@ -153,7 +153,7 @@ protected:
     bool    m_bIsInitialized = false;    //!< true if initialized
 };
 
-#endif // #if !defined(__Chord_hdr__)
+#endif // #if !defined(__ACA_Chord_HEADER_INCLUDED__)
 
 
 

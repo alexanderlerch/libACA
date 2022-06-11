@@ -1,5 +1,5 @@
-#if !defined(__Feature_hdr__)
-#define __Feature_hdr__
+#if !defined(__ACA_Feature_HEADER_INCLUDED__)
+#define __ACA_Feature_HEADER_INCLUDED__
 
 #include <string>
 
@@ -147,7 +147,7 @@ protected:
     bool    m_bIsInitialized = false;    //!< true if initialized
 };
 
-#endif // #if !defined(__Feature_hdr__)
+#endif // #if !defined(__ACA_Feature_HEADER_INCLUDED__)
 
 
 

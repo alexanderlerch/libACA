@@ -1,5 +1,5 @@
-#if !defined(__PitchFromBlock_hdr__)
-#define __PitchFromBlock_hdr__
+#if !defined(__ACA_PitchFromBlock_HEADER_INCLUDED__)
+#define __ACA_PitchFromBlock_HEADER_INCLUDED__
 
 #include "ErrorDef.h"
 
@@ -62,7 +62,7 @@ protected:
 
 
 
-#endif // #if !defined(__PitchFromBlock_hdr__)
+#endif // #if !defined(__ACA_PitchFromBlock_HEADER_INCLUDED__)
 
 
 

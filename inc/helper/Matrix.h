@@ -1,5 +1,5 @@
-#if !defined(__MatrixFloat_hdr__)
-#define __MatrixFloat_hdr__
+#if !defined(__ACA_Matrix_HEADER_INCLUDED__)
+#define __ACA_Matrix_HEADER_INCLUDED__
 
 #include <cassert>
 #include <algorithm>
@@ -845,4 +845,4 @@ public:
 
 };
 
-#endif // __MatrixFloat_hdr__
+#endif // __ACA_Matrix_HEADER_INCLUDED__

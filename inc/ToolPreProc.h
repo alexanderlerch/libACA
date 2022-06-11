@@ -1,5 +1,5 @@
-#if !defined(__ToolPreProc_hdr__)
-#define __ToolPreProc_hdr__
+#if !defined(__ACA_ToolPreProc_HEADER_INCLUDED__)
+#define __ACA_ToolPreProc_HEADER_INCLUDED__
 
 #include <cassert>
 
@@ -148,4 +148,4 @@ private:
 
     float m_fScaleFactor;   //!< factor to normalize
 };
-#endif // __ToolPreProc_hdr__
+#endif // __ACA_ToolPreProc_HEADER_INCLUDED__

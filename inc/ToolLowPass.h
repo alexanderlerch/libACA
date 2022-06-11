@@ -1,5 +1,5 @@
-#if !defined(__LowPass_hdr__)
-#define __LowPass_hdr__
+#if !defined(__ACA_LowPass_HEADER_INCLUDED__)
+#define __ACA_LowPass_HEADER_INCLUDED__
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -285,7 +285,7 @@ private:
 };
 
 
-#endif // #if !defined(__LowPass_hdr__)
+#endif // #if !defined(__ACA_LowPass_HEADER_INCLUDED__)
 
 
 

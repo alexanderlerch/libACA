@@ -1,5 +1,5 @@
-#if !defined(__InstFreq_hdr__)
-#define __InstFreq_hdr__
+#if !defined(__ACA_InstFreq_HEADER_INCLUDED__)
+#define __ACA_InstFreq_HEADER_INCLUDED__
 
 
 #define _USE_MATH_DEFINES
@@ -113,7 +113,7 @@ private:
 
 
 
-#endif // #if !defined(__InstFreq_hdr__)
+#endif // #if !defined(__ACA_InstFreq_HEADER_INCLUDED__)
 
 
 

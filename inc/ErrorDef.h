@@ -1,5 +1,5 @@
-#if !defined(__ErrorDef_hdr__)
-#define __ErrorDef_hdr__
+#if !defined(__ACA_ErrorDef_HEADER_INCLUDED__)
+#define __ACA_ErrorDef_HEADER_INCLUDED__
 
 enum class Error_t
 {
@@ -20,7 +20,7 @@ enum class Error_t
 
     kNumErrors
 };
-#endif // #if !defined(__ErrorDef_hdr__)
+#endif // #if !defined(__ACA_ErrorDef_HEADER_INCLUDED__)
 
 
 

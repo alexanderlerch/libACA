@@ -1,5 +1,5 @@
-#if !defined(__ToolConversion_hdr__)
-#define __ToolConversion_hdr__
+#if !defined(__ACA_ToolConversion_HEADER_INCLUDED__)
+#define __ACA_ToolConversion_HEADER_INCLUDED__
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -258,4 +258,4 @@ private:
 
 
 
-#endif // __ToolConversion_hdr__
+#endif // __ACA_ToolConversion_HEADER_INCLUDED__

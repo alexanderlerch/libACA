@@ -1,5 +1,5 @@
-#if !defined(__AudioFileIf_hdr__)
-#define __AudioFileIf_hdr__
+#if !defined(__ACA_AudioFileIf_HEADER_INCLUDED__)
+#define __ACA_AudioFileIf_HEADER_INCLUDED__
 
 #include <string>
 #include <fstream>
@@ -106,10 +106,10 @@ public:
     Error_t setPosition (double dTimeInS = .0);
 
     /*! enable clipping to avoid wrap-arounds
-    \param bIsEnabled
+    \param bisEnabled
     \return Error_t
     */
-    Error_t setClippingEnabled (bool bIsEnabled = true);
+    Error_t setClippingEnabled (bool bisEnabled = true);
     /*! check if clipping is enabled
     \return bool
     */
@@ -198,4 +198,4 @@ private:
 
 };
 
-#endif // #if !defined(__AudioFileIf_hdr__)
+#endif // #if !defined(__ACA_AudioFileIf_HEADER_INCLUDED__)

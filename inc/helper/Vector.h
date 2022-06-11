@@ -1,5 +1,5 @@
-#if !defined(__VectorFloat_hdr__)
-#define __VectorFloat_hdr__
+#if !defined(__ACA_Vector_HEADER_INCLUDED__)
+#define __ACA_Vector_HEADER_INCLUDED__
 
 #define _USE_MATH_DEFINES
 #include <cassert>
@@ -147,18 +147,18 @@ public:
     /*! moves a subset of the current buffer
     \param ptSrcDest source and destination
     \param iDestIdx destination index
-    \param iSrcIdx source index
+    \param isrcIdx source index
     \param iLength number of elements to be moved
     \return void
     */
     template<typename T>
-    static void moveInMem (T *ptSrcDest, int iDestIdx, int iSrcIdx, long long int iLength)
+    static void moveInMem (T *ptSrcDest, int iDestIdx, int isrcIdx, long long int iLength)
     {
         assert (iLength >= 0);
         assert (ptSrcDest);
 
         if (iLength > 0)
-            memmove (&ptSrcDest[iDestIdx], &ptSrcDest[iSrcIdx], sizeof(T)*iLength);
+            memmove (&ptSrcDest[iDestIdx], &ptSrcDest[isrcIdx], sizeof(T)*iLength);
     }
 
 
@@ -567,22 +567,22 @@ public:
     }
 
     /*! finds the local maxima in the buffer
-    \param pbIsLocalMax result buffer
+    \param pbisLocalMax result buffer
     \param ptSrc input buffer
     \param iLength number of elements in buffer
     \param fThresh only detect maxima above this threshold
     \return int number of local maxima
     */
     template<typename T>
-    static inline int findPeaks(bool *pbIsLocalMax, const T* ptSrc, long long int iLength, T fThresh = -std::numeric_limits<T>::max())
+    static inline int findPeaks(bool *pbisLocalMax, const T* ptSrc, long long int iLength, T fThresh = -std::numeric_limits<T>::max())
     {
         assert(iLength >= 0);
         assert(ptSrc);
-        assert(pbIsLocalMax);
+        assert(pbisLocalMax);
 
         int iNumPeaks = 0;
 
-        CVector::setValue(pbIsLocalMax, false, iLength);
+        CVector::setValue(pbisLocalMax, false, iLength);
 
         for (auto k = 1; k < iLength - 1; k++)
         {
@@ -591,7 +591,7 @@ public:
                 continue;
             else
             {
-                pbIsLocalMax[k] = true;
+                pbisLocalMax[k] = true;
                 iNumPeaks++;
 
                 // increment because the next bin cannot be a local max
@@ -677,4 +677,4 @@ public:
         }
     }
 };
-#endif // __VectorFloat_hdr__
+#endif // __ACA_Vector_HEADER_INCLUDED__

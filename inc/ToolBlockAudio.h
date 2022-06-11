@@ -1,5 +1,5 @@
-#if !defined(__ToolBlockAudio_hdr__)
-#define __ToolBlockAudio_hdr__
+#if !defined(__ACA_ToolBlockAudio_HEADER_INCLUDED__)
+#define __ACA_ToolBlockAudio_HEADER_INCLUDED__
 
 #include "ErrorDef.h"
 
@@ -71,7 +71,7 @@ public:
     /*! checks for end of data
     \return bool true if end of audio data is reached
     */
-    virtual bool IsEndOfData() const = 0;
+    virtual bool isEndOfData() const = 0;
 
     /*! retrieves audio data for next block
     \param pfBlock (to be written) of length blocklength
@@ -96,4 +96,4 @@ protected:
 
     float m_fSampleRate = 0;        //!< sample rate
 };
-#endif // __ToolBlockAudio_hdr__
+#endif // __ACA_ToolBlockAudio_HEADER_INCLUDED__

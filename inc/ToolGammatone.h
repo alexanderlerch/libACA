@@ -1,5 +1,5 @@
-#if !defined(__Gammatone_hdr__)
-#define __Gammatone_hdr__
+#if !defined(__ACA_Gammatone_HEADER_INCLUDED__)
+#define __ACA_Gammatone_HEADER_INCLUDED__
 
 #include <string>
 
@@ -103,7 +103,7 @@ protected:
     bool m_bIsInitialized = false;   //!< true if initialized
 };
 
-#endif // #if !defined(__Gammatone_hdr__)
+#endif // #if !defined(__ACA_Gammatone_HEADER_INCLUDED__)
 
 
 

@@ -1,5 +1,5 @@
-#if !defined(__Viterbi_HEADER_INCLUDED__)
-#define __Viterbi_HEADER_INCLUDED__
+#if !defined(__ACA_Viterbi_HEADER_INCLUDED__)
+#define __ACA_Viterbi_HEADER_INCLUDED__
 
 #pragma once
 
@@ -40,10 +40,10 @@ public:
     float getOverallProbability () const;
     
     /*! returns the state sequence
-    \param piStateSequence pointer to memory the result is written to (user allocated, length iNumObservations)
+    \param pistateSequence pointer to memory the result is written to (user allocated, length iNumObservations)
     \return Error_t
     */
-    Error_t getStateSequence ( int *piStateSequence) const;
+    Error_t getStateSequence ( int *pistateSequence) const;
 
 private:
     CViterbi(const CViterbi& that);
@@ -60,9 +60,6 @@ private:
         kNumMatrixDimensions
     };
 
-    bool m_bIsInitialized = false; //!< true if init has been called
-    bool m_bWasProcessed = false; //!< true if compViterbi has been called
-
     float** m_ppfProb = 0; //!< probability matrix
     float** m_ppfTransProb = 0; //!< transition probability matrix
     float* m_pfStart = 0; //!< start probability vector
@@ -75,7 +72,10 @@ private:
     int m_iEndState = -1; //!< most likely end state
 
     const float m_kLogMin = 1e-30F; //!< constant to avoid log(0)
+
+    bool m_bIsInitialized = false; //!< true if init has been called
+    bool m_bWasProcessed = false; //!< true if compViterbi has been called
 };
 
 
-#endif
+#endif // __ACA_Viterbi_HEADER_INCLUDED__

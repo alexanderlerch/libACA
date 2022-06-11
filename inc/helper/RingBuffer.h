@@ -1,5 +1,5 @@
-#if !defined(__RingBuffer_hdr__)
-#define __RingBuffer_hdr__
+#if !defined(__ACA_RingBuffer_HEADER_INCLUDED__)
+#define __ACA_RingBuffer_HEADER_INCLUDED__
 
 #define _USE_MATH_DEFINES
 #include <cassert>
@@ -218,4 +218,4 @@ private:
 
     T* m_ptBuff = 0;            //!< data buffer
 };
-#endif // __RingBuffer_hdr__
+#endif // __ACA_RingBuffer_HEADER_INCLUDED__

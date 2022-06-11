@@ -1,5 +1,5 @@
-#if !defined(__Dtw_HEADER_INCLUDED__)
-#define __Dtw_HEADER_INCLUDED__
+#if !defined(__ACA_Dtw_HEADER_INCLUDED__)
+#define __ACA_Dtw_HEADER_INCLUDED__
 
 #pragma once
 
@@ -94,10 +94,6 @@ private:
         return eDirection;
     }
 
-
-    bool m_bIsInitialized = false; //!< true if init has been called
-    bool m_bWasProcessed = false; //!< true if compDtw has been called
-
     float *m_apfCost[kNumVectors] = {0,0}; //!< only allocate two rows instead of a whole matrix for the cost 
     float m_fOverallCost = 0; //!< overall cost
 
@@ -107,7 +103,10 @@ private:
     int   m_aiMatrixDimensions[kNumMatrixDimensions] = {0,0}; //!< size of distance matrix
 
     static const int aiDecrement[kNumDirections][kNumMatrixDimensions]; //!< index changes for directions
+
+    bool m_bIsInitialized = false; //!< true if init has been called
+    bool m_bWasProcessed = false; //!< true if compDtw has been called
 };
 
 
-#endif
+#endif // __ACA_Dtw_HEADER_INCLUDED__

@@ -1,5 +1,5 @@
-#if !defined(__rvfft_hdr__)
-#define __rvfft_hdr__
+#if !defined(__ACA_rvfft_HEADER_INCLUDED__)
+#define __ACA_rvfft_HEADER_INCLUDED__
 
 namespace LaszloFft
 {
@@ -7,4 +7,4 @@ namespace LaszloFft
     void irealfft_split(float *data,long n);
 }
 
-#endif //__rvfft_hdr__
+#endif //__ACA_rvfft_HEADER_INCLUDED__

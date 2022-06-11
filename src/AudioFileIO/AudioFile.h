@@ -1,5 +1,5 @@
-#if !defined(__AudioFile_hdr__)
-#define __AudioFile_hdr__
+#if !defined(__AudioFile_HEADER_INCLUDED__)
+#define __AudioFile_HEADER_INCLUDED__
 
 #include "AudioFileIf.h"
 
@@ -67,4 +67,4 @@ private:
 
 };
 
-#endif  //__AudioFile_hdr__
+#endif  //__AudioFile_HEADER_INCLUDED__

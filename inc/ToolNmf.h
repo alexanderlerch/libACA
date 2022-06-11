@@ -1,5 +1,5 @@
-#if !defined(__Nmf_HEADER_INCLUDED__)
-#define __Nmf_HEADER_INCLUDED__
+#if !defined(__ACA_Nmf_HEADER_INCLUDED__)
+#define __ACA_Nmf_HEADER_INCLUDED__
 
 #pragma once
 
@@ -110,4 +110,4 @@ private:
 };
 
 
-#endif
+#endif // __ACA_Nmf_HEADER_INCLUDED__

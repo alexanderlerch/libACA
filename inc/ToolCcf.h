@@ -1,5 +1,5 @@
-#if !defined(__Ccf_HEADER_INCLUDED__)
-#define __Ccf_HEADER_INCLUDED__
+#if !defined(__ACA_Ccf_HEADER_INCLUDED__)
+#define __ACA_Ccf_HEADER_INCLUDED__
 
 #pragma once
 
@@ -39,26 +39,26 @@ public:
     /*! returns the length of the CCF result
     \return int
     */
-    int getCcfLength (bool bIsAcf = false);
+    int getCcfLength (bool bisAcf = false);
     
     /*! returns the correlation result
     \param pfCcfResult result buffer
-    \param bIsAcf returns only non-redundant ACF result if true
+    \param bisAcf returns only non-redundant ACF result if true
     \return Error_t
     */
-    Error_t getCcf (float *pfCcfResult, bool bIsAcf = false) const;
+    Error_t getCcf (float *pfCcfResult, bool bisAcf = false) const;
 
     /*! returns the overall max
-    \param bIsAcf search only non-redundant ACF result if true
+    \param bisAcf search only non-redundant ACF result if true
     \return float
     */
-    float getCcfMax(bool bIsAcf = false) const;
+    float getCcfMax(bool bisAcf = false) const;
 
     /*! returns the index of the overall max
-    \param bIsAcf search only non-redundant ACF result if true
+    \param bisAcf search only non-redundant ACF result if true
     \return float
     */
-    int getCcfMaxIdx(bool bIsAcf = false) const;
+    int getCcfMaxIdx(bool bisAcf = false) const;
 
 private:
     CCcf(const CCcf& that);     //!< disallow copy construction   
@@ -75,4 +75,4 @@ private:
 };
 
 
-#endif
+#endif // __ACA_Ccf_HEADER_INCLUDED__

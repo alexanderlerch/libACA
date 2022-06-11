@@ -1,5 +1,5 @@
-#if !defined(__Pitch_hdr__)
-#define __Pitch_hdr__
+#if !defined(__ACA_Pitch_HEADER_INCLUDED__)
+#define __ACA_Pitch_HEADER_INCLUDED__
 
 #include <string>
 
@@ -134,7 +134,7 @@ protected:
     bool    m_bIsInitialized = false;    //!< true if initialized
 };
 
-#endif // #if !defined(__Pitch_hdr__)
+#endif // #if !defined(__ACA_Pitch_HEADER_INCLUDED__)
 
 
 

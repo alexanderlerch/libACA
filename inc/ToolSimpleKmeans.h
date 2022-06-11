@@ -1,5 +1,5 @@
-#if !defined(__Kmeans_HEADER_INCLUDED__)
-#define __Kmeans_HEADER_INCLUDED__
+#if !defined(__ACA_Kmeans_HEADER_INCLUDED__)
+#define __ACA_Kmeans_HEADER_INCLUDED__
 
 #pragma once
 
@@ -100,4 +100,4 @@ private:
 };
 
 
-#endif
+#endif // __ACA_Kmeans_HEADER_INCLUDED__

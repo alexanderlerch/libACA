@@ -1,5 +1,5 @@
-#if !defined(__Knn_HEADER_INCLUDED__)
-#define __Knn_HEADER_INCLUDED__
+#if !defined(__ACA_Knn_HEADER_INCLUDED__)
+#define __ACA_Knn_HEADER_INCLUDED__
 
 #pragma once
 
@@ -103,4 +103,4 @@ private:
 };
 
 
-#endif
+#endif // __ACA_Knn_HEADER_INCLUDED__

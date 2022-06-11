@@ -1,5 +1,5 @@
-#if !defined(__Spectrogram_hdr__)
-#define __Spectrogram_hdr__
+#if !defined(__ACA_Spectrogram_HEADER_INCLUDED__)
+#define __ACA_Spectrogram_HEADER_INCLUDED__
 
 #include <string>
 
@@ -132,14 +132,13 @@ protected:
     float* m_pfSpectrum = 0;             //!< temporary buffer for current spectrum
     float* m_pfProcessBuff = 0;          //!<  temporary buffer
 
-    bool    m_bIsInitialized = false;    //!< true if initialized
-
-
     float** m_ppfHMel = 0;               //!< Mel filterbank
     float* m_pffcMel = 0;                //!< Mel center frequencies
+
+    bool    m_bIsInitialized = false;    //!< true if initialized
 };
 
-#endif // #if !defined(__Spectrogram_hdr__)
+#endif // #if !defined(__ACA_Spectrogram_HEADER_INCLUDED__)
 
 
 

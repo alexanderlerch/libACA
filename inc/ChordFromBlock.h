@@ -1,5 +1,5 @@
-#if !defined(__ChordFromBlock_hdr__)
-#define __ChordFromBlock_hdr__
+#if !defined(__ACA_ChordFromBlock_HEADER_INCLUDED__)
+#define __ACA_ChordFromBlock_HEADER_INCLUDED__
 #include <map>
 
 #include "ErrorDef.h"
@@ -72,7 +72,7 @@ protected:
 
 
 
-#endif // #if !defined(__ChordFromBlock_hdr__)
+#endif // #if !defined(__ACA_ChordFromBlock_HEADER_INCLUDED__)
 
 
 

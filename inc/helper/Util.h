@@ -1,5 +1,5 @@
-#if !defined(__Util_hdr__)
-#define __Util_hdr__
+#if !defined(__ACA_Util_HEADER_INCLUDED__)
+#define __ACA_Util_HEADER_INCLUDED__
 
 #include <cassert>
 #include <cstring>
@@ -102,4 +102,4 @@ public:
         return 0;
     }
 };
-#endif // __Util_hdr__
+#endif // __ACA_Util_HEADER_INCLUDED__

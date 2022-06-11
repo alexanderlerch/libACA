@@ -1,5 +1,5 @@
-#if !defined(__NoveltyFromBlock_hdr__)
-#define __NoveltyFromBlock_hdr__
+#if !defined(__ACA_NoveltyFromBlock_HEADER_INCLUDED__)
+#define __ACA_NoveltyFromBlock_HEADER_INCLUDED__
 
 #include <map>
 #include <functional>
@@ -83,8 +83,4 @@ protected:
 
 
 
-#endif // #if !defined(__NoveltyFromBlock_hdr__)
-
-
-
-#pragma once
+#endif // #if !defined(__ACA_NoveltyFromBlock_HEADER_INCLUDED__)

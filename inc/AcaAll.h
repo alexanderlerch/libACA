@@ -1,5 +1,5 @@
-#if !defined(__AcaAll_hdr__)
-#define __AcaAll_hdr__
+#if !defined(__AcaAll_HEADER_INCLUDED__)
+#define __AcaAll_HEADER_INCLUDED__
 
 #include "ACAConfig.h"
 
@@ -41,4 +41,4 @@ std::string getAcaVersion();
 */
 std::string getAcaBuildDate();
 
-#endif // #if !defined(__AcaAll_hdr__)
+#endif // #if !defined(__AcaAll_HEADER_INCLUDED__)

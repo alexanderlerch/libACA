@@ -1,5 +1,5 @@
-#if !defined(__FeatureFromBlock_hdr__)
-#define __FeatureFromBlock_hdr__
+#if !defined(__ACA_FeatureFromBlock_HEADER_INCLUDED__)
+#define __ACA_FeatureFromBlock_HEADER_INCLUDED__
 
 #include <map>
 #include <functional>
@@ -115,7 +115,7 @@ protected:
 
 
 
-#endif // #if !defined(__FeatureFromBlock_hdr__)
+#endif // #if !defined(__ACA_FeatureFromBlock_HEADER_INCLUDED__)
 
 
 

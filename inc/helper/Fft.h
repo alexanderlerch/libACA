@@ -1,5 +1,5 @@
-#if !defined(__Fft_hdr__)
-#define __Fft_hdr__
+#if !defined(__ACA_Fft_HEADER_INCLUDED__)
+#define __ACA_Fft_HEADER_INCLUDED__
 
 #include "ErrorDef.h"
 
@@ -153,7 +153,7 @@ private:
     static const float m_Pi2; //!<  just to have it as float
 };
 
-#endif // #if !defined(__Fft_hdr__)
+#endif // #if !defined(__ACA_Fft_HEADER_INCLUDED__)
 
 
 

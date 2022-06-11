@@ -1,5 +1,5 @@
-#if !defined(__BeatHisto_hdr__)
-#define __BeatHisto_hdr__
+#if !defined(__ACA_BeatHisto_HEADER_INCLUDED__)
+#define __ACA_BeatHisto_HEADER_INCLUDED__
 
 #include <string>
 
@@ -93,7 +93,7 @@ protected:
     Error_t init_(const std::string& strAudioFilePath);//!< init configuration
     Error_t init_(const float* pfAudio, long long iNumFrames, float fSampleRate);//!< init configuration
 
-    void compHistoRange_(int& iStartIdx, int& iStopIdx, BeatHisto_t eBeatHistoComp) const;
+    void compHistoRange_(int& istartIdx, int& istopIdx, BeatHisto_t eBeatHistoComp) const;
 
     CFft* m_pCFft = 0;  //!< fft instance
     CCcf* m_pCCcf = 0;  //!< correlation instance
@@ -114,7 +114,7 @@ protected:
     bool    m_bIsInitialized = false;   //!< true if initialized
 };
 
-#endif // #if !defined(__BeatHisto_hdr__)
+#endif // #if !defined(__ACA_BeatHisto_HEADER_INCLUDED__)
 
 
 

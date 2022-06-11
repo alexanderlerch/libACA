@@ -69,7 +69,7 @@ TEST_CASE("ToolsBlockAudio", "[ToolsBlockAudio]")
             pCBlockAudio->getNextBlock(pfBlock, &fTestTimeStamp);
             CHECK(fTestTimeStamp == Approx(fTargetTimeStamp).margin(1e-6F).epsilon(1e-6F));
             fTargetTimeStamp += iHopLength / fSampleRate;
-            CHECK_FALSE( pCBlockAudio->IsEndOfData());
+            CHECK_FALSE( pCBlockAudio->isEndOfData());
         }
 
         for (auto i = 0; i < iHopLength + 1; i++)

@@ -45,7 +45,7 @@ public:
 
         CMatrix::free(m_ppfAudioData, m_iNumChannels);
     }
-    bool IsEndOfData() const override
+    bool isEndOfData() const override
     {
         assert(m_pCAudioFile);
         return m_pCAudioFile->isEof();
@@ -147,7 +147,7 @@ public:
         m_iCurrIdx = 0;
     }
 
-    bool IsEndOfData() const override
+    bool isEndOfData() const override
     {
         return m_iAudioLength == m_iCurrIdx;
     }

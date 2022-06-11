@@ -1,5 +1,5 @@
-#if !defined(__Novelty_hdr__)
-#define __Novelty_hdr__
+#if !defined(__ACA_Novelty_HEADER_INCLUDED__)
+#define __ACA_Novelty_HEADER_INCLUDED__
 
 #include <string>
 
@@ -83,10 +83,10 @@ public:
 
     /*! performs the Novelty computation for 1 dimensional Noveltys and writes the result
     \param pfNovelty (user-allocated, to be written, dimensions from CNoveltyIf::getNumBlocks)
-    \param pbIsOnset (user-allocated, to be written, true if onset)
+    \param pbisOnset (user-allocated, to be written, true if onset)
     \return Error_t
     */
-    Error_t compNovelty(float* pfNovelty, bool* pbIsOnset = 0);
+    Error_t compNovelty(float* pfNovelty, bool* pbisOnset = 0);
 
     /*! returns Novelty name as string
     \param eNoveltyIdx Novelty index
@@ -131,7 +131,7 @@ protected:
     bool    m_bIsInitialized = false;   //!< true if initialized
 };
 
-#endif // #if !defined(__Novelty_hdr__)
+#endif // #if !defined(__ACA_Novelty_HEADER_INCLUDED__)
 
 
 

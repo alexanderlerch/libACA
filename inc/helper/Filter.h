@@ -1,5 +1,5 @@
-#if !defined(__Filter_hdr__)
-#define __Filter_hdr__
+#if !defined(__ACA_Filter_HEADER_INCLUDED__)
+#define __ACA_Filter_HEADER_INCLUDED__
 
 #define _USE_MATH_DEFINES
 #include <cmath>
@@ -55,7 +55,7 @@ public:
 
         CVector::alloc(m_ptProcBuff, static_cast<long long>(iNumCoeffs)-1);
 
-        m_bIsInitialized = true;
+        m_bisInitialized = true;
 
         return Error_t::kNoError;
     }
@@ -65,7 +65,7 @@ public:
     */
     Error_t reset(bool bFreeMem = true)
     {
-        if (!m_bIsInitialized)
+        if (!m_bisInitialized)
             return Error_t::kNoError;
 
         if (bFreeMem)
@@ -80,7 +80,7 @@ public:
 
             CVector::free(m_ptProcBuff);
 
-            m_bIsInitialized = false;
+            m_bisInitialized = false;
         }
         else
         {
@@ -100,7 +100,7 @@ public:
      */
     Error_t process(T* pfOut, const T* pfIn, long long iNumSamples)
     {
-        if (!m_bIsInitialized)
+        if (!m_bisInitialized)
             return Error_t::kFunctionIllegalCallError;
         if (!pfOut || !pfIn || iNumSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -127,7 +127,7 @@ public:
      */
     Error_t processDFII(T* pfOut, const T* pfIn, long long iNumSamples)
     {
-        if (!m_bIsInitialized)
+        if (!m_bisInitialized)
             return Error_t::kFunctionIllegalCallError;
         if (!pfOut || !pfIn || iNumSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -165,7 +165,7 @@ public:
      */
     Error_t filtfilt(T* pfOut, const T* pfIn, long long iNumSamples)
     {
-        if (!m_bIsInitialized)
+        if (!m_bisInitialized)
             return Error_t::kFunctionIllegalCallError;
         if (!pfOut || !pfIn || iNumSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -280,7 +280,7 @@ private:
 
     int m_iNumFilterCoeffs = 0; //!< number of filter coefficients
 
-    bool m_bIsInitialized = false; //!< true if initialized
+    bool m_bisInitialized = false; //!< true if initialized
 };
 
 /*! \brief class providing a generic filter implementation
@@ -398,7 +398,7 @@ private:
 };
 
 
-#endif // #if !defined(__Filter_hdr__)
+#endif // #if !defined(__ACA_Filter_HEADER_INCLUDED__)
 
 
 
