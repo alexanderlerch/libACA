@@ -1,0 +1,27 @@
+var searchData=
+[
+  ['bad_5fheader_0',['BAD_HEADER',['../a00242.xhtml#a01cc88a54e3e85e9121f9748beae5e45',1,'sndlib2xen.h']]],
+  ['bad_5ftype_1',['BAD_TYPE',['../a00242.xhtml#ac2788803e5b2009df2503a16a693ec0e',1,'sndlib2xen.h']]],
+  ['barkconversionfunctions_5ft_2',['BarkConversionFunctions_t',['../a00501.xhtml#aa2fceaa05fdd52addf05887fa270d671',1,'CConversion']]],
+  ['beathisto_2ecpp_3',['BeatHisto.cpp',['../a00077.xhtml',1,'']]],
+  ['beathisto_2eh_4',['BeatHisto.h',['../a00197.xhtml',1,'']]],
+  ['beathisto_5ft_5',['BeatHisto_t',['../a00417.xhtml#a7aa666694543decf41aa7c27a0593db0',1,'CBeatHistoIf']]],
+  ['beforeexit_6',['BeforeExit',['../a01089.xhtml#a2e8c4369d0a605d64e3e83b5af3399baad6c3e4a5797b7ee0a812e4fc88128983',1,'Catch::WaitForKeypress']]],
+  ['beforestart_7',['BeforeStart',['../a01089.xhtml#a2e8c4369d0a605d64e3e83b5af3399baaba7f6d9b2377122a118b371ab7ae3185',1,'Catch::WaitForKeypress']]],
+  ['beforestartandexit_8',['BeforeStartAndExit',['../a01089.xhtml#a2e8c4369d0a605d64e3e83b5af3399baae8beb496b712aef908028a7cbfdd0c46',1,'Catch::WaitForKeypress']]],
+  ['begin_9',['begin',['../a00597.xhtml#ab0adc7198d60867c2842b998ae456795',1,'Catch::StringRef']]],
+  ['benchmark_10',['Benchmark',['../a01117.xhtml#a39b232f74b4a7a6f2183b96759027eacad0e25e337246ae34d555fe53baf81c16',1,'Catch::TestCaseInfo']]],
+  ['benchmarkconfidenceinterval_11',['benchmarkConfidenceInterval',['../a01093.xhtml#ae1ec73d460a2b58c7c9b022a430a34dd',1,'Catch::IConfig']]],
+  ['benchmarknoanalysis_12',['benchmarkNoAnalysis',['../a01093.xhtml#aa9aa1eafdbe510e27bf319233969ee2c',1,'Catch::IConfig']]],
+  ['benchmarkresamples_13',['benchmarkResamples',['../a01093.xhtml#a3b8e5581be01f4773593f8b85eb7db98',1,'Catch::IConfig']]],
+  ['benchmarksamples_14',['benchmarkSamples',['../a01093.xhtml#a583734a61796b495b80779a6540eb6cc',1,'Catch::IConfig']]],
+  ['benchmarkwarmuptime_15',['benchmarkWarmupTime',['../a01093.xhtml#a516879e39f2e46f69bb4ef1f1fe7023c',1,'Catch::IConfig']]],
+  ['bin2freq_16',['bin2freq',['../a00437.xhtml#abf23a07e3c1f0073d37192711fbb8e1f',1,'CFft']]],
+  ['binaryexpr_17',['BinaryExpr',['../a00793.xhtml#a657d66346aef97a760c22776fe6008b6',1,'Catch::BinaryExpr::BinaryExpr()'],['../a00793.xhtml',1,'Catch::BinaryExpr&lt; LhsT, RhsT &gt;']]],
+  ['bislogarithmic_18',['bIsLogarithmic',['../a00489.xhtml#ad6663bc74095b6d299849a4ddb5bdb88',1,'CSpectrogramIf::MelSpectrogramConfig_t']]],
+  ['bitreverse_19',['bitreverse',['../a00272.xhtml#ac6ae8b5a1247b13ec0efa68a339620df',1,'LaszloFft']]],
+  ['bitstream_5ft_20',['BitStream_t',['../a00409.xhtml#ae5cbbfb5db8265f26b7116d38b6d3c59',1,'CAudioFileIf']]],
+  ['bool_21',['bool',['../a00209.xhtml#abb452686968e48b67397da5f97445f5b',1,'bool():&#160;s7.h'],['../a00236.xhtml#abb452686968e48b67397da5f97445f5b',1,'bool():&#160;sndlib.h'],['../a00215.xhtml#abb452686968e48b67397da5f97445f5b',1,'bool():&#160;xen.h']]],
+  ['bruun_5freverse_22',['bruun_reverse',['../a00272.xhtml#ab68076f54685be4862882640f3a29c75',1,'LaszloFft']]],
+  ['buildhistogram_5f_23',['buildHistogram_',['../a00557.xhtml#a875c603ba28294ac2575eb6e06407018',1,'CKnn']]]
+];
