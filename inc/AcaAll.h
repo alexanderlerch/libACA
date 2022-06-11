@@ -10,6 +10,8 @@
 #include "ErrorDef.h"
 #include "Feature.h"
 #include "FeatureFromBlock.h"
+#include "Key.h"
+#include "KeyFromChroma.h"
 #include "Novelty.h"
 #include "NoveltyFromBlock.h"
 #include "Pitch.h"
