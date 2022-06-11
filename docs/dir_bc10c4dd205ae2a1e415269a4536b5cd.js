@@ -1,0 +1,27 @@
+var dir_bc10c4dd205ae2a1e415269a4536b5cd =
+[
+    [ "AcaAll.cpp", "a00035.xhtml", "a00035" ],
+    [ "BeatHisto.cpp", "a00080.xhtml", null ],
+    [ "Chord.cpp", "a00101.xhtml", "a00101" ],
+    [ "ChordFromBlock.cpp", "a00056.xhtml", null ],
+    [ "Feature.cpp", "a00050.xhtml", "a00050" ],
+    [ "FeatureFromBlock.cpp", "a00038.xhtml", "a00038" ],
+    [ "Fft.cpp", "a00068.xhtml", "a00068" ],
+    [ "Key.cpp", "a00032.xhtml", null ],
+    [ "KeyFromChroma.cpp", "a00089.xhtml", null ],
+    [ "Novelty.cpp", "a00086.xhtml", "a00086" ],
+    [ "NoveltyFromBlock.cpp", "a00065.xhtml", null ],
+    [ "Pitch.cpp", "a00071.xhtml", "a00071" ],
+    [ "PitchFromBlock.cpp", "a00092.xhtml", "a00092" ],
+    [ "Spectrogram.cpp", "a00083.xhtml", "a00083" ],
+    [ "ToolBlockAudio.cpp", "a00074.xhtml", "a00074" ],
+    [ "ToolCcf.cpp", "a00095.xhtml", null ],
+    [ "ToolConversion.cpp", "a00047.xhtml", "a00047" ],
+    [ "ToolGammatone.cpp", "a00098.xhtml", "a00098" ],
+    [ "ToolNmf.cpp", "a00053.xhtml", null ],
+    [ "ToolPca.cpp", "a00059.xhtml", null ],
+    [ "ToolSimpleDtw.cpp", "a00062.xhtml", null ],
+    [ "ToolSimpleKmeans.cpp", "a00041.xhtml", null ],
+    [ "ToolSimpleKnn.cpp", "a00044.xhtml", null ],
+    [ "ToolViterbi.cpp", "a00077.xhtml", null ]
+];

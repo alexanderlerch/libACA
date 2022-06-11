@@ -1,0 +1,5 @@
+var a00197 =
+[
+    [ "getAcaBuildDate", "a00197.xhtml#a352c17bde18dd0d9c3989f6050b060b0", null ],
+    [ "getAcaVersion", "a00197.xhtml#aeca12b465ae15d8b8e775e1b0cfec9f3", null ]
+];
