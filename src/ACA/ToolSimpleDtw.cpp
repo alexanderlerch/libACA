@@ -12,12 +12,7 @@ const int CDtw::aiDecrement[kNumDirections][kNumMatrixDimensions] =
     { -1, -1 } // kDiag
 };
 
-CDtw::CDtw( void ) :
-    m_bIsInitialized(false),
-    m_bWasProcessed(false),
-    m_fOverallCost(0),
-    m_ppePathIdx(0),
-    m_iLengthOfPath(0)
+CDtw::CDtw( void )
 {
     CVector::setZero(m_apfCost, kNumVectors);
     CVector::setZero(m_aiMatrixDimensions, kNumMatrixDimensions);

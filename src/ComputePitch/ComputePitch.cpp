@@ -85,7 +85,7 @@ int main(int argc, char* argv[])
     time = clock();
 
     //////////////////////////////////////////////////////////////////////////////
-    // compute spectrogram
+    // compute f0
     cout << "\n1. computing f0..." << endl;
     pCInstance->compF0(pfPitch);
 
