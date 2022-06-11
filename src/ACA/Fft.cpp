@@ -11,13 +11,7 @@
 const float CFft::m_Pi  = static_cast<float>(M_PI);
 const float CFft::m_Pi2 = static_cast<float>(M_PI_2);
 
-CFft::CFft() :
-    m_pfProcessBuff(0),
-    m_pfWindowBuff(0),
-    m_iDataLength(0),
-    m_iFftLength(0),
-    m_ePrePostWindowOpt(kNoWindow),
-    m_bIsInitialized(false)
+CFft::CFft() 
 {
     reset ();
 }

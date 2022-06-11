@@ -73,7 +73,7 @@ Error_t CKmeans::compKmeans(int* piResult, float** ppfFeatures)
         CMatrix::copy(m_appfClusterMeans[kPrev], m_appfClusterMeans[kCurr], m_iK, m_iNumFeatures);
 
         // update cluster means
-        computeClusterMeans_(ppfFeatures, piResult);
+        compClusterMeans_(ppfFeatures, piResult);
 
         // re-init empty clusters
         reinitClusterMeans_(ppfFeatures);
@@ -123,7 +123,7 @@ void CKmeans::initClusterMeans_(float** ppfFeatures)
     }
 }
 
-void CKmeans::computeClusterMeans_(float** ppfFeatures, const int* piResult)
+void CKmeans::compClusterMeans_(float** ppfFeatures, const int* piResult)
 {
     CMatrix::setZero(m_appfClusterMeans[kCurr], m_iK, m_iNumFeatures);
     //CVector::setZero(m_piClusterSize, m_iK);

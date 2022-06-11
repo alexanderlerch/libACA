@@ -13,9 +13,8 @@
 #include "ToolBlockAudio.h"
 #include "ToolViterbi.h"
 
-#include "ChordFromBlock.h"
-
 #include "Chord.h"
+#include "ChordFromBlock.h"
 
 
 /////////////////////////////////////////////////////////////////////////////////
@@ -232,7 +231,7 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
         else
         {
             float fTmp = 0;
-			long long iMaxIdx = -1;
+            long long iMaxIdx = -1;
             CVector::findMax(afChordProb, fTmp, iMaxIdx, kNumChords);
             peChord[n] = static_cast<Chords_t>(iMaxIdx);
         }

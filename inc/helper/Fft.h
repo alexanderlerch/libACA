@@ -139,18 +139,18 @@ private:
     Error_t freeMemory_ ();
     Error_t computeWindow_ (WindowFunction_t eWindow);
 
-    float   *m_pfProcessBuff;
-    float   *m_pfWindowBuff;
+    float   *m_pfProcessBuff = 0; //!< generic processing buffer
+    float   *m_pfWindowBuff = 0; //!< window function
 
-    int     m_iDataLength;
-    int     m_iFftLength;
+    int     m_iDataLength = 0; //!< length of data
+    int     m_iFftLength = 0; //!<  length of FFT
 
-    Windowing_t m_ePrePostWindowOpt;
+    Windowing_t m_ePrePostWindowOpt = kNoWindow;  //!< windowing option
 
-    bool    m_bIsInitialized;
+    bool    m_bIsInitialized = false; //!< flag indicating if the instance is initialized
 
-    static const float m_Pi;
-    static const float m_Pi2;
+    static const float m_Pi; //!< just to have it as float
+    static const float m_Pi2; //!<  just to have it as float
 };
 
 #endif // #if !defined(__Fft_hdr__)

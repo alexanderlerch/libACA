@@ -21,8 +21,25 @@ public:
     CNmfResult();
     virtual ~CNmfResult(void);
 
+
+    /*! returns the number of columns in the matrix specified in eMatIdx
+    \param eMatIdx 
+    \return int
+    */
     int getMatCols(NmfMatrices_t eMatIdx) const;
+
+    /*! returns the number of rows in the matrix specified in eMatIdx
+    \param eMatIdx
+    \return int
+    */
     int getMatRows(NmfMatrices_t eMatIdx) const;
+
+    /*! writes the number of rows and columns in the matrix specified in eMatIdx
+    \param eMatIdx
+    \param iNumRows number of rows
+    \param iNumCols number of columns
+    \return
+    */
     void getMatDims(NmfMatrices_t eMatIdx, int& iNumRows, int& iNumCols) const;
 
     Error_t getMat(float** ppfDest, NmfMatrices_t eMatIdx);
@@ -34,12 +51,13 @@ protected:
     Error_t reset();
     float** getMatPointer(NmfMatrices_t eMatIdx) const;
 private:
+    CNmfResult(const CNmfResult& that);     //!< disallow copy construction   
 
-    float** m_appfMatrices[kNumMatrices] = { 0 };
+    float** m_appfMatrices[kNumMatrices] = { 0 }; //!< arry holding all matrix pointers
 
-    int m_aaiMatrixDims[kNumMatrices][2] = { 0 };
+    int m_aaiMatrixDims[kNumMatrices][2] = { 0 }; //!< array holding the various matrix dimensions
 
-    bool m_bIsInitialized = false;
+    bool m_bIsInitialized = false; //!< flag to indicate whether instance is initialized
 };
 
 /*! \brief computation of non-negative matrix factorization
@@ -76,15 +94,15 @@ private:
 
     float runNmfIter(CNmfResult* pNmfResult, float** ppfInput);
 
-    float** m_ppfX = 0,
-        ** m_ppfOnes = 0,
-        ** m_ppfTransp = 0,
-        **m_ppfNum = 0,
-        **m_ppfDenom = 0;
-    float m_fSparsity = 0;
-    int m_iMaxIter = 0;
-    int m_iAllocSize = 0;
-    int m_iNumRows = 0;
+    float** m_ppfX = 0, //!< input matrix 
+        ** m_ppfOnes = 0, //!< matrix with ones
+        ** m_ppfTransp = 0, //!< matrix for transpositions
+        **m_ppfNum = 0, //!< numerator matrix
+        **m_ppfDenom = 0; //!< denominator matrix
+    float m_fSparsity = 0; //!< sparsity weight
+    int m_iMaxIter = 0; //!< maximum number of iteration
+    int m_iAllocSize = 0; //!< temp variable
+    int m_iNumRows = 0; //!< number of rows in matrix
 
     bool m_bIsInitialized = false;  //!< true if init has been called
 

@@ -653,22 +653,108 @@ public:
         CVector::copy(pptDestMat[iRowIdx], ptSrcVec, iNumCols);
     }
 
+    //template<typename T>
+    //static T det(T** pptMat, int iNumRows, int iNumCols)
+    //{
+    //    T **pptTmp = 0;
+    //    double dDet = 1;
+
+    //    CMatrix::alloc(pptTmp, iNumRows, iNumCols);
+    //    CMatrix::copy(pptTmp, pptMat, iNumRows, iNumCols);
+
+    //    if (iNumRows == 2)
+    //        return((pptTmp[0][0] * pptTmp[1][1]) - (pptTmp[0][1] * pptTmp[1][0]));
+
+    //    if (pptTmp[0][0] == 0)
+    //    {
+    //        i = 1;
+    //        while (i < iNumRows)
+    //        {
+    //            if (pptTmp[i][0] != 0)
+    //            {
+    //                this->SwapRowCol(0, i); //!!!!!!!!!!!!!!!!!!!!!!!!
+    //                dDet *= -1;
+    //                break;
+    //            }
+    //            i++;
+    //        }
+    //    }
+
+    //    if (pptTmp[0][0] == 0)
+    //    {
+    //        //rErr = this->Copy(TmpMatrix); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    //        return 0;							//If all the elements in a row or column of matrix are 0, determient is equal to 0
+    //    }
+
+    //    dDet *= pptTmp[0][0];
+
+    //    this->RowDivC(0, pptTmp[0][0]); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    //    for (i = 1; i < iNumRows; i++)
+    //    {
+    //        j = 0;
+
+    //        if (dDet < kSingularityThresh * kSingularityThresh)
+    //            dDet = 0;
+
+    //        while (j < i)							//preparing an upper triangular matrix
+    //        {
+    //            this->RowAdd(i, j, -pptTmp[i][j]);
+    //            j++;
+    //        }
+
+    //        if (pptTmp[i][i] != 0)
+    //        {
+    //            dDet *= pptTmp[i][i];					//Dividing the entire row with non zero diagonal element. Multiplying det with that factor.	
+    //            this->RowDivC(i, pptTmp[i][i]);
+    //        }
+
+    //        if (pptTmp[i][i] == 0)						// Chcek if the diagonal elements are zeros
+    //        {
+    //            for (j = i + 1; j < iNumCols; j++)
+    //            {
+    //                if (pptTmp[i][j] != 0)
+    //                {
+    //                    this->ColAdd(i, j, 1);//Adding of columns does not change the determinant
+
+    //                    dDet *= pptTmp[i][i];
+    //                    this->RowDivC(i, pptTmp[i][i]);
+    //                    break;
+    //                }
+    //            }
+    //        }
+
+    //        if (pptTmp[i][i] == 0)						//if diagonal element is still zero, Determinant is zero.
+    //        {
+    //            //rErr = this->Copy(TmpMatrix);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+
+    //            return 0;							//If all the elements in a row or column of matrix are 0, determient is equal to 0
+    //        }
+    //    }
+
+    //    rErr = this->Copy(TmpMatrix);
+
+    //    return dDet;
+    //}
+
     /*! computes inverse of square matrix
     \param pptSrcDest input and output matrix (to be modified, user allocated)
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     \return
     */
-    static void inv_I (float **pptSrcDest, int iNumRows, int iNumCols)
+    template<typename T>
+    static void inv_I (T **pptSrcDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows == iNumCols);
         assert(pptSrcDest);
         assert(pptSrcDest[0]);
 
-        const float kSingularityThresh = 1e-15F;
-        float** ppfTmp = 0;
-        float** ppfEye = 0;
+        const T kSingularityThresh = 1e-15F;
+        T** ppfTmp = 0;
+        T** ppfEye = 0;
         int    i, j;
         double dDet = 1;
 

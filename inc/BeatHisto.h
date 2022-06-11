@@ -19,8 +19,8 @@ public:
     */
     enum BeatHisto_t
     {
-        kBeatHistoCorr,
-        kBeatHistoFft,
+        kBeatHistoCorr, //!< use correlation based method
+        kBeatHistoFft, //!< use FFT based method
 
         kNumBeatHistoComputations
     };

@@ -148,7 +148,7 @@ protected:
     float* m_pfProcessBuff2 = 0;             //!< temporary buffer for current spectrum
     float* m_pfProcessBuff1 = 0;          //!<  temporary buffer
 
-    float** m_ppfChordProbs = 0;
+    float** m_ppfChordProbs = 0; //!< chord probabilities (chrods X observations)
 
     bool    m_bIsInitialized = false;    //!< true if initialized
 };

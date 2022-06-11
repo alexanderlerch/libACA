@@ -1,8 +1,6 @@
 #if !defined(__ToolBlockAudio_hdr__)
 #define __ToolBlockAudio_hdr__
 
-#include <cassert>
-
 #include "ErrorDef.h"
 
 class CAudioFileIf; //!< forward declaration

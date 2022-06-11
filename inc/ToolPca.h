@@ -63,14 +63,14 @@ private:
 
     static float matPythag(float dA, float dB);;
 
-    int m_iNumFeatures = 0,
-        m_iNumObs = 0;
+    int m_iNumFeatures = 0, //!< number of features
+        m_iNumObs = 0; //!< number of observations
 
-    float** m_ppfProcTmp = 0;
-    float** m_ppfU = 0;
-    float** m_ppfW = 0;
-    float** m_ppfV = 0;
-    int* piSortIndices = 0;
+    float** m_ppfProcTmp = 0; //!< temporary processing memoru
+    float** m_ppfU = 0; //!< SVD result: U
+    float** m_ppfW = 0; //!< SVD result: W
+    float** m_ppfV = 0; //!< SVD result: V
+    int* piSortIndices = 0; //!< array for sorted indices
 };
 
 

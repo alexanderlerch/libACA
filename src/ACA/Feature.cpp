@@ -2,11 +2,13 @@
 #include "Util.h"
 #include "AudioFileIf.h"
 #include "Fft.h"
+
 #include "ToolPreProc.h"
 #include "ToolBlockAudio.h"
-#include "FeatureFromBlock.h"
 
 #include "Feature.h"
+#include "FeatureFromBlock.h"
+
 
 
 /////////////////////////////////////////////////////////////////////////////////

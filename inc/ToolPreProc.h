@@ -145,6 +145,7 @@ private:
     CNormalizeAudio();
     CNormalizeAudio(const CNormalizeAudio& that);
     CNormalizeAudio& operator=(const CNormalizeAudio& c);
+
     float m_fScaleFactor;   //!< factor to normalize
 };
 #endif // __ToolPreProc_hdr__

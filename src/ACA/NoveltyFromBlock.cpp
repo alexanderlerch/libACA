@@ -1,7 +1,6 @@
-//
+
 #include "Vector.h"
 #include "Util.h"
-
 
 #include "NoveltyFromBlock.h"
 

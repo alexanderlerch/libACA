@@ -1,7 +1,9 @@
 #if !defined(__ToolConversion_hdr__)
 #define __ToolConversion_hdr__
 
+#define _USE_MATH_DEFINES
 #include <cmath>
+#include <cassert>
 #include <map>
 #include <functional>
 

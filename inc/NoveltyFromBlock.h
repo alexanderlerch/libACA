@@ -70,9 +70,9 @@ protected:
 
     float m_fSampleRate = 0;                    //!< sample rate
 
-    float* m_pfPrevSpec = 0;
+    float* m_pfPrevSpec = 0; //!<  previous spectrum
 
-    // dispatcher map for static functions without additional arguments
+    //!< dispatcher map for static functions without additional arguments
     const std::map<CNoveltyIf::Novelty_t, std::function<float(const float*, const float*, int, float)>> m_DispatchMap
     {
             {CNoveltyIf::kNoveltyFlux, &compNoveltyFlux},

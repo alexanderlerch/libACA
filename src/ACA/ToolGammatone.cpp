@@ -4,9 +4,10 @@
 #include <complex>
 
 #include "AudioFileIf.h"
+#include "Filter.h"
+
 #include "ToolPreProc.h"
 #include "ToolBlockAudio.h"
-#include "Filter.h"
 
 #include "ToolGammatone.h"
 

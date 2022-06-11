@@ -2,12 +2,14 @@
 #include "Util.h"
 #include "AudioFileIf.h"
 #include "Fft.h"
+
 #include "ToolPreProc.h"
 #include "ToolBlockAudio.h"
 #include "ToolLowPass.h"
-#include "NoveltyFromBlock.h"
 
 #include "Novelty.h"
+#include "NoveltyFromBlock.h"
+
 
 
 /////////////////////////////////////////////////////////////////////////////////

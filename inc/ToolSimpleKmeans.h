@@ -5,10 +5,6 @@
 
 #include "ErrorDef.h"
 
-#include "Matrix.h"
-#include "Vector.h"
-#include "Synthesis.h"
-
 
 /*! \brief implements kmeans clustering
 */
@@ -72,7 +68,7 @@ private:
     \param piResult current cluster assignments
     \return
     */
-    void computeClusterMeans_(float** ppfFeatures, const int* piResult);
+    void compClusterMeans_(float** ppfFeatures, const int* piResult);
 
 
     /*! check if the means have changed during the last iteration

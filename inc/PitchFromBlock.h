@@ -1,8 +1,6 @@
 #if !defined(__PitchFromBlock_hdr__)
 #define __PitchFromBlock_hdr__
 
-#include <cassert>
-
 #include "ErrorDef.h"
 
 #include "Pitch.h"
@@ -50,7 +48,7 @@ public:
  
 protected:
     CPitchFromBlockIf() {};
-    CPitchFromBlockIf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : m_ePitchIdx(ePitchIdx), m_iDataLength(iDataLength), m_fSampleRate(fSampleRate) {assert(iDataLength > 0);};
+    CPitchFromBlockIf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate);;
     virtual ~CPitchFromBlockIf() {};
     CPitchFromBlockIf(const CPitchFromBlockIf& that);
     CPitchFromBlockIf& operator=(const CPitchFromBlockIf& c);

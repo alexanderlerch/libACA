@@ -97,7 +97,7 @@ protected:
 
     float m_fSampleRate = 0;                    //!< sample rate
 
-    // dispatcher map for static functions without additional arguments
+    //!< dispatcher map for static functions without additional arguments
     const std::map<CFeatureIf::Feature_t, std::function<float(const float*, int, float)>> m_DispatchMap
     {
             {CFeatureIf::kFeatureSpectralCentroid, &compFeatureSpectralCentroid},

@@ -14,10 +14,7 @@ class CRingBuffer
 {
 public:
     explicit CRingBuffer(int iBufferLengthInSamples) :
-        m_iBuffLength(iBufferLengthInSamples),
-        m_iReadIdx(0),
-        m_iWriteIdx(0),
-        m_ptBuff(0)
+        m_iBuffLength(iBufferLengthInSamples)
     {
         assert(iBufferLengthInSamples > 0);
 

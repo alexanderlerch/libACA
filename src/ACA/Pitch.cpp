@@ -5,11 +5,13 @@
 #include "Util.h"
 #include "AudioFileIf.h"
 #include "Fft.h"
+
 #include "ToolPreProc.h"
 #include "ToolBlockAudio.h"
-#include "PitchFromBlock.h"
 
 #include "Pitch.h"
+#include "PitchFromBlock.h"
+
 
 
 /////////////////////////////////////////////////////////////////////////////////
