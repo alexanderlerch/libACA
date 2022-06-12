@@ -411,6 +411,24 @@ public:
     }
 
 
+    /*! weighted element-wise vector addition
+    \param ptSrcDest one input and output buffer
+    \param ptSrc second input buffer
+    \param fWeight weight to be applied to ptSrc entries
+    \param iLength number of elements to be added
+    \return void
+    */
+    template<typename T>
+    static inline void addW_I(T* ptSrcDest, const T* ptSrc, T fWeight, long long int iLength)
+    {
+        assert(iLength >= 0);
+        assert(ptSrcDest);
+        assert(ptSrc);
+
+        for (auto i = 0; i < iLength; i++)
+            ptSrcDest[i] += fWeight * ptSrc[i];
+    }
+
     /*! weighted element-wise vector subtraction
     \param ptSrcDest one input and output buffer
     \param ptSrc second input buffer
@@ -421,12 +439,7 @@ public:
     template<typename T>
     static inline void subW_I(T* ptSrcDest, const T* ptSrc, T fWeight, long long int iLength)
     {
-        assert(iLength >= 0);
-        assert(ptSrcDest);
-        assert(ptSrc);
-
-        for (auto i = 0; i < iLength; i++)
-            ptSrcDest[i] -= fWeight*ptSrc[i];
+        addW_I(ptSrcDest, ptSrc, -fWeight, iLength);
     }
 
     /*! computes the sum of a vector

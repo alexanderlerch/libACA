@@ -653,90 +653,92 @@ public:
         CVector::copy(pptDestMat[iRowIdx], ptSrcVec, iNumCols);
     }
 
-    //template<typename T>
-    //static T det(T** pptMat, int iNumRows, int iNumCols)
-    //{
-    //    T **pptTmp = 0;
-    //    double dDet = 1;
+    template<typename T>
+    static T det(T** pptMat, int iNumRows, int iNumCols)
+    {
+        assert(pptMat);
+        assert(iNumRows == iNumCols);
 
-    //    CMatrix::alloc(pptTmp, iNumRows, iNumCols);
-    //    CMatrix::copy(pptTmp, pptMat, iNumRows, iNumCols);
+        const float kSingularityThresh = 1e-15F;
+        T **pptTmp = 0;
+        double dDet = 1;
 
-    //    if (iNumRows == 2)
-    //        return((pptTmp[0][0] * pptTmp[1][1]) - (pptTmp[0][1] * pptTmp[1][0]));
 
-    //    if (pptTmp[0][0] == 0)
-    //    {
-    //        i = 1;
-    //        while (i < iNumRows)
-    //        {
-    //            if (pptTmp[i][0] != 0)
-    //            {
-    //                this->SwapRowCol(0, i); //!!!!!!!!!!!!!!!!!!!!!!!!
-    //                dDet *= -1;
-    //                break;
-    //            }
-    //            i++;
-    //        }
-    //    }
+        if (iNumRows == 2)
+            return ((pptMat[0][0] * pptMat[1][1]) - (pptMat[0][1] * pptMat[1][0]));
 
-    //    if (pptTmp[0][0] == 0)
-    //    {
-    //        //rErr = this->Copy(TmpMatrix); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        CMatrix::alloc(pptTmp, iNumRows, iNumCols);
+        CMatrix::copy(pptTmp, pptMat, iNumRows, iNumCols);
 
-    //        return 0;							//If all the elements in a row or column of matrix are 0, determient is equal to 0
-    //    }
+        if (pptTmp[0][0] == 0)
+        {
+            auto i = 1;
+            while (i < iNumRows)
+            {
+                if (pptTmp[i][0] != 0)
+                {
+                    swapRowCol(pptTmp, 0, i, iNumCols);
+                    dDet *= -1;
+                    break;
+                }
+                i++;
+            }
+        }
 
-    //    dDet *= pptTmp[0][0];
+        if (pptTmp[0][0] == 0)
+        {
+            CMatrix::free(pptTmp, iNumRows);
+            return 0;
+        }
 
-    //    this->RowDivC(0, pptTmp[0][0]); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        dDet *= pptTmp[0][0];
 
-    //    for (i = 1; i < iNumRows; i++)
-    //    {
-    //        j = 0;
+        CVector::mulC_I(pptTmp[0], 1.F / pptTmp[0][0], iNumCols);
+        for (auto i = 1; i < iNumRows; i++)
+        {
+            auto j = 0;
 
-    //        if (dDet < kSingularityThresh * kSingularityThresh)
-    //            dDet = 0;
+            if (std::abs(dDet) < kSingularityThresh * 1. * kSingularityThresh)
+                dDet = 0;
 
-    //        while (j < i)							//preparing an upper triangular matrix
-    //        {
-    //            this->RowAdd(i, j, -pptTmp[i][j]);
-    //            j++;
-    //        }
+            while (j < i)
+            {
+                CVector::addW_I(pptTmp[i], pptTmp[j], -pptTmp[i][j], iNumCols);
+                j++;
+            }
 
-    //        if (pptTmp[i][i] != 0)
-    //        {
-    //            dDet *= pptTmp[i][i];					//Dividing the entire row with non zero diagonal element. Multiplying det with that factor.	
-    //            this->RowDivC(i, pptTmp[i][i]);
-    //        }
+            if (pptTmp[i][i] != 0)
+            {
+                dDet *= pptTmp[i][i];
+                CVector::mulC_I(pptTmp[i], 1.F / pptTmp[i][i], iNumCols);
+            }
 
-    //        if (pptTmp[i][i] == 0)						// Chcek if the diagonal elements are zeros
-    //        {
-    //            for (j = i + 1; j < iNumCols; j++)
-    //            {
-    //                if (pptTmp[i][j] != 0)
-    //                {
-    //                    this->ColAdd(i, j, 1);//Adding of columns does not change the determinant
+            if (pptTmp[i][i] == 0)
+            {
+                for (j = i + 1; j < iNumCols; j++)
+                {
+                    if (pptTmp[i][j] != 0)
+                    {
+                        CVector::add_I(pptTmp[i], pptTmp[j], iNumCols);
 
-    //                    dDet *= pptTmp[i][i];
-    //                    this->RowDivC(i, pptTmp[i][i]);
-    //                    break;
-    //                }
-    //            }
-    //        }
+                        dDet *= pptTmp[i][i];
+                        CVector::mulC_I(pptTmp[i], 1.F / pptTmp[i][i], iNumCols);
+                        break;
+                    }
+                }
+            }
 
-    //        if (pptTmp[i][i] == 0)						//if diagonal element is still zero, Determinant is zero.
-    //        {
-    //            //rErr = this->Copy(TmpMatrix);//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+            if (pptTmp[i][i] == 0)
+            {
+                CMatrix::free(pptTmp, iNumRows);
+                return 0;
+            }
+        }
 
-    //            return 0;							//If all the elements in a row or column of matrix are 0, determient is equal to 0
-    //        }
-    //    }
+        CMatrix::free(pptTmp, iNumRows);
 
-    //    rErr = this->Copy(TmpMatrix);
-
-    //    return dDet;
-    //}
+        return static_cast<T>(dDet);
+    }
 
     /*! computes inverse of square matrix
     \param pptSrcDest input and output matrix (to be modified, user allocated)
@@ -752,7 +754,7 @@ public:
         assert(pptSrcDest);
         assert(pptSrcDest[0]);
 
-        const T kSingularityThresh = 1e-15F;
+        const float kSingularityThresh = 1e-15F;
         T** ppfTmp = 0;
         T** ppfEye = 0;
         int    i, j;
@@ -789,7 +791,7 @@ public:
         {
             j = 0;
 
-            if (dDet < kSingularityThresh *1.* kSingularityThresh)
+            if (std::abs(dDet) < kSingularityThresh * 1.* kSingularityThresh)
                 dDet = 0;
 
             while (j < i)
@@ -841,8 +843,6 @@ public:
         CMatrix::free(ppfTmp, iNumRows);
         CMatrix::free(ppfEye, iNumRows);
     }
-
-
 };
 
 #endif // __ACA_Matrix_HEADER_INCLUDED__

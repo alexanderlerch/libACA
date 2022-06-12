@@ -122,6 +122,36 @@ TEST_CASE("Matrix", "[Matrix]")
         CMatrix::free(ppfResult, aiDims[0]);
     }
 
+    SECTION("det")
+    {
+        aiDims[0] = 3;
+        aiDims[1] = 3;
+
+        CMatrix::alloc(ppfMatrix, aiDims[0], aiDims[1]);
+
+        ppfMatrix[0][0] = 1.F; ppfMatrix[0][1] = 2.F;
+        ppfMatrix[1][0] = 3.F; ppfMatrix[1][1] = 4.F;
+        CHECK(-2.F == CMatrix::det(ppfMatrix, 2, 2));
+
+        ppfMatrix[0][0] = -2.F; ppfMatrix[0][1] = 2.F;
+        ppfMatrix[1][0] = -6.F; ppfMatrix[1][1] = 4.F;
+        CHECK(4.F == CMatrix::det(ppfMatrix, 2, 2));
+
+        ppfMatrix[0][0] = 1.F; ppfMatrix[0][1] = 0.F;
+        ppfMatrix[1][0] = 0.F; ppfMatrix[1][1] = 1.F;
+        CHECK(1 == CMatrix::det(ppfMatrix, 2, 2));
+
+        ppfMatrix[0][0] = 1.F; ppfMatrix[0][1] = -2.F; ppfMatrix[0][2] = 4.F;
+        ppfMatrix[1][0] = -5.F; ppfMatrix[1][1] = 2.F; ppfMatrix[1][2] = 0.F;
+        ppfMatrix[2][0] = 1.F; ppfMatrix[2][1] = 0.F; ppfMatrix[2][2] = 3.F;
+        CHECK(-32.F == CMatrix::det(ppfMatrix, aiDims[0], aiDims[1]));
+
+        ppfMatrix[0][0] = 1.F; ppfMatrix[0][1] = -2.F; ppfMatrix[0][2] = 4.F;
+        ppfMatrix[1][0] = -5.F; ppfMatrix[1][1] = 2.F; ppfMatrix[1][2] = 0.F;
+        ppfMatrix[2][0] = -5.F; ppfMatrix[2][1] = 2.F; ppfMatrix[2][2] = 0.F;
+        CHECK(0.F == CMatrix::det(ppfMatrix, aiDims[0], aiDims[1]));
+    }
+
     CMatrix::free(ppfMatrix, aiDims[0]);
 }
 
