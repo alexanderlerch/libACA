@@ -12,21 +12,10 @@ env:
 jobs:
   build:
     name: ${ { matrix.config.name } }
-    runs-on: ${ { matrix.config.os } }
     strategy:
-      fail-fast: false
       matrix:
-        config:
-        - {
-            name: "ubuntu latest gcc", artifact: "Linux.tar.xz",
-            os: ubuntu-latest,
-            build_type: ${{env.BUILD_TYPE}}, cc: "gcc", cxx: "g++"
-          }
-        - {
-            name: "macos latest clang", artifact: "macOS.tar.xz",
-            os: macos-latest,
-            build_type: ${{env.BUILD_TYPE}}, cc: "clang", cxx: "clang++"
-          }
+        os: [ubuntu-latest, macos-latest, windows-latest] 
+    runs-on: ${ { matrix.os } }
     steps:
     - uses: actions/checkout@v2
 
