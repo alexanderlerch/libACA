@@ -1,38 +1,22 @@
 var a00565 =
 [
-    [ "Directions_t", "a00565.xhtml#a952828125cfee61b5dc7023a6942d8d8", [
-      [ "kHoriz", "a00565.xhtml#a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9", null ],
-      [ "kVert", "a00565.xhtml#a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215", null ],
-      [ "kDiag", "a00565.xhtml#a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f", null ],
-      [ "kNumDirections", "a00565.xhtml#a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580", null ]
-    ] ],
-    [ "InternalMemory_t", "a00565.xhtml#a8bba3580a2af5fb3aa30a261e92f4e8e", [
-      [ "kRowCurr", "a00565.xhtml#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98", null ],
-      [ "kRowNext", "a00565.xhtml#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9", null ],
-      [ "kNumVectors", "a00565.xhtml#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa", null ]
-    ] ],
-    [ "MatrixDimension_t", "a00565.xhtml#acdd40f3bfb01336401e145c0a8b1c19a", [
-      [ "kRow", "a00565.xhtml#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7", null ],
-      [ "kCol", "a00565.xhtml#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f", null ],
-      [ "kNumMatrixDimensions", "a00565.xhtml#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8", null ]
-    ] ],
-    [ "CDtw", "a00565.xhtml#a9c81702f9537b30c7617ac9042efc950", null ],
-    [ "~CDtw", "a00565.xhtml#a42e62c6146b79e4f7fe3bcda0e4a7f8d", null ],
-    [ "CDtw", "a00565.xhtml#aa9fdcc3dc151af77aa0d76ae4fd43f5f", null ],
-    [ "compDtw", "a00565.xhtml#a27d97d54ec23bdc32778a75204d22842", null ],
-    [ "findMin_", "a00565.xhtml#a91a31c5e78ab3531487f88efdb1f692b", null ],
-    [ "getPath", "a00565.xhtml#aee6c75c20122f52d76af2f4f45d0340d", null ],
-    [ "getPathCost", "a00565.xhtml#abe81d89a7409c0be04dd442de5d0e4e7", null ],
-    [ "getPathLength", "a00565.xhtml#ae09e20ce6b9304f01432703690c0348c", null ],
-    [ "init", "a00565.xhtml#a7d2996c3f1403a60b5f63ead12540c02", null ],
-    [ "operator=", "a00565.xhtml#a11f2be0ffe9b8d051fb5da72182afa62", null ],
-    [ "reset", "a00565.xhtml#a5b1d2405bd0a819817aeff8570dead68", null ],
-    [ "aiDecrement", "a00565.xhtml#ab94c3f74b1e97b765b56f5dd026903e5", null ],
-    [ "m_aiMatrixDimensions", "a00565.xhtml#ad4c6ae811ccd18d2db85034456741de6", null ],
-    [ "m_apfCost", "a00565.xhtml#a093e77dbbc6b8f0050920fcced7c1fae", null ],
-    [ "m_bIsInitialized", "a00565.xhtml#a56fd00d026c18c656bcd17a3b7a188b4", null ],
-    [ "m_bWasProcessed", "a00565.xhtml#ab54aa8518a3e355b5a473aadd27348d0", null ],
-    [ "m_fOverallCost", "a00565.xhtml#ac425769f0fe862aeb097bc999c3e76a3", null ],
-    [ "m_iLengthOfPath", "a00565.xhtml#ad009bf3fbd8554a07eaa6ef72099485b", null ],
-    [ "m_ppePathIdx", "a00565.xhtml#a1324ec2c82f7cda3557e620b6232de98", null ]
+    [ "CNmf", "a00565.xhtml#a09232b6ba993abb0842570a0eba87188", null ],
+    [ "~CNmf", "a00565.xhtml#a4e12d213a05cc61bb86c9e5fbed0b18b", null ],
+    [ "CNmf", "a00565.xhtml#a7e7496e9eaaf63c02c980dc30325584c", null ],
+    [ "compNmf", "a00565.xhtml#a298f5a0187b09abaec14570da9239187", null ],
+    [ "init", "a00565.xhtml#aec1d45b63855c114d480d1a0532dc3e5", null ],
+    [ "operator=", "a00565.xhtml#a76a0a76e95f7d948df393d740a203a83", null ],
+    [ "reset", "a00565.xhtml#a5d2839f6b53201ddd0eefc744988a15b", null ],
+    [ "runNmfIter", "a00565.xhtml#a458bb8f3cd93482bc409b8cd446a3f21", null ],
+    [ "m_bIsInitialized", "a00565.xhtml#ac9f06c5bcde5c8a7e3e8d92a061775b9", null ],
+    [ "m_fSparsity", "a00565.xhtml#a349068352587bfb4a8b39b8d5b7c5cfb", null ],
+    [ "m_iAllocSize", "a00565.xhtml#ad995fff5ef33e7f6c288aa6ad566aea6", null ],
+    [ "m_iMaxIter", "a00565.xhtml#a138171bcd9323577aa3d7a8c64633975", null ],
+    [ "m_iNumRows", "a00565.xhtml#a1545716f5d6cb6e75762148a4a7893d0", null ],
+    [ "m_kMinOffset", "a00565.xhtml#af5efbe3fee2a569abe774d86e08579e0", null ],
+    [ "m_ppfDenom", "a00565.xhtml#a1e19848e9e16e89a891f1e3cea81dea6", null ],
+    [ "m_ppfNum", "a00565.xhtml#aca8ced874ebb30a6e3f7265aad2c8358", null ],
+    [ "m_ppfOnes", "a00565.xhtml#a9711f933cc2e7eb6ccb443e6884baffc", null ],
+    [ "m_ppfTransp", "a00565.xhtml#a8885c0c52ee2f947dbabd0ce7f45778f", null ],
+    [ "m_ppfX", "a00565.xhtml#a4f07a5b1403b61a30f9cc6dfaad0c0f5", null ]
 ];

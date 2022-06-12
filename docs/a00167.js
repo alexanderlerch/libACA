@@ -1,4 +1,5 @@
 var a00167 =
 [
-    [ "CViterbi", "a00581.xhtml", "a00581" ]
+    [ "CSpectrogramIf", "a00517.xhtml", "a00517" ],
+    [ "CSpectrogramIf::MelSpectrogramConfig_t", "a00521.xhtml", "a00521" ]
 ];

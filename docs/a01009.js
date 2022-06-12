@@ -1,7 +1,5 @@
 var a01009 =
 [
-    [ "EqualsMatcher", "a01009.xhtml#aca4855dbe43977f4aceae8fd0a0422a8", null ],
-    [ "describe", "a01009.xhtml#a398b5cc80200b3b45922c36bddcb4b37", null ],
-    [ "match", "a01009.xhtml#a4d46442b9d25b2234138359faab4f19d", null ],
-    [ "m_comparator", "a01009.xhtml#aaa9099439a6f553fe47ff5ac2fdf3b3c", null ]
+    [ "StartsWithMatcher", "a01009.xhtml#a7b86f258bdbd131a6e7bcd94a8977325", null ],
+    [ "match", "a01009.xhtml#a7da4747aed0c48989d8be59a89e2b7fb", null ]
 ];

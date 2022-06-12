@@ -1,23 +1,10 @@
 var a00829 =
 [
-    [ "~IResultCapture", "a00829.xhtml#a3bd16719d6772b7470887fc36c6d0808", null ],
-    [ "acquireGeneratorTracker", "a00829.xhtml#a8f93a848e0a48b630ca9ecbf225e4817", null ],
-    [ "assertionPassed", "a00829.xhtml#a9b0ef2cb071e9a9dc6ec1b533026aea7", null ],
-    [ "emplaceUnscopedMessage", "a00829.xhtml#a49f74f1323ef8be71b8f9b8e8b2c0fc2", null ],
-    [ "exceptionEarlyReported", "a00829.xhtml#ae63ecec95db4c236c63ecf616f483810", null ],
-    [ "getCurrentTestName", "a00829.xhtml#aea1617f4a84cc648246aa3ed6918b5bf", null ],
-    [ "getLastResult", "a00829.xhtml#a2f44f3fa0bb898ce1aef650c1e063cc9", null ],
-    [ "handleExpr", "a00829.xhtml#a59a2b05391e464954575d2afb6d5d607", null ],
-    [ "handleFatalErrorCondition", "a00829.xhtml#a48559e6598ba9474b903697b69c769b2", null ],
-    [ "handleIncomplete", "a00829.xhtml#a89b89372eb09cc44f8dcad363de6157d", null ],
-    [ "handleMessage", "a00829.xhtml#a21788ebc64571abf322b80c8cc51794d", null ],
-    [ "handleNonExpr", "a00829.xhtml#ab7dbdf8aa28427119583e24dbb302c63", null ],
-    [ "handleUnexpectedExceptionNotThrown", "a00829.xhtml#a6382ed20486e2d9a020da971c6d5c53d", null ],
-    [ "handleUnexpectedInflightException", "a00829.xhtml#afc97bc69829185222f955ebeef97adfe", null ],
-    [ "lastAssertionPassed", "a00829.xhtml#a973435fbdcb2f6f07a0ec5719a01e956", null ],
-    [ "popScopedMessage", "a00829.xhtml#a42bcb13276706bf8c3ce081ce16d37fd", null ],
-    [ "pushScopedMessage", "a00829.xhtml#a91d154c1e087e383dcde5aad95cb6a05", null ],
-    [ "sectionEnded", "a00829.xhtml#a4e152bc43dc0933684e31fa67a58195d", null ],
-    [ "sectionEndedEarly", "a00829.xhtml#afcc71eef8ca821ae132cced4a2be6988", null ],
-    [ "sectionStarted", "a00829.xhtml#a5b76ed52badcb64cf374202e12b81a03", null ]
+    [ "ITransientExpression", "a00829.xhtml#aafe69572b7ed884e63ec81f58d4afd8c", null ],
+    [ "~ITransientExpression", "a00829.xhtml#aeadf426de589938c4964fe4068eeee77", null ],
+    [ "getResult", "a00829.xhtml#a101c7db86c87eff93a8ff496720e6320", null ],
+    [ "isBinaryExpression", "a00829.xhtml#a3b436e13a0a6d3522bbf70d4e31deb22", null ],
+    [ "streamReconstructedExpression", "a00829.xhtml#aabe1889df9c6e639a24afb08d8a0fe9e", null ],
+    [ "m_isBinaryExpression", "a00829.xhtml#a75ce48da824d514d08152d396abb28d8", null ],
+    [ "m_result", "a00829.xhtml#a4646e2b5e0156e913653ec3b9b60c942", null ]
 ];

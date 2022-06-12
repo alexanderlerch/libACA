@@ -1,7 +1,6 @@
 var a00933 =
 [
-    [ "describe", "a00933.xhtml#a315285204df93d1f8e72f50dd66eb709", null ],
-    [ "match", "a00933.xhtml#a8a3e8338f979e56277dcf553efb78dc0", null ],
-    [ "operator||", "a00933.xhtml#add743d0bf073b81a204dc9997fbd2e30", null ],
-    [ "m_matchers", "a00933.xhtml#a1fb1119e6110dc15b8d5262ec0aeddd5", null ]
+    [ "ExceptionTranslator", "a00933.xhtml#a2de4e9bcaad47996159763e69f614d7a", null ],
+    [ "translate", "a00933.xhtml#a29e85940ee9ce719f26e43550cb4ed48", null ],
+    [ "m_translateFunction", "a00933.xhtml#a488013ff0869785c9d041443fbf9a757", null ]
 ];

@@ -1,8 +1,7 @@
 var a00973 =
 [
-    [ "CasedString", "a00973.xhtml#aa88bbc5acd2bff22351d8d4b1816b561", null ],
-    [ "adjustString", "a00973.xhtml#a77639b1165c01f424ee0e96f53335010", null ],
-    [ "caseSensitivitySuffix", "a00973.xhtml#a9759155344d696b2476d764a1d95fcc9", null ],
-    [ "m_caseSensitivity", "a00973.xhtml#ae1c2864c986941536a6e94cca0528f92", null ],
-    [ "m_str", "a00973.xhtml#ad05dbc99aba3c3c386d6b856b213f911", null ]
+    [ "ExceptionMessageMatcher", "a00973.xhtml#ace55942f39ba653db3fd69d6d90e188f", null ],
+    [ "describe", "a00973.xhtml#a3543441985ec877a781e660a403b1bae", null ],
+    [ "match", "a00973.xhtml#aa0566d24990d69e96495360b8f79593d", null ],
+    [ "m_message", "a00973.xhtml#a1cf4836834c357febac9180ab74a178a", null ]
 ];

@@ -1,16 +1,20 @@
 var a00533 =
 [
-    [ "CSinglePoleLp", "a00533.xhtml#ad3db5d691d9dcf0a329e1381349839ee", null ],
-    [ "CSinglePoleLp", "a00533.xhtml#a9e7ea8ec63d51de5e1c12ab05575ec3d", null ],
-    [ "calcFilterParam", "a00533.xhtml#afedab0de8491f604e797ada1fb0e5899", null ],
-    [ "create", "a00533.xhtml#a36c98d6494cc1ac1e7bf35bec6891b3c", null ],
-    [ "destroy", "a00533.xhtml#ac0aa215647a41e3a3de44ad6474c6be3", null ],
-    [ "getFilterParam", "a00533.xhtml#a83aa1cd604c8bc82c983c6681102757c", null ],
-    [ "operator=", "a00533.xhtml#ae32d933eea37072547dc682a60cc0a89", null ],
-    [ "process", "a00533.xhtml#acf4b3bb5a9af8a617bfa659dfc732bd6", null ],
-    [ "reset", "a00533.xhtml#a02c1876180d4310e4dc136c7e733af00", null ],
-    [ "setFilterParam", "a00533.xhtml#a7a1a5cc34017c66373ef80bf4da531d3", null ],
-    [ "~CSinglePoleLp", "a00533.xhtml#a77311cd3d35f5354afbb12de5e4dabd5", null ],
-    [ "m_fAlpha", "a00533.xhtml#ab3678d2f56e3c8d81f736469131cc844", null ],
-    [ "m_fPrevOut", "a00533.xhtml#aad5f42d8c830ca7af71067b2b674d486", null ]
+    [ "CCcf", "a00533.xhtml#ac12b4a9809a1dba42dea5ceefb45da36", null ],
+    [ "~CCcf", "a00533.xhtml#add051d7bf13a84ed1fa5e18627e5e2b9", null ],
+    [ "CCcf", "a00533.xhtml#a0656881ae3fa9d467613abcc2500ed49", null ],
+    [ "compCcf", "a00533.xhtml#a4d7d19dd39b24147d9a1fab5d7e05257", null ],
+    [ "getCcf", "a00533.xhtml#a02c0e23cbcecab5af2fb20a25160321a", null ],
+    [ "getCcfLength", "a00533.xhtml#afe56cc1681b982d7d31b0830b3471b61", null ],
+    [ "getCcfMax", "a00533.xhtml#afa3cb0579386bd1108d010962e801d31", null ],
+    [ "getCcfMaxIdx", "a00533.xhtml#a166090237df809ea2fa9e0cb73bca3c0", null ],
+    [ "init", "a00533.xhtml#af683b1b5e37ca2039424af02f4bfb3c5", null ],
+    [ "operator=", "a00533.xhtml#ab96999b26a5f44a07cc7ca0057d8531e", null ],
+    [ "reset", "a00533.xhtml#a6edce7be75bf0b89dcc4a20e491ad8d8", null ],
+    [ "m_apfData", "a00533.xhtml#aa8cad7d3e5fa2685d3504ab813cc2ce7", null ],
+    [ "m_bIsInitialized", "a00533.xhtml#a9dd23e9688d57262ae7b7b8d03a4c918", null ],
+    [ "m_bWasProcessed", "a00533.xhtml#a245d68ee43cdd28bab6701bf0d6b3974", null ],
+    [ "m_iBlockLength", "a00533.xhtml#aa3513c5e5bfa407a3d9f09f5775696a5", null ],
+    [ "m_iFftLength", "a00533.xhtml#a3172706be7e3ec2182b40669ef468c00", null ],
+    [ "m_pCFft", "a00533.xhtml#a8474a655b6e148c237aa7ba9ecee7d47", null ]
 ];

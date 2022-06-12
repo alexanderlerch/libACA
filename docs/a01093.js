@@ -1,8 +1,9 @@
 var a01093 =
 [
-    [ "What", "a01093.xhtml#ae3dde70ef78d700ea896eb29314e0fa3", [
-      [ "Nothing", "a01093.xhtml#ae3dde70ef78d700ea896eb29314e0fa3a9ac33f9211280cca9082557329706d27", null ],
-      [ "NoAssertions", "a01093.xhtml#ae3dde70ef78d700ea896eb29314e0fa3a516a40a437d6ff29898e2fa93bca8f82", null ],
-      [ "NoTests", "a01093.xhtml#ae3dde70ef78d700ea896eb29314e0fa3ab449dacc48055ee886a4a7aa283db556", null ]
-    ] ]
+    [ "MapGenerator", "a01093.xhtml#a525c7eaf53ad220ee7add534aff2522c", null ],
+    [ "get", "a01093.xhtml#abd7ffdef7f7c8575331146c4a95141ad", null ],
+    [ "next", "a01093.xhtml#aa07e2f12d38ae060c30cc30d9dc236c5", null ],
+    [ "m_cache", "a01093.xhtml#a970d45e8dccf903d3539daada255da42", null ],
+    [ "m_function", "a01093.xhtml#add8fa24bfa56705c798fe70f4c6235ff", null ],
+    [ "m_generator", "a01093.xhtml#a7a4c986b7721df82559d5c3cbb3bdb66", null ]
 ];

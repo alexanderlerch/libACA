@@ -1,9 +1,9 @@
 var a00893 =
 [
-    [ "~IRegistryHub", "a00893.xhtml#a050de0f27f96888c8b410992146c9a09", null ],
-    [ "getExceptionTranslatorRegistry", "a00893.xhtml#aa97defa756fe28dd6249b19c12bbbec1", null ],
-    [ "getReporterRegistry", "a00893.xhtml#abbb3aafb58916d633ef959d724d4b82c", null ],
-    [ "getStartupExceptionRegistry", "a00893.xhtml#a6a1810bb78ba99c3be091958bcc12f29", null ],
-    [ "getTagAliasRegistry", "a00893.xhtml#a3fb24564dba3f679dfa58792f1e21708", null ],
-    [ "getTestCaseRegistry", "a00893.xhtml#a3016c8766e42bae7b021f02d1cbd356b", null ]
+    [ "delta", "a00893.xhtml#a1a94a654f5f3786b75695e081fc9bca2", null ],
+    [ "operator+=", "a00893.xhtml#aa809975b6055917ecb1b1ae7c25149a8", null ],
+    [ "operator-", "a00893.xhtml#a9279ed39139cb7e7b291918a6d08290e", null ],
+    [ "assertions", "a00893.xhtml#a885ded66df752147b30c3d45aa602ec9", null ],
+    [ "error", "a00893.xhtml#a6ea14c7de7ea735a14f172a26e08a239", null ],
+    [ "testCases", "a00893.xhtml#adb195fe477aedee2ecea88c888f16506", null ]
 ];

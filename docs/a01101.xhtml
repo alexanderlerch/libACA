@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: Catch::RunTests Struct Reference</title>
+<title>ACA: Catch::IContext Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,72 +84,152 @@ $(document).ready(function(){initNavTree('a01101.xhtml',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="a01098.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">Catch::RunTests Struct Reference</div></div>
+  <div class="headertitle"><div class="title">Catch::IContext Struct Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="a00263_source.xhtml">catch.hpp</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00275_source.xhtml">catch.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for Catch::RunTests:</div>
+Inheritance diagram for Catch::IContext:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a01099.svg" width="130" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a01100.svg" width="227" height="419"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Collaboration diagram for Catch::IContext:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a01099.svg" width="220" height="176"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:ab56bd851b1dd085869992d1a9d73dc5d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5d">InWhatOrder</a> { <a class="el" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da732a98670b4661d80d8c392784a14f09">InDeclarationOrder</a>
-, <a class="el" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da8c62a42e94d867c708b421322b1c386f">InLexicographicalOrder</a>
-, <a class="el" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da262441c5b5391b628ca6930c3ba028a5">InRandomOrder</a>
- }</td></tr>
-<tr class="separator:ab56bd851b1dd085869992d1a9d73dc5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:aeb17355c1be6c2ced5407cad7202628d"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01101.xhtml#aeb17355c1be6c2ced5407cad7202628d">~IContext</a> ()</td></tr>
+<tr class="separator:aeb17355c1be6c2ced5407cad7202628d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a950f10a5f6d3c9385f9493ba6298b174"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00849.xhtml">IResultCapture</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01101.xhtml#a950f10a5f6d3c9385f9493ba6298b174">getResultCapture</a> ()=0</td></tr>
+<tr class="separator:a950f10a5f6d3c9385f9493ba6298b174"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ace6ece997b27c76d70563272f9e93f2f"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a01165.xhtml">IRunner</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01101.xhtml#ace6ece997b27c76d70563272f9e93f2f">getRunner</a> ()=0</td></tr>
+<tr class="separator:ace6ece997b27c76d70563272f9e93f2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad72743ae753feab0a6f5505f26f79ced"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00281.xhtml#afd20a5d4f9d2f4d525db81a7765367b0">IConfigPtr</a> const &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a01101.xhtml#ad72743ae753feab0a6f5505f26f79ced">getConfig</a> () const =0</td></tr>
+<tr class="separator:ad72743ae753feab0a6f5505f26f79ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="a00263_source.xhtml#l04493">4493</a> of file <a class="el" href="a00263_source.xhtml">catch.hpp</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="ab56bd851b1dd085869992d1a9d73dc5d" name="ab56bd851b1dd085869992d1a9d73dc5d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab56bd851b1dd085869992d1a9d73dc5d">&#9670;&nbsp;</a></span>InWhatOrder</h2>
+<p class="definition">Definition at line <a class="el" href="a00275_source.xhtml#l04358">4358</a> of file <a class="el" href="a00275_source.xhtml">catch.hpp</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aeb17355c1be6c2ced5407cad7202628d" name="aeb17355c1be6c2ced5407cad7202628d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aeb17355c1be6c2ced5407cad7202628d">&#9670;&nbsp;</a></span>~IContext()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5d">Catch::RunTests::InWhatOrder</a></td>
+          <td class="memname">virtual Catch::IContext::~IContext </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
         </tr>
       </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ab56bd851b1dd085869992d1a9d73dc5da732a98670b4661d80d8c392784a14f09" name="ab56bd851b1dd085869992d1a9d73dc5da732a98670b4661d80d8c392784a14f09"></a>InDeclarationOrder&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab56bd851b1dd085869992d1a9d73dc5da8c62a42e94d867c708b421322b1c386f" name="ab56bd851b1dd085869992d1a9d73dc5da8c62a42e94d867c708b421322b1c386f"></a>InLexicographicalOrder&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="ab56bd851b1dd085869992d1a9d73dc5da262441c5b5391b628ca6930c3ba028a5" name="ab56bd851b1dd085869992d1a9d73dc5da262441c5b5391b628ca6930c3ba028a5"></a>InRandomOrder&#160;</td><td class="fielddoc"></td></tr>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
 </table>
+</div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00263_source.xhtml#l04493">4493</a> of file <a class="el" href="a00263_source.xhtml">catch.hpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 4493</span>                    { <span class="keyword">enum</span> <a class="code hl_enumeration" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5d">InWhatOrder</a> {</div>
-<div class="line"><span class="lineno"> 4494</span>        <a class="code hl_enumvalue" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da732a98670b4661d80d8c392784a14f09">InDeclarationOrder</a>,</div>
-<div class="line"><span class="lineno"> 4495</span>        <a class="code hl_enumvalue" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da8c62a42e94d867c708b421322b1c386f">InLexicographicalOrder</a>,</div>
-<div class="line"><span class="lineno"> 4496</span>        <a class="code hl_enumvalue" href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da262441c5b5391b628ca6930c3ba028a5">InRandomOrder</a></div>
-<div class="line"><span class="lineno"> 4497</span>    }; };</div>
-<div class="ttc" id="aa01101_xhtml_ab56bd851b1dd085869992d1a9d73dc5d"><div class="ttname"><a href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5d">Catch::RunTests::InWhatOrder</a></div><div class="ttdeci">InWhatOrder</div><div class="ttdef"><b>Definition:</b> <a href="a00263_source.xhtml#l04493">catch.hpp:4493</a></div></div>
-<div class="ttc" id="aa01101_xhtml_ab56bd851b1dd085869992d1a9d73dc5da262441c5b5391b628ca6930c3ba028a5"><div class="ttname"><a href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da262441c5b5391b628ca6930c3ba028a5">Catch::RunTests::InRandomOrder</a></div><div class="ttdeci">@ InRandomOrder</div><div class="ttdef"><b>Definition:</b> <a href="a00263_source.xhtml#l04497">catch.hpp:4496</a></div></div>
-<div class="ttc" id="aa01101_xhtml_ab56bd851b1dd085869992d1a9d73dc5da732a98670b4661d80d8c392784a14f09"><div class="ttname"><a href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da732a98670b4661d80d8c392784a14f09">Catch::RunTests::InDeclarationOrder</a></div><div class="ttdeci">@ InDeclarationOrder</div><div class="ttdef"><b>Definition:</b> <a href="a00263_source.xhtml#l04494">catch.hpp:4494</a></div></div>
-<div class="ttc" id="aa01101_xhtml_ab56bd851b1dd085869992d1a9d73dc5da8c62a42e94d867c708b421322b1c386f"><div class="ttname"><a href="a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da8c62a42e94d867c708b421322b1c386f">Catch::RunTests::InLexicographicalOrder</a></div><div class="ttdeci">@ InLexicographicalOrder</div><div class="ttdef"><b>Definition:</b> <a href="a00263_source.xhtml#l04495">catch.hpp:4495</a></div></div>
-</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad72743ae753feab0a6f5505f26f79ced" name="ad72743ae753feab0a6f5505f26f79ced"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad72743ae753feab0a6f5505f26f79ced">&#9670;&nbsp;</a></span>getConfig()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00281.xhtml#afd20a5d4f9d2f4d525db81a7765367b0">IConfigPtr</a> const  &amp; Catch::IContext::getConfig </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a950f10a5f6d3c9385f9493ba6298b174" name="a950f10a5f6d3c9385f9493ba6298b174"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a950f10a5f6d3c9385f9493ba6298b174">&#9670;&nbsp;</a></span>getResultCapture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a00849.xhtml">IResultCapture</a> * Catch::IContext::getResultCapture </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ace6ece997b27c76d70563272f9e93f2f" name="ace6ece997b27c76d70563272f9e93f2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ace6ece997b27c76d70563272f9e93f2f">&#9670;&nbsp;</a></span>getRunner()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual <a class="el" href="a01165.xhtml">IRunner</a> * Catch::IContext::getRunner </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li><a class="el" href="a00263_source.xhtml">catch.hpp</a></li>
+<li><a class="el" href="a00275_source.xhtml">catch.hpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00269.xhtml">Catch</a></li><li class="navelem"><a class="el" href="a01101.xhtml">RunTests</a></li>
-    <li class="footer">Generated on Sat Jun 11 2022 21:04:57 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="navelem"><a class="el" href="a00281.xhtml">Catch</a></li><li class="navelem"><a class="el" href="a01101.xhtml">IContext</a></li>
+    <li class="footer">Generated on Sun Jun 12 2022 20:29:17 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

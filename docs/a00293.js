@@ -1,5 +1,8 @@
 var a00293 =
 [
-    [ "CChordFromVector", "a00293.xhtml#ac9c41c2ddc441df7e0ae80c25971c260", null ],
-    [ "~CChordFromVector", "a00293.xhtml#a3b223686549aa6557a42cd464e97ce4c", null ]
+    [ "ApproxMatcher", "a01033.xhtml", "a01033" ],
+    [ "ContainsElementMatcher", "a01021.xhtml", "a01021" ],
+    [ "ContainsMatcher", "a01025.xhtml", "a01025" ],
+    [ "EqualsMatcher", "a01029.xhtml", "a01029" ],
+    [ "UnorderedEqualsMatcher", "a01037.xhtml", "a01037" ]
 ];

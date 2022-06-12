@@ -1,11 +1,12 @@
 var a00869 =
 [
-    [ "allOk", "a00869.xhtml#a33bd996e016030155b99fe1c51c08991", null ],
-    [ "allPassed", "a00869.xhtml#a84999490e0ecaa3de5e121bf48eda1b3", null ],
-    [ "operator+=", "a00869.xhtml#a0c4a2295b896e189cdf4663377e156df", null ],
-    [ "operator-", "a00869.xhtml#aaa10666f559057e3e860d2a5a6fae4c4", null ],
-    [ "total", "a00869.xhtml#a94f969c09cf52d1339c085c9603cd1d3", null ],
-    [ "failed", "a00869.xhtml#a19982a3817a3bc2c07f0290e71f497a3", null ],
-    [ "failedButOk", "a00869.xhtml#ac090973a2ff51394cd452718e75c073e", null ],
-    [ "passed", "a00869.xhtml#ad28daaf3de28006400208b6dd0c631e6", null ]
+    [ "MessageInfo", "a00869.xhtml#afac7a84a9e8655428035a3c5418044f0", null ],
+    [ "operator<", "a00869.xhtml#a8254cb8fca2da02a29a9843cdcb79df1", null ],
+    [ "operator==", "a00869.xhtml#af4b37f2172ba55395813b4bb6bbbde1a", null ],
+    [ "globalCount", "a00869.xhtml#a250459555d236f9510a5afd78a6c1979", null ],
+    [ "lineInfo", "a00869.xhtml#a985165328723e599696ebd8e43195cc5", null ],
+    [ "macroName", "a00869.xhtml#a3ee7cd41def0989d2193bad7101436a0", null ],
+    [ "message", "a00869.xhtml#ab6cd06e050bf426c6577502a5c50e256", null ],
+    [ "sequence", "a00869.xhtml#a7f4f57ea21e50160adefce7b68a781d6", null ],
+    [ "type", "a00869.xhtml#ae928b9117465c696e45951d9d0284e78", null ]
 ];

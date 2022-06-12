@@ -1,4 +1,5 @@
 var a00203 =
 [
-    [ "CFeatureIf", "a00441.xhtml", "a00441" ]
+    [ "CSinglePoleLp", "a00553.xhtml", "a00553" ],
+    [ "CMovingAverage", "a00557.xhtml", "a00557" ]
 ];

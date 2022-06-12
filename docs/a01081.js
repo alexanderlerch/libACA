@@ -1,7 +1,9 @@
 var a01081 =
 [
-    [ "~IContext", "a01081.xhtml#aeb17355c1be6c2ced5407cad7202628d", null ],
-    [ "getConfig", "a01081.xhtml#ad72743ae753feab0a6f5505f26f79ced", null ],
-    [ "getResultCapture", "a01081.xhtml#a950f10a5f6d3c9385f9493ba6298b174", null ],
-    [ "getRunner", "a01081.xhtml#ace6ece997b27c76d70563272f9e93f2f", null ]
+    [ "TakeGenerator", "a01081.xhtml#aacef789c01a86246249c88a184268c65", null ],
+    [ "get", "a01081.xhtml#a7240fb96c311b7d7fde32d1fb5bb67c6", null ],
+    [ "next", "a01081.xhtml#ae343f3e28fe04e0a20d6fdf69bfb4c78", null ],
+    [ "m_generator", "a01081.xhtml#a2193ff62cd0fe809049b6d6b2f399d89", null ],
+    [ "m_returned", "a01081.xhtml#a1014eb709685999a1b6aeed05b4dd978", null ],
+    [ "m_target", "a01081.xhtml#a8ad16c4baed05b024a86a9c87c9cd0a7", null ]
 ];

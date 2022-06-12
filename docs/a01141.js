@@ -1,10 +1,9 @@
 var a01141 =
 [
-    [ "TestCase", "a01141.xhtml#aae5709fc1cb68e19ab0ac27e1ffd6a76", null ],
-    [ "getTestCaseInfo", "a01141.xhtml#a804d0a6a5dc92b219e724f1390c25c7f", null ],
-    [ "invoke", "a01141.xhtml#a26f346c8446dded0562fe3818ae71651", null ],
-    [ "operator<", "a01141.xhtml#a030e4b9282e9b32e08c8bd5e5cd6fa98", null ],
-    [ "operator==", "a01141.xhtml#a5456d03a90f75292835c158f3a3374a1", null ],
-    [ "withName", "a01141.xhtml#a0812e8a216d09b087d5874687009f0d6", null ],
-    [ "test", "a01141.xhtml#a7aaa375d6f2bda735095eaa43395b54b", null ]
+    [ "RandomFloatingGenerator", "a01141.xhtml#abce275ce88f7c3465addd7a98b6c408d", null ],
+    [ "get", "a01141.xhtml#a307eff56c58d4c6a223f35ac4d4ba710", null ],
+    [ "next", "a01141.xhtml#a6a65e5f16abd884f58c31581b2a0d6db", null ],
+    [ "m_current_number", "a01141.xhtml#a3591690761d8da0f4438623a453e6bc0", null ],
+    [ "m_dist", "a01141.xhtml#a6a79be0000a6c2a17e4f11dadb43c8ac", null ],
+    [ "m_rng", "a01141.xhtml#a6142d65c14d2749ecb3dbc6949c0ca1c", null ]
 ];

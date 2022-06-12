@@ -1,5 +1,8 @@
 var a00989 =
 [
-    [ "StartsWithMatcher", "a00989.xhtml#a7b86f258bdbd131a6e7bcd94a8977325", null ],
-    [ "match", "a00989.xhtml#a7da4747aed0c48989d8be59a89e2b7fb", null ]
+    [ "PredicateMatcher", "a00989.xhtml#a57d53ef028c2f7b92b016f627f91aa76", null ],
+    [ "describe", "a00989.xhtml#af7d59e94892cc09471bbaefac4c889fd", null ],
+    [ "match", "a00989.xhtml#a2ec0e8ec19c4c5e26271d59a06a62b52", null ],
+    [ "m_description", "a00989.xhtml#a7736732e65a93e4e1f889804d043407e", null ],
+    [ "m_predicate", "a00989.xhtml#ab7f09e9f96fb9d794e1fc699497ec3e0", null ]
 ];

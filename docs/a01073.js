@@ -1,9 +1,12 @@
 var a01073 =
 [
-    [ "MapGenerator", "a01073.xhtml#a525c7eaf53ad220ee7add534aff2522c", null ],
-    [ "get", "a01073.xhtml#abd7ffdef7f7c8575331146c4a95141ad", null ],
-    [ "next", "a01073.xhtml#aa07e2f12d38ae060c30cc30d9dc236c5", null ],
-    [ "m_cache", "a01073.xhtml#a970d45e8dccf903d3539daada255da42", null ],
-    [ "m_function", "a01073.xhtml#add8fa24bfa56705c798fe70f4c6235ff", null ],
-    [ "m_generator", "a01073.xhtml#a7a4c986b7721df82559d5c3cbb3bdb66", null ]
+    [ "Generators", "a01073.xhtml#a2bcb50c42a8729cbac079b3b61699a61", null ],
+    [ "get", "a01073.xhtml#ad86b343eac34f6771358507dd8ea98c4", null ],
+    [ "next", "a01073.xhtml#ad127fd2a07347b527f79ab3b78bd40fb", null ],
+    [ "populate", "a01073.xhtml#a56e1b82d4c9c952076cd58efbf7a4572", null ],
+    [ "populate", "a01073.xhtml#ad708036fa5a9bf0cd1520ce111bc851d", null ],
+    [ "populate", "a01073.xhtml#a8ff8b7dda734d1808b644fefc67f4c98", null ],
+    [ "populate", "a01073.xhtml#aebb8051e604c7415bb7e7de91278c278", null ],
+    [ "m_current", "a01073.xhtml#a8f5cd6b2479cfadbd45033c4ad17ff0c", null ],
+    [ "m_generators", "a01073.xhtml#a4d41bb9f0e8d726a8a53c86354bf19de", null ]
 ];

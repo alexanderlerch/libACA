@@ -1,11 +1,20 @@
 var a00865 =
 [
-    [ "Capturer", "a00865.xhtml#a86b0b27acc803a4e1310c10820f3038f", null ],
-    [ "~Capturer", "a00865.xhtml#aecde85cf69e65565cec91e325a657b82", null ],
-    [ "captureValue", "a00865.xhtml#a0695ebf77f7cdcb344c73bcb3d9131e4", null ],
-    [ "captureValues", "a00865.xhtml#a60d08e6db2e54740bb2298bbbec3bc0b", null ],
-    [ "captureValues", "a00865.xhtml#a76f2a097cfeb3042688300b81eb9bcbc", null ],
-    [ "m_captured", "a00865.xhtml#a1c3bea0fde97a7663ece4b81187fa9ed", null ],
-    [ "m_messages", "a00865.xhtml#aefa14693d28906e5e7b06975af38aaed", null ],
-    [ "m_resultCapture", "a00865.xhtml#a29edecce81d56837945ba2585c0ff941", null ]
+    [ "AssertionHandler", "a00865.xhtml#a32efbb1b56b71d758d4c2094bac1f1a9", null ],
+    [ "~AssertionHandler", "a00865.xhtml#a1e839d810f6ac0fa6d127fe8350175ed", null ],
+    [ "allowThrows", "a00865.xhtml#a193bb3999494c46457f3059184c6b251", null ],
+    [ "complete", "a00865.xhtml#a878a9eb828d8a1863c8dcb6575f6f40e", null ],
+    [ "handleExceptionNotThrownAsExpected", "a00865.xhtml#a51e4936e3af43b74690cedae6d2e297a", null ],
+    [ "handleExceptionThrownAsExpected", "a00865.xhtml#ab6caf765764a4064e90fce829eec201d", null ],
+    [ "handleExpr", "a00865.xhtml#a2ef387e567bad90ec6e4b5bf5c367388", null ],
+    [ "handleExpr", "a00865.xhtml#afe14d9cf1b1c7f70dae439fbdb51d0c4", null ],
+    [ "handleMessage", "a00865.xhtml#abdb4c180ed83ec2858b2fb87712c516d", null ],
+    [ "handleThrowingCallSkipped", "a00865.xhtml#a67a194d5518f307c4a16faa03a7f7442", null ],
+    [ "handleUnexpectedExceptionNotThrown", "a00865.xhtml#a7764d0adb6ed5eeb10964f6abc02fab1", null ],
+    [ "handleUnexpectedInflightException", "a00865.xhtml#aa2504dad6a91f3645e5f52c932c11270", null ],
+    [ "setCompleted", "a00865.xhtml#a6756bd5395c0ddd28764a9fb4612d5e4", null ],
+    [ "m_assertionInfo", "a00865.xhtml#ad171e8724bb771d97949b7270f400303", null ],
+    [ "m_completed", "a00865.xhtml#a5a756818dff781c155e8eb970d1d4c68", null ],
+    [ "m_reaction", "a00865.xhtml#a8203c08a43a3761b5f400ee6587fad55", null ],
+    [ "m_resultCapture", "a00865.xhtml#aea5283ee36124ce5c51dc2a697b22a39", null ]
 ];

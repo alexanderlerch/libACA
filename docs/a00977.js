@@ -1,7 +1,8 @@
 var a00977 =
 [
-    [ "StringMatcherBase", "a00977.xhtml#a3a9b66bae298ae27058478529b4bb39d", null ],
-    [ "describe", "a00977.xhtml#a47af030f8cea42a601ffb1000eea5cca", null ],
-    [ "m_comparator", "a00977.xhtml#a17c9f0fe40587070ffe998c193742831", null ],
-    [ "m_operation", "a00977.xhtml#a7a25c4b7d863e9a1c406d81efd0f83ca", null ]
+    [ "WithinAbsMatcher", "a00977.xhtml#ac45340b98c41230a7def5bd86c2d870f", null ],
+    [ "describe", "a00977.xhtml#a206a738680f8767af31d3f1835afff3f", null ],
+    [ "match", "a00977.xhtml#afa5d8eed57f12c1e5d006471eb0bfe72", null ],
+    [ "m_margin", "a00977.xhtml#a2270487cd55fa06044f5f6aaab724c5f", null ],
+    [ "m_target", "a00977.xhtml#a8d9f249c0e2969cf0522dc81db6ff280", null ]
 ];

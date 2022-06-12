@@ -1,8 +1,7 @@
 var a01101 =
 [
-    [ "InWhatOrder", "a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5d", [
-      [ "InDeclarationOrder", "a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da732a98670b4661d80d8c392784a14f09", null ],
-      [ "InLexicographicalOrder", "a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da8c62a42e94d867c708b421322b1c386f", null ],
-      [ "InRandomOrder", "a01101.xhtml#ab56bd851b1dd085869992d1a9d73dc5da262441c5b5391b628ca6930c3ba028a5", null ]
-    ] ]
+    [ "~IContext", "a01101.xhtml#aeb17355c1be6c2ced5407cad7202628d", null ],
+    [ "getConfig", "a01101.xhtml#ad72743ae753feab0a6f5505f26f79ced", null ],
+    [ "getResultCapture", "a01101.xhtml#a950f10a5f6d3c9385f9493ba6298b174", null ],
+    [ "getRunner", "a01101.xhtml#ace6ece997b27c76d70563272f9e93f2f", null ]
 ];

@@ -1,5 +1,6 @@
 var a00901 =
 [
-    [ "~IExceptionTranslator", "a00901.xhtml#afa00bb6258c07591df472aadae05783f", null ],
-    [ "translate", "a00901.xhtml#a2a554b96ed5ed411e7c796b6b42837a5", null ]
+    [ "durationInSeconds", "a00901.xhtml#a7c262f2dab9cff166b8eca620c47eea5", null ],
+    [ "prevAssertions", "a00901.xhtml#ae70b154cbc05b5dd2901d97f89303d8c", null ],
+    [ "sectionInfo", "a00901.xhtml#a2d44793392cb83735d086d726822abe9", null ]
 ];

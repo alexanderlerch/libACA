@@ -1,12 +1,17 @@
 var a00557 =
 [
-    [ "CNormalizeAudio", "a00557.xhtml#a0f2e96a9c1a1ab0b85e1410b00f0aa8e", null ],
-    [ "CNormalizeAudio", "a00557.xhtml#ae3b8b30f591e731707afa5cfc76a03bc", null ],
-    [ "~CNormalizeAudio", "a00557.xhtml#a83e53e0b1e4883b8733e8bad48f565e5", null ],
-    [ "CNormalizeAudio", "a00557.xhtml#a9a1dda606c9e5ed2671f9b8f5ff67f36", null ],
-    [ "CNormalizeAudio", "a00557.xhtml#aaf6489c5dbf137788c7b2cdd8712699a", null ],
-    [ "normalizeBlock", "a00557.xhtml#aa8a561b4133585586c5b595116a9217f", null ],
-    [ "normalizeSignal", "a00557.xhtml#a9a0dbb8f97c757a13062370113d661c4", null ],
-    [ "operator=", "a00557.xhtml#ac6e402e21d79f8b31104bcf89027e380", null ],
-    [ "m_fScaleFactor", "a00557.xhtml#a34d6ccbfca0389641039b4eab35b32c4", null ]
+    [ "CMovingAverage", "a00557.xhtml#aa02ee977828ff103f3e2c25889131122", null ],
+    [ "CMovingAverage", "a00557.xhtml#a7fbde1ace5417196843209065c07d687", null ],
+    [ "calcFilterLength", "a00557.xhtml#ac37c3eae6a41a393219aa4cbd39db211", null ],
+    [ "create", "a00557.xhtml#a9008feaaece203a6bf1220ab81e1b983", null ],
+    [ "destroy", "a00557.xhtml#a5a6b1921f58c43d9daa618a97e62754f", null ],
+    [ "filtfilt", "a00557.xhtml#ab6f5f359e79f0ede5aedc7775ae3bece", null ],
+    [ "getFilterParam", "a00557.xhtml#a9704ba1d710c82a1b92af175b0b07538", null ],
+    [ "operator=", "a00557.xhtml#ae283883b27aeaa8aaa1796953cc9a0ef", null ],
+    [ "process", "a00557.xhtml#a4e86e5be0bc6ad928397d99eda2d1978", null ],
+    [ "reset", "a00557.xhtml#a9681799055b5a4622d25a70901a65af3", null ],
+    [ "setFilterParam", "a00557.xhtml#a1a014af5490675e140d6069561b00eb1", null ],
+    [ "~CMovingAverage", "a00557.xhtml#adde468f177d86f008403b3d94210bfd4", null ],
+    [ "m_fPrevOut", "a00557.xhtml#afa9972cded7adacb3a044ba85401b2e1", null ],
+    [ "m_pCRingBuff", "a00557.xhtml#a67685901f5136c73c25b9650d97193a0", null ]
 ];

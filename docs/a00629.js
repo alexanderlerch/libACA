@@ -1,5 +1,5 @@
 var a00629 =
 [
-    [ "test", "a00629.xhtml#adce16c4accb860bf46f6491dd70cfd63", null ],
-    [ "test", "a00629.xhtml#a9f770cae4c16dfa96d4c0299a6b4f980", null ]
+    [ "~ITestInvoker", "a00629.xhtml#a2c89f3eece5b1b677243766e409bd831", null ],
+    [ "invoke", "a00629.xhtml#a6fcd5c5b67d6d5ade6491ff33411ca7f", null ]
 ];

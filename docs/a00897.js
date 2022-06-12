@@ -1,11 +1,8 @@
 var a00897 =
 [
-    [ "~IMutableRegistryHub", "a00897.xhtml#a759ca1e044e19f905fb4d306f1367193", null ],
-    [ "getMutableEnumValuesRegistry", "a00897.xhtml#ab1f0013630047f8295e5969b624ad632", null ],
-    [ "registerListener", "a00897.xhtml#abd892a133f85581fd00ee75bb379ca56", null ],
-    [ "registerReporter", "a00897.xhtml#a1c0ac202ac31ee9f88e8ff5cbac4b243", null ],
-    [ "registerStartupException", "a00897.xhtml#a72a7d5386851ac3200f8da794a009c86", null ],
-    [ "registerTagAlias", "a00897.xhtml#abf2e386b6f94f615719ada711adbf822", null ],
-    [ "registerTest", "a00897.xhtml#a11b85c6744d88c9f83fe16ad4a8dd451", null ],
-    [ "registerTranslator", "a00897.xhtml#ae6825365102693cf7707db022a2c2b49", null ]
+    [ "SectionInfo", "a00897.xhtml#a2808437ae7d4bc0830cee1c3995165a6", null ],
+    [ "SectionInfo", "a00897.xhtml#a139875f2e7bd12a5898a948f8bad15b3", null ],
+    [ "description", "a00897.xhtml#a0052060219a6de74bb7ade34d4163a4e", null ],
+    [ "lineInfo", "a00897.xhtml#adbc83b8a3507c4acc8ee249e93465711", null ],
+    [ "name", "a00897.xhtml#a704c8fc662d309137e0d4f199cb7df58", null ]
 ];

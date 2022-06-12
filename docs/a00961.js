@@ -1,9 +1,10 @@
 var a00961 =
 [
-    [ "WithinUlpsMatcher", "a00961.xhtml#a0d29702ebd6ab7b679c9ce275514fe1e", null ],
-    [ "describe", "a00961.xhtml#ad9bc8bb7f3abd326580a4bf6cf369b1b", null ],
-    [ "match", "a00961.xhtml#aabda42a0dc5d00f3c5916feb75006b32", null ],
-    [ "m_target", "a00961.xhtml#a97b0112726f510af8ca22cb490c2b14d", null ],
-    [ "m_type", "a00961.xhtml#ac5dc48ae38dbfe143647d450f03771ab", null ],
-    [ "m_ulps", "a00961.xhtml#a78fbf35cf9419ff31deb9432e314c1e3", null ]
+    [ "MatcherUntypedBase", "a00961.xhtml#ab65764dc245d85e2b268d3be870b650a", null ],
+    [ "MatcherUntypedBase", "a00961.xhtml#a985fd3c3ffcc9f2e8dc7a330130040b0", null ],
+    [ "~MatcherUntypedBase", "a00961.xhtml#a853be93ce33f71b5abede38081c79e9d", null ],
+    [ "describe", "a00961.xhtml#a91d3a907dbfcbb596077df24f6e11fe2", null ],
+    [ "operator=", "a00961.xhtml#a1d446c018ecedb2ef633d9426d5f7914", null ],
+    [ "toString", "a00961.xhtml#a5982c7c80ca71dfe2298babadad7a453", null ],
+    [ "m_cachedToString", "a00961.xhtml#a951095c462657e7097a9a6dc4dde813f", null ]
 ];

@@ -1,5 +1,7 @@
 var a00609 =
 [
-    [ "~ITestInvoker", "a00609.xhtml#a2c89f3eece5b1b677243766e409bd831", null ],
-    [ "invoke", "a00609.xhtml#a6fcd5c5b67d6d5ade6491ff33411ca7f", null ]
+    [ "Choice", "a00609.xhtml#aad49d3aee2d97066642fffa919685c6a", [
+      [ "Yes", "a00609.xhtml#aad49d3aee2d97066642fffa919685c6aa7c5550b69ec3c502e6f609b67f9613c6", null ],
+      [ "No", "a00609.xhtml#aad49d3aee2d97066642fffa919685c6aa4ffff8d29b481f0116abc37228cd53f6", null ]
+    ] ]
 ];

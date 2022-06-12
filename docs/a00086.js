@@ -1,5 +1,5 @@
 var a00086 =
 [
-    [ "CNoveltyFromFile", "a00341.xhtml", "a00341" ],
-    [ "CNoveltyFromVector", "a00345.xhtml", "a00345" ]
+    [ "CSpectrogramFromFile", "a00393.xhtml", "a00393" ],
+    [ "CSpectrogramFromVector", "a00397.xhtml", "a00397" ]
 ];

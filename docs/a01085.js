@@ -1,11 +1,9 @@
 var a01085 =
 [
-    [ "~IMutableContext", "a01085.xhtml#a93f32b2ab6d0fb83637059240be799ab", null ],
-    [ "createContext", "a01085.xhtml#a17e4b3f9a9674af7e2c4f081c692a628", null ],
-    [ "setConfig", "a01085.xhtml#aa81ba080fce084e9482f20338bc88531", null ],
-    [ "setResultCapture", "a01085.xhtml#a4a80afd0525b7def21bee8d9b48f2d39", null ],
-    [ "setRunner", "a01085.xhtml#af2e53b1dea4527a2587cff266a730f6e", null ],
-    [ "cleanUpContext", "a01085.xhtml#ac07cdb7d744cc8f09672d924324b55fd", null ],
-    [ "getCurrentMutableContext", "a01085.xhtml#ad22507c2e4bc58f80a205db9756b8e29", null ],
-    [ "currentContext", "a01085.xhtml#aca4de034d0deed74dba34f143e4e273e", null ]
+    [ "FilterGenerator", "a01085.xhtml#aa16886a5e41cbd3b6ffa3dd52388a3a1", null ],
+    [ "get", "a01085.xhtml#a903396f7cf5f1a04379b7c917351e6da", null ],
+    [ "next", "a01085.xhtml#a02ce0839dcaa7545c55d0fe70cc50e84", null ],
+    [ "nextImpl", "a01085.xhtml#a412ef28c6fa263fca71d3b0bb618af09", null ],
+    [ "m_generator", "a01085.xhtml#a6fb6975b1401cf7bd7e76e3a542a45cf", null ],
+    [ "m_predicate", "a01085.xhtml#a51cda8aafad62eba1d26618f3ca8cff1", null ]
 ];

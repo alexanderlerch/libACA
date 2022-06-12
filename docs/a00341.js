@@ -1,6 +1,14 @@
 var a00341 =
 [
-    [ "CNoveltyFromFile", "a00341.xhtml#a0247bb6d1818b840d1182d5ee50214d5", null ],
-    [ "~CNoveltyFromFile", "a00341.xhtml#a5d9abf4513901cb6dfdb32a61bbb2880", null ],
-    [ "m_pCAudioFile", "a00341.xhtml#a56054b1777c49a132cf89785c89c8f7a", null ]
+    [ "CFeatureTimeMaxAcf", "a00341.xhtml#a541f40820696e37cc302fc780b8313ee", null ],
+    [ "~CFeatureTimeMaxAcf", "a00341.xhtml#a48c4e7762ac0c1bbbb91a50ccc2a4ffc", null ],
+    [ "CFeatureTimeMaxAcf", "a00341.xhtml#a8c9233f1ab2a403e78a7e03feefc2161", null ],
+    [ "CFeatureTimeMaxAcf", "a00341.xhtml#ae651e7f716957560053ef017f839346b", null ],
+    [ "compFeature", "a00341.xhtml#af20724e23d18c1126e2edf4186cc8005", null ],
+    [ "hasAdditionalParam", "a00341.xhtml#a03964245e9d7da47e512283728da4cd4", null ],
+    [ "operator=", "a00341.xhtml#adbb3dc0caf773c6fb706bbff9d0b7126", null ],
+    [ "setAdditionalParam", "a00341.xhtml#ad08d755145fa0227b7e489000703ee30", null ],
+    [ "m_fMax", "a00341.xhtml#aeb05f443644d9e5db8bfd9a18af380a8", null ],
+    [ "m_pCCcf", "a00341.xhtml#a9fb60b727600dc5d28d874349adb5dc0", null ],
+    [ "m_pfAcf", "a00341.xhtml#ac15ec6a2d0fdf91df801d6befd4117db", null ]
 ];

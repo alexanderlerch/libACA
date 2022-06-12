@@ -1,5 +1,5 @@
 var a00649 =
 [
-    [ "AutoReg", "a00649.xhtml#a7eba02fb9d80b9896bf5a6517369af28", null ],
-    [ "~AutoReg", "a00649.xhtml#a3cdb53f1e5ff115310f3372bebe198f1", null ]
+    [ "test", "a00649.xhtml#adce16c4accb860bf46f6491dd70cfd63", null ],
+    [ "test", "a00649.xhtml#a9f770cae4c16dfa96d4c0299a6b4f980", null ]
 ];

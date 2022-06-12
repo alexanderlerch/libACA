@@ -1,11 +1,12 @@
 var a00373 =
 [
-    [ "CPitchTimeAmdf", "a00373.xhtml#ae4cd4f9cbbcd737053198c693b5f2225", null ],
-    [ "~CPitchTimeAmdf", "a00373.xhtml#ab2ca3ac8c55ef1da4842988378b5b422", null ],
-    [ "CPitchTimeAmdf", "a00373.xhtml#a9a2f7fd656b24ebafb99fd0ad9fa808a", null ],
-    [ "CPitchTimeAmdf", "a00373.xhtml#a4ccf378aa36d2d0be1b67aefde03819e", null ],
-    [ "compF0", "a00373.xhtml#ae235ca4cf85c1da5f49460775ed5cb24", null ],
-    [ "operator=", "a00373.xhtml#a3188421ba44e4e11ee68ad0c080efdbc", null ],
-    [ "m_fMax", "a00373.xhtml#ae4b9534123c4ac9f889bcb3a97264ccc", null ],
-    [ "m_fMin", "a00373.xhtml#a844a1ca424d5e50e340801888b21189d", null ]
+    [ "CPitchSpectralHps", "a00373.xhtml#a5c1be3a6a8f0517c57384938dcad343d", null ],
+    [ "~CPitchSpectralHps", "a00373.xhtml#a412ed764fc1354045d2e8e9fa5cf20fc", null ],
+    [ "CPitchSpectralHps", "a00373.xhtml#a85f18b226137665873997830d52130c0", null ],
+    [ "CPitchSpectralHps", "a00373.xhtml#a42e2207ad61b32a09bee9048f1f94c3f", null ],
+    [ "compF0", "a00373.xhtml#ad6b1dafb86b44b1d31bfbe22e930d146", null ],
+    [ "operator=", "a00373.xhtml#a54c4f1bf58f0ccf11c8a18cb954dd9bd", null ],
+    [ "m_fMin", "a00373.xhtml#a7e421578f4523968067923219d184e00", null ],
+    [ "m_iOrder", "a00373.xhtml#a8d2bca3d3844d6b1443222762d7f246a", null ],
+    [ "m_pfProcBuff", "a00373.xhtml#ab8df6425e14d7a802a119854fe61ca56", null ]
 ];

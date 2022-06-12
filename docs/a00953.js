@@ -1,7 +1,7 @@
 var a00953 =
 [
-    [ "ExceptionMessageMatcher", "a00953.xhtml#ace55942f39ba653db3fd69d6d90e188f", null ],
-    [ "describe", "a00953.xhtml#a3543441985ec877a781e660a403b1bae", null ],
-    [ "match", "a00953.xhtml#aa0566d24990d69e96495360b8f79593d", null ],
-    [ "m_message", "a00953.xhtml#a1cf4836834c357febac9180ab74a178a", null ]
+    [ "describe", "a00953.xhtml#a315285204df93d1f8e72f50dd66eb709", null ],
+    [ "match", "a00953.xhtml#a8a3e8338f979e56277dcf553efb78dc0", null ],
+    [ "operator||", "a00953.xhtml#add743d0bf073b81a204dc9997fbd2e30", null ],
+    [ "m_matchers", "a00953.xhtml#a1fb1119e6110dc15b8d5262ec0aeddd5", null ]
 ];

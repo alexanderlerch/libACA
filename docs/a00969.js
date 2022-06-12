@@ -1,8 +1,6 @@
 var a00969 =
 [
-    [ "PredicateMatcher", "a00969.xhtml#a57d53ef028c2f7b92b016f627f91aa76", null ],
-    [ "describe", "a00969.xhtml#af7d59e94892cc09471bbaefac4c889fd", null ],
-    [ "match", "a00969.xhtml#a2ec0e8ec19c4c5e26271d59a06a62b52", null ],
-    [ "m_description", "a00969.xhtml#a7736732e65a93e4e1f889804d043407e", null ],
-    [ "m_predicate", "a00969.xhtml#ab7f09e9f96fb9d794e1fc699497ec3e0", null ]
+    [ "operator!", "a00969.xhtml#a5bb94bf2ff5c7ef73b7c11eb173bdf3b", null ],
+    [ "operator&&", "a00969.xhtml#aae4a9827601f6f26a52126e193d012de", null ],
+    [ "operator||", "a00969.xhtml#a5f8542b8f1567a6f9c65d0a6da7b679b", null ]
 ];

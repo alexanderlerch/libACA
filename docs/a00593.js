@@ -1,9 +1,13 @@
 var a00593 =
 [
-    [ "NonCopyable", "a00593.xhtml#a74cf3e4aa051c284941e39b436b2f693", null ],
-    [ "NonCopyable", "a00593.xhtml#a09d1d8775db8c495fa40c285b034faa3", null ],
-    [ "NonCopyable", "a00593.xhtml#a4b492dd5753f9952350fb64dc6cb9fe2", null ],
-    [ "~NonCopyable", "a00593.xhtml#a81254677280fef337eb4a676e91e3293", null ],
-    [ "operator=", "a00593.xhtml#ae70adfd1bdbaa8d2207a290ffdb70578", null ],
-    [ "operator=", "a00593.xhtml#ac8be822f5ed1abc8e31e17d09200c493", null ]
+    [ "Normalization_t", "a00593.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a", [
+      [ "kNoNormalization", "a00593.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009", null ],
+      [ "kZscoreNormalization", "a00593.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a", null ],
+      [ "kMinmaxNormalization", "a00593.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a", null ],
+      [ "kNumNormModes", "a00593.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801", null ]
+    ] ],
+    [ "classify", "a00593.xhtml#ae187572c8c6af54f060105b91cf72e9f", null ],
+    [ "init", "a00593.xhtml#a2b989d8b0b21727525366839a117d40c", null ],
+    [ "reset", "a00593.xhtml#a132f6c33b7f0ec539dabce8c970eac9e", null ],
+    [ "kIllegalClassLabel", "a00593.xhtml#ac4365e3be5e1cc7ac964fcb6294aaae1", null ]
 ];

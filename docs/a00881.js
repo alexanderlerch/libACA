@@ -1,6 +1,9 @@
 var a00881 =
 [
-    [ "durationInSeconds", "a00881.xhtml#a7c262f2dab9cff166b8eca620c47eea5", null ],
-    [ "prevAssertions", "a00881.xhtml#ae70b154cbc05b5dd2901d97f89303d8c", null ],
-    [ "sectionInfo", "a00881.xhtml#a2d44793392cb83735d086d726822abe9", null ]
+    [ "ScopedMessage", "a00881.xhtml#a5cc59f0f2ebe840e6607f83004d49a17", null ],
+    [ "ScopedMessage", "a00881.xhtml#a5fe2e79afdfd737818c15edfc49f378e", null ],
+    [ "ScopedMessage", "a00881.xhtml#aac833a6a2245a26e6bd5c9252ca1caa0", null ],
+    [ "~ScopedMessage", "a00881.xhtml#a43190843f9eeb84a0b42b0bc95fdf93a", null ],
+    [ "m_info", "a00881.xhtml#ae6e1476f389cc6e1586f033b3747b27b", null ],
+    [ "m_moved", "a00881.xhtml#a4fe5607c1f7407240a0da8405b1c12e7", null ]
 ];

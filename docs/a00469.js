@@ -1,8 +1,8 @@
 var a00469 =
 [
-    [ "genDc", "a00469.xhtml#aa1a5615a8ecc6349999faeb321aa8833", null ],
-    [ "genNoise", "a00469.xhtml#a67eaa8b4b86a5c507f1fe0f1b9c92ce6", null ],
-    [ "genRect", "a00469.xhtml#aeaec61bd12b0f570c8938b907f69d6cf", null ],
-    [ "genSaw", "a00469.xhtml#af844a8a31758a66530e9edad543db38c", null ],
-    [ "genSine", "a00469.xhtml#a928586554d09c47debeb7001b7da6c40", null ]
+    [ "calcA", "a00469.xhtml#a4a70bdde7f075d2591fd03c52c16145c", null ],
+    [ "calcB", "a00469.xhtml#a9c08c0b6f891bb37fb4230088f94b0a0", null ],
+    [ "calcCoeffs", "a00469.xhtml#a3878460603a6e6e1a64de6021b2bb73e", null ],
+    [ "calcScale", "a00469.xhtml#a93b25bb8ef71fc7221ae53efe9212d67", null ],
+    [ "multBinomial", "a00469.xhtml#ab4432f6b6d2f1bad850a13a0573615c4", null ]
 ];

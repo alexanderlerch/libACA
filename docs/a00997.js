@@ -1,8 +1,7 @@
 var a00997 =
 [
-    [ "RegexMatcher", "a00997.xhtml#ab914deb885fe25558c41ab368c6b3916", null ],
-    [ "describe", "a00997.xhtml#a1f788cd5258c987e5043f6c7f43adeb9", null ],
-    [ "match", "a00997.xhtml#aa8e61adccabb2f36133029301f6b8f4e", null ],
-    [ "m_caseSensitivity", "a00997.xhtml#afb5fb3d3734c4e882162b51559d09bd4", null ],
-    [ "m_regex", "a00997.xhtml#af1020e7266bcfa76ffad011ff89ea14e", null ]
+    [ "StringMatcherBase", "a00997.xhtml#a3a9b66bae298ae27058478529b4bb39d", null ],
+    [ "describe", "a00997.xhtml#a47af030f8cea42a601ffb1000eea5cca", null ],
+    [ "m_comparator", "a00997.xhtml#a17c9f0fe40587070ffe998c193742831", null ],
+    [ "m_operation", "a00997.xhtml#a7a25c4b7d863e9a1c406d81efd0f83ca", null ]
 ];

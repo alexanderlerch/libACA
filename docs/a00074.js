@@ -1,5 +1,5 @@
 var a00074 =
 [
-    [ "CBlockAudioFile", "a00389.xhtml", "a00389" ],
-    [ "CBlockAudioBuffer", "a00393.xhtml", "a00393" ]
+    [ "CPitchFromFile", "a00361.xhtml", "a00361" ],
+    [ "CPitchFromVector", "a00365.xhtml", "a00365" ]
 ];

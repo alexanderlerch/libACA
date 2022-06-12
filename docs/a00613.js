@@ -1,6 +1,9 @@
 var a00613 =
 [
-    [ "~ITestCaseRegistry", "a00613.xhtml#ae14798f05ac8e2b18cff532849a4da81", null ],
-    [ "getAllTests", "a00613.xhtml#a5dad8c412aacc94a112b0fa07c7776fc", null ],
-    [ "getAllTestsSorted", "a00613.xhtml#a0aae66ca6ec1b6265a799134d6935127", null ]
+    [ "NonCopyable", "a00613.xhtml#a74cf3e4aa051c284941e39b436b2f693", null ],
+    [ "NonCopyable", "a00613.xhtml#a09d1d8775db8c495fa40c285b034faa3", null ],
+    [ "NonCopyable", "a00613.xhtml#a4b492dd5753f9952350fb64dc6cb9fe2", null ],
+    [ "~NonCopyable", "a00613.xhtml#a81254677280fef337eb4a676e91e3293", null ],
+    [ "operator=", "a00613.xhtml#ae70adfd1bdbaa8d2207a290ffdb70578", null ],
+    [ "operator=", "a00613.xhtml#ac8be822f5ed1abc8e31e17d09200c493", null ]
 ];

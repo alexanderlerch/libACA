@@ -1,7 +1,6 @@
 var a00661 =
 [
-    [ "capturedExpression", "a00661.xhtml#accd36744b4acaa3a691a72df0b42190f", null ],
-    [ "lineInfo", "a00661.xhtml#a17bdbb404ba12658034f833be2f4c3e7", null ],
-    [ "macroName", "a00661.xhtml#aaf3fbb9f1fe09c879ba3d877584e3056", null ],
-    [ "resultDisposition", "a00661.xhtml#a60353b3632ab2f827162f2b2d6911073", null ]
+    [ "TestInvokerAsMethod", "a00661.xhtml#a119c4bdbbdd95c42859c18541987a1a4", null ],
+    [ "invoke", "a00661.xhtml#a8115a06efe273f4112ec0b5452c1b5f2", null ],
+    [ "m_testAsMethod", "a00661.xhtml#a4851e50d6b43c022c41d5de776a27ed7", null ]
 ];

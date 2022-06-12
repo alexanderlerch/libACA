@@ -1,5 +1,4 @@
 var a00773 =
 [
-    [ "convert", "a00773.xhtml#acaa61529acad2462292c747d34e5f3d2", null ],
-    [ "precision", "a00773.xhtml#a15fa2b093c532ece7f1d0c713ebaee67", null ]
+    [ "convert", "a00773.xhtml#a4e3db69a12bb83f3ef89251893e65da5", null ]
 ];

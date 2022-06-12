@@ -88,14 +88,15 @@ $(document).ready(function(){initNavTree('a00020.xhtml',''); initResizable(); })
   <div class="headertitle"><div class="title">ComputeFingerprint.cpp File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;iostream&gt;</code><br />
+<div class="textblock"><code>#include &quot;<a class="el" href="a00209_source.xhtml">AcaAll.h</a>&quot;</code><br />
+<code>#include &lt;iostream&gt;</code><br />
+<code>#include &lt;fstream&gt;</code><br />
 <code>#include &lt;ctime&gt;</code><br />
-<code>#include &quot;ACAConfig.h&quot;</code><br />
-<code>#include &quot;<a class="el" href="a00155_source.xhtml">AudioFileIf.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="a00125_source.xhtml">ToolFingerprint.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for ComputeFingerprint.cpp:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00021.svg" width="540" height="187"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00021.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 </div>
@@ -135,6 +136,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p >&lt; file paths</p>
+<p >&lt; number of blocks</p>
 
 <p class="definition">Definition at line <a class="el" href="a00020_source.xhtml#l00017">17</a> of file <a class="el" href="a00020_source.xhtml">ComputeFingerprint.cpp</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
@@ -142,106 +144,100 @@ Functions</h2></td></tr>
 <div class="line"><span class="lineno">   20</span>    std::string             sInputFilePath,                 <span class="comment">//!&lt; file paths</span></div>
 <div class="line"><span class="lineno">   21</span>        sOutputFilePath;</div>
 <div class="line"><span class="lineno">   22</span> </div>
-<div class="line"><span class="lineno">   23</span>    <span class="keyword">static</span> <span class="keyword">const</span> <span class="keywordtype">int</span>            kBlockSize = 1024;</div>
-<div class="line"><span class="lineno">   24</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span>                   iNumFrames = kBlockSize;</div>
-<div class="line"><span class="lineno">   25</span>    <span class="keywordtype">int</span>                         iNumChannels;</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>    <span class="keywordtype">float</span>                       fModFrequencyInHz;</div>
-<div class="line"><span class="lineno">   28</span>    <span class="keywordtype">float</span>                       fModWidthInSec;</div>
+<div class="line"><span class="lineno">   23</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumBlocks = 0; <span class="comment">//!&lt; number of blocks</span></div>
+<div class="line"><span class="lineno">   24</span> </div>
+<div class="line"><span class="lineno">   25</span>    uint32_t *piFingerprintRes = 0;</div>
+<div class="line"><span class="lineno">   26</span>    clock_t time = 0;</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>    <a class="code hl_class" href="a00541.xhtml">CFingerprint</a>* pCInstance = 0;</div>
 <div class="line"><span class="lineno">   29</span> </div>
-<div class="line"><span class="lineno">   30</span>    clock_t                     time = 0;</div>
+<div class="line"><span class="lineno">   30</span>    std::fstream hOutputFile;</div>
 <div class="line"><span class="lineno">   31</span> </div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordtype">float</span>** ppfInputAudio = 0;</div>
-<div class="line"><span class="lineno">   33</span>    <span class="keywordtype">float</span>** ppfOutputAudio = 0;</div>
-<div class="line"><span class="lineno">   34</span> </div>
-<div class="line"><span class="lineno">   35</span>    <a class="code hl_class" href="a00421.xhtml">CAudioFileIf</a>* phAudioFile = 0;</div>
-<div class="line"><span class="lineno">   36</span>    <a class="code hl_struct" href="a00425.xhtml">CAudioFileIf::FileSpec_t</a>    stFileSpec;</div>
-<div class="line"><span class="lineno">   37</span> </div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_function" href="a00020.xhtml#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>();</div>
-<div class="line"><span class="lineno">   39</span> </div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>    <span class="comment">// command line args</span></div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (argc &lt; 5)</div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_function" href="a00020.xhtml#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a>();</div>
+<div class="line"><span class="lineno">   33</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   34</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   35</span><span class="comment"></span>    <span class="comment">// parse command line arguments</span></div>
+<div class="line"><span class="lineno">   36</span>    <span class="keywordflow">if</span> (argc &lt; 2)</div>
+<div class="line"><span class="lineno">   37</span>    {</div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Missing audio input path!&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   39</span>        <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Expected Synopsis: inputwavfile [outputtxtfile]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   41</span>    }</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">else</span></div>
 <div class="line"><span class="lineno">   43</span>    {</div>
-<div class="line"><span class="lineno">   44</span>        <a class="code hl_function" href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Incorrect number of arguments!&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   45</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   44</span>        sInputFilePath = argv[1];</div>
+<div class="line"><span class="lineno">   45</span>        sOutputFilePath = (argc &lt; 3) ? <span class="stringliteral">&quot;&quot;</span> : argv[2];</div>
 <div class="line"><span class="lineno">   46</span>    }</div>
-<div class="line"><span class="lineno">   47</span>    sInputFilePath = argv[1];</div>
-<div class="line"><span class="lineno">   48</span>    sOutputFilePath = argv[2];</div>
-<div class="line"><span class="lineno">   49</span>    fModFrequencyInHz = atof(argv[3]);</div>
-<div class="line"><span class="lineno">   50</span>    fModWidthInSec = atof(argv[4]);</div>
-<div class="line"><span class="lineno">   51</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   52</span><span class="comment">    ///////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   53</span><span class="comment"></span>    <a class="code hl_function" href="a00421.xhtml#aab987b1a4ec96a8fc835b1733a1ee0c3">CAudioFileIf::create</a>(phAudioFile);</div>
-<div class="line"><span class="lineno">   54</span> </div>
-<div class="line"><span class="lineno">   55</span>    phAudioFile-&gt;<a class="code hl_function" href="a00421.xhtml#ac845c2e45bc7bab904b73d432b00a05b">openFile</a>(sInputFilePath, <a class="code hl_enumvalue" href="a00421.xhtml#ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396">CAudioFileIf::kFileRead</a>);</div>
-<div class="line"><span class="lineno">   56</span>    phAudioFile-&gt;<a class="code hl_function" href="a00421.xhtml#a7ddbbf5f828e61db7fd75dbf47a33832">getFileSpec</a>(stFileSpec);</div>
-<div class="line"><span class="lineno">   57</span>    iNumChannels = stFileSpec.<a class="code hl_variable" href="a00425.xhtml#a6bde1a697754401008208afbde6f368e">iNumChannels</a>;</div>
-<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">if</span> (!phAudioFile-&gt;<a class="code hl_function" href="a00421.xhtml#a7d946177a6591600dc03a423feb38cb3">isOpen</a>())</div>
-<div class="line"><span class="lineno">   59</span>    {</div>
-<div class="line"><span class="lineno">   60</span>        <a class="code hl_function" href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Input file open error!&quot;</span>;</div>
-<div class="line"><span class="lineno">   61</span> </div>
-<div class="line"><span class="lineno">   62</span>        <a class="code hl_function" href="a00421.xhtml#ab490b9d06c7efa0e4da3596cf4e7bec4">CAudioFileIf::destroy</a>(phAudioFile);</div>
-<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">return</span> -1;</div>
-<div class="line"><span class="lineno">   64</span>    }</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>    <span class="comment">// allocate memory</span></div>
-<div class="line"><span class="lineno">   67</span>    ppfInputAudio = <span class="keyword">new</span> <span class="keywordtype">float</span>* [stFileSpec.<a class="code hl_variable" href="a00425.xhtml#a6bde1a697754401008208afbde6f368e">iNumChannels</a>];</div>
-<div class="line"><span class="lineno">   68</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; stFileSpec.<a class="code hl_variable" href="a00425.xhtml#a6bde1a697754401008208afbde6f368e">iNumChannels</a>; i++)</div>
-<div class="line"><span class="lineno">   69</span>        ppfInputAudio[i] = <span class="keyword">new</span> <span class="keywordtype">float</span>[kBlockSize];</div>
+<div class="line"><span class="lineno">   47</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   48</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   49</span><span class="comment"></span>    <span class="comment">// initialize Fingerprint instance</span></div>
+<div class="line"><span class="lineno">   50</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00541.xhtml">CFingerprint</a>();</div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">if</span> (!pCInstance)</div>
+<div class="line"><span class="lineno">   52</span>        <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   53</span>    pCInstance-&gt;<a class="code hl_function" href="a00541.xhtml#ab79f4706d42b250f36c91cfd075bc8df">init</a>(sInputFilePath);</div>
+<div class="line"><span class="lineno">   54</span>    iNumBlocks = pCInstance-&gt;<a class="code hl_function" href="a00541.xhtml#a3168ebd106343267db23e519c20c3f24">getFingerprintLength</a>();</div>
+<div class="line"><span class="lineno">   55</span> </div>
+<div class="line"><span class="lineno">   56</span>    piFingerprintRes = <span class="keyword">new</span> uint32_t[iNumBlocks];</div>
+<div class="line"><span class="lineno">   57</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   58</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   59</span><span class="comment"></span>    <span class="comment">// open the output text file</span></div>
+<div class="line"><span class="lineno">   60</span>    <span class="keywordflow">if</span> (!sOutputFilePath.empty())</div>
+<div class="line"><span class="lineno">   61</span>    {</div>
+<div class="line"><span class="lineno">   62</span>        hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);</div>
+<div class="line"><span class="lineno">   63</span>        <span class="keywordflow">if</span> (!hOutputFile.is_open())</div>
+<div class="line"><span class="lineno">   64</span>        {</div>
+<div class="line"><span class="lineno">   65</span>            <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Text file open error!&quot;</span>;</div>
+<div class="line"><span class="lineno">   66</span>            <span class="keyword">delete</span> pCInstance;</div>
+<div class="line"><span class="lineno">   67</span>            <span class="keywordflow">return</span> -1;</div>
+<div class="line"><span class="lineno">   68</span>        }</div>
+<div class="line"><span class="lineno">   69</span>    }</div>
 <div class="line"><span class="lineno">   70</span> </div>
-<div class="line"><span class="lineno">   71</span>    ppfOutputAudio = <span class="keyword">new</span> <span class="keywordtype">float</span>* [stFileSpec.<a class="code hl_variable" href="a00425.xhtml#a6bde1a697754401008208afbde6f368e">iNumChannels</a>];</div>
-<div class="line"><span class="lineno">   72</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; stFileSpec.<a class="code hl_variable" href="a00425.xhtml#a6bde1a697754401008208afbde6f368e">iNumChannels</a>; i++)</div>
-<div class="line"><span class="lineno">   73</span>        ppfOutputAudio[i] = <span class="keyword">new</span> <span class="keywordtype">float</span>[kBlockSize];</div>
-<div class="line"><span class="lineno">   74</span> </div>
-<div class="line"><span class="lineno">   75</span> </div>
-<div class="line"><span class="lineno">   76</span>    <span class="comment">// processing</span></div>
-<div class="line"><span class="lineno">   77</span>    <span class="keywordflow">while</span> (!phAudioFile-&gt;<a class="code hl_function" href="a00421.xhtml#a02a1c69fa0fc5b9aa8cb275315697be4">isEof</a>())</div>
-<div class="line"><span class="lineno">   78</span>    {</div>
-<div class="line"><span class="lineno">   79</span>        phAudioFile-&gt;<a class="code hl_function" href="a00421.xhtml#ad86676f86c5a0c1fb23617b5e00014c4">readData</a>(ppfInputAudio, iNumFrames);</div>
-<div class="line"><span class="lineno">   80</span>    }</div>
-<div class="line"><span class="lineno">   81</span>    phAudioFile-&gt;<a class="code hl_function" href="a00421.xhtml#a7ddbbf5f828e61db7fd75dbf47a33832">getFileSpec</a>(stFileSpec);</div>
-<div class="line"><span class="lineno">   82</span> </div>
-<div class="line"><span class="lineno">   83</span> </div>
-<div class="line"><span class="lineno">   84</span>    <a class="code hl_function" href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\nreading/writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">   85</span><span class="comment"></span> </div>
-<div class="line"><span class="lineno">   86</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
-<div class="line"><span class="lineno">   87</span><span class="comment"></span>    <span class="comment">// clean-up</span></div>
-<div class="line"><span class="lineno">   88</span>    <a class="code hl_function" href="a00421.xhtml#ab490b9d06c7efa0e4da3596cf4e7bec4">CAudioFileIf::destroy</a>(phAudioFile);</div>
-<div class="line"><span class="lineno">   89</span> </div>
-<div class="line"><span class="lineno">   90</span>    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; stFileSpec.<a class="code hl_variable" href="a00425.xhtml#a6bde1a697754401008208afbde6f368e">iNumChannels</a>; i++)</div>
-<div class="line"><span class="lineno">   91</span>    {</div>
-<div class="line"><span class="lineno">   92</span>        <span class="keyword">delete</span>[] ppfInputAudio[i];</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keyword">delete</span>[] ppfOutputAudio[i];</div>
-<div class="line"><span class="lineno">   94</span>    }</div>
-<div class="line"><span class="lineno">   95</span>    <span class="keyword">delete</span>[] ppfInputAudio;</div>
-<div class="line"><span class="lineno">   96</span>    <span class="keyword">delete</span>[] ppfOutputAudio;</div>
-<div class="line"><span class="lineno">   97</span>    ppfInputAudio = 0;</div>
-<div class="line"><span class="lineno">   98</span>    ppfOutputAudio = 0;</div>
+<div class="line"><span class="lineno">   71</span>    time = clock();</div>
+<div class="line"><span class="lineno">   72</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   73</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   74</span><span class="comment"></span>    <span class="comment">// compute Fingerprint</span></div>
+<div class="line"><span class="lineno">   75</span>    <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n1. computing Fingerprint...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   76</span>    pCInstance-&gt;<a class="code hl_function" href="a00541.xhtml#afc0be480801465a0751b8c74806bf590">compFingerprint</a>(piFingerprintRes);</div>
+<div class="line"><span class="lineno">   77</span> </div>
+<div class="line"><span class="lineno">   78</span>    <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n Fingerprint computation done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   81</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   82</span><span class="comment"></span>    <span class="comment">// file writing</span></div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordflow">if</span> (!sOutputFilePath.empty())</div>
+<div class="line"><span class="lineno">   84</span>    {</div>
+<div class="line"><span class="lineno">   85</span>        time = clock(); </div>
+<div class="line"><span class="lineno">   86</span>        <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n2. writing output file...&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   87</span> </div>
+<div class="line"><span class="lineno">   88</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
+<div class="line"><span class="lineno">   89</span>            hOutputFile &lt;&lt; std::hex &lt;&lt; piFingerprintRes[n] &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>        <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;\n writing done in: \t&quot;</span> &lt;&lt; (clock() - time) * 1.F / CLOCKS_PER_SEC &lt;&lt; <span class="stringliteral">&quot; seconds.&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">   92</span>    }</div>
+<div class="line"><span class="lineno">   93</span><span class="comment"></span> </div>
+<div class="line"><span class="lineno">   94</span><span class="comment">    //////////////////////////////////////////////////////////////////////////////</span></div>
+<div class="line"><span class="lineno">   95</span><span class="comment"></span>    <span class="comment">// clean-up (close files, delete instances, and free memory)</span></div>
+<div class="line"><span class="lineno">   96</span>    hOutputFile.close();</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>    <span class="keyword">delete</span> pCInstance;</div>
 <div class="line"><span class="lineno">   99</span> </div>
-<div class="line"><span class="lineno">  100</span>    <span class="comment">// all done</span></div>
-<div class="line"><span class="lineno">  101</span>    <span class="keywordflow">return</span> 0;</div>
-<div class="line"><span class="lineno">  102</span> </div>
-<div class="line"><span class="lineno">  103</span>}</div>
-<div class="ttc" id="aa00020_xhtml_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00020.xhtml#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.xhtml#l00106">ComputeFingerprint.cpp:106</a></div></div>
-<div class="ttc" id="aa00269_xhtml_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
-<div class="ttc" id="aa00421_xhtml"><div class="ttname"><a href="a00421.xhtml">CAudioFileIf</a></div><div class="ttdoc">open, read, and write audio files</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00011">AudioFileIf.h:12</a></div></div>
-<div class="ttc" id="aa00421_xhtml_a02a1c69fa0fc5b9aa8cb275315697be4"><div class="ttname"><a href="a00421.xhtml#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof</a></div><div class="ttdeci">virtual bool isEof()=0</div></div>
-<div class="ttc" id="aa00421_xhtml_a7d946177a6591600dc03a423feb38cb3"><div class="ttname"><a href="a00421.xhtml#a7d946177a6591600dc03a423feb38cb3">CAudioFileIf::isOpen</a></div><div class="ttdeci">virtual bool isOpen()=0</div></div>
-<div class="ttc" id="aa00421_xhtml_a7ddbbf5f828e61db7fd75dbf47a33832"><div class="ttname"><a href="a00421.xhtml#a7ddbbf5f828e61db7fd75dbf47a33832">CAudioFileIf::getFileSpec</a></div><div class="ttdeci">Error_t getFileSpec(FileSpec_t &amp;sFileSpec)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.xhtml#l00152">AudioFileIf.cpp:152</a></div></div>
-<div class="ttc" id="aa00421_xhtml_aab987b1a4ec96a8fc835b1733a1ee0c3"><div class="ttname"><a href="a00421.xhtml#aab987b1a4ec96a8fc835b1733a1ee0c3">CAudioFileIf::create</a></div><div class="ttdeci">static Error_t create(CAudioFileIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.xhtml#l00015">AudioFileIf.cpp:15</a></div></div>
-<div class="ttc" id="aa00421_xhtml_ab490b9d06c7efa0e4da3596cf4e7bec4"><div class="ttname"><a href="a00421.xhtml#ab490b9d06c7efa0e4da3596cf4e7bec4">CAudioFileIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CAudioFileIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.xhtml#l00029">AudioFileIf.cpp:29</a></div></div>
-<div class="ttc" id="aa00421_xhtml_ac845c2e45bc7bab904b73d432b00a05b"><div class="ttname"><a href="a00421.xhtml#ac845c2e45bc7bab904b73d432b00a05b">CAudioFileIf::openFile</a></div><div class="ttdeci">virtual Error_t openFile(std::string cAudioFileName, FileIoType_t eIoType, FileSpec_t const *psFileSpec=0)=0</div></div>
-<div class="ttc" id="aa00421_xhtml_ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396"><div class="ttname"><a href="a00421.xhtml#ad06ff073ba665b85c00694036aa31b99a552594691fd16d201f0fa94e0f792396">CAudioFileIf::kFileRead</a></div><div class="ttdeci">@ kFileRead</div><div class="ttdoc">open file for reading</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00016">AudioFileIf.h:16</a></div></div>
-<div class="ttc" id="aa00421_xhtml_ad86676f86c5a0c1fb23617b5e00014c4"><div class="ttname"><a href="a00421.xhtml#ad86676f86c5a0c1fb23617b5e00014c4">CAudioFileIf::readData</a></div><div class="ttdeci">virtual Error_t readData(float **ppfAudioData, long long int &amp;iNumFrames)</div><div class="ttdef"><b>Definition:</b> <a href="a00005_source.xhtml#l00097">AudioFileIf.cpp:97</a></div></div>
-<div class="ttc" id="aa00425_xhtml"><div class="ttname"><a href="a00425.xhtml">CAudioFileIf::FileSpec_t</a></div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00038">AudioFileIf.h:39</a></div></div>
-<div class="ttc" id="aa00425_xhtml_a6bde1a697754401008208afbde6f368e"><div class="ttname"><a href="a00425.xhtml#a6bde1a697754401008208afbde6f368e">CAudioFileIf::FileSpec_t::iNumChannels</a></div><div class="ttdeci">int iNumChannels</div><div class="ttdoc">number of audio channels</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00042">AudioFileIf.h:42</a></div></div>
+<div class="line"><span class="lineno">  100</span>    <span class="keyword">delete</span>[] piFingerprintRes;</div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span>    <span class="comment">// all done</span></div>
+<div class="line"><span class="lineno">  103</span>    <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  104</span>}</div>
+<div class="ttc" id="aa00020_xhtml_a2d0a5ce28a4b0030ec0353c6f7a0fd64"><div class="ttname"><a href="a00020.xhtml#a2d0a5ce28a4b0030ec0353c6f7a0fd64">showClInfo</a></div><div class="ttdeci">void showClInfo()</div><div class="ttdef"><b>Definition:</b> <a href="a00020_source.xhtml#l00107">ComputeFingerprint.cpp:107</a></div></div>
+<div class="ttc" id="aa00281_xhtml_a0179d453617ba2296f2baa99a49e7264"><div class="ttname"><a href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">Catch::cout</a></div><div class="ttdeci">std::ostream &amp; cout()</div></div>
+<div class="ttc" id="aa00541_xhtml"><div class="ttname"><a href="a00541.xhtml">CFingerprint</a></div><div class="ttdoc">class for computation of a fingerprint from either a file or a vector</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.xhtml#l00015">ToolFingerprint.h:16</a></div></div>
+<div class="ttc" id="aa00541_xhtml_a3168ebd106343267db23e519c20c3f24"><div class="ttname"><a href="a00541.xhtml#a3168ebd106343267db23e519c20c3f24">CFingerprint::getFingerprintLength</a></div><div class="ttdeci">long long getFingerprintLength() const</div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.xhtml#l00109">ToolFingerprint.cpp:109</a></div></div>
+<div class="ttc" id="aa00541_xhtml_ab79f4706d42b250f36c91cfd075bc8df"><div class="ttname"><a href="a00541.xhtml#ab79f4706d42b250f36c91cfd075bc8df">CFingerprint::init</a></div><div class="ttdeci">Error_t init(const std::string &amp;strAudioFilePath)</div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.xhtml#l00025">ToolFingerprint.cpp:25</a></div></div>
+<div class="ttc" id="aa00541_xhtml_afc0be480801465a0751b8c74806bf590"><div class="ttname"><a href="a00541.xhtml#afc0be480801465a0751b8c74806bf590">CFingerprint::compFingerprint</a></div><div class="ttdeci">Error_t compFingerprint(uint32_t *piFingerprint)</div><div class="ttdef"><b>Definition:</b> <a href="a00068_source.xhtml#l00140">ToolFingerprint.cpp:140</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00005_source.xhtml#l00015">CAudioFileIf::create()</a>, <a class="el" href="a00005_source.xhtml#l00029">CAudioFileIf::destroy()</a>, <a class="el" href="a00005_source.xhtml#l00152">CAudioFileIf::getFileSpec()</a>, <a class="el" href="a00155_source.xhtml#l00042">CAudioFileIf::FileSpec_t::iNumChannels</a>, <a class="el" href="a00421.xhtml#a02a1c69fa0fc5b9aa8cb275315697be4">CAudioFileIf::isEof()</a>, <a class="el" href="a00421.xhtml#a7d946177a6591600dc03a423feb38cb3">CAudioFileIf::isOpen()</a>, <a class="el" href="a00155_source.xhtml#l00016">CAudioFileIf::kFileRead</a>, <a class="el" href="a00421.xhtml#ac845c2e45bc7bab904b73d432b00a05b">CAudioFileIf::openFile()</a>, <a class="el" href="a00005_source.xhtml#l00097">CAudioFileIf::readData()</a>, and <a class="el" href="a00020_source.xhtml#l00106">showClInfo()</a>.</p>
+<p class="reference">References <a class="el" href="a00068_source.xhtml#l00140">CFingerprint::compFingerprint()</a>, <a class="el" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00068_source.xhtml#l00109">CFingerprint::getFingerprintLength()</a>, <a class="el" href="a00068_source.xhtml#l00025">CFingerprint::init()</a>, and <a class="el" href="a00020_source.xhtml#l00107">showClInfo()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00020_a0ddf1224851353fc92bfbff6f499fa97_cgraph.svg" width="516" height="494"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00020_a0ddf1224851353fc92bfbff6f499fa97_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -262,22 +258,26 @@ Here is the call graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00020_source.xhtml#l00106">106</a> of file <a class="el" href="a00020_source.xhtml">ComputeFingerprint.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  107</span>{</div>
-<div class="line"><span class="lineno">  108</span>    <a class="code hl_function" href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA: ComputeFeature&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  109</span>    <a class="code hl_function" href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  110</span>    <a class="code hl_function" href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
-<div class="line"><span class="lineno">  111</span> </div>
-<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  113</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00020_source.xhtml#l00107">107</a> of file <a class="el" href="a00020_source.xhtml">ComputeFingerprint.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  108</span>{</div>
+<div class="line"><span class="lineno">  109</span>    <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;ACA v&quot;</span> &lt;&lt; <a class="code hl_function" href="a00035.xhtml#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>() &lt;&lt; <span class="stringliteral">&quot;: Demo Executable for Fingerprint Extraction&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  110</span>    <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Build date: &quot;</span> &lt;&lt; <a class="code hl_function" href="a00035.xhtml#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>() &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  111</span>    <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;(c) 2022 by Alexander Lerch&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  112</span>    <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; <span class="stringliteral">&quot;Synopsis: ComputeFingerprint inputwavfile [outputtxtfile] [blocksize] [hopsize]&quot;</span> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  113</span>    <a class="code hl_function" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">cout</a> &lt;&lt; endl;</div>
+<div class="line"><span class="lineno">  114</span> </div>
+<div class="line"><span class="lineno">  115</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  116</span>}</div>
+<div class="ttc" id="aa00035_xhtml_a352c17bde18dd0d9c3989f6050b060b0"><div class="ttname"><a href="a00035.xhtml#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a></div><div class="ttdeci">std::string getAcaBuildDate()</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.xhtml#l00022">AcaAll.cpp:22</a></div></div>
+<div class="ttc" id="aa00035_xhtml_aeca12b465ae15d8b8e775e1b0cfec9f3"><div class="ttname"><a href="a00035.xhtml#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a></div><div class="ttdeci">std::string getAcaVersion()</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.xhtml#l00011">AcaAll.cpp:11</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00269.xhtml#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>.</p>
+<p class="reference">References <a class="el" href="a00281.xhtml#a0179d453617ba2296f2baa99a49e7264">Catch::cout()</a>, <a class="el" href="a00035_source.xhtml#l00022">getAcaBuildDate()</a>, and <a class="el" href="a00035_source.xhtml#l00011">getAcaVersion()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00020_source.xhtml#l00017">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00020_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph.svg" width="232" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00020_a2d0a5ce28a4b0030ec0353c6f7a0fd64_cgraph.svg" width="264" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -295,7 +295,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.xhtml">src</a></li><li class="navelem"><a class="el" href="dir_2166621c4f535969df3be74e9d47c9f0.xhtml">ComputeFingerprint</a></li><li class="navelem"><a class="el" href="a00020.xhtml">ComputeFingerprint.cpp</a></li>
-    <li class="footer">Generated on Sat Jun 11 2022 21:04:56 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Sun Jun 12 2022 20:29:15 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

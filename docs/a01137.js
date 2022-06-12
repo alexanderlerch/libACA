@@ -1,26 +1,16 @@
 var a01137 =
 [
-    [ "SpecialProperties", "a01137.xhtml#a39b232f74b4a7a6f2183b96759027eac", [
-      [ "None", "a01137.xhtml#a39b232f74b4a7a6f2183b96759027eacaf94e9de5f8ec1e53b1aa761ec564b31a", null ],
-      [ "IsHidden", "a01137.xhtml#a39b232f74b4a7a6f2183b96759027eacaeda53906c14c3973e0980900c132b8f7", null ],
-      [ "ShouldFail", "a01137.xhtml#a39b232f74b4a7a6f2183b96759027eacaf9002285bccfc343935958f3953f4c01", null ],
-      [ "MayFail", "a01137.xhtml#a39b232f74b4a7a6f2183b96759027eacadf1873d3271121cb9f52d7df45b416ca", null ],
-      [ "Throws", "a01137.xhtml#a39b232f74b4a7a6f2183b96759027eaca4704adf89ed7f7ad653d08f99813a974", null ],
-      [ "NonPortable", "a01137.xhtml#a39b232f74b4a7a6f2183b96759027eaca06472887b53fda9eb8015d74e7fd2cf1", null ],
-      [ "Benchmark", "a01137.xhtml#a39b232f74b4a7a6f2183b96759027eacad0e25e337246ae34d555fe53baf81c16", null ]
-    ] ],
-    [ "TestCaseInfo", "a01137.xhtml#ad1a6b08b5a83d1c5eb4596b727b5305f", null ],
-    [ "expectedToFail", "a01137.xhtml#abe33d81233230cdae8afa714688e905b", null ],
-    [ "isHidden", "a01137.xhtml#a934b1a0952700743e99d62ec1731a2e2", null ],
-    [ "okToFail", "a01137.xhtml#a5f37291295e3a6de2dd85324c941edaf", null ],
-    [ "tagsAsString", "a01137.xhtml#a17506de67fb18e27511c17f8a81119d8", null ],
-    [ "throws", "a01137.xhtml#afc70d4379a2070cc22b693ffe3932c1a", null ],
-    [ "setTags", "a01137.xhtml#a0fe44abaf18ae7c26f98a9fc2b08679c", null ],
-    [ "className", "a01137.xhtml#a1a5e0825132a38d091defdebbf2f8ce9", null ],
-    [ "description", "a01137.xhtml#a37fe2db9425bc45f6a33893eac31198e", null ],
-    [ "lcaseTags", "a01137.xhtml#a844e3de9baf6e53cadfba9733c236bfe", null ],
-    [ "lineInfo", "a01137.xhtml#aa9407b7f442655b51a2aad24b3fa2fd3", null ],
-    [ "name", "a01137.xhtml#a463794e2f5cfead307c93efd134ade36", null ],
-    [ "properties", "a01137.xhtml#afc1e84bd7a2e180895a06d9131302af0", null ],
-    [ "tags", "a01137.xhtml#a150a7cbca1dd0c91799ccb14ff822eb0", null ]
+    [ "result_type", "a01137.xhtml#a220ca38f6d16804c6e99937a673ec3ff", null ],
+    [ "state_type", "a01137.xhtml#a87e58661dd1fa2994b6b9c38c4efafdb", null ],
+    [ "SimplePcg32", "a01137.xhtml#a045c99a96f9b0faf384e22f871576282", null ],
+    [ "SimplePcg32", "a01137.xhtml#a901fc48d250c3d92b1ec067bcc6155c1", null ],
+    [ "discard", "a01137.xhtml#a877e7a9c14d378af729ad19a0e959178", null ],
+    [ "max", "a01137.xhtml#a282cfed1bcba2ae23f242913489195af", null ],
+    [ "min", "a01137.xhtml#a388575137fa70bb32a367a5ad59f2a46", null ],
+    [ "operator()", "a01137.xhtml#acda21743a5ac46fdff9a0b4a6d45a91f", null ],
+    [ "seed", "a01137.xhtml#a215dac93c384973353a2b4f87f68c8bc", null ],
+    [ "operator!=", "a01137.xhtml#a4940863fe85f6c5a2fa9b3910bfb7406", null ],
+    [ "operator==", "a01137.xhtml#a3f1e143181b91f902ce034e2878f87eb", null ],
+    [ "m_state", "a01137.xhtml#a830bb20e51776b605910f4a00dde46ad", null ],
+    [ "s_inc", "a01137.xhtml#a34f89a8ee054db204c8cf17632ac4c03", null ]
 ];

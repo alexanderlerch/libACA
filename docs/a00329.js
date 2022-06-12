@@ -1,14 +1,10 @@
 var a00329 =
 [
-    [ "CFeatureTimeMaxAcf", "a00329.xhtml#a541f40820696e37cc302fc780b8313ee", null ],
-    [ "~CFeatureTimeMaxAcf", "a00329.xhtml#a48c4e7762ac0c1bbbb91a50ccc2a4ffc", null ],
-    [ "CFeatureTimeMaxAcf", "a00329.xhtml#a8c9233f1ab2a403e78a7e03feefc2161", null ],
-    [ "CFeatureTimeMaxAcf", "a00329.xhtml#ae651e7f716957560053ef017f839346b", null ],
-    [ "compFeature", "a00329.xhtml#af20724e23d18c1126e2edf4186cc8005", null ],
-    [ "hasAdditionalParam", "a00329.xhtml#a03964245e9d7da47e512283728da4cd4", null ],
-    [ "operator=", "a00329.xhtml#adbb3dc0caf773c6fb706bbff9d0b7126", null ],
-    [ "setAdditionalParam", "a00329.xhtml#ad08d755145fa0227b7e489000703ee30", null ],
-    [ "m_fMax", "a00329.xhtml#aeb05f443644d9e5db8bfd9a18af380a8", null ],
-    [ "m_pCCcf", "a00329.xhtml#a9fb60b727600dc5d28d874349adb5dc0", null ],
-    [ "m_pfAcf", "a00329.xhtml#ac15ec6a2d0fdf91df801d6befd4117db", null ]
+    [ "CFeatureSpectralRolloff", "a00329.xhtml#a359548bbc22d19f80107d6a5be02ff3f", null ],
+    [ "~CFeatureSpectralRolloff", "a00329.xhtml#a306b5b080d6754bd3363d140a8569ac4", null ],
+    [ "CFeatureSpectralRolloff", "a00329.xhtml#a45483b9e6364cf0b5a40109bae814c9a", null ],
+    [ "compFeature", "a00329.xhtml#a05fb25d2482c0add358ab03042df55d2", null ],
+    [ "hasAdditionalParam", "a00329.xhtml#aace9db3eee49887a8fae69c07475fe19", null ],
+    [ "setAdditionalParam", "a00329.xhtml#ae0c52ddeb125740c60dd33c003e6b257", null ],
+    [ "m_fKappa", "a00329.xhtml#a02a9041087ff93f1a406103f34772a9c", null ]
 ];

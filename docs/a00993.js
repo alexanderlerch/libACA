@@ -1,5 +1,8 @@
 var a00993 =
 [
-    [ "EndsWithMatcher", "a00993.xhtml#aa5ec700b4629562f74f362080accfd7b", null ],
-    [ "match", "a00993.xhtml#aca2741fa57374a2a98d2a84ac3e13a6d", null ]
+    [ "CasedString", "a00993.xhtml#aa88bbc5acd2bff22351d8d4b1816b561", null ],
+    [ "adjustString", "a00993.xhtml#a77639b1165c01f424ee0e96f53335010", null ],
+    [ "caseSensitivitySuffix", "a00993.xhtml#a9759155344d696b2476d764a1d95fcc9", null ],
+    [ "m_caseSensitivity", "a00993.xhtml#ae1c2864c986941536a6e94cca0528f92", null ],
+    [ "m_str", "a00993.xhtml#ad05dbc99aba3c3c386d6b856b213f911", null ]
 ];

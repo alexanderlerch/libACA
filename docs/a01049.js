@@ -1,7 +1,7 @@
 var a01049 =
 [
-    [ "GeneratorWrapper", "a01049.xhtml#ad65b09392d8b3a7472a8b5375048748d", null ],
-    [ "get", "a01049.xhtml#a4a461a591d0bd5360a2745cb2b5011cc", null ],
-    [ "next", "a01049.xhtml#acbfdca94811ae02461bd2cf5f60b666e", null ],
-    [ "m_generator", "a01049.xhtml#a8f35291599183b36e4c5af78e17d3a8c", null ]
+    [ "~IGeneratorTracker", "a01049.xhtml#a20b3c82baa68f821c180d6dac1234eb1", null ],
+    [ "getGenerator", "a01049.xhtml#a23be942fc51672598bfa02c678c3078a", null ],
+    [ "hasGenerator", "a01049.xhtml#ae88084f9af27c8b9a5d5775b9c148498", null ],
+    [ "setGenerator", "a01049.xhtml#a9945eff42219edc5a7071eebd8b0419e", null ]
 ];

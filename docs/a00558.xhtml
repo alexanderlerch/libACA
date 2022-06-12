@@ -83,28 +83,38 @@ $(document).ready(function(){initNavTree('a00561.xhtml',''); initResizable(); })
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">CResample Member List</div></div>
+  <div class="headertitle"><div class="title">CNmfResult Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>This is the complete list of members for <a class="el" href="a00561.xhtml">CResample</a>, including all inherited members.</p>
+<p>This is the complete list of members for <a class="el" href="a00561.xhtml">CNmfResult</a>, including all inherited members.</p>
 <table class="directory">
-  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a6af73d34704579d5d18ef456fe54a983">CResample</a>(float fInSampleRate, float fOutSampleRate)</td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">explicit</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#aa35aba2e70d5325d5b3098faa79ba05d">CResample</a>(const CResample &amp;that)</td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a1fa6003e640ba66531236277eddc5158">getOutputLength</a>(long long iNumInSamples) const</td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a02a81c6177894649b0524b684118839e">interp1d</a>(float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)</td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">static</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a></td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a></td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a></td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a0db33ae459e827fc0258b7b9ae3cf738">operator=</a>(const CResample &amp;c)</td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
-  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a040a6674ec0ff9171d6b4cb4b8436cb2">process</a>(float *pfOut, const float *pfIn, long long iNumInSamples)</td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
-  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#abf7624c3daf78a13e5bb949a242c3034">~CResample</a>()</td><td class="entry"><a class="el" href="a00561.xhtml">CResample</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a02bd4ca3a931ac6ff896ee8a3480045b">CNmf</a></td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">friend</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a8da332c53d0c87eacc06f989fb087b9f">CNmfResult</a>()</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#af12d8c9323fce68ecb816c53eaafee45">CNmfResult</a>(const CNmfResult &amp;that)</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a204d6be9fd9b68686fa91bf9fc4647b1">getMat</a>(float **ppfDest, NmfMatrices_t eMatIdx)</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a9809e7b2289abd238e992df3b7ad65a0">getMatCols</a>(NmfMatrices_t eMatIdx) const</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a326556f71b979465896c0c79b1ad3663">getMatDims</a>(NmfMatrices_t eMatIdx, int &amp;iNumRows, int &amp;iNumCols) const</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a85d97245bb91969264671387706cd372">getMatPointer</a>(NmfMatrices_t eMatIdx) const</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a6c61324a24caf454344400a728e09387">getMatRows</a>(NmfMatrices_t eMatIdx) const</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a4f006a4fc88addf89d0e572d08e48680">init</a>(int iRank, int iNumRows, int iNumCols)</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#ad023a8d9278037df6a75f3639e28b05d">isInitialized</a>() const</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">kH</a> enum value</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a> enum value</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a> enum value</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821">kXHat</a> enum value</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a></td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a></td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a0fd21048775781b9bf025557c88656ae">m_bIsInitialized</a></td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a> enum name</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00561.xhtml#a6f17d7b8bfbf182632345f9742e2b579">reset</a>()</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00561.xhtml#af947c33214ea5a51331b07a59b2428ae">~CNmfResult</a>(void)</td><td class="entry"><a class="el" href="a00561.xhtml">CNmfResult</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
 </table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Sat Jun 11 2022 21:04:57 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Sun Jun 12 2022 20:29:16 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

@@ -1,8 +1,11 @@
 var a01105 =
 [
-    [ "YesOrNo", "a01105.xhtml#a6aa78da0c2de7539bb9e3757e204a3f1", [
-      [ "Auto", "a01105.xhtml#a6aa78da0c2de7539bb9e3757e204a3f1a5c7fa9f5f5536187e8f47df35b892bb7", null ],
-      [ "Yes", "a01105.xhtml#a6aa78da0c2de7539bb9e3757e204a3f1ad7bb64e0fe49ba51aafbd3e14f06e98d", null ],
-      [ "No", "a01105.xhtml#a6aa78da0c2de7539bb9e3757e204a3f1af80533ce38685131ea8d7a6360ce9e57", null ]
-    ] ]
+    [ "~IMutableContext", "a01105.xhtml#a93f32b2ab6d0fb83637059240be799ab", null ],
+    [ "createContext", "a01105.xhtml#a17e4b3f9a9674af7e2c4f081c692a628", null ],
+    [ "setConfig", "a01105.xhtml#aa81ba080fce084e9482f20338bc88531", null ],
+    [ "setResultCapture", "a01105.xhtml#a4a80afd0525b7def21bee8d9b48f2d39", null ],
+    [ "setRunner", "a01105.xhtml#af2e53b1dea4527a2587cff266a730f6e", null ],
+    [ "cleanUpContext", "a01105.xhtml#ac07cdb7d744cc8f09672d924324b55fd", null ],
+    [ "getCurrentMutableContext", "a01105.xhtml#ad22507c2e4bc58f80a205db9756b8e29", null ],
+    [ "currentContext", "a01105.xhtml#aca4de034d0deed74dba34f143e4e273e", null ]
 ];

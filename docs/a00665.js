@@ -1,5 +1,6 @@
 var a00665 =
 [
-    [ "~IStream", "a00665.xhtml#a344a88d0e5fc1f727f5801c72b4a4e2a", null ],
-    [ "stream", "a00665.xhtml#ad1cee80a31407d09aa0627a531f26b07", null ]
+    [ "NameAndTags", "a00665.xhtml#ab585111e615ce8c504a2b9630de8ee94", null ],
+    [ "name", "a00665.xhtml#a7cbea60e0cebfa622c667008eb011420", null ],
+    [ "tags", "a00665.xhtml#a74062ed1138834a348424eb7ed900c57", null ]
 ];

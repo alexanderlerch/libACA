@@ -1,6 +1,7 @@
 var a00949 =
 [
-    [ "operator!", "a00949.xhtml#a5bb94bf2ff5c7ef73b7c11eb173bdf3b", null ],
-    [ "operator&&", "a00949.xhtml#aae4a9827601f6f26a52126e193d012de", null ],
-    [ "operator||", "a00949.xhtml#a5f8542b8f1567a6f9c65d0a6da7b679b", null ]
+    [ "describe", "a00949.xhtml#acbb9a083e93b546fd33c9235b644c40f", null ],
+    [ "match", "a00949.xhtml#acfb377bda2c58ae62e6df9c3a8a89f8f", null ],
+    [ "operator&&", "a00949.xhtml#a2ccd931f2739331bf9c26911618942a3", null ],
+    [ "m_matchers", "a00949.xhtml#a98d6a2611f195a4a5c49f92fd877be9a", null ]
 ];

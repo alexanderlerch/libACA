@@ -1,8 +1,10 @@
 var a01097 =
 [
-    [ "OrNot", "a01097.xhtml#a82fa0174554187220c1eda175f122ee1", [
-      [ "DefaultForReporter", "a01097.xhtml#a82fa0174554187220c1eda175f122ee1aba1710583107b0736c1f5f0f8dfd23c8", null ],
-      [ "Always", "a01097.xhtml#a82fa0174554187220c1eda175f122ee1ab49682ccb55f2d6b4dfcdb027c09da9a", null ],
-      [ "Never", "a01097.xhtml#a82fa0174554187220c1eda175f122ee1af1a716bc46185f561382a12a0dede9f3", null ]
-    ] ]
+    [ "ChunkGenerator", "a01097.xhtml#a50c334d00cde3166d71e9b90ebc2d2e3", null ],
+    [ "get", "a01097.xhtml#afab9d06c84aa469b3af60eb3e8f10597", null ],
+    [ "next", "a01097.xhtml#a545e89f80eb1e3c953491541ea083f86", null ],
+    [ "m_chunk", "a01097.xhtml#ab5e382bc5be2e327331bd694a40fa827", null ],
+    [ "m_chunk_size", "a01097.xhtml#a222b9cd460e6d48b12f939833b1b0beb", null ],
+    [ "m_generator", "a01097.xhtml#aa12b90ee9d029c44528fdba6b9de17bb", null ],
+    [ "m_used_up", "a01097.xhtml#a4a5f14d8f6c7a94e5771eb999c1ffe5a", null ]
 ];

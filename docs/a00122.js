@@ -1,5 +1,5 @@
 var a00122 =
 [
-    [ "CPreProc", "a00553.xhtml", "a00553" ],
-    [ "CNormalizeAudio", "a00557.xhtml", "a00557" ]
+    [ "CClassifierBase", "a00593.xhtml", "a00593" ],
+    [ "CKnn", "a00597.xhtml", "a00597" ]
 ];

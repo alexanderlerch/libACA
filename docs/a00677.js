@@ -1,6 +1,9 @@
 var a00677 =
 [
-    [ "~IMutableEnumValuesRegistry", "a00677.xhtml#aebd423693128987c89ac732478d74673", null ],
-    [ "registerEnum", "a00677.xhtml#ac1f8c7d3d97100ec30e09a3866f69904", null ],
-    [ "registerEnum", "a00677.xhtml#a56e9726c383ed48731621c7183730310", null ]
+    [ "Flags", "a00677.xhtml#a3396cad6e2259af326b3aae93e23e9d8", [
+      [ "Normal", "a00677.xhtml#a3396cad6e2259af326b3aae93e23e9d8af3bd52347ed6f8796e8ce2f77bb39ea5", null ],
+      [ "ContinueOnFailure", "a00677.xhtml#a3396cad6e2259af326b3aae93e23e9d8aa18c94bd60c5614e17a84c2ced3bbfd5", null ],
+      [ "FalseTest", "a00677.xhtml#a3396cad6e2259af326b3aae93e23e9d8a9980604245f19884691f941dec03eeb8", null ],
+      [ "SuppressFail", "a00677.xhtml#a3396cad6e2259af326b3aae93e23e9d8a1a88eb6004bddee4ccae4b421991bf54", null ]
+    ] ]
 ];

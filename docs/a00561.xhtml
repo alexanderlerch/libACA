@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CResample Class Reference</title>
+<title>ACA: CNmfResult Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,121 +84,144 @@ $(document).ready(function(){initNavTree('a00561.xhtml',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pri-methods">Private Member Functions</a> &#124;
 <a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#friends">Friends</a> &#124;
 <a href="a00558.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CResample Class Reference</div></div>
+  <div class="headertitle"><div class="title">CNmfResult Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class for simple interpolation/sample rate conversion  
- <a href="a00561.xhtml#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00194_source.xhtml">ToolResample.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00218_source.xhtml">ToolNmf.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CResample:</div>
+Collaboration diagram for CNmfResult:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00559.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00559.svg" width="222" height="440"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:a21d8ac7709010b3ec07e05cfadbfefd5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a> { <a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>
+, <a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">kH</a>
+, <a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821">kXHat</a>
+, <a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a>
+ }</td></tr>
+<tr class="separator:a21d8ac7709010b3ec07e05cfadbfefd5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a6af73d34704579d5d18ef456fe54a983"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a6af73d34704579d5d18ef456fe54a983">CResample</a> (float fInSampleRate, float fOutSampleRate)</td></tr>
-<tr class="separator:a6af73d34704579d5d18ef456fe54a983"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf7624c3daf78a13e5bb949a242c3034"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#abf7624c3daf78a13e5bb949a242c3034">~CResample</a> ()</td></tr>
-<tr class="separator:abf7624c3daf78a13e5bb949a242c3034"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1fa6003e640ba66531236277eddc5158"><td class="memItemLeft" align="right" valign="top">long long&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a1fa6003e640ba66531236277eddc5158">getOutputLength</a> (long long iNumInSamples) const</td></tr>
-<tr class="separator:a1fa6003e640ba66531236277eddc5158"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a040a6674ec0ff9171d6b4cb4b8436cb2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a040a6674ec0ff9171d6b4cb4b8436cb2">process</a> (float *pfOut, const float *pfIn, long long iNumInSamples)</td></tr>
-<tr class="separator:a040a6674ec0ff9171d6b4cb4b8436cb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8da332c53d0c87eacc06f989fb087b9f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a8da332c53d0c87eacc06f989fb087b9f">CNmfResult</a> ()</td></tr>
+<tr class="separator:a8da332c53d0c87eacc06f989fb087b9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af947c33214ea5a51331b07a59b2428ae"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#af947c33214ea5a51331b07a59b2428ae">~CNmfResult</a> (void)</td></tr>
+<tr class="separator:af947c33214ea5a51331b07a59b2428ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9809e7b2289abd238e992df3b7ad65a0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a9809e7b2289abd238e992df3b7ad65a0">getMatCols</a> (<a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a> eMatIdx) const</td></tr>
+<tr class="separator:a9809e7b2289abd238e992df3b7ad65a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6c61324a24caf454344400a728e09387"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a6c61324a24caf454344400a728e09387">getMatRows</a> (<a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a> eMatIdx) const</td></tr>
+<tr class="separator:a6c61324a24caf454344400a728e09387"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a326556f71b979465896c0c79b1ad3663"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a326556f71b979465896c0c79b1ad3663">getMatDims</a> (<a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a> eMatIdx, int &amp;iNumRows, int &amp;iNumCols) const</td></tr>
+<tr class="separator:a326556f71b979465896c0c79b1ad3663"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a204d6be9fd9b68686fa91bf9fc4647b1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a204d6be9fd9b68686fa91bf9fc4647b1">getMat</a> (float **ppfDest, <a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a> eMatIdx)</td></tr>
+<tr class="separator:a204d6be9fd9b68686fa91bf9fc4647b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad023a8d9278037df6a75f3639e28b05d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00239.xhtml#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#ad023a8d9278037df6a75f3639e28b05d">isInitialized</a> () const</td></tr>
+<tr class="separator:ad023a8d9278037df6a75f3639e28b05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a02a81c6177894649b0524b684118839e"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a02a81c6177894649b0524b684118839e">interp1d</a> (float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)</td></tr>
-<tr class="separator:a02a81c6177894649b0524b684118839e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a4f006a4fc88addf89d0e572d08e48680"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a4f006a4fc88addf89d0e572d08e48680">init</a> (int iRank, int iNumRows, int iNumCols)</td></tr>
+<tr class="separator:a4f006a4fc88addf89d0e572d08e48680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6f17d7b8bfbf182632345f9742e2b579"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a6f17d7b8bfbf182632345f9742e2b579">reset</a> ()</td></tr>
+<tr class="separator:a6f17d7b8bfbf182632345f9742e2b579"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85d97245bb91969264671387706cd372"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a85d97245bb91969264671387706cd372">getMatPointer</a> (<a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a> eMatIdx) const</td></tr>
+<tr class="separator:a85d97245bb91969264671387706cd372"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
 Private Member Functions</h2></td></tr>
-<tr class="memitem:aa35aba2e70d5325d5b3098faa79ba05d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#aa35aba2e70d5325d5b3098faa79ba05d">CResample</a> (const <a class="el" href="a00561.xhtml">CResample</a> &amp;that)</td></tr>
-<tr class="separator:aa35aba2e70d5325d5b3098faa79ba05d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0db33ae459e827fc0258b7b9ae3cf738"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00561.xhtml">CResample</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a0db33ae459e827fc0258b7b9ae3cf738">operator=</a> (const <a class="el" href="a00561.xhtml">CResample</a> &amp;c)</td></tr>
-<tr class="separator:a0db33ae459e827fc0258b7b9ae3cf738"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af12d8c9323fce68ecb816c53eaafee45"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#af12d8c9323fce68ecb816c53eaafee45">CNmfResult</a> (const <a class="el" href="a00561.xhtml">CNmfResult</a> &amp;that)</td></tr>
+<tr class="memdesc:af12d8c9323fce68ecb816c53eaafee45"><td class="mdescLeft">&#160;</td><td class="mdescRight">disallow copy construction <br  />
+  <a href="a00561.xhtml#af12d8c9323fce68ecb816c53eaafee45">More...</a><br /></td></tr>
+<tr class="separator:af12d8c9323fce68ecb816c53eaafee45"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
 Private Attributes</h2></td></tr>
-<tr class="memitem:a9d56139a9c202823fe57a189146a9b8c"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> = 0.F</td></tr>
-<tr class="memdesc:a9d56139a9c202823fe57a189146a9b8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate of input  <a href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">More...</a><br /></td></tr>
-<tr class="separator:a9d56139a9c202823fe57a189146a9b8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4e704946c8bfe078190cdf36818e40db"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> = 0.F</td></tr>
-<tr class="memdesc:a4e704946c8bfe078190cdf36818e40db"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate of output  <a href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">More...</a><br /></td></tr>
-<tr class="separator:a4e704946c8bfe078190cdf36818e40db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad227a6fd0acf022e8a41a1d4ab2b27c9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00453.xhtml">CFilter</a>&lt; float &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a> = 0</td></tr>
-<tr class="memdesc:ad227a6fd0acf022e8a41a1d4ab2b27c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">low pass filter processing  <a href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">More...</a><br /></td></tr>
-<tr class="separator:ad227a6fd0acf022e8a41a1d4ab2b27c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8dacefe966be6b39cc31bcbbeb028235"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a> [<a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a>] = { 0 }</td></tr>
+<tr class="memdesc:a8dacefe966be6b39cc31bcbbeb028235"><td class="mdescLeft">&#160;</td><td class="mdescRight">arry holding all matrix pointers  <a href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">More...</a><br /></td></tr>
+<tr class="separator:a8dacefe966be6b39cc31bcbbeb028235"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a39349cdc64f434b4d32d56386f9d3c8e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a> [<a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a>][2] = { 0 }</td></tr>
+<tr class="memdesc:a39349cdc64f434b4d32d56386f9d3c8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">array holding the various matrix dimensions  <a href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">More...</a><br /></td></tr>
+<tr class="separator:a39349cdc64f434b4d32d56386f9d3c8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0fd21048775781b9bf025557c88656ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00239.xhtml#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a0fd21048775781b9bf025557c88656ae">m_bIsInitialized</a> = <a class="el" href="a00239.xhtml#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
+<tr class="memdesc:a0fd21048775781b9bf025557c88656ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">flag to indicate whether instance is initialized  <a href="a00561.xhtml#a0fd21048775781b9bf025557c88656ae">More...</a><br /></td></tr>
+<tr class="separator:a0fd21048775781b9bf025557c88656ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="friends" name="friends"></a>
+Friends</h2></td></tr>
+<tr class="memitem:a02bd4ca3a931ac6ff896ee8a3480045b"><td class="memItemLeft" align="right" valign="top">class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00561.xhtml#a02bd4ca3a931ac6ff896ee8a3480045b">CNmf</a></td></tr>
+<tr class="separator:a02bd4ca3a931ac6ff896ee8a3480045b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class for simple interpolation/sample rate conversion </p>
-
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00011">11</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a6af73d34704579d5d18ef456fe54a983" name="a6af73d34704579d5d18ef456fe54a983"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6af73d34704579d5d18ef456fe54a983">&#9670;&nbsp;</a></span>CResample() <span class="overload">[1/2]</span></h2>
+<div class="textblock">
+<p class="definition">Definition at line <a class="el" href="a00218_source.xhtml#l00008">8</a> of file <a class="el" href="a00218_source.xhtml">ToolNmf.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="a21d8ac7709010b3ec07e05cfadbfefd5" name="a21d8ac7709010b3ec07e05cfadbfefd5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a21d8ac7709010b3ec07e05cfadbfefd5">&#9670;&nbsp;</a></span>NmfMatrices_t</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CResample::CResample </td>
-          <td>(</td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fInSampleRate</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fOutSampleRate</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
+          <td class="memname">enum <a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">CNmfResult::NmfMatrices_t</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">explicit</span></span>  </td>
-  </tr>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550" name="a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550"></a>kW&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b" name="a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b"></a>kH&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821" name="a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821"></a>kXHat&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79" name="a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79"></a>kNumMatrices&#160;</td><td class="fielddoc"></td></tr>
 </table>
+
+<p class="definition">Definition at line <a class="el" href="a00218_source.xhtml#l00013">13</a> of file <a class="el" href="a00218_source.xhtml">ToolNmf.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   14</span>    {</div>
+<div class="line"><span class="lineno">   15</span>        <a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>,</div>
+<div class="line"><span class="lineno">   16</span>        <a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">kH</a>,</div>
+<div class="line"><span class="lineno">   17</span>        <a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821">kXHat</a>,</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>        <a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a></div>
+<div class="line"><span class="lineno">   20</span>    };</div>
+<div class="ttc" id="aa00561_xhtml_a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550"><div class="ttname"><a href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">CNmfResult::kW</a></div><div class="ttdeci">@ kW</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.xhtml#l00015">ToolNmf.h:15</a></div></div>
+<div class="ttc" id="aa00561_xhtml_a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b"><div class="ttname"><a href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">CNmfResult::kH</a></div><div class="ttdeci">@ kH</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.xhtml#l00016">ToolNmf.h:16</a></div></div>
+<div class="ttc" id="aa00561_xhtml_a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79"><div class="ttname"><a href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">CNmfResult::kNumMatrices</a></div><div class="ttdeci">@ kNumMatrices</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.xhtml#l00020">ToolNmf.h:19</a></div></div>
+<div class="ttc" id="aa00561_xhtml_a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821"><div class="ttname"><a href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821">CNmfResult::kXHat</a></div><div class="ttdeci">@ kXHat</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.xhtml#l00017">ToolNmf.h:17</a></div></div>
+</div><!-- fragment -->
+</div>
+</div>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a8da332c53d0c87eacc06f989fb087b9f" name="a8da332c53d0c87eacc06f989fb087b9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8da332c53d0c87eacc06f989fb087b9f">&#9670;&nbsp;</a></span>CNmfResult() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">CNmfResult::CNmfResult </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00072">72</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   72</span>                                                                  :</div>
-<div class="line"><span class="lineno">   73</span>        <a class="code hl_variable" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>(fInSampleRate),</div>
-<div class="line"><span class="lineno">   74</span>        <a class="code hl_variable" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a>(fOutSampleRate)</div>
-<div class="line"><span class="lineno">   75</span>    {</div>
-<div class="line"><span class="lineno">   76</span>        assert(<a class="code hl_variable" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> &gt; 0);</div>
-<div class="line"><span class="lineno">   77</span>        assert(<a class="code hl_variable" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> &gt; 0);</div>
-<div class="line"><span class="lineno">   78</span> </div>
-<div class="line"><span class="lineno">   79</span>        <a class="code hl_variable" href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00453.xhtml">CFilter&lt;float&gt;</a>();</div>
-<div class="line"><span class="lineno">   80</span>    }</div>
-<div class="ttc" id="aa00453_xhtml"><div class="ttname"><a href="a00453.xhtml">CFilter&lt; float &gt;</a></div></div>
-<div class="ttc" id="aa00561_xhtml_a4e704946c8bfe078190cdf36818e40db"><div class="ttname"><a href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">CResample::m_fOutSampleRate</a></div><div class="ttdeci">float m_fOutSampleRate</div><div class="ttdoc">sample rate of output</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.xhtml#l00155">ToolResample.h:155</a></div></div>
-<div class="ttc" id="aa00561_xhtml_a9d56139a9c202823fe57a189146a9b8c"><div class="ttname"><a href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">CResample::m_fInSampleRate</a></div><div class="ttdeci">float m_fInSampleRate</div><div class="ttdoc">sample rate of input</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.xhtml#l00154">ToolResample.h:154</a></div></div>
-<div class="ttc" id="aa00561_xhtml_ad227a6fd0acf022e8a41a1d4ab2b27c9"><div class="ttname"><a href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">CResample::m_pCFilter</a></div><div class="ttdeci">CFilter&lt; float &gt; * m_pCFilter</div><div class="ttdoc">low pass filter processing</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.xhtml#l00157">ToolResample.h:157</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00170">170</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  171</span>{}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00194_source.xhtml#l00154">m_fInSampleRate</a>, <a class="el" href="a00194_source.xhtml#l00155">m_fOutSampleRate</a>, and <a class="el" href="a00194_source.xhtml#l00157">m_pCFilter</a>.</p>
-
 </div>
 </div>
-<a id="abf7624c3daf78a13e5bb949a242c3034" name="abf7624c3daf78a13e5bb949a242c3034"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf7624c3daf78a13e5bb949a242c3034">&#9670;&nbsp;</a></span>~CResample()</h2>
+<a id="af947c33214ea5a51331b07a59b2428ae" name="af947c33214ea5a51331b07a59b2428ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af947c33214ea5a51331b07a59b2428ae">&#9670;&nbsp;</a></span>~CNmfResult()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,30 +230,38 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CResample::~CResample </td>
+          <td class="memname">CNmfResult::~CNmfResult </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00082">82</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   83</span>    {</div>
-<div class="line"><span class="lineno">   84</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>;</div>
-<div class="line"><span class="lineno">   85</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00173">173</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  174</span>{</div>
+<div class="line"><span class="lineno">  175</span>    <a class="code hl_function" href="a00561.xhtml#a6f17d7b8bfbf182632345f9742e2b579">reset</a>();</div>
+<div class="line"><span class="lineno">  176</span>}</div>
+<div class="ttc" id="aa00561_xhtml_a6f17d7b8bfbf182632345f9742e2b579"><div class="ttname"><a href="a00561.xhtml#a6f17d7b8bfbf182632345f9742e2b579">CNmfResult::reset</a></div><div class="ttdeci">Error_t reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00053_source.xhtml#l00207">ToolNmf.cpp:207</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00194_source.xhtml#l00157">m_pCFilter</a>.</p>
+<p class="reference">References <a class="el" href="a00053_source.xhtml#l00207">reset()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00561_af947c33214ea5a51331b07a59b2428ae_cgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
 
 </div>
 </div>
-<a id="aa35aba2e70d5325d5b3098faa79ba05d" name="aa35aba2e70d5325d5b3098faa79ba05d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa35aba2e70d5325d5b3098faa79ba05d">&#9670;&nbsp;</a></span>CResample() <span class="overload">[2/2]</span></h2>
+<a id="af12d8c9323fce68ecb816c53eaafee45" name="af12d8c9323fce68ecb816c53eaafee45"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af12d8c9323fce68ecb816c53eaafee45">&#9670;&nbsp;</a></span>CNmfResult() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -239,9 +270,9 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CResample::CResample </td>
+          <td class="memname">CNmfResult::CNmfResult </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00561.xhtml">CResample</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00561.xhtml">CNmfResult</a> &amp;&#160;</td>
           <td class="paramname"><em>that</em></td><td>)</td>
           <td></td>
         </tr>
@@ -253,11 +284,171 @@ Private Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>disallow copy construction <br  />
+ </p>
+
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a1fa6003e640ba66531236277eddc5158" name="a1fa6003e640ba66531236277eddc5158"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1fa6003e640ba66531236277eddc5158">&#9670;&nbsp;</a></span>getOutputLength()</h2>
+<a id="a204d6be9fd9b68686fa91bf9fc4647b1" name="a204d6be9fd9b68686fa91bf9fc4647b1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a204d6be9fd9b68686fa91bf9fc4647b1">&#9670;&nbsp;</a></span>getMat()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNmfResult::getMat </td>
+          <td>(</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a>&#160;</td>
+          <td class="paramname"><em>eMatIdx</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00237">237</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  238</span>{</div>
+<div class="line"><span class="lineno">  239</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00561.xhtml#a0fd21048775781b9bf025557c88656ae">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  240</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  241</span>    <span class="keywordflow">if</span> (!ppfDest)</div>
+<div class="line"><span class="lineno">  242</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  243</span>    <span class="keywordflow">if</span> (!ppfDest[0])</div>
+<div class="line"><span class="lineno">  244</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  245</span> </div>
+<div class="line"><span class="lineno">  246</span>    <a class="code hl_function" href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">CMatrix::copy</a>(ppfDest, <a class="code hl_variable" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a>[eMatIdx], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[eMatIdx][0], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[eMatIdx][1]);</div>
+<div class="line"><span class="lineno">  247</span> </div>
+<div class="line"><span class="lineno">  248</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  249</span>}</div>
+<div class="ttc" id="aa00116_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
+<div class="ttc" id="aa00116_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
+<div class="ttc" id="aa00116_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00473_xhtml_a9f723a71e61f425d0ee9a51aa2162bf3"><div class="ttname"><a href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">CMatrix::copy</a></div><div class="ttdeci">static void copy(T **pptDestMat, T **pptSrcMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00627">Matrix.h:627</a></div></div>
+<div class="ttc" id="aa00561_xhtml_a0fd21048775781b9bf025557c88656ae"><div class="ttname"><a href="a00561.xhtml#a0fd21048775781b9bf025557c88656ae">CNmfResult::m_bIsInitialized</a></div><div class="ttdeci">bool m_bIsInitialized</div><div class="ttdoc">flag to indicate whether instance is initialized</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.xhtml#l00060">ToolNmf.h:60</a></div></div>
+<div class="ttc" id="aa00561_xhtml_a39349cdc64f434b4d32d56386f9d3c8e"><div class="ttname"><a href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">CNmfResult::m_aaiMatrixDims</a></div><div class="ttdeci">int m_aaiMatrixDims[kNumMatrices][2]</div><div class="ttdoc">array holding the various matrix dimensions</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.xhtml#l00058">ToolNmf.h:58</a></div></div>
+<div class="ttc" id="aa00561_xhtml_a8dacefe966be6b39cc31bcbbeb028235"><div class="ttname"><a href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">CNmfResult::m_appfMatrices</a></div><div class="ttdeci">float ** m_appfMatrices[kNumMatrices]</div><div class="ttdoc">arry holding all matrix pointers</div><div class="ttdef"><b>Definition:</b> <a href="a00218_source.xhtml#l00056">ToolNmf.h:56</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00146_source.xhtml#l00627">CMatrix::copy()</a>, <a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00218_source.xhtml#l00058">m_aaiMatrixDims</a>, <a class="el" href="a00218_source.xhtml#l00056">m_appfMatrices</a>, and <a class="el" href="a00218_source.xhtml#l00060">m_bIsInitialized</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a204d6be9fd9b68686fa91bf9fc4647b1_cgraph.svg" width="447" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a9809e7b2289abd238e992df3b7ad65a0" name="a9809e7b2289abd238e992df3b7ad65a0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9809e7b2289abd238e992df3b7ad65a0">&#9670;&nbsp;</a></span>getMatCols()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CNmfResult::getMatCols </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a>&#160;</td>
+          <td class="paramname"><em>eMatIdx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >returns the number of columns in the matrix specified in eMatIdx </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eMatIdx</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00220">220</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  221</span>{</div>
+<div class="line"><span class="lineno">  222</span>    <span class="keywordflow">return</span>  <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[eMatIdx][1];</div>
+<div class="line"><span class="lineno">  223</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00218_source.xhtml#l00058">m_aaiMatrixDims</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00230">getMatDims()</a>, and <a class="el" href="a00053_source.xhtml#l00097">CNmf::runNmfIter()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a9809e7b2289abd238e992df3b7ad65a0_icgraph.svg" width="560" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a326556f71b979465896c0c79b1ad3663" name="a326556f71b979465896c0c79b1ad3663"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a326556f71b979465896c0c79b1ad3663">&#9670;&nbsp;</a></span>getMatDims()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void CNmfResult::getMatDims </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a>&#160;</td>
+          <td class="paramname"><em>eMatIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >writes the number of rows and columns in the matrix specified in eMatIdx </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eMatIdx</td><td></td></tr>
+    <tr><td class="paramname">iNumRows</td><td>number of rows </td></tr>
+    <tr><td class="paramname">iNumCols</td><td>number of columns </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd></dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00230">230</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  231</span>{</div>
+<div class="line"><span class="lineno">  232</span>    iNumRows = <a class="code hl_function" href="a00561.xhtml#a6c61324a24caf454344400a728e09387">getMatRows</a>(eMatIdx);</div>
+<div class="line"><span class="lineno">  233</span>    iNumCols = <a class="code hl_function" href="a00561.xhtml#a9809e7b2289abd238e992df3b7ad65a0">getMatCols</a>(eMatIdx);</div>
+<div class="line"><span class="lineno">  234</span>    <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  235</span>}</div>
+<div class="ttc" id="aa00561_xhtml_a6c61324a24caf454344400a728e09387"><div class="ttname"><a href="a00561.xhtml#a6c61324a24caf454344400a728e09387">CNmfResult::getMatRows</a></div><div class="ttdeci">int getMatRows(NmfMatrices_t eMatIdx) const</div><div class="ttdef"><b>Definition:</b> <a href="a00053_source.xhtml#l00225">ToolNmf.cpp:225</a></div></div>
+<div class="ttc" id="aa00561_xhtml_a9809e7b2289abd238e992df3b7ad65a0"><div class="ttname"><a href="a00561.xhtml#a9809e7b2289abd238e992df3b7ad65a0">CNmfResult::getMatCols</a></div><div class="ttdeci">int getMatCols(NmfMatrices_t eMatIdx) const</div><div class="ttdef"><b>Definition:</b> <a href="a00053_source.xhtml#l00220">ToolNmf.cpp:220</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00053_source.xhtml#l00220">getMatCols()</a>, and <a class="el" href="a00053_source.xhtml#l00225">getMatRows()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a326556f71b979465896c0c79b1ad3663_cgraph.svg" width="400" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a85d97245bb91969264671387706cd372" name="a85d97245bb91969264671387706cd372"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a85d97245bb91969264671387706cd372">&#9670;&nbsp;</a></span>getMatPointer()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -266,40 +457,79 @@ Private Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">long long CResample::getOutputLength </td>
+          <td class="memname">float ** CNmfResult::getMatPointer </td>
           <td>(</td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumInSamples</em></td><td>)</td>
+          <td class="paramtype"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a>&#160;</td>
+          <td class="paramname"><em>eMatIdx</em></td><td>)</td>
           <td> const</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >returns the length of the output in case of iNumInSamples as input </p><dl class="section return"><dt>Returns</dt><dd>long long </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00091">91</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   92</span>    {</div>
-<div class="line"><span class="lineno">   93</span>        <span class="keywordflow">return</span> CUtil::float2int&lt;long long&gt;(iNumInSamples/<a class="code hl_variable" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>*<a class="code hl_variable" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a>);</div>
-<div class="line"><span class="lineno">   94</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00256">256</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  257</span>{</div>
+<div class="line"><span class="lineno">  258</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a>[eMatIdx];</div>
+<div class="line"><span class="lineno">  259</span>}</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00194_source.xhtml#l00154">m_fInSampleRate</a>, and <a class="el" href="a00194_source.xhtml#l00155">m_fOutSampleRate</a>.</p>
+<p class="reference">References <a class="el" href="a00218_source.xhtml#l00056">m_appfMatrices</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00194_source.xhtml#l00102">process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00097">CNmf::runNmfIter()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a1fa6003e640ba66531236277eddc5158_icgraph.svg" width="392" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a85d97245bb91969264671387706cd372_icgraph.svg" width="530" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a02a81c6177894649b0524b684118839e" name="a02a81c6177894649b0524b684118839e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02a81c6177894649b0524b684118839e">&#9670;&nbsp;</a></span>interp1d()</h2>
+<a id="a6c61324a24caf454344400a728e09387" name="a6c61324a24caf454344400a728e09387"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6c61324a24caf454344400a728e09387">&#9670;&nbsp;</a></span>getMatRows()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CNmfResult::getMatRows </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5">NmfMatrices_t</a>&#160;</td>
+          <td class="paramname"><em>eMatIdx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >returns the number of rows in the matrix specified in eMatIdx </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">eMatIdx</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00225">225</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  226</span>{</div>
+<div class="line"><span class="lineno">  227</span>    <span class="keywordflow">return</span>  <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[eMatIdx][0];</div>
+<div class="line"><span class="lineno">  228</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00218_source.xhtml#l00058">m_aaiMatrixDims</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00230">getMatDims()</a>, and <a class="el" href="a00053_source.xhtml#l00097">CNmf::runNmfIter()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a6c61324a24caf454344400a728e09387_icgraph.svg" width="567" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a4f006a4fc88addf89d0e572d08e48680" name="a4f006a4fc88addf89d0e572d08e48680"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4f006a4fc88addf89d0e572d08e48680">&#9670;&nbsp;</a></span>init()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -308,34 +538,22 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CResample::interp1d </td>
+          <td class="memname"><a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNmfResult::init </td>
           <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfOut</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iRank</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfNewIdx</em>, </td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfIn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumOutSamples</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumInSamples</em>&#160;</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -345,227 +563,177 @@ Here is the caller graph for this function:</div>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >simple linear interpolation, static function can be used without instantiation </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pfOut</td><td>buffer with interpolated output samples (user allocated of length iNumOutSamples) </td></tr>
-    <tr><td class="paramname">pfNewIdx</td><td>indication of location of outputs on the input index scale, e.g., if the output sample rate is 3x the input sample rate, this vector will start with 0, 0.33, 0.66, 1, 1.33, ... </td></tr>
-    <tr><td class="paramname">pfIn</td><td>original samples </td></tr>
-    <tr><td class="paramname">iNumOutSamples</td><td>length of pfOut and pfNewIdx </td></tr>
-    <tr><td class="paramname">iNumInSamples</td><td>length of pfIn </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00024">24</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   25</span>    {</div>
-<div class="line"><span class="lineno">   26</span>        <span class="keywordflow">if</span> (!pfNewIdx || !pfOut || !pfIn || iNumInSamples &lt;= 0 || iNumOutSamples &lt;= 0)</div>
-<div class="line"><span class="lineno">   27</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">   28</span> </div>
-<div class="line"><span class="lineno">   29</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> istart = 0,</div>
-<div class="line"><span class="lineno">   30</span>            iEnd = iNumOutSamples - 1;</div>
-<div class="line"><span class="lineno">   31</span> </div>
-<div class="line"><span class="lineno">   32</span>        <span class="comment">// treat first samples</span></div>
-<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">while</span> ((istart &lt; iNumOutSamples) &amp;&amp; (pfNewIdx[istart] &lt; 0))</div>
-<div class="line"><span class="lineno">   34</span>        {</div>
-<div class="line"><span class="lineno">   35</span>            <span class="keywordflow">if</span> (pfNewIdx[istart] &lt; -1)</div>
-<div class="line"><span class="lineno">   36</span>                pfOut[istart] = 0;</div>
-<div class="line"><span class="lineno">   37</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   38</span>            {</div>
-<div class="line"><span class="lineno">   39</span>                <span class="keywordtype">int</span>     iIdx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(pfNewIdx[istart]));</div>
-<div class="line"><span class="lineno">   40</span>                <span class="keywordtype">float</span>   fFrac = pfNewIdx[istart] - iIdx;</div>
-<div class="line"><span class="lineno">   41</span>                pfOut[istart] = fFrac * pfIn[0];</div>
-<div class="line"><span class="lineno">   42</span>            }</div>
-<div class="line"><span class="lineno">   43</span>            istart++;</div>
-<div class="line"><span class="lineno">   44</span>        }</div>
-<div class="line"><span class="lineno">   45</span> </div>
-<div class="line"><span class="lineno">   46</span>        <span class="comment">// treat last samples</span></div>
-<div class="line"><span class="lineno">   47</span>        <span class="keywordflow">while</span> ((pfNewIdx[iEnd] &gt; iNumInSamples - 1) &amp;&amp; (iEnd &gt;= 0))</div>
-<div class="line"><span class="lineno">   48</span>        {</div>
-<div class="line"><span class="lineno">   49</span>            <span class="keywordflow">if</span> (pfNewIdx[iEnd] &gt; iNumInSamples)</div>
-<div class="line"><span class="lineno">   50</span>                pfOut[iEnd] = 0;</div>
-<div class="line"><span class="lineno">   51</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">   52</span>            {</div>
-<div class="line"><span class="lineno">   53</span>                <span class="keywordtype">int</span>     iIdx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(pfNewIdx[iEnd]));</div>
-<div class="line"><span class="lineno">   54</span>                <span class="keywordtype">float</span>   fFrac = pfNewIdx[iEnd] - iIdx;</div>
-<div class="line"><span class="lineno">   55</span>                pfOut[iEnd] = (1 - fFrac) * pfIn[iNumInSamples - 1];</div>
-<div class="line"><span class="lineno">   56</span>            }</div>
-<div class="line"><span class="lineno">   57</span>            iEnd--;</div>
-<div class="line"><span class="lineno">   58</span>        }</div>
-<div class="line"><span class="lineno">   59</span> </div>
-<div class="line"><span class="lineno">   60</span>        <span class="comment">// now go through the buffer</span></div>
-<div class="line"><span class="lineno">   61</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = istart; i &lt;= iEnd; i++)</div>
-<div class="line"><span class="lineno">   62</span>        {</div>
-<div class="line"><span class="lineno">   63</span>            <span class="keywordtype">int</span>     iIdx = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(std::floor(pfNewIdx[i]));</div>
-<div class="line"><span class="lineno">   64</span>            <span class="keywordtype">float</span>   fFrac = pfNewIdx[i] - iIdx;</div>
-<div class="line"><span class="lineno">   65</span> </div>
-<div class="line"><span class="lineno">   66</span>            pfOut[i] = (1 - fFrac) * pfIn[iIdx] + fFrac * pfIn[iIdx + 1];</div>
-<div class="line"><span class="lineno">   67</span>        }</div>
-<div class="line"><span class="lineno">   68</span> </div>
-<div class="line"><span class="lineno">   69</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">   70</span>    }</div>
-<div class="ttc" id="aa00110_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00110_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00178">178</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  179</span>{</div>
+<div class="line"><span class="lineno">  180</span>    <span class="keywordflow">if</span> (iRank &lt;=0 || iNumRows &lt;= 0 || iNumCols &lt;= 0)</div>
+<div class="line"><span class="lineno">  181</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  182</span> </div>
+<div class="line"><span class="lineno">  183</span>    <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>][0] = iNumRows;</div>
+<div class="line"><span class="lineno">  184</span>    <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>][1] = iRank;</div>
+<div class="line"><span class="lineno">  185</span>    <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">kH</a>][0] = iRank;</div>
+<div class="line"><span class="lineno">  186</span>    <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">kH</a>][1] = iNumCols;</div>
+<div class="line"><span class="lineno">  187</span>    <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821">kXHat</a>][0] = iNumRows;</div>
+<div class="line"><span class="lineno">  188</span>    <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5afe607d956d542f52f3555a1b2499d821">kXHat</a>][1] = iNumCols;</div>
+<div class="line"><span class="lineno">  189</span> </div>
+<div class="line"><span class="lineno">  190</span>    <span class="comment">// alloc memory</span></div>
+<div class="line"><span class="lineno">  191</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; <a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a>; m++)</div>
+<div class="line"><span class="lineno">  192</span>        <a class="code hl_function" href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a>(<a class="code hl_variable" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a>[m], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[m][0], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[m][1]);</div>
+<div class="line"><span class="lineno">  193</span> </div>
+<div class="line"><span class="lineno">  194</span>    <span class="comment">// init with random values</span></div>
+<div class="line"><span class="lineno">  195</span>    <a class="code hl_function" href="a00473.xhtml#aa95c84e6a291f19c70f2cc2ea7e1cd48">CMatrix::setRand</a>(<a class="code hl_variable" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>][0], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>][1]);</div>
+<div class="line"><span class="lineno">  196</span>    <a class="code hl_function" href="a00473.xhtml#aa95c84e6a291f19c70f2cc2ea7e1cd48">CMatrix::setRand</a>(<a class="code hl_variable" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">kH</a>], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">kH</a>][0], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a67171abbd43ccacd5eae0da30cebf24b">kH</a>][1]);</div>
+<div class="line"><span class="lineno">  197</span> </div>
+<div class="line"><span class="lineno">  198</span>    <span class="comment">// normalize</span></div>
+<div class="line"><span class="lineno">  199</span>    <a class="code hl_function" href="a00473.xhtml#a3e91601d28cffd5e5de9adcfca8fd4a9">CMatrix::vecnorm_I</a>(<a class="code hl_variable" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>][0], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[<a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5a2c3187c2bc84a4a4d1bec56be4776550">kW</a>][1]);</div>
+<div class="line"><span class="lineno">  200</span> </div>
+<div class="line"><span class="lineno">  201</span>    <a class="code hl_variable" href="a00561.xhtml#a0fd21048775781b9bf025557c88656ae">m_bIsInitialized</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  202</span> </div>
+<div class="line"><span class="lineno">  203</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  204</span>}</div>
+<div class="ttc" id="aa00473_xhtml_a3e91601d28cffd5e5de9adcfca8fd4a9"><div class="ttname"><a href="a00473.xhtml#a3e91601d28cffd5e5de9adcfca8fd4a9">CMatrix::vecnorm_I</a></div><div class="ttdeci">static void vecnorm_I(float **pptSrcDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00243">Matrix.h:243</a></div></div>
+<div class="ttc" id="aa00473_xhtml_a6501b78d76c912d49eee88c8f7242923"><div class="ttname"><a href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;pptMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00022">Matrix.h:22</a></div></div>
+<div class="ttc" id="aa00473_xhtml_aa95c84e6a291f19c70f2cc2ea7e1cd48"><div class="ttname"><a href="a00473.xhtml#aa95c84e6a291f19c70f2cc2ea7e1cd48">CMatrix::setRand</a></div><div class="ttdeci">static void setRand(T **pptMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00096">Matrix.h:96</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
+<p class="reference">References <a class="el" href="a00146_source.xhtml#l00022">CMatrix::alloc()</a>, <a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00218_source.xhtml#l00016">kH</a>, <a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00218_source.xhtml#l00019">kNumMatrices</a>, <a class="el" href="a00218_source.xhtml#l00015">kW</a>, <a class="el" href="a00218_source.xhtml#l00017">kXHat</a>, <a class="el" href="a00218_source.xhtml#l00058">m_aaiMatrixDims</a>, <a class="el" href="a00218_source.xhtml#l00056">m_appfMatrices</a>, <a class="el" href="a00218_source.xhtml#l00060">m_bIsInitialized</a>, <a class="el" href="a00146_source.xhtml#l00096">CMatrix::setRand()</a>, and <a class="el" href="a00146_source.xhtml#l00243">CMatrix::vecnorm_I()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00194_source.xhtml#l00102">process()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a02a81c6177894649b0524b684118839e_icgraph.svg" width="342" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a0db33ae459e827fc0258b7b9ae3cf738" name="a0db33ae459e827fc0258b7b9ae3cf738"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0db33ae459e827fc0258b7b9ae3cf738">&#9670;&nbsp;</a></span>operator=()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00561.xhtml">CResample</a> &amp; CResample::operator= </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00561.xhtml">CResample</a> &amp;&#160;</td>
-          <td class="paramname"><em>c</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a040a6674ec0ff9171d6b4cb4b8436cb2" name="a040a6674ec0ff9171d6b4cb4b8436cb2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a040a6674ec0ff9171d6b4cb4b8436cb2">&#9670;&nbsp;</a></span>process()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CResample::process </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfOut</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfIn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumInSamples</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >does the sample rate conversion (filtered linear interpolation) </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pfOut</td><td>output buffer (to be written, user allocated, length see <a class="el" href="a00561.xhtml#a1fa6003e640ba66531236277eddc5158">CResample::getOutputLength</a>) </td></tr>
-    <tr><td class="paramname">pfIn</td><td>input buffer of length iNumInSamples </td></tr>
-    <tr><td class="paramname">iNumInSamples</td><td>length of input buffer </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00102">102</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  103</span>    {</div>
-<div class="line"><span class="lineno">  104</span>        <span class="keywordflow">if</span> (!pfOut || !pfIn || iNumInSamples &lt;= 0)</div>
-<div class="line"><span class="lineno">  105</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  106</span> </div>
-<div class="line"><span class="lineno">  107</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> iOrder = 4;</div>
-<div class="line"><span class="lineno">  108</span>        <span class="keywordtype">float</span> fOmegaCutoff = (<a class="code hl_variable" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> &gt; <a class="code hl_variable" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>) ? <a class="code hl_variable" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> / <a class="code hl_variable" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> : <a class="code hl_variable" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> / <a class="code hl_variable" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>;</div>
-<div class="line"><span class="lineno">  109</span> </div>
-<div class="line"><span class="lineno">  110</span>        <span class="comment">// compute index axis</span></div>
-<div class="line"><span class="lineno">  111</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumOutSamples = <a class="code hl_function" href="a00561.xhtml#a1fa6003e640ba66531236277eddc5158">getOutputLength</a>(iNumInSamples);</div>
-<div class="line"><span class="lineno">  112</span>        <span class="keywordtype">float</span>* pfOutIdx = 0;</div>
-<div class="line"><span class="lineno">  113</span>        <a class="code hl_function" href="a00477.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfOutIdx, iNumOutSamples);</div>
-<div class="line"><span class="lineno">  114</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iNumOutSamples; i++)</div>
-<div class="line"><span class="lineno">  115</span>            pfOutIdx[i] = i * <a class="code hl_variable" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a> / <a class="code hl_variable" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a>;</div>
-<div class="line"><span class="lineno">  116</span> </div>
-<div class="line"><span class="lineno">  117</span>        <span class="comment">// compute butterworth low pass filter coefficients</span></div>
-<div class="line"><span class="lineno">  118</span>        <span class="keywordtype">float</span> aafCoeffs[2][iOrder+1] = { 0 };</div>
-<div class="line"><span class="lineno">  119</span>        <a class="code hl_function" href="a00457.xhtml#a3878460603a6e6e1a64de6021b2bb73e">CButterLp::calcCoeffs</a>(aafCoeffs[0], aafCoeffs[1], iOrder, .9F * fOmegaCutoff);</div>
-<div class="line"><span class="lineno">  120</span>        <a class="code hl_variable" href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>-&gt;<a class="code hl_function" href="a00453.xhtml#add0db9a0cf605eb3f57c80b52d2bda0e">init</a>(aafCoeffs[0], aafCoeffs[1], iOrder+1);</div>
-<div class="line"><span class="lineno">  121</span> </div>
-<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00561.xhtml#a4e704946c8bfe078190cdf36818e40db">m_fOutSampleRate</a> &gt; <a class="code hl_variable" href="a00561.xhtml#a9d56139a9c202823fe57a189146a9b8c">m_fInSampleRate</a>) <span class="comment">// upsample</span></div>
-<div class="line"><span class="lineno">  123</span>        {</div>
-<div class="line"><span class="lineno">  124</span>            <span class="comment">// interpolate</span></div>
-<div class="line"><span class="lineno">  125</span>            <a class="code hl_function" href="a00561.xhtml#a02a81c6177894649b0524b684118839e">interp1d</a>(pfOut, pfOutIdx, pfIn, iNumOutSamples, iNumInSamples);</div>
-<div class="line"><span class="lineno">  126</span> </div>
-<div class="line"><span class="lineno">  127</span>            <span class="comment">// apply zero phase filter</span></div>
-<div class="line"><span class="lineno">  128</span>            <a class="code hl_variable" href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>-&gt;<a class="code hl_function" href="a00453.xhtml#a04bf94ff97e5e270210954864025ea06">filtfilt</a>(pfOut, pfOut, iNumOutSamples);</div>
-<div class="line"><span class="lineno">  129</span>        }</div>
-<div class="line"><span class="lineno">  130</span>        <span class="keywordflow">else</span> <span class="comment">// downsample</span></div>
-<div class="line"><span class="lineno">  131</span>        {</div>
-<div class="line"><span class="lineno">  132</span>            <span class="keywordtype">float</span>* pfFiltered = 0;</div>
-<div class="line"><span class="lineno">  133</span>            <a class="code hl_function" href="a00477.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(pfFiltered, iNumInSamples);</div>
-<div class="line"><span class="lineno">  134</span> </div>
-<div class="line"><span class="lineno">  135</span>            <span class="comment">// apply zero phase filter</span></div>
-<div class="line"><span class="lineno">  136</span>            <a class="code hl_variable" href="a00561.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9">m_pCFilter</a>-&gt;<a class="code hl_function" href="a00453.xhtml#a04bf94ff97e5e270210954864025ea06">filtfilt</a>(pfFiltered, pfIn, iNumInSamples);</div>
-<div class="line"><span class="lineno">  137</span> </div>
-<div class="line"><span class="lineno">  138</span>            <span class="comment">// interpolate</span></div>
-<div class="line"><span class="lineno">  139</span>            <a class="code hl_function" href="a00561.xhtml#a02a81c6177894649b0524b684118839e">interp1d</a>(pfOut, pfOutIdx, pfFiltered, iNumOutSamples, iNumInSamples);</div>
-<div class="line"><span class="lineno">  140</span> </div>
-<div class="line"><span class="lineno">  141</span>            <a class="code hl_function" href="a00477.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfFiltered);</div>
-<div class="line"><span class="lineno">  142</span>        }</div>
-<div class="line"><span class="lineno">  143</span> </div>
-<div class="line"><span class="lineno">  144</span>        <span class="comment">// free internal memory</span></div>
-<div class="line"><span class="lineno">  145</span>        <a class="code hl_function" href="a00477.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(pfOutIdx);</div>
-<div class="line"><span class="lineno">  146</span> </div>
-<div class="line"><span class="lineno">  147</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  148</span>    }</div>
-<div class="ttc" id="aa00453_xhtml_a04bf94ff97e5e270210954864025ea06"><div class="ttname"><a href="a00453.xhtml#a04bf94ff97e5e270210954864025ea06">CFilter::filtfilt</a></div><div class="ttdeci">Error_t filtfilt(T *pfOut, const T *pfIn, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00140_source.xhtml#l00166">Filter.h:166</a></div></div>
-<div class="ttc" id="aa00453_xhtml_add0db9a0cf605eb3f57c80b52d2bda0e"><div class="ttname"><a href="a00453.xhtml#add0db9a0cf605eb3f57c80b52d2bda0e">CFilter::init</a></div><div class="ttdeci">Error_t init(const T *pfB, const T *pfA, int iNumCoeffs)</div><div class="ttdef"><b>Definition:</b> <a href="a00140_source.xhtml#l00033">Filter.h:33</a></div></div>
-<div class="ttc" id="aa00457_xhtml_a3878460603a6e6e1a64de6021b2bb73e"><div class="ttname"><a href="a00457.xhtml#a3878460603a6e6e1a64de6021b2bb73e">CButterLp::calcCoeffs</a></div><div class="ttdeci">static Error_t calcCoeffs(T *pfB, T *pfA, int iOrder, T fCutOff)</div><div class="ttdef"><b>Definition:</b> <a href="a00140_source.xhtml#l00301">Filter.h:301</a></div></div>
-<div class="ttc" id="aa00477_xhtml_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00477.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00039">Vector.h:39</a></div></div>
-<div class="ttc" id="aa00477_xhtml_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00477.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00024">Vector.h:24</a></div></div>
-<div class="ttc" id="aa00561_xhtml_a02a81c6177894649b0524b684118839e"><div class="ttname"><a href="a00561.xhtml#a02a81c6177894649b0524b684118839e">CResample::interp1d</a></div><div class="ttdeci">static Error_t interp1d(float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.xhtml#l00024">ToolResample.h:24</a></div></div>
-<div class="ttc" id="aa00561_xhtml_a1fa6003e640ba66531236277eddc5158"><div class="ttname"><a href="a00561.xhtml#a1fa6003e640ba66531236277eddc5158">CResample::getOutputLength</a></div><div class="ttdeci">long long getOutputLength(long long iNumInSamples) const</div><div class="ttdef"><b>Definition:</b> <a href="a00194_source.xhtml#l00091">ToolResample.h:91</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00143_source.xhtml#l00024">CVector::alloc()</a>, <a class="el" href="a00140_source.xhtml#l00301">CButterLp::calcCoeffs()</a>, <a class="el" href="a00140_source.xhtml#l00166">CFilter&lt; T &gt;::filtfilt()</a>, <a class="el" href="a00143_source.xhtml#l00039">CVector::free()</a>, <a class="el" href="a00194_source.xhtml#l00091">getOutputLength()</a>, <a class="el" href="a00140_source.xhtml#l00033">CFilter&lt; T &gt;::init()</a>, <a class="el" href="a00194_source.xhtml#l00024">interp1d()</a>, <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00194_source.xhtml#l00154">m_fInSampleRate</a>, <a class="el" href="a00194_source.xhtml#l00155">m_fOutSampleRate</a>, and <a class="el" href="a00194_source.xhtml#l00157">m_pCFilter</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00019">CNmf::init()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00561_a040a6674ec0ff9171d6b4cb4b8436cb2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00561_a4f006a4fc88addf89d0e572d08e48680_cgraph.svg" width="100%" height="404"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a4f006a4fc88addf89d0e572d08e48680_icgraph.svg" width="254" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ad023a8d9278037df6a75f3639e28b05d" name="ad023a8d9278037df6a75f3639e28b05d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad023a8d9278037df6a75f3639e28b05d">&#9670;&nbsp;</a></span>isInitialized()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00239.xhtml#abb452686968e48b67397da5f97445f5b">bool</a> CNmfResult::isInitialized </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00251">251</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  252</span>{</div>
+<div class="line"><span class="lineno">  253</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00561.xhtml#a0fd21048775781b9bf025557c88656ae">m_bIsInitialized</a>;</div>
+<div class="line"><span class="lineno">  254</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00218_source.xhtml#l00060">m_bIsInitialized</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00059">CNmf::compNmf()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_ad023a8d9278037df6a75f3639e28b05d_icgraph.svg" width="340" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a6f17d7b8bfbf182632345f9742e2b579" name="a6f17d7b8bfbf182632345f9742e2b579"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6f17d7b8bfbf182632345f9742e2b579">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CNmfResult::reset </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00053_source.xhtml#l00207">207</a> of file <a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  208</span>{</div>
+<div class="line"><span class="lineno">  209</span>    <a class="code hl_variable" href="a00561.xhtml#a0fd21048775781b9bf025557c88656ae">m_bIsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  210</span> </div>
+<div class="line"><span class="lineno">  211</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; <a class="code hl_enumvalue" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a>; m++)</div>
+<div class="line"><span class="lineno">  212</span>    {</div>
+<div class="line"><span class="lineno">  213</span>        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(<a class="code hl_variable" href="a00561.xhtml#a8dacefe966be6b39cc31bcbbeb028235">m_appfMatrices</a>[m], <a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[m][0]);</div>
+<div class="line"><span class="lineno">  214</span>        <a class="code hl_function" href="a00489.xhtml#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a>(<a class="code hl_variable" href="a00561.xhtml#a39349cdc64f434b4d32d56386f9d3c8e">m_aaiMatrixDims</a>[m], 2);</div>
+<div class="line"><span class="lineno">  215</span>    }</div>
+<div class="line"><span class="lineno">  216</span> </div>
+<div class="line"><span class="lineno">  217</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  218</span>}</div>
+<div class="ttc" id="aa00473_xhtml_a591097c6b1935c4d6273b3445f8f552b"><div class="ttname"><a href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;pptMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00040">Matrix.h:40</a></div></div>
+<div class="ttc" id="aa00489_xhtml_a6dbb3f9f480568b60f7fe50090d20003"><div class="ttname"><a href="a00489.xhtml#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a></div><div class="ttdeci">static void setZero(T *ptSrcDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00051">Vector.h:51</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00146_source.xhtml#l00040">CMatrix::free()</a>, <a class="el" href="a00116.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00218_source.xhtml#l00019">kNumMatrices</a>, <a class="el" href="a00218_source.xhtml#l00058">m_aaiMatrixDims</a>, <a class="el" href="a00218_source.xhtml#l00056">m_appfMatrices</a>, <a class="el" href="a00218_source.xhtml#l00060">m_bIsInitialized</a>, and <a class="el" href="a00152_source.xhtml#l00051">CVector::setZero()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00173">~CNmfResult()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a6f17d7b8bfbf182632345f9742e2b579_cgraph.svg" width="451" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00561_a6f17d7b8bfbf182632345f9742e2b579_icgraph.svg" width="364" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<h2 class="groupheader">Friends And Related Function Documentation</h2>
+<a id="a02bd4ca3a931ac6ff896ee8a3480045b" name="a02bd4ca3a931ac6ff896ee8a3480045b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a02bd4ca3a931ac6ff896ee8a3480045b">&#9670;&nbsp;</a></span>CNmf</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">friend class <a class="el" href="a00565.xhtml">CNmf</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">friend</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00218_source.xhtml#l00010">10</a> of file <a class="el" href="a00218_source.xhtml">ToolNmf.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9d56139a9c202823fe57a189146a9b8c" name="a9d56139a9c202823fe57a189146a9b8c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9d56139a9c202823fe57a189146a9b8c">&#9670;&nbsp;</a></span>m_fInSampleRate</h2>
+<a id="a39349cdc64f434b4d32d56386f9d3c8e" name="a39349cdc64f434b4d32d56386f9d3c8e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39349cdc64f434b4d32d56386f9d3c8e">&#9670;&nbsp;</a></span>m_aaiMatrixDims</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -574,7 +742,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CResample::m_fInSampleRate = 0.F</td>
+          <td class="memname">int CNmfResult::m_aaiMatrixDims[<a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a>][2] = { 0 }</td>
         </tr>
       </table>
   </td>
@@ -584,16 +752,16 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>sample rate of input </p>
+<p>array holding the various matrix dimensions </p>
 
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00154">154</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00218_source.xhtml#l00058">58</a> of file <a class="el" href="a00218_source.xhtml">ToolNmf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00194_source.xhtml#l00072">CResample()</a>, <a class="el" href="a00194_source.xhtml#l00091">getOutputLength()</a>, and <a class="el" href="a00194_source.xhtml#l00102">process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00237">getMat()</a>, <a class="el" href="a00053_source.xhtml#l00220">getMatCols()</a>, <a class="el" href="a00053_source.xhtml#l00225">getMatRows()</a>, <a class="el" href="a00053_source.xhtml#l00178">init()</a>, and <a class="el" href="a00053_source.xhtml#l00207">reset()</a>.</p>
 
 </div>
 </div>
-<a id="a4e704946c8bfe078190cdf36818e40db" name="a4e704946c8bfe078190cdf36818e40db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4e704946c8bfe078190cdf36818e40db">&#9670;&nbsp;</a></span>m_fOutSampleRate</h2>
+<a id="a8dacefe966be6b39cc31bcbbeb028235" name="a8dacefe966be6b39cc31bcbbeb028235"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8dacefe966be6b39cc31bcbbeb028235">&#9670;&nbsp;</a></span>m_appfMatrices</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -602,7 +770,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CResample::m_fOutSampleRate = 0.F</td>
+          <td class="memname">float** CNmfResult::m_appfMatrices[<a class="el" href="a00561.xhtml#a21d8ac7709010b3ec07e05cfadbfefd5abcf0f4a5f46b922a52fa66d5628b1c79">kNumMatrices</a>] = { 0 }</td>
         </tr>
       </table>
   </td>
@@ -612,16 +780,16 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>sample rate of output </p>
+<p>arry holding all matrix pointers </p>
 
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00155">155</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00218_source.xhtml#l00056">56</a> of file <a class="el" href="a00218_source.xhtml">ToolNmf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00194_source.xhtml#l00072">CResample()</a>, <a class="el" href="a00194_source.xhtml#l00091">getOutputLength()</a>, and <a class="el" href="a00194_source.xhtml#l00102">process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00237">getMat()</a>, <a class="el" href="a00053_source.xhtml#l00256">getMatPointer()</a>, <a class="el" href="a00053_source.xhtml#l00178">init()</a>, and <a class="el" href="a00053_source.xhtml#l00207">reset()</a>.</p>
 
 </div>
 </div>
-<a id="ad227a6fd0acf022e8a41a1d4ab2b27c9" name="ad227a6fd0acf022e8a41a1d4ab2b27c9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad227a6fd0acf022e8a41a1d4ab2b27c9">&#9670;&nbsp;</a></span>m_pCFilter</h2>
+<a id="a0fd21048775781b9bf025557c88656ae" name="a0fd21048775781b9bf025557c88656ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0fd21048775781b9bf025557c88656ae">&#9670;&nbsp;</a></span>m_bIsInitialized</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -630,7 +798,7 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00453.xhtml">CFilter</a>&lt;float&gt;* CResample::m_pCFilter = 0</td>
+          <td class="memname"><a class="el" href="a00239.xhtml#abb452686968e48b67397da5f97445f5b">bool</a> CNmfResult::m_bIsInitialized = <a class="el" href="a00239.xhtml#a65e9886d74aaee76545e83dd09011727">false</a></td>
         </tr>
       </table>
   </td>
@@ -640,24 +808,25 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>low pass filter processing </p>
+<p>flag to indicate whether instance is initialized </p>
 
-<p class="definition">Definition at line <a class="el" href="a00194_source.xhtml#l00157">157</a> of file <a class="el" href="a00194_source.xhtml">ToolResample.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00218_source.xhtml#l00060">60</a> of file <a class="el" href="a00218_source.xhtml">ToolNmf.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00194_source.xhtml#l00072">CResample()</a>, <a class="el" href="a00194_source.xhtml#l00102">process()</a>, and <a class="el" href="a00194_source.xhtml#l00082">~CResample()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00237">getMat()</a>, <a class="el" href="a00053_source.xhtml#l00178">init()</a>, <a class="el" href="a00053_source.xhtml#l00251">isInitialized()</a>, and <a class="el" href="a00053_source.xhtml#l00207">reset()</a>.</p>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00194_source.xhtml">ToolResample.h</a></li>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="a00218_source.xhtml">ToolNmf.h</a></li>
+<li><a class="el" href="a00053_source.xhtml">ToolNmf.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00561.xhtml">CResample</a></li>
-    <li class="footer">Generated on Sat Jun 11 2022 21:04:57 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="navelem"><a class="el" href="a00561.xhtml">CNmfResult</a></li>
+    <li class="footer">Generated on Sun Jun 12 2022 20:29:16 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

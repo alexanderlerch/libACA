@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CClassifierBase Class Reference</title>
+<title>ACA: CPreProc Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -84,95 +84,35 @@ $(document).ready(function(){initNavTree('a00573.xhtml',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
 <a href="a00570.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CClassifierBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">CPreProc Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>abstract base class for traditional classifiers  
+<p>class with static utility functions for pre-processing  
  <a href="a00573.xhtml#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00116_source.xhtml">ToolSimpleKnn.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00131_source.xhtml">ToolPreProc.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for CClassifierBase:</div>
+Collaboration diagram for CPreProc:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00572.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-<div class="dynheader">
-Collaboration diagram for CClassifierBase:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00571.svg" width="271" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00571.svg" width="206" height="132"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:af377eef1d7dfdfabcdf7da4b069b5e7a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a> { <a class="el" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">kNoNormalization</a>
-, <a class="el" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">kZscoreNormalization</a>
-, <a class="el" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">kMinmaxNormalization</a>
-, <a class="el" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">kNumNormModes</a>
- }</td></tr>
-<tr class="separator:af377eef1d7dfdfabcdf7da4b069b5e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b989d8b0b21727525366839a117d40c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.xhtml#a2b989d8b0b21727525366839a117d40c">init</a> (float **ppfTrainFeatures, const int *piTrainClassIndices, int iNumFeatures, int iNumObservations, <a class="el" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a> eNorm)=0</td></tr>
-<tr class="separator:a2b989d8b0b21727525366839a117d40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132f6c33b7f0ec539dabce8c970eac9e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.xhtml#a132f6c33b7f0ec539dabce8c970eac9e">reset</a> ()=0</td></tr>
-<tr class="separator:a132f6c33b7f0ec539dabce8c970eac9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae187572c8c6af54f060105b91cf72e9f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.xhtml#ae187572c8c6af54f060105b91cf72e9f">classify</a> (const float *pfQuery)=0</td></tr>
-<tr class="separator:ae187572c8c6af54f060105b91cf72e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac4365e3be5e1cc7ac964fcb6294aaae1"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.xhtml#ac4365e3be5e1cc7ac964fcb6294aaae1">kIllegalClassLabel</a> = -1111111111</td></tr>
-<tr class="separator:ac4365e3be5e1cc7ac964fcb6294aaae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:af7639b7368293c01c130192067fe0f4b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.xhtml#af7639b7368293c01c130192067fe0f4b">downmix</a> (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)</td></tr>
+<tr class="separator:af7639b7368293c01c130192067fe0f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >abstract base class for traditional classifiers </p>
+<div class="textblock"><p >class with static utility functions for pre-processing </p>
 
-<p class="definition">Definition at line <a class="el" href="a00116_source.xhtml#l00011">11</a> of file <a class="el" href="a00116_source.xhtml">ToolSimpleKnn.h</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="af377eef1d7dfdfabcdf7da4b069b5e7a" name="af377eef1d7dfdfabcdf7da4b069b5e7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af377eef1d7dfdfabcdf7da4b069b5e7a">&#9670;&nbsp;</a></span>Normalization_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">CClassifierBase::Normalization_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009" name="af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009"></a>kNoNormalization&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a" name="af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a"></a>kZscoreNormalization&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a" name="af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a"></a>kMinmaxNormalization&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801" name="af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801"></a>kNumNormModes&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00116_source.xhtml#l00014">14</a> of file <a class="el" href="a00116_source.xhtml">ToolSimpleKnn.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>    {</div>
-<div class="line"><span class="lineno">   16</span>        <a class="code hl_enumvalue" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">kNoNormalization</a>,</div>
-<div class="line"><span class="lineno">   17</span>        <a class="code hl_enumvalue" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">kZscoreNormalization</a>,</div>
-<div class="line"><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">kMinmaxNormalization</a>,</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>        <a class="code hl_enumvalue" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">kNumNormModes</a></div>
-<div class="line"><span class="lineno">   21</span>    };</div>
-<div class="ttc" id="aa00573_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009"><div class="ttname"><a href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">CClassifierBase::kNoNormalization</a></div><div class="ttdeci">@ kNoNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.xhtml#l00016">ToolSimpleKnn.h:16</a></div></div>
-<div class="ttc" id="aa00573_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a"><div class="ttname"><a href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">CClassifierBase::kMinmaxNormalization</a></div><div class="ttdeci">@ kMinmaxNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.xhtml#l00018">ToolSimpleKnn.h:18</a></div></div>
-<div class="ttc" id="aa00573_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801"><div class="ttname"><a href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">CClassifierBase::kNumNormModes</a></div><div class="ttdeci">@ kNumNormModes</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.xhtml#l00021">ToolSimpleKnn.h:20</a></div></div>
-<div class="ttc" id="aa00573_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a"><div class="ttname"><a href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">CClassifierBase::kZscoreNormalization</a></div><div class="ttdeci">@ kZscoreNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00116_source.xhtml#l00017">ToolSimpleKnn.h:17</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae187572c8c6af54f060105b91cf72e9f" name="ae187572c8c6af54f060105b91cf72e9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae187572c8c6af54f060105b91cf72e9f">&#9670;&nbsp;</a></span>classify()</h2>
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00013">13</a> of file <a class="el" href="a00131_source.xhtml">ToolPreProc.h</a>.</p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="af7639b7368293c01c130192067fe0f4b" name="af7639b7368293c01c130192067fe0f4b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7639b7368293c01c130192067fe0f4b">&#9670;&nbsp;</a></span>downmix()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -181,62 +121,28 @@ Static Public Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual int CClassifierBase::classify </td>
+          <td class="memname">static void CPreProc::downmix </td>
           <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfQuery</em></td><td>)</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>pfOutput</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="a00577.xhtml#a16bb56f19951aee5c4986a9dc7aeb853">CKnn</a>.</p>
-
-</div>
-</div>
-<a id="a2b989d8b0b21727525366839a117d40c" name="a2b989d8b0b21727525366839a117d40c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b989d8b0b21727525366839a117d40c">&#9670;&nbsp;</a></span>init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CClassifierBase::init </td>
-          <td>(</td>
           <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfTrainFeatures</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>piTrainClassIndices</em>, </td>
+          <td class="paramname"><em>ppfInput</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNumFeatures</em>, </td>
+          <td class="paramname"><em>iNumChannels</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNumObservations</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00573.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a>&#160;</td>
-          <td class="paramname"><em>eNorm</em>&#160;</td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iNumSamples</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -246,80 +152,64 @@ Static Public Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<p >downmixes multichannel audio (can be inplace </p><dl class="section return"><dt>Returns</dt><dd>void (no error returns b/c not user-facing) </dd></dl>
 
-<p>Implemented in <a class="el" href="a00577.xhtml#a8fe90e9d8120bb265e6bc7d5f2766c30">CKnn</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00019">19</a> of file <a class="el" href="a00131_source.xhtml">ToolPreProc.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   20</span>    {</div>
+<div class="line"><span class="lineno">   21</span>        <span class="comment">// sanity checks</span></div>
+<div class="line"><span class="lineno">   22</span>        assert(pfOutput);</div>
+<div class="line"><span class="lineno">   23</span>        assert(ppfInput);</div>
+<div class="line"><span class="lineno">   24</span>        assert(ppfInput[0]);</div>
+<div class="line"><span class="lineno">   25</span>        assert(iNumChannels &gt; 0);</div>
+<div class="line"><span class="lineno">   26</span>        assert(iNumSamples &gt; 0);</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>        <span class="comment">// copy in case of not inplace processing</span></div>
+<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">if</span> (pfOutput != ppfInput[0])</div>
+<div class="line"><span class="lineno">   30</span>            <a class="code hl_function" href="a00489.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(pfOutput, ppfInput[0], iNumSamples);</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>        <span class="comment">// downmix</span></div>
+<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 1; c &lt; iNumChannels; c++)</div>
+<div class="line"><span class="lineno">   34</span>            <a class="code hl_function" href="a00489.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb">CVector::add_I</a>(pfOutput, ppfInput[c], iNumSamples);</div>
+<div class="line"><span class="lineno">   35</span>        <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pfOutput, 1.F / iNumChannels, iNumSamples);</div>
+<div class="line"><span class="lineno">   36</span> </div>
+<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">   38</span>    }</div>
+<div class="ttc" id="aa00489_xhtml_a3a052b83e62e5c5cc44829c64ffe42eb"><div class="ttname"><a href="a00489.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb">CVector::add_I</a></div><div class="ttdeci">static void add_I(T *ptSrcDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00245">Vector.h:245</a></div></div>
+<div class="ttc" id="aa00489_xhtml_a9811f50434dd058d201290b2dc98bfcd"><div class="ttname"><a href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a></div><div class="ttdeci">static void mulC_I(T *ptSrcDest, T fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00172">Vector.h:172</a></div></div>
+<div class="ttc" id="aa00489_xhtml_ad7c5cba73e439adac77778f61c9418f0"><div class="ttname"><a href="a00489.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a></div><div class="ttdeci">static void copy(T *ptDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00113">Vector.h:113</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00245">CVector::add_I()</a>, <a class="el" href="a00152_source.xhtml#l00113">CVector::copy()</a>, and <a class="el" href="a00152_source.xhtml#l00172">CVector::mulC_I()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00131_source.xhtml#l00050">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00068_source.xhtml#l00025">CFingerprint::init()</a>, and <a class="el" href="a00077_source.xhtml#l00089">CBlockAudioFile::readFile2RingBuff()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00573_af7639b7368293c01c130192067fe0f4b_cgraph.svg" width="310" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00573_af7639b7368293c01c130192067fe0f4b_icgraph.svg" width="656" height="224"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<a id="a132f6c33b7f0ec539dabce8c970eac9e" name="a132f6c33b7f0ec539dabce8c970eac9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a132f6c33b7f0ec539dabce8c970eac9e">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00110.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CClassifierBase::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="a00577.xhtml#a75658b6df984b6a8c00049f35de655a8">CKnn</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac4365e3be5e1cc7ac964fcb6294aaae1" name="ac4365e3be5e1cc7ac964fcb6294aaae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4365e3be5e1cc7ac964fcb6294aaae1">&#9670;&nbsp;</a></span>kIllegalClassLabel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int CClassifierBase::kIllegalClassLabel = -1111111111</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00116_source.xhtml#l00022">22</a> of file <a class="el" href="a00116_source.xhtml">ToolSimpleKnn.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00044_source.xhtml#l00162">CKnn::buildHistogram_()</a>, and <a class="el" href="a00044_source.xhtml#l00126">CKnn::classify()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00116_source.xhtml">ToolSimpleKnn.h</a></li>
-<li><a class="el" href="a00044_source.xhtml">ToolSimpleKnn.cpp</a></li>
+<hr/>The documentation for this class was generated from the following file:<ul>
+<li><a class="el" href="a00131_source.xhtml">ToolPreProc.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00573.xhtml">CClassifierBase</a></li>
-    <li class="footer">Generated on Sat Jun 11 2022 21:04:56 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="navelem"><a class="el" href="a00573.xhtml">CPreProc</a></li>
+    <li class="footer">Generated on Sun Jun 12 2022 20:29:16 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

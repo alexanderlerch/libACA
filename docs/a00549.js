@@ -1,20 +1,21 @@
 var a00549 =
 [
-    [ "CPca", "a00549.xhtml#a8e574710bbd7c8ad293ceb34fec88fa7", null ],
-    [ "~CPca", "a00549.xhtml#a4d220e0d4ed54cba58ff4fe386cc1dbb", null ],
-    [ "CPca", "a00549.xhtml#a2f2d8fcb4171ab28af0924cd7a140f81", null ],
-    [ "calcSVD", "a00549.xhtml#ad4ff4cdaad1b362cecb9ffd451b3a217", null ],
-    [ "compCov", "a00549.xhtml#a6fb2c806d453b0c946cffbdcd46b027f", null ],
-    [ "compPca", "a00549.xhtml#a9e44c134c68146bdc539135f3225a2d4", null ],
-    [ "init", "a00549.xhtml#a870d00dfd933ca6b61a274743ecd7691", null ],
-    [ "matPythag", "a00549.xhtml#a4fdc8487d3685debf82a6acd12f6d37e", null ],
-    [ "operator=", "a00549.xhtml#a35b34b65ae81e8288b1082c11d9c75df", null ],
-    [ "reset", "a00549.xhtml#aabe6211d0934456e942340242309db42", null ],
-    [ "m_iNumFeatures", "a00549.xhtml#ab664849af5b6a4773ced51edbbb564a7", null ],
-    [ "m_iNumObs", "a00549.xhtml#a9a4e924546965b46fc57a9c165ed5dad", null ],
-    [ "m_ppfProcTmp", "a00549.xhtml#a2c8051f7271212cf100b0896750707db", null ],
-    [ "m_ppfU", "a00549.xhtml#a76550e0afbca81c6b468b6359b0b4324", null ],
-    [ "m_ppfV", "a00549.xhtml#a84d0cbaa874f4615ad1cb92da06bb73e", null ],
-    [ "m_ppfW", "a00549.xhtml#a0b2588bce0db746b77170358260223e7", null ],
-    [ "piSortIndices", "a00549.xhtml#ab13a6216bc5130693cdbacefa14e9316", null ]
+    [ "Phase_t", "a00549.xhtml#a43a46208a95c36586703e0624f89851f", [
+      [ "kPhasePrev", "a00549.xhtml#a43a46208a95c36586703e0624f89851fa94d22ac3a036d4fb728b4147e0bc082e", null ],
+      [ "kPhaseCurr", "a00549.xhtml#a43a46208a95c36586703e0624f89851fa14ec5c7d7819d74717e666178dfdb321", null ],
+      [ "kNumPhases", "a00549.xhtml#a43a46208a95c36586703e0624f89851fa10a92dfe50d9ee79b9fad29cb25b77f0", null ]
+    ] ],
+    [ "CInstFreq", "a00549.xhtml#a4b3af2ff4c095211a3c89701a6fdb9db", null ],
+    [ "~CInstFreq", "a00549.xhtml#a1798e1ab9b7e57efba2582bd35fb9537", null ],
+    [ "CInstFreq", "a00549.xhtml#a6decf6ec0686d7a29ad5cc247b8289bf", null ],
+    [ "operator=", "a00549.xhtml#ab0927c40774340a45228ef367163c0dc", null ],
+    [ "princArg_", "a00549.xhtml#a6e071b3927895821964b061eb7f87659", null ],
+    [ "process", "a00549.xhtml#ac2e104197886d92fd1e4ac6d1c0b7e75", null ],
+    [ "m_apfPhase", "a00549.xhtml#ae2524a698aaf1f7dcfe68598d1a29f99", null ],
+    [ "m_fSampleRate", "a00549.xhtml#a91480a29fe8b02ae1719345a059d6712", null ],
+    [ "m_iHopLength", "a00549.xhtml#ab0d435820d510002959aacfdb9730897", null ],
+    [ "m_iPhaseLength", "a00549.xhtml#a8be21e8a3d2ec397d8f22620e01286a1", null ],
+    [ "m_pCFft", "a00549.xhtml#a45249033b3b6b7af3a4ba587d17c98f3", null ],
+    [ "m_pfOmega", "a00549.xhtml#a01abd9dd7f3b74bbf8f40daa7305c0c3", null ],
+    [ "m_pfSwapBuff", "a00549.xhtml#a8cfc42dd78375869137b1ed56627d2f2", null ]
 ];
