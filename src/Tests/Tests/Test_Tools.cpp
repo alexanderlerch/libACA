@@ -472,6 +472,56 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
 
 }
 
+TEST_CASE("ToolsFingerprint", "[ToolsFingerprint]")
+{
+    int iLength = 24000;
+    float* pfInput = 0;
+
+    CVector::alloc(pfInput, iLength);
+
+    SECTION("SubFingerprint")
+    {
+        CSubFingerprint* pCInstance = new CSubFingerprint();
+
+        iLength = 1025;
+
+        CHECK(0 == pCInstance->compSubFingerprint(pfInput));
+
+        pfInput[500] = 1.F;
+        CHECK(Error_t::kNoError == pCInstance->reset());
+
+        CHECK(1<<24 == pCInstance->compSubFingerprint(pfInput));
+        for (auto n = 0; n < 16; n++)
+            CHECK(0 == pCInstance->compSubFingerprint(pfInput));
+        delete pCInstance;
+
+    }
+
+    SECTION("Fingerprint")
+    {
+        uint32_t* piResult;
+        long long iResLength = 0;
+
+        CSynthesis::genSine(pfInput, 1000.F, 8000.F, iLength);
+        CFingerprint* pCInstance = new CFingerprint();
+
+        REQUIRE(Error_t::kNoError == pCInstance->init(pfInput, iLength, 8000));
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compFingerprint(0));
+
+        iResLength = pCInstance->getFingerprintLength();
+        CVector::alloc(piResult, iResLength);
+        CHECK(Error_t::kNoError == pCInstance->compFingerprint(piResult));
+
+
+        CVector::free(piResult);
+        delete pCInstance;
+    }
+
+    CVector::free(pfInput);
+
+}
+
 TEST_CASE("ToolsKmeans", "[ToolsKmeans]")
 {
     float aafMu[2][2] = { {-5,5},{5,-5} };
@@ -536,12 +586,6 @@ TEST_CASE("ToolsKmeans", "[ToolsKmeans]")
     CVector::free(piResult);
 
     delete pCInstance;
-
-    //    [clusterIdx, state] = pyACA.ToolSimpleKmeans(V, 2)
-
-    //    self.assertEqual(np.sum(np.diff(clusterIdx[0:2 * iNumObs])), 0, "KM 1: block content incorrect")
-    //    self.assertEqual(np.sum(np.diff(clusterIdx[2 * iNumObs:-1])), 0, "KM 2: block content incorrect")
-    //    self.assertEqual(np.abs(clusterIdx[0] - clusterIdx[-1]), 1, "KM 3: block content incorrect")
 }
 
 TEST_CASE("ToolsKnn", "[ToolsKnn]")

@@ -17,10 +17,12 @@
 #include "Pitch.h"
 #include "PitchFromBlock.h"
 #include "Spectrogram.h"
+#include "SubFingerprint.h"
 
 #include "ToolBlockAudio.h"
 #include "ToolCcf.h"
 #include "ToolConversion.h"
+#include "ToolFingerprint.h"
 #include "ToolGammatone.h"
 #include "ToolInstFreq.h"
 #include "ToolLowPass.h"

@@ -1,10 +1,10 @@
+#include "AcaAll.h"
 
 #include <iostream>
+#include <fstream>
 #include <ctime>
 
-#include "ACAConfig.h"
-
-#include "AudioFileIf.h"
+#include "ToolFingerprint.h"
 
 using std::cout;
 using std::endl;
@@ -20,95 +20,97 @@ int main(int argc, char* argv[])
     std::string             sInputFilePath,                 //!< file paths
         sOutputFilePath;
 
-    static const int            kBlockSize = 1024;
-    long long                   iNumFrames = kBlockSize;
-    int                         iNumChannels;
+    long long iNumBlocks = 0; //!< number of blocks
 
-    float                       fModFrequencyInHz;
-    float                       fModWidthInSec;
+    uint32_t *piFingerprintRes = 0;
+    clock_t time = 0;
 
-    clock_t                     time = 0;
+    CFingerprint* pCInstance = 0;
 
-    float** ppfInputAudio = 0;
-    float** ppfOutputAudio = 0;
-
-    CAudioFileIf* phAudioFile = 0;
-    CAudioFileIf::FileSpec_t    stFileSpec;
+    std::fstream hOutputFile;
 
     showClInfo();
 
-
-    // command line args
-    if (argc < 5)
+    //////////////////////////////////////////////////////////////////////////////
+    // parse command line arguments
+    if (argc < 2)
     {
-        cout << "Incorrect number of arguments!" << endl;
+        cout << "Missing audio input path!" << endl;
+        cout << "Expected Synopsis: inputwavfile [outputtxtfile]" << endl;
         return -1;
     }
-    sInputFilePath = argv[1];
-    sOutputFilePath = argv[2];
-    fModFrequencyInHz = atof(argv[3]);
-    fModWidthInSec = atof(argv[4]);
-
-    ///////////////////////////////////////////////////////////////////////////
-    CAudioFileIf::create(phAudioFile);
-
-    phAudioFile->openFile(sInputFilePath, CAudioFileIf::kFileRead);
-    phAudioFile->getFileSpec(stFileSpec);
-    iNumChannels = stFileSpec.iNumChannels;
-    if (!phAudioFile->isOpen())
+    else
     {
-        cout << "Input file open error!";
-
-        CAudioFileIf::destroy(phAudioFile);
-        return -1;
+        sInputFilePath = argv[1];
+        sOutputFilePath = (argc < 3) ? "" : argv[2];
     }
-
-    // allocate memory
-    ppfInputAudio = new float* [stFileSpec.iNumChannels];
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
-        ppfInputAudio[i] = new float[kBlockSize];
-
-    ppfOutputAudio = new float* [stFileSpec.iNumChannels];
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
-        ppfOutputAudio[i] = new float[kBlockSize];
-
-
-    // processing
-    while (!phAudioFile->isEof())
-    {
-        phAudioFile->readData(ppfInputAudio, iNumFrames);
-    }
-    phAudioFile->getFileSpec(stFileSpec);
-
-
-    cout << "\nreading/writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
 
     //////////////////////////////////////////////////////////////////////////////
-    // clean-up
-    CAudioFileIf::destroy(phAudioFile);
+    // initialize Fingerprint instance
+    pCInstance = new CFingerprint();
+    if (!pCInstance)
+        return -1;
+    pCInstance->init(sInputFilePath);
+    iNumBlocks = pCInstance->getFingerprintLength();
 
-    for (int i = 0; i < stFileSpec.iNumChannels; i++)
+    piFingerprintRes = new uint32_t[iNumBlocks];
+
+    //////////////////////////////////////////////////////////////////////////////
+    // open the output text file
+    if (!sOutputFilePath.empty())
     {
-        delete[] ppfInputAudio[i];
-        delete[] ppfOutputAudio[i];
+        hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
+        if (!hOutputFile.is_open())
+        {
+            cout << "Text file open error!";
+            delete pCInstance;
+            return -1;
+        }
     }
-    delete[] ppfInputAudio;
-    delete[] ppfOutputAudio;
-    ppfInputAudio = 0;
-    ppfOutputAudio = 0;
+
+    time = clock();
+
+    //////////////////////////////////////////////////////////////////////////////
+    // compute Fingerprint
+    cout << "\n1. computing Fingerprint..." << endl;
+    pCInstance->compFingerprint(piFingerprintRes);
+
+    cout << "\n Fingerprint computation done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
+
+
+    //////////////////////////////////////////////////////////////////////////////
+    // file writing
+    if (!sOutputFilePath.empty())
+    {
+        time = clock(); 
+        cout << "\n2. writing output file..." << endl;
+
+        for (auto n = 0; n < iNumBlocks; n++)
+            hOutputFile << std::hex << piFingerprintRes[n] << endl;
+
+        cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
+    }
+
+    //////////////////////////////////////////////////////////////////////////////
+    // clean-up (close files, delete instances, and free memory)
+    hOutputFile.close();
+
+    delete pCInstance;
+
+    delete[] piFingerprintRes;
 
     // all done
     return 0;
-
 }
 
 
 void     showClInfo()
 {
-    cout << "ACA: ComputeFeature" << endl;
+    cout << "ACA v" << getAcaVersion() << ": Demo Executable for Fingerprint Extraction" << endl;
+    cout << "Build date: " << getAcaBuildDate() << endl;
     cout << "(c) 2022 by Alexander Lerch" << endl;
+    cout << "Synopsis: ComputeFingerprint inputwavfile [outputtxtfile] [blocksize] [hopsize]" << endl;
     cout << endl;
 
     return;
 }
-

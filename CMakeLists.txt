@@ -21,7 +21,7 @@ include(AddSrcDirectories)
 include(AddIncDirectories)
 
 # with tests or not
-option (WITH_TESTS "Use googletest for testing" ON)
+option (WITH_TESTS "Use catch2 for testing" ON)
 
 #######################################################################################################
 ## project specific stuff
@@ -34,7 +34,7 @@ list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ACA)
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeBeatHisto)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeChords)      
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFeature)       
-#list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFingerprint)       
+list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeFingerprint)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeKey)       
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeMelSpectrogram)   
 list (APPEND PROJECT_DIRECTORIES ${CMAKE_SOURCE_DIR}/src/ComputeNoveltyFunction)       

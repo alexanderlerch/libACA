@@ -1,8 +1,9 @@
 #if !defined(__ACA_ToolConversion_HEADER_INCLUDED__)
 #define __ACA_ToolConversion_HEADER_INCLUDED__
 
-#define _USE_MATH_DEFINES
+
 #include <cmath>
+#include <cstdint>
 #include <cassert>
 #include <map>
 #include <functional>
@@ -224,6 +225,46 @@ public:
     \return void
     */
     static void convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F);;
+
+    /*! converts a float vector in a 32 bit word based on the sign
+    \param pfVec vector of signed float values (length 32)
+    \return uint32_t 32 bit word
+    */
+    static uint32_t convertFloat2Word(const float* pfVec)
+    {
+        assert(pfVec);
+
+        int iLength = 32;
+        uint32_t iRes = 0;
+
+        for (auto b = 0; b < iLength; b++)
+        {
+            if (pfVec[b] > 0)
+                iRes += (1 << (b + 1));
+        }
+
+        return iRes;
+    }
+
+    /*! converts a 32 bit word into a float vector of -1.F and 1.F 
+    \param pfDest destination buffer (length 32, to be written)
+    \param iWord 32 bit word to be decoded
+    \return void
+    */
+    static void convertWord2Float(float* pfDest, uint32_t iWord)
+    {
+        assert(pfDest);
+
+        int iLength = 32;
+
+        for (auto b = 0; b < iLength; b++)
+        {
+            if (iWord & (1 << (b + 1)))
+                pfDest[b] = 1.F;
+            else
+                pfDest[b] = -1.F;
+        }
+    }
 
 protected:
     static float convertFreq2MelFant(float fFrequency);
