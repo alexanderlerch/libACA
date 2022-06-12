@@ -1,7 +1,7 @@
 #if !defined(__ACA_LowPass_HEADER_INCLUDED__)
 #define __ACA_LowPass_HEADER_INCLUDED__
 
-#define _USE_MATH_DEFINES
+
 #include <cmath>
 
 #include "RingBuffer.h"

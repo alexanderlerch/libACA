@@ -1,7 +1,7 @@
 #if !defined(__ACA_Vector_HEADER_INCLUDED__)
 #define __ACA_Vector_HEADER_INCLUDED__
 
-#define _USE_MATH_DEFINES
+
 #include <cassert>
 #include <cstring>
 #include <limits>

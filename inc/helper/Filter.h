@@ -1,7 +1,6 @@
 #if !defined(__ACA_Filter_HEADER_INCLUDED__)
 #define __ACA_Filter_HEADER_INCLUDED__
 
-#define _USE_MATH_DEFINES
 #include <cmath>
 
 #include "ErrorDef.h"

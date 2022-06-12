@@ -2,7 +2,7 @@
 #define __ACA_InstFreq_HEADER_INCLUDED__
 
 
-#define _USE_MATH_DEFINES
+
 #include <cassert>
 #include <cmath>
 

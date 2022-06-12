@@ -12,7 +12,7 @@
 //	Last modified: 97.05.29
 /////////////////////////////////////////////////////////
 
-#define _USE_MATH_DEFINES
+
 #include <math.h>
 //#include <stdlib.h>
 

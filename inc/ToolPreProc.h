@@ -5,6 +5,7 @@
 
 #include "AudioFileIf.h"
 
+#include "Matrix.h"
 #include "Vector.h"
 
 /*! \brief class with static utility functions for pre-processing 
@@ -60,9 +61,7 @@ public:
         float** ppfAudioData = 0;
 
         // alloc read buffer
-        CVector::alloc(ppfAudioData, stFileSpec.iNumChannels);
-        for (auto c = 0; c < stFileSpec.iNumChannels; c++)
-            CVector::alloc(ppfAudioData[c], iBlockLength);
+        CMatrix::alloc(ppfAudioData, stFileSpec.iNumChannels, iBlockLength);
 
         // store current file position for resetting later
         pCAudioFile->getPosition(iCurrPos);
@@ -95,9 +94,7 @@ public:
         pCAudioFile->setPosition(iCurrPos);
 
         //free internal memory
-        for (auto c = 0; c < stFileSpec.iNumChannels; c++)
-            CVector::free(ppfAudioData[c]);
-        CVector::free(ppfAudioData);
+        CMatrix::free(ppfAudioData, stFileSpec.iNumChannels);
     };
     CNormalizeAudio(const float* pfAudioBuff, long long iAudioLength) :
         m_fScaleFactor(1.F)

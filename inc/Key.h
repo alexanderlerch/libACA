@@ -81,15 +81,15 @@ public:
     */
     int compKey();
 
-    /*! returns Chord name as string
-    \param eChordIdx Chord index
+    /*! returns Key name as string
+    \param eKeyIdx Key index
     \return std::string
     */
     static std::string getKeyString(Keys_t eKeyIdx);
 
-    /*! returns Chord index from string
-    \param sChordString string describing the Chord
-    \return Chords_t
+    /*! returns Key index from string
+    \param sKeyString string describing the Key
+    \return Keys_t
     */
     static Keys_t getKeyIdxFromString(std::string sKeyString);
 

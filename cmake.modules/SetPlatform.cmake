@@ -28,6 +28,6 @@ if (MSVC)
 		set(ACA_WIN64 1)
 	endif ( CMAKE_CL_64 EQUAL 0 )
 
-	add_compile_options("/wd26812")
+	add_compile_options("-D_USE_MATH_DEFINES" "/wd26812")
 	  
 endif (MSVC)

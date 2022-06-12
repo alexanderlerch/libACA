@@ -1,4 +1,3 @@
-#define _USE_MATH_DEFINES
 #include <limits>
 
 #include "Filter.h"
@@ -12,7 +11,7 @@
 #include "PitchFromBlock.h"
 
 ///////////////////////////////////////////////////////////////////
-// Pitchs that need "memory" so can't easily work as static functions
+// Pitch extractors
 class CPitchSpectralAcf : public CPitchFromBlockIf
 {
 public:
