@@ -1,4 +1,5 @@
 var a00170 =
 [
-    [ "CConversion", "a00537.xhtml", "a00537" ]
+    [ "CSpectrogramIf", "a00523.xhtml", "a00523" ],
+    [ "CSpectrogramIf::MelSpectrogramConfig_t", "a00527.xhtml", "a00527" ]
 ];

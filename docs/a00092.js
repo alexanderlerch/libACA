@@ -1,5 +1,5 @@
 var a00092 =
 [
-    [ "CNoveltyFromFile", "a00353.xhtml", "a00353" ],
-    [ "CNoveltyFromVector", "a00357.xhtml", "a00357" ]
+    [ "CNoveltyFromFile", "a00359.xhtml", "a00359" ],
+    [ "CNoveltyFromVector", "a00363.xhtml", "a00363" ]
 ];

@@ -1,4 +1,4 @@
 var a00194 =
 [
-    [ "CInstFreq", "a00549.xhtml", "a00549" ]
+    [ "CKmeans", "a00603.xhtml", "a00603" ]
 ];

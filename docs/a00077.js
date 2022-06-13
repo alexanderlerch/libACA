@@ -1,5 +1,5 @@
 var a00077 =
 [
-    [ "CBlockAudioFile", "a00401.xhtml", "a00401" ],
-    [ "CBlockAudioBuffer", "a00405.xhtml", "a00405" ]
+    [ "CBlockAudioFile", "a00407.xhtml", "a00407" ],
+    [ "CBlockAudioBuffer", "a00411.xhtml", "a00411" ]
 ];

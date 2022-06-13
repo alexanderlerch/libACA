@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['cleanupcontext_0',['cleanUpContext',['../a01105.xhtml#ac07cdb7d744cc8f09672d924324b55fd',1,'Catch::IMutableContext']]],
-  ['cnmf_1',['CNmf',['../a00561.xhtml#a02bd4ca3a931ac6ff896ee8a3480045b',1,'CNmfResult']]]
+  ['cgmm_0',['CGmm',['../a00555.xhtml#a663d581e819c697fb2be55a492020470',1,'CGmmResult']]],
+  ['cleanupcontext_1',['cleanUpContext',['../a01119.xhtml#ac07cdb7d744cc8f09672d924324b55fd',1,'Catch::IMutableContext']]],
+  ['cnmf_2',['CNmf',['../a00575.xhtml#a02bd4ca3a931ac6ff896ee8a3480045b',1,'CNmfResult']]]
 ];

@@ -1,7 +1,6 @@
 var a00290 =
 [
-    [ "Detail", "a00291.xhtml", [
-      [ "finalizeDescription", "a00291.xhtml#a79ef1103073f7a8d31735436d2012835", null ]
-    ] ],
-    [ "PredicateMatcher", "a00989.xhtml", "a00989" ]
+    [ "is_range_impl", "a00823.xhtml", null ],
+    [ "is_range_impl< T, typename void_type< decltype(begin(std::declval< T >()))>::type >", "a00827.xhtml", null ],
+    [ "void_type", "a00819.xhtml", "a00819" ]
 ];

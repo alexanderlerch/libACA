@@ -1,6 +1,9 @@
 var a00101 =
 [
-    [ "CChordFromFile", "a00289.xhtml", "a00289" ],
-    [ "CChordFromVector", "a00293.xhtml", "a00293" ],
-    [ "_USE_MATH_DEFINES", "a00101.xhtml#a525335710b53cb064ca56b936120431e", null ]
+    [ "CPitchSpectralAcf", "a00375.xhtml", "a00375" ],
+    [ "CPitchSpectralHps", "a00379.xhtml", "a00379" ],
+    [ "CPitchTimeAcf", "a00383.xhtml", "a00383" ],
+    [ "CPitchTimeAuditory", "a00387.xhtml", "a00387" ],
+    [ "CPitchTimeAmdf", "a00391.xhtml", "a00391" ],
+    [ "CPitchTimeZeroCrossings", "a00395.xhtml", "a00395" ]
 ];

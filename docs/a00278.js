@@ -1,7 +1,5 @@
 var a00278 =
 [
-    [ "Detail", "a00279.xhtml", [
-      [ "finalizeDescription", "a00279.xhtml#a79ef1103073f7a8d31735436d2012835", null ]
-    ] ],
-    [ "PredicateMatcher", "a00969.xhtml", "a00969" ]
+    [ "irealfft_split", "a00278.xhtml#a3597bc1b9aa8e068d7313a72c4e51eef", null ],
+    [ "realfft_split", "a00278.xhtml#a32fc71031e721d003fd1dc07f771351d", null ]
 ];

@@ -1,4 +1,5 @@
 var a00134 =
 [
-    [ "CKeyFromChroma", "a00497.xhtml", "a00497" ]
+    [ "CPreProc", "a00587.xhtml", "a00587" ],
+    [ "CNormalizeAudio", "a00591.xhtml", "a00591" ]
 ];

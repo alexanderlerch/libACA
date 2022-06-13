@@ -1,4 +1,4 @@
 var a00227 =
 [
-    [ "CPitchIf", "a00509.xhtml", "a00509" ]
+    [ "CBeatHistoIf", "a00447.xhtml", "a00447" ]
 ];

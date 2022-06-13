@@ -1,0 +1,38 @@
+var a00523 =
+[
+    [ "MelSpectrogramConfig_t", "a00527.xhtml", "a00527" ],
+    [ "AxisLabel_t", "a00523.xhtml#aadd5bf0e8b40d9ba74dd66ce28bafbcf", [
+      [ "kFrequencyInHz", "a00523.xhtml#aadd5bf0e8b40d9ba74dd66ce28bafbcfa0ae125df6dd5dd61b17eed69fc25c61d", null ],
+      [ "kTimeInS", "a00523.xhtml#aadd5bf0e8b40d9ba74dd66ce28bafbcfa60478da724acf03bab5f69ae664dbe58", null ],
+      [ "kNumAxisLabels", "a00523.xhtml#aadd5bf0e8b40d9ba74dd66ce28bafbcfaffe490e57f97386928481c89dfc849b9", null ]
+    ] ],
+    [ "CSpectrogramIf", "a00523.xhtml#a8808d63b1b795444056e6ccdf46fc2b0", null ],
+    [ "~CSpectrogramIf", "a00523.xhtml#a321f47e4165fa5c8b78c0fa47286b53b", null ],
+    [ "CSpectrogramIf", "a00523.xhtml#a887642514f36ecb7048a7c53ec226a16", null ],
+    [ "compMelSpectrogram", "a00523.xhtml#ae89af275cdd54029bbf7f0f25ddf7945", null ],
+    [ "compSpectrogram", "a00523.xhtml#ae041a770ec2b092761d9a88cc87946bb", null ],
+    [ "computeMagSpectrum_", "a00523.xhtml#abe25089ec6ef77b0b9952c33a7a8d739", null ],
+    [ "create", "a00523.xhtml#acca54a9dc56a85685da272ee71d054d9", null ],
+    [ "create", "a00523.xhtml#acd73d8c1aaaed8b188de6b8bf2103139", null ],
+    [ "destroy", "a00523.xhtml#a6511fc72ef04be91a712ee5ef479bd7e", null ],
+    [ "destroyMelFb_", "a00523.xhtml#a00140b0dd45e87aef4561aed8ebc779a", null ],
+    [ "generateMelFb_", "a00523.xhtml#a04d8f71d4562f2a4efc8a8537826d8c3", null ],
+    [ "getMelSpectrogramAxisVectors", "a00523.xhtml#afbc5337ad3646cbba2b189323de6ce3a", null ],
+    [ "getMelSpectrogramDimensions", "a00523.xhtml#af50a3669266ad696a1159b1bb80b1c8a", null ],
+    [ "getSpectrogramAxisVectors", "a00523.xhtml#a2efaeb2df2ddfdc633ba53b2bb49b528", null ],
+    [ "getSpectrogramDimensions", "a00523.xhtml#afb50af1070f5876b4706f5891879fcd8", null ],
+    [ "init_", "a00523.xhtml#a9c4b2db2031256e48ade8c9fa235b6f2", null ],
+    [ "operator=", "a00523.xhtml#a532de34b312a3f850fa8ad4fb3cde62a", null ],
+    [ "reset_", "a00523.xhtml#afbe3214c599eaab59c8c5a886408630c", null ],
+    [ "m_bIsInitialized", "a00523.xhtml#a92d816e5c53f69e15c9fef51876d771d", null ],
+    [ "m_fSampleRate", "a00523.xhtml#ad41fa79049fdd292778046629a62139f", null ],
+    [ "m_iBlockLength", "a00523.xhtml#aeb9a67e20abef3f1028bb8db15022a0a", null ],
+    [ "m_iHopLength", "a00523.xhtml#a3520208ce92977729d22e1bbaa5b9532", null ],
+    [ "m_pCBlockAudio", "a00523.xhtml#a8b0cd13bbb3570f6b87017b11ca10d63", null ],
+    [ "m_pCFft", "a00523.xhtml#af2d9ad1a7f19819df98a16a12910793b", null ],
+    [ "m_pCNormalize", "a00523.xhtml#a42a7505fe0188726c859c4656eaf61eb", null ],
+    [ "m_pffcMel", "a00523.xhtml#a3311e6dae017c1c94dc174a3ae99a1dc", null ],
+    [ "m_pfProcessBuff", "a00523.xhtml#a28a5478e7c2d69b9f9fb23042d2ec609", null ],
+    [ "m_pfSpectrum", "a00523.xhtml#a46220f31318fed176ec507649fae3e50", null ],
+    [ "m_ppfHMel", "a00523.xhtml#ae3a0596e56fb18c4bd4a42a3f75710ed", null ]
+];
