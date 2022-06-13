@@ -60,12 +60,12 @@ private:
     float m_fSampleRate = 0; //!< sample rate in Hz
 
 #ifdef ACA_USE_DOUBLE
-    double m_aafCoeffB[kNumFilters][kNumCoeffs] = { 0 };
-    double m_aafCoeffA[kNumFilters][kNumCoeffs] = { 0 };
+    double m_aafCoeffB[kNumFilters][kNumCoeffs] = { { 0 } };
+    double m_aafCoeffA[kNumFilters][kNumCoeffs] = { { 0 } };
     CFilter<double>* m_apCFilter[kNumFilters] = { 0 };
 #else
-    float m_aafCoeffB[kNumFilters][kNumCoeffs] = { 0 }; //!< FIR coefficients
-    float m_aafCoeffA[kNumFilters][kNumCoeffs] = { 0 }; //!< IIR coefficients
+    float m_aafCoeffB[kNumFilters][kNumCoeffs] = { { 0 } }; //!< FIR coefficients
+    float m_aafCoeffA[kNumFilters][kNumCoeffs] = { { 0 } }; //!< IIR coefficients
     CFilter<float>* m_apCFilter[kNumFilters] = { 0 }; //!< number crunching (multiple instances b/c cascaded)
 #endif // ACA_USE_DOUBLE
     bool m_bIsInitialized = false; //!< flag indicating that this is initialized

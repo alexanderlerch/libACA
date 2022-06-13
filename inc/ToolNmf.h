@@ -55,7 +55,7 @@ private:
 
     float** m_appfMatrices[kNumMatrices] = { 0 }; //!< arry holding all matrix pointers
 
-    int m_aaiMatrixDims[kNumMatrices][2] = { 0 }; //!< array holding the various matrix dimensions
+    int m_aaiMatrixDims[kNumMatrices][2] = { { 0 } }; //!< array holding the various matrix dimensions
 
     bool m_bIsInitialized = false; //!< flag to indicate whether instance is initialized
 };

@@ -115,7 +115,7 @@ public:
             pfOutIdx[i] = i * m_fInSampleRate / m_fOutSampleRate;
 
         // compute butterworth low pass filter coefficients
-        float aafCoeffs[2][iOrder+1] = { 0 };
+        float aafCoeffs[2][iOrder + 1] = { { 0 } };
         CButterLp::calcCoeffs(aafCoeffs[0], aafCoeffs[1], iOrder, .9F * fOmegaCutoff);
         m_pCFilter->init(aafCoeffs[0], aafCoeffs[1], iOrder+1);
 
