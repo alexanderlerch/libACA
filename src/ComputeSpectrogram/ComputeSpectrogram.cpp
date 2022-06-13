@@ -114,7 +114,6 @@ int main(int argc, char* argv[])
     for (int k = 0; k < aiSpecGramDimensions[0]; k++)
         delete[] ppfSpectrogram[k];
     delete[] ppfSpectrogram;
-    ppfSpectrogram = 0;
 
     // all done
     return 0;

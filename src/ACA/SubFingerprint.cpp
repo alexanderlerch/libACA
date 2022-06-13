@@ -92,7 +92,7 @@ void CSubFingerprint::genBands_()
     {
         float fHighBound = afFreqBounds[kLow] * std::exp((p+1) * fFreqScale / iNumBands);
         // get indices from freqs
-        int aiBoundIdx[kNumBounds] = { static_cast<int>(CConversion::convertFreq2Bin(fLowBound, iFftLength, m_fSampleRate)) + 1,
+        const int aiBoundIdx[kNumBounds] = { static_cast<int>(CConversion::convertFreq2Bin(fLowBound, iFftLength, m_fSampleRate)) + 1,
             static_cast<int>(CConversion::convertFreq2Bin(fHighBound, iFftLength, m_fSampleRate)) };
 
         CVector::setValue(&m_ppfH[p][aiBoundIdx[kLow]], 1.F, aiBoundIdx[kHigh] + static_cast<long long>(1) - aiBoundIdx[kLow] );

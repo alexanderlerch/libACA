@@ -123,7 +123,6 @@ int main(int argc, char* argv[])
     for (int k = 0; k < aiFeatureDimensions[0]; k++)
         delete[] ppfFeature[k];
     delete[] ppfFeature;
-    ppfFeature = 0;
 
     // all done
     return 0;

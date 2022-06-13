@@ -22,7 +22,6 @@ int main(int argc, char* argv[])
 
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
-    int iNumBlocks = 0; //!< number of blocks
 
     int iKeyRes = -1;
     clock_t time = 0;

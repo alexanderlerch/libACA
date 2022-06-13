@@ -166,7 +166,7 @@ void CKmeans::assignClusterLabels_(int* piResult, float** ppfFeatures)
         float fMin = 0;
         long long iMin = -1;
 
-        CMatrix::getCol(m_pfProc, ppfFeatures, n, m_iNumFeatures, m_iNumObs);
+        CMatrix::getCol(m_pfProc, ppfFeatures, n, m_iNumFeatures);
         // compute distance to all training observations
         for (auto k = 0; k < m_iK; k++)
             m_pfDist[k] = CVector::distEuclidean(m_appfClusterMeans[kCurr][k], m_pfProc, m_iNumFeatures);
