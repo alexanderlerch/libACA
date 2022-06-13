@@ -2,6 +2,7 @@ var a00489 =
 [
     [ "add_I", "a00489.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb", null ],
     [ "addC_I", "a00489.xhtml#a22ff86e4fc2f8d5042159d9c84a7ff14", null ],
+    [ "addW_I", "a00489.xhtml#a2239b170d46ed3d0846d766a0634a0be", null ],
     [ "alloc", "a00489.xhtml#abaadac98b1cad18b7b568852bc951696", null ],
     [ "copy", "a00489.xhtml#ad7c5cba73e439adac77778f61c9418f0", null ],
     [ "distCosine", "a00489.xhtml#a45f65002e2aab7eabf8702b8bcc8d30b", null ],

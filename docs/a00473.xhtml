@@ -170,6 +170,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:ab4215ef0262601f6f06956904a48c8b8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ab4215ef0262601f6f06956904a48c8b8"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00473.xhtml#ab4215ef0262601f6f06956904a48c8b8">setRow</a> (T **pptDestMat, T *ptSrcVec, int iRowIdx, int iNumCols)</td></tr>
 <tr class="separator:ab4215ef0262601f6f06956904a48c8b8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7de6a75fccded32c57d3fe168263204f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a7de6a75fccded32c57d3fe168263204f"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00473.xhtml#a7de6a75fccded32c57d3fe168263204f">det</a> (T **pptMat, int iNumRows, int iNumCols)</td></tr>
+<tr class="separator:a7de6a75fccded32c57d3fe168263204f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a37585f57926ea2921734907bacc6cce8"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a37585f57926ea2921734907bacc6cce8"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00473.xhtml#a37585f57926ea2921734907bacc6cce8">inv_I</a> (T **pptSrcDest, int iNumRows, int iNumCols)</td></tr>
 <tr class="separator:a37585f57926ea2921734907bacc6cce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -405,7 +408,7 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00152_source.xhtml#l00024">CVector::alloc()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00489">CFeatureSpectralMfccs::allocDctMat_()</a>, <a class="el" href="a00077_source.xhtml#l00014">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00056_source.xhtml#l00053">CChordFromBlockIf::CChordFromBlockIf()</a>, <a class="el" href="a00038_source.xhtml#l00362">CFeatureSpectralMfccs::CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.xhtml#l00512">CFeatureSpectralPitchChroma::CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00131_source.xhtml#l00050">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00032_source.xhtml#l00081">CKey::compKey()</a>, <a class="el" href="a00098_source.xhtml#l00215">CPitchTimeAuditory::CPitchTimeAuditory()</a>, <a class="el" href="a00089_source.xhtml#l00011">CSubFingerprint::CSubFingerprint()</a>, <a class="el" href="a00086_source.xhtml#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00053_source.xhtml#l00019">CNmf::init()</a>, <a class="el" href="a00068_source.xhtml#l00025">CFingerprint::init()</a>, <a class="el" href="a00080_source.xhtml#l00017">CViterbi::init()</a>, <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>, <a class="el" href="a00041_source.xhtml#l00014">CKmeans::init()</a>, <a class="el" href="a00059_source.xhtml#l00009">CPca::init()</a>, <a class="el" href="a00062_source.xhtml#l00028">CDtw::init()</a>, <a class="el" href="a00053_source.xhtml#l00178">CNmfResult::init()</a>, <a class="el" href="a00107_source.xhtml#l00394">CChordIf::init_()</a>, <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>, <a class="el" href="a00146_source.xhtml#l00748">inv_I()</a>, and <a class="el" href="a00149_source.xhtml#l00237">CFilter&lt; T &gt;::setInitState_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00489">CFeatureSpectralMfccs::allocDctMat_()</a>, <a class="el" href="a00077_source.xhtml#l00014">CBlockAudioFile::CBlockAudioFile()</a>, <a class="el" href="a00056_source.xhtml#l00053">CChordFromBlockIf::CChordFromBlockIf()</a>, <a class="el" href="a00038_source.xhtml#l00362">CFeatureSpectralMfccs::CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.xhtml#l00512">CFeatureSpectralPitchChroma::CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00131_source.xhtml#l00050">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00032_source.xhtml#l00081">CKey::compKey()</a>, <a class="el" href="a00098_source.xhtml#l00215">CPitchTimeAuditory::CPitchTimeAuditory()</a>, <a class="el" href="a00089_source.xhtml#l00011">CSubFingerprint::CSubFingerprint()</a>, <a class="el" href="a00146_source.xhtml#l00657">det()</a>, <a class="el" href="a00086_source.xhtml#l00380">CSpectrogramIf::generateMelFb_()</a>, <a class="el" href="a00053_source.xhtml#l00019">CNmf::init()</a>, <a class="el" href="a00068_source.xhtml#l00025">CFingerprint::init()</a>, <a class="el" href="a00080_source.xhtml#l00017">CViterbi::init()</a>, <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>, <a class="el" href="a00041_source.xhtml#l00014">CKmeans::init()</a>, <a class="el" href="a00059_source.xhtml#l00009">CPca::init()</a>, <a class="el" href="a00062_source.xhtml#l00028">CDtw::init()</a>, <a class="el" href="a00053_source.xhtml#l00178">CNmfResult::init()</a>, <a class="el" href="a00107_source.xhtml#l00394">CChordIf::init_()</a>, <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>, <a class="el" href="a00146_source.xhtml#l00750">inv_I()</a>, and <a class="el" href="a00149_source.xhtml#l00237">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -579,7 +582,7 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00152_source.xhtml#l00113">CVector::copy()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00059_source.xhtml#l00100">CPca::calcSVD()</a>, <a class="el" href="a00041_source.xhtml#l00054">CKmeans::compKmeans()</a>, <a class="el" href="a00053_source.xhtml#l00237">CNmfResult::getMat()</a>, <a class="el" href="a00080_source.xhtml#l00017">CViterbi::init()</a>, <a class="el" href="a00146_source.xhtml#l00748">inv_I()</a>, and <a class="el" href="a00053_source.xhtml#l00097">CNmf::runNmfIter()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00059_source.xhtml#l00100">CPca::calcSVD()</a>, <a class="el" href="a00041_source.xhtml#l00054">CKmeans::compKmeans()</a>, <a class="el" href="a00146_source.xhtml#l00657">det()</a>, <a class="el" href="a00053_source.xhtml#l00237">CNmfResult::getMat()</a>, <a class="el" href="a00080_source.xhtml#l00017">CViterbi::init()</a>, <a class="el" href="a00146_source.xhtml#l00750">inv_I()</a>, and <a class="el" href="a00053_source.xhtml#l00097">CNmf::runNmfIter()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -589,7 +592,152 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00473_a9f723a71e61f425d0ee9a51aa2162bf3_icgraph.svg" width="100%" height="536"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00473_a9f723a71e61f425d0ee9a51aa2162bf3_icgraph.svg" width="100%" height="574"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a7de6a75fccded32c57d3fe168263204f" name="a7de6a75fccded32c57d3fe168263204f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7de6a75fccded32c57d3fe168263204f">&#9670;&nbsp;</a></span>det()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static T CMatrix::det </td>
+          <td>(</td>
+          <td class="paramtype">T **&#160;</td>
+          <td class="paramname"><em>pptMat</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumRows</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumCols</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00146_source.xhtml#l00657">657</a> of file <a class="el" href="a00146_source.xhtml">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  658</span>    {</div>
+<div class="line"><span class="lineno">  659</span>        assert(pptMat);</div>
+<div class="line"><span class="lineno">  660</span>        assert(iNumRows == iNumCols);</div>
+<div class="line"><span class="lineno">  661</span> </div>
+<div class="line"><span class="lineno">  662</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> kSingularityThresh = 1e-15F;</div>
+<div class="line"><span class="lineno">  663</span>        T **pptTmp = 0;</div>
+<div class="line"><span class="lineno">  664</span>        <span class="keywordtype">double</span> dDet = 1;</div>
+<div class="line"><span class="lineno">  665</span> </div>
+<div class="line"><span class="lineno">  666</span> </div>
+<div class="line"><span class="lineno">  667</span>        <span class="keywordflow">if</span> (iNumRows == 2)</div>
+<div class="line"><span class="lineno">  668</span>            <span class="keywordflow">return</span> ((pptMat[0][0] * pptMat[1][1]) - (pptMat[0][1] * pptMat[1][0]));</div>
+<div class="line"><span class="lineno">  669</span> </div>
+<div class="line"><span class="lineno">  670</span>        <a class="code hl_function" href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a>(pptTmp, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  671</span>        <a class="code hl_function" href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">CMatrix::copy</a>(pptTmp, pptMat, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  672</span> </div>
+<div class="line"><span class="lineno">  673</span>        <span class="keywordflow">if</span> (pptTmp[0][0] == 0)</div>
+<div class="line"><span class="lineno">  674</span>        {</div>
+<div class="line"><span class="lineno">  675</span>            <span class="keyword">auto</span> i = 1;</div>
+<div class="line"><span class="lineno">  676</span>            <span class="keywordflow">while</span> (i &lt; iNumRows)</div>
+<div class="line"><span class="lineno">  677</span>            {</div>
+<div class="line"><span class="lineno">  678</span>                <span class="keywordflow">if</span> (pptTmp[i][0] != 0)</div>
+<div class="line"><span class="lineno">  679</span>                {</div>
+<div class="line"><span class="lineno">  680</span>                    <a class="code hl_function" href="a00473.xhtml#a036ce0072f4da74a8809550d21eac9dd">swapRowCol</a>(pptTmp, 0, i, iNumCols);</div>
+<div class="line"><span class="lineno">  681</span>                    dDet *= -1;</div>
+<div class="line"><span class="lineno">  682</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  683</span>                }</div>
+<div class="line"><span class="lineno">  684</span>                i++;</div>
+<div class="line"><span class="lineno">  685</span>            }</div>
+<div class="line"><span class="lineno">  686</span>        }</div>
+<div class="line"><span class="lineno">  687</span> </div>
+<div class="line"><span class="lineno">  688</span>        <span class="keywordflow">if</span> (pptTmp[0][0] == 0)</div>
+<div class="line"><span class="lineno">  689</span>        {</div>
+<div class="line"><span class="lineno">  690</span>            <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(pptTmp, iNumRows);</div>
+<div class="line"><span class="lineno">  691</span>            <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  692</span>        }</div>
+<div class="line"><span class="lineno">  693</span> </div>
+<div class="line"><span class="lineno">  694</span>        dDet *= pptTmp[0][0];</div>
+<div class="line"><span class="lineno">  695</span> </div>
+<div class="line"><span class="lineno">  696</span>        <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pptTmp[0], 1.F / pptTmp[0][0], iNumCols);</div>
+<div class="line"><span class="lineno">  697</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 1; i &lt; iNumRows; i++)</div>
+<div class="line"><span class="lineno">  698</span>        {</div>
+<div class="line"><span class="lineno">  699</span>            <span class="keyword">auto</span> j = 0;</div>
+<div class="line"><span class="lineno">  700</span> </div>
+<div class="line"><span class="lineno">  701</span>            <span class="keywordflow">if</span> (std::abs(dDet) &lt; kSingularityThresh * 1. * kSingularityThresh)</div>
+<div class="line"><span class="lineno">  702</span>                dDet = 0;</div>
+<div class="line"><span class="lineno">  703</span> </div>
+<div class="line"><span class="lineno">  704</span>            <span class="keywordflow">while</span> (j &lt; i)</div>
+<div class="line"><span class="lineno">  705</span>            {</div>
+<div class="line"><span class="lineno">  706</span>                <a class="code hl_function" href="a00489.xhtml#a2239b170d46ed3d0846d766a0634a0be">CVector::addW_I</a>(pptTmp[i], pptTmp[j], -pptTmp[i][j], iNumCols);</div>
+<div class="line"><span class="lineno">  707</span>                j++;</div>
+<div class="line"><span class="lineno">  708</span>            }</div>
+<div class="line"><span class="lineno">  709</span> </div>
+<div class="line"><span class="lineno">  710</span>            <span class="keywordflow">if</span> (pptTmp[i][i] != 0)</div>
+<div class="line"><span class="lineno">  711</span>            {</div>
+<div class="line"><span class="lineno">  712</span>                dDet *= pptTmp[i][i];</div>
+<div class="line"><span class="lineno">  713</span>                <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pptTmp[i], 1.F / pptTmp[i][i], iNumCols);</div>
+<div class="line"><span class="lineno">  714</span>            }</div>
+<div class="line"><span class="lineno">  715</span> </div>
+<div class="line"><span class="lineno">  716</span>            <span class="keywordflow">if</span> (pptTmp[i][i] == 0)</div>
+<div class="line"><span class="lineno">  717</span>            {</div>
+<div class="line"><span class="lineno">  718</span>                <span class="keywordflow">for</span> (j = i + 1; j &lt; iNumCols; j++)</div>
+<div class="line"><span class="lineno">  719</span>                {</div>
+<div class="line"><span class="lineno">  720</span>                    <span class="keywordflow">if</span> (pptTmp[i][j] != 0)</div>
+<div class="line"><span class="lineno">  721</span>                    {</div>
+<div class="line"><span class="lineno">  722</span>                        <a class="code hl_function" href="a00489.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb">CVector::add_I</a>(pptTmp[i], pptTmp[j], iNumCols);</div>
+<div class="line"><span class="lineno">  723</span> </div>
+<div class="line"><span class="lineno">  724</span>                        dDet *= pptTmp[i][i];</div>
+<div class="line"><span class="lineno">  725</span>                        <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pptTmp[i], 1.F / pptTmp[i][i], iNumCols);</div>
+<div class="line"><span class="lineno">  726</span>                        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  727</span>                    }</div>
+<div class="line"><span class="lineno">  728</span>                }</div>
+<div class="line"><span class="lineno">  729</span>            }</div>
+<div class="line"><span class="lineno">  730</span> </div>
+<div class="line"><span class="lineno">  731</span>            <span class="keywordflow">if</span> (pptTmp[i][i] == 0)</div>
+<div class="line"><span class="lineno">  732</span>            {</div>
+<div class="line"><span class="lineno">  733</span>                <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(pptTmp, iNumRows);</div>
+<div class="line"><span class="lineno">  734</span>                <span class="keywordflow">return</span> 0;</div>
+<div class="line"><span class="lineno">  735</span>            }</div>
+<div class="line"><span class="lineno">  736</span>        }</div>
+<div class="line"><span class="lineno">  737</span> </div>
+<div class="line"><span class="lineno">  738</span>        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(pptTmp, iNumRows);</div>
+<div class="line"><span class="lineno">  739</span> </div>
+<div class="line"><span class="lineno">  740</span>        <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span>T<span class="keyword">&gt;</span>(dDet);</div>
+<div class="line"><span class="lineno">  741</span>    }</div>
+<div class="ttc" id="aa00473_xhtml_a036ce0072f4da74a8809550d21eac9dd"><div class="ttname"><a href="a00473.xhtml#a036ce0072f4da74a8809550d21eac9dd">CMatrix::swapRowCol</a></div><div class="ttdeci">static void swapRowCol(float **pptSrcDest, int iRowIdx, int iColIdx, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00603">Matrix.h:603</a></div></div>
+<div class="ttc" id="aa00473_xhtml_a591097c6b1935c4d6273b3445f8f552b"><div class="ttname"><a href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;pptMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00040">Matrix.h:40</a></div></div>
+<div class="ttc" id="aa00473_xhtml_a6501b78d76c912d49eee88c8f7242923"><div class="ttname"><a href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;pptMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00022">Matrix.h:22</a></div></div>
+<div class="ttc" id="aa00473_xhtml_a9f723a71e61f425d0ee9a51aa2162bf3"><div class="ttname"><a href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">CMatrix::copy</a></div><div class="ttdeci">static void copy(T **pptDestMat, T **pptSrcMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00627">Matrix.h:627</a></div></div>
+<div class="ttc" id="aa00489_xhtml_a2239b170d46ed3d0846d766a0634a0be"><div class="ttname"><a href="a00489.xhtml#a2239b170d46ed3d0846d766a0634a0be">CVector::addW_I</a></div><div class="ttdeci">static void addW_I(T *ptSrcDest, const T *ptSrc, T fWeight, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00422">Vector.h:422</a></div></div>
+<div class="ttc" id="aa00489_xhtml_a3a052b83e62e5c5cc44829c64ffe42eb"><div class="ttname"><a href="a00489.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb">CVector::add_I</a></div><div class="ttdeci">static void add_I(T *ptSrcDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00245">Vector.h:245</a></div></div>
+<div class="ttc" id="aa00489_xhtml_a9811f50434dd058d201290b2dc98bfcd"><div class="ttname"><a href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a></div><div class="ttdeci">static void mulC_I(T *ptSrcDest, T fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00172">Vector.h:172</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00245">CVector::add_I()</a>, <a class="el" href="a00152_source.xhtml#l00422">CVector::addW_I()</a>, <a class="el" href="a00146_source.xhtml#l00022">alloc()</a>, <a class="el" href="a00146_source.xhtml#l00627">copy()</a>, <a class="el" href="a00146_source.xhtml#l00040">free()</a>, <a class="el" href="a00152_source.xhtml#l00172">CVector::mulC_I()</a>, and <a class="el" href="a00146_source.xhtml#l00603">swapRowCol()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00473_a7de6a75fccded32c57d3fe168263204f_cgraph.svg" width="615" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
@@ -825,7 +973,7 @@ template&lt;typename T &gt; </div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00152_source.xhtml#l00039">CVector::free()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00131_source.xhtml#l00050">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00032_source.xhtml#l00081">CKey::compKey()</a>, <a class="el" href="a00038_source.xhtml#l00496">CFeatureSpectralMfccs::deleteDctMat_()</a>, <a class="el" href="a00086_source.xhtml#l00233">CSpectrogramIf::destroyMelFb_()</a>, <a class="el" href="a00068_source.xhtml#l00025">CFingerprint::init()</a>, <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>, <a class="el" href="a00146_source.xhtml#l00748">inv_I()</a>, <a class="el" href="a00053_source.xhtml#l00207">CNmfResult::reset()</a>, <a class="el" href="a00053_source.xhtml#l00044">CNmf::reset()</a>, <a class="el" href="a00059_source.xhtml#l00027">CPca::reset()</a>, <a class="el" href="a00062_source.xhtml#l00050">CDtw::reset()</a>, <a class="el" href="a00041_source.xhtml#l00036">CKmeans::reset()</a>, <a class="el" href="a00080_source.xhtml#l00050">CViterbi::reset()</a>, <a class="el" href="a00044_source.xhtml#l00087">CKnn::reset()</a>, <a class="el" href="a00107_source.xhtml#l00366">CChordIf::reset_()</a>, <a class="el" href="a00149_source.xhtml#l00237">CFilter&lt; T &gt;::setInitState_()</a>, <a class="el" href="a00077_source.xhtml#l00042">CBlockAudioFile::~CBlockAudioFile()</a>, <a class="el" href="a00056_source.xhtml#l00063">CChordFromBlockIf::~CChordFromBlockIf()</a>, <a class="el" href="a00038_source.xhtml#l00373">CFeatureSpectralMfccs::~CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.xhtml#l00520">CFeatureSpectralPitchChroma::~CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00098_source.xhtml#l00238">CPitchTimeAuditory::~CPitchTimeAuditory()</a>, and <a class="el" href="a00089_source.xhtml#l00027">CSubFingerprint::~CSubFingerprint()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00131_source.xhtml#l00050">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00032_source.xhtml#l00081">CKey::compKey()</a>, <a class="el" href="a00038_source.xhtml#l00496">CFeatureSpectralMfccs::deleteDctMat_()</a>, <a class="el" href="a00086_source.xhtml#l00233">CSpectrogramIf::destroyMelFb_()</a>, <a class="el" href="a00146_source.xhtml#l00657">det()</a>, <a class="el" href="a00068_source.xhtml#l00025">CFingerprint::init()</a>, <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>, <a class="el" href="a00146_source.xhtml#l00750">inv_I()</a>, <a class="el" href="a00053_source.xhtml#l00207">CNmfResult::reset()</a>, <a class="el" href="a00053_source.xhtml#l00044">CNmf::reset()</a>, <a class="el" href="a00059_source.xhtml#l00027">CPca::reset()</a>, <a class="el" href="a00062_source.xhtml#l00050">CDtw::reset()</a>, <a class="el" href="a00041_source.xhtml#l00036">CKmeans::reset()</a>, <a class="el" href="a00080_source.xhtml#l00050">CViterbi::reset()</a>, <a class="el" href="a00044_source.xhtml#l00087">CKnn::reset()</a>, <a class="el" href="a00107_source.xhtml#l00366">CChordIf::reset_()</a>, <a class="el" href="a00149_source.xhtml#l00237">CFilter&lt; T &gt;::setInitState_()</a>, <a class="el" href="a00077_source.xhtml#l00042">CBlockAudioFile::~CBlockAudioFile()</a>, <a class="el" href="a00056_source.xhtml#l00063">CChordFromBlockIf::~CChordFromBlockIf()</a>, <a class="el" href="a00038_source.xhtml#l00373">CFeatureSpectralMfccs::~CFeatureSpectralMfccs()</a>, <a class="el" href="a00038_source.xhtml#l00520">CFeatureSpectralPitchChroma::~CFeatureSpectralPitchChroma()</a>, <a class="el" href="a00098_source.xhtml#l00238">CPitchTimeAuditory::~CPitchTimeAuditory()</a>, and <a class="el" href="a00089_source.xhtml#l00027">CSubFingerprint::~CSubFingerprint()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -993,9 +1141,9 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  555</span>        }</div>
 <div class="line"><span class="lineno">  556</span>        <span class="keywordflow">return</span> fGlobalMax;</div>
 <div class="line"><span class="lineno">  557</span>    }</div>
-<div class="ttc" id="aa00489_xhtml_a9f5be871090bc5a64a7732cebfb4f8ec"><div class="ttname"><a href="a00489.xhtml#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a></div><div class="ttdeci">static T getMax(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00559">Vector.h:559</a></div></div>
+<div class="ttc" id="aa00489_xhtml_a9f5be871090bc5a64a7732cebfb4f8ec"><div class="ttname"><a href="a00489.xhtml#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a></div><div class="ttdeci">static T getMax(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00572">Vector.h:572</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00152_source.xhtml#l00559">CVector::getMax()</a>.</p>
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00572">CVector::getMax()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>.</p>
 <div class="dynheader">
@@ -1164,9 +1312,9 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  205</span> </div>
 <div class="line"><span class="lineno">  206</span>        <span class="keywordflow">return</span> fResult;</div>
 <div class="line"><span class="lineno">  207</span>    }</div>
-<div class="ttc" id="aa00489_xhtml_abdbcc3898121387f3694f74491b7331e"><div class="ttname"><a href="a00489.xhtml#abdbcc3898121387f3694f74491b7331e">CVector::getSum</a></div><div class="ttdeci">static T getSum(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00439">Vector.h:439</a></div></div>
+<div class="ttc" id="aa00489_xhtml_abdbcc3898121387f3694f74491b7331e"><div class="ttname"><a href="a00489.xhtml#abdbcc3898121387f3694f74491b7331e">CVector::getSum</a></div><div class="ttdeci">static T getSum(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00452">Vector.h:452</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00152_source.xhtml#l00439">CVector::getSum()</a>.</p>
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00452">CVector::getSum()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1227,118 +1375,113 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd></dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00146_source.xhtml#l00748">748</a> of file <a class="el" href="a00146_source.xhtml">Matrix.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  749</span>    {</div>
-<div class="line"><span class="lineno">  750</span>        assert(iNumRows &gt; 0);</div>
-<div class="line"><span class="lineno">  751</span>        assert(iNumRows == iNumCols);</div>
-<div class="line"><span class="lineno">  752</span>        assert(pptSrcDest);</div>
-<div class="line"><span class="lineno">  753</span>        assert(pptSrcDest[0]);</div>
-<div class="line"><span class="lineno">  754</span> </div>
-<div class="line"><span class="lineno">  755</span>        <span class="keyword">const</span> T kSingularityThresh = 1e-15F;</div>
-<div class="line"><span class="lineno">  756</span>        T** ppfTmp = 0;</div>
-<div class="line"><span class="lineno">  757</span>        T** ppfEye = 0;</div>
-<div class="line"><span class="lineno">  758</span>        <span class="keywordtype">int</span>    i, j;</div>
-<div class="line"><span class="lineno">  759</span>        <span class="keywordtype">double</span> dDet = 1;</div>
-<div class="line"><span class="lineno">  760</span> </div>
-<div class="line"><span class="lineno">  761</span>        <a class="code hl_function" href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">alloc</a>(ppfTmp, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  762</span>        <a class="code hl_function" href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">copy</a>(ppfTmp, pptSrcDest, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  763</span> </div>
-<div class="line"><span class="lineno">  764</span>        <a class="code hl_function" href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">alloc</a>(ppfEye, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  765</span>        <a class="code hl_function" href="a00473.xhtml#a95b2436caee0cd232126f78c642238dd">setEye</a>(ppfEye, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  766</span> </div>
-<div class="line"><span class="lineno">  767</span>        <span class="keywordflow">if</span> (pptSrcDest[0][0] == 0)</div>
-<div class="line"><span class="lineno">  768</span>        {</div>
-<div class="line"><span class="lineno">  769</span>            i = 1;</div>
-<div class="line"><span class="lineno">  770</span>            <span class="keywordflow">while</span> (i &lt; iNumRows)</div>
-<div class="line"><span class="lineno">  771</span>            {</div>
-<div class="line"><span class="lineno">  772</span>                <span class="keywordflow">if</span> (pptSrcDest[i][0] != 0)</div>
-<div class="line"><span class="lineno">  773</span>                {</div>
-<div class="line"><span class="lineno">  774</span>                    <a class="code hl_function" href="a00473.xhtml#a036ce0072f4da74a8809550d21eac9dd">swapRowCol</a>(pptSrcDest, 0, i, iNumCols);</div>
-<div class="line"><span class="lineno">  775</span>                    <a class="code hl_function" href="a00473.xhtml#a036ce0072f4da74a8809550d21eac9dd">swapRowCol</a>(ppfEye, 0, i, iNumCols);</div>
-<div class="line"><span class="lineno">  776</span>                    dDet *= -1;</div>
-<div class="line"><span class="lineno">  777</span>                    <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  778</span>                }</div>
-<div class="line"><span class="lineno">  779</span>                i++;</div>
-<div class="line"><span class="lineno">  780</span>            }</div>
-<div class="line"><span class="lineno">  781</span>        }</div>
-<div class="line"><span class="lineno">  782</span> </div>
-<div class="line"><span class="lineno">  783</span>        dDet *= pptSrcDest[0][0];</div>
+<p class="definition">Definition at line <a class="el" href="a00146_source.xhtml#l00750">750</a> of file <a class="el" href="a00146_source.xhtml">Matrix.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  751</span>    {</div>
+<div class="line"><span class="lineno">  752</span>        assert(iNumRows &gt; 0);</div>
+<div class="line"><span class="lineno">  753</span>        assert(iNumRows == iNumCols);</div>
+<div class="line"><span class="lineno">  754</span>        assert(pptSrcDest);</div>
+<div class="line"><span class="lineno">  755</span>        assert(pptSrcDest[0]);</div>
+<div class="line"><span class="lineno">  756</span> </div>
+<div class="line"><span class="lineno">  757</span>        <span class="keyword">const</span> <span class="keywordtype">float</span> kSingularityThresh = 1e-15F;</div>
+<div class="line"><span class="lineno">  758</span>        T** ppfTmp = 0;</div>
+<div class="line"><span class="lineno">  759</span>        T** ppfEye = 0;</div>
+<div class="line"><span class="lineno">  760</span>        <span class="keywordtype">int</span>    i, j;</div>
+<div class="line"><span class="lineno">  761</span>        <span class="keywordtype">double</span> dDet = 1;</div>
+<div class="line"><span class="lineno">  762</span> </div>
+<div class="line"><span class="lineno">  763</span>        <a class="code hl_function" href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">alloc</a>(ppfTmp, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  764</span>        <a class="code hl_function" href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">copy</a>(ppfTmp, pptSrcDest, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  765</span> </div>
+<div class="line"><span class="lineno">  766</span>        <a class="code hl_function" href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">alloc</a>(ppfEye, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  767</span>        <a class="code hl_function" href="a00473.xhtml#a95b2436caee0cd232126f78c642238dd">setEye</a>(ppfEye, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  768</span> </div>
+<div class="line"><span class="lineno">  769</span>        <span class="keywordflow">if</span> (pptSrcDest[0][0] == 0)</div>
+<div class="line"><span class="lineno">  770</span>        {</div>
+<div class="line"><span class="lineno">  771</span>            i = 1;</div>
+<div class="line"><span class="lineno">  772</span>            <span class="keywordflow">while</span> (i &lt; iNumRows)</div>
+<div class="line"><span class="lineno">  773</span>            {</div>
+<div class="line"><span class="lineno">  774</span>                <span class="keywordflow">if</span> (pptSrcDest[i][0] != 0)</div>
+<div class="line"><span class="lineno">  775</span>                {</div>
+<div class="line"><span class="lineno">  776</span>                    <a class="code hl_function" href="a00473.xhtml#a036ce0072f4da74a8809550d21eac9dd">swapRowCol</a>(pptSrcDest, 0, i, iNumCols);</div>
+<div class="line"><span class="lineno">  777</span>                    <a class="code hl_function" href="a00473.xhtml#a036ce0072f4da74a8809550d21eac9dd">swapRowCol</a>(ppfEye, 0, i, iNumCols);</div>
+<div class="line"><span class="lineno">  778</span>                    dDet *= -1;</div>
+<div class="line"><span class="lineno">  779</span>                    <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  780</span>                }</div>
+<div class="line"><span class="lineno">  781</span>                i++;</div>
+<div class="line"><span class="lineno">  782</span>            }</div>
+<div class="line"><span class="lineno">  783</span>        }</div>
 <div class="line"><span class="lineno">  784</span> </div>
-<div class="line"><span class="lineno">  785</span>        <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(ppfEye[0], 1.F / pptSrcDest[0][0], iNumCols);</div>
-<div class="line"><span class="lineno">  786</span>        <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pptSrcDest[0], 1.F / pptSrcDest[0][0], iNumCols);</div>
-<div class="line"><span class="lineno">  787</span> </div>
-<div class="line"><span class="lineno">  788</span>        <span class="keywordflow">for</span> (i = 1; i &lt; iNumRows; i++)</div>
-<div class="line"><span class="lineno">  789</span>        {</div>
-<div class="line"><span class="lineno">  790</span>            j = 0;</div>
-<div class="line"><span class="lineno">  791</span> </div>
-<div class="line"><span class="lineno">  792</span>            <span class="keywordflow">if</span> (dDet &lt; kSingularityThresh *1.* kSingularityThresh)</div>
-<div class="line"><span class="lineno">  793</span>                dDet = 0;</div>
-<div class="line"><span class="lineno">  794</span> </div>
-<div class="line"><span class="lineno">  795</span>            <span class="keywordflow">while</span> (j &lt; i)</div>
-<div class="line"><span class="lineno">  796</span>            {</div>
-<div class="line"><span class="lineno">  797</span>                <a class="code hl_function" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a>(ppfEye[i], ppfEye[j], pptSrcDest[i][j], iNumCols);</div>
-<div class="line"><span class="lineno">  798</span>                <a class="code hl_function" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a>(pptSrcDest[i], pptSrcDest[j], pptSrcDest[i][j], iNumCols);</div>
-<div class="line"><span class="lineno">  799</span>                j++;</div>
-<div class="line"><span class="lineno">  800</span>            }</div>
-<div class="line"><span class="lineno">  801</span> </div>
-<div class="line"><span class="lineno">  802</span>            <span class="keywordflow">if</span> (pptSrcDest[i][i] != 0)</div>
-<div class="line"><span class="lineno">  803</span>            {</div>
-<div class="line"><span class="lineno">  804</span>                dDet *= pptSrcDest[i][i];</div>
-<div class="line"><span class="lineno">  805</span>                <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(ppfEye[i], 1.F / pptSrcDest[i][i], iNumCols);</div>
-<div class="line"><span class="lineno">  806</span>                <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pptSrcDest[i], 1.F / pptSrcDest[i][i], iNumCols);</div>
-<div class="line"><span class="lineno">  807</span>            }</div>
-<div class="line"><span class="lineno">  808</span> </div>
-<div class="line"><span class="lineno">  809</span>            <span class="keywordflow">if</span> (pptSrcDest[i][i] == 0)</div>
-<div class="line"><span class="lineno">  810</span>            {</div>
-<div class="line"><span class="lineno">  811</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j1 = i + 1; j1 &lt; iNumCols; j1++)</div>
-<div class="line"><span class="lineno">  812</span>                {</div>
-<div class="line"><span class="lineno">  813</span>                    <span class="keywordflow">if</span> (pptSrcDest[i][j1] != 0)         <span class="comment">// Column pivotting not supported</span></div>
-<div class="line"><span class="lineno">  814</span>                    {</div>
-<div class="line"><span class="lineno">  815</span>                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i1 = 0; i1 &lt; iNumRows; i1++)</div>
-<div class="line"><span class="lineno">  816</span>                        {</div>
-<div class="line"><span class="lineno">  817</span>                            <span class="keywordflow">for</span> (j = 0; j &lt; iNumCols; j++)</div>
-<div class="line"><span class="lineno">  818</span>                                pptSrcDest[i1][j] = ppfTmp[i1][j];</div>
-<div class="line"><span class="lineno">  819</span>                        }</div>
-<div class="line"><span class="lineno">  820</span>                        <a class="code hl_function" href="a00473.xhtml#a37585f57926ea2921734907bacc6cce8">inv_I</a>(ppfTmp, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  821</span>                        <a class="code hl_function" href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">copy</a>(pptSrcDest, ppfTmp, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  822</span> </div>
-<div class="line"><span class="lineno">  823</span>                        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfTmp, iNumRows);</div>
-<div class="line"><span class="lineno">  824</span>                        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfEye, iNumRows);</div>
-<div class="line"><span class="lineno">  825</span>                        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">  826</span>                    }</div>
-<div class="line"><span class="lineno">  827</span>                }</div>
-<div class="line"><span class="lineno">  828</span>            }</div>
-<div class="line"><span class="lineno">  829</span>        }</div>
-<div class="line"><span class="lineno">  830</span> </div>
-<div class="line"><span class="lineno">  831</span>        <span class="keywordflow">for</span> (i = iNumRows - 1; i &gt; 0; i--)</div>
-<div class="line"><span class="lineno">  832</span>        {</div>
-<div class="line"><span class="lineno">  833</span>            <span class="keywordflow">for</span> (j = i - 1; j &gt;= 0; j--)</div>
-<div class="line"><span class="lineno">  834</span>            {</div>
-<div class="line"><span class="lineno">  835</span>                <a class="code hl_function" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a>(ppfEye[j], ppfEye[i], pptSrcDest[j][i], iNumCols);</div>
-<div class="line"><span class="lineno">  836</span>                <a class="code hl_function" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a>(pptSrcDest[j], pptSrcDest[i], pptSrcDest[j][i], iNumCols);</div>
-<div class="line"><span class="lineno">  837</span>            }</div>
-<div class="line"><span class="lineno">  838</span>        }</div>
-<div class="line"><span class="lineno">  839</span> </div>
-<div class="line"><span class="lineno">  840</span>        <a class="code hl_function" href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">copy</a>(pptSrcDest, ppfEye, iNumRows, iNumCols);</div>
-<div class="line"><span class="lineno">  841</span>        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfTmp, iNumRows);</div>
-<div class="line"><span class="lineno">  842</span>        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfEye, iNumRows);</div>
-<div class="line"><span class="lineno">  843</span>    }</div>
-<div class="ttc" id="aa00473_xhtml_a036ce0072f4da74a8809550d21eac9dd"><div class="ttname"><a href="a00473.xhtml#a036ce0072f4da74a8809550d21eac9dd">CMatrix::swapRowCol</a></div><div class="ttdeci">static void swapRowCol(float **pptSrcDest, int iRowIdx, int iColIdx, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00603">Matrix.h:603</a></div></div>
-<div class="ttc" id="aa00473_xhtml_a37585f57926ea2921734907bacc6cce8"><div class="ttname"><a href="a00473.xhtml#a37585f57926ea2921734907bacc6cce8">CMatrix::inv_I</a></div><div class="ttdeci">static void inv_I(T **pptSrcDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00748">Matrix.h:748</a></div></div>
-<div class="ttc" id="aa00473_xhtml_a591097c6b1935c4d6273b3445f8f552b"><div class="ttname"><a href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;pptMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00040">Matrix.h:40</a></div></div>
-<div class="ttc" id="aa00473_xhtml_a6501b78d76c912d49eee88c8f7242923"><div class="ttname"><a href="a00473.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;pptMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00022">Matrix.h:22</a></div></div>
+<div class="line"><span class="lineno">  785</span>        dDet *= pptSrcDest[0][0];</div>
+<div class="line"><span class="lineno">  786</span> </div>
+<div class="line"><span class="lineno">  787</span>        <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(ppfEye[0], 1.F / pptSrcDest[0][0], iNumCols);</div>
+<div class="line"><span class="lineno">  788</span>        <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pptSrcDest[0], 1.F / pptSrcDest[0][0], iNumCols);</div>
+<div class="line"><span class="lineno">  789</span> </div>
+<div class="line"><span class="lineno">  790</span>        <span class="keywordflow">for</span> (i = 1; i &lt; iNumRows; i++)</div>
+<div class="line"><span class="lineno">  791</span>        {</div>
+<div class="line"><span class="lineno">  792</span>            j = 0;</div>
+<div class="line"><span class="lineno">  793</span> </div>
+<div class="line"><span class="lineno">  794</span>            <span class="keywordflow">if</span> (std::abs(dDet) &lt; kSingularityThresh * 1.* kSingularityThresh)</div>
+<div class="line"><span class="lineno">  795</span>                dDet = 0;</div>
+<div class="line"><span class="lineno">  796</span> </div>
+<div class="line"><span class="lineno">  797</span>            <span class="keywordflow">while</span> (j &lt; i)</div>
+<div class="line"><span class="lineno">  798</span>            {</div>
+<div class="line"><span class="lineno">  799</span>                <a class="code hl_function" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a>(ppfEye[i], ppfEye[j], pptSrcDest[i][j], iNumCols);</div>
+<div class="line"><span class="lineno">  800</span>                <a class="code hl_function" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a>(pptSrcDest[i], pptSrcDest[j], pptSrcDest[i][j], iNumCols);</div>
+<div class="line"><span class="lineno">  801</span>                j++;</div>
+<div class="line"><span class="lineno">  802</span>            }</div>
+<div class="line"><span class="lineno">  803</span> </div>
+<div class="line"><span class="lineno">  804</span>            <span class="keywordflow">if</span> (pptSrcDest[i][i] != 0)</div>
+<div class="line"><span class="lineno">  805</span>            {</div>
+<div class="line"><span class="lineno">  806</span>                dDet *= pptSrcDest[i][i];</div>
+<div class="line"><span class="lineno">  807</span>                <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(ppfEye[i], 1.F / pptSrcDest[i][i], iNumCols);</div>
+<div class="line"><span class="lineno">  808</span>                <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pptSrcDest[i], 1.F / pptSrcDest[i][i], iNumCols);</div>
+<div class="line"><span class="lineno">  809</span>            }</div>
+<div class="line"><span class="lineno">  810</span> </div>
+<div class="line"><span class="lineno">  811</span>            <span class="keywordflow">if</span> (pptSrcDest[i][i] == 0)</div>
+<div class="line"><span class="lineno">  812</span>            {</div>
+<div class="line"><span class="lineno">  813</span>                <span class="keywordflow">for</span> (<span class="keywordtype">int</span> j1 = i + 1; j1 &lt; iNumCols; j1++)</div>
+<div class="line"><span class="lineno">  814</span>                {</div>
+<div class="line"><span class="lineno">  815</span>                    <span class="keywordflow">if</span> (pptSrcDest[i][j1] != 0)         <span class="comment">// Column pivotting not supported</span></div>
+<div class="line"><span class="lineno">  816</span>                    {</div>
+<div class="line"><span class="lineno">  817</span>                        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i1 = 0; i1 &lt; iNumRows; i1++)</div>
+<div class="line"><span class="lineno">  818</span>                        {</div>
+<div class="line"><span class="lineno">  819</span>                            <span class="keywordflow">for</span> (j = 0; j &lt; iNumCols; j++)</div>
+<div class="line"><span class="lineno">  820</span>                                pptSrcDest[i1][j] = ppfTmp[i1][j];</div>
+<div class="line"><span class="lineno">  821</span>                        }</div>
+<div class="line"><span class="lineno">  822</span>                        <a class="code hl_function" href="a00473.xhtml#a37585f57926ea2921734907bacc6cce8">inv_I</a>(ppfTmp, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  823</span>                        <a class="code hl_function" href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">copy</a>(pptSrcDest, ppfTmp, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  824</span> </div>
+<div class="line"><span class="lineno">  825</span>                        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfTmp, iNumRows);</div>
+<div class="line"><span class="lineno">  826</span>                        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfEye, iNumRows);</div>
+<div class="line"><span class="lineno">  827</span>                        <span class="keywordflow">return</span>;</div>
+<div class="line"><span class="lineno">  828</span>                    }</div>
+<div class="line"><span class="lineno">  829</span>                }</div>
+<div class="line"><span class="lineno">  830</span>            }</div>
+<div class="line"><span class="lineno">  831</span>        }</div>
+<div class="line"><span class="lineno">  832</span> </div>
+<div class="line"><span class="lineno">  833</span>        <span class="keywordflow">for</span> (i = iNumRows - 1; i &gt; 0; i--)</div>
+<div class="line"><span class="lineno">  834</span>        {</div>
+<div class="line"><span class="lineno">  835</span>            <span class="keywordflow">for</span> (j = i - 1; j &gt;= 0; j--)</div>
+<div class="line"><span class="lineno">  836</span>            {</div>
+<div class="line"><span class="lineno">  837</span>                <a class="code hl_function" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a>(ppfEye[j], ppfEye[i], pptSrcDest[j][i], iNumCols);</div>
+<div class="line"><span class="lineno">  838</span>                <a class="code hl_function" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a>(pptSrcDest[j], pptSrcDest[i], pptSrcDest[j][i], iNumCols);</div>
+<div class="line"><span class="lineno">  839</span>            }</div>
+<div class="line"><span class="lineno">  840</span>        }</div>
+<div class="line"><span class="lineno">  841</span> </div>
+<div class="line"><span class="lineno">  842</span>        <a class="code hl_function" href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">copy</a>(pptSrcDest, ppfEye, iNumRows, iNumCols);</div>
+<div class="line"><span class="lineno">  843</span>        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfTmp, iNumRows);</div>
+<div class="line"><span class="lineno">  844</span>        <a class="code hl_function" href="a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(ppfEye, iNumRows);</div>
+<div class="line"><span class="lineno">  845</span>    }</div>
+<div class="ttc" id="aa00473_xhtml_a37585f57926ea2921734907bacc6cce8"><div class="ttname"><a href="a00473.xhtml#a37585f57926ea2921734907bacc6cce8">CMatrix::inv_I</a></div><div class="ttdeci">static void inv_I(T **pptSrcDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00750">Matrix.h:750</a></div></div>
 <div class="ttc" id="aa00473_xhtml_a95b2436caee0cd232126f78c642238dd"><div class="ttname"><a href="a00473.xhtml#a95b2436caee0cd232126f78c642238dd">CMatrix::setEye</a></div><div class="ttdeci">static void setEye(float **pptDest, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00151">Matrix.h:151</a></div></div>
-<div class="ttc" id="aa00473_xhtml_a9f723a71e61f425d0ee9a51aa2162bf3"><div class="ttname"><a href="a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3">CMatrix::copy</a></div><div class="ttdeci">static void copy(T **pptDestMat, T **pptSrcMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00146_source.xhtml#l00627">Matrix.h:627</a></div></div>
-<div class="ttc" id="aa00489_xhtml_a4e5b5163bb46b8de5ac4013bde1ded00"><div class="ttname"><a href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a></div><div class="ttdeci">static void subW_I(T *ptSrcDest, const T *ptSrc, T fWeight, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00422">Vector.h:422</a></div></div>
-<div class="ttc" id="aa00489_xhtml_a9811f50434dd058d201290b2dc98bfcd"><div class="ttname"><a href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a></div><div class="ttdeci">static void mulC_I(T *ptSrcDest, T fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00172">Vector.h:172</a></div></div>
+<div class="ttc" id="aa00489_xhtml_a4e5b5163bb46b8de5ac4013bde1ded00"><div class="ttname"><a href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">CVector::subW_I</a></div><div class="ttdeci">static void subW_I(T *ptSrcDest, const T *ptSrc, T fWeight, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00440">Vector.h:440</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00146_source.xhtml#l00022">alloc()</a>, <a class="el" href="a00146_source.xhtml#l00627">copy()</a>, <a class="el" href="a00146_source.xhtml#l00040">free()</a>, <a class="el" href="a00146_source.xhtml#l00748">inv_I()</a>, <a class="el" href="a00152_source.xhtml#l00172">CVector::mulC_I()</a>, <a class="el" href="a00146_source.xhtml#l00151">setEye()</a>, <a class="el" href="a00152_source.xhtml#l00422">CVector::subW_I()</a>, and <a class="el" href="a00146_source.xhtml#l00603">swapRowCol()</a>.</p>
+<p class="reference">References <a class="el" href="a00146_source.xhtml#l00022">alloc()</a>, <a class="el" href="a00146_source.xhtml#l00627">copy()</a>, <a class="el" href="a00146_source.xhtml#l00040">free()</a>, <a class="el" href="a00146_source.xhtml#l00750">inv_I()</a>, <a class="el" href="a00152_source.xhtml#l00172">CVector::mulC_I()</a>, <a class="el" href="a00146_source.xhtml#l00151">setEye()</a>, <a class="el" href="a00152_source.xhtml#l00440">CVector::subW_I()</a>, and <a class="el" href="a00146_source.xhtml#l00603">swapRowCol()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00748">inv_I()</a>, and <a class="el" href="a00149_source.xhtml#l00237">CFilter&lt; T &gt;::setInitState_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00750">inv_I()</a>, and <a class="el" href="a00149_source.xhtml#l00237">CFilter&lt; T &gt;::setInitState_()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00473_a37585f57926ea2921734907bacc6cce8_cgraph.svg" width="632" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00473_a37585f57926ea2921734907bacc6cce8_cgraph.svg" width="640" height="342"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
@@ -2048,7 +2191,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00152_source.xhtml#l00051">CVector::setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00748">inv_I()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00750">inv_I()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -2625,11 +2768,11 @@ Here is the caller graph for this function:</div>
 <div class="line"><span class="lineno">  616</span>        }</div>
 <div class="line"><span class="lineno">  617</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00748">inv_I()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00657">det()</a>, and <a class="el" href="a00146_source.xhtml#l00750">inv_I()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00473_a036ce0072f4da74a8809550d21eac9dd_icgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00473_a036ce0072f4da74a8809550d21eac9dd_icgraph.svg" width="100%" height="384"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -2803,7 +2946,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00473.xhtml">CMatrix</a></li>
-    <li class="footer">Generated on Sun Jun 12 2022 20:38:38 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Mon Jun 13 2022 13:47:50 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

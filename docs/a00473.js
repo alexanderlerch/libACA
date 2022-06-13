@@ -5,6 +5,7 @@ var a00473 =
     [ "alloc", "a00473.xhtml#a6501b78d76c912d49eee88c8f7242923", null ],
     [ "calcKlDivergence", "a00473.xhtml#a7a60f93e58f2b038179df28159cee7b0", null ],
     [ "copy", "a00473.xhtml#a9f723a71e61f425d0ee9a51aa2162bf3", null ],
+    [ "det", "a00473.xhtml#a7de6a75fccded32c57d3fe168263204f", null ],
     [ "diag", "a00473.xhtml#a082e384b71ea7a90ce8505f5ee0d48f9", null ],
     [ "div_I", "a00473.xhtml#ab1de9372b87cea546a3cbc839d25eb53", null ],
     [ "free", "a00473.xhtml#a591097c6b1935c4d6273b3445f8f552b", null ],

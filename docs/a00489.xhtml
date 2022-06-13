@@ -163,6 +163,9 @@ Static Public Member Functions</h2></td></tr>
 <tr class="memitem:a45f65002e2aab7eabf8702b8bcc8d30b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a45f65002e2aab7eabf8702b8bcc8d30b"><td class="memTemplItemLeft" align="right" valign="top">static T&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00489.xhtml#a45f65002e2aab7eabf8702b8bcc8d30b">distCosine</a> (const T *ptSrc1, const T *ptSrc2, long long iLength)</td></tr>
 <tr class="separator:a45f65002e2aab7eabf8702b8bcc8d30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2239b170d46ed3d0846d766a0634a0be"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a2239b170d46ed3d0846d766a0634a0be"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00489.xhtml#a2239b170d46ed3d0846d766a0634a0be">addW_I</a> (T *ptSrcDest, const T *ptSrc, T fWeight, long long int iLength)</td></tr>
+<tr class="separator:a2239b170d46ed3d0846d766a0634a0be"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4e5b5163bb46b8de5ac4013bde1ded00"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a4e5b5163bb46b8de5ac4013bde1ded00"><td class="memTemplItemLeft" align="right" valign="top">static void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="a00489.xhtml#a4e5b5163bb46b8de5ac4013bde1ded00">subW_I</a> (T *ptSrcDest, const T *ptSrc, T fWeight, long long int iLength)</td></tr>
 <tr class="separator:a4e5b5163bb46b8de5ac4013bde1ded00"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -263,11 +266,11 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">  252</span>            ptSrcDest[i] += ptSrc[i];</div>
 <div class="line"><span class="lineno">  253</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00083_source.xhtml#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00098_source.xhtml#l00253">CPitchTimeAuditory::compF0()</a>, <a class="el" href="a00131_source.xhtml#l00019">CPreProc::downmix()</a>, and <a class="el" href="a00194_source.xhtml#l00056">CInstFreq::process()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00083_source.xhtml#l00113">CBeatHistoIf::compBeatHisto()</a>, <a class="el" href="a00098_source.xhtml#l00253">CPitchTimeAuditory::compF0()</a>, <a class="el" href="a00146_source.xhtml#l00657">CMatrix::det()</a>, <a class="el" href="a00131_source.xhtml#l00019">CPreProc::downmix()</a>, and <a class="el" href="a00194_source.xhtml#l00056">CInstFreq::process()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00489_a3a052b83e62e5c5cc44829c64ffe42eb_icgraph.svg" width="100%" height="507"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00489_a3a052b83e62e5c5cc44829c64ffe42eb_icgraph.svg" width="100%" height="545"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -338,6 +341,84 @@ template&lt;typename T &gt; </div>
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00489_a22ff86e4fc2f8d5042159d9c84a7ff14_icgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a2239b170d46ed3d0846d766a0634a0be" name="a2239b170d46ed3d0846d766a0634a0be"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2239b170d46ed3d0846d766a0634a0be">&#9670;&nbsp;</a></span>addW_I()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">static void CVector::addW_I </td>
+          <td>(</td>
+          <td class="paramtype">T *&#160;</td>
+          <td class="paramname"><em>ptSrcDest</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const T *&#160;</td>
+          <td class="paramname"><em>ptSrc</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">T&#160;</td>
+          <td class="paramname"><em>fWeight</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long int&#160;</td>
+          <td class="paramname"><em>iLength</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >weighted element-wise vector addition </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ptSrcDest</td><td>one input and output buffer </td></tr>
+    <tr><td class="paramname">ptSrc</td><td>second input buffer </td></tr>
+    <tr><td class="paramname">fWeight</td><td>weight to be applied to ptSrc entries </td></tr>
+    <tr><td class="paramname">iLength</td><td>number of elements to be added </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00422">422</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  423</span>    {</div>
+<div class="line"><span class="lineno">  424</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  425</span>        assert(ptSrcDest);</div>
+<div class="line"><span class="lineno">  426</span>        assert(ptSrc);</div>
+<div class="line"><span class="lineno">  427</span> </div>
+<div class="line"><span class="lineno">  428</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">  429</span>            ptSrcDest[i] += fWeight * ptSrc[i];</div>
+<div class="line"><span class="lineno">  430</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00657">CMatrix::det()</a>, and <a class="el" href="a00152_source.xhtml#l00440">subW_I()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00489_a2239b170d46ed3d0846d766a0634a0be_icgraph.svg" width="100%" height="366"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 
@@ -853,27 +934,27 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00631">631</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  632</span>    {</div>
-<div class="line"><span class="lineno">  633</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  634</span>        assert (ptSrc);</div>
-<div class="line"><span class="lineno">  635</span> </div>
-<div class="line"><span class="lineno">  636</span>        fMax    = -std::numeric_limits&lt;T&gt;::max();</div>
-<div class="line"><span class="lineno">  637</span>        iMax    = -1;</div>
-<div class="line"><span class="lineno">  638</span> </div>
-<div class="line"><span class="lineno">  639</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">  640</span>        {</div>
-<div class="line"><span class="lineno">  641</span>            T fCurr   = (bAbs)? std::abs(ptSrc[i]) : ptSrc[i];</div>
-<div class="line"><span class="lineno">  642</span> </div>
-<div class="line"><span class="lineno">  643</span>            <span class="keywordflow">if</span> (fCurr &gt; fMax)</div>
-<div class="line"><span class="lineno">  644</span>            {</div>
-<div class="line"><span class="lineno">  645</span>                fMax = fCurr;</div>
-<div class="line"><span class="lineno">  646</span>                iMax = i;</div>
-<div class="line"><span class="lineno">  647</span>            }</div>
-<div class="line"><span class="lineno">  648</span>        }</div>
-<div class="line"><span class="lineno">  649</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00644">644</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  645</span>    {</div>
+<div class="line"><span class="lineno">  646</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  647</span>        assert (ptSrc);</div>
+<div class="line"><span class="lineno">  648</span> </div>
+<div class="line"><span class="lineno">  649</span>        fMax    = -std::numeric_limits&lt;T&gt;::max();</div>
+<div class="line"><span class="lineno">  650</span>        iMax    = -1;</div>
+<div class="line"><span class="lineno">  651</span> </div>
+<div class="line"><span class="lineno">  652</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">  653</span>        {</div>
+<div class="line"><span class="lineno">  654</span>            T fCurr   = (bAbs)? std::abs(ptSrc[i]) : ptSrc[i];</div>
+<div class="line"><span class="lineno">  655</span> </div>
+<div class="line"><span class="lineno">  656</span>            <span class="keywordflow">if</span> (fCurr &gt; fMax)</div>
+<div class="line"><span class="lineno">  657</span>            {</div>
+<div class="line"><span class="lineno">  658</span>                fMax = fCurr;</div>
+<div class="line"><span class="lineno">  659</span>                iMax = i;</div>
+<div class="line"><span class="lineno">  660</span>            }</div>
+<div class="line"><span class="lineno">  661</span>        }</div>
+<div class="line"><span class="lineno">  662</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00107_source.xhtml#l00196">CChordIf::compChords()</a>, <a class="el" href="a00098_source.xhtml#l00036">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00098_source.xhtml#l00101">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00098_source.xhtml#l00157">CPitchTimeAcf::compF0()</a>, <a class="el" href="a00044_source.xhtml#l00189">CKnn::countMaxima_()</a>, <a class="el" href="a00098_source.xhtml#l00284">CPitchTimeAuditory::getAcfMax_()</a>, <a class="el" href="a00101_source.xhtml#l00133">CCcf::getCcfMaxIdx()</a>, and <a class="el" href="a00152_source.xhtml#l00559">getMax()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00107_source.xhtml#l00196">CChordIf::compChords()</a>, <a class="el" href="a00098_source.xhtml#l00036">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00098_source.xhtml#l00101">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00098_source.xhtml#l00157">CPitchTimeAcf::compF0()</a>, <a class="el" href="a00044_source.xhtml#l00189">CKnn::countMaxima_()</a>, <a class="el" href="a00098_source.xhtml#l00284">CPitchTimeAuditory::getAcfMax_()</a>, <a class="el" href="a00101_source.xhtml#l00133">CCcf::getCcfMaxIdx()</a>, and <a class="el" href="a00152_source.xhtml#l00572">getMax()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -948,27 +1029,27 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00660">660</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  661</span>    {</div>
-<div class="line"><span class="lineno">  662</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  663</span>        assert (ptSrc);</div>
-<div class="line"><span class="lineno">  664</span> </div>
-<div class="line"><span class="lineno">  665</span>        fMin    = std::numeric_limits&lt;T&gt;::max();</div>
-<div class="line"><span class="lineno">  666</span>        iMin    = -1;</div>
-<div class="line"><span class="lineno">  667</span> </div>
-<div class="line"><span class="lineno">  668</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">  669</span>        {</div>
-<div class="line"><span class="lineno">  670</span>            T fCurr   = (bAbs)? std::abs(ptSrc[i]) : ptSrc[i];</div>
-<div class="line"><span class="lineno">  671</span> </div>
-<div class="line"><span class="lineno">  672</span>            <span class="keywordflow">if</span> (fCurr &lt; fMin)</div>
-<div class="line"><span class="lineno">  673</span>            {</div>
-<div class="line"><span class="lineno">  674</span>                fMin    = fCurr;</div>
-<div class="line"><span class="lineno">  675</span>                iMin    = i;</div>
-<div class="line"><span class="lineno">  676</span>            }</div>
-<div class="line"><span class="lineno">  677</span>        }</div>
-<div class="line"><span class="lineno">  678</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00673">673</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  674</span>    {</div>
+<div class="line"><span class="lineno">  675</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  676</span>        assert (ptSrc);</div>
+<div class="line"><span class="lineno">  677</span> </div>
+<div class="line"><span class="lineno">  678</span>        fMin    = std::numeric_limits&lt;T&gt;::max();</div>
+<div class="line"><span class="lineno">  679</span>        iMin    = -1;</div>
+<div class="line"><span class="lineno">  680</span> </div>
+<div class="line"><span class="lineno">  681</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">  682</span>        {</div>
+<div class="line"><span class="lineno">  683</span>            T fCurr   = (bAbs)? std::abs(ptSrc[i]) : ptSrc[i];</div>
+<div class="line"><span class="lineno">  684</span> </div>
+<div class="line"><span class="lineno">  685</span>            <span class="keywordflow">if</span> (fCurr &lt; fMin)</div>
+<div class="line"><span class="lineno">  686</span>            {</div>
+<div class="line"><span class="lineno">  687</span>                fMin    = fCurr;</div>
+<div class="line"><span class="lineno">  688</span>                iMin    = i;</div>
+<div class="line"><span class="lineno">  689</span>            }</div>
+<div class="line"><span class="lineno">  690</span>        }</div>
+<div class="line"><span class="lineno">  691</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00041_source.xhtml#l00161">CKmeans::assignClusterLabels_()</a>, <a class="el" href="a00095_source.xhtml#l00027">CKeyFromChroma::getKey()</a>, and <a class="el" href="a00152_source.xhtml#l00612">getMin()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.xhtml#l00161">CKmeans::assignClusterLabels_()</a>, <a class="el" href="a00095_source.xhtml#l00027">CKeyFromChroma::getKey()</a>, and <a class="el" href="a00152_source.xhtml#l00625">getMin()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1036,33 +1117,33 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>int number of local maxima </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00577">577</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  578</span>    {</div>
-<div class="line"><span class="lineno">  579</span>        assert(iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  580</span>        assert(ptSrc);</div>
-<div class="line"><span class="lineno">  581</span>        assert(pbisLocalMax);</div>
-<div class="line"><span class="lineno">  582</span> </div>
-<div class="line"><span class="lineno">  583</span>        <span class="keywordtype">int</span> iNumPeaks = 0;</div>
-<div class="line"><span class="lineno">  584</span> </div>
-<div class="line"><span class="lineno">  585</span>        <a class="code hl_function" href="a00489.xhtml#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a>(pbisLocalMax, <span class="keyword">false</span>, iLength);</div>
-<div class="line"><span class="lineno">  586</span> </div>
-<div class="line"><span class="lineno">  587</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 1; k &lt; iLength - 1; k++)</div>
-<div class="line"><span class="lineno">  588</span>        {</div>
-<div class="line"><span class="lineno">  589</span>            <span class="comment">// search for local maxima</span></div>
-<div class="line"><span class="lineno">  590</span>            <span class="keywordflow">if</span> (ptSrc[k] &lt;= ptSrc[k - 1] || ptSrc[k] &lt;= ptSrc[k + 1] || ptSrc[k] &lt;= fThresh)</div>
-<div class="line"><span class="lineno">  591</span>                <span class="keywordflow">continue</span>;</div>
-<div class="line"><span class="lineno">  592</span>            <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  593</span>            {</div>
-<div class="line"><span class="lineno">  594</span>                pbisLocalMax[k] = <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  595</span>                iNumPeaks++;</div>
-<div class="line"><span class="lineno">  596</span> </div>
-<div class="line"><span class="lineno">  597</span>                <span class="comment">// increment because the next bin cannot be a local max</span></div>
-<div class="line"><span class="lineno">  598</span>                k++;</div>
-<div class="line"><span class="lineno">  599</span>            }</div>
-<div class="line"><span class="lineno">  600</span>        }</div>
-<div class="line"><span class="lineno">  601</span> </div>
-<div class="line"><span class="lineno">  602</span>        <span class="keywordflow">return</span> iNumPeaks;</div>
-<div class="line"><span class="lineno">  603</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00590">590</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  591</span>    {</div>
+<div class="line"><span class="lineno">  592</span>        assert(iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  593</span>        assert(ptSrc);</div>
+<div class="line"><span class="lineno">  594</span>        assert(pbisLocalMax);</div>
+<div class="line"><span class="lineno">  595</span> </div>
+<div class="line"><span class="lineno">  596</span>        <span class="keywordtype">int</span> iNumPeaks = 0;</div>
+<div class="line"><span class="lineno">  597</span> </div>
+<div class="line"><span class="lineno">  598</span>        <a class="code hl_function" href="a00489.xhtml#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a>(pbisLocalMax, <span class="keyword">false</span>, iLength);</div>
+<div class="line"><span class="lineno">  599</span> </div>
+<div class="line"><span class="lineno">  600</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 1; k &lt; iLength - 1; k++)</div>
+<div class="line"><span class="lineno">  601</span>        {</div>
+<div class="line"><span class="lineno">  602</span>            <span class="comment">// search for local maxima</span></div>
+<div class="line"><span class="lineno">  603</span>            <span class="keywordflow">if</span> (ptSrc[k] &lt;= ptSrc[k - 1] || ptSrc[k] &lt;= ptSrc[k + 1] || ptSrc[k] &lt;= fThresh)</div>
+<div class="line"><span class="lineno">  604</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">  605</span>            <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  606</span>            {</div>
+<div class="line"><span class="lineno">  607</span>                pbisLocalMax[k] = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  608</span>                iNumPeaks++;</div>
+<div class="line"><span class="lineno">  609</span> </div>
+<div class="line"><span class="lineno">  610</span>                <span class="comment">// increment because the next bin cannot be a local max</span></div>
+<div class="line"><span class="lineno">  611</span>                k++;</div>
+<div class="line"><span class="lineno">  612</span>            }</div>
+<div class="line"><span class="lineno">  613</span>        }</div>
+<div class="line"><span class="lineno">  614</span> </div>
+<div class="line"><span class="lineno">  615</span>        <span class="keywordflow">return</span> iNumPeaks;</div>
+<div class="line"><span class="lineno">  616</span>    }</div>
 <div class="ttc" id="aa00489_xhtml_a4cf9544dd96801e3ee47fd1ef2049a1b"><div class="ttname"><a href="a00489.xhtml#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a></div><div class="ttdeci">static void setValue(T *ptDest, T tValue, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00067">Vector.h:67</a></div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00152_source.xhtml#l00067">setValue()</a>.</p>
@@ -1255,18 +1336,18 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00559">559</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  560</span>    {</div>
-<div class="line"><span class="lineno">  561</span>        T fMax = 0;</div>
-<div class="line"><span class="lineno">  562</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iMax = -1;</div>
-<div class="line"><span class="lineno">  563</span> </div>
-<div class="line"><span class="lineno">  564</span>        <a class="code hl_function" href="a00489.xhtml#a34a5c0abd80cd982df8a8bae7cbcea19">findMax</a>(ptSrc, fMax, iMax, iLength, bAbs);</div>
-<div class="line"><span class="lineno">  565</span> </div>
-<div class="line"><span class="lineno">  566</span>        <span class="keywordflow">return</span> fMax;</div>
-<div class="line"><span class="lineno">  567</span>    }</div>
-<div class="ttc" id="aa00489_xhtml_a34a5c0abd80cd982df8a8bae7cbcea19"><div class="ttname"><a href="a00489.xhtml#a34a5c0abd80cd982df8a8bae7cbcea19">CVector::findMax</a></div><div class="ttdeci">static void findMax(const T *ptSrc, T &amp;fMax, long long &amp;iMax, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00631">Vector.h:631</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00572">572</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  573</span>    {</div>
+<div class="line"><span class="lineno">  574</span>        T fMax = 0;</div>
+<div class="line"><span class="lineno">  575</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iMax = -1;</div>
+<div class="line"><span class="lineno">  576</span> </div>
+<div class="line"><span class="lineno">  577</span>        <a class="code hl_function" href="a00489.xhtml#a34a5c0abd80cd982df8a8bae7cbcea19">findMax</a>(ptSrc, fMax, iMax, iLength, bAbs);</div>
+<div class="line"><span class="lineno">  578</span> </div>
+<div class="line"><span class="lineno">  579</span>        <span class="keywordflow">return</span> fMax;</div>
+<div class="line"><span class="lineno">  580</span>    }</div>
+<div class="ttc" id="aa00489_xhtml_a34a5c0abd80cd982df8a8bae7cbcea19"><div class="ttname"><a href="a00489.xhtml#a34a5c0abd80cd982df8a8bae7cbcea19">CVector::findMax</a></div><div class="ttdeci">static void findMax(const T *ptSrc, T &amp;fMax, long long &amp;iMax, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00644">Vector.h:644</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00152_source.xhtml#l00631">findMax()</a>.</p>
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00644">findMax()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00131_source.xhtml#l00050">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00098_source.xhtml#l00036">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00038_source.xhtml#l00745">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00038">CFeatureFromBlockIf::compFeatureSpectralCrestFactor()</a>, <a class="el" href="a00038_source.xhtml#l00280">CFeatureFromBlockIf::compFeatureTimePeakEnvelope()</a>, <a class="el" href="a00092_source.xhtml#l00186">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00101_source.xhtml#l00124">CCcf::getCcfMax()</a>, <a class="el" href="a00146_source.xhtml#l00542">CMatrix::getMax()</a>, <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>, and <a class="el" href="a00131_source.xhtml#l00129">CNormalizeAudio::normalizeSignal()</a>.</p>
 <div class="dynheader">
@@ -1328,24 +1409,24 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00480">480</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  481</span>    {</div>
-<div class="line"><span class="lineno">  482</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  483</span> </div>
-<div class="line"><span class="lineno">  484</span>        T fMean = <a class="code hl_function" href="a00489.xhtml#abdbcc3898121387f3694f74491b7331e">getSum</a>(ptSrc, iLength);</div>
-<div class="line"><span class="lineno">  485</span> </div>
-<div class="line"><span class="lineno">  486</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
-<div class="line"><span class="lineno">  487</span>        {</div>
-<div class="line"><span class="lineno">  488</span>            fMean  /= iLength;</div>
-<div class="line"><span class="lineno">  489</span>        }</div>
-<div class="line"><span class="lineno">  490</span> </div>
-<div class="line"><span class="lineno">  491</span>        <span class="keywordflow">return</span> fMean;</div>
-<div class="line"><span class="lineno">  492</span>    }</div>
-<div class="ttc" id="aa00489_xhtml_abdbcc3898121387f3694f74491b7331e"><div class="ttname"><a href="a00489.xhtml#abdbcc3898121387f3694f74491b7331e">CVector::getSum</a></div><div class="ttdeci">static T getSum(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00439">Vector.h:439</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00493">493</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  494</span>    {</div>
+<div class="line"><span class="lineno">  495</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  496</span> </div>
+<div class="line"><span class="lineno">  497</span>        T fMean = <a class="code hl_function" href="a00489.xhtml#abdbcc3898121387f3694f74491b7331e">getSum</a>(ptSrc, iLength);</div>
+<div class="line"><span class="lineno">  498</span> </div>
+<div class="line"><span class="lineno">  499</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">  500</span>        {</div>
+<div class="line"><span class="lineno">  501</span>            fMean  /= iLength;</div>
+<div class="line"><span class="lineno">  502</span>        }</div>
+<div class="line"><span class="lineno">  503</span> </div>
+<div class="line"><span class="lineno">  504</span>        <span class="keywordflow">return</span> fMean;</div>
+<div class="line"><span class="lineno">  505</span>    }</div>
+<div class="ttc" id="aa00489_xhtml_abdbcc3898121387f3694f74491b7331e"><div class="ttname"><a href="a00489.xhtml#abdbcc3898121387f3694f74491b7331e">CVector::getSum</a></div><div class="ttdeci">static T getSum(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00452">Vector.h:452</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00152_source.xhtml#l00439">getSum()</a>.</p>
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00452">getSum()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00059_source.xhtml#l00072">CPca::compCov()</a>, <a class="el" href="a00038_source.xhtml#l00071">CFeatureFromBlockIf::compFeatureSpectralFlatness()</a>, <a class="el" href="a00032_source.xhtml#l00081">CKey::compKey()</a>, <a class="el" href="a00092_source.xhtml#l00186">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00152_source.xhtml#l00501">getStd()</a>, and <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00059_source.xhtml#l00072">CPca::compCov()</a>, <a class="el" href="a00038_source.xhtml#l00071">CFeatureFromBlockIf::compFeatureSpectralFlatness()</a>, <a class="el" href="a00032_source.xhtml#l00081">CKey::compKey()</a>, <a class="el" href="a00092_source.xhtml#l00186">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00152_source.xhtml#l00514">getStd()</a>, and <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1412,18 +1493,18 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00612">612</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  613</span>    {</div>
-<div class="line"><span class="lineno">  614</span>        T fMin = 0;</div>
-<div class="line"><span class="lineno">  615</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iMin = -1;</div>
-<div class="line"><span class="lineno">  616</span> </div>
-<div class="line"><span class="lineno">  617</span>        <a class="code hl_function" href="a00489.xhtml#ad475dff5686f7f82472071000a542806">findMin</a>(ptSrc, fMin, iMin, iLength, bAbs);</div>
-<div class="line"><span class="lineno">  618</span> </div>
-<div class="line"><span class="lineno">  619</span>        <span class="keywordflow">return</span> fMin;</div>
-<div class="line"><span class="lineno">  620</span>    }</div>
-<div class="ttc" id="aa00489_xhtml_ad475dff5686f7f82472071000a542806"><div class="ttname"><a href="a00489.xhtml#ad475dff5686f7f82472071000a542806">CVector::findMin</a></div><div class="ttdeci">static void findMin(const T *ptSrc, T &amp;fMin, long long &amp;iMin, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00660">Vector.h:660</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00625">625</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  626</span>    {</div>
+<div class="line"><span class="lineno">  627</span>        T fMin = 0;</div>
+<div class="line"><span class="lineno">  628</span>        <span class="keywordtype">long</span> <span class="keywordtype">long</span> iMin = -1;</div>
+<div class="line"><span class="lineno">  629</span> </div>
+<div class="line"><span class="lineno">  630</span>        <a class="code hl_function" href="a00489.xhtml#ad475dff5686f7f82472071000a542806">findMin</a>(ptSrc, fMin, iMin, iLength, bAbs);</div>
+<div class="line"><span class="lineno">  631</span> </div>
+<div class="line"><span class="lineno">  632</span>        <span class="keywordflow">return</span> fMin;</div>
+<div class="line"><span class="lineno">  633</span>    }</div>
+<div class="ttc" id="aa00489_xhtml_ad475dff5686f7f82472071000a542806"><div class="ttname"><a href="a00489.xhtml#ad475dff5686f7f82472071000a542806">CVector::findMin</a></div><div class="ttdeci">static void findMin(const T *ptSrc, T &amp;fMin, long long &amp;iMin, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00673">Vector.h:673</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00152_source.xhtml#l00660">findMin()</a>.</p>
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00673">findMin()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00071">CFeatureFromBlockIf::compFeatureSpectralFlatness()</a>, <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>, and <a class="el" href="a00041_source.xhtml#l00092">CKmeans::reinitClusterMeans_()</a>.</p>
 <div class="dynheader">
@@ -1485,25 +1566,25 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00532">532</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  533</span>    {</div>
-<div class="line"><span class="lineno">  534</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  535</span> </div>
-<div class="line"><span class="lineno">  536</span>        T fRms = 0;</div>
-<div class="line"><span class="lineno">  537</span> </div>
-<div class="line"><span class="lineno">  538</span> </div>
-<div class="line"><span class="lineno">  539</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i=0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">  540</span>        {</div>
-<div class="line"><span class="lineno">  541</span>            fRms   += ptSrc[i] * ptSrc[i];</div>
-<div class="line"><span class="lineno">  542</span>        }</div>
-<div class="line"><span class="lineno">  543</span> </div>
-<div class="line"><span class="lineno">  544</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
-<div class="line"><span class="lineno">  545</span>        {</div>
-<div class="line"><span class="lineno">  546</span>            fRms   /= iLength;</div>
-<div class="line"><span class="lineno">  547</span>        }</div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00545">545</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  546</span>    {</div>
+<div class="line"><span class="lineno">  547</span>        assert (iLength &gt;= 0);</div>
 <div class="line"><span class="lineno">  548</span> </div>
-<div class="line"><span class="lineno">  549</span>        <span class="keywordflow">return</span> std::sqrt(fRms);</div>
-<div class="line"><span class="lineno">  550</span>    }</div>
+<div class="line"><span class="lineno">  549</span>        T fRms = 0;</div>
+<div class="line"><span class="lineno">  550</span> </div>
+<div class="line"><span class="lineno">  551</span> </div>
+<div class="line"><span class="lineno">  552</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i=0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">  553</span>        {</div>
+<div class="line"><span class="lineno">  554</span>            fRms   += ptSrc[i] * ptSrc[i];</div>
+<div class="line"><span class="lineno">  555</span>        }</div>
+<div class="line"><span class="lineno">  556</span> </div>
+<div class="line"><span class="lineno">  557</span>        <span class="keywordflow">if</span> (iLength &gt; 0)</div>
+<div class="line"><span class="lineno">  558</span>        {</div>
+<div class="line"><span class="lineno">  559</span>            fRms   /= iLength;</div>
+<div class="line"><span class="lineno">  560</span>        }</div>
+<div class="line"><span class="lineno">  561</span> </div>
+<div class="line"><span class="lineno">  562</span>        <span class="keywordflow">return</span> std::sqrt(fRms);</div>
+<div class="line"><span class="lineno">  563</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1558,33 +1639,33 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00501">501</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  502</span>    {</div>
-<div class="line"><span class="lineno">  503</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  504</span> </div>
-<div class="line"><span class="lineno">  505</span>        T  fStd = 0;</div>
-<div class="line"><span class="lineno">  506</span> </div>
-<div class="line"><span class="lineno">  507</span>        <span class="keywordflow">if</span> (fMean == std::numeric_limits&lt;T&gt;::max())</div>
-<div class="line"><span class="lineno">  508</span>        {</div>
-<div class="line"><span class="lineno">  509</span>            fMean   = <a class="code hl_function" href="a00489.xhtml#ae6e3545cf196c5e2409365bc62b7c1de">getMean</a>(ptSrc, iLength);</div>
-<div class="line"><span class="lineno">  510</span>        }</div>
-<div class="line"><span class="lineno">  511</span> </div>
-<div class="line"><span class="lineno">  512</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i=0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">  513</span>        {</div>
-<div class="line"><span class="lineno">  514</span>            fStd   += (ptSrc[i] - fMean) * (ptSrc[i] - fMean);</div>
-<div class="line"><span class="lineno">  515</span>        }</div>
-<div class="line"><span class="lineno">  516</span> </div>
-<div class="line"><span class="lineno">  517</span>        <span class="keywordflow">if</span> (iLength &gt; 1)</div>
-<div class="line"><span class="lineno">  518</span>        {</div>
-<div class="line"><span class="lineno">  519</span>            <span class="comment">//dStd   /= (iLength - 1);</span></div>
-<div class="line"><span class="lineno">  520</span>            fStd   /= iLength;</div>
-<div class="line"><span class="lineno">  521</span>        }</div>
-<div class="line"><span class="lineno">  522</span> </div>
-<div class="line"><span class="lineno">  523</span>        <span class="keywordflow">return</span> std::sqrt(fStd);</div>
-<div class="line"><span class="lineno">  524</span>    }</div>
-<div class="ttc" id="aa00489_xhtml_ae6e3545cf196c5e2409365bc62b7c1de"><div class="ttname"><a href="a00489.xhtml#ae6e3545cf196c5e2409365bc62b7c1de">CVector::getMean</a></div><div class="ttdeci">static T getMean(const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00480">Vector.h:480</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00514">514</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  515</span>    {</div>
+<div class="line"><span class="lineno">  516</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  517</span> </div>
+<div class="line"><span class="lineno">  518</span>        T  fStd = 0;</div>
+<div class="line"><span class="lineno">  519</span> </div>
+<div class="line"><span class="lineno">  520</span>        <span class="keywordflow">if</span> (fMean == std::numeric_limits&lt;T&gt;::max())</div>
+<div class="line"><span class="lineno">  521</span>        {</div>
+<div class="line"><span class="lineno">  522</span>            fMean   = <a class="code hl_function" href="a00489.xhtml#ae6e3545cf196c5e2409365bc62b7c1de">getMean</a>(ptSrc, iLength);</div>
+<div class="line"><span class="lineno">  523</span>        }</div>
+<div class="line"><span class="lineno">  524</span> </div>
+<div class="line"><span class="lineno">  525</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i=0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">  526</span>        {</div>
+<div class="line"><span class="lineno">  527</span>            fStd   += (ptSrc[i] - fMean) * (ptSrc[i] - fMean);</div>
+<div class="line"><span class="lineno">  528</span>        }</div>
+<div class="line"><span class="lineno">  529</span> </div>
+<div class="line"><span class="lineno">  530</span>        <span class="keywordflow">if</span> (iLength &gt; 1)</div>
+<div class="line"><span class="lineno">  531</span>        {</div>
+<div class="line"><span class="lineno">  532</span>            <span class="comment">//dStd   /= (iLength - 1);</span></div>
+<div class="line"><span class="lineno">  533</span>            fStd   /= iLength;</div>
+<div class="line"><span class="lineno">  534</span>        }</div>
+<div class="line"><span class="lineno">  535</span> </div>
+<div class="line"><span class="lineno">  536</span>        <span class="keywordflow">return</span> std::sqrt(fStd);</div>
+<div class="line"><span class="lineno">  537</span>    }</div>
+<div class="ttc" id="aa00489_xhtml_ae6e3545cf196c5e2409365bc62b7c1de"><div class="ttname"><a href="a00489.xhtml#ae6e3545cf196c5e2409365bc62b7c1de">CVector::getMean</a></div><div class="ttdeci">static T getMean(const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00493">Vector.h:493</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00152_source.xhtml#l00480">getMean()</a>.</p>
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00493">getMean()</a>.</p>
 
 <p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00296">CFeatureFromBlockIf::compFeatureTimeRms()</a>, <a class="el" href="a00038_source.xhtml#l00288">CFeatureFromBlockIf::compFeatureTimeStd()</a>, and <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>.</p>
 <div class="dynheader">
@@ -1653,26 +1734,26 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>T </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00439">439</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  440</span>    {</div>
-<div class="line"><span class="lineno">  441</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  442</span>        assert (ptSrc);</div>
-<div class="line"><span class="lineno">  443</span> </div>
-<div class="line"><span class="lineno">  444</span>        T fResult = 0;</div>
-<div class="line"><span class="lineno">  445</span>        <span class="keywordflow">if</span> (bAbs)</div>
-<div class="line"><span class="lineno">  446</span>        {</div>
-<div class="line"><span class="lineno">  447</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">  448</span>                fResult += std::abs(ptSrc[i]);</div>
-<div class="line"><span class="lineno">  449</span>        }</div>
-<div class="line"><span class="lineno">  450</span>        <span class="keywordflow">else</span></div>
-<div class="line"><span class="lineno">  451</span>        {</div>
-<div class="line"><span class="lineno">  452</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">  453</span>                fResult += ptSrc[i];</div>
-<div class="line"><span class="lineno">  454</span>        }</div>
-<div class="line"><span class="lineno">  455</span>        <span class="keywordflow">return</span> fResult;</div>
-<div class="line"><span class="lineno">  456</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00452">452</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  453</span>    {</div>
+<div class="line"><span class="lineno">  454</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  455</span>        assert (ptSrc);</div>
+<div class="line"><span class="lineno">  456</span> </div>
+<div class="line"><span class="lineno">  457</span>        T fResult = 0;</div>
+<div class="line"><span class="lineno">  458</span>        <span class="keywordflow">if</span> (bAbs)</div>
+<div class="line"><span class="lineno">  459</span>        {</div>
+<div class="line"><span class="lineno">  460</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">  461</span>                fResult += std::abs(ptSrc[i]);</div>
+<div class="line"><span class="lineno">  462</span>        }</div>
+<div class="line"><span class="lineno">  463</span>        <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  464</span>        {</div>
+<div class="line"><span class="lineno">  465</span>            <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
+<div class="line"><span class="lineno">  466</span>                fResult += ptSrc[i];</div>
+<div class="line"><span class="lineno">  467</span>        }</div>
+<div class="line"><span class="lineno">  468</span>        <span class="keywordflow">return</span> fResult;</div>
+<div class="line"><span class="lineno">  469</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00041_source.xhtml#l00143">CKmeans::checkConverged_()</a>, <a class="el" href="a00095_source.xhtml#l00003">CKeyFromChroma::CKeyFromChroma()</a>, <a class="el" href="a00056_source.xhtml#l00030">CChordFromBlockIf::compChordProb()</a>, <a class="el" href="a00098_source.xhtml#l00343">CPitchTimeAmdf::compF0()</a>, <a class="el" href="a00038_source.xhtml#l00525">CFeatureSpectralPitchChroma::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00038">CFeatureFromBlockIf::compFeatureSpectralCrestFactor()</a>, <a class="el" href="a00038_source.xhtml#l00158">CFeatureFromBlockIf::compFeatureSpectralRolloff()</a>, <a class="el" href="a00095_source.xhtml#l00027">CKeyFromChroma::getKey()</a>, <a class="el" href="a00152_source.xhtml#l00480">getMean()</a>, <a class="el" href="a00146_source.xhtml#l00194">CMatrix::getSum()</a>, and <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00041_source.xhtml#l00143">CKmeans::checkConverged_()</a>, <a class="el" href="a00095_source.xhtml#l00003">CKeyFromChroma::CKeyFromChroma()</a>, <a class="el" href="a00056_source.xhtml#l00030">CChordFromBlockIf::compChordProb()</a>, <a class="el" href="a00098_source.xhtml#l00343">CPitchTimeAmdf::compF0()</a>, <a class="el" href="a00038_source.xhtml#l00525">CFeatureSpectralPitchChroma::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00038">CFeatureFromBlockIf::compFeatureSpectralCrestFactor()</a>, <a class="el" href="a00038_source.xhtml#l00158">CFeatureFromBlockIf::compFeatureSpectralRolloff()</a>, <a class="el" href="a00095_source.xhtml#l00027">CKeyFromChroma::getKey()</a>, <a class="el" href="a00152_source.xhtml#l00493">getMean()</a>, <a class="el" href="a00146_source.xhtml#l00194">CMatrix::getSum()</a>, and <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1733,14 +1814,14 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>bool </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00465">465</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  466</span>    {</div>
-<div class="line"><span class="lineno">  467</span>        assert (iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  468</span>        assert (ptSrc1);</div>
-<div class="line"><span class="lineno">  469</span>        assert (ptSrc2);</div>
-<div class="line"><span class="lineno">  470</span> </div>
-<div class="line"><span class="lineno">  471</span>        <span class="keywordflow">return</span> (memcmp (ptSrc1, ptSrc2, iLength * <span class="keyword">sizeof</span>(T)) == 0);</div>
-<div class="line"><span class="lineno">  472</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00478">478</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  479</span>    {</div>
+<div class="line"><span class="lineno">  480</span>        assert (iLength &gt;= 0);</div>
+<div class="line"><span class="lineno">  481</span>        assert (ptSrc1);</div>
+<div class="line"><span class="lineno">  482</span>        assert (ptSrc2);</div>
+<div class="line"><span class="lineno">  483</span> </div>
+<div class="line"><span class="lineno">  484</span>        <span class="keywordflow">return</span> (memcmp (ptSrc1, ptSrc2, iLength * <span class="keyword">sizeof</span>(T)) == 0);</div>
+<div class="line"><span class="lineno">  485</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -1944,7 +2025,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">  178</span>            ptSrcDest[i] *= fScale;</div>
 <div class="line"><span class="lineno">  179</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00104_source.xhtml#l00205">CGammatone::calcFilterCoeffs_()</a>, <a class="el" href="a00101_source.xhtml#l00062">CCcf::compCcf()</a>, <a class="el" href="a00056_source.xhtml#l00030">CChordFromBlockIf::compChordProb()</a>, <a class="el" href="a00041_source.xhtml#l00126">CKmeans::compClusterMeans_()</a>, <a class="el" href="a00038_source.xhtml#l00525">CFeatureSpectralPitchChroma::compFeature()</a>, <a class="el" href="a00092_source.xhtml#l00186">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00107_source.xhtml#l00354">CChordIf::computeMagSpectrum_()</a>, <a class="el" href="a00050_source.xhtml#l00314">CFeatureIf::computeMagSpectrum_()</a>, <a class="el" href="a00092_source.xhtml#l00284">CNoveltyIf::computeMagSpectrum_()</a>, <a class="el" href="a00074_source.xhtml#l00265">CPitchIf::computeMagSpectrum_()</a>, <a class="el" href="a00068_source.xhtml#l00207">CFingerprint::computeMagSpectrum_()</a>, <a class="el" href="a00086_source.xhtml#l00217">CSpectrogramIf::computeMagSpectrum_()</a>, <a class="el" href="a00071_source.xhtml#l00226">CFft::conjugate_I()</a>, <a class="el" href="a00131_source.xhtml#l00019">CPreProc::downmix()</a>, <a class="el" href="a00038_source.xhtml#l00474">CFeatureSpectralMfccs::genDctMat_()</a>, <a class="el" href="a00095_source.xhtml#l00027">CKeyFromChroma::getKey()</a>, <a class="el" href="a00041_source.xhtml#l00111">CKmeans::initClusterMeans_()</a>, <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>, <a class="el" href="a00146_source.xhtml#l00748">CMatrix::inv_I()</a>, <a class="el" href="a00146_source.xhtml#l00584">CMatrix::mulC_I()</a>, <a class="el" href="a00131_source.xhtml#l00116">CNormalizeAudio::normalizeBlock()</a>, <a class="el" href="a00131_source.xhtml#l00129">CNormalizeAudio::normalizeSignal()</a>, <a class="el" href="a00194_source.xhtml#l00056">CInstFreq::process()</a>, and <a class="el" href="a00041_source.xhtml#l00092">CKmeans::reinitClusterMeans_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00104_source.xhtml#l00205">CGammatone::calcFilterCoeffs_()</a>, <a class="el" href="a00101_source.xhtml#l00062">CCcf::compCcf()</a>, <a class="el" href="a00056_source.xhtml#l00030">CChordFromBlockIf::compChordProb()</a>, <a class="el" href="a00041_source.xhtml#l00126">CKmeans::compClusterMeans_()</a>, <a class="el" href="a00038_source.xhtml#l00525">CFeatureSpectralPitchChroma::compFeature()</a>, <a class="el" href="a00092_source.xhtml#l00186">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00107_source.xhtml#l00354">CChordIf::computeMagSpectrum_()</a>, <a class="el" href="a00050_source.xhtml#l00314">CFeatureIf::computeMagSpectrum_()</a>, <a class="el" href="a00092_source.xhtml#l00284">CNoveltyIf::computeMagSpectrum_()</a>, <a class="el" href="a00074_source.xhtml#l00265">CPitchIf::computeMagSpectrum_()</a>, <a class="el" href="a00068_source.xhtml#l00207">CFingerprint::computeMagSpectrum_()</a>, <a class="el" href="a00086_source.xhtml#l00217">CSpectrogramIf::computeMagSpectrum_()</a>, <a class="el" href="a00071_source.xhtml#l00226">CFft::conjugate_I()</a>, <a class="el" href="a00146_source.xhtml#l00657">CMatrix::det()</a>, <a class="el" href="a00131_source.xhtml#l00019">CPreProc::downmix()</a>, <a class="el" href="a00038_source.xhtml#l00474">CFeatureSpectralMfccs::genDctMat_()</a>, <a class="el" href="a00095_source.xhtml#l00027">CKeyFromChroma::getKey()</a>, <a class="el" href="a00041_source.xhtml#l00111">CKmeans::initClusterMeans_()</a>, <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>, <a class="el" href="a00146_source.xhtml#l00750">CMatrix::inv_I()</a>, <a class="el" href="a00146_source.xhtml#l00584">CMatrix::mulC_I()</a>, <a class="el" href="a00131_source.xhtml#l00116">CNormalizeAudio::normalizeBlock()</a>, <a class="el" href="a00131_source.xhtml#l00129">CNormalizeAudio::normalizeSignal()</a>, <a class="el" href="a00194_source.xhtml#l00056">CInstFreq::process()</a>, and <a class="el" href="a00041_source.xhtml#l00092">CKmeans::reinitClusterMeans_()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2159,7 +2240,7 @@ template&lt;typename T &gt; </div>
 <div class="line"><span class="lineno">   73</span>            ptDest[i] = tValue;</div>
 <div class="line"><span class="lineno">   74</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00044_source.xhtml#l00162">CKnn::buildHistogram_()</a>, <a class="el" href="a00092_source.xhtml#l00186">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00080_source.xhtml#l00102">CViterbi::compProbability_()</a>, <a class="el" href="a00152_source.xhtml#l00577">findPeaks()</a>, <a class="el" href="a00089_source.xhtml#l00072">CSubFingerprint::genBands_()</a>, <a class="el" href="a00038_source.xhtml#l00577">CFeatureSpectralPitchChroma::genPcFilters_()</a>, <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>, <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>, and <a class="el" href="a00146_source.xhtml#l00078">CMatrix::setValue()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00044_source.xhtml#l00162">CKnn::buildHistogram_()</a>, <a class="el" href="a00092_source.xhtml#l00186">CNoveltyIf::compNovelty()</a>, <a class="el" href="a00080_source.xhtml#l00102">CViterbi::compProbability_()</a>, <a class="el" href="a00152_source.xhtml#l00590">findPeaks()</a>, <a class="el" href="a00089_source.xhtml#l00072">CSubFingerprint::genBands_()</a>, <a class="el" href="a00038_source.xhtml#l00577">CFeatureSpectralPitchChroma::genPcFilters_()</a>, <a class="el" href="a00044_source.xhtml#l00015">CKnn::init()</a>, <a class="el" href="a00107_source.xhtml#l00413">CChordIf::initViterbi_()</a>, and <a class="el" href="a00146_source.xhtml#l00078">CMatrix::setValue()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2562,17 +2643,21 @@ template&lt;typename T &gt; </div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>void </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00422">422</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  423</span>    {</div>
-<div class="line"><span class="lineno">  424</span>        assert(iLength &gt;= 0);</div>
-<div class="line"><span class="lineno">  425</span>        assert(ptSrcDest);</div>
-<div class="line"><span class="lineno">  426</span>        assert(ptSrc);</div>
-<div class="line"><span class="lineno">  427</span> </div>
-<div class="line"><span class="lineno">  428</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> i = 0; i &lt; iLength; i++)</div>
-<div class="line"><span class="lineno">  429</span>            ptSrcDest[i] -= fWeight*ptSrc[i];</div>
-<div class="line"><span class="lineno">  430</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00152_source.xhtml#l00440">440</a> of file <a class="el" href="a00152_source.xhtml">Vector.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  441</span>    {</div>
+<div class="line"><span class="lineno">  442</span>        <a class="code hl_function" href="a00489.xhtml#a2239b170d46ed3d0846d766a0634a0be">addW_I</a>(ptSrcDest, ptSrc, -fWeight, iLength);</div>
+<div class="line"><span class="lineno">  443</span>    }</div>
+<div class="ttc" id="aa00489_xhtml_a2239b170d46ed3d0846d766a0634a0be"><div class="ttname"><a href="a00489.xhtml#a2239b170d46ed3d0846d766a0634a0be">CVector::addW_I</a></div><div class="ttdeci">static void addW_I(T *ptSrcDest, const T *ptSrc, T fWeight, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00422">Vector.h:422</a></div></div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00748">CMatrix::inv_I()</a>.</p>
+<p class="reference">References <a class="el" href="a00152_source.xhtml#l00422">addW_I()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00146_source.xhtml#l00750">CMatrix::inv_I()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00489_a4e5b5163bb46b8de5ac4013bde1ded00_cgraph.svg" width="296" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -2591,7 +2676,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00489.xhtml">CVector</a></li>
-    <li class="footer">Generated on Sun Jun 12 2022 20:38:38 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Mon Jun 13 2022 13:47:50 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>
