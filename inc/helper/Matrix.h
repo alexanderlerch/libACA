@@ -167,21 +167,46 @@ public:
     \param pptMat input matrix of dimension iNumRows x iNumCols (to be written, user allocated)
     \param iColIdx index of column to retrieve
     \param iNumRows number of rows in the matrix
-    \param iNumCols number of columns in the matrix
     */
-    static void getCol(float *ptDest, float** pptMat, int iColIdx, int iNumRows, int iNumCols)
+    static void getCol(float *ptDest, float** pptMat, int iColIdx, int iNumRows)
     {
-        assert(iColIdx >= 0 && iColIdx < iNumCols);
+        assert(iColIdx >= 0);
         assert(iNumRows > 0);
-        assert(iNumCols > 0);
         assert(pptMat);
         assert(ptDest);
         assert(pptMat[0]);
 
         for (auto m = 0; m < iNumRows; m++)
             ptDest[m] = pptMat[m][iColIdx];
+    }
 
-        iColIdx = iNumCols; // trying to avoid compiler warnings
+    /*! adds all elements in one columns
+    \param pptMat input matrix of dimension iNumRows x iNumCols 
+    \param iColIdx column of interest
+    \param iNumRows number of rows in the matrix
+    \param bAbs flag to indicate whether to sum the absolute values
+    \return
+    */
+    static float getSumCol(float** pptMat, int iColIdx, int iNumRows, bool bAbs = false)
+    {
+        assert(iNumRows > 0);
+        assert(pptMat);
+        assert(pptMat[0]);
+
+        float fResult = 0;
+
+        if (bAbs)
+        {
+            for (auto m = 0; m < iNumRows; m++)
+                fResult += std::abs(pptMat[m][iColIdx]);
+        }
+        else
+        {
+            for (auto m = 0; m < iNumRows; m++)
+                fResult += pptMat[m][iColIdx];
+        }
+
+        return fResult;
     }
 
     /*! adds all matrix elements
@@ -378,6 +403,30 @@ public:
             ptDestColVec[m] = CVector::mulScalar(pptMat[m], ptSrcColVec, iNumMatCols);
     }
 
+    /*! multiplies a column vec with a row vec (VEC * VEC)
+    \param pptDestMat resulting matrix of dimension iNumMatRows X iNumMatCols (to be written, user allocated)
+    \param ptSrcColVec (column) vector to be multiplied
+    \param ptSrcRowVec (row) vector to be multiplied
+    \param iNumMatRows number of rows in the matrix
+    \param iNumMatCols number of columns in the matrix
+    \return
+    */
+    static void mulColVecRowVec(float** pptDestMat, const float* ptSrcColVec, const float* ptSrcRowVec, int iNumMatRows, int iNumMatCols)
+    {
+        assert(iNumMatRows > 0);
+        assert(iNumMatCols > 0);
+        assert(ptSrcRowVec);
+        assert(ptSrcColVec);
+        assert(pptDestMat);
+        assert(pptDestMat[0]);
+
+        for (auto m = 0; m < iNumMatRows; m++)
+        {
+            for (auto n = 0; n < iNumMatCols; n++)
+                pptDestMat[m][n] = ptSrcColVec[m] * ptSrcRowVec[n];
+        }
+    }
+
     /*! multiplies a row vector with a matrix (VEC * MAT)
     \param ptDestRowVec resulting (row) vector of length iNumMatCols (to be written, user allocated)
     \param ptSrcRowVec (column) vector to be multiplied
@@ -399,6 +448,24 @@ public:
         for (auto n = 0; n < iNumMatCols; n++)
             for (auto m = 0; m < iNumMatRows; m++)
                 ptDestRowVec[n] += ptSrcRowVec[m] * pptMat[m][n];
+    }
+
+    /*! multiplies a column of a matrix with a constant
+    \param pptMat matrix with column to be multiplied
+    \param fValue value to multiply the column with
+    \param iCol index of column to be multiplied
+    \param iNumRows number of rows in the matrix
+    \return
+    */
+    static void mulColC_I(float** pptMat, float fValue, int iCol, int iNumRows)
+    {
+        assert(iNumRows > 0);
+        assert(iCol >= 0);
+        assert(pptMat);
+        assert(pptMat[0]);
+
+        for (auto m = 0; m < iNumRows; m++)
+            pptMat[m][iCol] *= fValue;
     }
 
     /*! multiplies a matrix with a matrix (MAT1 * MAT2)
