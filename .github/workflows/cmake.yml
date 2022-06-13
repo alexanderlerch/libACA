@@ -26,18 +26,18 @@ jobs:
       working-directory: ${{github.workspace}}/bld
       run: ctest -C ${{env.BUILD_TYPE}}
   
-  macos:
-    runs-on: macos-latest
+  # macos:
+    # runs-on: macos-latest
     
-    steps:
-    - uses: actions/checkout@v2
+    # steps:
+    # - uses: actions/checkout@v2
 
-    - name: configure 
-      run: cmake -B ${{github.workspace}}/bld -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DWITH_TESTS=1
+    # - name: configure 
+      # run: cmake -B ${{github.workspace}}/bld -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DWITH_TESTS=1
 
-    - name: build
-      run: cmake --build ${{github.workspace}}/bld --config ${{env.BUILD_TYPE}}
+    # - name: build
+      # run: cmake --build ${{github.workspace}}/bld --config ${{env.BUILD_TYPE}}
 
-    - name: test
-      working-directory: ${{github.workspace}}/bld
-      run: ctest -C ${{env.BUILD_TYPE}}
+    # - name: test
+      # working-directory: ${{github.workspace}}/bld
+      # run: ctest -C ${{env.BUILD_TYPE}}
