@@ -472,6 +472,92 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
 
 }
 
+TEST_CASE("ToolsGmm", "[ToolsGmm]")
+{
+    float aafMu[2][2] = { {-5,5},{5,-5} };
+    int aiDim[2] = { 2,192 };
+
+    int iK = 2;
+    int iMaxIter = 100;
+
+    float** ppfData = 0;
+
+    CGmm* pCInstance = new CGmm();
+    CGmmResult* pCResult = new CGmmResult();
+
+    CMatrix::alloc(ppfData, aiDim[0], aiDim[1]);
+    //SECTION("Api")
+    //{
+
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[0], aiDim[1], iMaxIter));
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, 0, aiDim[1], iMaxIter));
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, aiDim[0], 0, iMaxIter));
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, aiDim[0], aiDim[1], 0));
+    //    CHECK(Error_t::kFunctionIllegalCallError == pCInstance->compKmeans(piResult, ppfData));
+
+    //    CHECK(Error_t::kNoError == pCInstance->init(iK, aiDim[0], aiDim[1], iMaxIter));
+
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compKmeans(0, ppfData));
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compKmeans(piResult, 0));
+
+    //    CHECK(Error_t::kNoError == pCInstance->compKmeans(piResult, ppfData));
+
+    //    CHECK(Error_t::kNoError == pCInstance->reset());
+    //}
+    SECTION("2Mixtures")
+    {
+        srand(41);
+
+        for (auto n = 0; n < 32; n++)
+        {
+            //cluster 1
+            ppfData[0][n] = static_cast<float>(aafMu[0][0] + .1 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n] = static_cast<float>(aafMu[1][0] + .1 * std::sin(n * 2. * M_PI / 32));
+            ppfData[0][n + 32] = static_cast<float>(aafMu[0][0] + .5 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 32] = static_cast<float>(aafMu[1][0] + .5 * std::sin(n * 2. * M_PI / 32));
+
+            //cluster 2
+            ppfData[0][n + 64] = static_cast<float>(aafMu[0][1] + .05 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 64] = static_cast<float>(aafMu[1][1] + .05 * std::sin(n * 2. * M_PI / 32));
+            ppfData[0][n + 64 + 32] = static_cast<float>(aafMu[0][1] + .25 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 64 + 32] = static_cast<float>(aafMu[1][1] + .25 * std::sin(n * 2. * M_PI / 32));
+
+            //repeat cluster 1
+            ppfData[0][n + 128] = static_cast<float>(aafMu[0][0] + .1 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 128] = static_cast<float>(aafMu[1][0] + .1 * std::sin(n * 2. * M_PI / 32));
+            ppfData[0][n + 128 + 32] = static_cast<float>(aafMu[0][0] + .5 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 128 + 32] = static_cast<float>(aafMu[1][0] + .5 * std::sin(n * 2. * M_PI / 32));
+        }
+
+        CHECK(Error_t::kNoError == pCInstance->init(pCResult, iK, aiDim[0], aiDim[1], iMaxIter));
+
+        CHECK(Error_t::kNoError == pCInstance->compGmm(pCResult, ppfData));
+
+        // check ratios because we don't know about cluster order
+        CHECK(1.F == Approx(std::abs(std::log2(pCResult->getPrior(0) / pCResult->getPrior(1)))));
+
+        CHECK(0.F == Approx(pCResult->getSigma(0, 0, 1)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(pCResult->getSigma(0, 1, 0)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(pCResult->getSigma(1, 0, 1)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(pCResult->getSigma(1, 1, 0)).margin(1e-6F).epsilon(1e-6F));
+
+        for (auto k = 0; k < iK; k++)
+        {
+            for (auto v = 0; v < aiDim[0]; v++)
+                CHECK(5.F == Approx(std::abs(pCResult->getMu(k, v))).margin(1e-6F).epsilon(1e-6F));
+        }
+
+        CHECK(2.F == Approx(std::abs(std::log2(pCResult->getSigma(0, 0, 0) / pCResult->getSigma(1, 0, 0)))).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(pCResult->getSigma(0, 0, 0) - pCResult->getSigma(0, 1, 1)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(pCResult->getSigma(1, 0, 0) - pCResult->getSigma(1, 1, 1)).margin(1e-6F).epsilon(1e-6F));
+
+    }
+
+    CMatrix::free(ppfData, 2);
+    delete pCResult;
+    delete pCInstance;
+}
+
 TEST_CASE("ToolsFingerprint", "[ToolsFingerprint]")
 {
     int iLength = 24000;
@@ -521,6 +607,7 @@ TEST_CASE("ToolsFingerprint", "[ToolsFingerprint]")
     CVector::free(pfInput);
 
 }
+
 
 TEST_CASE("ToolsKmeans", "[ToolsKmeans]")
 {

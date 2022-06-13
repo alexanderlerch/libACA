@@ -24,6 +24,7 @@
 #include "ToolConversion.h"
 #include "ToolFingerprint.h"
 #include "ToolGammatone.h"
+#include "ToolGmm.h"
 #include "ToolInstFreq.h"
 #include "ToolLowPass.h"
 #include "ToolNmf.h"
