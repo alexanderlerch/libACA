@@ -111,7 +111,6 @@ int main(int argc, char* argv[])
     hOutputFile.close();
 
     delete[] pfNovelty;
-    pfNovelty = 0;
 
     // all done
     return 0;

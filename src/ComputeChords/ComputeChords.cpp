@@ -107,7 +107,6 @@ int main(int argc, char* argv[])
     hOutputFile.close();
 
     delete[] peChord;
-    peChord = 0;
 
     // all done
     return 0;

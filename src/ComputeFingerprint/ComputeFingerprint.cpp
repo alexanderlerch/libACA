@@ -53,8 +53,6 @@ int main(int argc, char* argv[])
     pCInstance->init(sInputFilePath);
     iNumBlocks = pCInstance->getFingerprintLength();
 
-    piFingerprintRes = new uint32_t[iNumBlocks];
-
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
     if (!sOutputFilePath.empty())
@@ -67,6 +65,8 @@ int main(int argc, char* argv[])
             return -1;
         }
     }
+
+    piFingerprintRes = new uint32_t[iNumBlocks];
 
     time = clock();
 

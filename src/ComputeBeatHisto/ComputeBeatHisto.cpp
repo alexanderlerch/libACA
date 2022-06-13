@@ -107,7 +107,6 @@ int main(int argc, char* argv[])
     hOutputFile.close();
 
     delete[] pfBeatHisto;
-    pfBeatHisto = 0;
 
     // all done
     return 0;
