@@ -25,6 +25,7 @@
 #include "ToolFingerprint.h"
 #include "ToolGammatone.h"
 #include "ToolGmm.h"
+#include "ToolGmmClassifier.h"
 #include "ToolInstFreq.h"
 #include "ToolLowPass.h"
 #include "ToolNmf.h"

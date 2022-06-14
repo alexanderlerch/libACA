@@ -12,12 +12,8 @@ CKnn::~CKnn(void)
     this->reset();
 }
 
-Error_t CKnn::init(float** ppfTrainFeatures, const int* piTrainClassIndices, int iNumFeatures, int iNumObservations, CClassifierBase::Normalization_t eNorm)
+Error_t CKnn::init(int iNumFeatures, int iNumObservations)
 {
-    if (!ppfTrainFeatures || !piTrainClassIndices)
-        return Error_t::kFunctionInvalidArgsError;
-    if (!ppfTrainFeatures[0])
-        return Error_t::kFunctionInvalidArgsError;
     if (iNumFeatures <= 0 || iNumObservations <= 1)
         return Error_t::kFunctionInvalidArgsError;
 
@@ -33,49 +29,29 @@ Error_t CKnn::init(float** ppfTrainFeatures, const int* piTrainClassIndices, int
     CVector::alloc(m_pfHist, m_iK);
     CVector::alloc(m_piHistLabel, m_iK);
 
-    CVector::alloc(m_pfNormScale, m_iNumFeatures);
-    CVector::alloc(m_pfNormSub, m_iNumFeatures);
+    m_bIsInitialized = true;
+
+    return Error_t::kNoError;
+}
+
+Error_t CKnn::train(float** ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
+{
+    if (!ppfTrainFeatures || !piTrainClassIndices)
+        return Error_t::kFunctionInvalidArgsError;
+    if (!ppfTrainFeatures[0])
+        return Error_t::kFunctionInvalidArgsError;
+    if (!m_bIsInitialized)
+        return Error_t::kFunctionIllegalCallError;
 
     CVector::copy(m_piClassLabels, piTrainClassIndices, m_iNumObs);
 
     // note we store this transposed - that's easier for the distance computation
     CMatrix::transpose(m_ppfTrain, ppfTrainFeatures, m_iNumFeatures, m_iNumObs);
 
-    // normaization constants
-    if (eNorm == kZscoreNormalization)
-    {
-        for (auto f = 0; f < m_iNumFeatures; f++)
-        {
-            m_pfNormSub[f] = CVector::getMean(ppfTrainFeatures[f], m_iNumObs);
-            m_pfNormScale[f] = CVector::getStd(ppfTrainFeatures[f], m_iNumObs, m_pfNormSub[f]);
-            if (m_pfNormScale[f] > 0)
-                m_pfNormScale[f] = 1.F / m_pfNormScale[f];
-        }
-    }
-    else if (eNorm == kMinmaxNormalization)
-    {
-        for (auto f = 0; f < m_iNumFeatures; f++)
-        {
-            m_pfNormSub[f] = CVector::getMin(ppfTrainFeatures[f], m_iNumObs);
-            m_pfNormScale[f] = CVector::getMax(ppfTrainFeatures[f], m_iNumObs) - m_pfNormSub[f];
-            if (m_pfNormScale[f] != 0)
-                m_pfNormScale[f] = 1.F / m_pfNormScale[f];
-        }
-    }
-    else
-    {
-        CVector::setValue(m_pfNormScale, 1.F, m_iNumFeatures);
-        CVector::setZero(m_pfNormSub, m_iNumFeatures);
-    }
-
     // normalize features
+    compNormConstants(ppfTrainFeatures, m_iNumFeatures, m_iNumObs, eNorm);
     for (auto n = 0; n < m_iNumObs; n++)
-    {
-        CVector::sub_I(m_ppfTrain[n], m_pfNormSub, m_iNumFeatures);
-        CVector::mul_I(m_ppfTrain[n], m_pfNormScale, m_iNumFeatures);
-    }
-
-    m_bIsInitialized = true;
+        normalizeVector(m_ppfTrain[n], m_iNumFeatures);
 
     return Error_t::kNoError;
 }
@@ -95,9 +71,6 @@ Error_t CKnn::reset()
 
     CVector::free(m_pfHist);
     CVector::free(m_piHistLabel);
-
-    CVector::free(m_pfNormScale);
-    CVector::free(m_pfNormSub);
 
     m_bIsInitialized = false;
 
@@ -130,8 +103,7 @@ int CKnn::classify(const float* pfQuery)
 
     // normalize
     CVector::copy(m_pfQuery, pfQuery, m_iNumFeatures);
-    CVector::sub_I(m_pfQuery, m_pfNormSub, m_iNumFeatures);
-    CVector::mul_I(m_pfQuery, m_pfNormScale, m_iNumFeatures);
+    normalizeVector(m_pfQuery, m_iNumFeatures);
 
     // compute distance to all training observations
     for (auto n = 0; n < m_iNumObs; n++)

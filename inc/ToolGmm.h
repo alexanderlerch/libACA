@@ -50,9 +50,10 @@ public:
     /*! writes sigma matrix for one Gaussian
     \param ppfSigma to be written (user allocated, dimensions iNumFeatures X iNumFeatures)
     \param iGaussianIdx index of Gaussian 
-    \return 
     */
     void getSigma(float** ppfSigma, int iGaussianIdx) const;
+
+    float getProb(const float* pfQuery);
 
     /*! returns initialization state
     \return bool true if initialized
@@ -70,10 +71,17 @@ protected:
     Error_t setPrior(int iGaussianIdx, float fParamValue);
     Error_t setSigma(int iGaussianIdx, float** ppfSigma);
 private:
+    enum Sigma_t
+    {
+        kNormal,
+        kInv,
 
+        kSigma
+    };
     float** m_ppfMu = 0; //!< dim: cluster x feature
     float* m_pfPrior = 0; //!< dim: cluster
-    float*** m_pppfSigma = 0; //!< cluster x feature x feature
+    float*** m_apppfSigma[kSigma] = { 0 }; //!< cluster x feature x feature
+    float* m_apfProc[2] = { 0 }; //!< temporary pre-allocated memory buffer 
 
     int m_iK = 0; //!< number of Gaussians
     int m_iNumFeatures = 0; //!< number of features
@@ -130,7 +138,6 @@ private:
     /*! randomly initializes the state variables
     \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
     \param pCCurrState class holding the current state variables
-    \return
     */
     void initState_(float** ppfFeatures, CGmmResult* pCCurrState);
 
@@ -138,14 +145,12 @@ private:
     /*! computes probabilities given the current state
     \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
     \param pCCurrState class holding the current state variables
-    \return
     */
     void compProbabilities_(float** ppfFeatures, CGmmResult* pCCurrState);
 
     /*! update mean, sigma, and prior
     \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
     \param pCCurrState class holding the current state variables
-    \return
     */
     void updateState_(float** ppfFeatures, CGmmResult* pCCurrState);
 
