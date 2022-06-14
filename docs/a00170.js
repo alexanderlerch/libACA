@@ -1,5 +1,5 @@
 var a00170 =
 [
-    [ "CSpectrogramIf", "a00523.xhtml", "a00523" ],
-    [ "CSpectrogramIf::MelSpectrogramConfig_t", "a00527.xhtml", "a00527" ]
+    [ "CAudioFileIf", "a00448.xhtml", "a00448" ],
+    [ "CAudioFileIf::FileSpec_t", "a00452.xhtml", "a00452" ]
 ];

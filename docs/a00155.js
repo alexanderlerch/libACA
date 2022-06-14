@@ -1,4 +1,5 @@
 var a00155 =
 [
-    [ "CVector", "a00495.xhtml", "a00495" ]
+    [ "CFilter< T >", "a00484.xhtml", "a00484" ],
+    [ "CButterLp", "a00488.xhtml", "a00488" ]
 ];

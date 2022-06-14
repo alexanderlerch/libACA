@@ -1,8 +1,6 @@
 var a00299 =
 [
-    [ "ApproxMatcher", "a01047.xhtml", "a01047" ],
-    [ "ContainsElementMatcher", "a01035.xhtml", "a01035" ],
-    [ "ContainsMatcher", "a01039.xhtml", "a01039" ],
-    [ "EqualsMatcher", "a01043.xhtml", "a01043" ],
-    [ "UnorderedEqualsMatcher", "a01051.xhtml", "a01051" ]
+    [ "is_range_impl", "a00836.xhtml", null ],
+    [ "is_range_impl< T, typename void_type< decltype(begin(std::declval< T >()))>::type >", "a00840.xhtml", null ],
+    [ "void_type", "a00832.xhtml", "a00832" ]
 ];

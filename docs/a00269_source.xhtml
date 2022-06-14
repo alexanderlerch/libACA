@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: unix-config.h Source File</title>
+<title>ACA: _sndlib.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -83,35 +83,109 @@ $(document).ready(function(){initNavTree('a00269_source.xhtml',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">unix-config.h</div></div>
+  <div class="headertitle"><div class="title">_sndlib.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00269.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef UNIX_CONFIG_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define UNIX_CONFIG_H</span></div>
+<a href="a00269.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef _SNDLIB_H</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define _SNDLIB_H</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#undef WORDS_BIGENDIAN</span></div>
-<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#undef SIZEOF_VOID_P</span></div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#undef HAVE_OSS</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#undef HAVE_ALSA</span></div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#undef MUS_JACK</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#undef MUS_PULSEAUDIO</span></div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#undef MUS_PORTAUDIO</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#undef WITH_AUDIO</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;<a class="code" href="a00257.xhtml">mus-config.h</a>&gt;</span></div>
+<div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#ifndef _MSC_VER</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">  #include &lt;unistd.h&gt;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &lt;sys/types.h&gt;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &lt;stdio.h&gt;</span></div>
 <div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#undef HAVE_SCHEME</span></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#undef HAVE_RUBY</span></div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#undef HAVE_FORTH</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#if ((!__NetBSD__) &amp;&amp; ((_MSC_VER) || (!defined(__STC__)) || (defined(__STDC_VERSION__) &amp;&amp; (__STDC_VERSION__ &lt; 199901L))))</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="a00269.xhtml#a7d6e1cf1a8d53f38471e9e9db3faf740">   14</a></span><span class="preprocessor">  #define __func__ __FUNCTION__</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#endif</span></div>
 <div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span> </div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#undef HAVE_GSL</span></div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#if (!defined(M_PI))</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno"><a class="line" href="a00269.xhtml#ae71449b1cc6e6250b91f539153a7a0d3">   18</a></span><span class="preprocessor">  #define M_PI 3.14159265358979323846264338327</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno"><a class="line" href="a00269.xhtml#a958e4508ed28ee5cc04249144312c15f">   19</a></span><span class="preprocessor">  #define M_PI_2 (M_PI / 2.0)</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno"><a class="line" href="a00269.xhtml#a2bef143fd29095a717e86ebe9f6bb661">   22</a></span><span class="preprocessor">#define POWER_OF_2_P(x) ((((x) - 1) &amp; (x)) == 0)</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span> </div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="a00269.xhtml#a84e52776adc3b6f1109323ecf4537d4c">   24</a></span><span class="preprocessor">#define MUS_MAX_MALLOC_DEFAULT (1 &lt;&lt; 26)</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno"><a class="line" href="a00269.xhtml#aedead79c7cdaf1e163e412a7c91bc4cb">   25</a></span><span class="preprocessor">#define MUS_MAX_TABLE_SIZE_DEFAULT (1024 * 1024 * 20) </span><span class="comment">/* delay line allocation etc */</span><span class="preprocessor"></span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#ifndef SEEK_SET</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno"><a class="line" href="a00269.xhtml#a0d112bae8fd35be772185b6ec6bcbe64">   28</a></span><span class="preprocessor">  #define SEEK_SET 0</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno"><a class="line" href="a00269.xhtml#ad2a2e6c114780c3071efd24f16c7f7d8">   29</a></span><span class="preprocessor">  #define SEEK_END 2</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#ifdef _MSC_VER</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">  #ifdef FOPEN</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">    #undef FOPEN</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">  #if USE_SND</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">    #define OPEN(File, Flags, Mode) snd_open((File), (Flags), 0)</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">  #else</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="a00269.xhtml#a48fb2c83c91dc700a6bdef74dee909cc">   39</a></span><span class="preprocessor">    #define OPEN(File, Flags, Mode) open((File), (Flags))</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="preprocessor">  #if USE_SND</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="preprocessor">    #define OPEN(File, Flags, Mode) snd_open((File), (Flags), (Mode))</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">   #else</span></div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="preprocessor">    #define OPEN(File, Flags, Mode) open((File), (Flags), (Mode))</span></div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="preprocessor">#if USE_SND</span></div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">  #define FOPEN(File, Flags)  snd_fopen((File), (Flags))</span></div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">  #define CREAT(File, Flags)  snd_creat((File), (Flags))</span></div>
+<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="preprocessor">  #define REMOVE(OldF)        snd_remove(OldF, IGNORE_CACHE)</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="preprocessor">  #define STRERROR(Err)       snd_io_strerror()</span></div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="preprocessor">  #define CLOSE(Fd, Name)     snd_close(Fd, Name)</span></div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="preprocessor">  #define FCLOSE(Fd, Name)    snd_fclose(Fd, Name)</span></div>
+<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span><span class="preprocessor">#else</span></div>
+<div class="line"><a id="l00057" name="l00057"></a><span class="lineno"><a class="line" href="a00269.xhtml#aa77baea27fefe4d8e7df64961c6c92dd">   57</a></span><span class="preprocessor">  #define FOPEN(File, Flags)  fopen((File), (Flags))</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno"><a class="line" href="a00269.xhtml#a500f9e8cbf97bcf0ced716de592f4574">   58</a></span><span class="preprocessor">  #define CREAT(File, Flags)  creat((File), (Flags))</span></div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="a00269.xhtml#a42656f42b5d2e7b8db50f769a84c132d">   59</a></span><span class="preprocessor">  #define REMOVE(OldF)        remove(OldF)</span></div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="a00269.xhtml#a9953c803fe99cfa510e19e13d8ef4ac5">   60</a></span><span class="preprocessor">  #define STRERROR(Err)       strerror(Err)</span></div>
+<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00269.xhtml#a1f644d32207581fdb8673cd0ce3afd73">   61</a></span><span class="preprocessor">  #define CLOSE(Fd, Name)     close(Fd)</span></div>
+<div class="line"><a id="l00062" name="l00062"></a><span class="lineno"><a class="line" href="a00269.xhtml#a705a26e67d0eaa29431b83a5db6b570b">   62</a></span><span class="preprocessor">  #define FCLOSE(Fd, Name)    fclose(Fd)</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span> </div>
+<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="preprocessor">#ifndef S_setB</span></div>
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="preprocessor">  #if HAVE_RUBY</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="preprocessor">    #define S_setB &quot;set_&quot;</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span><span class="preprocessor">  #if HAVE_SCHEME</span></div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span><span class="preprocessor">    #define S_setB &quot;set! &quot;</span></div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">  #if HAVE_FORTH</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="preprocessor">    #define S_setB &quot;set-&quot;</span></div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a id="l00075" name="l00075"></a><span class="lineno">   75</span><span class="preprocessor">  #if (!HAVE_EXTENSION_LANGUAGE)</span></div>
+<div class="line"><a id="l00076" name="l00076"></a><span class="lineno"><a class="line" href="a00269.xhtml#af372d07f0f9ccbf7f3ab13940755a41c">   76</a></span><span class="preprocessor">    #define S_setB &quot;set-&quot;</span></div>
+<div class="line"><a id="l00077" name="l00077"></a><span class="lineno">   77</span><span class="preprocessor">  #endif</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="preprocessor">#endif</span></div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span> </div>
+<div class="line"><a id="l00080" name="l00080"></a><span class="lineno"><a class="line" href="a00269.xhtml#a9ced7065438425b282f3033aa48653b9">   80</a></span><span class="preprocessor">#define MUS_LOOP_INFO_SIZE 8</span></div>
+<div class="line"><a id="l00081" name="l00081"></a><span class="lineno"><a class="line" href="a00269.xhtml#a621d7a5517dc9d6b1d86f5923534c0c8">   81</a></span><span class="preprocessor">#define MUS_ALSA_API 0</span></div>
+<div class="line"><a id="l00082" name="l00082"></a><span class="lineno"><a class="line" href="a00269.xhtml#ab7637bbb7a6bf0566ed1b170b1415308">   82</a></span><span class="preprocessor">#define MUS_OSS_API 1</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno"><a class="line" href="a00269.xhtml#a86cf793f61f4dfb1f3f972ee3791ac84">   83</a></span><span class="preprocessor">#define MUS_JACK_API 2</span></div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#include &quot;<a class="code" href="a00275.xhtml">sndlib.h</a>&quot;</span></div>
+<div class="line"><a id="l00086" name="l00086"></a><span class="lineno">   86</span><span class="preprocessor">#include &quot;<a class="code" href="a00254.xhtml">xen.h</a>&quot;</span></div>
+<div class="line"><a id="l00087" name="l00087"></a><span class="lineno">   87</span><span class="preprocessor">#include &quot;<a class="code" href="a00263.xhtml">vct.h</a>&quot;</span></div>
+<div class="line"><a id="l00088" name="l00088"></a><span class="lineno">   88</span> </div>
+<div class="line"><a id="l00089" name="l00089"></a><span class="lineno">   89</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aa00254_xhtml"><div class="ttname"><a href="a00254.xhtml">xen.h</a></div></div>
+<div class="ttc" id="aa00257_xhtml"><div class="ttname"><a href="a00257.xhtml">mus-config.h</a></div></div>
+<div class="ttc" id="aa00263_xhtml"><div class="ttname"><a href="a00263.xhtml">vct.h</a></div></div>
+<div class="ttc" id="aa00275_xhtml"><div class="ttname"><a href="a00275.xhtml">sndlib.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_8cab8f464681f7cc51cee77e79a434cd.xhtml">3rdparty</a></li><li class="navelem"><a class="el" href="dir_a0f72a9b6cbd6178b1a9d40a8cc47498.xhtml">sndlib</a></li><li class="navelem"><a class="el" href="a00269.xhtml">unix-config.h</a></li>
-    <li class="footer">Generated on Mon Jun 13 2022 22:01:48 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="navelem"><a class="el" href="dir_8cab8f464681f7cc51cee77e79a434cd.xhtml">3rdparty</a></li><li class="navelem"><a class="el" href="dir_a0f72a9b6cbd6178b1a9d40a8cc47498.xhtml">sndlib</a></li><li class="navelem"><a class="el" href="a00269.xhtml">_sndlib.h</a></li>
+    <li class="footer">Generated on Tue Jun 14 2022 21:07:17 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

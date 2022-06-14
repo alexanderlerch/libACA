@@ -1,4 +1,4 @@
 var a00221 =
 [
-    [ "CFeatureIf", "a00459.xhtml", "a00459" ]
+    [ "CNoveltyFromBlockIf", "a00524.xhtml", "a00524" ]
 ];

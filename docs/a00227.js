@@ -1,4 +1,4 @@
 var a00227 =
 [
-    [ "CBeatHistoIf", "a00447.xhtml", "a00447" ]
+    [ "CFeatureIf", "a00472.xhtml", "a00472" ]
 ];

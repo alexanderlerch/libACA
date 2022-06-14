@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CPreProc Class Reference</title>
+<title>ACA: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('a00573.xhtml',''); initResizable(); });
+$(document).ready(function(){initNavTree('a00576.xhtml',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,133 +83,48 @@ $(document).ready(function(){initNavTree('a00573.xhtml',''); initResizable(); })
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
-<a href="a00570.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CPreProc Class Reference</div></div>
+  <div class="headertitle"><div class="title">CGmmClassifier Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class with static utility functions for pre-processing  
- <a href="a00573.xhtml#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00131_source.xhtml">ToolPreProc.h</a>&gt;</code></p>
-<div class="dynheader">
-Collaboration diagram for CPreProc:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00571.svg" width="206" height="132"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af7639b7368293c01c130192067fe0f4b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00573.xhtml#af7639b7368293c01c130192067fe0f4b">downmix</a> (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)</td></tr>
-<tr class="separator:af7639b7368293c01c130192067fe0f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class with static utility functions for pre-processing </p>
-
-<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00013">13</a> of file <a class="el" href="a00131_source.xhtml">ToolPreProc.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af7639b7368293c01c130192067fe0f4b" name="af7639b7368293c01c130192067fe0f4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7639b7368293c01c130192067fe0f4b">&#9670;&nbsp;</a></span>downmix()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">static void CPreProc::downmix </td>
-          <td>(</td>
-          <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfOutput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNumChannels</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumSamples</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >downmixes multichannel audio (can be inplace </p><dl class="section return"><dt>Returns</dt><dd>void (no error returns b/c not user-facing) </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00019">19</a> of file <a class="el" href="a00131_source.xhtml">ToolPreProc.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   20</span>    {</div>
-<div class="line"><span class="lineno">   21</span>        <span class="comment">// sanity checks</span></div>
-<div class="line"><span class="lineno">   22</span>        assert(pfOutput);</div>
-<div class="line"><span class="lineno">   23</span>        assert(ppfInput);</div>
-<div class="line"><span class="lineno">   24</span>        assert(ppfInput[0]);</div>
-<div class="line"><span class="lineno">   25</span>        assert(iNumChannels &gt; 0);</div>
-<div class="line"><span class="lineno">   26</span>        assert(iNumSamples &gt; 0);</div>
-<div class="line"><span class="lineno">   27</span> </div>
-<div class="line"><span class="lineno">   28</span>        <span class="comment">// copy in case of not inplace processing</span></div>
-<div class="line"><span class="lineno">   29</span>        <span class="keywordflow">if</span> (pfOutput != ppfInput[0])</div>
-<div class="line"><span class="lineno">   30</span>            <a class="code hl_function" href="a00489.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(pfOutput, ppfInput[0], iNumSamples);</div>
-<div class="line"><span class="lineno">   31</span> </div>
-<div class="line"><span class="lineno">   32</span>        <span class="comment">// downmix</span></div>
-<div class="line"><span class="lineno">   33</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 1; c &lt; iNumChannels; c++)</div>
-<div class="line"><span class="lineno">   34</span>            <a class="code hl_function" href="a00489.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb">CVector::add_I</a>(pfOutput, ppfInput[c], iNumSamples);</div>
-<div class="line"><span class="lineno">   35</span>        <a class="code hl_function" href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pfOutput, 1.F / iNumChannels, iNumSamples);</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   38</span>    }</div>
-<div class="ttc" id="aa00489_xhtml_a3a052b83e62e5c5cc44829c64ffe42eb"><div class="ttname"><a href="a00489.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb">CVector::add_I</a></div><div class="ttdeci">static void add_I(T *ptSrcDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00245">Vector.h:245</a></div></div>
-<div class="ttc" id="aa00489_xhtml_a9811f50434dd058d201290b2dc98bfcd"><div class="ttname"><a href="a00489.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a></div><div class="ttdeci">static void mulC_I(T *ptSrcDest, T fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00172">Vector.h:172</a></div></div>
-<div class="ttc" id="aa00489_xhtml_ad7c5cba73e439adac77778f61c9418f0"><div class="ttname"><a href="a00489.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a></div><div class="ttdeci">static void copy(T *ptDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00152_source.xhtml#l00113">Vector.h:113</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00152_source.xhtml#l00245">CVector::add_I()</a>, <a class="el" href="a00152_source.xhtml#l00113">CVector::copy()</a>, and <a class="el" href="a00152_source.xhtml#l00172">CVector::mulC_I()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00131_source.xhtml#l00050">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00068_source.xhtml#l00025">CFingerprint::init()</a>, and <a class="el" href="a00077_source.xhtml#l00089">CBlockAudioFile::readFile2RingBuff()</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00573_af7639b7368293c01c130192067fe0f4b_cgraph.svg" width="310" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00573_af7639b7368293c01c130192067fe0f4b_icgraph.svg" width="656" height="224"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00131_source.xhtml">ToolPreProc.h</a></li>
-</ul>
-</div><!-- contents -->
+<p>This is the complete list of members for <a class="el" href="a00576.xhtml">CGmmClassifier</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#a913f05bf4a79a62dbcbcaec46f0c894d">CGmmClassifier</a>(void)</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#a02cb87f37a9ca9c6ed6077690a304c07">CGmmClassifier</a>(const CGmmClassifier &amp;that)</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#a6ddfb025951b2206db8f98f53275d509">classify</a>(const float *pfQuery) override</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00468.xhtml#a74d636d251089707e8a2cebafdac4317">compNormConstants</a>(float **ppfTrainFeatures, int iNumFeatures, int iNumObs, Normalization_t eNorm)</td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#a7cd4a2790dddda3cec32a5f4b0bcbdb4">countClasses</a>(const int *piClassLabels)</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#abb9695ca64b6cfc286d0310d7537eaba">getNumMixtures</a>() const</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#a790d7dcc328db7a869dd3ccf0561c001">init</a>(int iNumFeatures, int iNumObservations) override</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00468.xhtml#ac4365e3be5e1cc7ac964fcb6294aaae1">kIllegalClassLabel</a></td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">kMinmaxNormalization</a> enum value</td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">kNoNormalization</a> enum value</td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">kNumNormModes</a> enum value</td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">kZscoreNormalization</a> enum value</td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#a81fac759f7bc6c759927e95eb2695fd3">m_bIsInitialized</a></td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#af3269743e592a518fefa8ffdea49ecf1">m_iK</a></td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#a7826aa242fb01ee94c2ad6427efd23c1">m_iNumClasses</a></td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#a211acc1fe84c796f151202ef0c87026d">m_iNumFeatures</a></td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#a3aab5a202ebae2b584aa3fd9f389ba4f">m_iNumObs</a></td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00468.xhtml#ae9729a067f3756489d9226fbccb19ee0">m_pfNormScale</a></td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00468.xhtml#af5d1fadf97cfa2d47235316815e70964">m_pfNormSub</a></td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"><span class="mlabel">protected</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#aa8c450b8e6f71713df46bb7093e08f1e">m_pfQuery</a></td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#ad2d140dee511ef06810b4ae9680932ca">m_piClassLabels</a></td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#ad8899352f76778c1acbc7ae69bd3f272">m_ppCGmmResult</a></td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a> enum name</td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00468.xhtml#ac6a2a71d24b2beaa2b183d8659fd93f8">normalizeVector</a>(float *pfQuery, int iNumFeatures)</td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#a5657de5c42824ec9445417ef25bec9f2">operator=</a>(const CGmmClassifier &amp;c)</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#a39ed30e82871139f97a97a9b078d1a6c">reset</a>() override</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00576.xhtml#aac840142c52d468dfeef9f368ce8986b">setNumMixtures</a>(int iK=3)</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#a81ef85945dec254c2a43ea83ffb513b9">train</a>(float **ppfTrainFeatures, const int *piTrainClassIndices, CClassifierBase::Normalization_t eNorm=CClassifierBase::kNoNormalization) override</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00468.xhtml#a188fe66bc48b61ffc1f0648adc15d7ca">~CClassifierBase</a>()</td><td class="entry"><a class="el" href="a00468.xhtml">CClassifierBase</a></td><td class="entry"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00576.xhtml#ad10b0df287c092c78f91f556b3d43539">~CGmmClassifier</a>(void)</td><td class="entry"><a class="el" href="a00576.xhtml">CGmmClassifier</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00573.xhtml">CPreProc</a></li>
-    <li class="footer">Generated on Mon Jun 13 2022 13:47:50 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Tue Jun 14 2022 21:07:19 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

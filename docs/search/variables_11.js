@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['value_0',['value',['../a00715.xhtml#a42818b09ae5851126a70ee263769e309',1,'Catch::Detail::IsStreamInsertable']]]
+  ['value_0',['value',['../a00728.xhtml#a42818b09ae5851126a70ee263769e309',1,'Catch::Detail::IsStreamInsertable']]]
 ];
