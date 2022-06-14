@@ -89,7 +89,6 @@ public:
     \param pffInHz input frequency values in Hz (length iLenghBuff)
     \param iLengthBuff length of buffers
     \param eFunc index for conversion function selection
-    \return void
     */
     static void convertFreq2Bark(float* pfBark, const float* pffInHz, int iLengthBuff, BarkConversionFunctions_t eFunc = kSchroeder);
 
@@ -98,7 +97,6 @@ public:
     \param pfBark input Bark values (length iLenghBuff)
     \param iLengthBuff length of buffers
     \param eFunc index for conversion function selection
-    \return void
     */
     static void convertBark2Freq(float* pffInHz, const float* pfBark, int iLengthBuff, BarkConversionFunctions_t eFunc = kSchroeder);
 
@@ -120,7 +118,6 @@ public:
     \param pffInHz input buffer with frequency values in Hz (length iLengthBuff)
     \param iLengthBuff length of buffers
     \param fA4InHz tuning (reference) frequency in Hz
-    \return void 
     */
     static void convertFreq2Midi(float* pfMidi, const float* pffInHz, int iLengthBuff, float fA4InHz = 440.F)
     {
@@ -150,7 +147,6 @@ public:
     \param pfMidi input buffer (length iLengthBuff, to be written)
     \param iLengthBuff length of buffers
     \param fA4InHz tuning (reference) frequency in Hz
-    \return void
     */
     static void convertMidi2Freq(float* pffInHz, const float* pfMidi, int iLengthBuff, float fA4InHz = 440.F)
     {
@@ -186,7 +182,6 @@ public:
     \param iLengthBuff length of buffers
     \param iFftLength length of FFT
     \param fSampleRate sample rate frequency in Hz
-    \return void
     */
     static void convertFreq2Bin(float* pfBin, const float* pffInHz, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F)
     {
@@ -222,7 +217,6 @@ public:
     \param iLengthBuff length of buffers
     \param iFftLength length of FFT
     \param fSampleRate sample rate frequency in Hz
-    \return void
     */
     static void convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F);;
 
@@ -249,7 +243,6 @@ public:
     /*! converts a 32 bit word into a float vector of -1.F and 1.F 
     \param pfDest destination buffer (length 32, to be written)
     \param iWord 32 bit word to be decoded
-    \return void
     */
     static void convertWord2Float(float* pfDest, uint32_t iWord)
     {

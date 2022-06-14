@@ -18,7 +18,6 @@ public:
     /*! allocates a T buffer and inits it with zeros
     \param ptVec (empty pointer, to be allocated)
     \param iLength number of Ts
-    \return
     */
     template<typename T>
     static void alloc(T*& ptVec, long long iLength)
@@ -33,7 +32,6 @@ public:
 
     /*! frees a T buffer and sets it to zero
     \param ptVec (empty pointer, to be allocated)
-    \return
     */
     template<typename T>
     static void free(T*& ptVec)
@@ -45,7 +43,6 @@ public:
     /*! sets a buffer to zero
     \param ptSrcDest pointer to memory to be modified
     \param iLength  buffer length
-    \return void
     */
     template<typename T>
     static void setZero (T *ptSrcDest, long long iLength)
@@ -61,7 +58,6 @@ public:
     \param ptDest pointer to memory to be set
     \param tValue value to use
     \param iLength number of elements to be set
-    \return void
     */
     template<typename T>
     static void setValue(T* ptDest, T tValue, long long iLength)
@@ -76,7 +72,6 @@ public:
     /*! initializes the buffer with random noise
     \param ptDest pointer to memory to be initialized
     \param iLength number of elements to be set
-    \return void
     */
     template<typename T>
     static inline void setRand(T* ptDest, long long iLength)
@@ -91,7 +86,6 @@ public:
     \param ptSrcDest pointer to memory to be modified
     \param iLength  buffer length
     \param tThresh threshold value
-    \return void
     */
     template<typename T>
     static void setZeroBelowThresh (T *ptSrcDest, long long int iLength, T tThresh)
@@ -107,7 +101,6 @@ public:
     \param ptDest pointer to destination memory
     \param ptSrc pointer to source memory
     \param iLength length of buffer
-    \return void
     */
     template<typename T>
     static void copy(T *ptDest, const T *ptSrc, long long int iLength)
@@ -124,7 +117,6 @@ public:
     /*! reverses buffer (last to first element)
     \param ptSrcDest pointer to memory to be flipped
     \param iLength number of elements
-    \return void
     */
     template<typename T>
     static void flip_I(T *ptSrcDest, long long int iLength)
@@ -149,7 +141,6 @@ public:
     \param iDestIdx destination index
     \param isrcIdx source index
     \param iLength number of elements to be moved
-    \return void
     */
     template<typename T>
     static void moveInMem (T *ptSrcDest, int iDestIdx, int isrcIdx, long long int iLength)
@@ -166,7 +157,6 @@ public:
     \param ptSrcDest buffer to be multiplied
     \param fScale scalar
     \param iLength number of element to be multiplied
-    \return void
     */
     template<typename T>
     static inline void mulC_I (T *ptSrcDest, T fScale, long long int iLength)
@@ -182,7 +172,6 @@ public:
     \param ptSrcDest one input and output buffer
     \param ptSrc second input buffer
     \param iLength number of element to be multiplied
-    \return void
     */
     template<typename T>
     static inline void mul_I (T *ptSrcDest, const T *ptSrc, long long int iLength)
@@ -219,7 +208,6 @@ public:
     \param ptSrcDest one input and output buffer
     \param ptSrc second input buffer
     \param iLength number of element to be divided
-    \return void
     */
     template<typename T>
     static inline void div_I (T *ptSrcDest, const T *ptSrc, long long int iLength)
@@ -239,7 +227,6 @@ public:
     \param ptSrcDest one input and output buffer
     \param ptSrc second input buffer
     \param iLength number of element to be added
-    \return void
     */
     template<typename T>
     static inline void add_I (T *ptSrcDest, const T *ptSrc, long long int iLength)
@@ -256,7 +243,6 @@ public:
     \param ptSrcDest buffer to be added
     \param fConst scalar
     \param iLength number of element to be added
-    \return void
     */
     template<typename T>
     static inline void addC_I (T *ptSrcDest, T fConst, long long int iLength)
@@ -274,7 +260,6 @@ public:
     \param piIndices new indices (optional, can be left 0)
     \param iLength number of elements to be sorted
     \param bAscending sort order (descending -> false)
-    \return void
     */
     template<typename T>
     static inline void sort_I(T* ptSrcDest, int* piIndices,  int iLength, bool bAscending = true)
@@ -335,7 +320,6 @@ public:
     \param ptSrcDest one input and output buffer
     \param ptSrc second input buffer
     \param iLength number of element to be subtracted
-    \return void
     */
     template<typename T>
     static inline void sub_I(T* ptSrcDest, const T* ptSrc, long long int iLength)
@@ -416,7 +400,6 @@ public:
     \param ptSrc second input buffer
     \param fWeight weight to be applied to ptSrc entries
     \param iLength number of elements to be added
-    \return void
     */
     template<typename T>
     static inline void addW_I(T* ptSrcDest, const T* ptSrc, T fWeight, long long int iLength)
@@ -434,7 +417,6 @@ public:
     \param ptSrc second input buffer
     \param fWeight weight to be applied to ptSrc entries
     \param iLength number of element to be subtracted
-    \return void
     */
     template<typename T>
     static inline void subW_I(T* ptSrcDest, const T* ptSrc, T fWeight, long long int iLength)
@@ -638,7 +620,6 @@ public:
     \param iMax index of the resulting output value
     \param iLength number of elements in buffer
     \param bAbs bool to specify whether we search absolute values
-    \return T
     */
     template<typename T>
     static inline void findMax (const T *ptSrc, T &fMax, long long &iMax, long long int iLength, bool bAbs = false)
@@ -667,7 +648,6 @@ public:
     \param iMin index of the resulting output value
     \param iLength number of elements in buffer
     \param bAbs bool to specify whether we search absolute values
-    \return T
     */
     template<typename T>
     static inline void findMin (const T *ptSrc, T &fMin, long long &iMin, long long int iLength, bool bAbs = false)

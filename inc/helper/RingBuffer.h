@@ -30,7 +30,6 @@ public:
 
     /*! add a new value of type T to write index and increment write index
     \param tNewValue the new value
-    \return void
     */
     void putPostInc(T tNewValue)
     {
@@ -41,7 +40,6 @@ public:
     /*! add new values of type T to write index and increment write index
     \param ptNewBuff: new values
     \param iLength: number of values
-    \return void
     */
     void putPostInc(const T* ptNewBuff, int iLength)
     {
@@ -51,7 +49,6 @@ public:
 
     /*! add a new value of type T to write index
     \param tNewValue the new value
-    \return void
     */
     void put(T tNewValue)
     {
@@ -61,7 +58,6 @@ public:
     /*! add new values of type T to write index
     \param ptNewBuff: new values
     \param iLength: number of values
-    \return void
     */
     void put(const T* ptNewBuff, int iLength)
     {
@@ -88,7 +84,6 @@ public:
     /*! return the values starting at the current read index and increment the read pointer
     \param ptBuff: pointer to where the values will be written
     \param iLength: number of values
-    \return void
     */
     void getPostInc(T* ptBuff, int iLength)
     {
@@ -124,7 +119,6 @@ public:
     /*! return the values starting at the current read index
     \param ptBuff to where the values will be written
     \param iLength: number of values
-    \return void
     */
     void get(T* ptBuff, int iLength) const
     {
@@ -139,7 +133,6 @@ public:
     }
 
     /*! set buffer content and indices to 0
-    \return void
     */
     void reset()
     {
@@ -158,7 +151,6 @@ public:
 
     /*! move the write index to a new position
     \param iNewWriteIdx: new position
-    \return void
     */
     void setWriteIdx(int iNewWriteIdx)
     {
@@ -175,7 +167,6 @@ public:
 
     /*! move the read index to a new position
     \param iNewReadIdx: new position
-    \return void
     */
     void setReadIdx(int iNewReadIdx)
     {

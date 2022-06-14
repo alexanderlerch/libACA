@@ -16,7 +16,6 @@ public:
     \param pptMat (empty double pointer, to be allocated)
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return 
     */
     template<typename T>
     static void alloc(T** &pptMat, int iNumRows, int iNumCols)
@@ -34,7 +33,6 @@ public:
     /*! frees a float matrix 
     \param pptMat (empty double pointer, to be set to zero)
     \param iNumRows number of rows
-    \return
     */
     template<typename T>
     static void free(T**& pptMat, int iNumRows)
@@ -53,7 +51,6 @@ public:
     \param pptMat pointer to memory to be set
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return
     */
     template<typename T>
     static void setZero(T** pptMat, int iNumRows, int iNumCols)
@@ -72,7 +69,6 @@ public:
     \param tValue  value to use
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return
     */
     template<typename T>
     static void setValue(T** pptMat, T tValue, int iNumRows, int iNumCols)
@@ -90,7 +86,6 @@ public:
     \param pptMat pointer to memory to be set
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return
     */
     template<typename T>
     static void setRand(T** pptMat, int iNumRows, int iNumCols)
@@ -109,7 +104,6 @@ public:
     \param ptSrcVec (source vector)
     \param iColIdx index of row to copy to
     \param iNumRows number of columns
-    \return
     */
     template<typename T>
     static void setCol(T** pptDestMat, T* ptSrcVec, int iColIdx, int iNumRows)
@@ -128,7 +122,6 @@ public:
     \param iNumRows number of rows
     \param iNumCols number of columns
     \param tThresh threshold
-    \return
     */
     template<typename T>
     static void setZeroBelowThresh(T** pptMat, int iNumRows, int iNumCols, T tThresh)
@@ -146,7 +139,6 @@ public:
     \param pptDest resulting matrix of dimension iNumRows x iNumCols (to be written, user allocated)
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
-    \return
     */
     static void setEye(float** pptDest, int iNumRows, int iNumCols)
     {
@@ -185,7 +177,7 @@ public:
     \param iColIdx column of interest
     \param iNumRows number of rows in the matrix
     \param bAbs flag to indicate whether to sum the absolute values
-    \return
+    \return sum
     */
     static float getSumCol(float** pptMat, int iColIdx, int iNumRows, bool bAbs = false)
     {
@@ -214,7 +206,7 @@ public:
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     \param bAbs flag to indicate whether to sum the absolute values
-    \return
+    \return sum
     */
     static float getSum(float** pptMat, int iNumRows, int iNumCols, bool bAbs = false)
     {
@@ -235,7 +227,7 @@ public:
     \param pptMat input matrix of dimension iNumRows x iNumCols (to be written, user allocated)
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
-    \return
+    \return norm
     */
     static float getNorm(float** pptMat, int iNumRows, int iNumCols)
     {
@@ -263,7 +255,6 @@ public:
     \param pptSrcDest resulting matrix of dimension iNumRows x iNumCols (to be written, user allocated)
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
-    \return
     */
     static void vecnorm_I(float** pptSrcDest, int iNumRows, int iNumCols)
     {
@@ -288,7 +279,7 @@ public:
     \param pptSrc2 matrix of dimension iNumRows x iNumCols
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
-    \return
+    \return kld
     */
     static float calcKlDivergence(float** pptSrc1, float** pptSrc2, int iNumRows, int iNumCols)
     {
@@ -315,7 +306,6 @@ public:
     \param pptSrc input matrix of dimension iNumSrcRows x iNumCols
     \param iNumSrcRows number of rows in the matrix
     \param iNumSrcCols number of columns in the matrix
-    \return
     */
     static void transpose(float** pptDest, float** pptSrc, int iNumSrcRows, int iNumSrcCols)
     {
@@ -337,7 +327,6 @@ public:
     \param pptSrcDest resorted matrix of dimension iNumRows x ?
     \param piRowIndices new indices iNumRows
     \param iNumRows number of rows in the matrix
-    \return
     */
     static void rearrangeRows(float** pptSrcDest, int* piRowIndices, int iNumRows)
     {
@@ -366,7 +355,6 @@ public:
     \param pptSrc input matrix of dimension iNumSrcRows x iNumCols
     \param iNumSrcRows number of rows in the matrix
     \param iNumSrcCols number of columns in the matrix
-    \return
     */
     static void diag(float* ptDest, float** pptSrc, int iNumSrcRows, int iNumSrcCols)
     {
@@ -388,7 +376,6 @@ public:
     \param ptSrcColVec (column) vector to be multiplied
     \param iNumMatRows number of rows in the matrix
     \param iNumMatCols number of columns in the matrix
-    \return
     */
     static void mulMatColVec(float* ptDestColVec, float** pptMat, const float* ptSrcColVec, int iNumMatRows, int iNumMatCols)
     {
@@ -409,7 +396,6 @@ public:
     \param ptSrcRowVec (row) vector to be multiplied
     \param iNumMatRows number of rows in the matrix
     \param iNumMatCols number of columns in the matrix
-    \return
     */
     static void mulColVecRowVec(float** pptDestMat, const float* ptSrcColVec, const float* ptSrcRowVec, int iNumMatRows, int iNumMatCols)
     {
@@ -433,7 +419,6 @@ public:
     \param pptMat matrix to be multiplied
     \param iNumMatRows number of rows in the matrix
     \param iNumMatCols number of columns in the matrix
-    \return
     */
     static void mulRowVecMat(float* ptDestRowVec, const float* ptSrcRowVec, float** pptMat, int iNumMatRows, int iNumMatCols)
     {
@@ -455,7 +440,6 @@ public:
     \param fValue value to multiply the column with
     \param iCol index of column to be multiplied
     \param iNumRows number of rows in the matrix
-    \return
     */
     static void mulColC_I(float** pptMat, float fValue, int iCol, int iNumRows)
     {
@@ -476,7 +460,6 @@ public:
     \param iNum1Cols number of columns in matrix 1 (has to equal iNum2Rows)
     \param iNum2Rows number of rows in matrix 2 (has to equal iNum1Col)
     \param iNum2Cols number of columns in matrix 2
-    \return
     */
     static void mulMatMat(float** pptDest, float** pptSrc1, float** pptSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)
     {
@@ -510,7 +493,6 @@ public:
     \param pptSrc matrix to be multiplied
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return
     */
     static void mul_I(float** pptSrcDest, float** pptSrc, int iNumRows, int iNumCols)
     {
@@ -533,7 +515,6 @@ public:
     \param pptSrc matrix to be multiplied
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return
     */
     static void add_I(float** pptSrcDest, float** pptSrc, int iNumRows, int iNumCols)
     {
@@ -556,7 +537,6 @@ public:
     \param pptSrc matrix to be multiplied
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return
     */
     static void sub_I(float** pptSrcDest, float** pptSrc, int iNumRows, int iNumCols)
     {
@@ -580,7 +560,6 @@ public:
     \param iNumRows number of rows
     \param iNumCols number of columns
     \param bAddSmallConst a small floating point number is added before division if true
-    \return
     */
     static void div_I(float** pptSrcDest, float** pptSrc, int iNumRows, int iNumCols, bool bAddSmallConst = false)
     {
@@ -604,7 +583,7 @@ public:
     \param pptMat matrix to analyze
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
-    \return
+    \return max
     */
     static float getMax(float** pptMat, int iNumRows, int iNumCols)
     {
@@ -628,7 +607,6 @@ public:
     \param fAdd scaling factor to apply
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
-    \return
     */
     static void addC_I(float** pptMat, float fAdd, int iNumRows, int iNumCols)
     {
@@ -646,7 +624,6 @@ public:
     \param fScale scaling factor to apply
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
-    \return
     */
     static void mulC_I(float** pptMat, float fScale, int iNumRows, int iNumCols)
     {
@@ -665,7 +642,6 @@ public:
     \param iRowIdx index of row
     \param iColIdx index of columns
     \param iNumCols number of columns in the matrix
-    \return
     */
     static void swapRowCol(float** pptSrcDest, int iRowIdx, int iColIdx, int iNumCols)
     {
@@ -688,7 +664,6 @@ public:
     \param pptSrcMat (source matrix)
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return
     */
     template<typename T>
     static void copy(T** pptDestMat, T** pptSrcMat, int iNumRows, int iNumCols)
@@ -707,7 +682,6 @@ public:
     \param ptSrcVec (source vector)
     \param iRowIdx index of row to copy to
     \param iNumCols number of columns
-    \return
     */
     template<typename T>
     static void setRow(T** pptDestMat, T* ptSrcVec, int iRowIdx, int iNumCols)
@@ -811,7 +785,6 @@ public:
     \param pptSrcDest input and output matrix (to be modified, user allocated)
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
-    \return
     */
     template<typename T>
     static void inv_I (T **pptSrcDest, int iNumRows, int iNumCols)

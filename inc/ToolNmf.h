@@ -38,7 +38,6 @@ public:
     \param eMatIdx
     \param iNumRows number of rows
     \param iNumCols number of columns
-    \return
     */
     void getMatDims(NmfMatrices_t eMatIdx, int& iNumRows, int& iNumCols) const;
 

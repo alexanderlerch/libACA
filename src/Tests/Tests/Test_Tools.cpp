@@ -486,24 +486,24 @@ TEST_CASE("ToolsGmm", "[ToolsGmm]")
     CGmmResult* pCResult = new CGmmResult();
 
     CMatrix::alloc(ppfData, aiDim[0], aiDim[1]);
-    //SECTION("Api")
-    //{
+    SECTION("Api")
+    {
 
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[0], aiDim[1], iMaxIter));
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, 0, aiDim[1], iMaxIter));
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, aiDim[0], 0, iMaxIter));
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(iK, aiDim[0], aiDim[1], 0));
-    //    CHECK(Error_t::kFunctionIllegalCallError == pCInstance->compKmeans(piResult, ppfData));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, iK, aiDim[0], aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(pCResult, iK, 0, aiDim[1], iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(pCResult, iK, aiDim[0], 0, iMaxIter));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(pCResult, iK, aiDim[0], aiDim[1], 0));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->compGmm(pCResult, ppfData));
 
-    //    CHECK(Error_t::kNoError == pCInstance->init(iK, aiDim[0], aiDim[1], iMaxIter));
+        CHECK(Error_t::kNoError == pCInstance->init(pCResult, iK, aiDim[0], aiDim[1], iMaxIter));
 
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compKmeans(0, ppfData));
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compKmeans(piResult, 0));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compGmm(0, ppfData));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->compGmm(pCResult, 0));
 
-    //    CHECK(Error_t::kNoError == pCInstance->compKmeans(piResult, ppfData));
+        CHECK(Error_t::kNoError == pCInstance->compGmm(pCResult, ppfData));
 
-    //    CHECK(Error_t::kNoError == pCInstance->reset());
-    //}
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
     SECTION("2Mixtures")
     {
         srand(41);
@@ -558,6 +558,165 @@ TEST_CASE("ToolsGmm", "[ToolsGmm]")
     delete pCInstance;
 }
 
+TEST_CASE("ToolsGmmClassifier", "[ToolsGmm]")
+{
+    float aafMu[2][2] = { {-5,5},{5,-5} };
+    int aiDim[2] = { 2,192 };
+
+    float** ppfData = 0;
+
+    CGmmClassifier* pCInstance = new CGmmClassifier();
+
+    CMatrix::alloc(ppfData, aiDim[0], aiDim[1]);
+
+    int* piClass = 0;
+
+    CVector::alloc(piClass, aiDim[1]);
+
+    //SECTION("Api")
+    //{
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[1]));
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], 0));
+    //    CHECK(Error_t::kFunctionIllegalCallError == pCInstance->train(ppfTrainFeatures, piClass));
+    //    CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(ppfTrainFeatures[0]));
+
+    //    CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->train(0, piClass));
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->train(ppfTrainFeatures, 0));
+    //    CHECK(Error_t::kNoError == pCInstance->train(ppfTrainFeatures, piClass));
+    //    CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(0));
+
+    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->setNumMixtures(0));
+    //    CHECK(Error_t::kNoError == pCInstance->setNumMixtures(17));
+
+    //    // zero test
+    //    CHECK(0 == pCInstance->classify(ppfTrainFeatures[0]));
+
+    //    CHECK(Error_t::kNoError == pCInstance->reset());
+    //}
+
+    //SECTION("test1")
+    //{
+    //    ppfTrainFeatures[0][0] = 1.F; ppfTrainFeatures[0][1] = 2.F; ppfTrainFeatures[0][2] = 3.F; ppfTrainFeatures[0][3] = .8F; ppfTrainFeatures[0][4] = 1.8F; ppfTrainFeatures[0][5] = 3.F;
+    //    ppfTrainFeatures[1][0] = 1.F; ppfTrainFeatures[1][1] = 2.F; ppfTrainFeatures[1][2] = 3.F; ppfTrainFeatures[1][3] = .9F; ppfTrainFeatures[1][4] = 2.F; ppfTrainFeatures[1][5] = 3.F;
+    //    ppfTrainFeatures[2][0] = 1.F; ppfTrainFeatures[2][1] = 2.F; ppfTrainFeatures[2][2] = 3.F; ppfTrainFeatures[2][3] = .8F; ppfTrainFeatures[2][4] = 1.9F; ppfTrainFeatures[2][5] = 3.F;
+
+    //    piClass[0] = 0; piClass[1] = 1; piClass[2] = 2; piClass[3] = 0; piClass[4] = 1; piClass[5] = 2;
+    //    piQueryGT[0] = 2; piQueryGT[1] = 1; piQueryGT[2] = 0; piQueryGT[3] = 0; piQueryGT[4] = 1;
+
+    //    CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+    //    CHECK(Error_t::kNoError == pCInstance->train(ppfTrainFeatures, piClass));
+
+    //    //////////////////////////////////////////////////////////////
+    //    //CHECK(Error_t::kNoError == pCInstance->setNumMixtures(1));
+
+    //    pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
+    //    CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 2.F; pfQuery[1] = 2.F; pfQuery[2] = 2.F;
+    //    CHECK(piQueryGT[1] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 1.1F; pfQuery[1] = 0.95F; pfQuery[2] = 1.3F;
+    //    CHECK(piQueryGT[2] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 0.F; pfQuery[1] = 0.F; pfQuery[2] = 0.F;
+    //    CHECK(piQueryGT[3] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 1.5F; pfQuery[1] = 1.5F; pfQuery[2] = 1.5F;
+    //    CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
+
+    //    //////////////////////////////////////////////////////////////
+    //    //CHECK(Error_t::kNoError == pCInstance->setNumMixtures(2));
+
+    //    pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
+    //    CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 2.F; pfQuery[1] = 2.F; pfQuery[2] = 2.F;
+    //    CHECK(piQueryGT[1] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 1.1F; pfQuery[1] = 0.95F; pfQuery[2] = 1.3F;
+    //    CHECK(piQueryGT[2] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 0.F; pfQuery[1] = 0.F; pfQuery[2] = 0.F;
+    //    CHECK(piQueryGT[3] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 1.5F; pfQuery[1] = 1.5F; pfQuery[2] = 1.5F;
+    //    CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
+
+    //    //////////////////////////////////////////////////////////////
+    //    //CHECK(Error_t::kNoError == pCInstance->setNumMixtures(5));
+
+    //    pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
+    //    CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 2.F; pfQuery[1] = 2.F; pfQuery[2] = 2.F;
+    //    CHECK(piQueryGT[1] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 1.1F; pfQuery[1] = 0.95F; pfQuery[2] = 1.3F;
+    //    CHECK(piQueryGT[2] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 0.F; pfQuery[1] = 0.F; pfQuery[2] = 0.F;
+    //    CHECK(piQueryGT[3] == pCInstance->classify(pfQuery));
+
+    //    pfQuery[0] = 1.5F; pfQuery[1] = 1.5F; pfQuery[2] = 1.5F;
+    //    CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
+
+
+    //    CHECK(Error_t::kNoError == pCInstance->reset());
+    //}
+
+    SECTION("test2")
+    {
+        float afQuery[2] = { 0,0 };
+        srand(41);
+
+        for (auto n = 0; n < 32; n++)
+        {
+            //cluster 1
+            ppfData[0][n] = static_cast<float>(aafMu[0][0] + .1 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n] = static_cast<float>(aafMu[1][0] + .1 * std::sin(n * 2. * M_PI / 32));
+            ppfData[0][n + 32] = static_cast<float>(aafMu[0][0] + .5 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 32] = static_cast<float>(aafMu[1][0] + .5 * std::sin(n * 2. * M_PI / 32));
+            piClass[n] = 0;
+            piClass[n + 32] = 0;
+
+            //cluster 2
+            ppfData[0][n + 64] = static_cast<float>(aafMu[0][1] + .05 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 64] = static_cast<float>(aafMu[1][1] + .05 * std::sin(n * 2. * M_PI / 32));
+            ppfData[0][n + 64 + 32] = static_cast<float>(aafMu[0][1] + .25 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 64 + 32] = static_cast<float>(aafMu[1][1] + .25 * std::sin(n * 2. * M_PI / 32));
+            piClass[n + 64] = 1;
+            piClass[n + 96] = 1;
+
+            //test data
+            ppfData[0][n + 128] = static_cast<float>(aafMu[0][0]+.01 + .1 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 128] = static_cast<float>(aafMu[1][0] + .01 + .1 * std::sin(n * 2. * M_PI / 32));
+            piClass[n + 128] = 0;
+            ppfData[0][n + 128 + 32] = static_cast<float>(aafMu[0][1] + .01 + .25 * std::cos(n * 2. * M_PI / 32));
+            ppfData[1][n + 128 + 32] = static_cast<float>(aafMu[1][1] + .01 + .25 * std::sin(n * 2. * M_PI / 32));
+            piClass[n + 128+32] = 1;
+        }
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], 128));
+        CHECK(Error_t::kNoError == pCInstance->train(ppfData, piClass));
+
+        //////////////////////////////////////////////////////////////
+        for (auto n = 0, j = 128; n < 64; n++, j++)
+        {
+            afQuery[0] = ppfData[0][j];
+            afQuery[1] = ppfData[1][j];
+            CHECK(piClass[j] == pCInstance->classify(afQuery));
+        }
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+
+
+    CMatrix::free(ppfData, aiDim[0]);
+    CVector::free(piClass);
+
+    delete pCInstance;
+}
 TEST_CASE("ToolsFingerprint", "[ToolsFingerprint]")
 {
     int iLength = 24000;
@@ -675,6 +834,73 @@ TEST_CASE("ToolsKmeans", "[ToolsKmeans]")
     delete pCInstance;
 }
 
+
+TEST_CASE("ToolsInstFreq", "[ToolsInstFreq]")
+{
+    int iBlockLength = 1024;
+    int iHopLength = 128;
+    int iFreqLength = iBlockLength / 2 + 1;
+    float fSampleRate = 48000;
+    int iBuffLength = iBlockLength + 2 * iHopLength;
+
+    float* pfIn = new float[iBuffLength];
+    float* pfTmp = new float[iBuffLength];
+    float* pfOut = new float[iFreqLength];
+    CFft::complex_t* pfSpectrum = new float[iBuffLength];
+
+    CFft* pCFft = new CFft();
+    CInstFreq* pCInstFreq = new CInstFreq(iBlockLength, iHopLength, fSampleRate);
+
+    pCFft->init(iBlockLength);
+    CVector::setZero(pfIn, iBuffLength);
+    CVector::setZero(pfOut, iFreqLength);
+    CVector::setZero(pfSpectrum, iBlockLength);
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstFreq->process(0, pfIn));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstFreq->process(pfOut, 0));
+    }
+
+    SECTION("Sine")
+    {
+        int aiBins[3] = { 32, 8, 4 };
+        float afBinOffset[3] = { .5F, .25F, 0.F };
+        float afFreq[3] = { 0 };
+
+        // generate test signal with three sines
+        for (auto s = 0; s < 3; s++)
+        {
+            afFreq[s] = fSampleRate / iBlockLength * (aiBins[s] + afBinOffset[s]);
+            CSynthesis::genSine(pfTmp, afFreq[s], fSampleRate, iBuffLength);
+
+            CVector::add_I(pfIn, pfTmp, iBuffLength);
+        }
+
+        // compute FFTs
+        for (auto n = 0; n < 3; n++)
+        {
+            pCFft->compFft(pfSpectrum, &pfIn[n * iHopLength]);
+            pCInstFreq->process(pfOut, pfSpectrum);
+
+            if (n == 2)
+            {
+                for (auto s = 0; s < 3; s++)
+                    CHECK(afFreq[s] == Approx(pfOut[aiBins[s]]).margin(5e-1F).epsilon(5e-1F));
+            }
+        }
+    }
+
+    delete pCInstFreq;
+    delete pCFft;
+
+    delete[] pfSpectrum;
+    delete[] pfIn;
+    delete[] pfTmp;
+    delete[] pfOut;
+
+}
+
 TEST_CASE("ToolsKnn", "[ToolsKnn]")
 {
     CKnn* pCInstance = new CKnn();
@@ -693,13 +919,15 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
 
     SECTION("Api")
     {
-        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, piClass, aiDim[0], aiDim[1]));
-        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTrainFeatures, 0, aiDim[0], aiDim[1]));
-        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTrainFeatures, piClass, 0, aiDim[1]));
-        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(ppfTrainFeatures, piClass, aiDim[0], 0));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], 0));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->train(ppfTrainFeatures, piClass));
         CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(ppfTrainFeatures[0]));
 
-        CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, aiDim[0], aiDim[1]));
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->train(0, piClass));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->train(ppfTrainFeatures, 0));
+        CHECK(Error_t::kNoError == pCInstance->train(ppfTrainFeatures, piClass));
         CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(0));
 
         CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->setParamK(0));
@@ -720,7 +948,8 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         piClass[0] = 0; piClass[1] = 1; piClass[2] = 2; piClass[3] = 0; piClass[4] = 1; piClass[5] = 2;
         piQueryGT[0] = 2; piQueryGT[1] = 1; piQueryGT[2] = 0; piQueryGT[3] = 0; piQueryGT[4] = 1;
 
-        CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, aiDim[0], aiDim[1]));
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+        CHECK(Error_t::kNoError == pCInstance->train(ppfTrainFeatures, piClass));
 
         //////////////////////////////////////////////////////////////
         CHECK(Error_t::kNoError == pCInstance->setParamK(1));
@@ -789,7 +1018,8 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
         piQueryGT[0] = 0; piQueryGT[1] = 1; piQueryGT[3] = 0;
         pfQuery[0] = 0.F; pfQuery[1] = 0.F;
 
-        CHECK(Error_t::kNoError == pCInstance->init(ppfTrainFeatures, piClass, 2, 4));
+        CHECK(Error_t::kNoError == pCInstance->init(2, 4));
+        CHECK(Error_t::kNoError == pCInstance->train(ppfTrainFeatures, piClass));
 
         //////////////////////////////////////////////////////////////
         CHECK(Error_t::kNoError == pCInstance->setParamK(1));
@@ -814,73 +1044,6 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
 
     delete pCInstance;
 }
-
-TEST_CASE("ToolsInstFreq", "[ToolsInstFreq]")
-{
-    int iBlockLength = 1024;
-    int iHopLength = 128;
-    int iFreqLength = iBlockLength / 2 + 1;
-    float fSampleRate = 48000;
-    int iBuffLength = iBlockLength + 2 * iHopLength;
-
-    float* pfIn = new float[iBuffLength];
-    float* pfTmp = new float[iBuffLength];
-    float* pfOut = new float[iFreqLength];
-    CFft::complex_t* pfSpectrum = new float[iBuffLength];
-
-    CFft* pCFft = new CFft();
-    CInstFreq* pCInstFreq = new CInstFreq(iBlockLength, iHopLength, fSampleRate);
-
-    pCFft->init(iBlockLength);
-    CVector::setZero(pfIn, iBuffLength);
-    CVector::setZero(pfOut, iFreqLength);
-    CVector::setZero(pfSpectrum, iBlockLength);
-
-    SECTION("Api")
-    {
-        CHECK(Error_t::kFunctionInvalidArgsError == pCInstFreq->process(0, pfIn));
-        CHECK(Error_t::kFunctionInvalidArgsError == pCInstFreq->process(pfOut, 0));
-    }
-
-    SECTION("Sine")
-    {
-        int aiBins[3] = { 32, 8, 4 };
-        float afBinOffset[3] = { .5F, .25F, 0.F };
-        float afFreq[3] = { 0 };
-
-        // generate test signal with three sines
-        for (auto s = 0; s < 3; s++)
-        {
-            afFreq[s] = fSampleRate / iBlockLength * (aiBins[s] + afBinOffset[s]);
-            CSynthesis::genSine(pfTmp, afFreq[s], fSampleRate, iBuffLength);
-
-            CVector::add_I(pfIn, pfTmp, iBuffLength);
-        }
-
-        // compute FFTs
-        for (auto n = 0; n < 3; n++)
-        {
-            pCFft->compFft(pfSpectrum, &pfIn[n * iHopLength]);
-            pCInstFreq->process(pfOut, pfSpectrum);
-
-            if (n == 2)
-            {
-                for (auto s = 0; s < 3; s++)
-                    CHECK(afFreq[s] == Approx(pfOut[aiBins[s]]).margin(5e-1F).epsilon(5e-1F));
-            }
-        }
-    }
-
-    delete pCInstFreq;
-    delete pCFft;
-
-    delete[] pfSpectrum;
-    delete[] pfIn;
-    delete[] pfTmp;
-    delete[] pfOut;
-
-}
-
 TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
 {
     CMovingAverage* pCLowPass = 0;

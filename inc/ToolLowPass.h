@@ -229,7 +229,6 @@ public:
     \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
     \param pfInput input data of length iLengthOfBuffer
     \param iLengthOfBuffer length of buffer in samples
-    \return Error_t
     */
     void filtfilt(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
     {

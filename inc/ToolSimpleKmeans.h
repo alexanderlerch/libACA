@@ -51,14 +51,12 @@ private:
 
     /*! deals with empty clusters through new random initialization
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
-    \return 
     */
     void reinitClusterMeans_(float** ppfFeatures);
 
 
     /*! randomly initializes the initial cluster means
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
-    \return
     */
     void initClusterMeans_(float** ppfFeatures);
 
@@ -66,7 +64,6 @@ private:
     /*! computes the current cluster means
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
     \param piResult current cluster assignments
-    \return
     */
     void compClusterMeans_(float** ppfFeatures, const int* piResult);
 
@@ -80,7 +77,6 @@ private:
     /*! assigns cluster labels given the means
     \param piResult new cluster assignments
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
-    \return
     */
     void assignClusterLabels_(int* piResult, float** ppfFeatures);
 

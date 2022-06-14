@@ -4,30 +4,8 @@
 #pragma once
 
 #include "ErrorDef.h"
+#include "ClassifierBase.h"
 
-
-/*! \brief abstract base class for traditional classifiers
-*/
-class CClassifierBase
-{
-public:
-    enum Normalization_t
-    {
-        kNoNormalization,
-        kZscoreNormalization,
-        kMinmaxNormalization,
-
-        kNumNormModes
-    };
-    static const int kIllegalClassLabel;
-
-    virtual Error_t init(float** ppfTrainFeatures, const int* piTrainClassIndices, int iNumFeatures, int iNumObservations, Normalization_t eNorm) = 0;
-
-    virtual Error_t reset() = 0;
-
-    virtual int classify(const float* pfQuery) = 0;
-
-};
 
 /*! \brief computation of k nearest neighbor
 */
@@ -46,7 +24,8 @@ public:
     \param eNorm specification of what normalization should be applied to the feature data
     \return Error_t
     */
-    Error_t init(float** ppfTrainFeatures, const int* piTrainClassIndices, int iNumFeatures, int iNumObservations, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
+    Error_t init(int iNumFeatures, int iNumObservations) override;
+    Error_t train(float** ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
 
     /*! resets Knn instance
     \return Error_t
@@ -94,9 +73,6 @@ private:
 
     float* m_pfHist = 0; //!< preallocated vector for the histogram of nearest neighbors
     int* m_piHistLabel = 0; //!< preallocated vector holding the histogram class labels
-
-    float *m_pfNormScale = 0; //!< scaling constant for normalization (length m_iNumFeatures)
-    float *m_pfNormSub = 0; //!< offset for normalization (length m_iNumFeatures)
 
     bool m_bIsInitialized = false; //!< indicates if instance has been properly initialized
 

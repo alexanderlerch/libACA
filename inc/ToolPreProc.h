@@ -14,7 +14,6 @@ class CPreProc
 {
 public:
     /*! downmixes multichannel audio (can be inplace
-    \return void (no error returns b/c not user-facing)
     */
     static void downmix (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)
     {
@@ -111,7 +110,6 @@ public:
     /*! performs the normalization on a buffer after previous file parsing to get the maximum
     \param pfAudioBlock audio data, to be over-written
     \param  iNumSamples legnth of pfAudio
-    \return Error_t
     */
     void normalizeBlock(float* pfAudioBlock, long long iNumSamples)
     {
@@ -124,7 +122,6 @@ public:
     /*! performs the normalization inplace on a buffer
     \param pfAudio audio data, to be over-written
     \param  iNumSamples legnth of pfAudio
-    \return Error_t
     */
     static void normalizeSignal(float* pfAudio, long long iNumSamples)
     {
