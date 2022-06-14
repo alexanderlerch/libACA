@@ -15,16 +15,19 @@ public:
     CKnn(void) {};
     virtual ~CKnn(void);
 
+    /*! initializes Knn instance
+    \param iNumFeatures number of features (rows in the input matrix)
+    \param iNumObservations number of observations (columns in the feature matrix)
+    \return Error_t
+    */
+    Error_t init(int iNumFeatures, int iNumObservations) override;
 
     /*! initializes Knn instance
     \param ppfTrainFeatures feature data for 'training' (dimensions iNumFeatures X iNumObservations)
     \param piTrainClassIndices ground truth class index for each observation
-    \param iNumFeatures number of features (rows in the input matrix)
-    \param iNumObservations number of observations (columns in the feature matrix)
     \param eNorm specification of what normalization should be applied to the feature data
     \return Error_t
     */
-    Error_t init(int iNumFeatures, int iNumObservations) override;
     Error_t train(float** ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
 
     /*! resets Knn instance

@@ -65,6 +65,7 @@ public:
     CGmmResult& operator=(const CGmmResult& that);
 
 protected:
+    // these are called by our friend
     Error_t init(int iK, int iNumFeatures);
     Error_t reset();
     Error_t setMu(int iGaussianIdx, int iFeatureIdx, float fParamValue);
@@ -97,7 +98,7 @@ class CGmm
 public:
 
     CGmm(void) {};
-    virtual ~CGmm(void);;
+    virtual ~CGmm(void);
 
     /*! initializes the class 
     \param pCResult class holding resulting mean, sigma, and priors, see class ::CGmmResult (user-allocated)

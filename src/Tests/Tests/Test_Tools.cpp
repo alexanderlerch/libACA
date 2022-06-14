@@ -573,99 +573,32 @@ TEST_CASE("ToolsGmmClassifier", "[ToolsGmm]")
 
     CVector::alloc(piClass, aiDim[1]);
 
-    //SECTION("Api")
-    //{
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[1]));
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], 0));
-    //    CHECK(Error_t::kFunctionIllegalCallError == pCInstance->train(ppfTrainFeatures, piClass));
-    //    CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(ppfTrainFeatures[0]));
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], 0));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->train(ppfData, piClass));
+        CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(ppfData[0]));
 
-    //    CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->train(0, piClass));
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->train(ppfTrainFeatures, 0));
-    //    CHECK(Error_t::kNoError == pCInstance->train(ppfTrainFeatures, piClass));
-    //    CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(0));
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->train(0, piClass));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->train(ppfData, 0));
+        CHECK(Error_t::kNoError == pCInstance->train(ppfData, piClass));
+        CHECK(CClassifierBase::kIllegalClassLabel == pCInstance->classify(0));
 
-    //    CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->setNumMixtures(0));
-    //    CHECK(Error_t::kNoError == pCInstance->setNumMixtures(17));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->setNumMixtures(0));
+        CHECK(Error_t::kNoError == pCInstance->setNumMixtures(17));
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+        CHECK(Error_t::kNoError == pCInstance->train(ppfData, piClass));
 
-    //    // zero test
-    //    CHECK(0 == pCInstance->classify(ppfTrainFeatures[0]));
+        // zero test
+        CHECK(0 == pCInstance->classify(ppfData[0]));
 
-    //    CHECK(Error_t::kNoError == pCInstance->reset());
-    //}
-
-    //SECTION("test1")
-    //{
-    //    ppfTrainFeatures[0][0] = 1.F; ppfTrainFeatures[0][1] = 2.F; ppfTrainFeatures[0][2] = 3.F; ppfTrainFeatures[0][3] = .8F; ppfTrainFeatures[0][4] = 1.8F; ppfTrainFeatures[0][5] = 3.F;
-    //    ppfTrainFeatures[1][0] = 1.F; ppfTrainFeatures[1][1] = 2.F; ppfTrainFeatures[1][2] = 3.F; ppfTrainFeatures[1][3] = .9F; ppfTrainFeatures[1][4] = 2.F; ppfTrainFeatures[1][5] = 3.F;
-    //    ppfTrainFeatures[2][0] = 1.F; ppfTrainFeatures[2][1] = 2.F; ppfTrainFeatures[2][2] = 3.F; ppfTrainFeatures[2][3] = .8F; ppfTrainFeatures[2][4] = 1.9F; ppfTrainFeatures[2][5] = 3.F;
-
-    //    piClass[0] = 0; piClass[1] = 1; piClass[2] = 2; piClass[3] = 0; piClass[4] = 1; piClass[5] = 2;
-    //    piQueryGT[0] = 2; piQueryGT[1] = 1; piQueryGT[2] = 0; piQueryGT[3] = 0; piQueryGT[4] = 1;
-
-    //    CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
-    //    CHECK(Error_t::kNoError == pCInstance->train(ppfTrainFeatures, piClass));
-
-    //    //////////////////////////////////////////////////////////////
-    //    //CHECK(Error_t::kNoError == pCInstance->setNumMixtures(1));
-
-    //    pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
-    //    CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 2.F; pfQuery[1] = 2.F; pfQuery[2] = 2.F;
-    //    CHECK(piQueryGT[1] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 1.1F; pfQuery[1] = 0.95F; pfQuery[2] = 1.3F;
-    //    CHECK(piQueryGT[2] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 0.F; pfQuery[1] = 0.F; pfQuery[2] = 0.F;
-    //    CHECK(piQueryGT[3] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 1.5F; pfQuery[1] = 1.5F; pfQuery[2] = 1.5F;
-    //    CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
-
-    //    //////////////////////////////////////////////////////////////
-    //    //CHECK(Error_t::kNoError == pCInstance->setNumMixtures(2));
-
-    //    pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
-    //    CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 2.F; pfQuery[1] = 2.F; pfQuery[2] = 2.F;
-    //    CHECK(piQueryGT[1] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 1.1F; pfQuery[1] = 0.95F; pfQuery[2] = 1.3F;
-    //    CHECK(piQueryGT[2] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 0.F; pfQuery[1] = 0.F; pfQuery[2] = 0.F;
-    //    CHECK(piQueryGT[3] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 1.5F; pfQuery[1] = 1.5F; pfQuery[2] = 1.5F;
-    //    CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
-
-    //    //////////////////////////////////////////////////////////////
-    //    //CHECK(Error_t::kNoError == pCInstance->setNumMixtures(5));
-
-    //    pfQuery[0] = 10.F; pfQuery[1] = 10.F; pfQuery[2] = 10.F;
-    //    CHECK(piQueryGT[0] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 2.F; pfQuery[1] = 2.F; pfQuery[2] = 2.F;
-    //    CHECK(piQueryGT[1] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 1.1F; pfQuery[1] = 0.95F; pfQuery[2] = 1.3F;
-    //    CHECK(piQueryGT[2] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 0.F; pfQuery[1] = 0.F; pfQuery[2] = 0.F;
-    //    CHECK(piQueryGT[3] == pCInstance->classify(pfQuery));
-
-    //    pfQuery[0] = 1.5F; pfQuery[1] = 1.5F; pfQuery[2] = 1.5F;
-    //    CHECK(piQueryGT[4] == pCInstance->classify(pfQuery));
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
 
 
-    //    CHECK(Error_t::kNoError == pCInstance->reset());
-    //}
-
-    SECTION("test2")
+    SECTION("2Class")
     {
         float afQuery[2] = { 0,0 };
         srand(41);
@@ -770,6 +703,8 @@ TEST_CASE("ToolsFingerprint", "[ToolsFingerprint]")
 
 TEST_CASE("ToolsKmeans", "[ToolsKmeans]")
 {
+    srand(41);
+
     float aafMu[2][2] = { {-5,5},{5,-5} };
     int aiDim[2] = { 2,128 };
 
