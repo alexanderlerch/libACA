@@ -9,13 +9,15 @@ const int CClassifierBase::kIllegalClassLabel = -1111111111;
 
 CKnn::~CKnn(void) 
 {
-    this->reset();
+    reset();
 }
 
 Error_t CKnn::init(int iNumFeatures, int iNumObservations)
 {
     if (iNumFeatures <= 0 || iNumObservations <= 1)
         return Error_t::kFunctionInvalidArgsError;
+
+    reset();
 
     m_iNumObs = iNumObservations;
     m_iNumFeatures = iNumFeatures;
@@ -84,11 +86,14 @@ Error_t CKnn::setParamK(int iK)
     if (iK <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
-    m_iK = iK;
+    if (m_iK == iK)
+        return Error_t::kNoError;
+
     CVector::free(m_pfHist);
     CVector::free(m_piHistLabel);
     CVector::free(m_piHistCount);
 
+    m_iK = iK;
     CVector::alloc(m_pfHist, m_iK);
     CVector::alloc(m_piHistLabel, m_iK);
     CVector::alloc(m_piHistCount, m_iK);
