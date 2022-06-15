@@ -6,13 +6,13 @@
 
 #include "Vector.h"
 
-/*! \brief class with static functions for matrix operations with type float (functionality only added when needed)
+/*! \brief class with static functions for matrix operations, works with both float and double (functionality only added when needed)
 */
 class CMatrix
 {
 public:
 
-    /*! allocates a float matrix and inits it with zeros
+    /*! allocates a matrix and inits it with zeros
     \param pptMat (empty double pointer, to be allocated)
     \param iNumRows number of rows
     \param iNumCols number of columns
@@ -30,7 +30,7 @@ public:
             CVector::alloc(pptMat[m], iNumCols);
     }
 
-    /*! frees a float matrix 
+    /*! frees a matrix 
     \param pptMat (empty double pointer, to be set to zero)
     \param iNumRows number of rows
     */
@@ -47,7 +47,7 @@ public:
         pptMat = 0;
     }
 
-    /*! sets a float matrix to zero
+    /*! sets all matrix elements to zero
     \param pptMat pointer to memory to be set
     \param iNumRows number of rows
     \param iNumCols number of columns
@@ -64,7 +64,7 @@ public:
             CVector::setZero(pptMat[m], iNumCols);
     }
 
-    /*! sets a float matrix to zero
+    /*! sets all matrix elements to a value
     \param pptMat pointer to memory to be set
     \param tValue  value to use
     \param iNumRows number of rows
@@ -82,7 +82,7 @@ public:
             CVector::setValue(pptMat[m], tValue, iNumCols);
     }
 
-    /*! sets a float matrix to random
+    /*! sets all matrix elements to a random value
     \param pptMat pointer to memory to be set
     \param iNumRows number of rows
     \param iNumCols number of columns
@@ -140,7 +140,8 @@ public:
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     */
-    static void setEye(float** pptDest, int iNumRows, int iNumCols)
+    template<typename T>
+    static void setEye(T** pptDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows == iNumCols);
@@ -160,7 +161,8 @@ public:
     \param iColIdx index of column to retrieve
     \param iNumRows number of rows in the matrix
     */
-    static void getCol(float *ptDest, float** pptMat, int iColIdx, int iNumRows)
+    template<typename T>
+    static void getCol(T* ptDest, T** pptMat, int iColIdx, int iNumRows)
     {
         assert(iColIdx >= 0);
         assert(iNumRows > 0);
@@ -179,26 +181,27 @@ public:
     \param bAbs flag to indicate whether to sum the absolute values
     \return sum
     */
-    static float getSumCol(float** pptMat, int iColIdx, int iNumRows, bool bAbs = false)
+    template<typename T>
+    static T getSumCol(T** pptMat, int iColIdx, int iNumRows, bool bAbs = false)
     {
         assert(iNumRows > 0);
         assert(pptMat);
         assert(pptMat[0]);
 
-        float fResult = 0;
+        T tResult = 0;
 
         if (bAbs)
         {
             for (auto m = 0; m < iNumRows; m++)
-                fResult += std::abs(pptMat[m][iColIdx]);
+                tResult += std::abs(pptMat[m][iColIdx]);
         }
         else
         {
             for (auto m = 0; m < iNumRows; m++)
-                fResult += pptMat[m][iColIdx];
+                tResult += pptMat[m][iColIdx];
         }
 
-        return fResult;
+        return tResult;
     }
 
     /*! adds all matrix elements
@@ -208,19 +211,20 @@ public:
     \param bAbs flag to indicate whether to sum the absolute values
     \return sum
     */
-    static float getSum(float** pptMat, int iNumRows, int iNumCols, bool bAbs = false)
+    template<typename T>
+    static T getSum(T** pptMat, int iNumRows, int iNumCols, bool bAbs = false)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
         assert(pptMat);
         assert(pptMat[0]);
 
-        float fResult = 0;
+        T tResult = 0;
 
         for (auto m = 0; m < iNumRows; m++)
-            fResult += CVector::getSum(pptMat[m], iNumCols, bAbs);
+            tResult += CVector::getSum(pptMat[m], iNumCols, bAbs);
 
-        return fResult;
+        return tResult;
     }
 
     /*! return the matrix norm (p=1)
@@ -229,26 +233,27 @@ public:
     \param iNumCols number of columns in the matrix
     \return norm
     */
-    static float getNorm(float** pptMat, int iNumRows, int iNumCols)
+    template<typename T>
+    static T getNorm(T** pptMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
         assert(pptMat);
         assert(pptMat[0]);
 
-        float fResult = 0;
+        T tResult = 0;
 
         for (auto n = 0; n < iNumCols; n++)
         {
-            float fTmp = 0;
+            T tTmp = 0;
             for (auto m = 0; m < iNumRows; m++)
-                fTmp += std::abs(pptMat[m][n]);
+                tTmp += std::abs(pptMat[m][n]);
 
-            if (fTmp > fResult)
-                fResult = fTmp;
+            if (tTmp > tResult)
+                tResult = tTmp;
         }
 
-        return fResult;
+        return tResult;
     }
 
     /*! normalizes each column of the matrix (p=1)
@@ -256,7 +261,8 @@ public:
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     */
-    static void vecnorm_I(float** pptSrcDest, int iNumRows, int iNumCols)
+    template<typename T>
+    static void vecnorm_I(T** pptSrcDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -265,12 +271,12 @@ public:
 
         for (auto n = 0; n < iNumCols; n++)
         {
-            float fNorm = 0;
+            T tNorm = 0;
             for (auto m = 0; m < iNumRows; m++)
-                fNorm += std::abs(pptSrcDest[m][n]);
-            if (fNorm > 0)
+                tNorm += std::abs(pptSrcDest[m][n]);
+            if (tNorm > 0)
                 for (auto m = 0; m < iNumRows; m++)
-                    pptSrcDest[m][n] /= fNorm;
+                    pptSrcDest[m][n] /= tNorm;
         }
     }
 
@@ -281,7 +287,8 @@ public:
     \param iNumCols number of columns in the matrix
     \return kld
     */
-    static float calcKlDivergence(float** pptSrc1, float** pptSrc2, int iNumRows, int iNumCols)
+    template<typename T>
+    static T calcKlDivergence(T** pptSrc1, T** pptSrc2, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -290,15 +297,15 @@ public:
         assert(pptSrc2);
         assert(pptSrc2[0]);
 
-        float fResult = 0;
+        T tResult = 0;
 
         for (int i = 0; i < iNumRows; i++)
         {
             for (int j = 0; j < iNumCols; j++)
-                fResult += pptSrc1[i][j] * (std::log((pptSrc1[i][j] + 1e-24F) / (pptSrc2[i][j] + 1e-24F)) - 1.F) + pptSrc2[i][j];
+                tResult += pptSrc1[i][j] * (std::log((pptSrc1[i][j] + 1e-24F) / (pptSrc2[i][j] + 1e-24F)) - 1.F) + pptSrc2[i][j];
         }
 
-        return fResult;
+        return tResult;
     }
 
     /*! transposes matrix pptSrc and write the result to pptDest
@@ -307,7 +314,8 @@ public:
     \param iNumSrcRows number of rows in the matrix
     \param iNumSrcCols number of columns in the matrix
     */
-    static void transpose(float** pptDest, float** pptSrc, int iNumSrcRows, int iNumSrcCols)
+    template<typename T>
+    static void transpose(T** pptDest, T** pptSrc, int iNumSrcRows, int iNumSrcCols)
     {
         assert(iNumSrcRows > 0);
         assert(iNumSrcCols > 0);
@@ -328,26 +336,27 @@ public:
     \param piRowIndices new indices iNumRows
     \param iNumRows number of rows in the matrix
     */
-    static void rearrangeRows(float** pptSrcDest, int* piRowIndices, int iNumRows)
+    template<typename T>
+    static void rearrangeRows(T** pptSrcDest, int* piRowIndices, int iNumRows)
     {
         assert(iNumRows > 0);
         assert(piRowIndices);
         assert(pptSrcDest);
         assert(pptSrcDest[0]);
 
-        float** ppfTmp = 0;
-        CVector::alloc(ppfTmp, iNumRows);
+        T** pptTmp = 0;
+        CVector::alloc(pptTmp, iNumRows);
 
         for (auto m = 0; m < iNumRows; m++)
         {
             assert(piRowIndices[m] < iNumRows);
             assert(piRowIndices[m] >= 0);
 
-            ppfTmp[m] = pptSrcDest[piRowIndices[m]];
+            pptTmp[m] = pptSrcDest[piRowIndices[m]];
         }
-        CVector::copy(pptSrcDest, ppfTmp, iNumRows);
+        CVector::copy(pptSrcDest, pptTmp, iNumRows);
 
-        CVector::free(ppfTmp);
+        CVector::free(pptTmp);
     }
 
     /*! returns matrix diagonal as vector
@@ -356,7 +365,8 @@ public:
     \param iNumSrcRows number of rows in the matrix
     \param iNumSrcCols number of columns in the matrix
     */
-    static void diag(float* ptDest, float** pptSrc, int iNumSrcRows, int iNumSrcCols)
+    template<typename T>
+    static void diag(T* ptDest, T** pptSrc, int iNumSrcRows, int iNumSrcCols)
     {
         assert(iNumSrcRows > 0);
         assert(iNumSrcCols > 0);
@@ -377,7 +387,8 @@ public:
     \param iNumMatRows number of rows in the matrix
     \param iNumMatCols number of columns in the matrix
     */
-    static void mulMatColVec(float* ptDestColVec, float** pptMat, const float* ptSrcColVec, int iNumMatRows, int iNumMatCols)
+    template<typename T>
+    static void mulMatColvec(T* ptDestColVec, T** pptMat, const T* ptSrcColVec, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
@@ -397,7 +408,8 @@ public:
     \param iNumMatRows number of rows in the matrix
     \param iNumMatCols number of columns in the matrix
     */
-    static void mulColVecRowVec(float** pptDestMat, const float* ptSrcColVec, const float* ptSrcRowVec, int iNumMatRows, int iNumMatCols)
+    template<typename T>
+    static void mulColvecRowvec(T** pptDestMat, const T* ptSrcColVec, const T* ptSrcRowVec, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
@@ -420,7 +432,8 @@ public:
     \param iNumMatRows number of rows in the matrix
     \param iNumMatCols number of columns in the matrix
     */
-    static void mulRowVecMat(float* ptDestRowVec, const float* ptSrcRowVec, float** pptMat, int iNumMatRows, int iNumMatCols)
+    template<typename T>
+    static void mulRowvecMat(T* ptDestRowVec, const T* ptSrcRowVec, T** pptMat, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
@@ -441,7 +454,8 @@ public:
     \param iCol index of column to be multiplied
     \param iNumRows number of rows in the matrix
     */
-    static void mulColC_I(float** pptMat, float fValue, int iCol, int iNumRows)
+    template<typename T>
+    static void mulColC_I(T** pptMat, T fValue, int iCol, int iNumRows)
     {
         assert(iNumRows > 0);
         assert(iCol >= 0);
@@ -461,7 +475,8 @@ public:
     \param iNum2Rows number of rows in matrix 2 (has to equal iNum1Col)
     \param iNum2Cols number of columns in matrix 2
     */
-    static void mulMatMat(float** pptDest, float** pptSrc1, float** pptSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)
+    template<typename T>
+    static void mulMatMat(T** pptDest, T** pptSrc1, T** pptSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)
     {
         assert(iNum1Rows > 0);
         assert(iNum1Cols > 0);
@@ -494,7 +509,8 @@ public:
     \param iNumRows number of rows
     \param iNumCols number of columns
     */
-    static void mul_I(float** pptSrcDest, float** pptSrc, int iNumRows, int iNumCols)
+    template<typename T>
+    static void mul_I(T** pptSrcDest, T** pptSrc, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows > 0);
@@ -516,7 +532,8 @@ public:
     \param iNumRows number of rows
     \param iNumCols number of columns
     */
-    static void add_I(float** pptSrcDest, float** pptSrc, int iNumRows, int iNumCols)
+    template<typename T>
+    static void add_I(T** pptSrcDest, T** pptSrc, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows > 0);
@@ -538,7 +555,8 @@ public:
     \param iNumRows number of rows
     \param iNumCols number of columns
     */
-    static void sub_I(float** pptSrcDest, float** pptSrc, int iNumRows, int iNumCols)
+    template<typename T>
+    static void sub_I(T** pptSrcDest, T** pptSrc, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows > 0);
@@ -561,7 +579,8 @@ public:
     \param iNumCols number of columns
     \param bAddSmallConst a small floating point number is added before division if true
     */
-    static void div_I(float** pptSrcDest, float** pptSrc, int iNumRows, int iNumCols, bool bAddSmallConst = false)
+    template<typename T>
+    static void div_I(T** pptSrcDest, T** pptSrc, int iNumRows, int iNumCols, bool bAddSmallConst = false)
     {
         assert(iNumRows > 0);
         assert(iNumRows > 0);
@@ -570,7 +589,7 @@ public:
         assert(pptSrc);
         assert(pptSrc[0]);
 
-        float fEpsilon = bAddSmallConst? 1e-30F : .0F;
+        T fEpsilon = bAddSmallConst? 1e-30F : .0F;
 
         for (auto m = 0; m < iNumRows; m++)
         {
@@ -585,17 +604,18 @@ public:
     \param iNumCols number of columns in the matrix
     \return max
     */
-    static float getMax(float** pptMat, int iNumRows, int iNumCols)
+    template<typename T>
+    static T getMax(T** pptMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
         assert(pptMat);
         assert(pptMat[0]);
 
-        float fGlobalMax = CVector::getMax(pptMat[0], iNumCols);
+        T fGlobalMax = CVector::getMax(pptMat[0], iNumCols);
         for (auto m = 1; m < iNumRows; m++)
         {
-            float fMax = CVector::getMax(pptMat[m], iNumCols);
+            T fMax = CVector::getMax(pptMat[m], iNumCols);
             if (fMax > fGlobalMax)
                 fGlobalMax = fMax;
         }
@@ -604,11 +624,12 @@ public:
 
     /*! adds a single value to all matrix elements
     \param pptMat matrix to analyze
-    \param fAdd scaling factor to apply
+    \param tAdd scaling factor to apply
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     */
-    static void addC_I(float** pptMat, float fAdd, int iNumRows, int iNumCols)
+    template<typename T>
+    static void addC_I(T** pptMat, T tAdd, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -616,16 +637,17 @@ public:
         assert(pptMat[0]);
 
         for (auto m = 0; m < iNumRows; m++)
-            CVector::addC_I(pptMat[m], fAdd, iNumCols);
+            CVector::addC_I(pptMat[m], tAdd, iNumCols);
     }
 
     /*! multiplies the whole matrix with a single factor
     \param pptMat matrix to analyze
-    \param fScale scaling factor to apply
+    \param tScale scaling factor to apply
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     */
-    static void mulC_I(float** pptMat, float fScale, int iNumRows, int iNumCols)
+    template<typename T>
+    static void mulC_I(T** pptMat, T tScale, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -633,7 +655,7 @@ public:
         assert(pptMat[0]);
 
         for (auto m = 0; m < iNumRows; m++)
-            CVector::mulC_I(pptMat[m], fScale, iNumCols);
+            CVector::mulC_I(pptMat[m], tScale, iNumCols);
     }
 
 
@@ -643,7 +665,8 @@ public:
     \param iColIdx index of columns
     \param iNumCols number of columns in the matrix
     */
-    static void swapRowCol(float** pptSrcDest, int iRowIdx, int iColIdx, int iNumCols)
+    template<typename T>
+    static void swapRowCol(T** pptSrcDest, int iRowIdx, int iColIdx, int iNumCols)
     {
         assert(iRowIdx > 0);
         assert(iColIdx > 0);
@@ -653,7 +676,7 @@ public:
 
         for (auto n = 0; n < iNumCols; n++)
         {
-            float fTmp = pptSrcDest[iRowIdx][n];
+            T fTmp = pptSrcDest[iRowIdx][n];
             pptSrcDest[iRowIdx][n] = pptSrcDest[iColIdx][n];
             pptSrcDest[iColIdx][n] = fTmp;
         }
@@ -700,7 +723,7 @@ public:
         assert(pptMat);
         assert(iNumRows == iNumCols);
 
-        const float kSingularityThresh = 1e-15F;
+        const T kSingularityThresh = 1e-15F;
         T **pptTmp = 0;
         double dDet = 1;
 
@@ -794,7 +817,7 @@ public:
         assert(pptSrcDest);
         assert(pptSrcDest[0]);
 
-        const float kSingularityThresh = 1e-15F;
+        const T kSingularityThresh = 1e-15F;
         T** ppfTmp = 0;
         T** ppfEye = 0;
         int    i, j;

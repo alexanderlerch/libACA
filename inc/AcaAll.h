@@ -27,6 +27,7 @@
 #include "ToolGmm.h"
 #include "ToolGmmClassifier.h"
 #include "ToolInstFreq.h"
+#include "ToolLeaveOneOutCrossVal.h"
 #include "ToolLowPass.h"
 #include "ToolNmf.h"
 #include "ToolPca.h"

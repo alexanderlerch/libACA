@@ -46,7 +46,13 @@ Error_t CGmmClassifier::train(float** ppfTrainFeatures, const int* piTrainClassI
     // get number of classes
     m_iNumClasses = countClasses(piTrainClassIndices);
 
-    // allocate GMM stuff but keep result for later
+    // allocate GMM stuff but keep result for later (avoid mem leaks when repeatedly calling train)
+    if (m_ppCGmmResult)
+    {
+        for (auto c = 0; c < m_iNumClasses; c++)
+            delete m_ppCGmmResult[c];
+        CVector::free(m_ppCGmmResult);
+    }
     CVector::alloc(m_ppCGmmResult, m_iNumClasses);
 
 

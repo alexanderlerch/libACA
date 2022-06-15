@@ -93,15 +93,15 @@ void CKmeans::reinitClusterMeans_(float** ppfFeatures)
 {
     if (CVector::getMin(m_piClusterSize, m_iK) > 0)
         return;
+
     CSynthesis::genNoise(m_pfProc, m_iK);
-    CVector::addC_I(m_pfProc, 1.F, m_iK);
-    CVector::mulC_I(m_pfProc, (m_iNumObs - 1) / 2.F, m_iK);
+    CVector::mulC_I(m_pfProc, m_iNumObs - 1.F, m_iK);
     for (auto k = 0; k < m_iK; k++)
     {
         if (m_piClusterSize[k] > 0)
             continue;
         int iIdx = CUtil::float2int<int>(m_pfProc[k]);
-        assert(iIdx > 0 && iIdx < m_iNumObs);
+        assert(iIdx >= 0 && iIdx < m_iNumObs);
 
         for (auto v = 0; v < m_iNumFeatures; v++)
             m_appfClusterMeans[kCurr][k][v] = ppfFeatures[v][iIdx];
@@ -111,12 +111,11 @@ void CKmeans::reinitClusterMeans_(float** ppfFeatures)
 void CKmeans::initClusterMeans_(float** ppfFeatures)
 {
     CSynthesis::genNoise(m_pfProc, m_iK);
-    CVector::addC_I(m_pfProc, 1.F, m_iK);
-    CVector::mulC_I(m_pfProc, (m_iNumObs - 1) / 2.F, m_iK);
+    CVector::mulC_I(m_pfProc, m_iNumObs - 1.F, m_iK);
     for (auto k = 0; k < m_iK; k++)
     {
         int iIdx = CUtil::float2int<int>(m_pfProc[k]);
-        assert(iIdx > 0 && iIdx < m_iNumObs);
+        assert(iIdx >= 0 && iIdx < m_iNumObs);
 
         for (auto v = 0; v < m_iNumFeatures; v++)
             m_appfClusterMeans[kCurr][k][v] = ppfFeatures[v][iIdx];

@@ -39,7 +39,7 @@ TEST_CASE("Matrix", "[Matrix]")
         for (auto n = 0; n < aiDims[1]; n++)
             pfIn[n] = 1.F * (n + 1);
 
-        CMatrix::mulMatColVec(pfOut, ppfMatrix, pfIn, aiDims[0], aiDims[1]);
+        CMatrix::mulMatColvec(pfOut, ppfMatrix, pfIn, aiDims[0], aiDims[1]);
 
         for (auto m = 0; m < aiDims[0]; m++)
             CHECK(m * aiDims[1] == pfOut[m]);
@@ -66,7 +66,7 @@ TEST_CASE("Matrix", "[Matrix]")
         for (auto n = 0; n < aiDims[0]; n++)
             pfIn[n] = 1.F * (n + 1);
 
-        CMatrix::mulRowVecMat(pfOut, pfIn, ppfMatrix, aiDims[0], aiDims[1]);
+        CMatrix::mulRowvecMat(pfOut, pfIn, ppfMatrix, aiDims[0], aiDims[1]);
 
         for (auto m = 0; m < aiDims[0]; m++)
             CHECK(m * aiDims[0] == pfOut[m]);

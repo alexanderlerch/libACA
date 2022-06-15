@@ -115,19 +115,25 @@ public:
     \param pfOutBuf output memory buffer (to be written)
     \param iLength number of frames to be generated
     \param fAmplitude max amplitude of noise
+    \param bOnlyPositive create only positive values
     \return Error_t
     */
     template <class T>
-    static Error_t genNoise (T *pfOutBuf, long long iLength, T fAmplitude = 1.)
+    static Error_t genNoise (T *pfOutBuf, long long iLength, T fAmplitude = 1., bool bOnlyPositive = true)
     {
         if (!pfOutBuf)
             return Error_t::kFunctionInvalidArgsError;
 
-        for (int i = 0; i < iLength; i++)
+        if (bOnlyPositive)
         {
-            pfOutBuf[i] = rand()*fAmplitude/RAND_MAX;
+            for (int i = 0; i < iLength; i++)
+                pfOutBuf[i] = rand() * fAmplitude / RAND_MAX;
         }
-
+        else
+        {
+            for (int i = 0; i < iLength; i++)
+                pfOutBuf[i] = rand() * 2 * fAmplitude / RAND_MAX - 1;
+        }
         return Error_t::kNoError;
     }
 };

@@ -650,6 +650,7 @@ TEST_CASE("ToolsGmmClassifier", "[ToolsGmm]")
 
     delete pCInstance;
 }
+
 TEST_CASE("ToolsFingerprint", "[ToolsFingerprint]")
 {
     int iLength = 24000;
@@ -979,6 +980,74 @@ TEST_CASE("ToolsKnn", "[ToolsKnn]")
 
     delete pCInstance;
 }
+
+TEST_CASE("ToolsLooCV", "[ToolsLeaveOneOutCrossVal]")
+{
+    int aiDim[2] = { 2,9 };
+
+    float** ppfData = 0;
+
+    CLeaveOneOutCrossVal* pCInstance = new CLeaveOneOutCrossVal();
+
+    CKnn Knn;
+    CGmmClassifier Gmm;
+    Knn.setParamK(1);
+    Gmm.setNumMixtures(1);
+
+    CMatrix::alloc(ppfData, aiDim[0], aiDim[1]);
+
+    int* piClass = 0;
+
+    CVector::alloc(piClass, aiDim[1]);
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[1], &Knn));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], 0, &Knn));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], aiDim[1], 0));
+
+        CHECK(-1.F == pCInstance->process(ppfData, piClass));
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1], &Knn));
+        CHECK(-1.F == pCInstance->process(0, piClass));
+        CHECK(-1.F == pCInstance->process(ppfData, 0));
+        CHECK(1.F == pCInstance->process(ppfData, piClass));
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[1], &Gmm));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], 0, &Gmm));
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1], &Gmm));
+        CHECK(-1.F == pCInstance->process(0, piClass));
+        CHECK(-1.F == pCInstance->process(ppfData, 0));
+        CHECK(1.F == pCInstance->process(ppfData, piClass));
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+
+    SECTION("SimpleTestNN")
+    {
+        ppfData[0][0] = 0; ppfData[0][1] = 1; ppfData[0][2] = 2; ppfData[0][3] = 3; ppfData[0][4] = 4; ppfData[0][5] = 5; ppfData[0][6] = 6; ppfData[0][7] = 7; ppfData[0][8] = 8;
+        ppfData[1][0] = 2; ppfData[1][1] = 1; ppfData[1][2] = 0; ppfData[1][3] = 5; ppfData[1][4] = 4; ppfData[1][5] = 3; ppfData[1][6] = 8; ppfData[1][7] = 7; ppfData[1][8] = 6;
+        piClass[0] = 0; piClass[1] = 0; piClass[2] = 0; piClass[3] = 1; piClass[4] = 1; piClass[5] = 1; piClass[6] = 2; piClass[7] = 2; piClass[8] = 2;
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1], &Knn));
+        CHECK(1.F == pCInstance->process(ppfData, piClass));
+
+        piClass[6] = 0;
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1], &Knn));
+        CHECK(7.F/9.F == pCInstance->process(ppfData, piClass));
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+
+    CMatrix::free(ppfData, aiDim[0]);
+    CVector::free(piClass);
+
+    delete pCInstance;
+}
+
 TEST_CASE("ToolsMovingAverage", "[ToolsMovingAverage]")
 {
     CMovingAverage* pCLowPass = 0;

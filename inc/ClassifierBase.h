@@ -32,7 +32,7 @@ public:
     \param eNorm specification of what normalization should be applied to the feature data
     \return Error_t
     */
-    virtual Error_t train(float** ppfTrainFeatures, const int* piTrainClassIndices, Normalization_t eNorm) = 0;
+    virtual Error_t train(float** ppfTrainFeatures, const int* piTrainClassIndices, Normalization_t eNorm = kNoNormalization) = 0;
 
     /*! resets classifier instance
     \return Error_t
