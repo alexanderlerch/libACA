@@ -100,7 +100,7 @@ void CGmm::initState_(float** ppfFeatures, CGmmResult* pCCurrState)
     for (auto k = 0; k < m_iK; k++)
     {
         int iIdx = CUtil::float2int<int>(m_apfProc[0][k]);
-        assert(iIdx > 0 && iIdx < m_iNumObs);
+        assert(iIdx >= 0 && iIdx < m_iNumObs);
 
         // set sigma
         pCCurrState->setSigma(k, m_appfSigma[0]);
