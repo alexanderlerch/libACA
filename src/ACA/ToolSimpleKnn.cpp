@@ -22,12 +22,13 @@ Error_t CKnn::init(int iNumFeatures, int iNumObservations)
 
     CVector::alloc(m_piClassLabels, m_iNumObs);
     CVector::alloc(m_piSortIdx, m_iNumObs);
-    CVector::alloc(m_pfDist, m_iNumObs);
+    CVector::alloc(m_pfSortDist, m_iNumObs);
     CMatrix::alloc(m_ppfTrain, m_iNumObs, m_iNumFeatures);
     CVector::alloc(m_pfQuery, m_iNumFeatures);
 
     CVector::alloc(m_pfHist, m_iK);
     CVector::alloc(m_piHistLabel, m_iK);
+    CVector::alloc(m_piHistCount, m_iK);
 
     m_bIsInitialized = true;
 
@@ -64,13 +65,14 @@ Error_t CKnn::reset()
 {
     CVector::free(m_piClassLabels);
     CVector::free(m_piSortIdx);
-    CVector::free(m_pfDist);
+    CVector::free(m_pfSortDist);
     CMatrix::free(m_ppfTrain, m_iNumObs);
 
     CVector::free(m_pfQuery);
 
     CVector::free(m_pfHist);
     CVector::free(m_piHistLabel);
+    CVector::free(m_piHistCount);
 
     m_bIsInitialized = false;
 
@@ -85,9 +87,11 @@ Error_t CKnn::setParamK(int iK)
     m_iK = iK;
     CVector::free(m_pfHist);
     CVector::free(m_piHistLabel);
+    CVector::free(m_piHistCount);
 
     CVector::alloc(m_pfHist, m_iK);
     CVector::alloc(m_piHistLabel, m_iK);
+    CVector::alloc(m_piHistCount, m_iK);
 
     return Error_t::kNoError;
 }
@@ -107,10 +111,10 @@ int CKnn::classify(const float* pfQuery)
 
     // compute distance to all training observations
     for (auto n = 0; n < m_iNumObs; n++)
-        m_pfDist[n] = CVector::distEuclidean(pfQuery, m_ppfTrain[n], m_iNumFeatures);
+        m_pfSortDist[n] = CVector::distEuclidean(pfQuery, m_ppfTrain[n], m_iNumFeatures);
 
     // sort distances
-    CVector::sort_I(m_pfDist, m_piSortIdx, m_iNumObs);
+    CVector::sort_I(m_pfSortDist, m_piSortIdx, m_iNumObs);
 
     // take care of weird scenarios
     if (m_iK > m_iNumObs)
@@ -134,27 +138,53 @@ int CKnn::classify(const float* pfQuery)
 void CKnn::buildHistogram_(bool bUseDistance)
 {
     int iNumLabelsInK = 0;
+
+    // init
+    CVector::setZero(m_pfHist, m_iK);
+    CVector::setZero(m_piHistCount, m_iK);
     CVector::setValue(m_piHistLabel, kIllegalClassLabel, m_iK);
+
+    // set first candidate (lowest distance)
     m_piHistLabel[0] = m_piClassLabels[m_piSortIdx[0]];
-    m_pfHist[0] += 1;
+    m_pfHist[0] += bUseDistance ? m_pfSortDist[0] : 1.F;
+    m_piHistCount[0]++;
     iNumLabelsInK++;
     for (auto k = 1; k < m_iK; k++)
     {
         bool bContinue = false;
         for (auto l = 0; l < iNumLabelsInK; l++)
         {
+            // check if current label k belongs to existing class
             if (m_piHistLabel[l] == m_piClassLabels[m_piSortIdx[k]])
             {
-                m_pfHist[l] += bUseDistance ? m_pfDist[m_piSortIdx[k]] : 1.F;
+                m_pfHist[l] += bUseDistance ? m_pfSortDist[k] : 1.F;
+                m_piHistCount[l]++;
                 bContinue = true;
                 break;
             }
         }
         if (bContinue)
             continue;
+
+        // create new hist class
         m_piHistLabel[iNumLabelsInK] = m_piClassLabels[m_piSortIdx[k]];
-        m_pfHist[iNumLabelsInK] += 1;
+        m_pfHist[iNumLabelsInK] += bUseDistance ? m_pfSortDist[k] : 1.F;
+        m_piHistCount[iNumLabelsInK]++;
         iNumLabelsInK++;
+    }
+
+    // distance based metrics
+    if (bUseDistance)
+    {
+        // scale by number of entries in histogram
+        for (auto k = 0; k < iNumLabelsInK; k++)
+            if (m_piHistCount[k] > 0) m_pfHist[k] /= m_piHistCount[k];
+
+        // invert so that distance becomes similarity
+        float fMax = CVector::getMax(m_pfHist, iNumLabelsInK);
+        if (fMax > 0)
+            CVector::mulC_I(m_pfHist, -1.F / fMax, iNumLabelsInK);
+        CVector::addC_I(m_pfHist, 1.F, iNumLabelsInK);
     }
 }
 

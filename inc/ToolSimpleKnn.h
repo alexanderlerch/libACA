@@ -70,12 +70,13 @@ private:
     float** m_ppfTrain = 0; //!< train data (m_iNumObs X m_iNumFeatures)
     int* m_piClassLabels = 0; //!< ground truth train labels
     
-    float *m_pfDist = 0; //!< preallocated vector for distance of query to all data points
+    float *m_pfSortDist = 0; //!< preallocated vector for distance of query to all data points
     float* m_pfQuery = 0; //!< preallocated vector for the normalized query
     int* m_piSortIdx = 0; //!< preallocated vector for the resorted class indices
 
     float* m_pfHist = 0; //!< preallocated vector for the histogram of nearest neighbors
     int* m_piHistLabel = 0; //!< preallocated vector holding the histogram class labels
+    int* m_piHistCount = 0; //!< number of entries per class (for weighted hist)
 
     bool m_bIsInitialized = false; //!< indicates if instance has been properly initialized
 
