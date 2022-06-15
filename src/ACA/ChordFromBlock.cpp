@@ -40,7 +40,7 @@ Error_t CChordFromBlockIf::compChordProb(float* pfChordProb, const float* pfInpu
     }
 
     // get chord probs with template
-    CMatrix::mulMatColVec(pfChordProb, m_ppfTemplateMatrix, m_pfPitchChroma, CChordIf::kNumChords, kNumPitchClasses);
+    CMatrix::mulMatColvec(pfChordProb, m_ppfTemplateMatrix, m_pfPitchChroma, CChordIf::kNumChords, kNumPitchClasses);
 
     assert(CVector::getSum(pfChordProb, CChordIf::kNumChords) > 0);
 

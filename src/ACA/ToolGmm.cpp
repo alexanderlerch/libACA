@@ -94,8 +94,7 @@ void CGmm::initState_(float** ppfFeatures, CGmmResult* pCCurrState)
 {
     // generate some noise
     CSynthesis::genNoise(m_apfProc[0], m_iK);
-    CVector::addC_I(m_apfProc[0], 1.F, m_iK);
-    CVector::mulC_I(m_apfProc[0], (m_iNumObs - 1) / 2.F, m_iK);
+    CVector::mulC_I(m_apfProc[0], m_iNumObs - 1.F, m_iK);
 
     CPca::compCov(m_appfSigma[0], ppfFeatures, m_iNumFeatures, m_iNumObs);
     for (auto k = 0; k < m_iK; k++)
@@ -136,7 +135,7 @@ void CGmm::compProbabilities_(float** ppfFeatures, CGmmResult* pCCurrState)
             for (auto v = 0; v < m_iNumFeatures; v++)
                 m_apfProc[0][v] = ppfFeatures[v][n] - pCCurrState->getMu(k, v);
 
-            CMatrix::mulMatColVec(m_apfProc[1], m_appfSigma[0], m_apfProc[0], m_iNumFeatures, m_iNumFeatures);
+            CMatrix::mulMatColvec(m_apfProc[1], m_appfSigma[0], m_apfProc[0], m_iNumFeatures, m_iNumFeatures);
 
             m_ppfProb[k][n] = fNorm * std::exp(-.5F * CVector::mulScalar(m_apfProc[0], m_apfProc[1], m_iNumFeatures));
         }
@@ -174,7 +173,7 @@ void CGmm::updateState_(float** ppfFeatures, CGmmResult* pCCurrState)
             for (auto v = 0; v < m_iNumFeatures; v++)
                 m_apfProc[0][v] = ppfFeatures[v][n] - pCCurrState->getMu(k, v);
 
-            CMatrix::mulColVecRowVec(m_appfSigma[1], m_apfProc[0], m_apfProc[0], m_iNumFeatures, m_iNumFeatures);
+            CMatrix::mulColvecRowvec(m_appfSigma[1], m_apfProc[0], m_apfProc[0], m_iNumFeatures, m_iNumFeatures);
             CMatrix::mulC_I(m_appfSigma[1], m_ppfProb[k][n], m_iNumFeatures, m_iNumFeatures);
             CMatrix::add_I(m_appfSigma[0], m_appfSigma[1], m_iNumFeatures, m_iNumFeatures);
         }
@@ -233,7 +232,7 @@ float CGmmResult::getProb(const float* pfQuery)
         CVector::copy(m_apfProc[0], pfQuery, m_iNumFeatures);
         CVector::sub_I(m_apfProc[0], m_ppfMu[k], m_iNumFeatures);
 
-        CMatrix::mulMatColVec(m_apfProc[1], m_apppfSigma[kInv][k], m_apfProc[0], m_iNumFeatures, m_iNumFeatures);
+        CMatrix::mulMatColvec(m_apfProc[1], m_apppfSigma[kInv][k], m_apfProc[0], m_iNumFeatures, m_iNumFeatures);
 
         fProb += this->getPrior(k) * fNorm * std::exp(-.5F * CVector::mulScalar(m_apfProc[0], m_apfProc[1], m_iNumFeatures));
     }

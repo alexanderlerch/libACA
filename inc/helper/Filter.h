@@ -259,7 +259,7 @@ private:
 
         // solve linear equation
         CMatrix::inv_I(ppfA, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
-        CMatrix::mulMatColVec(pfZi, ppfA, pfB, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
+        CMatrix::mulMatColvec(pfZi, ppfA, pfB, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
 
         // set internal state
         for (auto i = 0; i < iLengthOfCoeffBuffers; i++)
