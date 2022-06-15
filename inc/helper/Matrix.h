@@ -624,12 +624,12 @@ public:
 
     /*! adds a single value to all matrix elements
     \param pptMat matrix to analyze
-    \param fAdd scaling factor to apply
+    \param tAdd scaling factor to apply
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static void addC_I(T** pptMat, T TAdd, int iNumRows, int iNumCols)
+    static void addC_I(T** pptMat, T tAdd, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -637,17 +637,17 @@ public:
         assert(pptMat[0]);
 
         for (auto m = 0; m < iNumRows; m++)
-            CVector::addC_I(pptMat[m], TAdd, iNumCols);
+            CVector::addC_I(pptMat[m], tAdd, iNumCols);
     }
 
     /*! multiplies the whole matrix with a single factor
     \param pptMat matrix to analyze
-    \param fScale scaling factor to apply
+    \param tScale scaling factor to apply
     \param iNumRows number of rows in the matrix
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static void mulC_I(T** pptMat, T TScale, int iNumRows, int iNumCols)
+    static void mulC_I(T** pptMat, T tScale, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -655,7 +655,7 @@ public:
         assert(pptMat[0]);
 
         for (auto m = 0; m < iNumRows; m++)
-            CVector::mulC_I(pptMat[m], TScale, iNumCols);
+            CVector::mulC_I(pptMat[m], tScale, iNumCols);
     }
 
 

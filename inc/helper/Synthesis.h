@@ -115,6 +115,7 @@ public:
     \param pfOutBuf output memory buffer (to be written)
     \param iLength number of frames to be generated
     \param fAmplitude max amplitude of noise
+    \param bOnlyPositive create only positive values
     \return Error_t
     */
     template <class T>
