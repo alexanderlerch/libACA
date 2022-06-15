@@ -1,4 +1,5 @@
 var a00236 =
 [
-    [ "CPca", "a00600.xhtml", "a00600" ]
+    [ "CNmfResult", "a00602.xhtml", "a00602" ],
+    [ "CNmf", "a00606.xhtml", "a00606" ]
 ];

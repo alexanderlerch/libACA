@@ -1,5 +1,5 @@
 var a00089 =
 [
-    [ "CSpectrogramFromFile", "a00408.xhtml", "a00408" ],
-    [ "CSpectrogramFromVector", "a00412.xhtml", "a00412" ]
+    [ "CSpectrogramFromFile", "a00414.xhtml", "a00414" ],
+    [ "CSpectrogramFromVector", "a00418.xhtml", "a00418" ]
 ];

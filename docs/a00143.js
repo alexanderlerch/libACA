@@ -1,4 +1,4 @@
 var a00143 =
 [
-    [ "CChordFromBlockIf", "a00464.xhtml", "a00464" ]
+    [ "CKeyFromChroma", "a00522.xhtml", "a00522" ]
 ];

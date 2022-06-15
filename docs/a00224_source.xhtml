@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: ToolGmmClassifier.h Source File</title>
+<title>ACA: AcaAll.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.6</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.7</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -83,127 +83,102 @@ $(document).ready(function(){initNavTree('a00224_source.xhtml',''); initResizabl
 </div>
 
 <div class="header">
-  <div class="headertitle"><div class="title">ToolGmmClassifier.h</div></div>
+  <div class="headertitle"><div class="title">AcaAll.h</div></div>
 </div><!--header-->
 <div class="contents">
-<a href="a00224.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#if !defined(__ACA_GmmClassifier_HEADER_INCLUDED__)</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __ACA_GmmClassifier_HEADER_INCLUDED__</span></div>
+<a href="a00224.xhtml">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#if !defined(__AcaAll_HEADER_INCLUDED__)</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define __AcaAll_HEADER_INCLUDED__</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
-<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#pragma once</span></div>
+<div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;ACAConfig.h&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
-<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="a00122.xhtml">ErrorDef.h</a>&quot;</span></div>
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span> </div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="a00242.xhtml">ClassifierBase.h</a>&quot;</span></div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span> </div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="comment"></span> </div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="comment">/*! \brief computation of k nearest neighbor</span></div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="comment">*/</span></div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="a00576.xhtml">   13</a></span><span class="keyword">class </span><a class="code hl_class" href="a00576.xhtml">CGmmClassifier</a> : <span class="keyword">public</span> <a class="code hl_class" href="a00468.xhtml">CClassifierBase</a></div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>{</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno"><a class="line" href="a00576.xhtml#a913f05bf4a79a62dbcbcaec46f0c894d">   16</a></span>    <a class="code hl_function" href="a00576.xhtml#a913f05bf4a79a62dbcbcaec46f0c894d">CGmmClassifier</a>(<span class="keywordtype">void</span>) {};</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    <span class="keyword">virtual</span> <a class="code hl_function" href="a00576.xhtml#ad10b0df287c092c78f91f556b3d43539">~CGmmClassifier</a>(<span class="keywordtype">void</span>);;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="comment"></span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="comment">    /*! initializes GmmClassifier instance</span></div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span><span class="comment">    \param iNumFeatures number of features (rows in the input matrix)</span></div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="comment">    \param iNumObservations number of observations (columns in the feature matrix)</span></div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="comment">    \return Error_t</span></div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    <a class="code hl_enumeration" href="a00122.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="code hl_function" href="a00576.xhtml#a790d7dcc328db7a869dd3ccf0561c001">init</a>(<span class="keywordtype">int</span> iNumFeatures, <span class="keywordtype">int</span> iNumObservations) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="comment"></span> </div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="comment">    /*! trains a GmmClassifier instance</span></div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="comment">    \param ppfTrainFeatures feature data for &#39;training&#39; (dimensions iNumFeatures X iNumObservations)</span></div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="comment">    \param piTrainClassIndices ground truth class index for each observation</span></div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="comment">    \param eNorm specification of what normalization should be applied to the feature data</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="comment">    \return Error_t</span></div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    <a class="code hl_enumeration" href="a00122.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="code hl_function" href="a00576.xhtml#a81ef85945dec254c2a43ea83ffb513b9">train</a>(<span class="keywordtype">float</span>** ppfTrainFeatures, <span class="keyword">const</span> <span class="keywordtype">int</span>* piTrainClassIndices, <a class="code hl_enumeration" href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">CClassifierBase::Normalization_t</a> eNorm = <a class="code hl_enumvalue" href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">CClassifierBase::kNoNormalization</a>) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="comment"></span> </div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="comment">    /*! resets GmmClassifier instance</span></div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="comment">    \return Error_t</span></div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span>    <a class="code hl_enumeration" href="a00122.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="code hl_function" href="a00576.xhtml#a39ed30e82871139f97a97a9b078d1a6c">reset</a>() <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="comment"></span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment">    /*! sets the number of Gaussians per class</span></div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">    \param iK number of Gaussians</span></div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">    \return Error_t</span></div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>    <a class="code hl_enumeration" href="a00122.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> <a class="code hl_function" href="a00576.xhtml#aac840142c52d468dfeef9f368ce8986b">setNumMixtures</a>(<span class="keywordtype">int</span> iK = 3);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment"></span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">    /*! returns the number of Gaussians per class</span></div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">    \return int </span></div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="a00576.xhtml#abb9695ca64b6cfc286d0310d7537eaba">getNumMixtures</a>() <span class="keyword">const</span>;</div>
-<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="comment"></span> </div>
-<div class="line"><a id="l00052" name="l00052"></a><span class="lineno">   52</span><span class="comment">    /*! classifies a new query vector</span></div>
-<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="comment">    \param pfQuery vector of length iNumFeatures to classify</span></div>
-<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span><span class="comment">    \return int class label of most likely class (returns CClassifierBase::kIllegalClassLabel in case of error)</span></div>
-<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00056" name="l00056"></a><span class="lineno">   56</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="a00576.xhtml#a6ddfb025951b2206db8f98f53275d509">classify</a>(<span class="keyword">const</span> <span class="keywordtype">float</span>* pfQuery) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00057" name="l00057"></a><span class="lineno">   57</span> </div>
-<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span> </div>
-<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00060" name="l00060"></a><span class="lineno"><a class="line" href="a00576.xhtml#a02cb87f37a9ca9c6ed6077690a304c07">   60</a></span>    <a class="code hl_function" href="a00576.xhtml#a02cb87f37a9ca9c6ed6077690a304c07">CGmmClassifier</a>(<span class="keyword">const</span> <a class="code hl_class" href="a00576.xhtml">CGmmClassifier</a>&amp; that);     <span class="comment">//!&lt; disallow copy construction   </span></div>
-<div class="line"><a id="l00061" name="l00061"></a><span class="lineno"><a class="line" href="a00576.xhtml#a5657de5c42824ec9445417ef25bec9f2">   61</a></span>    <a class="code hl_class" href="a00576.xhtml">CGmmClassifier</a>&amp; <a class="code hl_function" href="a00576.xhtml#a5657de5c42824ec9445417ef25bec9f2">operator=</a>(<span class="keyword">const</span> <a class="code hl_class" href="a00576.xhtml">CGmmClassifier</a>&amp; c);</div>
-<div class="line"><a id="l00062" name="l00062"></a><span class="lineno">   62</span><span class="comment"></span> </div>
-<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="comment">    /*! counts the number of unique classes in piClassLabels</span></div>
-<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span><span class="comment">    \param piClassLabels vector containing int class labels</span></div>
-<div class="line"><a id="l00065" name="l00065"></a><span class="lineno">   65</span><span class="comment">    \return int number of classes</span></div>
-<div class="line"><a id="l00066" name="l00066"></a><span class="lineno">   66</span><span class="comment">    */</span></div>
-<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span>    <span class="keywordtype">int</span> <a class="code hl_function" href="a00576.xhtml#a7cd4a2790dddda3cec32a5f4b0bcbdb4">countClasses</a>(<span class="keyword">const</span> <span class="keywordtype">int</span>* piClassLabels);</div>
-<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span> </div>
-<div class="line"><a id="l00069" name="l00069"></a><span class="lineno"><a class="line" href="a00576.xhtml#a211acc1fe84c796f151202ef0c87026d">   69</a></span>    <span class="keywordtype">int</span> <a class="code hl_variable" href="a00576.xhtml#a211acc1fe84c796f151202ef0c87026d">m_iNumFeatures</a> = 0, <span class="comment">//!&lt; number of features</span></div>
-<div class="line"><a id="l00070" name="l00070"></a><span class="lineno"><a class="line" href="a00576.xhtml#a3aab5a202ebae2b584aa3fd9f389ba4f">   70</a></span>        <a class="code hl_variable" href="a00576.xhtml#a3aab5a202ebae2b584aa3fd9f389ba4f">m_iNumObs</a> = 0, <span class="comment">//!&lt; number of training observations</span></div>
-<div class="line"><a id="l00071" name="l00071"></a><span class="lineno"><a class="line" href="a00576.xhtml#a7826aa242fb01ee94c2ad6427efd23c1">   71</a></span>        <a class="code hl_variable" href="a00576.xhtml#a7826aa242fb01ee94c2ad6427efd23c1">m_iNumClasses</a> = 0, <span class="comment">//!&lt; number of classes in the data</span></div>
-<div class="line"><a id="l00072" name="l00072"></a><span class="lineno"><a class="line" href="a00576.xhtml#af3269743e592a518fefa8ffdea49ecf1">   72</a></span>        <a class="code hl_variable" href="a00576.xhtml#af3269743e592a518fefa8ffdea49ecf1">m_iK</a> = 3; <span class="comment">//!&lt; number of neighbors for classification</span></div>
-<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span> </div>
-<div class="line"><a id="l00074" name="l00074"></a><span class="lineno"><a class="line" href="a00576.xhtml#ad2d140dee511ef06810b4ae9680932ca">   74</a></span>    <span class="keywordtype">int</span>* <a class="code hl_variable" href="a00576.xhtml#ad2d140dee511ef06810b4ae9680932ca">m_piClassLabels</a> = 0;  <span class="comment">//!&lt; preallocated vector containing the unique set of classes</span></div>
-<div class="line"><a id="l00075" name="l00075"></a><span class="lineno"><a class="line" href="a00576.xhtml#aa8c450b8e6f71713df46bb7093e08f1e">   75</a></span>    <span class="keywordtype">float</span>* <a class="code hl_variable" href="a00576.xhtml#aa8c450b8e6f71713df46bb7093e08f1e">m_pfQuery</a> = 0; <span class="comment">//!&lt; preallocated vector for the normalized query</span></div>
-<div class="line"><a id="l00076" name="l00076"></a><span class="lineno">   76</span> </div>
-<div class="line"><a id="l00077" name="l00077"></a><span class="lineno"><a class="line" href="a00576.xhtml#a81fac759f7bc6c759927e95eb2695fd3">   77</a></span>    <span class="keywordtype">bool</span> <a class="code hl_variable" href="a00576.xhtml#a81fac759f7bc6c759927e95eb2695fd3">m_bIsInitialized</a> = <span class="keyword">false</span>; <span class="comment">//!&lt; indicates if instance has been properly initialized</span></div>
-<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span> </div>
-<div class="line"><a id="l00079" name="l00079"></a><span class="lineno"><a class="line" href="a00576.xhtml#ad8899352f76778c1acbc7ae69bd3f272">   79</a></span>    <a class="code hl_class" href="a00568.xhtml">CGmmResult</a>** <a class="code hl_variable" href="a00576.xhtml#ad8899352f76778c1acbc7ae69bd3f272">m_ppCGmmResult</a> = 0; <span class="comment">//!&lt; array holding the individual Gmm models (length m_iNumClasses)</span></div>
-<div class="line"><a id="l00080" name="l00080"></a><span class="lineno">   80</span> </div>
-<div class="line"><a id="l00081" name="l00081"></a><span class="lineno">   81</span>};</div>
-<div class="line"><a id="l00082" name="l00082"></a><span class="lineno">   82</span> </div>
-<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span> </div>
-<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span><span class="preprocessor">#endif </span><span class="comment">// __ACA_GmmClassifier_HEADER_INCLUDED__</span></div>
-<div class="ttc" id="aa00122_xhtml"><div class="ttname"><a href="a00122.xhtml">ErrorDef.h</a></div></div>
-<div class="ttc" id="aa00122_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7f"><div class="ttname"><a href="a00122.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a></div><div class="ttdeci">Error_t</div><div class="ttdef"><b>Definition:</b> <a href="a00122_source.xhtml#l00004">ErrorDef.h:5</a></div></div>
-<div class="ttc" id="aa00242_xhtml"><div class="ttname"><a href="a00242.xhtml">ClassifierBase.h</a></div></div>
-<div class="ttc" id="aa00468_xhtml"><div class="ttname"><a href="a00468.xhtml">CClassifierBase</a></div><div class="ttdoc">abstract base class for traditional classifiers</div><div class="ttdef"><b>Definition:</b> <a href="a00242_source.xhtml#l00009">ClassifierBase.h:10</a></div></div>
-<div class="ttc" id="aa00468_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7a"><div class="ttname"><a href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">CClassifierBase::Normalization_t</a></div><div class="ttdeci">Normalization_t</div><div class="ttdef"><b>Definition:</b> <a href="a00242_source.xhtml#l00012">ClassifierBase.h:13</a></div></div>
-<div class="ttc" id="aa00468_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009"><div class="ttname"><a href="a00468.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">CClassifierBase::kNoNormalization</a></div><div class="ttdeci">@ kNoNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00242_source.xhtml#l00014">ClassifierBase.h:14</a></div></div>
-<div class="ttc" id="aa00568_xhtml"><div class="ttname"><a href="a00568.xhtml">CGmmResult</a></div><div class="ttdef"><b>Definition:</b> <a href="a00182_source.xhtml#l00008">ToolGmm.h:9</a></div></div>
-<div class="ttc" id="aa00576_xhtml"><div class="ttname"><a href="a00576.xhtml">CGmmClassifier</a></div><div class="ttdoc">computation of k nearest neighbor</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00013">ToolGmmClassifier.h:14</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a02cb87f37a9ca9c6ed6077690a304c07"><div class="ttname"><a href="a00576.xhtml#a02cb87f37a9ca9c6ed6077690a304c07">CGmmClassifier::CGmmClassifier</a></div><div class="ttdeci">CGmmClassifier(const CGmmClassifier &amp;that)</div><div class="ttdoc">disallow copy construction</div></div>
-<div class="ttc" id="aa00576_xhtml_a211acc1fe84c796f151202ef0c87026d"><div class="ttname"><a href="a00576.xhtml#a211acc1fe84c796f151202ef0c87026d">CGmmClassifier::m_iNumFeatures</a></div><div class="ttdeci">int m_iNumFeatures</div><div class="ttdoc">number of features</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00069">ToolGmmClassifier.h:69</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a39ed30e82871139f97a97a9b078d1a6c"><div class="ttname"><a href="a00576.xhtml#a39ed30e82871139f97a97a9b078d1a6c">CGmmClassifier::reset</a></div><div class="ttdeci">Error_t reset() override</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.xhtml#l00083">ToolGmmClassifier.cpp:83</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a3aab5a202ebae2b584aa3fd9f389ba4f"><div class="ttname"><a href="a00576.xhtml#a3aab5a202ebae2b584aa3fd9f389ba4f">CGmmClassifier::m_iNumObs</a></div><div class="ttdeci">int m_iNumObs</div><div class="ttdoc">number of training observations</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00070">ToolGmmClassifier.h:70</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a5657de5c42824ec9445417ef25bec9f2"><div class="ttname"><a href="a00576.xhtml#a5657de5c42824ec9445417ef25bec9f2">CGmmClassifier::operator=</a></div><div class="ttdeci">CGmmClassifier &amp; operator=(const CGmmClassifier &amp;c)</div></div>
-<div class="ttc" id="aa00576_xhtml_a6ddfb025951b2206db8f98f53275d509"><div class="ttname"><a href="a00576.xhtml#a6ddfb025951b2206db8f98f53275d509">CGmmClassifier::classify</a></div><div class="ttdeci">int classify(const float *pfQuery) override</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.xhtml#l00123">ToolGmmClassifier.cpp:123</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a7826aa242fb01ee94c2ad6427efd23c1"><div class="ttname"><a href="a00576.xhtml#a7826aa242fb01ee94c2ad6427efd23c1">CGmmClassifier::m_iNumClasses</a></div><div class="ttdeci">int m_iNumClasses</div><div class="ttdoc">number of classes in the data</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00071">ToolGmmClassifier.h:71</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a790d7dcc328db7a869dd3ccf0561c001"><div class="ttname"><a href="a00576.xhtml#a790d7dcc328db7a869dd3ccf0561c001">CGmmClassifier::init</a></div><div class="ttdeci">Error_t init(int iNumFeatures, int iNumObservations) override</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.xhtml#l00009">ToolGmmClassifier.cpp:9</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a7cd4a2790dddda3cec32a5f4b0bcbdb4"><div class="ttname"><a href="a00576.xhtml#a7cd4a2790dddda3cec32a5f4b0bcbdb4">CGmmClassifier::countClasses</a></div><div class="ttdeci">int countClasses(const int *piClassLabels)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.xhtml#l00152">ToolGmmClassifier.cpp:152</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a81ef85945dec254c2a43ea83ffb513b9"><div class="ttname"><a href="a00576.xhtml#a81ef85945dec254c2a43ea83ffb513b9">CGmmClassifier::train</a></div><div class="ttdeci">Error_t train(float **ppfTrainFeatures, const int *piTrainClassIndices, CClassifierBase::Normalization_t eNorm=CClassifierBase::kNoNormalization) override</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.xhtml#l00029">ToolGmmClassifier.cpp:29</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a81fac759f7bc6c759927e95eb2695fd3"><div class="ttname"><a href="a00576.xhtml#a81fac759f7bc6c759927e95eb2695fd3">CGmmClassifier::m_bIsInitialized</a></div><div class="ttdeci">bool m_bIsInitialized</div><div class="ttdoc">indicates if instance has been properly initialized</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00077">ToolGmmClassifier.h:77</a></div></div>
-<div class="ttc" id="aa00576_xhtml_a913f05bf4a79a62dbcbcaec46f0c894d"><div class="ttname"><a href="a00576.xhtml#a913f05bf4a79a62dbcbcaec46f0c894d">CGmmClassifier::CGmmClassifier</a></div><div class="ttdeci">CGmmClassifier(void)</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00016">ToolGmmClassifier.h:16</a></div></div>
-<div class="ttc" id="aa00576_xhtml_aa8c450b8e6f71713df46bb7093e08f1e"><div class="ttname"><a href="a00576.xhtml#aa8c450b8e6f71713df46bb7093e08f1e">CGmmClassifier::m_pfQuery</a></div><div class="ttdeci">float * m_pfQuery</div><div class="ttdoc">preallocated vector for the normalized query</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00075">ToolGmmClassifier.h:75</a></div></div>
-<div class="ttc" id="aa00576_xhtml_aac840142c52d468dfeef9f368ce8986b"><div class="ttname"><a href="a00576.xhtml#aac840142c52d468dfeef9f368ce8986b">CGmmClassifier::setNumMixtures</a></div><div class="ttdeci">Error_t setNumMixtures(int iK=3)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.xhtml#l00102">ToolGmmClassifier.cpp:102</a></div></div>
-<div class="ttc" id="aa00576_xhtml_abb9695ca64b6cfc286d0310d7537eaba"><div class="ttname"><a href="a00576.xhtml#abb9695ca64b6cfc286d0310d7537eaba">CGmmClassifier::getNumMixtures</a></div><div class="ttdeci">int getNumMixtures() const</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.xhtml#l00117">ToolGmmClassifier.cpp:117</a></div></div>
-<div class="ttc" id="aa00576_xhtml_ad10b0df287c092c78f91f556b3d43539"><div class="ttname"><a href="a00576.xhtml#ad10b0df287c092c78f91f556b3d43539">CGmmClassifier::~CGmmClassifier</a></div><div class="ttdeci">virtual ~CGmmClassifier(void)</div><div class="ttdef"><b>Definition:</b> <a href="a00050_source.xhtml#l00007">ToolGmmClassifier.cpp:7</a></div></div>
-<div class="ttc" id="aa00576_xhtml_ad2d140dee511ef06810b4ae9680932ca"><div class="ttname"><a href="a00576.xhtml#ad2d140dee511ef06810b4ae9680932ca">CGmmClassifier::m_piClassLabels</a></div><div class="ttdeci">int * m_piClassLabels</div><div class="ttdoc">preallocated vector containing the unique set of classes</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00074">ToolGmmClassifier.h:74</a></div></div>
-<div class="ttc" id="aa00576_xhtml_ad8899352f76778c1acbc7ae69bd3f272"><div class="ttname"><a href="a00576.xhtml#ad8899352f76778c1acbc7ae69bd3f272">CGmmClassifier::m_ppCGmmResult</a></div><div class="ttdeci">CGmmResult ** m_ppCGmmResult</div><div class="ttdoc">array holding the individual Gmm models (length m_iNumClasses)</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00079">ToolGmmClassifier.h:79</a></div></div>
-<div class="ttc" id="aa00576_xhtml_af3269743e592a518fefa8ffdea49ecf1"><div class="ttname"><a href="a00576.xhtml#af3269743e592a518fefa8ffdea49ecf1">CGmmClassifier::m_iK</a></div><div class="ttdeci">int m_iK</div><div class="ttdoc">number of neighbors for classification</div><div class="ttdef"><b>Definition:</b> <a href="a00224_source.xhtml#l00072">ToolGmmClassifier.h:72</a></div></div>
+<div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span><span class="preprocessor">#include &quot;<a class="code" href="a00173.xhtml">AudioFileIf.h</a>&quot;</span></div>
+<div class="line"><a id="l00007" name="l00007"></a><span class="lineno">    7</span><span class="preprocessor">#include &quot;<a class="code" href="a00239.xhtml">BeatHisto.h</a>&quot;</span></div>
+<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span><span class="preprocessor">#include &quot;<a class="code" href="a00182.xhtml">Chord.h</a>&quot;</span></div>
+<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#include &quot;<a class="code" href="a00146.xhtml">ChordFromBlock.h</a>&quot;</span></div>
+<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#include &quot;<a class="code" href="a00125.xhtml">ErrorDef.h</a>&quot;</span></div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span><span class="preprocessor">#include &quot;<a class="code" href="a00233.xhtml">Feature.h</a>&quot;</span></div>
+<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="preprocessor">#include &quot;<a class="code" href="a00137.xhtml">FeatureFromBlock.h</a>&quot;</span></div>
+<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span><span class="preprocessor">#include &quot;<a class="code" href="a00128.xhtml">Key.h</a>&quot;</span></div>
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span><span class="preprocessor">#include &quot;<a class="code" href="a00143.xhtml">KeyFromChroma.h</a>&quot;</span></div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span><span class="preprocessor">#include &quot;<a class="code" href="a00203.xhtml">Novelty.h</a>&quot;</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="preprocessor">#include &quot;<a class="code" href="a00227.xhtml">NoveltyFromBlock.h</a>&quot;</span></div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span><span class="preprocessor">#include &quot;<a class="code" href="a00245.xhtml">Pitch.h</a>&quot;</span></div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span><span class="preprocessor">#include &quot;<a class="code" href="a00215.xhtml">PitchFromBlock.h</a>&quot;</span></div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="preprocessor">#include &quot;<a class="code" href="a00176.xhtml">Spectrogram.h</a>&quot;</span></div>
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#include &quot;<a class="code" href="a00188.xhtml">SubFingerprint.h</a>&quot;</span></div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="preprocessor">#include &quot;<a class="code" href="a00194.xhtml">ToolBlockAudio.h</a>&quot;</span></div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="preprocessor">#include &quot;<a class="code" href="a00212.xhtml">ToolCcf.h</a>&quot;</span></div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span><span class="preprocessor">#include &quot;<a class="code" href="a00179.xhtml">ToolConversion.h</a>&quot;</span></div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span><span class="preprocessor">#include &quot;<a class="code" href="a00134.xhtml">ToolFingerprint.h</a>&quot;</span></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span><span class="preprocessor">#include &quot;<a class="code" href="a00149.xhtml">ToolGammatone.h</a>&quot;</span></div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="preprocessor">#include &quot;<a class="code" href="a00185.xhtml">ToolGmm.h</a>&quot;</span></div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="preprocessor">#include &quot;<a class="code" href="a00230.xhtml">ToolGmmClassifier.h</a>&quot;</span></div>
+<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span><span class="preprocessor">#include &quot;<a class="code" href="a00206.xhtml">ToolInstFreq.h</a>&quot;</span></div>
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span><span class="preprocessor">#include &quot;<a class="code" href="a00209.xhtml">ToolLeaveOneOutCrossVal.h</a>&quot;</span></div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="preprocessor">#include &quot;<a class="code" href="a00218.xhtml">ToolLowPass.h</a>&quot;</span></div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="preprocessor">#include &quot;<a class="code" href="a00236.xhtml">ToolNmf.h</a>&quot;</span></div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span><span class="preprocessor">#include &quot;<a class="code" href="a00242.xhtml">ToolPca.h</a>&quot;</span></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="preprocessor">#include &quot;<a class="code" href="a00140.xhtml">ToolPreProc.h</a>&quot;</span></div>
+<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span><span class="preprocessor">#include &quot;<a class="code" href="a00221.xhtml">ToolResample.h</a>&quot;</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="preprocessor">#include &quot;<a class="code" href="a00197.xhtml">ToolSimpleDtw.h</a>&quot;</span></div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span><span class="preprocessor">#include &quot;<a class="code" href="a00200.xhtml">ToolSimpleKmeans.h</a>&quot;</span></div>
+<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#include &quot;<a class="code" href="a00131.xhtml">ToolSimpleKnn.h</a>&quot;</span></div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span><span class="preprocessor">#include &quot;<a class="code" href="a00191.xhtml">ToolViterbi.h</a>&quot;</span></div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="comment"></span> </div>
+<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span><span class="comment">/*! returns the version string of libACA</span></div>
+<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="comment">\return std::string</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span>std::string <a class="code hl_function" href="a00224.xhtml#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span><span class="comment"></span> </div>
+<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="comment">/*! returns the build date string of libACA</span></div>
+<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span><span class="comment">\return std::string</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span><span class="comment">*/</span></div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span>std::string <a class="code hl_function" href="a00224.xhtml#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00051" name="l00051"></a><span class="lineno">   51</span><span class="preprocessor">#endif </span><span class="comment">// #if !defined(__AcaAll_HEADER_INCLUDED__)</span></div>
+<div class="ttc" id="aa00125_xhtml"><div class="ttname"><a href="a00125.xhtml">ErrorDef.h</a></div></div>
+<div class="ttc" id="aa00128_xhtml"><div class="ttname"><a href="a00128.xhtml">Key.h</a></div></div>
+<div class="ttc" id="aa00131_xhtml"><div class="ttname"><a href="a00131.xhtml">ToolSimpleKnn.h</a></div></div>
+<div class="ttc" id="aa00134_xhtml"><div class="ttname"><a href="a00134.xhtml">ToolFingerprint.h</a></div></div>
+<div class="ttc" id="aa00137_xhtml"><div class="ttname"><a href="a00137.xhtml">FeatureFromBlock.h</a></div></div>
+<div class="ttc" id="aa00140_xhtml"><div class="ttname"><a href="a00140.xhtml">ToolPreProc.h</a></div></div>
+<div class="ttc" id="aa00143_xhtml"><div class="ttname"><a href="a00143.xhtml">KeyFromChroma.h</a></div></div>
+<div class="ttc" id="aa00146_xhtml"><div class="ttname"><a href="a00146.xhtml">ChordFromBlock.h</a></div></div>
+<div class="ttc" id="aa00149_xhtml"><div class="ttname"><a href="a00149.xhtml">ToolGammatone.h</a></div></div>
+<div class="ttc" id="aa00173_xhtml"><div class="ttname"><a href="a00173.xhtml">AudioFileIf.h</a></div></div>
+<div class="ttc" id="aa00176_xhtml"><div class="ttname"><a href="a00176.xhtml">Spectrogram.h</a></div></div>
+<div class="ttc" id="aa00179_xhtml"><div class="ttname"><a href="a00179.xhtml">ToolConversion.h</a></div></div>
+<div class="ttc" id="aa00182_xhtml"><div class="ttname"><a href="a00182.xhtml">Chord.h</a></div></div>
+<div class="ttc" id="aa00185_xhtml"><div class="ttname"><a href="a00185.xhtml">ToolGmm.h</a></div></div>
+<div class="ttc" id="aa00188_xhtml"><div class="ttname"><a href="a00188.xhtml">SubFingerprint.h</a></div></div>
+<div class="ttc" id="aa00191_xhtml"><div class="ttname"><a href="a00191.xhtml">ToolViterbi.h</a></div></div>
+<div class="ttc" id="aa00194_xhtml"><div class="ttname"><a href="a00194.xhtml">ToolBlockAudio.h</a></div></div>
+<div class="ttc" id="aa00197_xhtml"><div class="ttname"><a href="a00197.xhtml">ToolSimpleDtw.h</a></div></div>
+<div class="ttc" id="aa00200_xhtml"><div class="ttname"><a href="a00200.xhtml">ToolSimpleKmeans.h</a></div></div>
+<div class="ttc" id="aa00203_xhtml"><div class="ttname"><a href="a00203.xhtml">Novelty.h</a></div></div>
+<div class="ttc" id="aa00206_xhtml"><div class="ttname"><a href="a00206.xhtml">ToolInstFreq.h</a></div></div>
+<div class="ttc" id="aa00209_xhtml"><div class="ttname"><a href="a00209.xhtml">ToolLeaveOneOutCrossVal.h</a></div></div>
+<div class="ttc" id="aa00212_xhtml"><div class="ttname"><a href="a00212.xhtml">ToolCcf.h</a></div></div>
+<div class="ttc" id="aa00215_xhtml"><div class="ttname"><a href="a00215.xhtml">PitchFromBlock.h</a></div></div>
+<div class="ttc" id="aa00218_xhtml"><div class="ttname"><a href="a00218.xhtml">ToolLowPass.h</a></div></div>
+<div class="ttc" id="aa00221_xhtml"><div class="ttname"><a href="a00221.xhtml">ToolResample.h</a></div></div>
+<div class="ttc" id="aa00224_xhtml_a352c17bde18dd0d9c3989f6050b060b0"><div class="ttname"><a href="a00224.xhtml#a352c17bde18dd0d9c3989f6050b060b0">getAcaBuildDate</a></div><div class="ttdeci">std::string getAcaBuildDate()</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.xhtml#l00022">AcaAll.cpp:22</a></div></div>
+<div class="ttc" id="aa00224_xhtml_aeca12b465ae15d8b8e775e1b0cfec9f3"><div class="ttname"><a href="a00224.xhtml#aeca12b465ae15d8b8e775e1b0cfec9f3">getAcaVersion</a></div><div class="ttdeci">std::string getAcaVersion()</div><div class="ttdef"><b>Definition:</b> <a href="a00035_source.xhtml#l00011">AcaAll.cpp:11</a></div></div>
+<div class="ttc" id="aa00227_xhtml"><div class="ttname"><a href="a00227.xhtml">NoveltyFromBlock.h</a></div></div>
+<div class="ttc" id="aa00230_xhtml"><div class="ttname"><a href="a00230.xhtml">ToolGmmClassifier.h</a></div></div>
+<div class="ttc" id="aa00233_xhtml"><div class="ttname"><a href="a00233.xhtml">Feature.h</a></div></div>
+<div class="ttc" id="aa00236_xhtml"><div class="ttname"><a href="a00236.xhtml">ToolNmf.h</a></div></div>
+<div class="ttc" id="aa00239_xhtml"><div class="ttname"><a href="a00239.xhtml">BeatHisto.h</a></div></div>
+<div class="ttc" id="aa00242_xhtml"><div class="ttname"><a href="a00242.xhtml">ToolPca.h</a></div></div>
+<div class="ttc" id="aa00245_xhtml"><div class="ttname"><a href="a00245.xhtml">Pitch.h</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.xhtml">inc</a></li><li class="navelem"><a class="el" href="a00224.xhtml">ToolGmmClassifier.h</a></li>
-    <li class="footer">Generated on Tue Jun 14 2022 21:07:18 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="navelem"><a class="el" href="dir_bfccd401955b95cf8c75461437045ac0.xhtml">inc</a></li><li class="navelem"><a class="el" href="a00224.xhtml">AcaAll.h</a></li>
+    <li class="footer">Generated on Wed Jun 15 2022 19:05:47 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

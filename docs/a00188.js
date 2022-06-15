@@ -1,4 +1,4 @@
 var a00188 =
 [
-    [ "CViterbi", "a00628.xhtml", "a00628" ]
+    [ "CSubFingerprint", "a00550.xhtml", "a00550" ]
 ];

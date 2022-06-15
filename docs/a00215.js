@@ -1,4 +1,4 @@
 var a00215 =
 [
-    [ "CResample", "a00612.xhtml", "a00612" ]
+    [ "CPitchFromBlockIf", "a00538.xhtml", "a00538" ]
 ];

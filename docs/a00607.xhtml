@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CClassifierBase Class Reference</title>
+<title>ACA: Member List</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.6</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.7</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -64,7 +64,7 @@ $(function() {
 </div>
 <script type="text/javascript">
 /* @license magnet:?xt=urn:btih:d3d9a9a6595521f9666a5e94cc830dab83b65699&amp;dn=expat.txt MIT */
-$(document).ready(function(){initNavTree('a00607.xhtml',''); initResizable(); });
+$(document).ready(function(){initNavTree('a00610.xhtml',''); initResizable(); });
 /* @license-end */
 </script>
 <div id="doc-content">
@@ -83,243 +83,35 @@ $(document).ready(function(){initNavTree('a00607.xhtml',''); initResizable(); })
 </div>
 
 <div class="header">
-  <div class="summary">
-<a href="#pub-types">Public Types</a> &#124;
-<a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-attribs">Static Public Attributes</a> &#124;
-<a href="a00604.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CClassifierBase Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">CPca Member List</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>abstract base class for traditional classifiers  
- <a href="a00607.xhtml#details">More...</a></p>
-
-<p><code>#include &lt;<a class="el" href="a00125_source.xhtml">ToolSimpleKnn.h</a>&gt;</code></p>
-<div class="dynheader">
-Inheritance diagram for CClassifierBase:</div>
-<div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00606.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-<div class="dynheader">
-Collaboration diagram for CClassifierBase:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00605.svg" width="271" height="206"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
-Public Types</h2></td></tr>
-<tr class="memitem:af377eef1d7dfdfabcdf7da4b069b5e7a"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a> { <a class="el" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">kNoNormalization</a>
-, <a class="el" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">kZscoreNormalization</a>
-, <a class="el" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">kMinmaxNormalization</a>
-, <a class="el" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">kNumNormModes</a>
- }</td></tr>
-<tr class="separator:af377eef1d7dfdfabcdf7da4b069b5e7a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a2b989d8b0b21727525366839a117d40c"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00119.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00607.xhtml#a2b989d8b0b21727525366839a117d40c">init</a> (float **ppfTrainFeatures, const int *piTrainClassIndices, int iNumFeatures, int iNumObservations, <a class="el" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a> eNorm)=0</td></tr>
-<tr class="separator:a2b989d8b0b21727525366839a117d40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a132f6c33b7f0ec539dabce8c970eac9e"><td class="memItemLeft" align="right" valign="top">virtual <a class="el" href="a00119.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00607.xhtml#a132f6c33b7f0ec539dabce8c970eac9e">reset</a> ()=0</td></tr>
-<tr class="separator:a132f6c33b7f0ec539dabce8c970eac9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae187572c8c6af54f060105b91cf72e9f"><td class="memItemLeft" align="right" valign="top">virtual int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00607.xhtml#ae187572c8c6af54f060105b91cf72e9f">classify</a> (const float *pfQuery)=0</td></tr>
-<tr class="separator:ae187572c8c6af54f060105b91cf72e9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-attribs" name="pub-static-attribs"></a>
-Static Public Attributes</h2></td></tr>
-<tr class="memitem:ac4365e3be5e1cc7ac964fcb6294aaae1"><td class="memItemLeft" align="right" valign="top">static const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00607.xhtml#ac4365e3be5e1cc7ac964fcb6294aaae1">kIllegalClassLabel</a> = -1111111111</td></tr>
-<tr class="separator:ac4365e3be5e1cc7ac964fcb6294aaae1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table>
-<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >abstract base class for traditional classifiers </p>
-
-<p class="definition">Definition at line <a class="el" href="a00125_source.xhtml#l00011">11</a> of file <a class="el" href="a00125_source.xhtml">ToolSimpleKnn.h</a>.</p>
-</div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="af377eef1d7dfdfabcdf7da4b069b5e7a" name="af377eef1d7dfdfabcdf7da4b069b5e7a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af377eef1d7dfdfabcdf7da4b069b5e7a">&#9670;&nbsp;</a></span>Normalization_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">CClassifierBase::Normalization_t</a></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009" name="af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009"></a>kNoNormalization&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a" name="af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a"></a>kZscoreNormalization&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a" name="af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a"></a>kMinmaxNormalization&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801" name="af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801"></a>kNumNormModes&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00125_source.xhtml#l00014">14</a> of file <a class="el" href="a00125_source.xhtml">ToolSimpleKnn.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>    {</div>
-<div class="line"><span class="lineno">   16</span>        <a class="code hl_enumvalue" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">kNoNormalization</a>,</div>
-<div class="line"><span class="lineno">   17</span>        <a class="code hl_enumvalue" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">kZscoreNormalization</a>,</div>
-<div class="line"><span class="lineno">   18</span>        <a class="code hl_enumvalue" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">kMinmaxNormalization</a>,</div>
-<div class="line"><span class="lineno">   19</span> </div>
-<div class="line"><span class="lineno">   20</span>        <a class="code hl_enumvalue" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">kNumNormModes</a></div>
-<div class="line"><span class="lineno">   21</span>    };</div>
-<div class="ttc" id="aa00607_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009"><div class="ttname"><a href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa13644efee7aaca8e6257a398fce7d009">CClassifierBase::kNoNormalization</a></div><div class="ttdeci">@ kNoNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.xhtml#l00016">ToolSimpleKnn.h:16</a></div></div>
-<div class="ttc" id="aa00607_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a"><div class="ttname"><a href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa2f9e22c352c5ba390e17bd44af9ae42a">CClassifierBase::kMinmaxNormalization</a></div><div class="ttdeci">@ kMinmaxNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.xhtml#l00018">ToolSimpleKnn.h:18</a></div></div>
-<div class="ttc" id="aa00607_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801"><div class="ttname"><a href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aa7551b9946a039fd91846e27db7258801">CClassifierBase::kNumNormModes</a></div><div class="ttdeci">@ kNumNormModes</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.xhtml#l00021">ToolSimpleKnn.h:20</a></div></div>
-<div class="ttc" id="aa00607_xhtml_af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a"><div class="ttname"><a href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7aadc077b94c0074c958d27ed221a6dc41a">CClassifierBase::kZscoreNormalization</a></div><div class="ttdeci">@ kZscoreNormalization</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.xhtml#l00017">ToolSimpleKnn.h:17</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<h2 class="groupheader">Member Function Documentation</h2>
-<a id="ae187572c8c6af54f060105b91cf72e9f" name="ae187572c8c6af54f060105b91cf72e9f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae187572c8c6af54f060105b91cf72e9f">&#9670;&nbsp;</a></span>classify()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual int CClassifierBase::classify </td>
-          <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfQuery</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="a00611.xhtml#a16bb56f19951aee5c4986a9dc7aeb853">CKnn</a>.</p>
-
-</div>
-</div>
-<a id="a2b989d8b0b21727525366839a117d40c" name="a2b989d8b0b21727525366839a117d40c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2b989d8b0b21727525366839a117d40c">&#9670;&nbsp;</a></span>init()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00119.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CClassifierBase::init </td>
-          <td>(</td>
-          <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfTrainFeatures</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const int *&#160;</td>
-          <td class="paramname"><em>piTrainClassIndices</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNumFeatures</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNumObservations</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00607.xhtml#af377eef1d7dfdfabcdf7da4b069b5e7a">Normalization_t</a>&#160;</td>
-          <td class="paramname"><em>eNorm</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="a00611.xhtml#a8fe90e9d8120bb265e6bc7d5f2766c30">CKnn</a>.</p>
-
-</div>
-</div>
-<a id="a132f6c33b7f0ec539dabce8c970eac9e" name="a132f6c33b7f0ec539dabce8c970eac9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a132f6c33b7f0ec539dabce8c970eac9e">&#9670;&nbsp;</a></span>reset()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">virtual <a class="el" href="a00119.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CClassifierBase::reset </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Implemented in <a class="el" href="a00611.xhtml#a75658b6df984b6a8c00049f35de655a8">CKnn</a>.</p>
-
-</div>
-</div>
-<h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac4365e3be5e1cc7ac964fcb6294aaae1" name="ac4365e3be5e1cc7ac964fcb6294aaae1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4365e3be5e1cc7ac964fcb6294aaae1">&#9670;&nbsp;</a></span>kIllegalClassLabel</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">const int CClassifierBase::kIllegalClassLabel = -1111111111</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00125_source.xhtml#l00022">22</a> of file <a class="el" href="a00125_source.xhtml">ToolSimpleKnn.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00044_source.xhtml#l00162">CKnn::buildHistogram_()</a>, and <a class="el" href="a00044_source.xhtml#l00126">CKnn::classify()</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00125_source.xhtml">ToolSimpleKnn.h</a></li>
-<li><a class="el" href="a00044_source.xhtml">ToolSimpleKnn.cpp</a></li>
-</ul>
-</div><!-- contents -->
+<p>This is the complete list of members for <a class="el" href="a00610.xhtml">CPca</a>, including all inherited members.</p>
+<table class="directory">
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#ad4ff4cdaad1b362cecb9ffd451b3a217">calcSVD</a>(float **ppfU, float **ppfW, float **ppfV, float **ppfMat, int iNumRows, int iNumCols, int iMaxIterations=100)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00610.xhtml#a6fb2c806d453b0c946cffbdcd46b027f">compCov</a>(float **ppfCovOut, float **ppfIn, int iNumRows, int iNumCols)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">static</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#a9e44c134c68146bdc539135f3225a2d4">compPca</a>(float **ppfRes, float *pfEigenValues, float **ppfIn)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00610.xhtml#a8e574710bbd7c8ad293ceb34fec88fa7">CPca</a>(void)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">inline</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#a2f2d8fcb4171ab28af0924cd7a140f81">CPca</a>(const CPca &amp;that)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00610.xhtml#a870d00dfd933ca6b61a274743ecd7691">init</a>(int iNumFeatures, int iNumObservations)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#ab664849af5b6a4773ced51edbbb564a7">m_iNumFeatures</a></td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00610.xhtml#a9a4e924546965b46fc57a9c165ed5dad">m_iNumObs</a></td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#a2c8051f7271212cf100b0896750707db">m_ppfProcTmp</a></td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00610.xhtml#a76550e0afbca81c6b468b6359b0b4324">m_ppfU</a></td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#a84d0cbaa874f4615ad1cb92da06bb73e">m_ppfV</a></td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00610.xhtml#a0b2588bce0db746b77170358260223e7">m_ppfW</a></td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#a4fdc8487d3685debf82a6acd12f6d37e">matPythag</a>(float dA, float dB)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span><span class="mlabel">static</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00610.xhtml#a35b34b65ae81e8288b1082c11d9c75df">operator=</a>(const CPca &amp;c)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#ab13a6216bc5130693cdbacefa14e9316">piSortIndices</a></td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">private</span></td></tr>
+  <tr class="odd"><td class="entry"><a class="el" href="a00610.xhtml#aabe6211d0934456e942340242309db42">reset</a>()</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"></td></tr>
+  <tr class="even"><td class="entry"><a class="el" href="a00610.xhtml#a4d220e0d4ed54cba58ff4fe386cc1dbb">~CPca</a>(void)</td><td class="entry"><a class="el" href="a00610.xhtml">CPca</a></td><td class="entry"><span class="mlabel">virtual</span></td></tr>
+</table></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00607.xhtml">CClassifierBase</a></li>
-    <li class="footer">Generated on Mon Jun 13 2022 22:01:49 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Wed Jun 15 2022 19:05:49 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

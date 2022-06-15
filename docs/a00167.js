@@ -1,4 +1,4 @@
 var a00167 =
 [
-    [ "CRingBuffer< T >", "a00496.xhtml", "a00496" ]
+    [ "CUtil", "a00510.xhtml", "a00510" ]
 ];

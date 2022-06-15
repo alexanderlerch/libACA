@@ -1,4 +1,4 @@
 var a00221 =
 [
-    [ "CNoveltyFromBlockIf", "a00524.xhtml", "a00524" ]
+    [ "CResample", "a00622.xhtml", "a00622" ]
 ];
