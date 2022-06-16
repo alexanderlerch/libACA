@@ -13,8 +13,7 @@
 /////////////////////////////////////////////////////////
 
 
-#include <math.h>
-//#include <stdlib.h>
+#include <cmath>
 
 #if _MSC_VER
     #pragma warning( disable: 4127 )
