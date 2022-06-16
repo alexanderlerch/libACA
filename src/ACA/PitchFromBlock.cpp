@@ -33,9 +33,9 @@ public:
         m_pCCcf = 0;
     };
 
-    float compF0(const float* pfInput) override
+    float compF0(const float* pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         // get minimum bin
         int iMin = CUtil::float2int<int>(CConversion::convertFreq2Bin(m_fMin, (m_iDataLength - 1) * 2, m_fSampleRate));
@@ -43,10 +43,10 @@ public:
         long long iMaxIdx = -1;
 
         // flip data so it's more robust and set bin 0 to max
-        CVector::copy(m_pfProcBuff, pfInput, m_iDataLength);
+        CVector::copy(m_pfProcBuff, pfIn, m_iDataLength);
         CVector::flip_I(m_pfProcBuff, m_iDataLength);
-        CVector::copy(&m_pfProcBuff[m_iDataLength - 1], pfInput, m_iDataLength - static_cast<long long>(1));
-        m_pfProcBuff[m_iDataLength - 1] = CVector::getMax(pfInput, m_iDataLength);
+        CVector::copy(&m_pfProcBuff[m_iDataLength - 1], pfIn, m_iDataLength - static_cast<long long>(1));
+        m_pfProcBuff[m_iDataLength - 1] = CVector::getMax(pfIn, m_iDataLength);
 
         // compute acf
         m_pCCcf->compCcf(m_pfProcBuff, m_pfProcBuff, true);
@@ -98,14 +98,14 @@ public:
         CVector::free(m_pfProcBuff);
     }
 
-    float compF0(const float* pfInput) override
+    float compF0(const float* pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         float fTmp = 0.F;
         long long iMaxIdx = 0;
         int iMin = CUtil::float2int<int>(CConversion::convertFreq2Bin(m_fMin, (m_iDataLength - 1) * 2, m_fSampleRate));
-        CVector::copy(m_pfProcBuff, pfInput, m_iDataLength);
+        CVector::copy(m_pfProcBuff, pfIn, m_iDataLength);
         CVector::setZero(m_pfProcBuff, iMin);
         CVector::setZero(&m_pfProcBuff[m_iDataLength/m_iOrder], static_cast<long long>(m_iDataLength) - (m_iDataLength / m_iOrder));
 
@@ -113,7 +113,7 @@ public:
         for (auto j = 2; j <= m_iOrder; j++)
         {
             for (auto k = 0; k < m_iDataLength / j; k++)
-                m_pfProcBuff[k] *= pfInput[j * k];
+                m_pfProcBuff[k] *= pfIn[j * k];
         }
 
         // this could be restricted a bit, but is it worth it?
@@ -154,14 +154,14 @@ public:
         m_pCCcf = 0;
     };
 
-    float compF0(const float* pfInput) override
+    float compF0(const float* pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         int iEta = 0,
             iEtaMin = static_cast<int>(m_fSampleRate / m_fMax);
 
-        m_pCCcf->compCcf(pfInput, pfInput, true);
+        m_pCCcf->compCcf(pfIn, pfIn, true);
         m_pCCcf->getCcf(m_pfAcf, true);
 
         // avoid main lobe
@@ -250,13 +250,13 @@ public:
         CGammaToneFbIf::destroy(m_pCFilterBank);
     };
 
-    float compF0(const float* pfInput) override
+    float compF0(const float* pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         CVector::setZero(m_pfSumAcf, m_iDataLength);
 
-        m_pCFilterBank->process(m_ppfProcBuff, pfInput, m_iDataLength);
+        m_pCFilterBank->process(m_ppfProcBuff, pfIn, m_iDataLength);
         
         for (auto c = 0; c < m_iNumBands; c++)
         {
@@ -340,9 +340,9 @@ public:
 
     virtual ~CPitchTimeAmdf() {    };
 
-    float compF0(const float* pfInput) override
+    float compF0(const float* pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         float fResMin = std::numeric_limits<float>::max();
         int iResEta = -1;
@@ -353,7 +353,7 @@ public:
         if (iEtaMax > m_iDataLength)
             iEtaMax = m_iDataLength;
 
-        if (CVector::getSum(pfInput, m_iDataLength, true) <= 0)
+        if (CVector::getSum(pfIn, m_iDataLength, true) <= 0)
             return 0.F;
 
         // compute amdf
@@ -361,7 +361,7 @@ public:
         {
             float fAmdf = 0.F;
             for (auto i = 0; i < m_iDataLength - iEta; i++)
-                fAmdf += std::abs(pfInput[i] - pfInput[i + iEta]);
+                fAmdf += std::abs(pfIn[i] - pfIn[i + iEta]);
 
             if (fAmdf <= fResMin)
             {
@@ -395,9 +395,9 @@ public:
 
     virtual ~CPitchTimeZeroCrossings() {};
 
-    float compF0(const float* pfInput) override
+    float compF0(const float* pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         int iNumZeroCrossings = 0;
         int iPrevIdx = -1;
@@ -405,7 +405,7 @@ public:
 
         for (auto i = 0; i < m_iDataLength-1; i++)
         {
-            if (pfInput[i] * pfInput[i + 1] < 0)
+            if (pfIn[i] * pfIn[i + 1] < 0)
             {
                 if (iPrevIdx > 0)
                 {

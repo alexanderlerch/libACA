@@ -6,176 +6,176 @@
 TEST_CASE("Novelty (static functions)", "[NoveltyStatic]")
 {
 
-    float* pfInput = 0;
+    float* pfIn = 0;
     float fSampleRate = 1;
-    int iBufferLength = 1025;
+    int iLenBuff = 1025;
 
-    pfInput = new float[iBufferLength];
-    CVector::setZero(pfInput, iBufferLength);
+    pfIn = new float[iLenBuff];
+    CVector::setZero(pfIn, iLenBuff);
 
     SECTION("NoveltyFlux")
     {
-        int iIdx = iBufferLength / 2;
+        int iIdx = iLenBuff / 2;
 
         // zero test
-        CHECK(0.F == CNoveltyFromBlockIf::compNoveltyFlux(pfInput, &pfInput[iIdx], iBufferLength / 2));
+        CHECK(0.F == CNoveltyFromBlockIf::compNoveltyFlux(pfIn, &pfIn[iIdx], iLenBuff / 2));
 
         // 'sine' test
-        pfInput[10] = 1;
-        pfInput[iIdx + 10] = 1;
+        pfIn[10] = 1;
+        pfIn[iIdx + 10] = 1;
         fSampleRate = 2048;
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfInput, &pfInput[iIdx], iBufferLength / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfIn, &pfIn[iIdx], iLenBuff / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
         fSampleRate = 32;
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfInput, &pfInput[iIdx], iBufferLength / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfIn, &pfIn[iIdx], iLenBuff / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
 
         // 'noise' test
-        CVector::setValue(pfInput, 1.F, iBufferLength);
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-6F).epsilon(1e-6F));
+        CVector::setValue(pfIn, 1.F, iLenBuff);
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-6F).epsilon(1e-6F));
 
         // one spectrum zero, the other one
-        CVector::setZero(pfInput, iBufferLength / 2);
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-        CHECK(1.F / std::sqrt(iBufferLength / 2.F) == Approx(CNoveltyFromBlockIf::compNoveltyFlux(&pfInput[iIdx], pfInput, iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
+        CVector::setZero(pfIn, iLenBuff / 2);
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(1.F / std::sqrt(iLenBuff / 2.F) == Approx(CNoveltyFromBlockIf::compNoveltyFlux(&pfIn[iIdx], pfIn, iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
 
         // one spectrum zero, the other two
-        CVector::mulC_I(pfInput, 2.F, iBufferLength);
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-        CHECK(std::sqrt(4.F * (iBufferLength / 2)) / (iBufferLength / 2) == Approx(CNoveltyFromBlockIf::compNoveltyFlux(&pfInput[iIdx], pfInput, iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
+        CVector::mulC_I(pfIn, 2.F, iLenBuff);
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(std::sqrt(4.F * (iLenBuff / 2)) / (iLenBuff / 2) == Approx(CNoveltyFromBlockIf::compNoveltyFlux(&pfIn[iIdx], pfIn, iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
 
         //decreasing spectrum
-        CVector::setZero(pfInput, iBufferLength / 2);
-        CVector::setValue(&pfInput[iBufferLength / 2], 1.F, iBufferLength / 2);
+        CVector::setZero(pfIn, iLenBuff / 2);
+        CVector::setValue(&pfIn[iLenBuff / 2], 1.F, iLenBuff / 2);
         for (auto n = 0; n < 5; n++)
         {
-            CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfInput, &pfInput[iBufferLength / 2], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-            CVector::mulC_I(&pfInput[iBufferLength / 2], .75F, iBufferLength / 2);
+            CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfIn, &pfIn[iLenBuff / 2], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+            CVector::mulC_I(&pfIn[iLenBuff / 2], .75F, iLenBuff / 2);
         }
 
         // alternating spectral bins
-        CVector::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfIn, iLenBuff);
         iIdx = 4;
-        iBufferLength = 4;
-        pfInput[0] = 1;
-        pfInput[2] = 1;
-        pfInput[iIdx + 1] = 1;
-        pfInput[iIdx + 3] = 1;
-        CHECK(std::sqrt(2.F) / 4.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfInput, &pfInput[iIdx], iBufferLength)).margin(1e-4F).epsilon(1e-4F));
+        iLenBuff = 4;
+        pfIn[0] = 1;
+        pfIn[2] = 1;
+        pfIn[iIdx + 1] = 1;
+        pfIn[iIdx + 3] = 1;
+        CHECK(std::sqrt(2.F) / 4.F == Approx(CNoveltyFromBlockIf::compNoveltyFlux(pfIn, &pfIn[iIdx], iLenBuff)).margin(1e-4F).epsilon(1e-4F));
     }
 
     SECTION("NoveltyHainsworth")
     {
-        int iIdx = iBufferLength / 2;
+        int iIdx = iLenBuff / 2;
 
         float fEpsilon = 1e-5F;
 
         // zero test
-        CHECK(0.F == CNoveltyFromBlockIf::compNoveltyHainsworth(pfInput, &pfInput[iIdx], iBufferLength / 2));
+        CHECK(0.F == CNoveltyFromBlockIf::compNoveltyHainsworth(pfIn, &pfIn[iIdx], iLenBuff / 2));
 
         // 'sine' test
-        pfInput[10] = 1;
-        pfInput[iIdx + 10] = 1;
+        pfIn[10] = 1;
+        pfIn[iIdx + 10] = 1;
         fSampleRate = 2048;
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfInput, &pfInput[iIdx], iBufferLength / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfIn, &pfIn[iIdx], iLenBuff / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
         fSampleRate = 32;
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfInput, &pfInput[iIdx], iBufferLength / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfIn, &pfIn[iIdx], iLenBuff / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
 
         // 'noise' test
-        CVector::setValue(pfInput, 1.F, iBufferLength);
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-6F).epsilon(1e-6F));
+        CVector::setValue(pfIn, 1.F, iLenBuff);
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-6F).epsilon(1e-6F));
 
         // one spectrum zero, the other one
-        CVector::setZero(pfInput, iBufferLength / 2);
-        CHECK(std::log2(fEpsilon) == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-        CHECK(std::log2(1.F/ fEpsilon) == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(&pfInput[iIdx], pfInput, iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
+        CVector::setZero(pfIn, iLenBuff / 2);
+        CHECK(std::log2(fEpsilon) == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(std::log2(1.F/ fEpsilon) == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(&pfIn[iIdx], pfIn, iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
 
         // one spectrum zero, the other two
-        CVector::mulC_I(pfInput, 2.F, iBufferLength);
-        CHECK(std::log2(.5* fEpsilon) == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-        CHECK(std::log2(2.F/ fEpsilon) == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(&pfInput[iIdx], pfInput, iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
+        CVector::mulC_I(pfIn, 2.F, iLenBuff);
+        CHECK(std::log2(.5* fEpsilon) == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(std::log2(2.F/ fEpsilon) == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(&pfIn[iIdx], pfIn, iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
 
         //decreasing spectrum
-        CVector::setZero(pfInput, iBufferLength / 2);
-        CVector::setValue(&pfInput[iBufferLength / 2], 1.F, iBufferLength / 2);
+        CVector::setZero(pfIn, iLenBuff / 2);
+        CVector::setValue(&pfIn[iLenBuff / 2], 1.F, iLenBuff / 2);
         for (auto n = 0; n < 5; n++)
         {
-            CHECK(std::log2(fEpsilon) <= Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfInput, &pfInput[iBufferLength / 2], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-            CVector::mulC_I(&pfInput[iBufferLength / 2], .75F, iBufferLength / 2);
+            CHECK(std::log2(fEpsilon) <= Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfIn, &pfIn[iLenBuff / 2], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+            CVector::mulC_I(&pfIn[iLenBuff / 2], .75F, iLenBuff / 2);
         }
 
         // alternating spectral bins
-        CVector::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfIn, iLenBuff);
         iIdx = 4;
-        iBufferLength = 4;
-        pfInput[0] = 1;
-        pfInput[2] = 1;
-        pfInput[iIdx + 1] = 1;
-        pfInput[iIdx + 3] = 1;
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfInput, &pfInput[iIdx], iBufferLength)).margin(1e-4F).epsilon(1e-4F));
+        iLenBuff = 4;
+        pfIn[0] = 1;
+        pfIn[2] = 1;
+        pfIn[iIdx + 1] = 1;
+        pfIn[iIdx + 3] = 1;
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyHainsworth(pfIn, &pfIn[iIdx], iLenBuff)).margin(1e-4F).epsilon(1e-4F));
     }
 
     SECTION("NoveltyLaroche")
     {
-        int iIdx = iBufferLength / 2;
+        int iIdx = iLenBuff / 2;
 
         // zero test
-        CHECK(0.F == CNoveltyFromBlockIf::compNoveltyLaroche(pfInput, &pfInput[iIdx], iBufferLength / 2));
+        CHECK(0.F == CNoveltyFromBlockIf::compNoveltyLaroche(pfIn, &pfIn[iIdx], iLenBuff / 2));
 
         // 'sine' test
-        pfInput[10] = 1;
-        pfInput[iIdx + 10] = 1;
+        pfIn[10] = 1;
+        pfIn[iIdx + 10] = 1;
         fSampleRate = 2048;
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfInput, &pfInput[iIdx], iBufferLength / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfIn, &pfIn[iIdx], iLenBuff / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
         fSampleRate = 32;
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfInput, &pfInput[iIdx], iBufferLength / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfIn, &pfIn[iIdx], iLenBuff / 2, fSampleRate)).margin(1e-6F).epsilon(1e-6F));
 
         // 'noise' test
-        CVector::setValue(pfInput, 1.F, iBufferLength);
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-6F).epsilon(1e-6F));
+        CVector::setValue(pfIn, 1.F, iLenBuff);
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-6F).epsilon(1e-6F));
 
         // one spectrum zero, the other one
-        CVector::setZero(pfInput, iBufferLength / 2);
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-        CHECK(1.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(&pfInput[iIdx], pfInput, iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
+        CVector::setZero(pfIn, iLenBuff / 2);
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(1.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(&pfIn[iIdx], pfIn, iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
 
         // one spectrum zero, the other two
-        CVector::mulC_I(pfInput, 2.F, iBufferLength);
-        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfInput, &pfInput[iIdx], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-        CHECK(std::sqrt(2.F) == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(&pfInput[iIdx], pfInput, iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
+        CVector::mulC_I(pfIn, 2.F, iLenBuff);
+        CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfIn, &pfIn[iIdx], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+        CHECK(std::sqrt(2.F) == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(&pfIn[iIdx], pfIn, iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
 
         //decreasing spectrum
-        CVector::setZero(pfInput, iBufferLength / 2);
-        CVector::setValue(&pfInput[iBufferLength / 2], 1.F, iBufferLength / 2);
+        CVector::setZero(pfIn, iLenBuff / 2);
+        CVector::setValue(&pfIn[iLenBuff / 2], 1.F, iLenBuff / 2);
         for (auto n = 0; n < 5; n++)
         {
-            CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfInput, &pfInput[iBufferLength / 2], iBufferLength / 2)).margin(1e-4F).epsilon(1e-4F));
-            CVector::mulC_I(&pfInput[iBufferLength / 2], .75F, iBufferLength / 2);
+            CHECK(0.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfIn, &pfIn[iLenBuff / 2], iLenBuff / 2)).margin(1e-4F).epsilon(1e-4F));
+            CVector::mulC_I(&pfIn[iLenBuff / 2], .75F, iLenBuff / 2);
         }
 
         // alternating spectral bins
-        CVector::setZero(pfInput, iBufferLength);
+        CVector::setZero(pfIn, iLenBuff);
         iIdx = 4;
-        iBufferLength = 4;
-        pfInput[0] = 1;
-        pfInput[2] = 1;
-        pfInput[iIdx + 1] = 1;
-        pfInput[iIdx + 3] = 1;
-        CHECK(2.F / 4.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfInput, &pfInput[iIdx], iBufferLength)).margin(1e-4F).epsilon(1e-4F));
+        iLenBuff = 4;
+        pfIn[0] = 1;
+        pfIn[2] = 1;
+        pfIn[iIdx + 1] = 1;
+        pfIn[iIdx + 3] = 1;
+        CHECK(2.F / 4.F == Approx(CNoveltyFromBlockIf::compNoveltyLaroche(pfIn, &pfIn[iIdx], iLenBuff)).margin(1e-4F).epsilon(1e-4F));
     }
 
 
 
-    delete[] pfInput;
+    delete[] pfIn;
 }
 
 TEST_CASE("Novelty (class interface per block)", "[NoveltyBlockClass]")
 {
     CNoveltyFromBlockIf* pCInstance = 0;
-    float* pfInput = 0;
+    float* pfIn = 0;
     float fSampleRate = 1;
     int iBufferLength = 1025;
     
-    pfInput = new float[iBufferLength];
-    CVector::setValue(pfInput, 1.F, iBufferLength);
+    pfIn = new float[iBufferLength];
+    CVector::setValue(pfIn, 1.F, iBufferLength);
 
     SECTION("Api")
     {
@@ -196,47 +196,47 @@ TEST_CASE("Novelty (class interface per block)", "[NoveltyBlockClass]")
         {
             float fResult = 0;
             CHECK(Error_t::kNoError == CNoveltyFromBlockIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(k), iBufferLength, fSampleRate));
-            CHECK(Error_t::kNoError == pCInstance->compNovelty(&fResult, pfInput));
+            CHECK(Error_t::kNoError == pCInstance->compNovelty(&fResult, pfIn));
             CHECK(Error_t::kNoError == CNoveltyFromBlockIf::destroy(pCInstance));
         }
     }
 
     CNoveltyFromBlockIf::destroy(pCInstance);
 
-    delete[] pfInput;
+    delete[] pfIn;
 }
 
 TEST_CASE("Novelty (per array)", "[NoveltyClass]")
 {
 
     CNoveltyIf* pCInstance = 0;
-    float* pfInput = 0;
+    float* pfIn = 0;
     float* pfNovelty = 0;
     bool* pbOnset = 0;
     float fSampleRate = 44100;
     int iBlockLength = 1023,
         iHopLength = 512,
-        iBufferLength = 96000;
+        iBuffLength = 96000;
     int iDim = 0;
 
     pbOnset = new bool[188];
     pfNovelty = new float[188];
-    pfInput = new float[iBufferLength];
-    CVector::setZero(pfInput, iBufferLength);
+    pfIn = new float[iBuffLength];
+    CVector::setZero(pfIn, iBuffLength);
 
 
     SECTION("Api")
     {
         for (auto f = 0; f < CNoveltyIf::kNumNoveltyFunctions; f++)
         {
-            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), 0, iBufferLength, fSampleRate, iBlockLength, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfInput, 0, fSampleRate, iBlockLength, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfInput, -1, fSampleRate, iBlockLength, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfInput, iBufferLength, 0, iBlockLength, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfInput, iBufferLength, fSampleRate, 0, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfInput, iBufferLength, fSampleRate, iBlockLength, 0));
+            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), 0, iBuffLength, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfIn, 0, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfIn, -1, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfIn, iBuffLength, 0, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfIn, iBuffLength, fSampleRate, 0, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfIn, iBuffLength, fSampleRate, iBlockLength, 0));
 
-            CHECK(Error_t::kNoError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kNoError == CNoveltyIf::create(pCInstance, static_cast<CNoveltyIf::Novelty_t>(f), pfIn, iBuffLength, fSampleRate, iBlockLength, iHopLength));
 
             CHECK_FALSE(pCInstance == 0);
 
@@ -252,8 +252,8 @@ TEST_CASE("Novelty (per array)", "[NoveltyClass]")
 
     SECTION("Output")
     {
-        CVector::setValue(&pfInput[10 * 512], 1.F, 512);
-        CHECK(Error_t::kNoError == CNoveltyIf::create(pCInstance, CNoveltyIf::kNoveltyFlux, pfInput, iBufferLength, fSampleRate));
+        CVector::setValue(&pfIn[10 * 512], 1.F, 512);
+        CHECK(Error_t::kNoError == CNoveltyIf::create(pCInstance, CNoveltyIf::kNoveltyFlux, pfIn, iBuffLength, fSampleRate));
         CHECK_FALSE(pCInstance == 0);
 
         CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
@@ -273,7 +273,7 @@ TEST_CASE("Novelty (per array)", "[NoveltyClass]")
 
     CNoveltyIf::destroy(pCInstance);
 
-    delete[] pfInput;
+    delete[] pfIn;
     delete[] pfNovelty;
     delete[] pbOnset;
 

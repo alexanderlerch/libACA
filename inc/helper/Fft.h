@@ -28,10 +28,10 @@ public:
     };
 
     CFft();
-    virtual ~CFft();;
+    virtual ~CFft();
 
     /*! initializes an FFT instance
-    \param iBlockLength: input data block length in Frames
+    \param iBlockLength: input data block length in samples
     \param iZeroPadFactor: fft length (zeropadded)
     \param eWindow: window type
     \param eWindowing: apply window before FFT, after IFFT, or both
@@ -58,17 +58,17 @@ public:
 
     /*! perform the FFT
     \param pfSpectrum: output result of length iBlockLength * iZeroPadFactor (\sa initInstance)
-    \param pfInput: input data of length iBlockLength (\sa initInstance)
+    \param pfIn: input data of length iBlockLength (\sa initInstance)
     \return Error_t
     */
-    Error_t compFft (complex_t *pfSpectrum, const float *pfInput);
+    Error_t compFft (complex_t *pfSpectrum, const float *pfIn);
 
     /*! perform IFFT
-    \param pfOutput: time domain output signal of length iBlockLength * iZeroPadFactor (\sa initInstance)
+    \param pfOut: time domain output signal of length iBlockLength * iZeroPadFactor (\sa initInstance)
     \param pfSpectrum: input spectrum of length iBlockLength * iZeroPadFactor (\sa initInstance)
     \return Error_t
     */
-    Error_t compInvFft (float *pfOutput, const complex_t *pfSpectrum);
+    Error_t compInvFft (float *pfOut, const complex_t *pfSpectrum);
 
     /*! extract magnitude spectrum from complex values
     \param pfMag: resulting magnitude spectrum of length (iBlockLength * iZeroPadFactor)/2+1 (\sa initInstance)
@@ -129,8 +129,16 @@ public:
     */
     float bin2freq (int iBinIdx, float fSampleRateInHz) const;
 
-    void conjugate_I(complex_t *pfFftResult) const;
-    void multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) const;
+    /*! complex conjugate
+    \param pfSpectrum: spectrum to be 'conjugated'
+    */
+    void conjugate_I(complex_t *pfSpectrum) const;
+
+    /*! complex multiplication
+    \param pfFftSrc1DestSpectrum: input/output
+    \param pfSrc2Spectrum: multiplier
+    */
+    void multiply_I(complex_t* pfFftSrc1DestSpectrum, const complex_t* pfSrc2Spectrum) const;
 
 private:
     CFft(const CFft& that);
@@ -139,7 +147,7 @@ private:
     Error_t freeMemory_ ();
     Error_t computeWindow_ (WindowFunction_t eWindow);
 
-    float   *m_pfProcessBuff = 0; //!< generic processing buffer
+    float   *m_pfProcBuff = 0; //!< generic processing buffer
     float   *m_pfWindowBuff = 0; //!< window function
 
     int     m_iDataLength = 0; //!< length of data

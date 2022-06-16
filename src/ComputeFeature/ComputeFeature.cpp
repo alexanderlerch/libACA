@@ -17,8 +17,8 @@ void    showClInfo();
 int main(int argc, char* argv[])
 {
 
-    std::string             sInputFilePath,                 //!< file paths
-        sOutputFilePath;
+    std::string             sInFilePath,                 //!< file paths
+        sOutFilePath;
 
     std::string sFeatureString; //!< string of the feature to be extracted
 
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 
     float** ppfFeature = 0; //!< feature result
 
-    std::fstream hOutputFile;
+    std::fstream hOutFile;
 
     showClInfo();
 
@@ -47,9 +47,9 @@ int main(int argc, char* argv[])
     }
     else
     {
-        sInputFilePath = argv[1];
+        sInFilePath = argv[1];
         sFeatureString = (argc < 3) ? "SpectralCentroid" : argv[2];
-        sOutputFilePath = (argc < 4) ? sInputFilePath + ".txt" : argv[3];
+        sOutFilePath = (argc < 4) ? sInFilePath + ".txt" : argv[3];
         iBlockLength = (argc < 5) ? 4096 : std::stoi(argv[4]);
         iHopLength = (argc < 6) ? 2048 : std::stoi(argv[5]);
     }
@@ -57,13 +57,13 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // initialize feature instance
     eFeatureIdx = CFeatureIf::getFeatureIdxFromString(sFeatureString);
-    CFeatureIf::create(pCInstance, eFeatureIdx, sInputFilePath, iBlockLength, iHopLength);
+    CFeatureIf::create(pCInstance, eFeatureIdx, sInFilePath, iBlockLength, iHopLength);
     pCInstance->getFeatureDimensions(aiFeatureDimensions[0], aiFeatureDimensions[1]);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
-    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
-    if (!hOutputFile.is_open())
+    hOutFile.open(sOutFilePath.c_str(), std::ios::out);
+    if (!hOutFile.is_open())
     {
         cout << "Text file open error!";
         CFeatureIf::destroy(pCInstance);
@@ -80,7 +80,7 @@ int main(int argc, char* argv[])
     if (!ppfFeature)
     {
         CFeatureIf::destroy(pCInstance);
-        hOutputFile.close();
+        hOutFile.close();
         return -1;
     }
 
@@ -108,9 +108,9 @@ int main(int argc, char* argv[])
         // write
         for (int n = 0; n < aiFeatureDimensions[1]; n++)
         {
-            hOutputFile << ppfFeature[k][n] << "\t";
+            hOutFile << ppfFeature[k][n] << "\t";
         }
-        hOutputFile << endl;
+        hOutFile << endl;
     }
 
     cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
@@ -118,7 +118,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // clean-up (close files, delete instances, and free memory)
     CFeatureIf::destroy(pCInstance);
-    hOutputFile.close();
+    hOutFile.close();
 
     for (int k = 0; k < aiFeatureDimensions[0]; k++)
         delete[] ppfFeature[k];

@@ -240,33 +240,33 @@ private:
         float* pfB = 0;
         float* pfZi = 0;
 
-        int iLengthOfCoeffBuffers = m_iNumFilterCoeffs - 1; 
+        int iLenCoeffBuffs = m_iNumFilterCoeffs - 1; 
 
-        CVector::alloc(pfB, iLengthOfCoeffBuffers);
-        CVector::alloc(pfZi, iLengthOfCoeffBuffers);
-        CMatrix::alloc(ppfA, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
+        CVector::alloc(pfB, iLenCoeffBuffs);
+        CVector::alloc(pfZi, iLenCoeffBuffs);
+        CMatrix::alloc(ppfA, iLenCoeffBuffs, iLenCoeffBuffs);
 
         for (auto i = 1; i < m_iNumFilterCoeffs; i++)
             pfB[i - 1] = m_aptCoeff[kFir][i] - m_aptCoeff[kFir][0] * m_aptCoeff[kIir][i];
 
-        for (auto m = 0; m < iLengthOfCoeffBuffers; m++)
+        for (auto m = 0; m < iLenCoeffBuffs; m++)
         {
             ppfA[m][m] = 1;
             ppfA[m][0] += m_aptCoeff[kIir][m + 1];
-            if (m < iLengthOfCoeffBuffers-1)
+            if (m < iLenCoeffBuffs-1)
                 ppfA[m][m + 1] = -1;
         }
 
         // solve linear equation
-        CMatrix::inv_I(ppfA, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
-        CMatrix::mulMatColvec(pfZi, ppfA, pfB, iLengthOfCoeffBuffers, iLengthOfCoeffBuffers);
+        CMatrix::inv_I(ppfA, iLenCoeffBuffs, iLenCoeffBuffs);
+        CMatrix::mulMatColvec(pfZi, ppfA, pfB, iLenCoeffBuffs, iLenCoeffBuffs);
 
         // set internal state
-        for (auto i = 0; i < iLengthOfCoeffBuffers; i++)
+        for (auto i = 0; i < iLenCoeffBuffs; i++)
             m_ptProcBuff[i] = fWeight * pfZi[i];
 
         // clean up
-        CMatrix::free(ppfA, iLengthOfCoeffBuffers);
+        CMatrix::free(ppfA, iLenCoeffBuffs);
         CVector::free(pfB);
         CVector::free(pfZi);
     }

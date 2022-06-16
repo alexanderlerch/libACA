@@ -41,10 +41,10 @@ public:
     }
 
     /*! performs the PitchFromBlock computation
-    \param pfInput input data of length iDataLength
+    \param pfIn input data of length iDataLength
     \return float fF0InHz
     */
-    virtual float compF0(const float* pfInput) = 0;
+    virtual float compF0(const float* pfIn) = 0;
  
 protected:
     CPitchFromBlockIf() {};

@@ -55,21 +55,21 @@ public:
 
     /*! initializes a Key instance with file reading
     \param strAudioFilePath complete path to audio file
-    \param iBlockLength: FFT block length in Frames
-    \param iHopLength: hop length in Frames
+    \param iBlockLength: FFT block length in samples
+    \param iHopLength: hop length in samples
     \return Error_t
     */
     Error_t init(const std::string& strAudioFilePath, int iBlockLength = 4096, int iHopLength = 2048);
 
     /*! initializes a Key instance from audio data
     \param pfAudio complete audio data
-    \param iNumFrames: length of pfAudio
+    \param iNumSamples: length of pfAudio
     \param fSampleRate: sample rate in Hz
-    \param iBlockLength: FFT block length in Frames
-    \param iHopLength: hop length in Frames
+    \param iBlockLength: FFT block length in samples
+    \param iHopLength: hop length in samples
     \return Error_t
     */
-    Error_t init(const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 4096, int iHopLength = 2048);
+    Error_t init(const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 4096, int iHopLength = 2048);
 
     /*! resets instance
     \return Error_t

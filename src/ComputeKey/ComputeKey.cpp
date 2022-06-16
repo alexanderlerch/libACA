@@ -17,8 +17,8 @@ void    showClInfo();
 int main(int argc, char* argv[])
 {
 
-    std::string             sInputFilePath,                 //!< file paths
-        sOutputFilePath;
+    std::string             sInFilePath,                 //!< file paths
+        sOutFilePath;
 
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
@@ -28,7 +28,7 @@ int main(int argc, char* argv[])
 
     CKey* pCInstance = 0;
 
-    std::fstream hOutputFile;
+    std::fstream hOutFile;
 
     showClInfo();
 
@@ -42,8 +42,8 @@ int main(int argc, char* argv[])
     }
     else
     {
-        sInputFilePath = argv[1];
-        sOutputFilePath = (argc < 3) ? "" : argv[2];
+        sInFilePath = argv[1];
+        sOutFilePath = (argc < 3) ? "" : argv[2];
         iBlockLength = (argc < 4) ? 4096 : std::stoi(argv[3]);
         iHopLength = (argc < 5) ? 2048 : std::stoi(argv[4]);
     }
@@ -53,14 +53,14 @@ int main(int argc, char* argv[])
     pCInstance = new CKey();
     if (!pCInstance)
         return -1;
-    pCInstance->init(sInputFilePath, iBlockLength, iHopLength);
+    pCInstance->init(sInFilePath, iBlockLength, iHopLength);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
-    if (!sOutputFilePath.empty())
+    if (!sOutFilePath.empty())
     {
-        hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
-        if (!hOutputFile.is_open())
+        hOutFile.open(sOutFilePath.c_str(), std::ios::out);
+        if (!hOutFile.is_open())
         {
             cout << "Text file open error!";
             delete pCInstance;
@@ -81,19 +81,19 @@ int main(int argc, char* argv[])
 
     //////////////////////////////////////////////////////////////////////////////
     // file writing
-    if (!sOutputFilePath.empty())
+    if (!sOutFilePath.empty())
     {
         time = clock();
         cout << "\n2. writing output file..." << endl;
 
-        hOutputFile << pCInstance->getKeyString(static_cast<CKey::Keys_t>(iKeyRes)) << endl;
+        hOutFile << pCInstance->getKeyString(static_cast<CKey::Keys_t>(iKeyRes)) << endl;
 
         cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
     }
 
     //////////////////////////////////////////////////////////////////////////////
     // clean-up (close files, delete instances, and free memory)
-    hOutputFile.close();
+    hOutFile.close();
 
     delete pCInstance;
 

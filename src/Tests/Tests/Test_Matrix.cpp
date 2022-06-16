@@ -80,27 +80,27 @@ TEST_CASE("Matrix", "[Matrix]")
         aiDims[0] = 3;
         aiDims[1] = 3;
 
-        float** ppfResult = 0;
-        float** ppfInput = 0;
+        float** ppfRes = 0;
+        float** ppfIn = 0;
 
-        CMatrix::alloc(ppfInput, aiDims[0], aiDims[1]);
-        CMatrix::alloc(ppfResult, aiDims[0], aiDims[1]);
+        CMatrix::alloc(ppfIn, aiDims[0], aiDims[1]);
+        CMatrix::alloc(ppfRes, aiDims[0], aiDims[1]);
         CMatrix::alloc(ppfMatrix, aiDims[0], aiDims[1]);
 
         ppfMatrix[0][0] = 1.F; ppfMatrix[0][1] = 0.F; ppfMatrix[0][2] = 2.F;
         ppfMatrix[1][0] = -1.F; ppfMatrix[1][1] = 5.F; ppfMatrix[1][2] = 0.F;
         ppfMatrix[2][0] = 0.F; ppfMatrix[2][1] = 3.F; ppfMatrix[2][2] = -9.F;
 
-        CMatrix::copy(ppfInput, ppfMatrix, aiDims[0], aiDims[1]);
+        CMatrix::copy(ppfIn, ppfMatrix, aiDims[0], aiDims[1]);
         CMatrix::inv_I(ppfMatrix, aiDims[0], aiDims[1]);
 
 
-        CMatrix::mulMatMat(ppfResult, ppfInput, ppfMatrix, aiDims[0], aiDims[1], aiDims[0], aiDims[1]);
+        CMatrix::mulMatMat(ppfRes, ppfIn, ppfMatrix, aiDims[0], aiDims[1], aiDims[0], aiDims[1]);
 
         for (auto m = 0; m < aiDims[0]; m++)
         {
-            CHECK(1.F == Approx(CVector::getSum(ppfResult[m], aiDims[1])).margin(1e-6F).epsilon(1e-6F));
-            CHECK(1.F == Approx(ppfResult[m][m]).margin(1e-6F).epsilon(1e-6F));
+            CHECK(1.F == Approx(CVector::getSum(ppfRes[m], aiDims[1])).margin(1e-6F).epsilon(1e-6F));
+            CHECK(1.F == Approx(ppfRes[m][m]).margin(1e-6F).epsilon(1e-6F));
         }
 
         ppfMatrix[0][0] = 1.F; ppfMatrix[0][1] = -1.F; ppfMatrix[0][2] = 0.F;
@@ -118,8 +118,8 @@ TEST_CASE("Matrix", "[Matrix]")
         CHECK(0.F == Approx(ppfMatrix[2][0]).margin(1e-6F).epsilon(1e-6F));
         CHECK(0.F == Approx(ppfMatrix[2][1]).margin(1e-6F).epsilon(1e-6F));
 
-        CMatrix::free(ppfInput, aiDims[0]);
-        CMatrix::free(ppfResult, aiDims[0]);
+        CMatrix::free(ppfIn, aiDims[0]);
+        CMatrix::free(ppfRes, aiDims[0]);
     }
 
     SECTION("det")

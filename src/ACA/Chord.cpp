@@ -29,7 +29,7 @@ public:
         delete m_pCNormalize;
         m_pCNormalize = 0;
 
-        CVector::free(m_pfProcessBuff1);
+        CVector::free(m_pfProcBuff1);
 
         m_pCAudioFile->closeFile();
         CAudioFileIf::destroy(m_pCAudioFile);
@@ -115,11 +115,11 @@ Error_t CChordIf::create(CChordIf*& pCInstance, const std::string& strAudioFileP
     return Error_t::kNoError;
 }
 
-Error_t CChordIf::create(CChordIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CChordIf::create(CChordIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
-    if (iNumFrames <= 0)
+    if (iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -128,7 +128,7 @@ Error_t CChordIf::create(CChordIf*& pCInstance, const float* pfAudio, long long 
     if (iHopLength <= 0 || iHopLength > iBlockLength)
         return Error_t::kFunctionInvalidArgsError;
 
-    pCInstance = new CChordFromVector(pfAudio, iNumFrames, fSampleRate, iBlockLength, iHopLength);
+    pCInstance = new CChordFromVector(pfAudio, iNumSamples, fSampleRate, iBlockLength, iHopLength);
 
     return Error_t::kNoError;
 }
@@ -200,7 +200,7 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
     if (!peChord)
         return Error_t::kFunctionInvalidArgsError;
 
-    assert(m_pfProcessBuff1);
+    assert(m_pfProcBuff1);
     assert(m_pCBlockAudio);
     assert(m_pCNormalize);
     assert(m_pCChord);
@@ -212,18 +212,18 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
         float afChordProb[kNumChords] = { 0 };
 
         // retrieve the next audio block
-        m_pCBlockAudio->getNextBlock(m_pfProcessBuff1);
+        m_pCBlockAudio->getNextBlock(m_pfProcBuff1);
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizeBlock(m_pfProcBuff1, m_iBlockLength);
 
-        assert(m_pfProcessBuff2);
+        assert(m_pfProcBuff2);
         assert(m_pCFft);
         computeMagSpectrum_();
                     
         // compute instantaneous chord probs
-        m_pCChord->compChordProb(afChordProb, m_pfProcessBuff1);
+        m_pCChord->compChordProb(afChordProb, m_pfProcBuff1);
 
         // store result
         if (bWithViterbi)
@@ -356,18 +356,18 @@ void CChordIf::computeMagSpectrum_()
     assert(m_pCFft);
 
     // compute magnitude spectrum (hack
-    m_pCFft->compFft(m_pfProcessBuff2, m_pfProcessBuff1);
-    m_pCFft->getMagnitude(m_pfProcessBuff1, m_pfProcessBuff2);
+    m_pCFft->compFft(m_pfProcBuff2, m_pfProcBuff1);
+    m_pCFft->getMagnitude(m_pfProcBuff1, m_pfProcBuff2);
 
-    CVector::mulC_I(m_pfProcessBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
+    CVector::mulC_I(m_pfProcBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
 }
 
 
 Error_t CChordIf::reset_()
 {
-    CVector::free(m_pfProcessBuff1);
+    CVector::free(m_pfProcBuff1);
 
-    CVector::free(m_pfProcessBuff2);
+    CVector::free(m_pfProcBuff2);
 
     CMatrix::free(m_ppfChordProbs, kNumChords);
 
@@ -400,8 +400,8 @@ Error_t CChordIf::init_()
     initViterbi_();
 
     // allocate processing memory
-    CVector::alloc(m_pfProcessBuff1, m_pCFft->getLength(CFft::kLengthFft));
-    CVector::alloc(m_pfProcessBuff2, m_pCFft->getLength(CFft::kLengthFft));
+    CVector::alloc(m_pfProcBuff1, m_pCFft->getLength(CFft::kLengthFft));
+    CVector::alloc(m_pfProcBuff2, m_pCFft->getLength(CFft::kLengthFft));
     CChordFromBlockIf::create(m_pCChord, m_pCFft->getLength(CFft::kLengthMagnitude), m_fSampleRate);
     CMatrix::alloc(m_ppfChordProbs, kNumChords, static_cast<int>(m_pCBlockAudio->getNumBlocks()));
 

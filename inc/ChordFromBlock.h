@@ -29,10 +29,10 @@ public:
 
     /*! calculates the chord probabilities
     \param pfChordProb resulting chord probabilities (user allocated, length kNumChords)
-    \param pfInput input data of length iMagSpecLength
+    \param pfIn input data of length iMagSpecLength
     \return Error_t
     */
-    virtual Error_t compChordProb(float *pfChordProb, const float* pfInput);
+    virtual Error_t compChordProb(float *pfChordProb, const float* pfIn);
  
 protected:
     enum PitchClasses_t

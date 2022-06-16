@@ -56,8 +56,8 @@ public:
     /*! initializes a Chord instance with file reading
     \param pCInstance pointer to instance to be written
     \param strAudioFilePath complete path to audio file
-    \param iBlockLength: FFT block length in Frames
-    \param iHopLength: hop length in Frames
+    \param iBlockLength: FFT block length in samples
+    \param iHopLength: hop length in samples
     \return Error_t
     */
     static Error_t create(CChordIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 8192, int iHopLength = 2048);
@@ -65,13 +65,13 @@ public:
     /*! initializes a Chord instance from audio data
     \param pCInstance pointer to instance to be written
     \param pfAudio complete audio data
-    \param iNumFrames: length of pfAudio
+    \param iNumSamples: length of pfAudio
     \param fSampleRate: sample rate in Hz
-    \param iBlockLength: FFT block length in Frames
-    \param iHopLength: hop length in Frames
+    \param iBlockLength: FFT block length in samples
+    \param iHopLength: hop length in samples
     \return Error_t
     */
-    static Error_t create(CChordIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 8192, int iHopLength = 2048);
+    static Error_t create(CChordIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 8192, int iHopLength = 2048);
 
     /*! destroys a Chord instance
     \param pCInstance pointer to instance to be destroyed
@@ -145,8 +145,8 @@ protected:
 
     float m_fSampleRate = 0;             //!< sample rate
 
-    float* m_pfProcessBuff2 = 0;             //!< temporary buffer for current spectrum
-    float* m_pfProcessBuff1 = 0;          //!<  temporary buffer
+    float* m_pfProcBuff2 = 0;             //!< temporary buffer for current spectrum
+    float* m_pfProcBuff1 = 0;          //!<  temporary buffer
 
     float** m_ppfChordProbs = 0; //!< chord probabilities (chrods X observations)
 

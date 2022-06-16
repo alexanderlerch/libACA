@@ -42,11 +42,11 @@ Error_t CKey::init(const std::string& strAudioFilePath, int iBlockLength, int iH
         return rErr;
 }
 
-Error_t CKey::init(const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CKey::init(const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
-    if (iNumFrames <= 0)
+    if (iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -57,7 +57,7 @@ Error_t CKey::init(const float* pfAudio, long long iNumFrames, float fSampleRate
 
     reset();
 
-    Error_t rErr = CFeatureIf::create(m_pCPitchChromaExtractor, CFeatureIf::kFeatureSpectralPitchChroma, pfAudio, iNumFrames, fSampleRate, iBlockLength, iHopLength);
+    Error_t rErr = CFeatureIf::create(m_pCPitchChromaExtractor, CFeatureIf::kFeatureSpectralPitchChroma, pfAudio, iNumSamples, fSampleRate, iBlockLength, iHopLength);
   
     if (rErr == Error_t::kNoError)
     {

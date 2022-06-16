@@ -56,10 +56,10 @@ Error_t CNmf::reset()
     return Error_t::kNoError;
 }
 
-Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfInput)
+Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfIn)
 {
 
-    if (!pCNmfResult || !ppfInput)
+    if (!pCNmfResult || !ppfIn)
         return Error_t::kFunctionInvalidArgsError;
 
     if (!m_bIsInitialized || !pCNmfResult->isInitialized())
@@ -77,7 +77,7 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfInpu
 
     for (int k = 0; k < m_iMaxIter; k++)
     {
-        afCost[kCurrCost] = runNmfIter(pCNmfResult, ppfInput);
+        afCost[kCurrCost] = runNmfIter(pCNmfResult, ppfIn);
 
         assert(!std::isnan(afCost[kCurrCost]));
 
@@ -94,7 +94,7 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfInpu
     return Error_t::kNoError;
 }
 
-float CNmf::runNmfIter(CNmfResult* pCNmfResult, const float* const* const ppfInput)
+float CNmf::runNmfIter(CNmfResult* pCNmfResult, const float* const* const ppfIn)
 {
     float** ppfW = pCNmfResult->getMatPointer(CNmfResult::kW);
     float** ppfH = pCNmfResult->getMatPointer(CNmfResult::kH);
@@ -112,7 +112,7 @@ float CNmf::runNmfIter(CNmfResult* pCNmfResult, const float* const* const ppfInp
     CMatrix::addC_I(ppfXHat, m_kMinOffset, iNumBins, iNumObs);
 
     //m_ppfX
-    CMatrix::copy(m_ppfX, ppfInput, iNumBins, iNumObs);
+    CMatrix::copy(m_ppfX, ppfIn, iNumBins, iNumObs);
     CMatrix::div_I(m_ppfX, ppfXHat, iNumBins, iNumObs);
 
     // update H
@@ -161,7 +161,7 @@ float CNmf::runNmfIter(CNmfResult* pCNmfResult, const float* const* const ppfInp
     // deal with sparsity
     CMatrix::addC_I(ppfXHat, m_fSparsity * CMatrix::getNorm(ppfXHat, iNumBins, iNumObs), iNumBins, iNumObs);
 
-    return CMatrix::calcKlDivergence(ppfInput, ppfXHat, iNumBins, iNumObs); 
+    return CMatrix::calcKlDivergence(ppfIn, ppfXHat, iNumBins, iNumObs); 
 }
 
 

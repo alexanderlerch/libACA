@@ -14,8 +14,8 @@ public:
     /*! creates an instance for blocking from file
     \param pCInstance pointer to instance to be written
     \param pCAudioFile pointer to audio file
-    \param iBlockLength block length in frames
-    \param iHopLength hop length in frames
+    \param iBlockLength block length in samples
+    \param iHopLength hop length in samples
     \return float
     */
     static Error_t create(CBlockAudioIf*& pCInstance, CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength);
@@ -23,9 +23,9 @@ public:
     /*! creates an instance for blocking from vector
     \param pCInstance pointer to instance to be written
     \param pfAudioBuff buffer with audio data
-    \param iAudioLength length of pfAudioBuff in frames
-    \param iBlockLength block length in frames
-    \param iHopLength hop length in frames
+    \param iAudioLength length of pfAudioBuff in samples
+    \param iBlockLength block length in samples
+    \param iHopLength hop length in samples
     \param fSampleRate sample rate in Hz
     \return float
     */
@@ -76,7 +76,7 @@ public:
     /*! retrieves audio data for next block
     \param pfBlock (to be written) of length blocklength
     \param pfTimeStampInS (to be written, optional) for current time stamp
-    \return int iNumFramesRead
+    \return int iNumsamplesRead
     */
     virtual int getNextBlock(float* pfBlock, float *pfTimeStampInS = 0) = 0;
 

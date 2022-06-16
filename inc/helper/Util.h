@@ -11,28 +11,28 @@ class CUtil
 {
 public:
     /*! converts a float to an int
-    \param fInput float value
+    \param fIn float value
     \return T
     */
     template<typename T>
-    static T float2int (float fInput)
+    static T float2int (float fIn)
     {
-        if (fInput >= 0.F)
-            return static_cast<T>(fInput + .5);
+        if (fIn >= 0.F)
+            return static_cast<T>(fIn + .5);
         else
-            return static_cast<T>(fInput - .5);
+            return static_cast<T>(fIn - .5);
     }
     /*! converts a double to an int
-    \param fInput double value
+    \param fIn double value
     \return T
     */
     template<typename T>
-    static T double2int (double fInput)
+    static T double2int (double fIn)
     {
-        if (fInput >= 0)
-            return static_cast<T>(fInput + .5);
+        if (fIn >= 0)
+            return static_cast<T>(fIn + .5);
         else
-            return static_cast<T>(fInput - .5);
+            return static_cast<T>(fIn - .5);
     }
 
     /*! checks if the input is a power of 2

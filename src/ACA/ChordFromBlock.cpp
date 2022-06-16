@@ -27,10 +27,10 @@ Error_t CChordFromBlockIf::destroy(CChordFromBlockIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CChordFromBlockIf::compChordProb(float* pfChordProb, const float* pfInput)
+Error_t CChordFromBlockIf::compChordProb(float* pfChordProb, const float* pfIn)
 {
     // compute pitch chroma
-    m_pCFeatureExtractor->compFeature(m_pfPitchChroma, pfInput);
+    m_pCFeatureExtractor->compFeature(m_pfPitchChroma, pfIn);
 
     if (CVector::getSum(m_pfPitchChroma, kNumPitchClasses) <= 1e-20F)
     {

@@ -37,8 +37,8 @@ public:
     \param pCInstance pointer to instance to be written
     \param ePitchIdx as defined in PitchExtractors_t
     \param strAudioFilePath complete path to audio file
-    \param iBlockLength: FFT block length in Frames
-    \param iHopLength: hop length in Frames
+    \param iBlockLength: FFT block length in samples
+    \param iHopLength: hop length in samples
     \return Error_t
     */
     static Error_t create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const std::string& strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024);
@@ -47,13 +47,13 @@ public:
     \param pCInstance pointer to instance to be written
     \param ePitchIdx as defined in PitchExtractors_t
     \param pfAudio complete audio data
-    \param iNumFrames: length of pfAudio
+    \param iNumSamples: length of pfAudio
     \param fSampleRate: sample rate in Hz
-    \param iBlockLength: FFT block length in Frames
-    \param iHopLength: hop length in Frames
+    \param iBlockLength: FFT block length in samples
+    \param iHopLength: hop length in samples
     \return Error_t
     */
-    static Error_t create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 2048, int iHopLength = 1024);
+    static Error_t create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 2048, int iHopLength = 1024);
 
     /*! destroys a Pitch instance
     \param pCInstance pointer to instance to be destroyed
@@ -128,8 +128,8 @@ protected:
 
     float m_fSampleRate = 0;             //!< sample rate
 
-    float* m_pfProcessBuff2 = 0;             //!< temporary buffer for current spectrum
-    float* m_pfProcessBuff1 = 0;          //!<  temporary buffer
+    float* m_pfProcBuff2 = 0;             //!< temporary buffer for current spectrum
+    float* m_pfProcBuff1 = 0;          //!<  temporary buffer
 
     bool    m_bIsInitialized = false;    //!< true if initialized
 };

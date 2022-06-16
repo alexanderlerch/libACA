@@ -7,13 +7,13 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
 {
     CPitchFromBlockIf* pCInstance = 0;
 
-    float* pfInput = 0;
+    float* pfIn = 0;
 
     int iBlockLength = 4096;
     float fSampleRate = 4096;
     //float fResult = -1.F;
 
-    CVector::alloc(pfInput, iBlockLength);
+    CVector::alloc(pfIn, iBlockLength);
 
     SECTION("Api")
     {
@@ -40,19 +40,19 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
         CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, iBlockLength, fSampleRate));
 
         // zero input
-        CHECK(0.F == pCInstance->compF0(pfInput));
+        CHECK(0.F == pCInstance->compF0(pfIn));
 
         // sine 
         int iIdx = 30;
-        pfInput[iIdx] = 1.F;
-        CHECK(iIdx * .5 * fSampleRate / (iBlockLength - 1) == pCInstance->compF0(pfInput));
+        pfIn[iIdx] = 1.F;
+        CHECK(iIdx * .5 * fSampleRate / (iBlockLength - 1) == pCInstance->compF0(pfIn));
 
         // harmonics
-        pfInput[iIdx] = 1.F;
-        pfInput[2 * iIdx] = .5F;
-        pfInput[3 * iIdx] = .25F;
-        pfInput[4 * iIdx] = .125F;
-        CHECK(iIdx * .5 * fSampleRate / (iBlockLength - 1) == pCInstance->compF0(pfInput));
+        pfIn[iIdx] = 1.F;
+        pfIn[2 * iIdx] = .5F;
+        pfIn[3 * iIdx] = .25F;
+        pfIn[4 * iIdx] = .125F;
+        CHECK(iIdx * .5 * fSampleRate / (iBlockLength - 1) == pCInstance->compF0(pfIn));
 
     }
 
@@ -63,19 +63,19 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
         CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchSpectralHps, iBlockLength, fSampleRate));
 
         // zero input
-        CHECK(0.F == pCInstance->compF0(pfInput));
+        CHECK(0.F == pCInstance->compF0(pfIn));
 
         // sine 
         int iIdx = 30;
-        pfInput[iIdx] = 1.F;
-        CHECK(0.F == pCInstance->compF0(pfInput));
+        pfIn[iIdx] = 1.F;
+        CHECK(0.F == pCInstance->compF0(pfIn));
 
         // harmonics
-        pfInput[iIdx] = 1.F;
-        pfInput[2 * iIdx] = .5F;
-        pfInput[3 * iIdx] = .25F;
-        pfInput[4 * iIdx] = .125F;
-        CHECK(iIdx * .5 * fSampleRate / (iBlockLength - 1) == pCInstance->compF0(pfInput));
+        pfIn[iIdx] = 1.F;
+        pfIn[2 * iIdx] = .5F;
+        pfIn[3 * iIdx] = .25F;
+        pfIn[4 * iIdx] = .125F;
+        CHECK(iIdx * .5 * fSampleRate / (iBlockLength - 1) == pCInstance->compF0(pfIn));
 
     }
 
@@ -84,19 +84,19 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
         CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchTimeAcf, iBlockLength, fSampleRate));
 
         // zero input
-        CHECK(0.F == pCInstance->compF0(pfInput));
+        CHECK(0.F == pCInstance->compF0(pfIn));
         
         // sine 
         float fFreq = 16.F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBlockLength);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iBlockLength);
 
-        CHECK(fFreq == pCInstance->compF0(pfInput));
+        CHECK(fFreq == pCInstance->compF0(pfIn));
 
         // T0 between bins (T0 = 511.5)
         fFreq = 8.0078201369F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBlockLength);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iBlockLength);
 
-        CHECK(((fSampleRate/511 == pCInstance->compF0(pfInput)) || (fSampleRate / 512 == pCInstance->compF0(pfInput))));
+        CHECK(((fSampleRate/511 == pCInstance->compF0(pfIn)) || (fSampleRate / 512 == pCInstance->compF0(pfIn))));
     }
 
     SECTION("TimeAmdf")
@@ -105,15 +105,15 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
         CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchTimeAmdf, iBlockLength, fSampleRate));
 
         // zero input
-        CHECK(0.F == pCInstance->compF0(pfInput));
+        CHECK(0.F == pCInstance->compF0(pfIn));
 
         // sine 
         float fFreq = 160.F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBlockLength);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iBlockLength);
 
-        CHECK(((fFreq == pCInstance->compF0(pfInput)) ||
-            (fFreq / 2 == pCInstance->compF0(pfInput)) ||
-            (fFreq / 3 == pCInstance->compF0(pfInput))));
+        CHECK(((fFreq == pCInstance->compF0(pfIn)) ||
+            (fFreq / 2 == pCInstance->compF0(pfIn)) ||
+            (fFreq / 3 == pCInstance->compF0(pfIn))));
     }
 
     SECTION("TimeAuditory")
@@ -121,19 +121,19 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
         CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchTimeAuditory, iBlockLength, fSampleRate));
 
         // zero input
-        CHECK(0.F == pCInstance->compF0(pfInput));
+        CHECK(0.F == pCInstance->compF0(pfIn));
 
         // sine 
         float fFreq = 16.F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBlockLength);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iBlockLength);
 
-        CHECK(fFreq == pCInstance->compF0(pfInput));
+        CHECK(fFreq == pCInstance->compF0(pfIn));
 
         // T0 between bins (T0 = 511.5)
         fFreq = 8.0078201369F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBlockLength);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iBlockLength);
 
-        CHECK(((fSampleRate / 511 == pCInstance->compF0(pfInput)) || (fSampleRate / 512 == pCInstance->compF0(pfInput))));
+        CHECK(((fSampleRate / 511 == pCInstance->compF0(pfIn)) || (fSampleRate / 512 == pCInstance->compF0(pfIn))));
     }
 
     SECTION("TimeZeroCrossings")
@@ -142,47 +142,47 @@ TEST_CASE("Pitch tracking (class interface per block)", "[PitchBlockClass]")
         CHECK(Error_t::kNoError == CPitchFromBlockIf::create(pCInstance, CPitchIf::kPitchTimeZeroCrossings, iBlockLength, fSampleRate));
 
         // zero input
-        CHECK(0.F == pCInstance->compF0(pfInput));
+        CHECK(0.F == pCInstance->compF0(pfIn));
 
         // sine 
         float fFreq = 160.F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBlockLength, 1.F, 3.13F);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iBlockLength, 1.F, 3.13F);
 
-        CHECK(fFreq == pCInstance->compF0(pfInput));
+        CHECK(fFreq == pCInstance->compF0(pfIn));
     }
 
     CHECK(Error_t::kNoError == CPitchFromBlockIf::destroy(pCInstance));
 
-    CVector::free(pfInput);
+    CVector::free(pfIn);
 }
 
 
 TEST_CASE("Pitch (per array)", "[PitchClass]")
 {
     CPitchIf* pCInstance = 0;
-    float* pfInput = 0;
+    float* pfIn = 0;
     float* pfPitch = 0;
     float fSampleRate = 44100;
     int iBlockLength = 4096,
         iHopLength = 512,
-        iBufferLength = 96000;
+        iLenBuff = 96000;
     int iDim = 0;
 
     CVector::alloc(pfPitch, 188);
-    CVector::alloc(pfInput, iBufferLength);
+    CVector::alloc(pfIn, iLenBuff);
 
     SECTION("Api")
     {
         for (auto f = 0; f < CPitchIf::kNumPitchExtractors; f++)
         {
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), 0, iBufferLength, fSampleRate, iBlockLength, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, 0, fSampleRate, iBlockLength, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, -1, fSampleRate, iBlockLength, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, iBufferLength, 0, iBlockLength, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, iBufferLength, fSampleRate, 0, iHopLength));
-            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, iBufferLength, fSampleRate, iBlockLength, 0));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), 0, iLenBuff, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfIn, 0, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfIn, -1, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfIn, iLenBuff, 0, iBlockLength, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfIn, iLenBuff, fSampleRate, 0, iHopLength));
+            CHECK(Error_t::kFunctionInvalidArgsError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfIn, iLenBuff, fSampleRate, iBlockLength, 0));
 
-            CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+            CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, static_cast<CPitchIf::PitchExtractors_t>(f), pfIn, iLenBuff, fSampleRate, iBlockLength, iHopLength));
 
             CHECK_FALSE(pCInstance == 0);
 
@@ -200,9 +200,9 @@ TEST_CASE("Pitch (per array)", "[PitchClass]")
     SECTION("TimeAcf")
     {
         float fFreq = 441.F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBufferLength);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iLenBuff);
 
-        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchTimeAcf, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchTimeAcf, pfIn, iLenBuff, fSampleRate, iBlockLength, iHopLength));
         CHECK_FALSE(pCInstance == 0);
 
         CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
@@ -216,9 +216,9 @@ TEST_CASE("Pitch (per array)", "[PitchClass]")
     SECTION("TimeAuditory")
     {
         float fFreq = 441.F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBufferLength);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iLenBuff);
 
-        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchTimeAuditory, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchTimeAuditory, pfIn, iLenBuff, fSampleRate, iBlockLength, iHopLength));
         CHECK_FALSE(pCInstance == 0);
 
         CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
@@ -232,9 +232,9 @@ TEST_CASE("Pitch (per array)", "[PitchClass]")
     SECTION("SpectralAcf")
     {
         float fFreq = 441.43F;
-        CSynthesis::genSine(pfInput, fFreq, fSampleRate, iBufferLength);
+        CSynthesis::genSine(pfIn, fFreq, fSampleRate, iLenBuff);
 
-        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, pfIn, iLenBuff, fSampleRate, iBlockLength, iHopLength));
         CHECK_FALSE(pCInstance == 0);
 
         CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
@@ -249,15 +249,15 @@ TEST_CASE("Pitch (per array)", "[PitchClass]")
     {
         float fFreq = 441.43F;
         float* pfTmp = 0;
-        CVector::alloc(pfTmp, iBufferLength);
+        CVector::alloc(pfTmp, iLenBuff);
 
         for (auto k = 1; k <= 4; k++)
         {
-            CSynthesis::genSine(pfTmp, k*fFreq, fSampleRate, iBufferLength, 1.F/k);
-            CVector::add_I(pfInput, pfTmp, iBufferLength);
+            CSynthesis::genSine(pfTmp, k*fFreq, fSampleRate, iLenBuff, 1.F/k);
+            CVector::add_I(pfIn, pfTmp, iLenBuff);
         }
 
-        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK(Error_t::kNoError == CPitchIf::create(pCInstance, CPitchIf::kPitchSpectralAcf, pfIn, iLenBuff, fSampleRate, iBlockLength, iHopLength));
         CHECK_FALSE(pCInstance == 0);
 
         CHECK(Error_t::kNoError == pCInstance->getNumBlocks(iDim));
@@ -270,7 +270,7 @@ TEST_CASE("Pitch (per array)", "[PitchClass]")
         CVector::free(pfTmp);
     }
 
-    CVector::free(pfInput);
+    CVector::free(pfIn);
     CVector::free(pfPitch);
     CHECK(Error_t::kNoError == CPitchIf::destroy(pCInstance));
 }

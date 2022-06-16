@@ -99,12 +99,12 @@ While the code is intended for reading or as easy-to-understand reference implem
 // declarations
 CFeatureIf* pCInstance = 0; //!< new instance of the Feature Interface class
 CFeatureIf::Feature_t eFeatureIdx = CFeatureIf::kFeatureSpectralCentroid; //!< specifies feature to extract
-std::string sInputFilePath = "testname.wav"; //!< input file path
+std::string sInFilePath = "testname.wav"; //!< input file path
 int aiFeatureDimensions[2] = { 0,0 }; //!< resulting feature matrix dimension
 float* pfFeature = 0; //!< feature result
 
 // create instance
-CFeatureIf::create(pCInstance, eFeatureIdx, sInputFilePath);
+CFeatureIf::create(pCInstance, eFeatureIdx, sInFilePath);
 pCInstance->getFeatureDimensions(aiFeatureDimensions[0], aiFeatureDimensions[1]);
 
 // allocate memory
@@ -125,12 +125,12 @@ delete[] pfFeature;
 // declarations
 CFeatureIf* pCInstance = 0; //!< new instance of the Feature Interface class
 CFeatureIf::Feature_t eFeatureIdx = CFeatureIf::kFeatureSpectralPitchChroma; //!< specifies feature to extract
-std::string sInputFilePath = "testname.wav"; //!< input file path
+std::string sInFilePath = "testname.wav"; //!< input file path
 int aiFeatureDimensions[2] = { 0,0 }; //!< resulting feature matrix dimension
 float** ppfFeature = 0; //!< feature result
 
 // create instance
-CFeatureIf::create(pCInstance, eFeatureIdx, sInputFilePath);
+CFeatureIf::create(pCInstance, eFeatureIdx, sInFilePath);
 pCInstance->getFeatureDimensions(aiFeatureDimensions[0], aiFeatureDimensions[1]);
 
 // allocate memory
@@ -154,11 +154,11 @@ delete[] ppfFeature;
 
 // declarations
 CKey* pCInstance = new CKey(); //!< new instance of the Feature Interface class
-std::string sInputFilePath = "testname.wav"; //!< input file path
+std::string sInFilePath = "testname.wav"; //!< input file path
 int iKeyRes = -1; //!< index of the resulting key
 
 // init instance
-pCInstance->init(sInputFilePath);
+pCInstance->init(sInFilePath);
 
 // compute key
 iKeyRes = pCInstance->compKey();

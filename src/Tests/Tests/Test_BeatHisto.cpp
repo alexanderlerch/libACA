@@ -7,31 +7,31 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
 {
 
     CBeatHistoIf* pCInstance = 0;
-    float* pfInput = 0;
+    float* pfIn = 0;
     float* pfBeatHisto = 0;
     float* pfBeatTicks = 0;
     float fSampleRate = 44100;
     int iBlockLength = 1023,
         iHopLength = 512,
-        iBufferLength = static_cast<int>(fSampleRate * 10);
+        iLenBuff = static_cast<int>(fSampleRate * 10);
     int iDim = 0;
 
     pfBeatHisto = new float[65536];
     pfBeatTicks = new float[65536];
-    pfInput = new float[iBufferLength];
-    CVector::setZero(pfInput, iBufferLength);
+    pfIn = new float[iLenBuff];
+    CVector::setZero(pfIn, iLenBuff);
 
 
     SECTION("Api")
     {
-        iBufferLength = 5000;
-        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, 0, iBufferLength, fSampleRate, iBlockLength, iHopLength));
-        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, pfInput, 0, fSampleRate, iBlockLength, iHopLength));
-        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, pfInput, iBufferLength, 0, iBlockLength, iHopLength));
-        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, pfInput, iBufferLength, fSampleRate, 0, iHopLength));
-        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, pfInput, iBufferLength, fSampleRate, iBlockLength, 0));
+        iLenBuff = 5000;
+        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, 0, iLenBuff, fSampleRate, iBlockLength, iHopLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, pfIn, 0, fSampleRate, iBlockLength, iHopLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, pfIn, iLenBuff, 0, iBlockLength, iHopLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, pfIn, iLenBuff, fSampleRate, 0, iHopLength));
+        CHECK(Error_t::kFunctionInvalidArgsError == CBeatHistoIf::create(pCInstance, pfIn, iLenBuff, fSampleRate, iBlockLength, 0));
 
-        CHECK(Error_t::kNoError == CBeatHistoIf::create(pCInstance, pfInput, iBufferLength, fSampleRate, iBlockLength, iHopLength));
+        CHECK(Error_t::kNoError == CBeatHistoIf::create(pCInstance, pfIn, iLenBuff, fSampleRate, iBlockLength, iHopLength));
 
         CHECK_FALSE(pCInstance == 0);
 
@@ -53,9 +53,9 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
         for (auto s = 0; s < 20; s++)
         {
             int iStart = static_cast<int>(s * fSampleRate / 2);
-            CVector::setValue(&pfInput[iStart], 1.F, 512);
+            CVector::setValue(&pfIn[iStart], 1.F, 512);
         }
-        CHECK(Error_t::kNoError == CBeatHistoIf::create(pCInstance, pfInput, iBufferLength, fSampleRate));
+        CHECK(Error_t::kNoError == CBeatHistoIf::create(pCInstance, pfIn, iLenBuff, fSampleRate));
         CHECK_FALSE(pCInstance == 0);
 
         CHECK(Error_t::kNoError == pCInstance->compBeatHisto(pfBeatHisto));
@@ -78,9 +78,9 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
         for (auto s = 0; s < 20; s++)
         {
             int iStart = static_cast<int>(s * fSampleRate / 2);
-            CVector::setValue(&pfInput[iStart], 1.F, 512);
+            CVector::setValue(&pfIn[iStart], 1.F, 512);
         }
-        CHECK(Error_t::kNoError == CBeatHistoIf::create(pCInstance, pfInput, iBufferLength, fSampleRate));
+        CHECK(Error_t::kNoError == CBeatHistoIf::create(pCInstance, pfIn, iLenBuff, fSampleRate));
         CHECK_FALSE(pCInstance == 0);
 
         CHECK(Error_t::kNoError == pCInstance->compBeatHisto(pfBeatHisto, CBeatHistoIf::kBeatHistoCorr));
@@ -99,7 +99,7 @@ TEST_CASE("BeatHisto", "[BeatHistoClass]")
 
     CHECK(Error_t::kNoError == CBeatHistoIf::destroy(pCInstance));
 
-    delete[] pfInput;
+    delete[] pfIn;
     delete[] pfBeatHisto;
     delete[] pfBeatTicks;
 }

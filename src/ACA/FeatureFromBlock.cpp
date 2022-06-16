@@ -339,11 +339,11 @@ public:
         CVector::free(m_pfPrevSpec);
     };
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
-        *pfFeature = compFeatureSpectralFlux(pfInput, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
+        *pfFeature = compFeatureSpectralFlux(pfIn, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
 
-        CVector::copy(m_pfPrevSpec, pfInput, m_iDataLength);
+        CVector::copy(m_pfPrevSpec, pfIn, m_iDataLength);
 
         return Error_t::kNoError;
     };
@@ -379,16 +379,16 @@ public:
         CVector::free(m_pfMelSpec);
     }
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
         assert(pfFeature);
-        assert(pfInput);
+        assert(pfIn);
 
         CVector::setZero(pfFeature, m_iNumMfcCoeffs);
 
         // compute mel spectrum
         for (auto c = 0; c < m_iNumBands; c++)
-            m_pfMelSpec[c] = std::log10(CVector::mulScalar(m_ppfH[c], pfInput, m_iDataLength) + 1e-20F);
+            m_pfMelSpec[c] = std::log10(CVector::mulScalar(m_ppfH[c], pfIn, m_iDataLength) + 1e-20F);
 
         // compute dct
         for (auto j = 0; j < m_iNumMfcCoeffs; j++)
@@ -522,10 +522,10 @@ public:
         CMatrix::free(m_ppfH, m_iNumPitchClasses);
     };
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
         assert(pfFeature);
-        assert(pfInput);
+        assert(pfIn);
 
         CVector::setZero(pfFeature, m_iNumPitchClasses);
 
@@ -534,7 +534,7 @@ public:
             // we could do this nicer with CVector::mulScalar if we allocated memory
             for (auto k = 0; k < m_iDataLength; k++)
             {
-                pfFeature[p] += m_ppfH[p][k] * (pfInput[k] * pfInput[k]);
+                pfFeature[p] += m_ppfH[p][k] * (pfIn[k] * pfIn[k]);
             }
         }
 
@@ -625,9 +625,9 @@ public:
 
     virtual ~CFeatureSpectralRolloff() {};
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
-        *pfFeature = compFeatureSpectralRolloff(pfInput, m_iDataLength, m_fSampleRate, m_fKappa);
+        *pfFeature = compFeatureSpectralRolloff(pfIn, m_iDataLength, m_fSampleRate, m_fKappa);
 
         return Error_t::kNoError;
     };
@@ -660,9 +660,9 @@ public:
 
     virtual ~CFeatureSpectralTonalPowerRatio() {};
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
-        *pfFeature = compFeatureSpectralTonalPowerRatio(pfInput, m_iDataLength, m_fSampleRate, m_fThresh);
+        *pfFeature = compFeatureSpectralTonalPowerRatio(pfIn, m_iDataLength, m_fSampleRate, m_fThresh);
 
         return Error_t::kNoError;
     };
@@ -695,9 +695,9 @@ public:
 
     virtual ~CFeatureTimeAcfCoeff() {};
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
-        *pfFeature = compFeatureTimeAcfCoeff(pfInput, m_iDataLength, m_fSampleRate, m_iEta);
+        *pfFeature = compFeatureTimeAcfCoeff(pfIn, m_iDataLength, m_fSampleRate, m_iEta);
 
         return Error_t::kNoError;
     };
@@ -742,14 +742,14 @@ public:
         m_pCCcf = 0;
     };
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
         float fMinThresh = 0.35F;
 
         int iEta = 0,
             iEtaMin = static_cast<int>(m_fSampleRate / m_fMax);
 
-        m_pCCcf->compCcf(pfInput, pfInput, true);
+        m_pCCcf->compCcf(pfIn, pfIn, true);
         m_pCCcf->getCcf(m_pfAcf, true);
 
         // avoid main lobe
@@ -816,14 +816,14 @@ public:
 
     virtual ~CFeatureTimePeakEnvelope() {};
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
-        pfFeature[kBlock] = compFeatureTimePeakEnvelope(pfInput, m_iDataLength, m_fSampleRate);
+        pfFeature[kBlock] = compFeatureTimePeakEnvelope(pfIn, m_iDataLength, m_fSampleRate);
 
         pfFeature[kPpmMax] = 0;
         for (auto i = 0; i < m_iDataLength; i++)
         {
-            float fOut = ppm_I(pfInput[i]);
+            float fOut = ppm_I(pfIn[i]);
             if (fOut > pfFeature[kPpmMax])
                 pfFeature[kPpmMax] = fOut;
         }
@@ -890,15 +890,15 @@ public:
         CSinglePoleLp::destroy(m_pCSinglePole);
     };
 
-    Error_t compFeature(float* pfFeature, const float* pfInput) override
+    Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
-        pfFeature[kBlock] = compFeatureTimeRms(pfInput, m_iDataLength, m_fSampleRate);
+        pfFeature[kBlock] = compFeatureTimeRms(pfIn, m_iDataLength, m_fSampleRate);
         
         // do inefficient sample based processing so we don't have to alloc memory
         pfFeature[kLowpass] = 0;
         for (auto i = 0; i < m_iDataLength; i++)
         {
-            float fIn = pfInput[i] * pfInput[i];
+            float fIn = pfIn[i] * pfIn[i];
             float fOut = 0;
             m_pCSinglePole->process(&fOut, &fIn, 1);
             if (fOut > pfFeature[kLowpass])
@@ -1024,10 +1024,10 @@ int CFeatureFromBlockIf::getFeatureDimensions() const
     return 1;
 }
 
-Error_t CFeatureFromBlockIf::compFeature(float* pfFeature, const float* pfInput)
+Error_t CFeatureFromBlockIf::compFeature(float* pfFeature, const float* pfIn)
 {
     // default: use one of the static functions
-    *pfFeature = m_DispatchMap.at(m_eFeatureIdx)(pfInput, m_iDataLength, m_fSampleRate);
+    *pfFeature = m_DispatchMap.at(m_eFeatureIdx)(pfIn, m_iDataLength, m_fSampleRate);
 
     return Error_t::kNoError;
 }

@@ -59,9 +59,9 @@ Error_t CCcf::reset()
     return Error_t::kNoError;
 }
 
-Error_t CCcf::compCcf(const float* pfInput1, const float* pfInput2, bool bNormalize)
+Error_t CCcf::compCcf(const float* pfIn1, const float* pfIn2, bool bNormalize)
 {
-    if (!pfInput1 || !pfInput2)
+    if (!pfIn1 || !pfIn2)
         return Error_t::kFunctionInvalidArgsError;   
 
     if (!m_bIsInitialized)
@@ -71,15 +71,15 @@ Error_t CCcf::compCcf(const float* pfInput1, const float* pfInput2, bool bNormal
     float afStd[2] = { 1.F, 1.F };
     if (bNormalize)
     {
-        float fPower = std::sqrt(CVector::mulScalar(pfInput1, pfInput1, m_iBlockLength));
+        float fPower = std::sqrt(CVector::mulScalar(pfIn1, pfIn1, m_iBlockLength));
         afStd[0] = fPower > 0 ? fPower : 1.F;
-        fPower = std::sqrt(CVector::mulScalar(pfInput2, pfInput2, m_iBlockLength));
+        fPower = std::sqrt(CVector::mulScalar(pfIn2, pfIn2, m_iBlockLength));
         afStd[1] = fPower > 0 ? fPower : 1.F;
     }
 
     // compute the FFTs
-    m_pCFft->compFft(m_apfData[0], pfInput1);
-    m_pCFft->compFft(m_apfData[1], pfInput2);
+    m_pCFft->compFft(m_apfData[0], pfIn1);
+    m_pCFft->compFft(m_apfData[1], pfIn2);
 
     // conjugate complex multiply
     CVector::mulC_I(m_apfData[1], static_cast<float>(m_iFftLength), m_iFftLength);

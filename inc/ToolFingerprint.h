@@ -26,11 +26,11 @@ public:
 
     /*! initializes a Fingerprint instance from audio data
     \param pfAudio complete audio data
-    \param iNumFrames: length of pfAudio
+    \param iNumSamples: length of pfAudio
     \param fSampleRate: sample rate in Hz
     \return Error_t
     */
-    Error_t init( const float* pfAudio, long long iNumFrames, float fSampleRate);
+    Error_t init( const float* pfAudio, long long iNumSamples, float fSampleRate);
 
     /*! resets a Fingerprint instance 
     \return Error_t
@@ -75,8 +75,8 @@ protected:
     const int m_iBlockLength = 2048, //!< fft length
         m_iHopLength = 64; //!< hop length
 
-    float* m_pfProcessBuff2 = 0; //!< temporary buffer for current spectrum
-    float* m_pfProcessBuff1 = 0; //!<  temporary buffer
+    float* m_pfProcBuff2 = 0; //!< temporary buffer for current spectrum
+    float* m_pfProcBuff1 = 0; //!<  temporary buffer
 
     const float m_fProcSampleRate = 5000.F; //!< sample rate for fingerprint extraction
     long long m_iAudioLength = 0; //!< length of audio data

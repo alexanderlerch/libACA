@@ -15,23 +15,23 @@ class CPreProc
 public:
     /*! downmixes multichannel audio (can be inplace
     */
-    static void downmix (float *pfOutput, const float* const* const ppfInput, int iNumChannels, long long iNumSamples)
+    static void downmix (float *pfOut, const float* const* const ppfIn, int iNumChannels, long long iNumSamples)
     {
         // sanity checks
-        assert(pfOutput);
-        assert(ppfInput);
-        assert(ppfInput[0]);
+        assert(pfOut);
+        assert(ppfIn);
+        assert(ppfIn[0]);
         assert(iNumChannels > 0);
         assert(iNumSamples > 0);
 
         // copy in case of not inplace processing
-        if (pfOutput != ppfInput[0])
-            CVector::copy(pfOutput, ppfInput[0], iNumSamples);
+        if (pfOut != ppfIn[0])
+            CVector::copy(pfOut, ppfIn[0], iNumSamples);
 
         // downmix
         for (auto c = 1; c < iNumChannels; c++)
-            CVector::add_I(pfOutput, ppfInput[c], iNumSamples);
-        CVector::mulC_I(pfOutput, 1.F / iNumChannels, iNumSamples);
+            CVector::add_I(pfOut, ppfIn[c], iNumSamples);
+        CVector::mulC_I(pfOut, 1.F / iNumChannels, iNumSamples);
 
         return;
     }
@@ -75,7 +75,7 @@ public:
             long long iNumSamples = iBlockLength;
             float fMax = 0;
 
-            // read data (iNumOfFrames might be updated!)
+            // read data (iNumSamples might be updated!)
             pCAudioFile->readData(ppfAudioData, iNumSamples);
 
             //downmix if multichannel

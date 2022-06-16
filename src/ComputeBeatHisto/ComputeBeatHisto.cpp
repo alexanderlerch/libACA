@@ -17,8 +17,8 @@ void    showClInfo();
 int main(int argc, char* argv[])
 {
 
-    std::string             sInputFilePath,                 //!< file paths
-        sOutputFilePath;
+    std::string             sInFilePath,                 //!< file paths
+        sOutFilePath;
 
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
@@ -45,20 +45,20 @@ int main(int argc, char* argv[])
     }
     else
     {
-        sInputFilePath = argv[1];
-        sOutputFilePath = (argc < 3) ? sInputFilePath + ".txt" : argv[2];
+        sInFilePath = argv[1];
+        sOutFilePath = (argc < 3) ? sInFilePath + ".txt" : argv[2];
         iBlockLength = (argc < 4) ? 1024 : std::stoi(argv[3]);
         iHopLength = (argc < 5) ? 8 : std::stoi(argv[4]);
     }
 
     //////////////////////////////////////////////////////////////////////////////
     // initialize BeatHisto instance
-    CBeatHistoIf::create(pCInstance, sInputFilePath, iBlockLength, iHopLength);
+    CBeatHistoIf::create(pCInstance, sInFilePath, iBlockLength, iHopLength);
     iBeatHistoDimension = pCInstance->getNumBins(eBeatHistoIdx);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
-    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
+    hOutputFile.open(sOutFilePath.c_str(), std::ios::out);
     if (!hOutputFile.is_open())
     {
         cout << "Text file open error!";

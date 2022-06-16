@@ -107,11 +107,11 @@ int CNoveltyFromBlockIf::getNoveltyDimension() const
     return 1;
 }
 
-Error_t CNoveltyFromBlockIf::compNovelty(float* pfNovelty, const float* pfInput)
+Error_t CNoveltyFromBlockIf::compNovelty(float* pfNovelty, const float* pfIn)
 {
-    *pfNovelty = m_DispatchMap.at(m_eNoveltyIdx)(pfInput, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
+    *pfNovelty = m_DispatchMap.at(m_eNoveltyIdx)(pfIn, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
 
-    CVector::copy(m_pfPrevSpec, pfInput, m_iDataLength);
+    CVector::copy(m_pfPrevSpec, pfIn, m_iDataLength);
 
     return Error_t::kNoError;
 }

@@ -17,8 +17,8 @@ void    showClInfo();
 int main(int argc, char* argv[])
 {
 
-    std::string             sInputFilePath,                 //!< file paths
-        sOutputFilePath;
+    std::string             sInFilePath,                 //!< file paths
+        sOutFilePath;
 
     std::string sNoveltyString; //!< string of the Novelty to be extracted
 
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 
     float* pfNovelty = 0; //!< Novelty result
 
-    std::fstream hOutputFile;
+    std::fstream hOutFile;
 
     showClInfo();
 
@@ -47,9 +47,9 @@ int main(int argc, char* argv[])
     }
     else
     {
-        sInputFilePath = argv[1];
+        sInFilePath = argv[1];
         sNoveltyString = (argc < 3) ? "SpectralCentroid" : argv[2];
-        sOutputFilePath = (argc < 4) ? sInputFilePath + ".txt" : argv[3];
+        sOutFilePath = (argc < 4) ? sInFilePath + ".txt" : argv[3];
         iBlockLength = (argc < 5) ? 4096 : std::stoi(argv[4]);
         iHopLength = (argc < 6) ? 512 : std::stoi(argv[5]);
     }
@@ -57,13 +57,13 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // initialize novelty instance
     eNoveltyIdx = CNoveltyIf::getNoveltyIdxFromString(sNoveltyString);
-    CNoveltyIf::create(pCInstance, eNoveltyIdx, sInputFilePath, iBlockLength, iHopLength);
+    CNoveltyIf::create(pCInstance, eNoveltyIdx, sInFilePath, iBlockLength, iHopLength);
     pCInstance->getNumBlocks(iNumBlocks);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
-    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
-    if (!hOutputFile.is_open())
+    hOutFile.open(sOutFilePath.c_str(), std::ios::out);
+    if (!hOutFile.is_open())
     {
         cout << "Text file open error!";
         CNoveltyIf::destroy(pCInstance);
@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
     if (!pfNovelty)
     {
         CNoveltyIf::destroy(pCInstance);
-        hOutputFile.close();
+        hOutFile.close();
         return -1;
     }
 
@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
-        hOutputFile << pCInstance->getTimeStamp(n) << "\t" << pfNovelty[n] << endl;
+        hOutFile << pCInstance->getTimeStamp(n) << "\t" << pfNovelty[n] << endl;
     }
 
     cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // clean-up (close files, delete instances, and free memory)
     CNoveltyIf::destroy(pCInstance);
-    hOutputFile.close();
+    hOutFile.close();
 
     delete[] pfNovelty;
 

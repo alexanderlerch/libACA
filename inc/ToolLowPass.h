@@ -60,22 +60,22 @@ public:
     }
 
     /*! performs the SinglePoleLp computation
-    \param pfOutput filter result (user-allocated, to be written, length iNumSamples)
-    \param pfInput input data of length iNumSamples
+    \param pfOut filter result (user-allocated, to be written, length iNumSamples)
+    \param pfIn input data of length iNumSamples
     \param iNumSamples length of buffers
     return Error_t
     */
-    Error_t process(float* pfOutput, const float* pfInput, long long iNumSamples)
+    Error_t process(float* pfOut, const float* pfIn, long long iNumSamples)
     {
-        if (!pfOutput || !pfInput || iNumSamples <= 0)
+        if (!pfOut || !pfIn || iNumSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
 
-        pfOutput[0] = (1.F - m_fAlpha) * pfInput[0] + m_fAlpha * m_fPrevOut;
+        pfOut[0] = (1.F - m_fAlpha) * pfIn[0] + m_fAlpha * m_fPrevOut;
         
         for (auto i = 1; i < iNumSamples; i++)
-            pfOutput[i] = (1 - m_fAlpha) * pfInput[0] + m_fAlpha * pfOutput[i-1];
+            pfOut[i] = (1 - m_fAlpha) * pfIn[0] + m_fAlpha * pfOut[i-1];
 
-        m_fPrevOut = pfOutput[iNumSamples - 1];
+        m_fPrevOut = pfOut[iNumSamples - 1];
 
         return Error_t::kNoError;
     }
@@ -148,7 +148,7 @@ public:
     }
 
     /*! sets the length of the filter
-    \param iFilterLength length of the moving average filter (the longer the more lowpass)
+    \param iLenFilter length of the moving average filter (the longer the more lowpass)
     \return int
     */
     Error_t setFilterParam(int iFilterLength = 64)
@@ -190,24 +190,24 @@ public:
     }
 
     /*! performs the MovingAverage computation
-    \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
-    \param pfInput input data of length iLengthOfBuffer
-    \param iLengthOfBuffer length of buffer in samples
+    \param pfOut filter result (user-allocated, to be written, length iLenBuff)
+    \param pfIn input data of length iLenBuff
+    \param iLenBuff length of buffer in samples
     \return Error_t
     */
-    Error_t process(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
+    Error_t process(float* pfOut, const float* pfIn, long long iLenBuff)
     {
-        if (!pfOutput || !pfInput || iLengthOfBuffer <= 0)
+        if (!pfOut || !pfIn || iLenBuff <= 0)
             return Error_t::kFunctionInvalidArgsError;
         
-        int iFilterLength = m_pCRingBuff->getNumValuesInBuffer();
+        int iLenFilter = m_pCRingBuff->getNumValuesInBuffer();
 
         // recursive implementation - beware of potential error propagation due to numerical precision
-        for (auto i = 0; i < iLengthOfBuffer; i++)
+        for (auto i = 0; i < iLenBuff; i++)
         {
-            m_fPrevOut += (pfInput[i] - m_pCRingBuff->getPostInc()) / iFilterLength;
-            pfOutput[i] = m_fPrevOut;
-            m_pCRingBuff->putPostInc(pfInput[i]);
+            m_fPrevOut += (pfIn[i] - m_pCRingBuff->getPostInc()) / iLenFilter;
+            pfOut[i] = m_fPrevOut;
+            m_pCRingBuff->putPostInc(pfIn[i]);
         }
 
         return Error_t::kNoError;
@@ -226,41 +226,41 @@ public:
     }
 
     /*! performs zero-phase filtering with the MA
-    \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
-    \param pfInput input data of length iLengthOfBuffer
-    \param iLengthOfBuffer length of buffer in samples
+    \param pfOut filter result (user-allocated, to be written, length iLenBuff)
+    \param pfIn input data of length iLenBuff
+    \param iLenBuff length of buffer in samples
     */
-    void filtfilt(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
+    void filtfilt(float* pfOut, const float* pfIn, long long iLenBuff)
     {
         
-        int iFilterLength = this->getFilterParam();
+        int iLenFilter = this->getFilterParam();
         this->reset();
-        this->setFilterParam(iFilterLength);
+        this->setFilterParam(iLenFilter);
 
         float* pfTmpBuff = 0;
-        CVector::alloc(pfTmpBuff, iLengthOfBuffer + 2 * static_cast<long long>(iFilterLength));
+        CVector::alloc(pfTmpBuff, iLenBuff + 2 * static_cast<long long>(iLenFilter));
 
-        this->process(&pfTmpBuff[iFilterLength], pfInput, iLengthOfBuffer);
+        this->process(&pfTmpBuff[iLenFilter], pfIn, iLenBuff);
 
         // tail
-        for (auto i = 0; i < iFilterLength; i++)
+        for (auto i = 0; i < iLenFilter; i++)
         {
             float fZero = 0.F;
-            this->process(&pfTmpBuff[iLengthOfBuffer + iFilterLength + i], &fZero, 1);
+            this->process(&pfTmpBuff[iLenBuff + iLenFilter + i], &fZero, 1);
         }
 
         // reverse tail
-        for (auto i = iLengthOfBuffer + 2*static_cast<long long>(iFilterLength) - 1; i >= iLengthOfBuffer + iFilterLength; i--)
+        for (auto i = iLenBuff + 2*static_cast<long long>(iLenFilter) - 1; i >= iLenBuff + iLenFilter; i--)
         {
             float fZero = 0.F;
             this->process(&fZero, &pfTmpBuff[i], 1);
         }
 
-        for (auto i = iLengthOfBuffer + iFilterLength - 1; i >= iFilterLength; i--)
-            this->process(&pfOutput[i-iFilterLength], &pfTmpBuff[i], 1);
+        for (auto i = iLenBuff + iLenFilter - 1; i >= iLenFilter; i--)
+            this->process(&pfOut[i-iLenFilter], &pfTmpBuff[i], 1);
 
         this->reset();
-        this->setFilterParam(iFilterLength);
+        this->setFilterParam(iLenFilter);
 
         CVector::free(pfTmpBuff);
     }

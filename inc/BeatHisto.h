@@ -28,8 +28,8 @@ public:
     /*! initializes a BeatHisto instance with file reading
     \param pCInstance pointer to instance to be written
     \param strAudioFilePath complete path to audio file
-    \param iBlockLength: FFT block length in Frames
-    \param iHopLength: hop length in Frames
+    \param iBlockLength: FFT block length in samples
+    \param iHopLength: hop length in samples
     \return Error_t
     */
     static Error_t create(CBeatHistoIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 1024, int iHopLength = 8);
@@ -37,13 +37,13 @@ public:
     /*! initializes a BeatHisto instance from audio data
     \param pCInstance pointer to instance to be written
     \param pfAudio complete audio data
-    \param iNumFrames: length of pfAudio
+    \param iNumSamples: length of pfAudio
     \param fSampleRate: sample rate in Hz
-    \param iBlockLength: FFT block length in Frames
-    \param iHopLength: hop length in Frames
+    \param iBlockLength: FFT block length in samples
+    \param iHopLength: hop length in samples
     \return Error_t
     */
-    static Error_t create(CBeatHistoIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength = 1024, int iHopLength = 8);
+    static Error_t create(CBeatHistoIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 1024, int iHopLength = 8);
 
     /*! destroys a BeatHisto instance
     \param pCInstance pointer to instance to be destroyed
@@ -91,7 +91,7 @@ protected:
     Error_t reset_();                    //!< reset configuration
 
     Error_t init_(const std::string& strAudioFilePath);//!< init configuration
-    Error_t init_(const float* pfAudio, long long iNumFrames, float fSampleRate);//!< init configuration
+    Error_t init_(const float* pfAudio, long long iNumSamples, float fSampleRate);//!< init configuration
 
     void compHistoRange_(int& istartIdx, int& istopIdx, BeatHisto_t eBeatHistoComp) const;
 
@@ -101,7 +101,7 @@ protected:
     CNoveltyIf* m_pCNovelty = 0; //!< novelty function extraction instance
 
     float* m_pfNovelty = 0;  //!< buffer to hold extracted nvelty function
-    float* m_pfProcessBuff = 0; //!< temporary processing buffer
+    float* m_pfProcBuff = 0; //!< temporary processing buffer
     float* m_pfBeatHisto = 0; //!< result buffer
     
     int m_iBlockLength = 0, //!< processing block length for novelty

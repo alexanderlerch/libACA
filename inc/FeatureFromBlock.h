@@ -45,10 +45,10 @@ public:
 
     /*! performs the FeatureFromBlock computation
     \param pfFeature feature result (user-allocated, to be written, length from CFeatureFromBlockIf::getFeatureDimensions)
-    \param pfInput input data of length iDataLength
+    \param pfIn input data of length iDataLength
     \return Error_t
     */
-    virtual Error_t compFeature(float* pfFeature, const float* pfInput);
+    virtual Error_t compFeature(float* pfFeature, const float* pfIn);
 
     /*! returns true if there is an additional parameter
     \return bool

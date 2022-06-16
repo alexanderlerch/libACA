@@ -69,12 +69,12 @@ public:
     float getCenterFreq(int iBandIdx) const;
 
     /*! performs the GammaToneFb computation for 1 dimensional GammaToneFbs and writes the result
-    \param ppfOutput (user-allocated, to be written, dimensions iNumBands x iNumSamples, see CGammaToneFbIf::getOutputDimensions)
-    \param pfInput input data (for real-time block processing only)
+    \param ppfOut (user-allocated, to be written, dimensions iNumBands x iNumSamples, see CGammaToneFbIf::getOutputDimensions)
+    \param pfIn input data (for real-time block processing only)
     \param iNumSamples length of input data (for real-time block processing only)
     \return Error_t
     */
-    Error_t process(float** ppfOutput, const float* pfInput = 0, long long iNumSamples = 0);
+    Error_t process(float** ppfOut, const float* pfIn = 0, long long iNumSamples = 0);
 
 protected:
     CGammaToneFbIf();
@@ -98,7 +98,7 @@ protected:
     float m_fSampleRate = 0;            //!< sample rate
     float m_fStartInHz = 0; //!< lowest band center frequency
 
-    float *m_pfProcessBuff = 0; //!< temporary processing buffer
+    float *m_pfProcBuff = 0; //!< temporary processing buffer
 
     bool m_bIsInitialized = false;   //!< true if initialized
 };

@@ -32,11 +32,11 @@ Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const std::string& strAu
     return pCInstance->init_(strAudioFilePath);
 }
 
-Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
-    if (iNumFrames <= 0)
+    if (iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -49,7 +49,7 @@ Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const float* pfAudio, lo
 
     assert(pCInstance);
 
-    return pCInstance->init_(pfAudio, iNumFrames, fSampleRate);
+    return pCInstance->init_(pfAudio, iNumSamples, fSampleRate);
 }
 
 Error_t CBeatHistoIf::destroy(CBeatHistoIf*& pCInstance)
@@ -143,14 +143,14 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
         for (auto n = 0; n < iNumBlocks; n++)
         {
             // get next novelty block
-            pCBlock->getNextBlock(m_pfProcessBuff);
+            pCBlock->getNextBlock(m_pfProcBuff);
 
             // compute magnitude spectrum
-            pCAcf->compCcf(m_pfProcessBuff, m_pfProcessBuff);
-            pCAcf->getCcf(m_pfProcessBuff, true);
+            pCAcf->compCcf(m_pfProcBuff, m_pfProcBuff);
+            pCAcf->getCcf(m_pfProcBuff, true);
 
             // accumulate average spectrum
-            CVector::add_I(m_pfBeatHisto, m_pfProcessBuff, m_iBeatHistoLength);
+            CVector::add_I(m_pfBeatHisto, m_pfProcBuff, m_iBeatHistoLength);
         }
 
         CVector::flip_I(m_pfBeatHisto, m_iBeatHistoLength);
@@ -170,14 +170,14 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
         for (auto n = 0; n < iNumBlocks; n++)
         {
             // get next novelty block
-            pCBlock->getNextBlock(m_pfProcessBuff);
+            pCBlock->getNextBlock(m_pfProcBuff);
 
             // compute magnitude spectrum
-            pCFft->compFft(m_pfProcessBuff, m_pfProcessBuff);
-            pCFft->getMagnitude(m_pfProcessBuff, m_pfProcessBuff);
+            pCFft->compFft(m_pfProcBuff, m_pfProcBuff);
+            pCFft->getMagnitude(m_pfProcBuff, m_pfProcBuff);
 
             // accumulate average spectrum
-            CVector::add_I(m_pfBeatHisto, m_pfProcessBuff, m_iBeatHistoLength);
+            CVector::add_I(m_pfBeatHisto, m_pfProcBuff, m_iBeatHistoLength);
         }
 
         // destroy FFT instance
@@ -210,7 +210,7 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
 Error_t CBeatHistoIf::reset_()
 {
     CVector::free(m_pfNovelty);
-    CVector::free(m_pfProcessBuff);
+    CVector::free(m_pfProcBuff);
     CVector::free(m_pfBeatHisto);
 
     m_iBlockLength = 0;
@@ -236,7 +236,7 @@ Error_t CBeatHistoIf::init_(const std::string& strAudioFilePath)
         m_pCNovelty->getTimeStamps(m_pfNovelty);
         m_fSampleRate = m_iHopLength / (m_pfNovelty[1] - m_pfNovelty[0]);
 
-        CVector::alloc(m_pfProcessBuff, static_cast<long long>(m_iBeatHistoLength) * 2);
+        CVector::alloc(m_pfProcBuff, static_cast<long long>(m_iBeatHistoLength) * 2);
 
         CVector::alloc(m_pfBeatHisto, static_cast<long long>(m_iBeatHistoLength) + 1);
 
@@ -247,16 +247,16 @@ Error_t CBeatHistoIf::init_(const std::string& strAudioFilePath)
         return Error_t::kMemError;
 }
 
-Error_t CBeatHistoIf::init_(const float* pfAudio, long long iNumFrames, float fSampleRate)
+Error_t CBeatHistoIf::init_(const float* pfAudio, long long iNumSamples, float fSampleRate)
 {
-    if (Error_t::kNoError == CNoveltyIf::create(m_pCNovelty, CNoveltyIf::kNoveltyFlux, pfAudio, iNumFrames, fSampleRate, m_iBlockLength, m_iHopLength))
+    if (Error_t::kNoError == CNoveltyIf::create(m_pCNovelty, CNoveltyIf::kNoveltyFlux, pfAudio, iNumSamples, fSampleRate, m_iBlockLength, m_iHopLength))
     {
         int iNumBlocks = 0;
         m_pCNovelty->getNumBlocks(iNumBlocks);
         assert(iNumBlocks > 2);
         CVector::alloc(m_pfNovelty, iNumBlocks);
 
-        CVector::alloc(m_pfProcessBuff, static_cast<long long>(m_iBeatHistoLength) * 2);
+        CVector::alloc(m_pfProcBuff, static_cast<long long>(m_iBeatHistoLength) * 2);
 
         CVector::alloc(m_pfBeatHisto, static_cast<long long>(m_iBeatHistoLength) + 1);
 

@@ -13,7 +13,7 @@ class CBlockAudioFile : public CBlockAudioIf
 public:
     CBlockAudioFile(CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength) :
         m_pCAudioFile(pCAudioFile),
-        m_pCRingBuffer(0),
+        m_pCRingBuff(0),
         m_ppfAudioData(0)
     {
         m_iBlockLength = iBlockLength;
@@ -31,17 +31,17 @@ public:
         m_iNumBlocks = m_iAudioLength / m_iHopLength + 1;
 
         // initialize read buffers
-        m_pCRingBuffer = new CRingBuffer<float>(iBlockLength+1);
+        m_pCRingBuff = new CRingBuffer<float>(iBlockLength+1);
         CMatrix::alloc(m_ppfAudioData, m_iNumChannels, iHopLength);
         
         // prefill from file to read buffer
-        while(m_pCRingBuffer->getNumValuesInBuffer() < m_pCRingBuffer->getLength() - m_iHopLength - 1)
+        while(m_pCRingBuff->getNumValuesInBuffer() < m_pCRingBuff->getLength() - m_iHopLength - 1)
             readFile2RingBuff();
     }
 
     virtual ~CBlockAudioFile()
     {
-        CVector::free(m_pCRingBuffer);
+        CVector::free(m_pCRingBuff);
 
         CMatrix::free(m_ppfAudioData, m_iNumChannels);
     }
@@ -59,27 +59,27 @@ public:
         // read from file to read buffer
         readFile2RingBuff();
 
-        int iNumFrames = m_iBlockLength;
+        int iNumSamples = m_iBlockLength;
         if (m_pCAudioFile->isEof())
-            iNumFrames = m_pCRingBuffer->getNumValuesInBuffer();
+            iNumSamples = m_pCRingBuff->getNumValuesInBuffer();
 
         // get data from ringbuffer and increment read index
-        m_pCRingBuffer->get(pfBlock, iNumFrames);
-        if (iNumFrames < m_iBlockLength)
+        m_pCRingBuff->get(pfBlock, iNumSamples);
+        if (iNumSamples < m_iBlockLength)
         {
             for (int c = 0; c < m_iNumChannels; c++)
-                CVector::setZero(&pfBlock[iNumFrames], static_cast<long long>(m_iBlockLength) - iNumFrames);
+                CVector::setZero(&pfBlock[iNumSamples], static_cast<long long>(m_iBlockLength) - iNumSamples);
 
-            iNumFrames = m_iHopLength;
+            iNumSamples = m_iHopLength;
         }
-        m_pCRingBuffer->setReadIdx(m_pCRingBuffer->getReadIdx() + m_iHopLength);
+        m_pCRingBuff->setReadIdx(m_pCRingBuff->getReadIdx() + m_iHopLength);
 
         if (pfTimeStamp)
             *pfTimeStamp = getTimeStamp(m_iCurrBlock);
         
         m_iCurrBlock++;
 
-        return iNumFrames;
+        return iNumSamples;
     }
 
 private:
@@ -89,29 +89,29 @@ private:
     inline void readFile2RingBuff()
     {        
         // set file read length variable
-        //long long iNumFrames = std::min(m_iHopLength, m_pCRingBuffer->getLength() - m_pCRingBuffer->getNumValuesInBuffer() + 1);
-        long long iNumFrames = m_iHopLength;
+        //long long iNumSamples = std::min(m_iHopLength, m_pCRingBuff->getLength() - m_pCRingBuff->getNumValuesInBuffer() + 1);
+        long long iNumSamples = m_iHopLength;
 
-        // read data (iNumOfFrames might be updated!)
-        m_pCAudioFile->readData(m_ppfAudioData, iNumFrames);
+        // read data (iNumOfSamples might be updated!)
+        m_pCAudioFile->readData(m_ppfAudioData, iNumSamples);
 
         // set buffer to zero if not written (EOF)
-        if (iNumFrames < m_iHopLength)
+        if (iNumSamples < m_iHopLength)
         {
             for (int c = 0; c < m_iNumChannels; c++)
-                CVector::setZero(&m_ppfAudioData[c][iNumFrames], m_iHopLength - iNumFrames);
+                CVector::setZero(&m_ppfAudioData[c][iNumSamples], m_iHopLength - iNumSamples);
             
-            iNumFrames = m_iHopLength;
+            iNumSamples = m_iHopLength;
         }
 
         // downmix in case of multichannel
-        CPreProc::downmix(m_ppfAudioData[0], m_ppfAudioData, m_iNumChannels, iNumFrames);
+        CPreProc::downmix(m_ppfAudioData[0], m_ppfAudioData, m_iNumChannels, iNumSamples);
 
         // write data into inputbuffer
-        m_pCRingBuffer->putPostInc(m_ppfAudioData[0], m_iHopLength);
+        m_pCRingBuff->putPostInc(m_ppfAudioData[0], m_iHopLength);
     }
     CAudioFileIf* m_pCAudioFile;
-    CRingBuffer<float>* m_pCRingBuffer;
+    CRingBuffer<float>* m_pCRingBuff;
     float** m_ppfAudioData;
 };
 
@@ -157,18 +157,18 @@ public:
         if (!m_pfAudioData)
             return -1;
 
-        int iNumFramesInBlock = m_iAudioLength - m_iCurrIdx < m_iBlockLength ? static_cast<int>(m_iAudioLength - m_iCurrIdx) : m_iBlockLength;
+        int iNumSamplesInBlock = m_iAudioLength - m_iCurrIdx < m_iBlockLength ? static_cast<int>(m_iAudioLength - m_iCurrIdx) : m_iBlockLength;
 
-        CVector::copy(pfBlock, &m_pfAudioData[m_iCurrIdx], iNumFramesInBlock);
-        CVector::setZero(&pfBlock[iNumFramesInBlock], static_cast<long long>(m_iBlockLength) - iNumFramesInBlock);
+        CVector::copy(pfBlock, &m_pfAudioData[m_iCurrIdx], iNumSamplesInBlock);
+        CVector::setZero(&pfBlock[iNumSamplesInBlock], static_cast<long long>(m_iBlockLength) - iNumSamplesInBlock);
 
         if (pfTimeStamp)
             *pfTimeStamp = getTimeStamp(m_iCurrBlock);
 
-        m_iCurrIdx += std::min(iNumFramesInBlock, m_iHopLength);
+        m_iCurrIdx += std::min(iNumSamplesInBlock, m_iHopLength);
         m_iCurrBlock++;
 
-        return iNumFramesInBlock;
+        return iNumSamplesInBlock;
     }
 
 private:

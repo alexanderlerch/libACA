@@ -88,47 +88,47 @@ Error_t CFft::getWindow( float *pfWindow ) const
     return Error_t::kNoError;
 }
 
-Error_t CFft::compFft( complex_t *pfSpectrum, const float *pfInput )
+Error_t CFft::compFft( complex_t *pfSpectrum, const float *pfIn )
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
-    if (!pfInput || !pfSpectrum)
+    if (!pfIn || !pfSpectrum)
         return Error_t::kFunctionInvalidArgsError;
 
     // copy data to internal buffer
-    CVector::copy(m_pfProcessBuff, pfInput, m_iDataLength);
-    CVector::setZero(&m_pfProcessBuff[m_iDataLength], static_cast<long long>(m_iFftLength)-m_iDataLength);
+    CVector::copy(m_pfProcBuff, pfIn, m_iDataLength);
+    CVector::setZero(&m_pfProcBuff[m_iDataLength], static_cast<long long>(m_iFftLength)-m_iDataLength);
 
     // apply window function
     if (m_ePrePostWindowOpt & kPreWindow)
-        CVector::mul_I(m_pfProcessBuff, m_pfWindowBuff, m_iDataLength);
+        CVector::mul_I(m_pfProcBuff, m_pfWindowBuff, m_iDataLength);
 
     // compute fft
-    LaszloFft::realfft_split(m_pfProcessBuff, m_iFftLength);
+    LaszloFft::realfft_split(m_pfProcBuff, m_iFftLength);
 
     // copy data to output buffer
-    CVector::copy(pfSpectrum, m_pfProcessBuff, m_iFftLength);
+    CVector::copy(pfSpectrum, m_pfProcBuff, m_iFftLength);
 
     return Error_t::kNoError;
 }
 
-Error_t CFft::compInvFft( float *pfOutput, const complex_t *pfSpectrum )
+Error_t CFft::compInvFft( float *pfOut, const complex_t *pfSpectrum )
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
 
     // copy data to internal buffer
-    CVector::copy(m_pfProcessBuff, pfSpectrum, m_iFftLength);
+    CVector::copy(m_pfProcBuff, pfSpectrum, m_iFftLength);
     
     // compute ifft
-    LaszloFft::irealfft_split(m_pfProcessBuff, m_iFftLength);
+    LaszloFft::irealfft_split(m_pfProcBuff, m_iFftLength);
 
     // apply window function
     if (m_ePrePostWindowOpt & kPostWindow)
-        CVector::mul_I(m_pfProcessBuff, m_pfWindowBuff, m_iDataLength);
+        CVector::mul_I(m_pfProcBuff, m_pfWindowBuff, m_iDataLength);
 
     // copy data to output buffer
-    CVector::copy(pfOutput, m_pfProcessBuff, m_iFftLength);
+    CVector::copy(pfOut, m_pfProcBuff, m_iFftLength);
 
     return Error_t::kNoError;
 }
@@ -256,10 +256,10 @@ void CFft::multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) cons
 
 Error_t CFft::allocMemory_()
 {
-    CVector::alloc(m_pfProcessBuff, m_iFftLength);
+    CVector::alloc(m_pfProcBuff, m_iFftLength);
     CVector::alloc(m_pfWindowBuff, m_iDataLength);
 
-    if (!m_pfProcessBuff || !m_pfWindowBuff)
+    if (!m_pfProcBuff || !m_pfWindowBuff)
         return Error_t::kMemError;
     else
     {
@@ -269,10 +269,10 @@ Error_t CFft::allocMemory_()
 
 Error_t CFft::freeMemory_()
 {
-    CVector::free(m_pfProcessBuff);
+    CVector::free(m_pfProcBuff);
     CVector::free(m_pfWindowBuff);
 
-    m_pfProcessBuff = 0;
+    m_pfProcBuff = 0;
     m_pfWindowBuff  = 0;
 
     return Error_t::kNoError;
