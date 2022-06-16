@@ -1704,7 +1704,7 @@ TEST_CASE("ToolsSeqFeatureSel", "[ToolsSeqFeatureSel]")
         CHECK(Error_t::kFunctionIllegalCallError == pCInstance->getResult(piResult, pfResult));
 
         CHECK(Error_t::kNoError == pCInstance->process(ppfData, piClass));
-        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->getResult(0, pfResult));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->getResult(0, pfResult));
 
         CHECK(Error_t::kNoError == pCInstance->getResult(piResult, pfResult));
 
@@ -1715,30 +1715,34 @@ TEST_CASE("ToolsSeqFeatureSel", "[ToolsSeqFeatureSel]")
     {
         for (auto n = 0; n < 4; n++)
         {
-            float fOffset = .12F;
-            ppfData[0][n] = .2F * (n * .1F) + .5F * fOffset;
-            ppfData[0][n + 4] = (n * .1F) - .5F * fOffset;
+            ppfData[0][n] = (n +1)* .1F -.29F;
+            ppfData[0][n + 4] = (n + 1) * .1F;
 
-            ppfData[1][n] = (n * .1F) - 2.F * fOffset; 
-            ppfData[1][n + 4] = (n * .1F) + 2.F * fOffset;
+            ppfData[1][n] = (n + 1) * .1F - .24F;
+            ppfData[1][n + 4] = (n + 1) * .1F + .24F;
 
             piClass[n + 4] = 1;
         }
         piClass[aiDim[1] - 1] = 0; //wrong class label
 
         // third feature is noise
-        CSynthesis::genNoise(ppfData[2], aiDim[1], .3F);
+        CSynthesis::genNoise(ppfData[2], aiDim[1]);
 
         CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
         CHECK(Error_t::kNoError == pCInstance->process(ppfData, piClass));
 
         CHECK(Error_t::kNoError == pCInstance->getResult(piResult, pfResult));
+        CHECK(1 == piResult[0]);
+        CHECK(0 == piResult[1]);
+        CHECK(2 == piResult[2]);
 
         CHECK(Error_t::kNoError == pCInstance->reset());
     }
 
     CMatrix::free(ppfData, aiDim[0]);
     CVector::free(piClass);
+    CVector::free(pfResult);
+    CVector::free(piResult);
 
     delete pCInstance;
 }

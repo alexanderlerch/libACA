@@ -14,7 +14,7 @@ class CGmmClassifier : public CClassifierBase
 {
 public:
     CGmmClassifier(void) {};
-    virtual ~CGmmClassifier(void);;
+    virtual ~CGmmClassifier(void);
 
 
     /*! initializes GmmClassifier instance
@@ -30,7 +30,7 @@ public:
     \param eNorm specification of what normalization should be applied to the feature data
     \return Error_t
     */
-    Error_t train(float** ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
+    Error_t train(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
 
     /*! resets GmmClassifier instance
     \return Error_t

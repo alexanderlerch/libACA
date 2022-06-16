@@ -32,7 +32,7 @@ public:
     \param eNorm specification of what normalization should be applied to the feature data
     \return Error_t
     */
-    virtual Error_t train(float** ppfTrainFeatures, const int* piTrainClassIndices, Normalization_t eNorm = kNoNormalization) = 0;
+    virtual Error_t train(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices, Normalization_t eNorm = kNoNormalization) = 0;
 
     /*! resets classifier instance
     \return Error_t
@@ -58,10 +58,10 @@ protected:
     \param iNumObs number of observations (columns in the feature matrix)
     \param eNorm method for normalization
     */
-    virtual void compNormConstants(float** ppfTrainFeatures, int iNumFeatures, int iNumObs, Normalization_t eNorm)
+    virtual void compNormConstants(const float *const *const ppfTrainFeatures, int iNumFeatures, int iNumObs, Normalization_t eNorm)
     {
-        if (!m_pfNormScale) CVector::alloc(m_pfNormScale, iNumFeatures);
-        if (!m_pfNormSub) CVector::alloc(m_pfNormSub, iNumFeatures);
+        assert (m_pfNormScale);
+        assert (m_pfNormSub);
 
         // normalization constants
         if (eNorm == kZscoreNormalization)

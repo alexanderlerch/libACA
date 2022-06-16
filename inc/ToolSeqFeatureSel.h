@@ -9,7 +9,7 @@
 class CKnn;
 class CLeaveOneOutCrossVal;
 
-/*! \brief computation of leav one out cross validation
+/*! \brief computation of sequential feature forward selection
 */
 class CSeqFeatureSel
 {
@@ -20,7 +20,6 @@ public:
     /*! initializes SeqFeatureSel instance
     \param iNumFeatures number of features (rows in the input matrix)
     \param iNumObservations number of observations (columns in the feature matrix)
-    \param pCClassifier classifier to be used internally
     \return Error_t
     */
     Error_t init(int iNumFeatures, int iNumObservations);
@@ -32,7 +31,9 @@ public:
     */
     Error_t process(float** ppfFeatures, const int* piClassIndices);
 
-    /*! resets SeqFeatureSel instance
+    /*! writes results after processing
+    \param piFeatureIndices sorted feature indices, best first (dimensions iNumFeatures)
+    \param pfAccuracyPerStep best accuracy for each combination (1 feature, 2 features, 3 features...)
     \return Error_t
     */
     Error_t getResult(int *piFeatureIndices, float *pfAccuracyPerStep = 0);

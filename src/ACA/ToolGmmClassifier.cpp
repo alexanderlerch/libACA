@@ -19,6 +19,9 @@ Error_t CGmmClassifier::init(int iNumFeatures, int iNumObservations)
     // worst case: number of classes equals number of observations
     CVector::alloc(m_piClassLabels, m_iNumObs);
 
+    CVector::alloc(m_pfNormScale, m_iNumFeatures);
+    CVector::alloc(m_pfNormSub, m_iNumFeatures);
+
     CVector::alloc(m_pfQuery, m_iNumFeatures);
 
     m_bIsInitialized = true;
@@ -26,7 +29,7 @@ Error_t CGmmClassifier::init(int iNumFeatures, int iNumObservations)
     return Error_t::kNoError;
 }
 
-Error_t CGmmClassifier::train(float** ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
+Error_t CGmmClassifier::train(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -97,6 +100,9 @@ Error_t CGmmClassifier::reset()
     for (auto c = 0; c < m_iNumClasses; c++)
         delete m_ppCGmmResult[c];
     CVector::free(m_ppCGmmResult);
+
+    CVector::free(m_pfNormScale);
+    CVector::free(m_pfNormSub);
 
     m_iNumClasses = 0;
     m_iNumFeatures = 0;

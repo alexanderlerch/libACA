@@ -56,14 +56,14 @@ Error_t CSeqFeatureSel::process(float** ppfFeatures, const int* piClassIndices)
 
         fAcc = m_pCCv->process(&ppfFeatures[v], piClassIndices);
 
-        if (fAcc > m_pfAccuracy[0])
+        if (fAcc >= m_pfAccuracy[0])
         {
             m_pfAccuracy[0] = fAcc;
             m_piSelFeatures[0] = v;
         }
     }
 
-    CVector::copy(m_ppfTrain[0], ppfFeatures[m_piSelFeatures[0]], m_iNumFeatures);
+    CVector::copy(m_ppfTrain[0], ppfFeatures[m_piSelFeatures[0]], m_iNumObs);
     iNumSelFeatures++;
 
     // iterate until target number of features is reached
@@ -77,20 +77,22 @@ Error_t CSeqFeatureSel::process(float** ppfFeatures, const int* piClassIndices)
             if (isFeatureAlreadySelected_(v))
                 continue;
 
+
             // add current feature v to internal feature matrix
             CVector::copy(m_ppfTrain[iNumSelFeatures], ppfFeatures[v], m_iNumObs);
 
-            m_pCCv->init(iNumSelFeatures + 1, m_iNumObs, m_pCClassifier);
+            m_pCCv->init(iNumSelFeatures+1, m_iNumObs, m_pCClassifier);
 
             //accuracy of selected features plus current feature f
             fAcc = m_pCCv->process(m_ppfTrain, piClassIndices);
 
-            if (fAcc > m_pfAccuracy[iNumSelFeatures])
+            if (fAcc >= m_pfAccuracy[iNumSelFeatures])
             {
                 m_pfAccuracy[iNumSelFeatures] = fAcc;
                 m_piSelFeatures[iNumSelFeatures] = v;
             }
         }
+        assert(m_piSelFeatures[iNumSelFeatures] >= 0 && m_piSelFeatures[iNumSelFeatures] < m_iNumFeatures);
         CVector::copy(m_ppfTrain[iNumSelFeatures], ppfFeatures[m_piSelFeatures[iNumSelFeatures]], m_iNumObs);
         iNumSelFeatures++;
     }
