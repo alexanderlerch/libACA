@@ -1,5 +1,4 @@
 var a00140 =
 [
-    [ "CPreProc", "a00614.xhtml", "a00614" ],
-    [ "CNormalizeAudio", "a00618.xhtml", "a00618" ]
+    [ "CSynthesis", "a00494.xhtml", "a00494" ]
 ];

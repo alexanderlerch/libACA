@@ -1,4 +1,4 @@
 var a00221 =
 [
-    [ "CResample", "a00622.xhtml", "a00622" ]
+    [ "CPca", "a00598.xhtml", "a00598" ]
 ];

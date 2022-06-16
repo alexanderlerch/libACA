@@ -1,5 +1,14 @@
 var a00293 =
 [
-    [ "irealfft_split", "a00293.xhtml#a3597bc1b9aa8e068d7313a72c4e51eef", null ],
-    [ "realfft_split", "a00293.xhtml#a32fc71031e721d003fd1dc07f771351d", null ]
+    [ "HAVE_COMPLEX_NUMBERS", "a00293.xhtml#aa013e8e7ea443eae9c8b2fbc2b8f322f", null ],
+    [ "HAVE_COMPLEX_TRIG", "a00293.xhtml#a101d64ed7045ed40a8d845badc182da3", null ],
+    [ "HAVE_EXTENSION_LANGUAGE", "a00293.xhtml#afb91a3753b58e7e6ccd636b1bd232e1e", null ],
+    [ "HAVE_MAKE_RATIO", "a00293.xhtml#ae553220da2ab2e5a35ac290a74b1fb2d", null ],
+    [ "HAVE_SCHEME", "a00293.xhtml#a08c07eff4b9aa0f372c0fad3c947051f", null ],
+    [ "SIZEOF_VOID_P", "a00293.xhtml#a92616c6df51185d4cf143d10fe85739c", null ],
+    [ "snprintf", "a00293.xhtml#aa367b75c5aed883fef5befbdf04835a4", null ],
+    [ "ssize_t", "a00293.xhtml#a8af93bbb66534e14d651bbb0638ee796", null ],
+    [ "strtoll", "a00293.xhtml#a3b96deb1c5b8e33fe2274b4578687e72", null ],
+    [ "USE_SND", "a00293.xhtml#a26855b4bbab484d90855c2b547951194", null ],
+    [ "off_t", "a00293.xhtml#af83497edef361523a95b06deda0b4c2d", null ]
 ];

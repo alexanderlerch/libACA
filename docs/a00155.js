@@ -1,4 +1,4 @@
 var a00155 =
 [
-    [ "CMatrix", "a00498.xhtml", "a00498" ]
+    [ "CVector", "a00502.xhtml", "a00502" ]
 ];

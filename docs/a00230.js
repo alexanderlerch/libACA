@@ -1,4 +1,4 @@
 var a00230 =
 [
-    [ "CGmmClassifier", "a00582.xhtml", "a00582" ]
+    [ "CFingerprint", "a00554.xhtml", "a00554" ]
 ];

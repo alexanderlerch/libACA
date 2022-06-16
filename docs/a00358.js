@@ -1,10 +1,18 @@
 var a00358 =
 [
-    [ "CFeatureTimeAcfCoeff", "a00358.xhtml#a4d9f483ca05473ce8e9f1cc608dd03af", null ],
-    [ "~CFeatureTimeAcfCoeff", "a00358.xhtml#a333eda68b61727626bc1b9c24bfff337", null ],
-    [ "CFeatureTimeAcfCoeff", "a00358.xhtml#a033ad4a66e7e62644a250a872651f9db", null ],
-    [ "compFeature", "a00358.xhtml#abc5455e83eba5a49954ae64833d1d084", null ],
-    [ "hasAdditionalParam", "a00358.xhtml#a799b62c99e4e4ab09aae77e73f85a1af", null ],
-    [ "setAdditionalParam", "a00358.xhtml#a6c123f32dc4ddf5b63ff41d03ea574a2", null ],
-    [ "m_iEta", "a00358.xhtml#ab062957c171d0fa090ec2cf567907477", null ]
+    [ "RmsType_t", "a00358.xhtml#a7807a1c5f7cf3b671f91c2c219dc0710", [
+      [ "kBlock", "a00358.xhtml#a7807a1c5f7cf3b671f91c2c219dc0710a63311fad1672e52cdfd16449fb56a234", null ],
+      [ "kLowpass", "a00358.xhtml#a7807a1c5f7cf3b671f91c2c219dc0710a5199de0b5750680928c9a0315be4c4b0", null ],
+      [ "kNumRmsTypes", "a00358.xhtml#a7807a1c5f7cf3b671f91c2c219dc0710aa5e73589fa65c485c38b59d19906004d", null ]
+    ] ],
+    [ "CFeatureTimeRms", "a00358.xhtml#a84b694f264292580080e3604e30b3409", null ],
+    [ "~CFeatureTimeRms", "a00358.xhtml#aaa2ceab5029b9d648e492ddc0b6ffb4f", null ],
+    [ "CFeatureTimeRms", "a00358.xhtml#a32543ce16ae631547984c2927d64d9ac", null ],
+    [ "CFeatureTimeRms", "a00358.xhtml#acb267f4c5c9b8a53384fc44b602eaa24", null ],
+    [ "compFeature", "a00358.xhtml#a0d5c1ad84a07183a43397c5666489733", null ],
+    [ "getFeatureDimensions", "a00358.xhtml#a69b3e227ffcbca082fbe0aac97a8e267", null ],
+    [ "hasAdditionalParam", "a00358.xhtml#a0ac27ca50b3a6e88b08536fdcdd2b466", null ],
+    [ "setAdditionalParam", "a00358.xhtml#af460352621ac7a18676d0a361c1df51e", null ],
+    [ "m_fIntegrationTimeInS", "a00358.xhtml#ae069b181a2b3f12ad4dc76a81f81962e", null ],
+    [ "m_pCSinglePole", "a00358.xhtml#a6109ba1cfd030906ae6339ff43ccb676", null ]
 ];

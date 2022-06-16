@@ -1,6 +1,7 @@
 var searchData=
 [
-  ['lastassertionpassed_0',['lastAssertionPassed',['../a00886.xhtml#a973435fbdcb2f6f07a0ec5719a01e956',1,'Catch::IResultCapture']]],
-  ['lazyexpression_1',['LazyExpression',['../a00894.xhtml#a47186c2487bd4bf871e870ba8048553a',1,'Catch::LazyExpression::LazyExpression(bool isNegated)'],['../a00894.xhtml#ab82d5e94df0e159b018fbde0170e46f8',1,'Catch::LazyExpression::LazyExpression(LazyExpression const &amp;other)']]],
-  ['lookup_2',['lookup',['../a00730.xhtml#a2fdfacc411d7afb1cb690366e5e49cb3',1,'Catch::Detail::EnumInfo']]]
+  ['nextpowof2_0',['nextPowOf2',['../a00498.xhtml#a0fd55429d52515a9efb2fe602ce8f9ed',1,'CUtil']]],
+  ['normalizeblock_1',['normalizeBlock',['../a00606.xhtml#aa8a561b4133585586c5b595116a9217f',1,'CNormalizeAudio']]],
+  ['normalizesignal_2',['normalizeSignal',['../a00606.xhtml#a9a0dbb8f97c757a13062370113d661c4',1,'CNormalizeAudio']]],
+  ['normalizevector_3',['normalizeVector',['../a00462.xhtml#ac6a2a71d24b2beaa2b183d8659fd93f8',1,'CClassifierBase']]]
 ];

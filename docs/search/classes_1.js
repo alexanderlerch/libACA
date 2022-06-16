@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['binaryexpr_0',['BinaryExpr',['../a00870.xhtml',1,'Catch']]]
+  ['filespec_5ft_0',['FileSpec_t',['../a00446.xhtml',1,'CAudioFileIf']]]
 ];

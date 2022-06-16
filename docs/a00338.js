@@ -1,10 +1,10 @@
 var a00338 =
 [
-    [ "CFeatureSpectralFlux", "a00338.xhtml#a1a45f132f54b2f2f3d63f0827dc8300f", null ],
-    [ "~CFeatureSpectralFlux", "a00338.xhtml#a3c5685b11c974c54df140122f7cbae9d", null ],
-    [ "CFeatureSpectralFlux", "a00338.xhtml#a3d14a66015eeea822a51bc8011e7ffa6", null ],
-    [ "CFeatureSpectralFlux", "a00338.xhtml#a384605d1f9d59006342d548e7da1fd5c", null ],
-    [ "compFeature", "a00338.xhtml#a7708c61b60debf97d717d637677fc36f", null ],
-    [ "operator=", "a00338.xhtml#a7edd2e4909ab2b6bda983779fa3b7fed", null ],
-    [ "m_pfPrevSpec", "a00338.xhtml#a0e7559e5ea0ca227f148f06aaa8edc06", null ]
+    [ "CFeatureSpectralRolloff", "a00338.xhtml#a359548bbc22d19f80107d6a5be02ff3f", null ],
+    [ "~CFeatureSpectralRolloff", "a00338.xhtml#a306b5b080d6754bd3363d140a8569ac4", null ],
+    [ "CFeatureSpectralRolloff", "a00338.xhtml#a45483b9e6364cf0b5a40109bae814c9a", null ],
+    [ "compFeature", "a00338.xhtml#a05fb25d2482c0add358ab03042df55d2", null ],
+    [ "hasAdditionalParam", "a00338.xhtml#aace9db3eee49887a8fae69c07475fe19", null ],
+    [ "setAdditionalParam", "a00338.xhtml#ae0c52ddeb125740c60dd33c003e6b257", null ],
+    [ "m_fKappa", "a00338.xhtml#a02a9041087ff93f1a406103f34772a9c", null ]
 ];

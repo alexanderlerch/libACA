@@ -1,21 +1,10 @@
 var a00342 =
 [
-    [ "CFeatureSpectralMfccs", "a00342.xhtml#a4ffe272900bf3ba5bbab219262506455", null ],
-    [ "~CFeatureSpectralMfccs", "a00342.xhtml#abc120e956529cb5d1f6bf881d151bf19", null ],
-    [ "CFeatureSpectralMfccs", "a00342.xhtml#a4aa17843a870798cf3d832dfb2eaaa03", null ],
-    [ "CFeatureSpectralMfccs", "a00342.xhtml#a889bd4dcf169493969f357136bc28781", null ],
-    [ "allocDctMat_", "a00342.xhtml#a939a14f9a0c6b6a7ac974b2899b57e95", null ],
-    [ "compFeature", "a00342.xhtml#a92ff3ebff9377acf3573f6b4d87a4bcd", null ],
-    [ "deleteDctMat_", "a00342.xhtml#a9ad8bb5ff88bbbfe48231eab00e5e1d4", null ],
-    [ "genDctMat_", "a00342.xhtml#a4fd7b7171c56ba1be8191ca660f6fbcc", null ],
-    [ "genMfccFilters_", "a00342.xhtml#a2123af520406a1b09fcf2437043c3b92", null ],
-    [ "getFeatureDimensions", "a00342.xhtml#a8cf08736ea318aa731360a217eba5340", null ],
-    [ "hasAdditionalParam", "a00342.xhtml#ab3adc3df302d75ed8be5918eb18a52ab", null ],
-    [ "operator=", "a00342.xhtml#a8a617855193547e88f305b0a20c91045", null ],
-    [ "setAdditionalParam", "a00342.xhtml#a6ffd2585db71bf5b44aedc15223525e6", null ],
-    [ "m_iNumBands", "a00342.xhtml#ad8bac3da17b240643991fc6bf5840f32", null ],
-    [ "m_iNumMfcCoeffs", "a00342.xhtml#acc5746c538c81cbbbc91b4c4558f7dd5", null ],
-    [ "m_pfMelSpec", "a00342.xhtml#ab929d28489bf815a6b685c0348410422", null ],
-    [ "m_ppfDct", "a00342.xhtml#a5db1108b35d1c58451ae1eb617cf8591", null ],
-    [ "m_ppfH", "a00342.xhtml#ad58efcd5d0eebe8e956ff1e07a0edc17", null ]
+    [ "CFeatureSpectralTonalPowerRatio", "a00342.xhtml#a7764422109054089962bc42187381be3", null ],
+    [ "~CFeatureSpectralTonalPowerRatio", "a00342.xhtml#a2f591e8bf6d09ec04fef149e581e769e", null ],
+    [ "CFeatureSpectralTonalPowerRatio", "a00342.xhtml#aaf8ec498a5d6e6a8d27db98ae4808448", null ],
+    [ "compFeature", "a00342.xhtml#a082f6b5f0e32c5ea667437398bbfc8df", null ],
+    [ "hasAdditionalParam", "a00342.xhtml#abbf784ac24f69555002f2bae7fec93bf", null ],
+    [ "setAdditionalParam", "a00342.xhtml#a0f92352db0347a6295d817ddc2a5d5db", null ],
+    [ "m_fThresh", "a00342.xhtml#aa12751fa8cb1b3a8b48452cc2b2421f4", null ]
 ];

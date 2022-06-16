@@ -1,38 +1,27 @@
 var a00626 =
 [
-    [ "Directions_t", "a00626.xhtml#a952828125cfee61b5dc7023a6942d8d8", [
-      [ "kHoriz", "a00626.xhtml#a952828125cfee61b5dc7023a6942d8d8af879ad646afe0857701f90f15346aca9", null ],
-      [ "kVert", "a00626.xhtml#a952828125cfee61b5dc7023a6942d8d8a6eac7496e4fc1c79481dd4b31c4d8215", null ],
-      [ "kDiag", "a00626.xhtml#a952828125cfee61b5dc7023a6942d8d8a242c565a0ee23efa26b35f6faf5b1c5f", null ],
-      [ "kNumDirections", "a00626.xhtml#a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580", null ]
-    ] ],
-    [ "InternalMemory_t", "a00626.xhtml#a8bba3580a2af5fb3aa30a261e92f4e8e", [
-      [ "kRowCurr", "a00626.xhtml#a8bba3580a2af5fb3aa30a261e92f4e8eaf1e18e44433bb57b54d473db0cdf5e98", null ],
-      [ "kRowNext", "a00626.xhtml#a8bba3580a2af5fb3aa30a261e92f4e8ea43462f6a4bc4c84b1e2f57bbc4459fd9", null ],
-      [ "kNumVectors", "a00626.xhtml#a8bba3580a2af5fb3aa30a261e92f4e8ea9faf598035a26f07dd2be36eb6db0cfa", null ]
-    ] ],
-    [ "MatrixDimension_t", "a00626.xhtml#acdd40f3bfb01336401e145c0a8b1c19a", [
-      [ "kRow", "a00626.xhtml#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7", null ],
-      [ "kCol", "a00626.xhtml#acdd40f3bfb01336401e145c0a8b1c19aa7eca36ede55f1f691cf41828b017ca0f", null ],
-      [ "kNumMatrixDimensions", "a00626.xhtml#acdd40f3bfb01336401e145c0a8b1c19aa1d7caf394c23dc1bd3bf7dca303d82f8", null ]
-    ] ],
-    [ "CDtw", "a00626.xhtml#a9c81702f9537b30c7617ac9042efc950", null ],
-    [ "~CDtw", "a00626.xhtml#a42e62c6146b79e4f7fe3bcda0e4a7f8d", null ],
-    [ "CDtw", "a00626.xhtml#aa9fdcc3dc151af77aa0d76ae4fd43f5f", null ],
-    [ "compDtw", "a00626.xhtml#a27d97d54ec23bdc32778a75204d22842", null ],
-    [ "findMin_", "a00626.xhtml#a91a31c5e78ab3531487f88efdb1f692b", null ],
-    [ "getPath", "a00626.xhtml#aee6c75c20122f52d76af2f4f45d0340d", null ],
-    [ "getPathCost", "a00626.xhtml#abe81d89a7409c0be04dd442de5d0e4e7", null ],
-    [ "getPathLength", "a00626.xhtml#ae09e20ce6b9304f01432703690c0348c", null ],
-    [ "init", "a00626.xhtml#a7d2996c3f1403a60b5f63ead12540c02", null ],
-    [ "operator=", "a00626.xhtml#a11f2be0ffe9b8d051fb5da72182afa62", null ],
-    [ "reset", "a00626.xhtml#a5b1d2405bd0a819817aeff8570dead68", null ],
-    [ "aiDecrement", "a00626.xhtml#ab94c3f74b1e97b765b56f5dd026903e5", null ],
-    [ "m_aiMatrixDimensions", "a00626.xhtml#ad4c6ae811ccd18d2db85034456741de6", null ],
-    [ "m_apfCost", "a00626.xhtml#a093e77dbbc6b8f0050920fcced7c1fae", null ],
-    [ "m_bIsInitialized", "a00626.xhtml#a56fd00d026c18c656bcd17a3b7a188b4", null ],
-    [ "m_bWasProcessed", "a00626.xhtml#ab54aa8518a3e355b5a473aadd27348d0", null ],
-    [ "m_fOverallCost", "a00626.xhtml#ac425769f0fe862aeb097bc999c3e76a3", null ],
-    [ "m_iLengthOfPath", "a00626.xhtml#ad009bf3fbd8554a07eaa6ef72099485b", null ],
-    [ "m_ppePathIdx", "a00626.xhtml#a1324ec2c82f7cda3557e620b6232de98", null ]
+    [ "CKnn", "a00626.xhtml#af72a4a1ea093075b7b515358bc32f0fc", null ],
+    [ "~CKnn", "a00626.xhtml#afdcd6685b49c99b5f0b2cd7e492c516c", null ],
+    [ "CKnn", "a00626.xhtml#a2f5fbba1a9faa9f70f1138ba3c02deaf", null ],
+    [ "buildHistogram_", "a00626.xhtml#a875c603ba28294ac2575eb6e06407018", null ],
+    [ "classify", "a00626.xhtml#a16bb56f19951aee5c4986a9dc7aeb853", null ],
+    [ "countMaxima_", "a00626.xhtml#aa92470fc0e97510d9b2f4d4da8e86bfb", null ],
+    [ "getParamK", "a00626.xhtml#ac2c230c0091a2cf45a4305bb1db210cd", null ],
+    [ "init", "a00626.xhtml#ab1ab383af20419973c27d20aac263e27", null ],
+    [ "operator=", "a00626.xhtml#a882e4ec4e16f8b55a8fcaefbf7f98d03", null ],
+    [ "reset", "a00626.xhtml#a75658b6df984b6a8c00049f35de655a8", null ],
+    [ "setParamK", "a00626.xhtml#a1316452b2327c722f61ba7e2d78fb333", null ],
+    [ "train", "a00626.xhtml#aedd5ce22bf1cf98b70cc3757ba244b94", null ],
+    [ "m_bIsInitialized", "a00626.xhtml#ae232726e55c0fc54e57e1cadfeeebb54", null ],
+    [ "m_iK", "a00626.xhtml#ac71dc4421a9eee8c2be3b45412a8fdac", null ],
+    [ "m_iNumFeatures", "a00626.xhtml#aed813f15d7daf560aa8e7265116ac6c2", null ],
+    [ "m_iNumObs", "a00626.xhtml#a0865e733a21353a58ab79fa5209656e8", null ],
+    [ "m_pfHist", "a00626.xhtml#a8e26fe47e07767294f478d53a240ec5c", null ],
+    [ "m_pfQuery", "a00626.xhtml#a77befb515c2aeb161d01f99d2d972a84", null ],
+    [ "m_pfSortDist", "a00626.xhtml#a2c6f89f8780facdce5d20b2aa5c67725", null ],
+    [ "m_piClassLabels", "a00626.xhtml#a909b3d2ac17876263df64cb0785ff432", null ],
+    [ "m_piHistCount", "a00626.xhtml#aa983e4a2cfa81ebb92dbb3d06e15c1b3", null ],
+    [ "m_piHistLabel", "a00626.xhtml#a009efb42ed0fd32427825efec5798403", null ],
+    [ "m_piSortIdx", "a00626.xhtml#adc1e0d22988b9e13f295f1c2965d32bb", null ],
+    [ "m_ppfTrain", "a00626.xhtml#a400556e4af6b707e404d03da0c39c040", null ]
 ];

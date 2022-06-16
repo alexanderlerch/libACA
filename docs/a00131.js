@@ -1,4 +1,4 @@
 var a00131 =
 [
-    [ "CKnn", "a00634.xhtml", "a00634" ]
+    [ "CSeqFeatureSel", "a00614.xhtml", "a00614" ]
 ];

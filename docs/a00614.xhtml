@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CPreProc Class Reference</title>
+<title>ACA: CSeqFeatureSel Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.7</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.8</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -84,35 +84,83 @@ $(document).ready(function(){initNavTree('a00614.xhtml',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pub-methods">Public Member Functions</a> &#124;
+<a href="#pri-methods">Private Member Functions</a> &#124;
+<a href="#pri-attribs">Private Attributes</a> &#124;
 <a href="a00611.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CPreProc Class Reference</div></div>
+  <div class="headertitle"><div class="title">CSeqFeatureSel Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class with static utility functions for pre-processing  
+<p>computation of sequential feature forward selection  
  <a href="a00614.xhtml#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00140_source.xhtml">ToolPreProc.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CPreProc:</div>
+Collaboration diagram for CSeqFeatureSel:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00612.svg" width="206" height="132"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00612.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:af7639b7368293c01c130192067fe0f4b"><td class="memItemLeft" align="right" valign="top">static void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#af7639b7368293c01c130192067fe0f4b">downmix</a> (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)</td></tr>
-<tr class="separator:af7639b7368293c01c130192067fe0f4b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a826be02d0e9d6bab9025094db84e84b0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a826be02d0e9d6bab9025094db84e84b0">CSeqFeatureSel</a> (void)</td></tr>
+<tr class="separator:a826be02d0e9d6bab9025094db84e84b0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae436edd42d6b3d5c98b3a962ced9bc11"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#ae436edd42d6b3d5c98b3a962ced9bc11">~CSeqFeatureSel</a> (void)</td></tr>
+<tr class="separator:ae436edd42d6b3d5c98b3a962ced9bc11"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e2c224f43fc877de57de9bee09dd1b5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a5e2c224f43fc877de57de9bee09dd1b5">init</a> (int iNumFeatures, int iNumObservations)</td></tr>
+<tr class="separator:a5e2c224f43fc877de57de9bee09dd1b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ada8088ac0cdb2871fcd1225193f4d6b2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#ada8088ac0cdb2871fcd1225193f4d6b2">process</a> (float **ppfFeatures, const int *piClassIndices)</td></tr>
+<tr class="separator:ada8088ac0cdb2871fcd1225193f4d6b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52a20ed496e0580e6b2a600c144933ae"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a52a20ed496e0580e6b2a600c144933ae">getResult</a> (int *piFeatureIndices, float *pfAccuracyPerStep=0)</td></tr>
+<tr class="separator:a52a20ed496e0580e6b2a600c144933ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37d8f47dd6453ece94d1d2dda95be5d2"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a37d8f47dd6453ece94d1d2dda95be5d2">reset</a> ()</td></tr>
+<tr class="separator:a37d8f47dd6453ece94d1d2dda95be5d2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
+Private Member Functions</h2></td></tr>
+<tr class="memitem:a4fa4e79da37d6d0f2e927179710e4942"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a4fa4e79da37d6d0f2e927179710e4942">CSeqFeatureSel</a> (const <a class="el" href="a00614.xhtml">CSeqFeatureSel</a> &amp;that)</td></tr>
+<tr class="memdesc:a4fa4e79da37d6d0f2e927179710e4942"><td class="mdescLeft">&#160;</td><td class="mdescRight">disallow copy construction <br  />
+  <a href="a00614.xhtml#a4fa4e79da37d6d0f2e927179710e4942">More...</a><br /></td></tr>
+<tr class="separator:a4fa4e79da37d6d0f2e927179710e4942"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad86c6d401fabb4fbff5bc67a05d98a0d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00614.xhtml">CSeqFeatureSel</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#ad86c6d401fabb4fbff5bc67a05d98a0d">operator=</a> (const <a class="el" href="a00614.xhtml">CSeqFeatureSel</a> &amp;c)</td></tr>
+<tr class="separator:ad86c6d401fabb4fbff5bc67a05d98a0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1d992125ee7fc762e92b8a466ad2ce06"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a1d992125ee7fc762e92b8a466ad2ce06">isFeatureAlreadySelected_</a> (int iFeatureIdx) const</td></tr>
+<tr class="separator:a1d992125ee7fc762e92b8a466ad2ce06"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
+Private Attributes</h2></td></tr>
+<tr class="memitem:ac2ae3f34d003639ceec8511c9e2789d9"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a> = 0</td></tr>
+<tr class="memdesc:ac2ae3f34d003639ceec8511c9e2789d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of features  <a href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">More...</a><br /></td></tr>
+<tr class="separator:ac2ae3f34d003639ceec8511c9e2789d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5df7e7381cd30f8c35450e38713a0f86"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a> = 0</td></tr>
+<tr class="memdesc:a5df7e7381cd30f8c35450e38713a0f86"><td class="mdescLeft">&#160;</td><td class="mdescRight">number of neighbors for classification  <a href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">More...</a><br /></td></tr>
+<tr class="separator:a5df7e7381cd30f8c35450e38713a0f86"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a392858208018eedcb6d15a6563b1a54d"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">m_ppfTrain</a> = 0</td></tr>
+<tr class="memdesc:a392858208018eedcb6d15a6563b1a54d"><td class="mdescLeft">&#160;</td><td class="mdescRight">train data (m_iNumObs X m_iNumFeatures)  <a href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">More...</a><br /></td></tr>
+<tr class="separator:a392858208018eedcb6d15a6563b1a54d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0ccab064000f2b38b07b626233f6936"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">m_pfAccuracy</a> = 0</td></tr>
+<tr class="separator:af0ccab064000f2b38b07b626233f6936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af529f7c73a6f6306d980830260b40b81"><td class="memItemLeft" align="right" valign="top">int *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a> = 0</td></tr>
+<tr class="separator:af529f7c73a6f6306d980830260b40b81"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e6a4a01a843b3048372d7e11945c00e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00626.xhtml">CKnn</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a6e6a4a01a843b3048372d7e11945c00e">m_pCClassifier</a> = 0</td></tr>
+<tr class="separator:a6e6a4a01a843b3048372d7e11945c00e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6522d1cf27aa294ed9b778182c91f2cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00578.xhtml">CLeaveOneOutCrossVal</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">m_pCCv</a> = 0</td></tr>
+<tr class="separator:a6522d1cf27aa294ed9b778182c91f2cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8c084903a3b8fb0c4ed2673f4782e016"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#a8c084903a3b8fb0c4ed2673f4782e016">m_bIsInitialized</a> = <a class="el" href="a00284.xhtml#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
+<tr class="memdesc:a8c084903a3b8fb0c4ed2673f4782e016"><td class="mdescLeft">&#160;</td><td class="mdescRight">indicates if instance has been properly initialized  <a href="a00614.xhtml#a8c084903a3b8fb0c4ed2673f4782e016">More...</a><br /></td></tr>
+<tr class="separator:a8c084903a3b8fb0c4ed2673f4782e016"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa2df6f8e544a07b6e65938ec82470531"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00614.xhtml#aa2df6f8e544a07b6e65938ec82470531">m_bWasProcessed</a> = <a class="el" href="a00284.xhtml#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
+<tr class="separator:aa2df6f8e544a07b6e65938ec82470531"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class with static utility functions for pre-processing </p>
+<div class="textblock"><p >computation of sequential feature forward selection </p>
 
-<p class="definition">Definition at line <a class="el" href="a00140_source.xhtml#l00013">13</a> of file <a class="el" href="a00140_source.xhtml">ToolPreProc.h</a>.</p>
-</div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="af7639b7368293c01c130192067fe0f4b" name="af7639b7368293c01c130192067fe0f4b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af7639b7368293c01c130192067fe0f4b">&#9670;&nbsp;</a></span>downmix()</h2>
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00014">14</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a826be02d0e9d6bab9025094db84e84b0" name="a826be02d0e9d6bab9025094db84e84b0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a826be02d0e9d6bab9025094db84e84b0">&#9670;&nbsp;</a></span>CSeqFeatureSel() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -121,28 +169,110 @@ Static Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">static void CPreProc::downmix </td>
+          <td class="memname">CSeqFeatureSel::CSeqFeatureSel </td>
           <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00017">17</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   17</span>{};</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="ae436edd42d6b3d5c98b3a962ced9bc11" name="ae436edd42d6b3d5c98b3a962ced9bc11"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae436edd42d6b3d5c98b3a962ced9bc11">&#9670;&nbsp;</a></span>~CSeqFeatureSel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSeqFeatureSel::~CSeqFeatureSel </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00101_source.xhtml#l00010">10</a> of file <a class="el" href="a00101_source.xhtml">ToolSeqFeatureSel.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   10</span>{ <a class="code hl_function" href="a00614.xhtml#a37d8f47dd6453ece94d1d2dda95be5d2">reset</a>(); }</div>
+<div class="ttc" id="aa00614_xhtml_a37d8f47dd6453ece94d1d2dda95be5d2"><div class="ttname"><a href="a00614.xhtml#a37d8f47dd6453ece94d1d2dda95be5d2">CSeqFeatureSel::reset</a></div><div class="ttdeci">Error_t reset()</div><div class="ttdef"><b>Definition:</b> <a href="a00101_source.xhtml#l00118">ToolSeqFeatureSel.cpp:118</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00614_ae436edd42d6b3d5c98b3a962ced9bc11_cgraph.svg" width="100%" height="300"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a4fa4e79da37d6d0f2e927179710e4942" name="a4fa4e79da37d6d0f2e927179710e4942"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4fa4e79da37d6d0f2e927179710e4942">&#9670;&nbsp;</a></span>CSeqFeatureSel() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CSeqFeatureSel::CSeqFeatureSel </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00614.xhtml">CSeqFeatureSel</a> &amp;&#160;</td>
+          <td class="paramname"><em>that</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>disallow copy construction <br  />
+ </p>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="a52a20ed496e0580e6b2a600c144933ae" name="a52a20ed496e0580e6b2a600c144933ae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a52a20ed496e0580e6b2a600c144933ae">&#9670;&nbsp;</a></span>getResult()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CSeqFeatureSel::getResult </td>
+          <td>(</td>
+          <td class="paramtype">int *&#160;</td>
+          <td class="paramname"><em>piFeatureIndices</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
           <td class="paramtype">float *&#160;</td>
-          <td class="paramname"><em>pfOutput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float **&#160;</td>
-          <td class="paramname"><em>ppfInput</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iNumChannels</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">long long&#160;</td>
-          <td class="paramname"><em>iNumSamples</em>&#160;</td>
+          <td class="paramname"><em>pfAccuracyPerStep</em> = <code>0</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -150,66 +280,630 @@ Static Public Member Functions</h2></td></tr>
           <td></td><td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p >downmixes multichannel audio (can be inplace </p>
+<p >writes results after processing </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">piFeatureIndices</td><td>sorted feature indices, best first (dimensions iNumFeatures) </td></tr>
+    <tr><td class="paramname">pfAccuracyPerStep</td><td>best accuracy for each combination (1 feature, 2 features, 3 features...) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00140_source.xhtml#l00018">18</a> of file <a class="el" href="a00140_source.xhtml">ToolPreProc.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>    {</div>
-<div class="line"><span class="lineno">   20</span>        <span class="comment">// sanity checks</span></div>
-<div class="line"><span class="lineno">   21</span>        assert(pfOutput);</div>
-<div class="line"><span class="lineno">   22</span>        assert(ppfInput);</div>
-<div class="line"><span class="lineno">   23</span>        assert(ppfInput[0]);</div>
-<div class="line"><span class="lineno">   24</span>        assert(iNumChannels &gt; 0);</div>
-<div class="line"><span class="lineno">   25</span>        assert(iNumSamples &gt; 0);</div>
-<div class="line"><span class="lineno">   26</span> </div>
-<div class="line"><span class="lineno">   27</span>        <span class="comment">// copy in case of not inplace processing</span></div>
-<div class="line"><span class="lineno">   28</span>        <span class="keywordflow">if</span> (pfOutput != ppfInput[0])</div>
-<div class="line"><span class="lineno">   29</span>            <a class="code hl_function" href="a00514.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(pfOutput, ppfInput[0], iNumSamples);</div>
-<div class="line"><span class="lineno">   30</span> </div>
-<div class="line"><span class="lineno">   31</span>        <span class="comment">// downmix</span></div>
-<div class="line"><span class="lineno">   32</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> c = 1; c &lt; iNumChannels; c++)</div>
-<div class="line"><span class="lineno">   33</span>            <a class="code hl_function" href="a00514.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb">CVector::add_I</a>(pfOutput, ppfInput[c], iNumSamples);</div>
-<div class="line"><span class="lineno">   34</span>        <a class="code hl_function" href="a00514.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(pfOutput, 1.F / iNumChannels, iNumSamples);</div>
-<div class="line"><span class="lineno">   35</span> </div>
-<div class="line"><span class="lineno">   36</span>        <span class="keywordflow">return</span>;</div>
-<div class="line"><span class="lineno">   37</span>    }</div>
-<div class="ttc" id="aa00514_xhtml_a3a052b83e62e5c5cc44829c64ffe42eb"><div class="ttname"><a href="a00514.xhtml#a3a052b83e62e5c5cc44829c64ffe42eb">CVector::add_I</a></div><div class="ttdeci">static void add_I(T *ptSrcDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00232">Vector.h:232</a></div></div>
-<div class="ttc" id="aa00514_xhtml_a9811f50434dd058d201290b2dc98bfcd"><div class="ttname"><a href="a00514.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a></div><div class="ttdeci">static void mulC_I(T *ptSrcDest, T fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00162">Vector.h:162</a></div></div>
-<div class="ttc" id="aa00514_xhtml_ad7c5cba73e439adac77778f61c9418f0"><div class="ttname"><a href="a00514.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a></div><div class="ttdeci">static void copy(T *ptDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00106">Vector.h:106</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00101_source.xhtml#l00105">105</a> of file <a class="el" href="a00101_source.xhtml">ToolSeqFeatureSel.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  106</span>{</div>
+<div class="line"><span class="lineno">  107</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00614.xhtml#aa2df6f8e544a07b6e65938ec82470531">m_bWasProcessed</a>)</div>
+<div class="line"><span class="lineno">  108</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  109</span>    <span class="keywordflow">if</span> (!piFeatureIndices)</div>
+<div class="line"><span class="lineno">  110</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>    <a class="code hl_function" href="a00502.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(piFeatureIndices, <a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>, <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>);</div>
+<div class="line"><span class="lineno">  113</span>    <span class="keywordflow">if</span> (pfAccuracyPerStep)</div>
+<div class="line"><span class="lineno">  114</span>        <a class="code hl_function" href="a00502.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(pfAccuracyPerStep, <a class="code hl_variable" href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">m_pfAccuracy</a>, <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>);</div>
+<div class="line"><span class="lineno">  115</span> </div>
+<div class="line"><span class="lineno">  116</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  117</span>}</div>
+<div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
+<div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
+<div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00502_xhtml_ad7c5cba73e439adac77778f61c9418f0"><div class="ttname"><a href="a00502.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a></div><div class="ttdeci">static void copy(T *ptDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00106">Vector.h:106</a></div></div>
+<div class="ttc" id="aa00614_xhtml_aa2df6f8e544a07b6e65938ec82470531"><div class="ttname"><a href="a00614.xhtml#aa2df6f8e544a07b6e65938ec82470531">CSeqFeatureSel::m_bWasProcessed</a></div><div class="ttdeci">bool m_bWasProcessed</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00079">ToolSeqFeatureSel.h:79</a></div></div>
+<div class="ttc" id="aa00614_xhtml_ac2ae3f34d003639ceec8511c9e2789d9"><div class="ttname"><a href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">CSeqFeatureSel::m_iNumFeatures</a></div><div class="ttdeci">int m_iNumFeatures</div><div class="ttdoc">number of features</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00065">ToolSeqFeatureSel.h:65</a></div></div>
+<div class="ttc" id="aa00614_xhtml_af0ccab064000f2b38b07b626233f6936"><div class="ttname"><a href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">CSeqFeatureSel::m_pfAccuracy</a></div><div class="ttdeci">float * m_pfAccuracy</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00070">ToolSeqFeatureSel.h:70</a></div></div>
+<div class="ttc" id="aa00614_xhtml_af529f7c73a6f6306d980830260b40b81"><div class="ttname"><a href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">CSeqFeatureSel::m_piSelFeatures</a></div><div class="ttdeci">int * m_piSelFeatures</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00072">ToolSeqFeatureSel.h:72</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00161_source.xhtml#l00232">CVector::add_I()</a>, <a class="el" href="a00161_source.xhtml#l00106">CVector::copy()</a>, and <a class="el" href="a00161_source.xhtml#l00162">CVector::mulC_I()</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00140_source.xhtml#l00049">CNormalizeAudio::CNormalizeAudio()</a>, <a class="el" href="a00071_source.xhtml#l00025">CFingerprint::init()</a>, and <a class="el" href="a00080_source.xhtml#l00089">CBlockAudioFile::readFile2RingBuff()</a>.</p>
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00106">CVector::copy()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00131_source.xhtml#l00079">m_bWasProcessed</a>, <a class="el" href="a00131_source.xhtml#l00065">m_iNumFeatures</a>, <a class="el" href="a00131_source.xhtml#l00070">m_pfAccuracy</a>, and <a class="el" href="a00131_source.xhtml#l00072">m_piSelFeatures</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00614_af7639b7368293c01c130192067fe0f4b_cgraph.svg" width="310" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00614_a52a20ed496e0580e6b2a600c144933ae_cgraph.svg" width="340" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a5e2c224f43fc877de57de9bee09dd1b5" name="a5e2c224f43fc877de57de9bee09dd1b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e2c224f43fc877de57de9bee09dd1b5">&#9670;&nbsp;</a></span>init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CSeqFeatureSel::init </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumFeatures</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iNumObservations</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >initializes SeqFeatureSel instance </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iNumFeatures</td><td>number of features (rows in the input matrix) </td></tr>
+    <tr><td class="paramname">iNumObservations</td><td>number of observations (columns in the feature matrix) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00101_source.xhtml#l00012">12</a> of file <a class="el" href="a00101_source.xhtml">ToolSeqFeatureSel.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   13</span>{</div>
+<div class="line"><span class="lineno">   14</span>    <span class="keywordflow">if</span> (iNumFeatures &lt;= 0 || iNumObservations &lt;= 1)</div>
+<div class="line"><span class="lineno">   15</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">   16</span> </div>
+<div class="line"><span class="lineno">   17</span>    <a class="code hl_function" href="a00614.xhtml#a37d8f47dd6453ece94d1d2dda95be5d2">reset</a>();</div>
+<div class="line"><span class="lineno">   18</span> </div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a> = iNumFeatures;</div>
+<div class="line"><span class="lineno">   20</span>    <a class="code hl_variable" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a> = iNumObservations;</div>
+<div class="line"><span class="lineno">   21</span> </div>
+<div class="line"><span class="lineno">   22</span>    <a class="code hl_variable" href="a00614.xhtml#a6e6a4a01a843b3048372d7e11945c00e">m_pCClassifier</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00626.xhtml">CKnn</a>();</div>
+<div class="line"><span class="lineno">   23</span>    <a class="code hl_variable" href="a00614.xhtml#a6e6a4a01a843b3048372d7e11945c00e">m_pCClassifier</a>-&gt;<a class="code hl_function" href="a00626.xhtml#a1316452b2327c722f61ba7e2d78fb333">setParamK</a>(1);</div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_variable" href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">m_pCCv</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00578.xhtml">CLeaveOneOutCrossVal</a>();</div>
+<div class="line"><span class="lineno">   25</span> </div>
+<div class="line"><span class="lineno">   26</span>    <a class="code hl_function" href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>, <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>);</div>
+<div class="line"><span class="lineno">   27</span>    <a class="code hl_function" href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">m_pfAccuracy</a>, <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>);</div>
+<div class="line"><span class="lineno">   28</span> </div>
+<div class="line"><span class="lineno">   29</span>    <a class="code hl_function" href="a00486.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a>(<a class="code hl_variable" href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">m_ppfTrain</a>, <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>, <a class="code hl_variable" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a>);</div>
+<div class="line"><span class="lineno">   30</span> </div>
+<div class="line"><span class="lineno">   31</span>    <a class="code hl_variable" href="a00614.xhtml#a8c084903a3b8fb0c4ed2673f4782e016">m_bIsInitialized</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   34</span>}</div>
+<div class="ttc" id="aa00486_xhtml_a6501b78d76c912d49eee88c8f7242923"><div class="ttname"><a href="a00486.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;pptMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00021">Matrix.h:21</a></div></div>
+<div class="ttc" id="aa00502_xhtml_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00023">Vector.h:23</a></div></div>
+<div class="ttc" id="aa00578_xhtml"><div class="ttname"><a href="a00578.xhtml">CLeaveOneOutCrossVal</a></div><div class="ttdoc">computation of leave one out cross validation</div><div class="ttdef"><b>Definition:</b> <a href="a00248_source.xhtml#l00013">ToolLeaveOneOutCrossVal.h:14</a></div></div>
+<div class="ttc" id="aa00614_xhtml_a392858208018eedcb6d15a6563b1a54d"><div class="ttname"><a href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">CSeqFeatureSel::m_ppfTrain</a></div><div class="ttdeci">float ** m_ppfTrain</div><div class="ttdoc">train data (m_iNumObs X m_iNumFeatures)</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00068">ToolSeqFeatureSel.h:68</a></div></div>
+<div class="ttc" id="aa00614_xhtml_a5df7e7381cd30f8c35450e38713a0f86"><div class="ttname"><a href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">CSeqFeatureSel::m_iNumObs</a></div><div class="ttdeci">int m_iNumObs</div><div class="ttdoc">number of neighbors for classification</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00066">ToolSeqFeatureSel.h:66</a></div></div>
+<div class="ttc" id="aa00614_xhtml_a6522d1cf27aa294ed9b778182c91f2cf"><div class="ttname"><a href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">CSeqFeatureSel::m_pCCv</a></div><div class="ttdeci">CLeaveOneOutCrossVal * m_pCCv</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00075">ToolSeqFeatureSel.h:75</a></div></div>
+<div class="ttc" id="aa00614_xhtml_a6e6a4a01a843b3048372d7e11945c00e"><div class="ttname"><a href="a00614.xhtml#a6e6a4a01a843b3048372d7e11945c00e">CSeqFeatureSel::m_pCClassifier</a></div><div class="ttdeci">CKnn * m_pCClassifier</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00074">ToolSeqFeatureSel.h:74</a></div></div>
+<div class="ttc" id="aa00614_xhtml_a8c084903a3b8fb0c4ed2673f4782e016"><div class="ttname"><a href="a00614.xhtml#a8c084903a3b8fb0c4ed2673f4782e016">CSeqFeatureSel::m_bIsInitialized</a></div><div class="ttdeci">bool m_bIsInitialized</div><div class="ttdoc">indicates if instance has been properly initialized</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00078">ToolSeqFeatureSel.h:78</a></div></div>
+<div class="ttc" id="aa00626_xhtml"><div class="ttname"><a href="a00626.xhtml">CKnn</a></div><div class="ttdoc">computation of k nearest neighbor</div><div class="ttdef"><b>Definition:</b> <a href="a00173_source.xhtml#l00012">ToolSimpleKnn.h:13</a></div></div>
+<div class="ttc" id="aa00626_xhtml_a1316452b2327c722f61ba7e2d78fb333"><div class="ttname"><a href="a00626.xhtml#a1316452b2327c722f61ba7e2d78fb333">CKnn::setParamK</a></div><div class="ttdeci">Error_t setParamK(int iK=3)</div><div class="ttdef"><b>Definition:</b> <a href="a00110_source.xhtml#l00089">ToolSimpleKnn.cpp:89</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00023">CVector::alloc()</a>, <a class="el" href="a00143_source.xhtml#l00021">CMatrix::alloc()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00131_source.xhtml#l00078">m_bIsInitialized</a>, <a class="el" href="a00131_source.xhtml#l00065">m_iNumFeatures</a>, <a class="el" href="a00131_source.xhtml#l00066">m_iNumObs</a>, <a class="el" href="a00131_source.xhtml#l00074">m_pCClassifier</a>, <a class="el" href="a00131_source.xhtml#l00075">m_pCCv</a>, <a class="el" href="a00131_source.xhtml#l00070">m_pfAccuracy</a>, <a class="el" href="a00131_source.xhtml#l00072">m_piSelFeatures</a>, <a class="el" href="a00131_source.xhtml#l00068">m_ppfTrain</a>, <a class="el" href="a00101_source.xhtml#l00118">reset()</a>, and <a class="el" href="a00110_source.xhtml#l00089">CKnn::setParamK()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00614_a5e2c224f43fc877de57de9bee09dd1b5_cgraph.svg" width="100%" height="458"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a1d992125ee7fc762e92b8a466ad2ce06" name="a1d992125ee7fc762e92b8a466ad2ce06"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1d992125ee7fc762e92b8a466ad2ce06">&#9670;&nbsp;</a></span>isFeatureAlreadySelected_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a> CSeqFeatureSel::isFeatureAlreadySelected_ </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iFeatureIdx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00052">52</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   53</span>    {</div>
+<div class="line"><span class="lineno">   54</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> v = 0; v &lt; <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>; v++)</div>
+<div class="line"><span class="lineno">   55</span>        {</div>
+<div class="line"><span class="lineno">   56</span>            <span class="keywordflow">if</span> (iFeatureIdx == <a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>[v])</div>
+<div class="line"><span class="lineno">   57</span>                <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">   58</span>            <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>[v] &lt; 0)</div>
+<div class="line"><span class="lineno">   59</span>                <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   60</span>        }</div>
+<div class="line"><span class="lineno">   61</span> </div>
+<div class="line"><span class="lineno">   62</span>        <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">   63</span>    }</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00131_source.xhtml#l00065">m_iNumFeatures</a>, and <a class="el" href="a00131_source.xhtml#l00072">m_piSelFeatures</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00036">process()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00614_a1d992125ee7fc762e92b8a466ad2ce06_icgraph.svg" width="406" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ad86c6d401fabb4fbff5bc67a05d98a0d" name="ad86c6d401fabb4fbff5bc67a05d98a0d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad86c6d401fabb4fbff5bc67a05d98a0d">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00614.xhtml">CSeqFeatureSel</a> &amp; CSeqFeatureSel::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00614.xhtml">CSeqFeatureSel</a> &amp;&#160;</td>
+          <td class="paramname"><em>c</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ada8088ac0cdb2871fcd1225193f4d6b2" name="ada8088ac0cdb2871fcd1225193f4d6b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ada8088ac0cdb2871fcd1225193f4d6b2">&#9670;&nbsp;</a></span>process()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CSeqFeatureSel::process </td>
+          <td>(</td>
+          <td class="paramtype">float **&#160;</td>
+          <td class="paramname"><em>ppfFeatures</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const int *&#160;</td>
+          <td class="paramname"><em>piClassIndices</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >initializes SeqFeatureSel instance </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ppfFeatures</td><td>feature data for 'training' (dimensions iNumFeatures X iNumObservations) </td></tr>
+    <tr><td class="paramname">piClassIndices</td><td>ground truth class index for each observation </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00101_source.xhtml#l00036">36</a> of file <a class="el" href="a00101_source.xhtml">ToolSeqFeatureSel.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   37</span>{</div>
+<div class="line"><span class="lineno">   38</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00614.xhtml#a8c084903a3b8fb0c4ed2673f4782e016">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">   39</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">   40</span>    <span class="keywordflow">if</span> (!ppfFeatures || !piClassIndices)</div>
+<div class="line"><span class="lineno">   41</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">if</span> (!ppfFeatures[0])</div>
+<div class="line"><span class="lineno">   43</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">   44</span> </div>
+<div class="line"><span class="lineno">   45</span>    <span class="keywordtype">int</span> iNumFeatures2Select = <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>;</div>
+<div class="line"><span class="lineno">   46</span>    <span class="keywordtype">int</span> iNumSelFeatures = 0;</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <a class="code hl_function" href="a00502.xhtml#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a>(<a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>, -1, <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>);</div>
+<div class="line"><span class="lineno">   49</span> </div>
+<div class="line"><span class="lineno">   50</span>    <span class="comment">// find single best feature</span></div>
+<div class="line"><span class="lineno">   51</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> v = 0; v &lt; <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>; v++)</div>
+<div class="line"><span class="lineno">   52</span>    {</div>
+<div class="line"><span class="lineno">   53</span>        <span class="keywordtype">float</span> fAcc = 0;</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>        <a class="code hl_variable" href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">m_pCCv</a>-&gt;<a class="code hl_function" href="a00578.xhtml#a43c46da04690f56a807863c6079ac23b">init</a>(1, <a class="code hl_variable" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a>, <a class="code hl_variable" href="a00614.xhtml#a6e6a4a01a843b3048372d7e11945c00e">m_pCClassifier</a>);</div>
+<div class="line"><span class="lineno">   56</span> </div>
+<div class="line"><span class="lineno">   57</span>        fAcc = <a class="code hl_variable" href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">m_pCCv</a>-&gt;<a class="code hl_function" href="a00578.xhtml#aff55452be40121d45b74c7e0e9392c51">process</a>(&amp;ppfFeatures[v], piClassIndices);</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>        <span class="keywordflow">if</span> (fAcc &gt;= <a class="code hl_variable" href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">m_pfAccuracy</a>[0])</div>
+<div class="line"><span class="lineno">   60</span>        {</div>
+<div class="line"><span class="lineno">   61</span>            <a class="code hl_variable" href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">m_pfAccuracy</a>[0] = fAcc;</div>
+<div class="line"><span class="lineno">   62</span>            <a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>[0] = v;</div>
+<div class="line"><span class="lineno">   63</span>        }</div>
+<div class="line"><span class="lineno">   64</span>    }</div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>    <a class="code hl_function" href="a00502.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(<a class="code hl_variable" href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">m_ppfTrain</a>[0], ppfFeatures[<a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>[0]], <a class="code hl_variable" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a>);</div>
+<div class="line"><span class="lineno">   67</span>    iNumSelFeatures++;</div>
+<div class="line"><span class="lineno">   68</span> </div>
+<div class="line"><span class="lineno">   69</span>    <span class="comment">// iterate until target number of features is reached</span></div>
+<div class="line"><span class="lineno">   70</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> f = iNumSelFeatures; f &lt; iNumFeatures2Select; f++)</div>
+<div class="line"><span class="lineno">   71</span>    {</div>
+<div class="line"><span class="lineno">   72</span>        <span class="comment">// iterate over all features not yet selected</span></div>
+<div class="line"><span class="lineno">   73</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> v = 0; v &lt; <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>; v++)</div>
+<div class="line"><span class="lineno">   74</span>        {</div>
+<div class="line"><span class="lineno">   75</span>            <span class="keywordtype">float</span> fAcc = 0;</div>
+<div class="line"><span class="lineno">   76</span> </div>
+<div class="line"><span class="lineno">   77</span>            <span class="keywordflow">if</span> (<a class="code hl_function" href="a00614.xhtml#a1d992125ee7fc762e92b8a466ad2ce06">isFeatureAlreadySelected_</a>(v))</div>
+<div class="line"><span class="lineno">   78</span>                <span class="keywordflow">continue</span>;</div>
+<div class="line"><span class="lineno">   79</span> </div>
+<div class="line"><span class="lineno">   80</span> </div>
+<div class="line"><span class="lineno">   81</span>            <span class="comment">// add current feature v to internal feature matrix</span></div>
+<div class="line"><span class="lineno">   82</span>            <a class="code hl_function" href="a00502.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(<a class="code hl_variable" href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">m_ppfTrain</a>[iNumSelFeatures], ppfFeatures[v], <a class="code hl_variable" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a>);</div>
+<div class="line"><span class="lineno">   83</span> </div>
+<div class="line"><span class="lineno">   84</span>            <a class="code hl_variable" href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">m_pCCv</a>-&gt;<a class="code hl_function" href="a00578.xhtml#a43c46da04690f56a807863c6079ac23b">init</a>(iNumSelFeatures+1, <a class="code hl_variable" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a>, <a class="code hl_variable" href="a00614.xhtml#a6e6a4a01a843b3048372d7e11945c00e">m_pCClassifier</a>);</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>            <span class="comment">//accuracy of selected features plus current feature f</span></div>
+<div class="line"><span class="lineno">   87</span>            fAcc = <a class="code hl_variable" href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">m_pCCv</a>-&gt;<a class="code hl_function" href="a00578.xhtml#aff55452be40121d45b74c7e0e9392c51">process</a>(<a class="code hl_variable" href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">m_ppfTrain</a>, piClassIndices);</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>            <span class="keywordflow">if</span> (fAcc &gt;= <a class="code hl_variable" href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">m_pfAccuracy</a>[iNumSelFeatures])</div>
+<div class="line"><span class="lineno">   90</span>            {</div>
+<div class="line"><span class="lineno">   91</span>                <a class="code hl_variable" href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">m_pfAccuracy</a>[iNumSelFeatures] = fAcc;</div>
+<div class="line"><span class="lineno">   92</span>                <a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>[iNumSelFeatures] = v;</div>
+<div class="line"><span class="lineno">   93</span>            }</div>
+<div class="line"><span class="lineno">   94</span>        }</div>
+<div class="line"><span class="lineno">   95</span>        assert(<a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>[iNumSelFeatures] &gt;= 0 &amp;&amp; <a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>[iNumSelFeatures] &lt; <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>);</div>
+<div class="line"><span class="lineno">   96</span>        <a class="code hl_function" href="a00502.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(<a class="code hl_variable" href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">m_ppfTrain</a>[iNumSelFeatures], ppfFeatures[<a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>[iNumSelFeatures]], <a class="code hl_variable" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a>);</div>
+<div class="line"><span class="lineno">   97</span>        iNumSelFeatures++;</div>
+<div class="line"><span class="lineno">   98</span>    }</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>    <a class="code hl_variable" href="a00614.xhtml#aa2df6f8e544a07b6e65938ec82470531">m_bWasProcessed</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  101</span> </div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  103</span>}</div>
+<div class="ttc" id="aa00502_xhtml_a4cf9544dd96801e3ee47fd1ef2049a1b"><div class="ttname"><a href="a00502.xhtml#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a></div><div class="ttdeci">static void setValue(T *ptDest, T tValue, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00063">Vector.h:63</a></div></div>
+<div class="ttc" id="aa00578_xhtml_a43c46da04690f56a807863c6079ac23b"><div class="ttname"><a href="a00578.xhtml#a43c46da04690f56a807863c6079ac23b">CLeaveOneOutCrossVal::init</a></div><div class="ttdeci">Error_t init(int iNumFeatures, int iNumObservations, CClassifierBase *pCClassifier)</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.xhtml#l00010">ToolLeaveOneOutCrossVal.cpp:10</a></div></div>
+<div class="ttc" id="aa00578_xhtml_aff55452be40121d45b74c7e0e9392c51"><div class="ttname"><a href="a00578.xhtml#aff55452be40121d45b74c7e0e9392c51">CLeaveOneOutCrossVal::process</a></div><div class="ttdeci">float process(const float *const *const ppfTrainFeatures, const int *piTrainClassIndices)</div><div class="ttdef"><b>Definition:</b> <a href="a00125_source.xhtml#l00061">ToolLeaveOneOutCrossVal.cpp:61</a></div></div>
+<div class="ttc" id="aa00614_xhtml_a1d992125ee7fc762e92b8a466ad2ce06"><div class="ttname"><a href="a00614.xhtml#a1d992125ee7fc762e92b8a466ad2ce06">CSeqFeatureSel::isFeatureAlreadySelected_</a></div><div class="ttdeci">bool isFeatureAlreadySelected_(int iFeatureIdx) const</div><div class="ttdef"><b>Definition:</b> <a href="a00131_source.xhtml#l00052">ToolSeqFeatureSel.h:52</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00106">CVector::copy()</a>, <a class="el" href="a00125_source.xhtml#l00010">CLeaveOneOutCrossVal::init()</a>, <a class="el" href="a00131_source.xhtml#l00052">isFeatureAlreadySelected_()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00131_source.xhtml#l00078">m_bIsInitialized</a>, <a class="el" href="a00131_source.xhtml#l00079">m_bWasProcessed</a>, <a class="el" href="a00131_source.xhtml#l00065">m_iNumFeatures</a>, <a class="el" href="a00131_source.xhtml#l00066">m_iNumObs</a>, <a class="el" href="a00131_source.xhtml#l00074">m_pCClassifier</a>, <a class="el" href="a00131_source.xhtml#l00075">m_pCCv</a>, <a class="el" href="a00131_source.xhtml#l00070">m_pfAccuracy</a>, <a class="el" href="a00131_source.xhtml#l00072">m_piSelFeatures</a>, <a class="el" href="a00131_source.xhtml#l00068">m_ppfTrain</a>, <a class="el" href="a00125_source.xhtml#l00061">CLeaveOneOutCrossVal::process()</a>, and <a class="el" href="a00155_source.xhtml#l00063">CVector::setValue()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00614_ada8088ac0cdb2871fcd1225193f4d6b2_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a37d8f47dd6453ece94d1d2dda95be5d2" name="a37d8f47dd6453ece94d1d2dda95be5d2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37d8f47dd6453ece94d1d2dda95be5d2">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CSeqFeatureSel::reset </td>
+          <td>(</td>
+          <td class="paramtype">void&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >resets SeqFeatureSel instance </p><dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00101_source.xhtml#l00118">118</a> of file <a class="el" href="a00101_source.xhtml">ToolSeqFeatureSel.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  119</span>{</div>
+<div class="line"><span class="lineno">  120</span>    <a class="code hl_variable" href="a00614.xhtml#a8c084903a3b8fb0c4ed2673f4782e016">m_bIsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  121</span>    <a class="code hl_variable" href="a00614.xhtml#aa2df6f8e544a07b6e65938ec82470531">m_bWasProcessed</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  122</span> </div>
+<div class="line"><span class="lineno">  123</span>    <a class="code hl_function" href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00614.xhtml#af529f7c73a6f6306d980830260b40b81">m_piSelFeatures</a>);</div>
+<div class="line"><span class="lineno">  124</span>    <a class="code hl_function" href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00614.xhtml#af0ccab064000f2b38b07b626233f6936">m_pfAccuracy</a>);</div>
+<div class="line"><span class="lineno">  125</span>    <a class="code hl_function" href="a00486.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(<a class="code hl_variable" href="a00614.xhtml#a392858208018eedcb6d15a6563b1a54d">m_ppfTrain</a>, <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a>);</div>
+<div class="line"><span class="lineno">  126</span> </div>
+<div class="line"><span class="lineno">  127</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="a00614.xhtml#a6e6a4a01a843b3048372d7e11945c00e">m_pCClassifier</a>;</div>
+<div class="line"><span class="lineno">  128</span>    <a class="code hl_variable" href="a00614.xhtml#a6e6a4a01a843b3048372d7e11945c00e">m_pCClassifier</a> = 0;</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">m_pCCv</a>;</div>
+<div class="line"><span class="lineno">  131</span>    <a class="code hl_variable" href="a00614.xhtml#a6522d1cf27aa294ed9b778182c91f2cf">m_pCCv</a> = 0;</div>
+<div class="line"><span class="lineno">  132</span> </div>
+<div class="line"><span class="lineno">  133</span>    <a class="code hl_variable" href="a00614.xhtml#ac2ae3f34d003639ceec8511c9e2789d9">m_iNumFeatures</a> = 0;</div>
+<div class="line"><span class="lineno">  134</span>    <a class="code hl_variable" href="a00614.xhtml#a5df7e7381cd30f8c35450e38713a0f86">m_iNumObs</a> = 0;</div>
+<div class="line"><span class="lineno">  135</span> </div>
+<div class="line"><span class="lineno">  136</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  137</span>}</div>
+<div class="ttc" id="aa00486_xhtml_a591097c6b1935c4d6273b3445f8f552b"><div class="ttname"><a href="a00486.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;pptMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00038">Matrix.h:38</a></div></div>
+<div class="ttc" id="aa00502_xhtml_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00037">Vector.h:37</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00037">CVector::free()</a>, <a class="el" href="a00143_source.xhtml#l00038">CMatrix::free()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00131_source.xhtml#l00078">m_bIsInitialized</a>, <a class="el" href="a00131_source.xhtml#l00079">m_bWasProcessed</a>, <a class="el" href="a00131_source.xhtml#l00065">m_iNumFeatures</a>, <a class="el" href="a00131_source.xhtml#l00066">m_iNumObs</a>, <a class="el" href="a00131_source.xhtml#l00074">m_pCClassifier</a>, <a class="el" href="a00131_source.xhtml#l00075">m_pCCv</a>, <a class="el" href="a00131_source.xhtml#l00070">m_pfAccuracy</a>, <a class="el" href="a00131_source.xhtml#l00072">m_piSelFeatures</a>, and <a class="el" href="a00131_source.xhtml#l00068">m_ppfTrain</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00012">init()</a>, and <a class="el" href="a00101_source.xhtml#l00010">~CSeqFeatureSel()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00614_a37d8f47dd6453ece94d1d2dda95be5d2_cgraph.svg" width="451" height="63"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00614_af7639b7368293c01c130192067fe0f4b_icgraph.svg" width="656" height="224"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00614_a37d8f47dd6453ece94d1d2dda95be5d2_icgraph.svg" width="436" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<hr/>The documentation for this class was generated from the following file:<ul>
-<li><a class="el" href="a00140_source.xhtml">ToolPreProc.h</a></li>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="a8c084903a3b8fb0c4ed2673f4782e016" name="a8c084903a3b8fb0c4ed2673f4782e016"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8c084903a3b8fb0c4ed2673f4782e016">&#9670;&nbsp;</a></span>m_bIsInitialized</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a> CSeqFeatureSel::m_bIsInitialized = <a class="el" href="a00284.xhtml#a65e9886d74aaee76545e83dd09011727">false</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>indicates if instance has been properly initialized </p>
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00078">78</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00012">init()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<a id="aa2df6f8e544a07b6e65938ec82470531" name="aa2df6f8e544a07b6e65938ec82470531"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa2df6f8e544a07b6e65938ec82470531">&#9670;&nbsp;</a></span>m_bWasProcessed</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a> CSeqFeatureSel::m_bWasProcessed = <a class="el" href="a00284.xhtml#a65e9886d74aaee76545e83dd09011727">false</a></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00079">79</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00105">getResult()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<a id="ac2ae3f34d003639ceec8511c9e2789d9" name="ac2ae3f34d003639ceec8511c9e2789d9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac2ae3f34d003639ceec8511c9e2789d9">&#9670;&nbsp;</a></span>m_iNumFeatures</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CSeqFeatureSel::m_iNumFeatures = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of features </p>
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00065">65</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00105">getResult()</a>, <a class="el" href="a00101_source.xhtml#l00012">init()</a>, <a class="el" href="a00131_source.xhtml#l00052">isFeatureAlreadySelected_()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<a id="a5df7e7381cd30f8c35450e38713a0f86" name="a5df7e7381cd30f8c35450e38713a0f86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5df7e7381cd30f8c35450e38713a0f86">&#9670;&nbsp;</a></span>m_iNumObs</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CSeqFeatureSel::m_iNumObs = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>number of neighbors for classification </p>
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00066">66</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00012">init()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<a id="a6e6a4a01a843b3048372d7e11945c00e" name="a6e6a4a01a843b3048372d7e11945c00e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e6a4a01a843b3048372d7e11945c00e">&#9670;&nbsp;</a></span>m_pCClassifier</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00626.xhtml">CKnn</a>* CSeqFeatureSel::m_pCClassifier = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00074">74</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00012">init()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<a id="a6522d1cf27aa294ed9b778182c91f2cf" name="a6522d1cf27aa294ed9b778182c91f2cf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6522d1cf27aa294ed9b778182c91f2cf">&#9670;&nbsp;</a></span>m_pCCv</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00578.xhtml">CLeaveOneOutCrossVal</a>* CSeqFeatureSel::m_pCCv = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00075">75</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00012">init()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<a id="af0ccab064000f2b38b07b626233f6936" name="af0ccab064000f2b38b07b626233f6936"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0ccab064000f2b38b07b626233f6936">&#9670;&nbsp;</a></span>m_pfAccuracy</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* CSeqFeatureSel::m_pfAccuracy = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00070">70</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00105">getResult()</a>, <a class="el" href="a00101_source.xhtml#l00012">init()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<a id="af529f7c73a6f6306d980830260b40b81" name="af529f7c73a6f6306d980830260b40b81"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af529f7c73a6f6306d980830260b40b81">&#9670;&nbsp;</a></span>m_piSelFeatures</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int* CSeqFeatureSel::m_piSelFeatures = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00072">72</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00105">getResult()</a>, <a class="el" href="a00101_source.xhtml#l00012">init()</a>, <a class="el" href="a00131_source.xhtml#l00052">isFeatureAlreadySelected_()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<a id="a392858208018eedcb6d15a6563b1a54d" name="a392858208018eedcb6d15a6563b1a54d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a392858208018eedcb6d15a6563b1a54d">&#9670;&nbsp;</a></span>m_ppfTrain</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float** CSeqFeatureSel::m_ppfTrain = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>train data (m_iNumObs X m_iNumFeatures) </p>
+
+<p class="definition">Definition at line <a class="el" href="a00131_source.xhtml#l00068">68</a> of file <a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00012">init()</a>, <a class="el" href="a00101_source.xhtml#l00036">process()</a>, and <a class="el" href="a00101_source.xhtml#l00118">reset()</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
+<li><a class="el" href="a00131_source.xhtml">ToolSeqFeatureSel.h</a></li>
+<li><a class="el" href="a00101_source.xhtml">ToolSeqFeatureSel.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00614.xhtml">CPreProc</a></li>
-    <li class="footer">Generated on Wed Jun 15 2022 19:05:49 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="navelem"><a class="el" href="a00614.xhtml">CSeqFeatureSel</a></li>
+    <li class="footer">Generated on Thu Jun 16 2022 21:11:13 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

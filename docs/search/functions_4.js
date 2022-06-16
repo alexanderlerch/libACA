@@ -1,19 +1,14 @@
 var searchData=
 [
-  ['emplaceunscopedmessage_0',['emplaceUnscopedMessage',['../a00886.xhtml#a49f74f1323ef8be71b8f9b8e8b2c0fc2',1,'Catch::IResultCapture']]],
-  ['empty_1',['empty',['../a00654.xhtml#a10a5b5b7dff82971879c2eb8d83f9b3b',1,'Catch::SourceLineInfo::empty()'],['../a00674.xhtml#a0b4841c28cbb14ba07296964a0187023',1,'Catch::StringRef::empty() const noexcept -&gt; bool']]],
-  ['end_2',['end',['../a00674.xhtml#a3ce9afc711b559d6cc59666898fc0828',1,'Catch::StringRef']]],
-  ['endswith_3',['EndsWith',['../a00307.xhtml#ae5a45efb4538c57c43e04f3f9043ad6e',1,'Catch::Matchers']]],
-  ['endswith_4',['endsWith',['../a00302.xhtml#afd801a3e33fd7a8b91ded0d02747a93f',1,'Catch::endsWith(std::string const &amp;s, char suffix)'],['../a00302.xhtml#ada025504f627feaf9ac68ca391515dff',1,'Catch::endsWith(std::string const &amp;s, std::string const &amp;suffix)']]],
-  ['endswithmatcher_5',['EndsWithMatcher',['../a01050.xhtml#aa5ec700b4629562f74f362080accfd7b',1,'Catch::Matchers::StdString::EndsWithMatcher']]],
-  ['epsilon_6',['epsilon',['../a00974.xhtml#a1feb255ab2b116e126c1994ab6c250fd',1,'Catch::Detail::Approx::epsilon()'],['../a01070.xhtml#aa459371d702f3230df20000f40585f2a',1,'Catch::Matchers::Vector::ApproxMatcher::epsilon()']]],
-  ['equalitycomparisonimpl_7',['equalityComparisonImpl',['../a00974.xhtml#af53c48227a7b654da58adeb1d360b715',1,'Catch::Detail::Approx']]],
-  ['equals_8',['Equals',['../a00307.xhtml#a5b76944eeb2b65329fabbac487a31d66',1,'Catch::Matchers::Equals(std::vector&lt; T, AllocComp &gt; const &amp;comparator)'],['../a00307.xhtml#af8af7dfc338335ed4c788cb1b37fc59f',1,'Catch::Matchers::Equals(std::string const &amp;str, CaseSensitive::Choice caseSensitivity=CaseSensitive::Yes)']]],
-  ['equalsmatcher_9',['EqualsMatcher',['../a01066.xhtml#aca4855dbe43977f4aceae8fd0a0422a8',1,'Catch::Matchers::Vector::EqualsMatcher::EqualsMatcher()'],['../a01038.xhtml#ab740f1fb2310e9fe3fed5134d4c7e4c8',1,'Catch::Matchers::StdString::EqualsMatcher::EqualsMatcher()']]],
-  ['exceptionearlyreported_10',['exceptionEarlyReported',['../a00886.xhtml#ae63ecec95db4c236c63ecf616f483810',1,'Catch::IResultCapture']]],
-  ['exceptionmessagematcher_11',['ExceptionMessageMatcher',['../a01010.xhtml#ace55942f39ba653db3fd69d6d90e188f',1,'Catch::Matchers::Exception::ExceptionMessageMatcher']]],
-  ['exceptiontranslator_12',['ExceptionTranslator',['../a00970.xhtml#a2de4e9bcaad47996159763e69f614d7a',1,'Catch::ExceptionTranslatorRegistrar::ExceptionTranslator']]],
-  ['exceptiontranslatorregistrar_13',['ExceptionTranslatorRegistrar',['../a00966.xhtml#aa73229de911f26b1df6c6c87c4d9e04e',1,'Catch::ExceptionTranslatorRegistrar']]],
-  ['expectedtofail_14',['expectedToFail',['../a01194.xhtml#abe33d81233230cdae8afa714688e905b',1,'Catch::TestCaseInfo']]],
-  ['exprlhs_15',['ExprLhs',['../a00878.xhtml#ad22c6af1a7d6993240624d299714a479',1,'Catch::ExprLhs']]]
+  ['fft_0',['fft',['../a00305.xhtml#a7b426d9d09321e6e1790704eed9c8e46',1,'LaszloFft']]],
+  ['filtfilt_1',['filtfilt',['../a00478.xhtml#a04bf94ff97e5e270210954864025ea06',1,'CFilter::filtfilt()'],['../a00586.xhtml#ab6f5f359e79f0ede5aedc7775ae3bece',1,'CMovingAverage::filtfilt()']]],
+  ['findmax_2',['findMax',['../a00502.xhtml#a34a5c0abd80cd982df8a8bae7cbcea19',1,'CVector']]],
+  ['findmin_3',['findMin',['../a00502.xhtml#ad475dff5686f7f82472071000a542806',1,'CVector']]],
+  ['findmin_5f_4',['findMin_',['../a00618.xhtml#a91a31c5e78ab3531487f88efdb1f692b',1,'CDtw']]],
+  ['findpeaks_5',['findPeaks',['../a00502.xhtml#a64c5c5686629f104663dd3774e7a6e1b',1,'CVector']]],
+  ['flip_5fi_6',['flip_I',['../a00502.xhtml#a16455e414da1bc89417716b46b212ab9',1,'CVector']]],
+  ['float2int_7',['float2int',['../a00498.xhtml#a9032a8fbdc28520ed0c1703fc7151126',1,'CUtil']]],
+  ['free_8',['free',['../a00486.xhtml#a591097c6b1935c4d6273b3445f8f552b',1,'CMatrix::free()'],['../a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737',1,'CVector::free()']]],
+  ['freememory_5f_9',['freeMemory_',['../a00434.xhtml#afec2baaa8b5c5ca228a9aee3dd5b9838',1,'CAudioFileRaw::freeMemory_()'],['../a00438.xhtml#a98ddb3055b9d9a5dfff957446e7ca4af',1,'CAudioFileSndLib::freeMemory_()'],['../a00442.xhtml#aec3ce9851e3b2876ff4978a0cbff7a2b',1,'CAudioFileIf::freeMemory_()'],['../a00474.xhtml#af48c6112f4a0d28b5badd8f317f4d191',1,'CFft::freeMemory_()']]],
+  ['freq2bin_10',['freq2bin',['../a00474.xhtml#a22af988b424911d7750a0f9f381aa443',1,'CFft']]]
 ];

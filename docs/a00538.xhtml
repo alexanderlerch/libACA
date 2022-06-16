@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CPitchFromBlockIf Class Reference</title>
+<title>ACA: CSubFingerprint Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.7</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.8</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -85,77 +85,77 @@ $(document).ready(function(){initNavTree('a00538.xhtml',''); initResizable(); })
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-types">Protected Types</a> &#124;
 <a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00535.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CPitchFromBlockIf Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
+  <div class="headertitle"><div class="title">CSubFingerprint Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)  
+<p>class for computation of a subfingerprint from a magnitude spectrum, 256 subfingerprints comprise one fingerprint  
  <a href="a00538.xhtml#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00251_source.xhtml">SubFingerprint.h</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for CPitchFromBlockIf:</div>
+Collaboration diagram for CSubFingerprint:</div>
 <div class="dyncontent">
-<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00537.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
-</div>
-</div>
-<div class="dynheader">
-Collaboration diagram for CPitchFromBlockIf:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00536.svg" width="234" height="470"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00536.svg" width="210" height="308"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac7496d16e4dfc1ab55305dc118c2e6bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#ac7496d16e4dfc1ab55305dc118c2e6bf">getPitchExtractorIdx</a> () const</td></tr>
-<tr class="separator:ac7496d16e4dfc1ab55305dc118c2e6bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a680337ee1fcc59015ea679862cd8085c"><td class="memItemLeft" align="right" valign="top">virtual float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a680337ee1fcc59015ea679862cd8085c">compF0</a> (const float *pfInput)=0</td></tr>
-<tr class="separator:a680337ee1fcc59015ea679862cd8085c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a713f1061ff32359a059c47c60bee4700"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a713f1061ff32359a059c47c60bee4700">CSubFingerprint</a> (int iMagSpecLength=1025, float fSampleRate=5000.F)</td></tr>
+<tr class="separator:a713f1061ff32359a059c47c60bee4700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2494b4a3ddbf1c599ce906d59f7b7abb"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a2494b4a3ddbf1c599ce906d59f7b7abb">~CSubFingerprint</a> ()</td></tr>
+<tr class="separator:a2494b4a3ddbf1c599ce906d59f7b7abb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab8825079250d8aa755901c0f5961b3d0"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#ab8825079250d8aa755901c0f5961b3d0">compSubFingerprint</a> (const float *pfMagSpec)</td></tr>
+<tr class="separator:ab8825079250d8aa755901c0f5961b3d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a38b5ca2aa31727a84113354e03688ba8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a38b5ca2aa31727a84113354e03688ba8">reset</a> ()</td></tr>
+<tr class="separator:a38b5ca2aa31727a84113354e03688ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
-Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a1718a14a292a2a34ae92e8ce838456a3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a1718a14a292a2a34ae92e8ce838456a3">create</a> (<a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> *&amp;pCInstance, <a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate=1.F)</td></tr>
-<tr class="separator:a1718a14a292a2a34ae92e8ce838456a3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adadb010b152c65dc26b08f56fa700e77"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#adadb010b152c65dc26b08f56fa700e77">destroy</a> (<a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> *&amp;pCInstance)</td></tr>
-<tr class="separator:adadb010b152c65dc26b08f56fa700e77"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-types" name="pro-types"></a>
+Protected Types</h2></td></tr>
+<tr class="memitem:afa38a81062d46e85965cbd34d6fddf0b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0b">Block_t</a> { <a class="el" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea">kPrev</a>
+, <a class="el" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>
+, <a class="el" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09">kTmp</a>
+, <a class="el" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1">kNumProcBuffs</a>
+ }</td></tr>
+<tr class="separator:afa38a81062d46e85965cbd34d6fddf0b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a8d454d951956c464b883888196a0fe23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a8d454d951956c464b883888196a0fe23">CPitchFromBlockIf</a> ()</td></tr>
-<tr class="separator:a8d454d951956c464b883888196a0fe23"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7bf104764846e7531e2011312311c6ea"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a7bf104764846e7531e2011312311c6ea">CPitchFromBlockIf</a> (<a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> ePitchIdx, int iDataLength, float fSampleRate)</td></tr>
-<tr class="separator:a7bf104764846e7531e2011312311c6ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afbcd93d047e4d96fb117e764481c44bd"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#afbcd93d047e4d96fb117e764481c44bd">~CPitchFromBlockIf</a> ()</td></tr>
-<tr class="separator:afbcd93d047e4d96fb117e764481c44bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a02981a6e1aa3094a190b4bb6550b8053"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a02981a6e1aa3094a190b4bb6550b8053">CPitchFromBlockIf</a> (const <a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> &amp;that)</td></tr>
-<tr class="separator:a02981a6e1aa3094a190b4bb6550b8053"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8707778012c90162771312f62be77271"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a8707778012c90162771312f62be77271">operator=</a> (const <a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> &amp;c)</td></tr>
-<tr class="separator:a8707778012c90162771312f62be77271"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a40faa0d1e451489d56225bfd67786c23"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a40faa0d1e451489d56225bfd67786c23">CSubFingerprint</a> (const <a class="el" href="a00538.xhtml">CSubFingerprint</a> &amp;that)</td></tr>
+<tr class="separator:a40faa0d1e451489d56225bfd67786c23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a37fc90327fe0b62ec38dd6a6f8ecdba8"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00538.xhtml">CSubFingerprint</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a37fc90327fe0b62ec38dd6a6f8ecdba8">operator=</a> (const <a class="el" href="a00538.xhtml">CSubFingerprint</a> &amp;c)</td></tr>
+<tr class="separator:a37fc90327fe0b62ec38dd6a6f8ecdba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acc7689ea3256ad6c8d9efe3006434d13"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#acc7689ea3256ad6c8d9efe3006434d13">genBands_</a> ()</td></tr>
+<tr class="separator:acc7689ea3256ad6c8d9efe3006434d13"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:ac90de810c2f977da52483d905119172e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#ac90de810c2f977da52483d905119172e">m_ePitchIdx</a> = <a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></td></tr>
-<tr class="memdesc:ac90de810c2f977da52483d905119172e"><td class="mdescLeft">&#160;</td><td class="mdescRight">index of Pitch to extract  <a href="a00538.xhtml#ac90de810c2f977da52483d905119172e">More...</a><br /></td></tr>
-<tr class="separator:ac90de810c2f977da52483d905119172e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aab7cbf575cd81f196fdc75f226b61ab6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a> = 0</td></tr>
-<tr class="memdesc:aab7cbf575cd81f196fdc75f226b61ab6"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00538.xhtml#aab7cbf575cd81f196fdc75f226b61ab6">More...</a><br /></td></tr>
-<tr class="separator:aab7cbf575cd81f196fdc75f226b61ab6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4a3235dfd5c3919a7d1a290f92dfa80"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a> = 0</td></tr>
-<tr class="memdesc:ac4a3235dfd5c3919a7d1a290f92dfa80"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00538.xhtml#ac4a3235dfd5c3919a7d1a290f92dfa80">More...</a><br /></td></tr>
-<tr class="separator:ac4a3235dfd5c3919a7d1a290f92dfa80"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac6f0bdb7b4333c9a48305c48757bcc6e"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#ac6f0bdb7b4333c9a48305c48757bcc6e">m_iMagSpecLength</a> = 1025</td></tr>
+<tr class="memdesc:ac6f0bdb7b4333c9a48305c48757bcc6e"><td class="mdescLeft">&#160;</td><td class="mdescRight">block length  <a href="a00538.xhtml#ac6f0bdb7b4333c9a48305c48757bcc6e">More...</a><br /></td></tr>
+<tr class="separator:ac6f0bdb7b4333c9a48305c48757bcc6e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b2d390aefb60859f45db83e63355402"><td class="memItemLeft" align="right" valign="top">const int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a> = 32</td></tr>
+<tr class="separator:a4b2d390aefb60859f45db83e63355402"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5e4c718e4843f876fb27295ff7d1c57f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a5e4c718e4843f876fb27295ff7d1c57f">m_fSampleRate</a> = 5000</td></tr>
+<tr class="memdesc:a5e4c718e4843f876fb27295ff7d1c57f"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00538.xhtml#a5e4c718e4843f876fb27295ff7d1c57f">More...</a><br /></td></tr>
+<tr class="separator:a5e4c718e4843f876fb27295ff7d1c57f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae953bb56d76d6eab217f1a8dc3a36086"><td class="memItemLeft" align="right" valign="top">float **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#ae953bb56d76d6eab217f1a8dc3a36086">m_ppfH</a> = 0</td></tr>
+<tr class="memdesc:ae953bb56d76d6eab217f1a8dc3a36086"><td class="mdescLeft">&#160;</td><td class="mdescRight">transformation matrix bin to band  <a href="a00538.xhtml#ae953bb56d76d6eab217f1a8dc3a36086">More...</a><br /></td></tr>
+<tr class="separator:ae953bb56d76d6eab217f1a8dc3a36086"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a69d1a0f7d776e2baebc025a60f762b3c"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a> [<a class="el" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1">kNumProcBuffs</a>] = { 0 }</td></tr>
+<tr class="separator:a69d1a0f7d776e2baebc025a60f762b3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum) </p>
+<div class="textblock"><p >class for computation of a subfingerprint from a magnitude spectrum, 256 subfingerprints comprise one fingerprint </p>
 
-<p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00011">11</a> of file <a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a>.</p>
-</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a8d454d951956c464b883888196a0fe23" name="a8d454d951956c464b883888196a0fe23"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8d454d951956c464b883888196a0fe23">&#9670;&nbsp;</a></span>CPitchFromBlockIf() <span class="overload">[1/3]</span></h2>
+<p class="definition">Definition at line <a class="el" href="a00251_source.xhtml#l00008">8</a> of file <a class="el" href="a00251_source.xhtml">SubFingerprint.h</a>.</p>
+</div><h2 class="groupheader">Member Enumeration Documentation</h2>
+<a id="afa38a81062d46e85965cbd34d6fddf0b" name="afa38a81062d46e85965cbd34d6fddf0b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa38a81062d46e85965cbd34d6fddf0b">&#9670;&nbsp;</a></span>Block_t</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -164,26 +164,40 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CPitchFromBlockIf::CPitchFromBlockIf </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
+          <td class="memname">enum <a class="el" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0b">CSubFingerprint::Block_t</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea" name="afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea"></a>kPrev&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6" name="afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6"></a>kCurr&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09" name="afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09"></a>kTmp&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1" name="afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1"></a>kNumProcBuffs&#160;</td><td class="fielddoc"></td></tr>
+</table>
 
-<p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00050">50</a> of file <a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   50</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00251_source.xhtml#l00032">32</a> of file <a class="el" href="a00251_source.xhtml">SubFingerprint.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   33</span>    {</div>
+<div class="line"><span class="lineno">   34</span>        <a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea">kPrev</a>,</div>
+<div class="line"><span class="lineno">   35</span>        <a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>,</div>
+<div class="line"><span class="lineno">   36</span>        <a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09">kTmp</a>,</div>
+<div class="line"><span class="lineno">   37</span> </div>
+<div class="line"><span class="lineno">   38</span>        <a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1">kNumProcBuffs</a></div>
+<div class="line"><span class="lineno">   39</span>    };</div>
+<div class="ttc" id="aa00538_xhtml_afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6"><div class="ttname"><a href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">CSubFingerprint::kCurr</a></div><div class="ttdeci">@ kCurr</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00035">SubFingerprint.h:35</a></div></div>
+<div class="ttc" id="aa00538_xhtml_afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1"><div class="ttname"><a href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1">CSubFingerprint::kNumProcBuffs</a></div><div class="ttdeci">@ kNumProcBuffs</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00039">SubFingerprint.h:38</a></div></div>
+<div class="ttc" id="aa00538_xhtml_afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09"><div class="ttname"><a href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09">CSubFingerprint::kTmp</a></div><div class="ttdeci">@ kTmp</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00036">SubFingerprint.h:36</a></div></div>
+<div class="ttc" id="aa00538_xhtml_afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea"><div class="ttname"><a href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea">CSubFingerprint::kPrev</a></div><div class="ttdeci">@ kPrev</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00034">SubFingerprint.h:34</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
-<a id="a7bf104764846e7531e2011312311c6ea" name="a7bf104764846e7531e2011312311c6ea"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7bf104764846e7531e2011312311c6ea">&#9670;&nbsp;</a></span>CPitchFromBlockIf() <span class="overload">[2/3]</span></h2>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="a713f1061ff32359a059c47c60bee4700" name="a713f1061ff32359a059c47c60bee4700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a713f1061ff32359a059c47c60bee4700">&#9670;&nbsp;</a></span>CSubFingerprint() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -192,22 +206,16 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CPitchFromBlockIf::CPitchFromBlockIf </td>
+          <td class="memname">CSubFingerprint::CSubFingerprint </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td>
-          <td class="paramname"><em>ePitchIdx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
           <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
+          <td class="paramname"><em>iMagSpecLength</em> = <code>1025</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em>&#160;</td>
+          <td class="paramname"><em>fSampleRate</em> = <code>5000.F</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -217,21 +225,48 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+<span class="mlabels"><span class="mlabel">explicit</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00107_source.xhtml#l00479">479</a> of file <a class="el" href="a00107_source.xhtml">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  479</span>: <a class="code hl_variable" href="a00538.xhtml#ac90de810c2f977da52483d905119172e">m_ePitchIdx</a>(ePitchIdx), <a class="code hl_variable" href="a00538.xhtml#aab7cbf575cd81f196fdc75f226b61ab6">m_iDataLength</a>(iDataLength), <a class="code hl_variable" href="a00538.xhtml#ac4a3235dfd5c3919a7d1a290f92dfa80">m_fSampleRate</a>(fSampleRate) { assert(iDataLength &gt; 0); }</div>
-<div class="ttc" id="aa00538_xhtml_aab7cbf575cd81f196fdc75f226b61ab6"><div class="ttname"><a href="a00538.xhtml#aab7cbf575cd81f196fdc75f226b61ab6">CPitchFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00215_source.xhtml#l00058">PitchFromBlock.h:58</a></div></div>
-<div class="ttc" id="aa00538_xhtml_ac4a3235dfd5c3919a7d1a290f92dfa80"><div class="ttname"><a href="a00538.xhtml#ac4a3235dfd5c3919a7d1a290f92dfa80">CPitchFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00215_source.xhtml#l00060">PitchFromBlock.h:60</a></div></div>
-<div class="ttc" id="aa00538_xhtml_ac90de810c2f977da52483d905119172e"><div class="ttname"><a href="a00538.xhtml#ac90de810c2f977da52483d905119172e">CPitchFromBlockIf::m_ePitchIdx</a></div><div class="ttdeci">CPitchIf::PitchExtractors_t m_ePitchIdx</div><div class="ttdoc">index of Pitch to extract</div><div class="ttdef"><b>Definition:</b> <a href="a00215_source.xhtml#l00056">PitchFromBlock.h:56</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00074_source.xhtml#l00011">11</a> of file <a class="el" href="a00074_source.xhtml">SubFingerprint.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   11</span>                                                                      :</div>
+<div class="line"><span class="lineno">   12</span>    <a class="code hl_variable" href="a00538.xhtml#ac6f0bdb7b4333c9a48305c48757bcc6e">m_iMagSpecLength</a>(iMagSpecLength),</div>
+<div class="line"><span class="lineno">   13</span>    <a class="code hl_variable" href="a00538.xhtml#a5e4c718e4843f876fb27295ff7d1c57f">m_fSampleRate</a>(fSampleRate)</div>
+<div class="line"><span class="lineno">   14</span>{</div>
+<div class="line"><span class="lineno">   15</span>    assert(iMagSpecLength &gt; 0);</div>
+<div class="line"><span class="lineno">   16</span>    assert(fSampleRate &gt; 4000);</div>
+<div class="line"><span class="lineno">   17</span> </div>
+<div class="line"><span class="lineno">   18</span>    <span class="comment">// alloc transfer function memory</span></div>
+<div class="line"><span class="lineno">   19</span>    <a class="code hl_function" href="a00486.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a>(<a class="code hl_variable" href="a00538.xhtml#ae953bb56d76d6eab217f1a8dc3a36086">m_ppfH</a>, <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a> + 1, <a class="code hl_variable" href="a00538.xhtml#ac6f0bdb7b4333c9a48305c48757bcc6e">m_iMagSpecLength</a>);</div>
+<div class="line"><span class="lineno">   20</span> </div>
+<div class="line"><span class="lineno">   21</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; <a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1">kNumProcBuffs</a>; k++)</div>
+<div class="line"><span class="lineno">   22</span>        <a class="code hl_function" href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[k], <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a> + <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(1));</div>
+<div class="line"><span class="lineno">   23</span> </div>
+<div class="line"><span class="lineno">   24</span>    <a class="code hl_function" href="a00538.xhtml#acc7689ea3256ad6c8d9efe3006434d13">genBands_</a>();</div>
+<div class="line"><span class="lineno">   25</span>}</div>
+<div class="ttc" id="aa00486_xhtml_a6501b78d76c912d49eee88c8f7242923"><div class="ttname"><a href="a00486.xhtml#a6501b78d76c912d49eee88c8f7242923">CMatrix::alloc</a></div><div class="ttdeci">static void alloc(T **&amp;pptMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00021">Matrix.h:21</a></div></div>
+<div class="ttc" id="aa00502_xhtml_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00023">Vector.h:23</a></div></div>
+<div class="ttc" id="aa00538_xhtml_a4b2d390aefb60859f45db83e63355402"><div class="ttname"><a href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">CSubFingerprint::m_iNumBands</a></div><div class="ttdeci">const int m_iNumBands</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00045">SubFingerprint.h:45</a></div></div>
+<div class="ttc" id="aa00538_xhtml_a5e4c718e4843f876fb27295ff7d1c57f"><div class="ttname"><a href="a00538.xhtml#a5e4c718e4843f876fb27295ff7d1c57f">CSubFingerprint::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00047">SubFingerprint.h:47</a></div></div>
+<div class="ttc" id="aa00538_xhtml_a69d1a0f7d776e2baebc025a60f762b3c"><div class="ttname"><a href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">CSubFingerprint::m_apfProcBuff</a></div><div class="ttdeci">float * m_apfProcBuff[kNumProcBuffs]</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00051">SubFingerprint.h:51</a></div></div>
+<div class="ttc" id="aa00538_xhtml_ac6f0bdb7b4333c9a48305c48757bcc6e"><div class="ttname"><a href="a00538.xhtml#ac6f0bdb7b4333c9a48305c48757bcc6e">CSubFingerprint::m_iMagSpecLength</a></div><div class="ttdeci">int m_iMagSpecLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00043">SubFingerprint.h:43</a></div></div>
+<div class="ttc" id="aa00538_xhtml_acc7689ea3256ad6c8d9efe3006434d13"><div class="ttname"><a href="a00538.xhtml#acc7689ea3256ad6c8d9efe3006434d13">CSubFingerprint::genBands_</a></div><div class="ttdeci">void genBands_()</div><div class="ttdef"><b>Definition:</b> <a href="a00074_source.xhtml#l00072">SubFingerprint.cpp:72</a></div></div>
+<div class="ttc" id="aa00538_xhtml_ae953bb56d76d6eab217f1a8dc3a36086"><div class="ttname"><a href="a00538.xhtml#ae953bb56d76d6eab217f1a8dc3a36086">CSubFingerprint::m_ppfH</a></div><div class="ttdeci">float ** m_ppfH</div><div class="ttdoc">transformation matrix bin to band</div><div class="ttdef"><b>Definition:</b> <a href="a00251_source.xhtml#l00049">SubFingerprint.h:49</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00023">CVector::alloc()</a>, <a class="el" href="a00143_source.xhtml#l00021">CMatrix::alloc()</a>, <a class="el" href="a00074_source.xhtml#l00072">genBands_()</a>, <a class="el" href="a00251_source.xhtml#l00038">kNumProcBuffs</a>, <a class="el" href="a00251_source.xhtml#l00051">m_apfProcBuff</a>, <a class="el" href="a00251_source.xhtml#l00043">m_iMagSpecLength</a>, <a class="el" href="a00251_source.xhtml#l00045">m_iNumBands</a>, and <a class="el" href="a00251_source.xhtml#l00049">m_ppfH</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00538_a713f1061ff32359a059c47c60bee4700_cgraph.svg" width="100%" height="442"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
-<a id="afbcd93d047e4d96fb117e764481c44bd" name="afbcd93d047e4d96fb117e764481c44bd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afbcd93d047e4d96fb117e764481c44bd">&#9670;&nbsp;</a></span>~CPitchFromBlockIf()</h2>
+
+</div>
+</div>
+<a id="a2494b4a3ddbf1c599ce906d59f7b7abb" name="a2494b4a3ddbf1c599ce906d59f7b7abb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2494b4a3ddbf1c599ce906d59f7b7abb">&#9670;&nbsp;</a></span>~CSubFingerprint()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -240,7 +275,7 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual CPitchFromBlockIf::~CPitchFromBlockIf </td>
+          <td class="memname">CSubFingerprint::~CSubFingerprint </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -248,18 +283,33 @@ Protected Attributes</h2></td></tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00052">52</a> of file <a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   52</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00074_source.xhtml#l00027">27</a> of file <a class="el" href="a00074_source.xhtml">SubFingerprint.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   28</span>{</div>
+<div class="line"><span class="lineno">   29</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; <a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1">kNumProcBuffs</a>; k++)</div>
+<div class="line"><span class="lineno">   30</span>        <a class="code hl_function" href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[k]);</div>
+<div class="line"><span class="lineno">   31</span> </div>
+<div class="line"><span class="lineno">   32</span>    <a class="code hl_function" href="a00486.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a>(<a class="code hl_variable" href="a00538.xhtml#ae953bb56d76d6eab217f1a8dc3a36086">m_ppfH</a>, <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a> + 1);</div>
+<div class="line"><span class="lineno">   33</span>}</div>
+<div class="ttc" id="aa00486_xhtml_a591097c6b1935c4d6273b3445f8f552b"><div class="ttname"><a href="a00486.xhtml#a591097c6b1935c4d6273b3445f8f552b">CMatrix::free</a></div><div class="ttdeci">static void free(T **&amp;pptMat, int iNumRows)</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00038">Matrix.h:38</a></div></div>
+<div class="ttc" id="aa00502_xhtml_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00037">Vector.h:37</a></div></div>
 </div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00037">CVector::free()</a>, <a class="el" href="a00143_source.xhtml#l00038">CMatrix::free()</a>, <a class="el" href="a00251_source.xhtml#l00038">kNumProcBuffs</a>, <a class="el" href="a00251_source.xhtml#l00051">m_apfProcBuff</a>, <a class="el" href="a00251_source.xhtml#l00045">m_iNumBands</a>, and <a class="el" href="a00251_source.xhtml#l00049">m_ppfH</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_a2494b4a3ddbf1c599ce906d59f7b7abb_cgraph.svg" width="520" height="63"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
-<a id="a02981a6e1aa3094a190b4bb6550b8053" name="a02981a6e1aa3094a190b4bb6550b8053"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a02981a6e1aa3094a190b4bb6550b8053">&#9670;&nbsp;</a></span>CPitchFromBlockIf() <span class="overload">[3/3]</span></h2>
+
+</div>
+</div>
+<a id="a40faa0d1e451489d56225bfd67786c23" name="a40faa0d1e451489d56225bfd67786c23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a40faa0d1e451489d56225bfd67786c23">&#9670;&nbsp;</a></span>CSubFingerprint() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -268,9 +318,9 @@ Protected Attributes</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CPitchFromBlockIf::CPitchFromBlockIf </td>
+          <td class="memname">CSubFingerprint::CSubFingerprint </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00538.xhtml">CSubFingerprint</a> &amp;&#160;</td>
           <td class="paramname"><em>that</em></td><td>)</td>
           <td></td>
         </tr>
@@ -285,169 +335,78 @@ Protected Attributes</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a680337ee1fcc59015ea679862cd8085c" name="a680337ee1fcc59015ea679862cd8085c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a680337ee1fcc59015ea679862cd8085c">&#9670;&nbsp;</a></span>compF0()</h2>
+<a id="ab8825079250d8aa755901c0f5961b3d0" name="ab8825079250d8aa755901c0f5961b3d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab8825079250d8aa755901c0f5961b3d0">&#9670;&nbsp;</a></span>compSubFingerprint()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">virtual float CPitchFromBlockIf::compF0 </td>
+          <td class="memname">uint32_t CSubFingerprint::compSubFingerprint </td>
           <td>(</td>
           <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfInput</em></td><td>)</td>
+          <td class="paramname"><em>pfMagSpec</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">pure virtual</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
-<p >performs the PitchFromBlock computation </p><dl class="params"><dt>Parameters</dt><dd>
+<p >performs the SubFingerprint computation </p><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">pfInput</td><td>input data of length iDataLength </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>float fF0InHz </dd></dl>
-
-<p>Implemented in <a class="el" href="a00390.xhtml#a250792b516c76c54251534a33c17bea8">CPitchSpectralAcf</a>, <a class="el" href="a00394.xhtml#ad6b1dafb86b44b1d31bfbe22e930d146">CPitchSpectralHps</a>, <a class="el" href="a00398.xhtml#a7b6c2a935434281c2e17352a3487c912">CPitchTimeAcf</a>, <a class="el" href="a00402.xhtml#a7fa2c23a2108dc313f319ec803a6181f">CPitchTimeAuditory</a>, <a class="el" href="a00406.xhtml#ae235ca4cf85c1da5f49460775ed5cb24">CPitchTimeAmdf</a>, and <a class="el" href="a00410.xhtml#ad801e225c1a5713cd40865c5e8a2211f">CPitchTimeZeroCrossings</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00077_source.xhtml#l00193">CPitchIf::compF0()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_a680337ee1fcc59015ea679862cd8085c_icgraph.svg" width="419" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="a1718a14a292a2a34ae92e8ce838456a3" name="a1718a14a292a2a34ae92e8ce838456a3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1718a14a292a2a34ae92e8ce838456a3">&#9670;&nbsp;</a></span>create()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchFromBlockIf::create </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> *&amp;&#160;</td>
-          <td class="paramname"><em>pCInstance</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype"><a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a>&#160;</td>
-          <td class="paramname"><em>ePitchIdx</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>iDataLength</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">float&#160;</td>
-          <td class="paramname"><em>fSampleRate</em> = <code>1.F</code>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >initializes a PitchFromBlock instance </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
-    <tr><td class="paramname">ePitchIdx</td><td>index of Pitch to extract </td></tr>
-    <tr><td class="paramname">iDataLength</td><td>block length </td></tr>
-    <tr><td class="paramname">fSampleRate</td><td>sample rate (only used when needed) </td></tr>
+    <tr><td class="paramname">pfMagSpec</td><td>input data of length iDataLength </td></tr>
   </table>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00107_source.xhtml#l00432">432</a> of file <a class="el" href="a00107_source.xhtml">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  433</span>{</div>
-<div class="line"><span class="lineno">  434</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
-<div class="line"><span class="lineno">  435</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  436</span> </div>
-<div class="line"><span class="lineno">  437</span> </div>
-<div class="line"><span class="lineno">  438</span>    <span class="keywordflow">switch</span> (ePitchIdx)</div>
-<div class="line"><span class="lineno">  439</span>    {</div>
-<div class="line"><span class="lineno">  440</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  441</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">CPitchIf::kPitchTimeAcf</a>:</div>
-<div class="line"><span class="lineno">  442</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00398.xhtml">CPitchTimeAcf</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  443</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  444</span> </div>
-<div class="line"><span class="lineno">  445</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">CPitchIf::kPitchTimeZeroCrossings</a>:</div>
-<div class="line"><span class="lineno">  446</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00410.xhtml">CPitchTimeZeroCrossings</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  447</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  448</span> </div>
-<div class="line"><span class="lineno">  449</span>    <span class="comment">//case CPitchIf::kPitchTimeAuditory:</span></div>
-<div class="line"><span class="lineno">  450</span>    <span class="comment">//    pCInstance = new CPitchTimeAuditory(ePitchIdx, iDataLength, fSampleRate);</span></div>
-<div class="line"><span class="lineno">  451</span>    <span class="comment">//    break;</span></div>
-<div class="line"><span class="lineno">  452</span> </div>
-<div class="line"><span class="lineno">  453</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">CPitchIf::kPitchTimeAmdf</a>:</div>
-<div class="line"><span class="lineno">  454</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00406.xhtml">CPitchTimeAmdf</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  455</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  456</span> </div>
-<div class="line"><span class="lineno">  457</span> </div>
-<div class="line"><span class="lineno">  458</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">CPitchIf::kPitchSpectralHps</a>:</div>
-<div class="line"><span class="lineno">  459</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00394.xhtml">CPitchSpectralHps</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  460</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  461</span> </div>
-<div class="line"><span class="lineno">  462</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">CPitchIf::kPitchSpectralAcf</a>:</div>
-<div class="line"><span class="lineno">  463</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00390.xhtml">CPitchSpectralAcf</a>(ePitchIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno">  464</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  465</span>    }</div>
-<div class="line"><span class="lineno">  466</span> </div>
-<div class="line"><span class="lineno">  467</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  468</span>}</div>
-<div class="ttc" id="aa00125_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
-<div class="ttc" id="aa00125_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
-<div class="ttc" id="aa00390_xhtml"><div class="ttname"><a href="a00390.xhtml">CPitchSpectralAcf</a></div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.xhtml#l00015">PitchFromBlock.cpp:16</a></div></div>
-<div class="ttc" id="aa00394_xhtml"><div class="ttname"><a href="a00394.xhtml">CPitchSpectralHps</a></div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.xhtml#l00088">PitchFromBlock.cpp:89</a></div></div>
-<div class="ttc" id="aa00398_xhtml"><div class="ttname"><a href="a00398.xhtml">CPitchTimeAcf</a></div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.xhtml#l00138">PitchFromBlock.cpp:139</a></div></div>
-<div class="ttc" id="aa00406_xhtml"><div class="ttname"><a href="a00406.xhtml">CPitchTimeAmdf</a></div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.xhtml#l00336">PitchFromBlock.cpp:337</a></div></div>
-<div class="ttc" id="aa00410_xhtml"><div class="ttname"><a href="a00410.xhtml">CPitchTimeZeroCrossings</a></div><div class="ttdef"><b>Definition:</b> <a href="a00107_source.xhtml#l00391">PitchFromBlock.cpp:392</a></div></div>
-<div class="ttc" id="aa00534_xhtml_ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19"><div class="ttname"><a href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">CPitchIf::kPitchTimeAcf</a></div><div class="ttdeci">@ kPitchTimeAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00245_source.xhtml#l00028">Pitch.h:28</a></div></div>
-<div class="ttc" id="aa00534_xhtml_ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f"><div class="ttname"><a href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">CPitchIf::kPitchSpectralHps</a></div><div class="ttdeci">@ kPitchSpectralHps</div><div class="ttdef"><b>Definition:</b> <a href="a00245_source.xhtml#l00026">Pitch.h:26</a></div></div>
-<div class="ttc" id="aa00534_xhtml_ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b"><div class="ttname"><a href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">CPitchIf::kPitchTimeAmdf</a></div><div class="ttdeci">@ kPitchTimeAmdf</div><div class="ttdef"><b>Definition:</b> <a href="a00245_source.xhtml#l00029">Pitch.h:29</a></div></div>
-<div class="ttc" id="aa00534_xhtml_ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec"><div class="ttname"><a href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">CPitchIf::kPitchSpectralAcf</a></div><div class="ttdeci">@ kPitchSpectralAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00245_source.xhtml#l00025">Pitch.h:25</a></div></div>
-<div class="ttc" id="aa00534_xhtml_ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07"><div class="ttname"><a href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">CPitchIf::kPitchTimeZeroCrossings</a></div><div class="ttdeci">@ kPitchTimeZeroCrossings</div><div class="ttdef"><b>Definition:</b> <a href="a00245_source.xhtml#l00031">Pitch.h:31</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00074_source.xhtml#l00035">35</a> of file <a class="el" href="a00074_source.xhtml">SubFingerprint.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   36</span>{</div>
+<div class="line"><span class="lineno">   37</span>    assert(pfMagSpec);</div>
+<div class="line"><span class="lineno">   38</span> </div>
+<div class="line"><span class="lineno">   39</span>    <a class="code hl_function" href="a00502.xhtml#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a>(<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>], <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a> + <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(1));</div>
+<div class="line"><span class="lineno">   40</span> </div>
+<div class="line"><span class="lineno">   41</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a>+1; p++)</div>
+<div class="line"><span class="lineno">   42</span>    {</div>
+<div class="line"><span class="lineno">   43</span>        <span class="comment">// we could do this nicer with CVector::mulScalar if we allocated memory; or, we could use the bin boundaries for start and end of loop. or both.</span></div>
+<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; <a class="code hl_variable" href="a00538.xhtml#ac6f0bdb7b4333c9a48305c48757bcc6e">m_iMagSpecLength</a>; k++)</div>
+<div class="line"><span class="lineno">   45</span>            <a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>][p] += <a class="code hl_variable" href="a00538.xhtml#ae953bb56d76d6eab217f1a8dc3a36086">m_ppfH</a>[p][k] * (pfMagSpec[k] * pfMagSpec[k]);</div>
+<div class="line"><span class="lineno">   46</span>    }</div>
+<div class="line"><span class="lineno">   47</span> </div>
+<div class="line"><span class="lineno">   48</span>    <span class="comment">// compute diff in freq domain</span></div>
+<div class="line"><span class="lineno">   49</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a>; p++)</div>
+<div class="line"><span class="lineno">   50</span>    {</div>
+<div class="line"><span class="lineno">   51</span>        <a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>][p] = <a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>][p + 1] - <a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>][p];</div>
+<div class="line"><span class="lineno">   52</span>        <a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09">kTmp</a>][p] = <a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>][p] - <a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea">kPrev</a>][p];</div>
+<div class="line"><span class="lineno">   53</span>    }</div>
+<div class="line"><span class="lineno">   54</span> </div>
+<div class="line"><span class="lineno">   55</span>    <span class="comment">// update for next block</span></div>
+<div class="line"><span class="lineno">   56</span>    <a class="code hl_function" href="a00498.xhtml#a4518cf65aacb5732281b35ee427d0fc2">CUtil::swap</a>(<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>], <a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea">kPrev</a>]);</div>
+<div class="line"><span class="lineno">   57</span> </div>
+<div class="line"><span class="lineno">   58</span>    <span class="keywordflow">return</span> <a class="code hl_function" href="a00550.xhtml#a83a5429f8bf5225377a6c8d566e3224c">CConversion::convertFloat2Word</a>(<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09">kTmp</a>]);</div>
+<div class="line"><span class="lineno">   59</span>}</div>
+<div class="ttc" id="aa00498_xhtml_a4518cf65aacb5732281b35ee427d0fc2"><div class="ttname"><a href="a00498.xhtml#a4518cf65aacb5732281b35ee427d0fc2">CUtil::swap</a></div><div class="ttdeci">static void swap(T &amp;tValue1, T &amp;tValue2)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.xhtml#l00072">Util.h:72</a></div></div>
+<div class="ttc" id="aa00502_xhtml_a6dbb3f9f480568b60f7fe50090d20003"><div class="ttname"><a href="a00502.xhtml#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a></div><div class="ttdeci">static void setZero(T *ptSrcDest, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00048">Vector.h:48</a></div></div>
+<div class="ttc" id="aa00550_xhtml_a83a5429f8bf5225377a6c8d566e3224c"><div class="ttname"><a href="a00550.xhtml#a83a5429f8bf5225377a6c8d566e3224c">CConversion::convertFloat2Word</a></div><div class="ttdeci">static uint32_t convertFloat2Word(const float *pfVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00170_source.xhtml#l00227">ToolConversion.h:227</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00245_source.xhtml#l00025">CPitchIf::kPitchSpectralAcf</a>, <a class="el" href="a00245_source.xhtml#l00026">CPitchIf::kPitchSpectralHps</a>, <a class="el" href="a00245_source.xhtml#l00028">CPitchIf::kPitchTimeAcf</a>, <a class="el" href="a00245_source.xhtml#l00029">CPitchIf::kPitchTimeAmdf</a>, and <a class="el" href="a00245_source.xhtml#l00031">CPitchIf::kPitchTimeZeroCrossings</a>.</p>
+<p class="reference">References <a class="el" href="a00170_source.xhtml#l00227">CConversion::convertFloat2Word()</a>, <a class="el" href="a00251_source.xhtml#l00035">kCurr</a>, <a class="el" href="a00251_source.xhtml#l00034">kPrev</a>, <a class="el" href="a00251_source.xhtml#l00036">kTmp</a>, <a class="el" href="a00251_source.xhtml#l00051">m_apfProcBuff</a>, <a class="el" href="a00251_source.xhtml#l00043">m_iMagSpecLength</a>, <a class="el" href="a00251_source.xhtml#l00045">m_iNumBands</a>, <a class="el" href="a00251_source.xhtml#l00049">m_ppfH</a>, <a class="el" href="a00155_source.xhtml#l00048">CVector::setZero()</a>, and <a class="el" href="a00149_source.xhtml#l00072">CUtil::swap()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00077_source.xhtml#l00300">CPitchIf::init_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00089_source.xhtml#l00140">CFingerprint::compFingerprint()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_ab8825079250d8aa755901c0f5961b3d0_cgraph.svg" width="446" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_a1718a14a292a2a34ae92e8ce838456a3_icgraph.svg" width="552" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_ab8825079250d8aa755901c0f5961b3d0_icgraph.svg" width="524" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="adadb010b152c65dc26b08f56fa700e77" name="adadb010b152c65dc26b08f56fa700e77"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adadb010b152c65dc26b08f56fa700e77">&#9670;&nbsp;</a></span>destroy()</h2>
+<a id="acc7689ea3256ad6c8d9efe3006434d13" name="acc7689ea3256ad6c8d9efe3006434d13"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acc7689ea3256ad6c8d9efe3006434d13">&#9670;&nbsp;</a></span>genBands_()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -456,92 +415,76 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchFromBlockIf::destroy </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> *&amp;&#160;</td>
-          <td class="paramname"><em>pCInstance</em></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<p >destroys a PitchFromBlock instance </p><dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be destroyed </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
-
-<p class="definition">Definition at line <a class="el" href="a00107_source.xhtml#l00470">470</a> of file <a class="el" href="a00107_source.xhtml">PitchFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  471</span>{</div>
-<div class="line"><span class="lineno">  472</span>    <span class="keyword">delete</span> pCInstance;</div>
-<div class="line"><span class="lineno">  473</span> </div>
-<div class="line"><span class="lineno">  474</span>    pCInstance = 0;</div>
-<div class="line"><span class="lineno">  475</span> </div>
-<div class="line"><span class="lineno">  476</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  477</span>}</div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00125.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00077_source.xhtml#l00277">CPitchIf::reset_()</a>.</p>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_adadb010b152c65dc26b08f56fa700e77_icgraph.svg" width="564" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="ac7496d16e4dfc1ab55305dc118c2e6bf" name="ac7496d16e4dfc1ab55305dc118c2e6bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac7496d16e4dfc1ab55305dc118c2e6bf">&#9670;&nbsp;</a></span>getPitchExtractorIdx()</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> CPitchFromBlockIf::getPitchExtractorIdx </td>
+          <td class="memname">void CSubFingerprint::genBands_ </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<p >returns size of output Pitch (1 in most cases) </p><dl class="section return"><dt>Returns</dt><dd>int</dd></dl>
-<p>returns index of the Pitch to extract </p><dl class="section return"><dt>Returns</dt><dd>Pitch_t </dd></dl>
+<p >&lt; extract 33 bands</p>
 
-<p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00038">38</a> of file <a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   39</span>    {</div>
-<div class="line"><span class="lineno">   40</span>        <span class="keywordflow">return</span> <a class="code hl_variable" href="a00538.xhtml#ac90de810c2f977da52483d905119172e">m_ePitchIdx</a>;</div>
-<div class="line"><span class="lineno">   41</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00074_source.xhtml#l00072">72</a> of file <a class="el" href="a00074_source.xhtml">SubFingerprint.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   73</span>{</div>
+<div class="line"><span class="lineno">   74</span>    <span class="keyword">enum</span> FreqBounds_t</div>
+<div class="line"><span class="lineno">   75</span>    {</div>
+<div class="line"><span class="lineno">   76</span>        kLow,</div>
+<div class="line"><span class="lineno">   77</span>        kHigh,</div>
+<div class="line"><span class="lineno">   78</span> </div>
+<div class="line"><span class="lineno">   79</span>        kNumBounds</div>
+<div class="line"><span class="lineno">   80</span>    };</div>
+<div class="line"><span class="lineno">   81</span> </div>
+<div class="line"><span class="lineno">   82</span>    <span class="keyword">const</span> <span class="keywordtype">float</span> afFreqBounds[kNumBounds] = { 300.F, 2000.F };</div>
+<div class="line"><span class="lineno">   83</span>    <span class="keywordtype">int</span> iNumBands = <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a> + 1;  <span class="comment">//!&lt; extract 33 bands</span></div>
+<div class="line"><span class="lineno">   84</span>    <span class="keywordtype">int</span> iFftLength = 2 * (<a class="code hl_variable" href="a00538.xhtml#ac6f0bdb7b4333c9a48305c48757bcc6e">m_iMagSpecLength</a> - 1);</div>
+<div class="line"><span class="lineno">   85</span> </div>
+<div class="line"><span class="lineno">   86</span>    <span class="keywordtype">float</span> fFreqScale = std::log(afFreqBounds[kHigh] / afFreqBounds[kLow]);</div>
+<div class="line"><span class="lineno">   87</span>    <span class="keywordtype">float</span> fLowBound = afFreqBounds[kLow];</div>
+<div class="line"><span class="lineno">   88</span> </div>
+<div class="line"><span class="lineno">   89</span>    <a class="code hl_function" href="a00486.xhtml#a7be1ae4f635c5aaec0c2693fc23b3646">CMatrix::setZero</a>(<a class="code hl_variable" href="a00538.xhtml#ae953bb56d76d6eab217f1a8dc3a36086">m_ppfH</a>, <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a> + 1, <a class="code hl_variable" href="a00538.xhtml#ac6f0bdb7b4333c9a48305c48757bcc6e">m_iMagSpecLength</a>);</div>
+<div class="line"><span class="lineno">   90</span> </div>
+<div class="line"><span class="lineno">   91</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a>; p++)</div>
+<div class="line"><span class="lineno">   92</span>    {</div>
+<div class="line"><span class="lineno">   93</span>        <span class="keywordtype">float</span> fHighBound = afFreqBounds[kLow] * std::exp((p+1) * fFreqScale / iNumBands);</div>
+<div class="line"><span class="lineno">   94</span>        <span class="comment">// get indices from freqs</span></div>
+<div class="line"><span class="lineno">   95</span>        <span class="keyword">const</span> <span class="keywordtype">int</span> aiBoundIdx[kNumBounds] = { <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00550.xhtml#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(fLowBound, iFftLength, <a class="code hl_variable" href="a00538.xhtml#a5e4c718e4843f876fb27295ff7d1c57f">m_fSampleRate</a>)) + 1,</div>
+<div class="line"><span class="lineno">   96</span>            <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_function" href="a00550.xhtml#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a>(fHighBound, iFftLength, <a class="code hl_variable" href="a00538.xhtml#a5e4c718e4843f876fb27295ff7d1c57f">m_fSampleRate</a>)) };</div>
+<div class="line"><span class="lineno">   97</span> </div>
+<div class="line"><span class="lineno">   98</span>        <a class="code hl_function" href="a00502.xhtml#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a>(&amp;<a class="code hl_variable" href="a00538.xhtml#ae953bb56d76d6eab217f1a8dc3a36086">m_ppfH</a>[p][aiBoundIdx[kLow]], 1.F, aiBoundIdx[kHigh] + <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(1) - aiBoundIdx[kLow] );</div>
+<div class="line"><span class="lineno">   99</span> </div>
+<div class="line"><span class="lineno">  100</span>        <span class="comment">// proceed to next band</span></div>
+<div class="line"><span class="lineno">  101</span>        fLowBound = fHighBound;</div>
+<div class="line"><span class="lineno">  102</span>    }</div>
+<div class="line"><span class="lineno">  103</span>}</div>
+<div class="ttc" id="aa00486_xhtml_a7be1ae4f635c5aaec0c2693fc23b3646"><div class="ttname"><a href="a00486.xhtml#a7be1ae4f635c5aaec0c2693fc23b3646">CMatrix::setZero</a></div><div class="ttdeci">static void setZero(T **pptMat, int iNumRows, int iNumCols)</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00056">Matrix.h:56</a></div></div>
+<div class="ttc" id="aa00502_xhtml_a4cf9544dd96801e3ee47fd1ef2049a1b"><div class="ttname"><a href="a00502.xhtml#a4cf9544dd96801e3ee47fd1ef2049a1b">CVector::setValue</a></div><div class="ttdeci">static void setValue(T *ptDest, T tValue, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00063">Vector.h:63</a></div></div>
+<div class="ttc" id="aa00550_xhtml_ada82d84a69f4c77266835f1f06ca2ecb"><div class="ttname"><a href="a00550.xhtml#ada82d84a69f4c77266835f1f06ca2ecb">CConversion::convertFreq2Bin</a></div><div class="ttdeci">static float convertFreq2Bin(float fInHz, int iFftLength, float fSampleRate=44100.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00170_source.xhtml#l00169">ToolConversion.h:169</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00215_source.xhtml#l00056">m_ePitchIdx</a>.</p>
+<p class="reference">References <a class="el" href="a00170_source.xhtml#l00169">CConversion::convertFreq2Bin()</a>, <a class="el" href="a00251_source.xhtml#l00047">m_fSampleRate</a>, <a class="el" href="a00251_source.xhtml#l00043">m_iMagSpecLength</a>, <a class="el" href="a00251_source.xhtml#l00045">m_iNumBands</a>, <a class="el" href="a00251_source.xhtml#l00049">m_ppfH</a>, <a class="el" href="a00155_source.xhtml#l00063">CVector::setValue()</a>, and <a class="el" href="a00143_source.xhtml#l00056">CMatrix::setZero()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00077_source.xhtml#l00193">CPitchIf::compF0()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00074_source.xhtml#l00011">CSubFingerprint()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_acc7689ea3256ad6c8d9efe3006434d13_cgraph.svg" width="610" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_ac7496d16e4dfc1ab55305dc118c2e6bf_icgraph.svg" width="419" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_acc7689ea3256ad6c8d9efe3006434d13_icgraph.svg" width="460" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="a8707778012c90162771312f62be77271" name="a8707778012c90162771312f62be77271"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8707778012c90162771312f62be77271">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="a37fc90327fe0b62ec38dd6a6f8ecdba8" name="a37fc90327fe0b62ec38dd6a6f8ecdba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37fc90327fe0b62ec38dd6a6f8ecdba8">&#9670;&nbsp;</a></span>operator=()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -550,9 +493,9 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> &amp; CPitchFromBlockIf::operator= </td>
+          <td class="memname"><a class="el" href="a00538.xhtml">CSubFingerprint</a> &amp; CSubFingerprint::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00538.xhtml">CPitchFromBlockIf</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="a00538.xhtml">CSubFingerprint</a> &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
@@ -566,9 +509,55 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a38b5ca2aa31727a84113354e03688ba8" name="a38b5ca2aa31727a84113354e03688ba8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a38b5ca2aa31727a84113354e03688ba8">&#9670;&nbsp;</a></span>reset()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CSubFingerprint::reset </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >performs the SubFingerprint computation </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfSubFingerprint</td><td>feature result (user-allocated, to be written, length from CSubFingerprint::getFeatureDimensions) </td></tr>
+    <tr><td class="paramname">pfMagSpec</td><td>input data of length iDataLength </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00074_source.xhtml#l00061">61</a> of file <a class="el" href="a00074_source.xhtml">SubFingerprint.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   62</span>{</div>
+<div class="line"><span class="lineno">   63</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba1d776b0b389c9f7260c326b3a970d9a6">kCurr</a>] || !<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba80e8c05fb913d00bf562662b72339a09">kTmp</a>] || !<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[<a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0babeef3a4e5d20e64bc8c2d5b382150cea">kPrev</a>])</div>
+<div class="line"><span class="lineno">   64</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">Error_t::kMemError</a>;</div>
+<div class="line"><span class="lineno">   65</span> </div>
+<div class="line"><span class="lineno">   66</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> k = 0; k &lt; <a class="code hl_enumvalue" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1">kNumProcBuffs</a>; k++)</div>
+<div class="line"><span class="lineno">   67</span>        <a class="code hl_function" href="a00502.xhtml#a6dbb3f9f480568b60f7fe50090d20003">CVector::setZero</a>(<a class="code hl_variable" href="a00538.xhtml#a69d1a0f7d776e2baebc025a60f762b3c">m_apfProcBuff</a>[k], <a class="code hl_variable" href="a00538.xhtml#a4b2d390aefb60859f45db83e63355402">m_iNumBands</a> + <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(1));</div>
+<div class="line"><span class="lineno">   68</span> </div>
+<div class="line"><span class="lineno">   69</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">   70</span>}</div>
+<div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">Error_t::kMemError</a></div><div class="ttdeci">@ kMemError</div></div>
+<div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00251_source.xhtml#l00035">kCurr</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa6c7f4630a7389787bd65e45f0215fc14">kMemError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00251_source.xhtml#l00038">kNumProcBuffs</a>, <a class="el" href="a00251_source.xhtml#l00034">kPrev</a>, <a class="el" href="a00251_source.xhtml#l00036">kTmp</a>, <a class="el" href="a00251_source.xhtml#l00051">m_apfProcBuff</a>, <a class="el" href="a00251_source.xhtml#l00045">m_iNumBands</a>, and <a class="el" href="a00155_source.xhtml#l00048">CVector::setZero()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00538_a38b5ca2aa31727a84113354e03688ba8_cgraph.svg" width="328" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="ac90de810c2f977da52483d905119172e" name="ac90de810c2f977da52483d905119172e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac90de810c2f977da52483d905119172e">&#9670;&nbsp;</a></span>m_ePitchIdx</h2>
+<a id="a69d1a0f7d776e2baebc025a60f762b3c" name="a69d1a0f7d776e2baebc025a60f762b3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a69d1a0f7d776e2baebc025a60f762b3c">&#9670;&nbsp;</a></span>m_apfProcBuff</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -577,7 +566,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> CPitchFromBlockIf::m_ePitchIdx = <a class="el" href="a00534.xhtml#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></td>
+          <td class="memname">float* CSubFingerprint::m_apfProcBuff[<a class="el" href="a00538.xhtml#afa38a81062d46e85965cbd34d6fddf0ba63d1ceb13eb94631bf6aefb5e94459d1">kNumProcBuffs</a>] = { 0 }</td>
         </tr>
       </table>
   </td>
@@ -587,16 +576,14 @@ Here is the caller graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p>index of Pitch to extract </p>
+<p class="definition">Definition at line <a class="el" href="a00251_source.xhtml#l00051">51</a> of file <a class="el" href="a00251_source.xhtml">SubFingerprint.h</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00056">56</a> of file <a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a>.</p>
-
-<p class="reference">Referenced by <a class="el" href="a00215_source.xhtml#l00038">getPitchExtractorIdx()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00074_source.xhtml#l00035">compSubFingerprint()</a>, <a class="el" href="a00074_source.xhtml#l00011">CSubFingerprint()</a>, <a class="el" href="a00074_source.xhtml#l00061">reset()</a>, and <a class="el" href="a00074_source.xhtml#l00027">~CSubFingerprint()</a>.</p>
 
 </div>
 </div>
-<a id="ac4a3235dfd5c3919a7d1a290f92dfa80" name="ac4a3235dfd5c3919a7d1a290f92dfa80"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4a3235dfd5c3919a7d1a290f92dfa80">&#9670;&nbsp;</a></span>m_fSampleRate</h2>
+<a id="a5e4c718e4843f876fb27295ff7d1c57f" name="a5e4c718e4843f876fb27295ff7d1c57f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5e4c718e4843f876fb27295ff7d1c57f">&#9670;&nbsp;</a></span>m_fSampleRate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -605,7 +592,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">float CPitchFromBlockIf::m_fSampleRate = 0</td>
+          <td class="memname">float CSubFingerprint::m_fSampleRate = 5000</td>
         </tr>
       </table>
   </td>
@@ -617,14 +604,14 @@ Here is the caller graph for this function:</div>
 
 <p>sample rate </p>
 
-<p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00060">60</a> of file <a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00251_source.xhtml#l00047">47</a> of file <a class="el" href="a00251_source.xhtml">SubFingerprint.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00107_source.xhtml#l00036">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00101">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00157">CPitchTimeAcf::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00253">CPitchTimeAuditory::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00343">CPitchTimeAmdf::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00398">CPitchTimeZeroCrossings::compF0()</a>, and <a class="el" href="a00107_source.xhtml#l00284">CPitchTimeAuditory::getAcfMax_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00074_source.xhtml#l00072">genBands_()</a>.</p>
 
 </div>
 </div>
-<a id="aab7cbf575cd81f196fdc75f226b61ab6" name="aab7cbf575cd81f196fdc75f226b61ab6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aab7cbf575cd81f196fdc75f226b61ab6">&#9670;&nbsp;</a></span>m_iDataLength</h2>
+<a id="ac6f0bdb7b4333c9a48305c48757bcc6e" name="ac6f0bdb7b4333c9a48305c48757bcc6e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac6f0bdb7b4333c9a48305c48757bcc6e">&#9670;&nbsp;</a></span>m_iMagSpecLength</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -633,7 +620,7 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">int CPitchFromBlockIf::m_iDataLength = 0</td>
+          <td class="memname">int CSubFingerprint::m_iMagSpecLength = 1025</td>
         </tr>
       </table>
   </td>
@@ -645,23 +632,77 @@ Here is the caller graph for this function:</div>
 
 <p>block length </p>
 
-<p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00058">58</a> of file <a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00251_source.xhtml#l00043">43</a> of file <a class="el" href="a00251_source.xhtml">SubFingerprint.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00107_source.xhtml#l00036">CPitchSpectralAcf::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00101">CPitchSpectralHps::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00157">CPitchTimeAcf::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00253">CPitchTimeAuditory::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00343">CPitchTimeAmdf::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00398">CPitchTimeZeroCrossings::compF0()</a>, <a class="el" href="a00107_source.xhtml#l00018">CPitchSpectralAcf::CPitchSpectralAcf()</a>, <a class="el" href="a00107_source.xhtml#l00091">CPitchSpectralHps::CPitchSpectralHps()</a>, and <a class="el" href="a00107_source.xhtml#l00284">CPitchTimeAuditory::getAcfMax_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00074_source.xhtml#l00035">compSubFingerprint()</a>, <a class="el" href="a00074_source.xhtml#l00011">CSubFingerprint()</a>, and <a class="el" href="a00074_source.xhtml#l00072">genBands_()</a>.</p>
+
+</div>
+</div>
+<a id="a4b2d390aefb60859f45db83e63355402" name="a4b2d390aefb60859f45db83e63355402"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b2d390aefb60859f45db83e63355402">&#9670;&nbsp;</a></span>m_iNumBands</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const int CSubFingerprint::m_iNumBands = 32</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00251_source.xhtml#l00045">45</a> of file <a class="el" href="a00251_source.xhtml">SubFingerprint.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00074_source.xhtml#l00035">compSubFingerprint()</a>, <a class="el" href="a00074_source.xhtml#l00011">CSubFingerprint()</a>, <a class="el" href="a00074_source.xhtml#l00072">genBands_()</a>, <a class="el" href="a00074_source.xhtml#l00061">reset()</a>, and <a class="el" href="a00074_source.xhtml#l00027">~CSubFingerprint()</a>.</p>
+
+</div>
+</div>
+<a id="ae953bb56d76d6eab217f1a8dc3a36086" name="ae953bb56d76d6eab217f1a8dc3a36086"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae953bb56d76d6eab217f1a8dc3a36086">&#9670;&nbsp;</a></span>m_ppfH</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float** CSubFingerprint::m_ppfH = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>transformation matrix bin to band </p>
+
+<p class="definition">Definition at line <a class="el" href="a00251_source.xhtml#l00049">49</a> of file <a class="el" href="a00251_source.xhtml">SubFingerprint.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00074_source.xhtml#l00035">compSubFingerprint()</a>, <a class="el" href="a00074_source.xhtml#l00011">CSubFingerprint()</a>, <a class="el" href="a00074_source.xhtml#l00072">genBands_()</a>, and <a class="el" href="a00074_source.xhtml#l00027">~CSubFingerprint()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00215_source.xhtml">PitchFromBlock.h</a></li>
-<li><a class="el" href="a00107_source.xhtml">PitchFromBlock.cpp</a></li>
+<li><a class="el" href="a00251_source.xhtml">SubFingerprint.h</a></li>
+<li><a class="el" href="a00074_source.xhtml">SubFingerprint.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00538.xhtml">CPitchFromBlockIf</a></li>
-    <li class="footer">Generated on Wed Jun 15 2022 19:05:49 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="navelem"><a class="el" href="a00538.xhtml">CSubFingerprint</a></li>
+    <li class="footer">Generated on Thu Jun 16 2022 21:11:13 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

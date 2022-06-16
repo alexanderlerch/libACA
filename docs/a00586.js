@@ -1,21 +1,17 @@
 var a00586 =
 [
-    [ "Phase_t", "a00586.xhtml#a43a46208a95c36586703e0624f89851f", [
-      [ "kPhasePrev", "a00586.xhtml#a43a46208a95c36586703e0624f89851fa94d22ac3a036d4fb728b4147e0bc082e", null ],
-      [ "kPhaseCurr", "a00586.xhtml#a43a46208a95c36586703e0624f89851fa14ec5c7d7819d74717e666178dfdb321", null ],
-      [ "kNumPhases", "a00586.xhtml#a43a46208a95c36586703e0624f89851fa10a92dfe50d9ee79b9fad29cb25b77f0", null ]
-    ] ],
-    [ "CInstFreq", "a00586.xhtml#a4b3af2ff4c095211a3c89701a6fdb9db", null ],
-    [ "~CInstFreq", "a00586.xhtml#a1798e1ab9b7e57efba2582bd35fb9537", null ],
-    [ "CInstFreq", "a00586.xhtml#a6decf6ec0686d7a29ad5cc247b8289bf", null ],
-    [ "operator=", "a00586.xhtml#ab0927c40774340a45228ef367163c0dc", null ],
-    [ "princArg_", "a00586.xhtml#a6e071b3927895821964b061eb7f87659", null ],
-    [ "process", "a00586.xhtml#ac2e104197886d92fd1e4ac6d1c0b7e75", null ],
-    [ "m_apfPhase", "a00586.xhtml#ae2524a698aaf1f7dcfe68598d1a29f99", null ],
-    [ "m_fSampleRate", "a00586.xhtml#a91480a29fe8b02ae1719345a059d6712", null ],
-    [ "m_iHopLength", "a00586.xhtml#ab0d435820d510002959aacfdb9730897", null ],
-    [ "m_iPhaseLength", "a00586.xhtml#a8be21e8a3d2ec397d8f22620e01286a1", null ],
-    [ "m_pCFft", "a00586.xhtml#a45249033b3b6b7af3a4ba587d17c98f3", null ],
-    [ "m_pfOmega", "a00586.xhtml#a01abd9dd7f3b74bbf8f40daa7305c0c3", null ],
-    [ "m_pfSwapBuff", "a00586.xhtml#a8cfc42dd78375869137b1ed56627d2f2", null ]
+    [ "CMovingAverage", "a00586.xhtml#aa02ee977828ff103f3e2c25889131122", null ],
+    [ "CMovingAverage", "a00586.xhtml#a7fbde1ace5417196843209065c07d687", null ],
+    [ "calcFilterLength", "a00586.xhtml#ac37c3eae6a41a393219aa4cbd39db211", null ],
+    [ "create", "a00586.xhtml#a9008feaaece203a6bf1220ab81e1b983", null ],
+    [ "destroy", "a00586.xhtml#a5a6b1921f58c43d9daa618a97e62754f", null ],
+    [ "filtfilt", "a00586.xhtml#ab6f5f359e79f0ede5aedc7775ae3bece", null ],
+    [ "getFilterParam", "a00586.xhtml#a9704ba1d710c82a1b92af175b0b07538", null ],
+    [ "operator=", "a00586.xhtml#ae283883b27aeaa8aaa1796953cc9a0ef", null ],
+    [ "process", "a00586.xhtml#a4e86e5be0bc6ad928397d99eda2d1978", null ],
+    [ "reset", "a00586.xhtml#a9681799055b5a4622d25a70901a65af3", null ],
+    [ "setFilterParam", "a00586.xhtml#a1a014af5490675e140d6069561b00eb1", null ],
+    [ "~CMovingAverage", "a00586.xhtml#adde468f177d86f008403b3d94210bfd4", null ],
+    [ "m_fPrevOut", "a00586.xhtml#afa9972cded7adacb3a044ba85401b2e1", null ],
+    [ "m_pCRingBuff", "a00586.xhtml#a67685901f5136c73c25b9650d97193a0", null ]
 ];

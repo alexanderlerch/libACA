@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['description_0',['description',['../a00934.xhtml#a0052060219a6de74bb7ade34d4163a4e',1,'Catch::SectionInfo::description()'],['../a01194.xhtml#a37fe2db9425bc45f6a33893eac31198e',1,'Catch::TestCaseInfo::description()']]],
-  ['durationinseconds_1',['durationInSeconds',['../a00938.xhtml#a7c262f2dab9cff166b8eca620c47eea5',1,'Catch::SectionEndInfo']]]
+  ['fmaxfreqinhz_0',['fMaxFreqInHz',['../a00534.xhtml#a6bd6c66e6b6fd17afa94128330ac6896',1,'CSpectrogramIf::MelSpectrogramConfig_t']]],
+  ['fminfreqinhz_1',['fMinFreqInHz',['../a00534.xhtml#aa6921e032cc949020a697469322ab926',1,'CSpectrogramIf::MelSpectrogramConfig_t']]],
+  ['fsamplerateinhz_2',['fSampleRateInHz',['../a00446.xhtml#a396cfc91903815b64eff8131b33a86d9',1,'CAudioFileIf::FileSpec_t']]]
 ];

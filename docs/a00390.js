@@ -1,13 +1,20 @@
 var a00390 =
 [
-    [ "CPitchSpectralAcf", "a00390.xhtml#ad7f64995a5d0ca75139e400172a9ab42", null ],
-    [ "~CPitchSpectralAcf", "a00390.xhtml#a451d66b67603a9d130f162720e361626", null ],
-    [ "CPitchSpectralAcf", "a00390.xhtml#ab362e6e9ae3f082b3c57e51eb4045bd4", null ],
-    [ "CPitchSpectralAcf", "a00390.xhtml#aa287258ccabe0c81675836fa5e5ac94e", null ],
-    [ "compF0", "a00390.xhtml#a250792b516c76c54251534a33c17bea8", null ],
-    [ "operator=", "a00390.xhtml#a7788ddebf971ad4e2da70e14eaf851dd", null ],
-    [ "m_fMin", "a00390.xhtml#ace8ab223669b7a81b19f12716420e140", null ],
-    [ "m_pCCcf", "a00390.xhtml#a8715eef70802d78a21f7e0deb7b98aeb", null ],
-    [ "m_pfAcf", "a00390.xhtml#a4881bd6523fb58aa6316efa2879fce16", null ],
-    [ "m_pfProcBuff", "a00390.xhtml#a2555fec6c4ecdf05f60ac4182c1d6ed4", null ]
+    [ "CPitchTimeAuditory", "a00390.xhtml#af5f08be46100a7ecbc5450f52a96c77e", null ],
+    [ "~CPitchTimeAuditory", "a00390.xhtml#aafe950d4f08df5a8d47f44cb827ce4a0", null ],
+    [ "CPitchTimeAuditory", "a00390.xhtml#a8be8b6e01ad89bdeaf24b45dbd599227", null ],
+    [ "CPitchTimeAuditory", "a00390.xhtml#a11f411e863bb51d4b6709f2da2265859", null ],
+    [ "compF0", "a00390.xhtml#a7fa2c23a2108dc313f319ec803a6181f", null ],
+    [ "getAcfMax_", "a00390.xhtml#ad3ef7f984b93956e27cea585759fbc2e", null ],
+    [ "operator=", "a00390.xhtml#ac78dd42c996a8e981d75811810eb264e", null ],
+    [ "m_apCFilter", "a00390.xhtml#af519c85d2066eada257f57fe90b26f7a", null ],
+    [ "m_fMax", "a00390.xhtml#a59e9a76613f0d0e0bd2a5a2a0816527d", null ],
+    [ "m_fMinThresh", "a00390.xhtml#a37b0dc19d17b9b82cd5dcb407d9ccaa7", null ],
+    [ "m_fSmoothLpCutoff", "a00390.xhtml#afb3a9a1029f184c96159868842024419", null ],
+    [ "m_iNumBands", "a00390.xhtml#a20fa417c0ec8aea6bc48f76da812a5e5", null ],
+    [ "m_pCCcf", "a00390.xhtml#aa2128e53e03b5091d911855b8f10f6fa", null ],
+    [ "m_pCFilterBank", "a00390.xhtml#a46b81a401b88ec5ba6f91ae24019fd71", null ],
+    [ "m_pfAcf", "a00390.xhtml#adf580839aeb79817e5d72508ad7fabd7", null ],
+    [ "m_pfSumAcf", "a00390.xhtml#a182c4d5365c2fdcd82f970f0eb46db83", null ],
+    [ "m_ppfProcBuff", "a00390.xhtml#a0d98dec998ad65b07cd207a11f05b8ca", null ]
 ];

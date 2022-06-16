@@ -1,4 +1,4 @@
 var a00206 =
 [
-    [ "CInstFreq", "a00586.xhtml", "a00586" ]
+    [ "CResample", "a00610.xhtml", "a00610" ]
 ];

@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['inumchannels_0',['iNumChannels',['../a00458.xhtml#a6bde1a697754401008208afbde6f368e',1,'CAudioFileIf::FileSpec_t']]],
-  ['inummelbins_1',['iNumMelBins',['../a00546.xhtml#aef36317d41163f339227bd84d417b74e',1,'CSpectrogramIf::MelSpectrogramConfig_t']]]
+  ['pisortindices_0',['piSortIndices',['../a00598.xhtml#ab13a6216bc5130693cdbacefa14e9316',1,'CPca']]],
+  ['prevstate_1',['PrevState',['../a00566.xhtml#ae63cf1e1c205c52bbd22ad24d6d0091f',1,'CGmm']]]
 ];

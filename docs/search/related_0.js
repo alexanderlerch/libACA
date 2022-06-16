@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['assertionhandler_0',['AssertionHandler',['../a00894.xhtml#a4301a3aa57b612dd8b6ef8461742ecab',1,'Catch::LazyExpression']]],
-  ['assertionstats_1',['AssertionStats',['../a00894.xhtml#a64019eb137f5ce447cdc71cb80b6e7a4',1,'Catch::LazyExpression']]]
+  ['cgmm_0',['CGmm',['../a00562.xhtml#a663d581e819c697fb2be55a492020470',1,'CGmmResult']]],
+  ['cnmf_1',['CNmf',['../a00590.xhtml#a02bd4ca3a931ac6ff896ee8a3480045b',1,'CNmfResult']]]
 ];

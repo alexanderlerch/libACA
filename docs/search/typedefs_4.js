@@ -1,5 +1,4 @@
 var searchData=
 [
-  ['iconfigptr_0',['IConfigPtr',['../a00302.xhtml#afd20a5d4f9d2f4d525db81a7765367b0',1,'Catch']]],
-  ['ireporterfactoryptr_1',['IReporterFactoryPtr',['../a00302.xhtml#ad1b36ac40c2739e52fd453dcdddf0d09',1,'Catch']]]
+  ['vct_0',['vct',['../a00275.xhtml#a626b3f22f5e5af605c1e1e64e720e865',1,'vct.h']]]
 ];

@@ -1,4 +1,4 @@
 var a00209 =
 [
-    [ "CLeaveOneOutCrossVal", "a00590.xhtml", "a00590" ]
+    [ "CInstFreq", "a00574.xhtml", "a00574" ]
 ];

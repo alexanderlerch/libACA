@@ -1,4 +1,4 @@
 var a00146 =
 [
-    [ "CChordFromBlockIf", "a00470.xhtml", "a00470" ]
+    [ "CRingBuffer< T >", "a00490.xhtml", "a00490" ]
 ];

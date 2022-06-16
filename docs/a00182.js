@@ -1,4 +1,5 @@
 var a00182 =
 [
-    [ "CChordIf", "a00466.xhtml", "a00466" ]
+    [ "CGmmResult", "a00562.xhtml", "a00562" ],
+    [ "CGmm", "a00566.xhtml", "a00566" ]
 ];

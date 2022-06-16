@@ -1,5 +1,4 @@
 var a00176 =
 [
-    [ "CSpectrogramIf", "a00542.xhtml", "a00542" ],
-    [ "CSpectrogramIf::MelSpectrogramConfig_t", "a00546.xhtml", "a00546" ]
+    [ "CKmeans", "a00622.xhtml", "a00622" ]
 ];

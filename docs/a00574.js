@@ -1,33 +1,21 @@
 var a00574 =
 [
-    [ "Sigma_t", "a00574.xhtml#a1d7119c814a8bdd1b4ac1629cbe02a24", [
-      [ "kNormal", "a00574.xhtml#a1d7119c814a8bdd1b4ac1629cbe02a24ae9df9e2efbb8f69f6c618806606e21a6", null ],
-      [ "kInv", "a00574.xhtml#a1d7119c814a8bdd1b4ac1629cbe02a24a81b9c8cbebe71b203d73955a4ae1afe3", null ],
-      [ "kSigma", "a00574.xhtml#a1d7119c814a8bdd1b4ac1629cbe02a24a365ef897248ea62a4ab4ea0cb6b6222c", null ]
+    [ "Phase_t", "a00574.xhtml#a43a46208a95c36586703e0624f89851f", [
+      [ "kPhasePrev", "a00574.xhtml#a43a46208a95c36586703e0624f89851fa94d22ac3a036d4fb728b4147e0bc082e", null ],
+      [ "kPhaseCurr", "a00574.xhtml#a43a46208a95c36586703e0624f89851fa14ec5c7d7819d74717e666178dfdb321", null ],
+      [ "kNumPhases", "a00574.xhtml#a43a46208a95c36586703e0624f89851fa10a92dfe50d9ee79b9fad29cb25b77f0", null ]
     ] ],
-    [ "CGmmResult", "a00574.xhtml#aceb33fab0f979a09bbc922675fd3739b", null ],
-    [ "~CGmmResult", "a00574.xhtml#a7105de18ba172892675e63870146071c", null ],
-    [ "CGmmResult", "a00574.xhtml#a6a5c450f4c90e73ea9910f699a3e57aa", null ],
-    [ "getMu", "a00574.xhtml#ac8162fe5ba550aafb9fcd45e22739d5f", null ],
-    [ "getNumDimensions", "a00574.xhtml#ad2e90365767dd30bfed38782ea5ecd8e", null ],
-    [ "getNumGaussians", "a00574.xhtml#add21593bf091f1173a4f7864641c83f4", null ],
-    [ "getPrior", "a00574.xhtml#a6ea26c159c443a542714a537ef685ab6", null ],
-    [ "getProb", "a00574.xhtml#a1633da1eb011a7c745a689de687c4d95", null ],
-    [ "getSigma", "a00574.xhtml#ae05c1a2ecb8d43643cf8a63d02353425", null ],
-    [ "getSigma", "a00574.xhtml#af55e479c24cc7bc39baf5f17a26d0865", null ],
-    [ "init", "a00574.xhtml#a45cdbf46ab60e994f9f0f057959d679f", null ],
-    [ "isInitialized", "a00574.xhtml#a91379536cd7e8d89681a1a76ea121a30", null ],
-    [ "operator=", "a00574.xhtml#ae454796797856300e0990f24b8ba4ada", null ],
-    [ "reset", "a00574.xhtml#ad9401baec901e1351dbb46743c2d702f", null ],
-    [ "setMu", "a00574.xhtml#ab1f629b8a2796b9a64366dfc01b47f99", null ],
-    [ "setPrior", "a00574.xhtml#a664515ad2f4fab6188ad24a91fdf7d7f", null ],
-    [ "setSigma", "a00574.xhtml#a73b45f72b704d8053dac9e408ed01799", null ],
-    [ "CGmm", "a00574.xhtml#a663d581e819c697fb2be55a492020470", null ],
-    [ "m_apfProc", "a00574.xhtml#af037ef81fb2f0aebb69750c2d43adf9e", null ],
-    [ "m_apppfSigma", "a00574.xhtml#a5d6f25dd8032431bb923bc5b47d5e210", null ],
-    [ "m_bIsInitialized", "a00574.xhtml#ad9afe0590526f30eabf8128a10e47354", null ],
-    [ "m_iK", "a00574.xhtml#a6f47bbbcea33ad38c7033e86bc11c523", null ],
-    [ "m_iNumFeatures", "a00574.xhtml#ab33bd9617ae3d0530d3acf32e0755b5e", null ],
-    [ "m_pfPrior", "a00574.xhtml#a3e5fb9ba0afc13a0e2e6cdb41c6e3849", null ],
-    [ "m_ppfMu", "a00574.xhtml#a6034c8e24b809c3046c63785e8062aa3", null ]
+    [ "CInstFreq", "a00574.xhtml#a4b3af2ff4c095211a3c89701a6fdb9db", null ],
+    [ "~CInstFreq", "a00574.xhtml#a1798e1ab9b7e57efba2582bd35fb9537", null ],
+    [ "CInstFreq", "a00574.xhtml#a6decf6ec0686d7a29ad5cc247b8289bf", null ],
+    [ "operator=", "a00574.xhtml#ab0927c40774340a45228ef367163c0dc", null ],
+    [ "princArg_", "a00574.xhtml#a6e071b3927895821964b061eb7f87659", null ],
+    [ "process", "a00574.xhtml#ac2e104197886d92fd1e4ac6d1c0b7e75", null ],
+    [ "m_apfPhase", "a00574.xhtml#ae2524a698aaf1f7dcfe68598d1a29f99", null ],
+    [ "m_fSampleRate", "a00574.xhtml#a91480a29fe8b02ae1719345a059d6712", null ],
+    [ "m_iHopLength", "a00574.xhtml#ab0d435820d510002959aacfdb9730897", null ],
+    [ "m_iPhaseLength", "a00574.xhtml#a8be21e8a3d2ec397d8f22620e01286a1", null ],
+    [ "m_pCFft", "a00574.xhtml#a45249033b3b6b7af3a4ba587d17c98f3", null ],
+    [ "m_pfOmega", "a00574.xhtml#a01abd9dd7f3b74bbf8f40daa7305c0c3", null ],
+    [ "m_pfSwapBuff", "a00574.xhtml#a8cfc42dd78375869137b1ed56627d2f2", null ]
 ];

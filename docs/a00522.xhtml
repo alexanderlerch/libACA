@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.9.4"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>ACA: CKeyFromChroma Class Reference</title>
+<title>ACA: CPitchIf Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.7</span>
+   <div id="projectname">ACA<span id="projectnumber">&#160;0.2.8</span>
    </div>
    <div id="projectbrief">Example Code for Audio Content Analysis</div>
   </td>
@@ -84,238 +84,183 @@ $(document).ready(function(){initNavTree('a00522.xhtml',''); initResizable(); })
 
 <div class="header">
   <div class="summary">
+<a href="#pub-types">Public Types</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pri-types">Private Types</a> &#124;
-<a href="#pri-methods">Private Member Functions</a> &#124;
-<a href="#pri-attribs">Private Attributes</a> &#124;
+<a href="#pub-static-methods">Static Public Member Functions</a> &#124;
+<a href="#pro-methods">Protected Member Functions</a> &#124;
+<a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="a00519.xhtml">List of all members</a>  </div>
-  <div class="headertitle"><div class="title">CKeyFromChroma Class Reference</div></div>
+  <div class="headertitle"><div class="title">CPitchIf Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
 
-<p>computation of key profile distance  
+<p>class for computation of a magnitude Pitch from either a file or a vector  
  <a href="a00522.xhtml#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="a00143_source.xhtml">KeyFromChroma.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="a00137_source.xhtml">Pitch.h</a>&gt;</code></p>
 <div class="dynheader">
-Collaboration diagram for CKeyFromChroma:</div>
+Inheritance diagram for CPitchIf:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00521.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div class="dynheader">
+Collaboration diagram for CPitchIf:</div>
 <div class="dyncontent">
 <div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00520.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
-Public Member Functions</h2></td></tr>
-<tr class="memitem:a49acd3fa8e5ab9c8c07f15a352b3dcaa"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a49acd3fa8e5ab9c8c07f15a352b3dcaa">CKeyFromChroma</a> (void)</td></tr>
-<tr class="separator:a49acd3fa8e5ab9c8c07f15a352b3dcaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf8eca2925570f9fca59e3c4359615b4"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#adf8eca2925570f9fca59e3c4359615b4">~CKeyFromChroma</a> (void)</td></tr>
-<tr class="separator:adf8eca2925570f9fca59e3c4359615b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf22d441c8866b9fe13aef59549e1cff"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#adf22d441c8866b9fe13aef59549e1cff">getKey</a> (const float *pfQuery)</td></tr>
-<tr class="separator:adf22d441c8866b9fe13aef59549e1cff"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-types" name="pri-types"></a>
-Private Types</h2></td></tr>
-<tr class="memitem:a30498c10ccfd4947fce48a484a09b30f"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30f">Modes_t</a> { <a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fafc59a9ade9fe3aafbdf1836c9a0bc486">kMajor</a>
-, <a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30faa36c210ab1ccf38744e537dd584aea14">kMinor</a>
-, <a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a>
- }</td></tr>
-<tr class="separator:a30498c10ccfd4947fce48a484a09b30f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa38bcd91e9cc562a05f31ac737b6df5b"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5b">Pitches_t</a> { <br />
-&#160;&#160;<a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bab248651a839f96d6530f14b2f70964b4">kC</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5babcbe6ddcfe8d96d6df5c8c02b026d5bb">kCs</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba6a26bb966c63de3cd9741c473bede972">kD</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba18732d4f339c399ed7e4f014b5b72fb1">kDs</a>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-types" name="pub-types"></a>
+Public Types</h2></td></tr>
+<tr class="memitem:ac55ab3f8cd0b036cbb891537272342df"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a> { <br />
+&#160;&#160;<a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">kPitchSpectralAcf</a>
+, <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">kPitchSpectralHps</a>
+, <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">kPitchTimeAcf</a>
+, <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">kPitchTimeAmdf</a>
 , <br />
-&#160;&#160;<a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bacd5f025b4f2bfbbb5bd1e92b0d66f223">kE</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baff01574ca3dd36c0d2b309be6ad890eb">kF</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baf6850c02922b4123f520296aa08e40be">kFs</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baccce03de6828c0592f82e7dcf6403548">kG</a>
-, <br />
-&#160;&#160;<a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bad06c0a32c81ea1bc7f47bbeb1ac850c6">kGs</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baeecc0f275b70266968ad739192fd2f35">kA</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bad7ce18603aff1e2d4402fd22b24f3d24">kAs</a>
-, <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba1b7b7c9cda0e5a20f024b68e8855829e">kB</a>
-, <br />
-&#160;&#160;<a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>
+&#160;&#160;<a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa0aa79ae2abdd235504a99f60e8ba938">kPitchTimeAuditory</a>
+, <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">kPitchTimeZeroCrossings</a>
+, <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">kNumPitchExtractors</a>
 <br />
  }</td></tr>
-<tr class="separator:aa38bcd91e9cc562a05f31ac737b6df5b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ac55ab3f8cd0b036cbb891537272342df"><td class="mdescLeft">&#160;</td><td class="mdescRight">enum to index all Pitch extractorss  <a href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">More...</a><br /></td></tr>
+<tr class="separator:ac55ab3f8cd0b036cbb891537272342df"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-methods" name="pri-methods"></a>
-Private Member Functions</h2></td></tr>
-<tr class="memitem:ae6e5ee312d60421f9a3782e179f1367d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#ae6e5ee312d60421f9a3782e179f1367d">CKeyFromChroma</a> (const <a class="el" href="a00522.xhtml">CKeyFromChroma</a> &amp;that)</td></tr>
-<tr class="memdesc:ae6e5ee312d60421f9a3782e179f1367d"><td class="mdescLeft">&#160;</td><td class="mdescRight">disallow copy construction <br  />
-  <a href="a00522.xhtml#ae6e5ee312d60421f9a3782e179f1367d">More...</a><br /></td></tr>
-<tr class="separator:ae6e5ee312d60421f9a3782e179f1367d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acfd214751d372f6ca62257e5a56f646f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00522.xhtml">CKeyFromChroma</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#acfd214751d372f6ca62257e5a56f646f">operator=</a> (const <a class="el" href="a00522.xhtml">CKeyFromChroma</a> &amp;c)</td></tr>
-<tr class="separator:acfd214751d372f6ca62257e5a56f646f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
+Public Member Functions</h2></td></tr>
+<tr class="memitem:a253cce3499a721648eba3d7b2a9f2b16"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a253cce3499a721648eba3d7b2a9f2b16">getNumBlocks</a> (int &amp;iNumBlocks) const</td></tr>
+<tr class="separator:a253cce3499a721648eba3d7b2a9f2b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af2ce0d31ee7e368ebc1889507972f9c2"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#af2ce0d31ee7e368ebc1889507972f9c2">getNumBlocks</a> () const</td></tr>
+<tr class="separator:af2ce0d31ee7e368ebc1889507972f9c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a70543df0ca9394f9b594e4f23bacc71b"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a70543df0ca9394f9b594e4f23bacc71b">getTimeStamp</a> (int iBlockIdx) const</td></tr>
+<tr class="separator:a70543df0ca9394f9b594e4f23bacc71b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0a4814909e09b3f8a21ec69de72f9f52"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a0a4814909e09b3f8a21ec69de72f9f52">getTimeStamps</a> (float *pfAxisTicks) const</td></tr>
+<tr class="separator:a0a4814909e09b3f8a21ec69de72f9f52"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c6fea7fdc8067f1d6a116b86d543aa1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a5c6fea7fdc8067f1d6a116b86d543aa1">compF0</a> (float *pfPitch)</td></tr>
+<tr class="separator:a5c6fea7fdc8067f1d6a116b86d543aa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pri-attribs" name="pri-attribs"></a>
-Private Attributes</h2></td></tr>
-<tr class="memitem:aa32fe899f352c13460a08ffb38d665bb"><td class="memItemLeft" align="right" valign="top">const float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#aa32fe899f352c13460a08ffb38d665bb">m_aafKeyProfiles</a> [<a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a>][<a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>]</td></tr>
-<tr class="separator:aa32fe899f352c13460a08ffb38d665bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab1b079b9b5128fc288edd6bcaa1b0533"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00502.xhtml">CRingBuffer</a>&lt; float &gt; *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">m_apCRingBuff</a> [<a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a>] = { 0 }</td></tr>
-<tr class="memdesc:ab1b079b9b5128fc288edd6bcaa1b0533"><td class="mdescLeft">&#160;</td><td class="mdescRight">ringbuffer for cyclic shifting of the templates  <a href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">More...</a><br /></td></tr>
-<tr class="separator:ab1b079b9b5128fc288edd6bcaa1b0533"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-static-methods" name="pub-static-methods"></a>
+Static Public Member Functions</h2></td></tr>
+<tr class="memitem:aad21e51c82ea3cfb6b495b39acd40412"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#aad21e51c82ea3cfb6b495b39acd40412">create</a> (<a class="el" href="a00522.xhtml">CPitchIf</a> *&amp;pCInstance, <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a> ePitchIdx, const std::string &amp;strAudioFilePath, int iBlockLength=2048, int iHopLength=1024)</td></tr>
+<tr class="separator:aad21e51c82ea3cfb6b495b39acd40412"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c68d41e86e2dd8616334e8b3ed9ab3"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a83c68d41e86e2dd8616334e8b3ed9ab3">create</a> (<a class="el" href="a00522.xhtml">CPitchIf</a> *&amp;pCInstance, <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a> ePitchIdx, const float *pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength=2048, int iHopLength=1024)</td></tr>
+<tr class="separator:a83c68d41e86e2dd8616334e8b3ed9ab3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4eee721e50a85ed9d48f7a84d9144a3b"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a4eee721e50a85ed9d48f7a84d9144a3b">destroy</a> (<a class="el" href="a00522.xhtml">CPitchIf</a> *&amp;pCInstance)</td></tr>
+<tr class="separator:a4eee721e50a85ed9d48f7a84d9144a3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e7468138839039da42867bf6cef2a2f"><td class="memItemLeft" align="right" valign="top">static std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a7e7468138839039da42867bf6cef2a2f">getPitchString</a> (<a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a> ePitchIdx)</td></tr>
+<tr class="separator:a7e7468138839039da42867bf6cef2a2f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad782102749e4f057b10a5b84ae622889"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#ad782102749e4f057b10a5b84ae622889">getPitchIdxFromString</a> (std::string sPitchString)</td></tr>
+<tr class="separator:ad782102749e4f057b10a5b84ae622889"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
+Protected Member Functions</h2></td></tr>
+<tr class="memitem:a6e2c59c5b6bb651075bd0e9d65edd383"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a6e2c59c5b6bb651075bd0e9d65edd383">CPitchIf</a> ()</td></tr>
+<tr class="separator:a6e2c59c5b6bb651075bd0e9d65edd383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4df4a76c5c6a23618ad9889dd8855f2b"><td class="memItemLeft" align="right" valign="top">virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a4df4a76c5c6a23618ad9889dd8855f2b">~CPitchIf</a> ()</td></tr>
+<tr class="separator:a4df4a76c5c6a23618ad9889dd8855f2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a471f3abdc762d211aa8d44384b6a19f8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a471f3abdc762d211aa8d44384b6a19f8">CPitchIf</a> (const <a class="el" href="a00522.xhtml">CPitchIf</a> &amp;that)</td></tr>
+<tr class="separator:a471f3abdc762d211aa8d44384b6a19f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a83c9ba6d865c2b239adeeceaa8691fdf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00522.xhtml">CPitchIf</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a83c9ba6d865c2b239adeeceaa8691fdf">operator=</a> (const <a class="el" href="a00522.xhtml">CPitchIf</a> &amp;c)</td></tr>
+<tr class="separator:a83c9ba6d865c2b239adeeceaa8691fdf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0841d88981bfe343f6439b7d4174a30b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a0841d88981bfe343f6439b7d4174a30b">reset_</a> ()</td></tr>
+<tr class="memdesc:a0841d88981bfe343f6439b7d4174a30b"><td class="mdescLeft">&#160;</td><td class="mdescRight">reset configuration  <a href="a00522.xhtml#a0841d88981bfe343f6439b7d4174a30b">More...</a><br /></td></tr>
+<tr class="separator:a0841d88981bfe343f6439b7d4174a30b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a966aff4a49e12324f205b20c5f2232"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a3a966aff4a49e12324f205b20c5f2232">init_</a> (<a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a> ePitchIdx)</td></tr>
+<tr class="memdesc:a3a966aff4a49e12324f205b20c5f2232"><td class="mdescLeft">&#160;</td><td class="mdescRight">init configuration  <a href="a00522.xhtml#a3a966aff4a49e12324f205b20c5f2232">More...</a><br /></td></tr>
+<tr class="separator:a3a966aff4a49e12324f205b20c5f2232"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1d4759da8b0fddeda3d1e3bbfc0cd23"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#ad1d4759da8b0fddeda3d1e3bbfc0cd23">isPitchExtractorSpectral_</a> (<a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a> ePitchIdx)</td></tr>
+<tr class="separator:ad1d4759da8b0fddeda3d1e3bbfc0cd23"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa988c75557f8281271467b000a1a1d54"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#aa988c75557f8281271467b000a1a1d54">computeMagSpectrum_</a> ()</td></tr>
+<tr class="separator:aa988c75557f8281271467b000a1a1d54"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-attribs" name="pro-attribs"></a>
+Protected Attributes</h2></td></tr>
+<tr class="memitem:a0d670d26b5833fa2b603974bb8665cee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00606.xhtml">CNormalizeAudio</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a0d670d26b5833fa2b603974bb8665cee">m_pCNormalize</a> = 0</td></tr>
+<tr class="memdesc:a0d670d26b5833fa2b603974bb8665cee"><td class="mdescLeft">&#160;</td><td class="mdescRight">instantiate if audio file normalization is wanted  <a href="a00522.xhtml#a0d670d26b5833fa2b603974bb8665cee">More...</a><br /></td></tr>
+<tr class="separator:a0d670d26b5833fa2b603974bb8665cee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecca537eb32e8509085a8880d6d455e6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00542.xhtml">CBlockAudioIf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a> = 0</td></tr>
+<tr class="memdesc:aecca537eb32e8509085a8880d6d455e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">instantiate for blocking time domain signal  <a href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">More...</a><br /></td></tr>
+<tr class="separator:aecca537eb32e8509085a8880d6d455e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9f187f32f74aa7295a966543fbd9326f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00526.xhtml">CPitchFromBlockIf</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a9f187f32f74aa7295a966543fbd9326f">m_pCPitch</a> = 0</td></tr>
+<tr class="separator:a9f187f32f74aa7295a966543fbd9326f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2268a1e89fc449747c6d1b999edda4e8"><td class="memItemLeft" align="right" valign="top">CPitchAuditory *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a2268a1e89fc449747c6d1b999edda4e8">m_pCAuditory</a> = 0</td></tr>
+<tr class="separator:a2268a1e89fc449747c6d1b999edda4e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa58e867919d005c9231e154337a27317"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00474.xhtml">CFft</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a> = 0</td></tr>
+<tr class="memdesc:aa58e867919d005c9231e154337a27317"><td class="mdescLeft">&#160;</td><td class="mdescRight">fft instance  <a href="a00522.xhtml#aa58e867919d005c9231e154337a27317">More...</a><br /></td></tr>
+<tr class="separator:aa58e867919d005c9231e154337a27317"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1546204f40135b2b35d1037a1999901"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">m_iBlockLength</a> = 0</td></tr>
+<tr class="memdesc:ad1546204f40135b2b35d1037a1999901"><td class="mdescLeft">&#160;</td><td class="mdescRight">fft length  <a href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">More...</a><br /></td></tr>
+<tr class="separator:ad1546204f40135b2b35d1037a1999901"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aafa86151248a2230bc3ededf3fa84700"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#aafa86151248a2230bc3ededf3fa84700">m_iHopLength</a> = 0</td></tr>
+<tr class="memdesc:aafa86151248a2230bc3ededf3fa84700"><td class="mdescLeft">&#160;</td><td class="mdescRight">hop length  <a href="a00522.xhtml#aafa86151248a2230bc3ededf3fa84700">More...</a><br /></td></tr>
+<tr class="separator:aafa86151248a2230bc3ededf3fa84700"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a94fd5824c8947489aefaa71d83bde23e"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a94fd5824c8947489aefaa71d83bde23e">m_fSampleRate</a> = 0</td></tr>
+<tr class="memdesc:a94fd5824c8947489aefaa71d83bde23e"><td class="mdescLeft">&#160;</td><td class="mdescRight">sample rate  <a href="a00522.xhtml#a94fd5824c8947489aefaa71d83bde23e">More...</a><br /></td></tr>
+<tr class="separator:a94fd5824c8947489aefaa71d83bde23e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2255efde72d4da1f6502b34e2e3ae1c0"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">m_pfProcessBuff2</a> = 0</td></tr>
+<tr class="memdesc:a2255efde72d4da1f6502b34e2e3ae1c0"><td class="mdescLeft">&#160;</td><td class="mdescRight">temporary buffer for current spectrum  <a href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">More...</a><br /></td></tr>
+<tr class="separator:a2255efde72d4da1f6502b34e2e3ae1c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afedb8b11f2e2450ed31bf4e93fb925a6"><td class="memItemLeft" align="right" valign="top">float *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a> = 0</td></tr>
+<tr class="memdesc:afedb8b11f2e2450ed31bf4e93fb925a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">temporary buffer  <a href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">More...</a><br /></td></tr>
+<tr class="separator:afedb8b11f2e2450ed31bf4e93fb925a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa604804a2cd60ddf19eeab5811f473ea"><td class="memItemLeft" align="right" valign="top"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">m_bIsInitialized</a> = <a class="el" href="a00284.xhtml#a65e9886d74aaee76545e83dd09011727">false</a></td></tr>
+<tr class="memdesc:aa604804a2cd60ddf19eeab5811f473ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">true if initialized  <a href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">More...</a><br /></td></tr>
+<tr class="separator:aa604804a2cd60ddf19eeab5811f473ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p >computation of key profile distance </p>
+<div class="textblock"><p >class for computation of a magnitude Pitch from either a file or a vector </p>
 
-<p class="definition">Definition at line <a class="el" href="a00143_source.xhtml#l00018">18</a> of file <a class="el" href="a00143_source.xhtml">KeyFromChroma.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00018">18</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
 </div><h2 class="groupheader">Member Enumeration Documentation</h2>
-<a id="a30498c10ccfd4947fce48a484a09b30f" name="a30498c10ccfd4947fce48a484a09b30f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a30498c10ccfd4947fce48a484a09b30f">&#9670;&nbsp;</a></span>Modes_t</h2>
+<a id="ac55ab3f8cd0b036cbb891537272342df" name="ac55ab3f8cd0b036cbb891537272342df"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac55ab3f8cd0b036cbb891537272342df">&#9670;&nbsp;</a></span>PitchExtractors_t</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">enum <a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30f">CKeyFromChroma::Modes_t</a></td>
+          <td class="memname">enum <a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
+
+<p>enum to index all Pitch extractorss </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a30498c10ccfd4947fce48a484a09b30fafc59a9ade9fe3aafbdf1836c9a0bc486" name="a30498c10ccfd4947fce48a484a09b30fafc59a9ade9fe3aafbdf1836c9a0bc486"></a>kMajor&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a30498c10ccfd4947fce48a484a09b30faa36c210ab1ccf38744e537dd584aea14" name="a30498c10ccfd4947fce48a484a09b30faa36c210ab1ccf38744e537dd584aea14"></a>kMinor&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5" name="a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5"></a>kNumModes&#160;</td><td class="fielddoc"></td></tr>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec" name="ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec"></a>kPitchSpectralAcf&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f" name="ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f"></a>kPitchSpectralHps&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19" name="ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19"></a>kPitchTimeAcf&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b" name="ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b"></a>kPitchTimeAmdf&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac55ab3f8cd0b036cbb891537272342dfaa0aa79ae2abdd235504a99f60e8ba938" name="ac55ab3f8cd0b036cbb891537272342dfaa0aa79ae2abdd235504a99f60e8ba938"></a>kPitchTimeAuditory&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07" name="ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07"></a>kPitchTimeZeroCrossings&#160;</td><td class="fielddoc"></td></tr>
+<tr><td class="fieldname"><a id="ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2" name="ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2"></a>kNumPitchExtractors&#160;</td><td class="fielddoc"></td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="a00143_source.xhtml#l00034">34</a> of file <a class="el" href="a00143_source.xhtml">KeyFromChroma.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   35</span>    {</div>
-<div class="line"><span class="lineno">   36</span>        <a class="code hl_enumvalue" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fafc59a9ade9fe3aafbdf1836c9a0bc486">kMajor</a>,</div>
-<div class="line"><span class="lineno">   37</span>        <a class="code hl_enumvalue" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30faa36c210ab1ccf38744e537dd584aea14">kMinor</a>,</div>
-<div class="line"><span class="lineno">   38</span> </div>
-<div class="line"><span class="lineno">   39</span>        <a class="code hl_enumvalue" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a></div>
-<div class="line"><span class="lineno">   40</span>    };</div>
-<div class="ttc" id="aa00522_xhtml_a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5"><div class="ttname"><a href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">CKeyFromChroma::kNumModes</a></div><div class="ttdeci">@ kNumModes</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00040">KeyFromChroma.h:39</a></div></div>
-<div class="ttc" id="aa00522_xhtml_a30498c10ccfd4947fce48a484a09b30faa36c210ab1ccf38744e537dd584aea14"><div class="ttname"><a href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30faa36c210ab1ccf38744e537dd584aea14">CKeyFromChroma::kMinor</a></div><div class="ttdeci">@ kMinor</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00037">KeyFromChroma.h:37</a></div></div>
-<div class="ttc" id="aa00522_xhtml_a30498c10ccfd4947fce48a484a09b30fafc59a9ade9fe3aafbdf1836c9a0bc486"><div class="ttname"><a href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fafc59a9ade9fe3aafbdf1836c9a0bc486">CKeyFromChroma::kMajor</a></div><div class="ttdeci">@ kMajor</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00036">KeyFromChroma.h:36</a></div></div>
-</div><!-- fragment -->
-</div>
-</div>
-<a id="aa38bcd91e9cc562a05f31ac737b6df5b" name="aa38bcd91e9cc562a05f31ac737b6df5b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa38bcd91e9cc562a05f31ac737b6df5b">&#9670;&nbsp;</a></span>Pitches_t</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">enum <a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5b">CKeyFromChroma::Pitches_t</a></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5bab248651a839f96d6530f14b2f70964b4" name="aa38bcd91e9cc562a05f31ac737b6df5bab248651a839f96d6530f14b2f70964b4"></a>kC&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5babcbe6ddcfe8d96d6df5c8c02b026d5bb" name="aa38bcd91e9cc562a05f31ac737b6df5babcbe6ddcfe8d96d6df5c8c02b026d5bb"></a>kCs&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5ba6a26bb966c63de3cd9741c473bede972" name="aa38bcd91e9cc562a05f31ac737b6df5ba6a26bb966c63de3cd9741c473bede972"></a>kD&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5ba18732d4f339c399ed7e4f014b5b72fb1" name="aa38bcd91e9cc562a05f31ac737b6df5ba18732d4f339c399ed7e4f014b5b72fb1"></a>kDs&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5bacd5f025b4f2bfbbb5bd1e92b0d66f223" name="aa38bcd91e9cc562a05f31ac737b6df5bacd5f025b4f2bfbbb5bd1e92b0d66f223"></a>kE&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5baff01574ca3dd36c0d2b309be6ad890eb" name="aa38bcd91e9cc562a05f31ac737b6df5baff01574ca3dd36c0d2b309be6ad890eb"></a>kF&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5baf6850c02922b4123f520296aa08e40be" name="aa38bcd91e9cc562a05f31ac737b6df5baf6850c02922b4123f520296aa08e40be"></a>kFs&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5baccce03de6828c0592f82e7dcf6403548" name="aa38bcd91e9cc562a05f31ac737b6df5baccce03de6828c0592f82e7dcf6403548"></a>kG&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5bad06c0a32c81ea1bc7f47bbeb1ac850c6" name="aa38bcd91e9cc562a05f31ac737b6df5bad06c0a32c81ea1bc7f47bbeb1ac850c6"></a>kGs&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5baeecc0f275b70266968ad739192fd2f35" name="aa38bcd91e9cc562a05f31ac737b6df5baeecc0f275b70266968ad739192fd2f35"></a>kA&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5bad7ce18603aff1e2d4402fd22b24f3d24" name="aa38bcd91e9cc562a05f31ac737b6df5bad7ce18603aff1e2d4402fd22b24f3d24"></a>kAs&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5ba1b7b7c9cda0e5a20f024b68e8855829e" name="aa38bcd91e9cc562a05f31ac737b6df5ba1b7b7c9cda0e5a20f024b68e8855829e"></a>kB&#160;</td><td class="fielddoc"></td></tr>
-<tr><td class="fieldname"><a id="aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3" name="aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3"></a>kNumPitchClasses&#160;</td><td class="fielddoc"></td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="a00143_source.xhtml#l00041">41</a> of file <a class="el" href="a00143_source.xhtml">KeyFromChroma.h</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   42</span>    {</div>
-<div class="line"><span class="lineno">   43</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bab248651a839f96d6530f14b2f70964b4">kC</a>,</div>
-<div class="line"><span class="lineno">   44</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5babcbe6ddcfe8d96d6df5c8c02b026d5bb">kCs</a>,</div>
-<div class="line"><span class="lineno">   45</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba6a26bb966c63de3cd9741c473bede972">kD</a>,</div>
-<div class="line"><span class="lineno">   46</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba18732d4f339c399ed7e4f014b5b72fb1">kDs</a>,</div>
-<div class="line"><span class="lineno">   47</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bacd5f025b4f2bfbbb5bd1e92b0d66f223">kE</a>,</div>
-<div class="line"><span class="lineno">   48</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baff01574ca3dd36c0d2b309be6ad890eb">kF</a>,</div>
-<div class="line"><span class="lineno">   49</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baf6850c02922b4123f520296aa08e40be">kFs</a>,</div>
-<div class="line"><span class="lineno">   50</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baccce03de6828c0592f82e7dcf6403548">kG</a>,</div>
-<div class="line"><span class="lineno">   51</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bad06c0a32c81ea1bc7f47bbeb1ac850c6">kGs</a>,</div>
-<div class="line"><span class="lineno">   52</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baeecc0f275b70266968ad739192fd2f35">kA</a>,</div>
-<div class="line"><span class="lineno">   53</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bad7ce18603aff1e2d4402fd22b24f3d24">kAs</a>,</div>
-<div class="line"><span class="lineno">   54</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba1b7b7c9cda0e5a20f024b68e8855829e">kB</a>,</div>
-<div class="line"><span class="lineno">   55</span> </div>
-<div class="line"><span class="lineno">   56</span>        <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a></div>
-<div class="line"><span class="lineno">   57</span>    };</div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5ba18732d4f339c399ed7e4f014b5b72fb1"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba18732d4f339c399ed7e4f014b5b72fb1">CKeyFromChroma::kDs</a></div><div class="ttdeci">@ kDs</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00046">KeyFromChroma.h:46</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5ba1b7b7c9cda0e5a20f024b68e8855829e"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba1b7b7c9cda0e5a20f024b68e8855829e">CKeyFromChroma::kB</a></div><div class="ttdeci">@ kB</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00054">KeyFromChroma.h:54</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5ba6a26bb966c63de3cd9741c473bede972"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5ba6a26bb966c63de3cd9741c473bede972">CKeyFromChroma::kD</a></div><div class="ttdeci">@ kD</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00045">KeyFromChroma.h:45</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5bab248651a839f96d6530f14b2f70964b4"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bab248651a839f96d6530f14b2f70964b4">CKeyFromChroma::kC</a></div><div class="ttdeci">@ kC</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00043">KeyFromChroma.h:43</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5babcbe6ddcfe8d96d6df5c8c02b026d5bb"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5babcbe6ddcfe8d96d6df5c8c02b026d5bb">CKeyFromChroma::kCs</a></div><div class="ttdeci">@ kCs</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00044">KeyFromChroma.h:44</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5baccce03de6828c0592f82e7dcf6403548"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baccce03de6828c0592f82e7dcf6403548">CKeyFromChroma::kG</a></div><div class="ttdeci">@ kG</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00050">KeyFromChroma.h:50</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5bacd5f025b4f2bfbbb5bd1e92b0d66f223"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bacd5f025b4f2bfbbb5bd1e92b0d66f223">CKeyFromChroma::kE</a></div><div class="ttdeci">@ kE</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00047">KeyFromChroma.h:47</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5bad06c0a32c81ea1bc7f47bbeb1ac850c6"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bad06c0a32c81ea1bc7f47bbeb1ac850c6">CKeyFromChroma::kGs</a></div><div class="ttdeci">@ kGs</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00051">KeyFromChroma.h:51</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5bad7ce18603aff1e2d4402fd22b24f3d24"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5bad7ce18603aff1e2d4402fd22b24f3d24">CKeyFromChroma::kAs</a></div><div class="ttdeci">@ kAs</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00053">KeyFromChroma.h:53</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">CKeyFromChroma::kNumPitchClasses</a></div><div class="ttdeci">@ kNumPitchClasses</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00057">KeyFromChroma.h:56</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5baeecc0f275b70266968ad739192fd2f35"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baeecc0f275b70266968ad739192fd2f35">CKeyFromChroma::kA</a></div><div class="ttdeci">@ kA</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00052">KeyFromChroma.h:52</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5baf6850c02922b4123f520296aa08e40be"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baf6850c02922b4123f520296aa08e40be">CKeyFromChroma::kFs</a></div><div class="ttdeci">@ kFs</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00049">KeyFromChroma.h:49</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa38bcd91e9cc562a05f31ac737b6df5baff01574ca3dd36c0d2b309be6ad890eb"><div class="ttname"><a href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baff01574ca3dd36c0d2b309be6ad890eb">CKeyFromChroma::kF</a></div><div class="ttdeci">@ kF</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00048">KeyFromChroma.h:48</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00023">23</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   24</span>    {</div>
+<div class="line"><span class="lineno">   25</span>        <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">kPitchSpectralAcf</a>,</div>
+<div class="line"><span class="lineno">   26</span>        <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">kPitchSpectralHps</a>,</div>
+<div class="line"><span class="lineno">   27</span> </div>
+<div class="line"><span class="lineno">   28</span>        <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">kPitchTimeAcf</a>,</div>
+<div class="line"><span class="lineno">   29</span>        <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">kPitchTimeAmdf</a>,</div>
+<div class="line"><span class="lineno">   30</span>        <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa0aa79ae2abdd235504a99f60e8ba938">kPitchTimeAuditory</a>,</div>
+<div class="line"><span class="lineno">   31</span>        <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">kPitchTimeZeroCrossings</a>,</div>
+<div class="line"><span class="lineno">   32</span> </div>
+<div class="line"><span class="lineno">   33</span>        <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">kNumPitchExtractors</a></div>
+<div class="line"><span class="lineno">   34</span>    };</div>
+<div class="ttc" id="aa00522_xhtml_ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19"><div class="ttname"><a href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">CPitchIf::kPitchTimeAcf</a></div><div class="ttdeci">@ kPitchTimeAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00028">Pitch.h:28</a></div></div>
+<div class="ttc" id="aa00522_xhtml_ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f"><div class="ttname"><a href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">CPitchIf::kPitchSpectralHps</a></div><div class="ttdeci">@ kPitchSpectralHps</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00026">Pitch.h:26</a></div></div>
+<div class="ttc" id="aa00522_xhtml_ac55ab3f8cd0b036cbb891537272342dfaa0aa79ae2abdd235504a99f60e8ba938"><div class="ttname"><a href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa0aa79ae2abdd235504a99f60e8ba938">CPitchIf::kPitchTimeAuditory</a></div><div class="ttdeci">@ kPitchTimeAuditory</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00030">Pitch.h:30</a></div></div>
+<div class="ttc" id="aa00522_xhtml_ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b"><div class="ttname"><a href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">CPitchIf::kPitchTimeAmdf</a></div><div class="ttdeci">@ kPitchTimeAmdf</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00029">Pitch.h:29</a></div></div>
+<div class="ttc" id="aa00522_xhtml_ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec"><div class="ttname"><a href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">CPitchIf::kPitchSpectralAcf</a></div><div class="ttdeci">@ kPitchSpectralAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00025">Pitch.h:25</a></div></div>
+<div class="ttc" id="aa00522_xhtml_ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07"><div class="ttname"><a href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">CPitchIf::kPitchTimeZeroCrossings</a></div><div class="ttdeci">@ kPitchTimeZeroCrossings</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00031">Pitch.h:31</a></div></div>
+<div class="ttc" id="aa00522_xhtml_ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2"><div class="ttname"><a href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">CPitchIf::kNumPitchExtractors</a></div><div class="ttdeci">@ kNumPitchExtractors</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00034">Pitch.h:33</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="a49acd3fa8e5ab9c8c07f15a352b3dcaa" name="a49acd3fa8e5ab9c8c07f15a352b3dcaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a49acd3fa8e5ab9c8c07f15a352b3dcaa">&#9670;&nbsp;</a></span>CKeyFromChroma() <span class="overload">[1/2]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">CKeyFromChroma::CKeyFromChroma </td>
-          <td>(</td>
-          <td class="paramtype">void&#160;</td>
-          <td class="paramname"></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p class="definition">Definition at line <a class="el" href="a00101_source.xhtml#l00003">3</a> of file <a class="el" href="a00101_source.xhtml">KeyFromChroma.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    4</span>{</div>
-<div class="line"><span class="lineno">    5</span>    <span class="comment">// norm template key profiles</span></div>
-<div class="line"><span class="lineno">    6</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; <a class="code hl_enumvalue" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a>; m++)</div>
-<div class="line"><span class="lineno">    7</span>    {</div>
-<div class="line"><span class="lineno">    8</span>        <span class="keywordtype">float</span> fSum = <a class="code hl_function" href="a00514.xhtml#abdbcc3898121387f3694f74491b7331e">CVector::getSum</a>(<a class="code hl_variable" href="a00522.xhtml#aa32fe899f352c13460a08ffb38d665bb">m_aafKeyProfiles</a>[m], <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">    9</span> </div>
-<div class="line"><span class="lineno">   10</span>        <a class="code hl_variable" href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">m_apCRingBuff</a>[m] = <span class="keyword">new</span> <a class="code hl_class" href="a00502.xhtml">CRingBuffer&lt;float&gt;</a>(<a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">   11</span> </div>
-<div class="line"><span class="lineno">   12</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>; p++)</div>
-<div class="line"><span class="lineno">   13</span>            <a class="code hl_variable" href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">m_apCRingBuff</a>[m]-&gt;putPostInc(<a class="code hl_variable" href="a00522.xhtml#aa32fe899f352c13460a08ffb38d665bb">m_aafKeyProfiles</a>[m][p] / fSum);</div>
-<div class="line"><span class="lineno">   14</span>    }</div>
-<div class="line"><span class="lineno">   15</span>}</div>
-<div class="ttc" id="aa00502_xhtml"><div class="ttname"><a href="a00502.xhtml">CRingBuffer&lt; float &gt;</a></div></div>
-<div class="ttc" id="aa00514_xhtml_abdbcc3898121387f3694f74491b7331e"><div class="ttname"><a href="a00514.xhtml#abdbcc3898121387f3694f74491b7331e">CVector::getSum</a></div><div class="ttdeci">static T getSum(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00434">Vector.h:434</a></div></div>
-<div class="ttc" id="aa00522_xhtml_aa32fe899f352c13460a08ffb38d665bb"><div class="ttname"><a href="a00522.xhtml#aa32fe899f352c13460a08ffb38d665bb">CKeyFromChroma::m_aafKeyProfiles</a></div><div class="ttdeci">const float m_aafKeyProfiles[kNumModes][kNumPitchClasses]</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00061">KeyFromChroma.h:61</a></div></div>
-<div class="ttc" id="aa00522_xhtml_ab1b079b9b5128fc288edd6bcaa1b0533"><div class="ttname"><a href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">CKeyFromChroma::m_apCRingBuff</a></div><div class="ttdeci">CRingBuffer&lt; float &gt; * m_apCRingBuff[kNumModes]</div><div class="ttdoc">ringbuffer for cyclic shifting of the templates</div><div class="ttdef"><b>Definition:</b> <a href="a00143_source.xhtml#l00064">KeyFromChroma.h:64</a></div></div>
-</div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00161_source.xhtml#l00434">CVector::getSum()</a>, <a class="el" href="a00143_source.xhtml#l00039">kNumModes</a>, <a class="el" href="a00143_source.xhtml#l00056">kNumPitchClasses</a>, <a class="el" href="a00143_source.xhtml#l00061">m_aafKeyProfiles</a>, and <a class="el" href="a00143_source.xhtml#l00064">m_apCRingBuff</a>.</p>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a49acd3fa8e5ab9c8c07f15a352b3dcaa_cgraph.svg" width="374" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
-</div>
-</div>
-
-</div>
-</div>
-<a id="adf8eca2925570f9fca59e3c4359615b4" name="adf8eca2925570f9fca59e3c4359615b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf8eca2925570f9fca59e3c4359615b4">&#9670;&nbsp;</a></span>~CKeyFromChroma()</h2>
+<a id="a6e2c59c5b6bb651075bd0e9d65edd383" name="a6e2c59c5b6bb651075bd0e9d65edd383"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e2c59c5b6bb651075bd0e9d65edd383">&#9670;&nbsp;</a></span>CPitchIf() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -324,32 +269,37 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CKeyFromChroma::~CKeyFromChroma </td>
+          <td class="memname">CPitchIf::CPitchIf </td>
           <td>(</td>
-          <td class="paramtype">void&#160;</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">virtual</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00101_source.xhtml#l00017">17</a> of file <a class="el" href="a00101_source.xhtml">KeyFromChroma.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   18</span>{</div>
-<div class="line"><span class="lineno">   19</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; <a class="code hl_enumvalue" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a>; m++)</div>
-<div class="line"><span class="lineno">   20</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">m_apCRingBuff</a>[m];</div>
-<div class="line"><span class="lineno">   21</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00090">90</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   91</span>{</div>
+<div class="line"><span class="lineno">   92</span>    <a class="code hl_function" href="a00522.xhtml#a0841d88981bfe343f6439b7d4174a30b">reset_</a>();</div>
+<div class="line"><span class="lineno">   93</span>}</div>
+<div class="ttc" id="aa00522_xhtml_a0841d88981bfe343f6439b7d4174a30b"><div class="ttname"><a href="a00522.xhtml#a0841d88981bfe343f6439b7d4174a30b">CPitchIf::reset_</a></div><div class="ttdeci">Error_t reset_()</div><div class="ttdoc">reset configuration</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.xhtml#l00277">Pitch.cpp:277</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00143_source.xhtml#l00039">kNumModes</a>, and <a class="el" href="a00143_source.xhtml#l00064">m_apCRingBuff</a>.</p>
+<p class="reference">References <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a6e2c59c5b6bb651075bd0e9d65edd383_cgraph.svg" width="494" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
-<a id="ae6e5ee312d60421f9a3782e179f1367d" name="ae6e5ee312d60421f9a3782e179f1367d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae6e5ee312d60421f9a3782e179f1367d">&#9670;&nbsp;</a></span>CKeyFromChroma() <span class="overload">[2/2]</span></h2>
+<a id="a4df4a76c5c6a23618ad9889dd8855f2b" name="a4df4a76c5c6a23618ad9889dd8855f2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4df4a76c5c6a23618ad9889dd8855f2b">&#9670;&nbsp;</a></span>~CPitchIf()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -358,109 +308,158 @@ Here is the call graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">CKeyFromChroma::CKeyFromChroma </td>
+          <td class="memname">CPitchIf::~CPitchIf </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00522.xhtml">CKeyFromChroma</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00095">95</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   96</span>{</div>
+<div class="line"><span class="lineno">   97</span>    <a class="code hl_function" href="a00522.xhtml#a0841d88981bfe343f6439b7d4174a30b">reset_</a>();</div>
+<div class="line"><span class="lineno">   98</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a4df4a76c5c6a23618ad9889dd8855f2b_cgraph.svg" width="500" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a471f3abdc762d211aa8d44384b6a19f8" name="a471f3abdc762d211aa8d44384b6a19f8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a471f3abdc762d211aa8d44384b6a19f8">&#9670;&nbsp;</a></span>CPitchIf() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CPitchIf::CPitchIf </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00522.xhtml">CPitchIf</a> &amp;&#160;</td>
           <td class="paramname"><em>that</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>disallow copy construction <br  />
- </p>
-
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="adf22d441c8866b9fe13aef59549e1cff" name="adf22d441c8866b9fe13aef59549e1cff"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf22d441c8866b9fe13aef59549e1cff">&#9670;&nbsp;</a></span>getKey()</h2>
+<a id="a5c6fea7fdc8067f1d6a116b86d543aa1" name="a5c6fea7fdc8067f1d6a116b86d543aa1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5c6fea7fdc8067f1d6a116b86d543aa1">&#9670;&nbsp;</a></span>compF0()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int CKeyFromChroma::getKey </td>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchIf::compF0 </td>
           <td>(</td>
-          <td class="paramtype">const float *&#160;</td>
-          <td class="paramname"><em>pfQuery</em></td><td>)</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>pfPitch</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p >classifies a new query chroma vector </p><dl class="section return"><dt>Returns</dt><dd>int index of most likely key </dd></dl>
+<p >performs the Pitch computation for 1 dimensional Pitchs and writes the result </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfPitch</td><td>(user-allocated, to be written, dimensions from CPitchIf::getPitchDimensions) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00101_source.xhtml#l00027">27</a> of file <a class="el" href="a00101_source.xhtml">KeyFromChroma.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   28</span>{</div>
-<div class="line"><span class="lineno">   29</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iRes = -1;</div>
-<div class="line"><span class="lineno">   30</span>    <span class="keywordtype">float</span> afQueryN[<a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>] = { 0 };</div>
-<div class="line"><span class="lineno">   31</span>    <span class="keywordtype">float</span> afDist[<a class="code hl_enumvalue" href="a00518.xhtml#a3b1e9102e9dc61abfc81f9d6d4717736a47b30148e562081fc1db600b0257e422">CKey::kNumKeys</a>] = { 0 };</div>
-<div class="line"><span class="lineno">   32</span>    <span class="keywordtype">float</span> fNorm = <a class="code hl_function" href="a00514.xhtml#abdbcc3898121387f3694f74491b7331e">CVector::getSum</a>(pfQuery, <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">   33</span> </div>
-<div class="line"><span class="lineno">   34</span>    <span class="keywordflow">if</span> (fNorm &lt;= 0)</div>
-<div class="line"><span class="lineno">   35</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00518.xhtml#a3b1e9102e9dc61abfc81f9d6d4717736a168c215159ca19e298821888aee3f5aa">CKey::kNoKey</a>;</div>
-<div class="line"><span class="lineno">   36</span> </div>
-<div class="line"><span class="lineno">   37</span>    <span class="comment">// normalize input</span></div>
-<div class="line"><span class="lineno">   38</span>    <a class="code hl_function" href="a00514.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a>(afQueryN, pfQuery, <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">   39</span>    <a class="code hl_function" href="a00514.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(afQueryN, 1.F / fNorm, <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">   40</span> </div>
-<div class="line"><span class="lineno">   41</span>    <span class="comment">// compute manhattan distances for modes (major and minor)</span></div>
-<div class="line"><span class="lineno">   42</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> m = 0; m &lt; <a class="code hl_enumvalue" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a>; m++)</div>
-<div class="line"><span class="lineno">   43</span>    {</div>
-<div class="line"><span class="lineno">   44</span>        <span class="keywordflow">for</span> (<span class="keyword">auto</span> p = 0; p &lt; <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>; p++)</div>
-<div class="line"><span class="lineno">   45</span>        {</div>
-<div class="line"><span class="lineno">   46</span>            <span class="keywordtype">float</span> afShiftedChroma[<a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>] = { 0 };</div>
-<div class="line"><span class="lineno">   47</span>            <a class="code hl_variable" href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">m_apCRingBuff</a>[m]-&gt;<a class="code hl_function" href="a00502.xhtml#a23d9877584d712c17811a9833835605e">get</a>(afShiftedChroma, <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">   48</span> </div>
-<div class="line"><span class="lineno">   49</span>            afDist[m * <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a> + p] = <a class="code hl_function" href="a00514.xhtml#aab8d1ce72a924e66e81e4802a9bed2a0">CVector::distManhattan</a>(afQueryN, afShiftedChroma, <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">   50</span> </div>
-<div class="line"><span class="lineno">   51</span>            <a class="code hl_variable" href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">m_apCRingBuff</a>[m]-&gt;<a class="code hl_function" href="a00502.xhtml#af265a6322c4b1584c880def00d31e663">setReadIdx</a>(<a class="code hl_variable" href="a00522.xhtml#ab1b079b9b5128fc288edd6bcaa1b0533">m_apCRingBuff</a>[m]-&gt;getReadIdx() - 1);</div>
-<div class="line"><span class="lineno">   52</span>        }</div>
-<div class="line"><span class="lineno">   53</span>    }</div>
-<div class="line"><span class="lineno">   54</span>    <span class="comment">// last distance</span></div>
-<div class="line"><span class="lineno">   55</span>    <a class="code hl_function" href="a00514.xhtml#a22ff86e4fc2f8d5042159d9c84a7ff14">CVector::addC_I</a>(afQueryN, -1.F / <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>, <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>);</div>
-<div class="line"><span class="lineno">   56</span>    afDist[<a class="code hl_enumvalue" href="a00518.xhtml#a3b1e9102e9dc61abfc81f9d6d4717736a168c215159ca19e298821888aee3f5aa">CKey::kNoKey</a>] = <a class="code hl_function" href="a00514.xhtml#abdbcc3898121387f3694f74491b7331e">CVector::getSum</a>(afQueryN, <a class="code hl_enumvalue" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">   57</span> </div>
-<div class="line"><span class="lineno">   58</span>    <span class="comment">// get key index (reuse afQuery as dummy arg)</span></div>
-<div class="line"><span class="lineno">   59</span>    <a class="code hl_function" href="a00514.xhtml#ad475dff5686f7f82472071000a542806">CVector::findMin</a>(afDist, afQueryN[0], iRes, <a class="code hl_enumvalue" href="a00518.xhtml#a3b1e9102e9dc61abfc81f9d6d4717736a47b30148e562081fc1db600b0257e422">CKey::kNumKeys</a>);</div>
-<div class="line"><span class="lineno">   60</span> </div>
-<div class="line"><span class="lineno">   61</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(iRes);</div>
-<div class="line"><span class="lineno">   62</span>}</div>
-<div class="ttc" id="aa00502_xhtml_a23d9877584d712c17811a9833835605e"><div class="ttname"><a href="a00502.xhtml#a23d9877584d712c17811a9833835605e">CRingBuffer::get</a></div><div class="ttdeci">T get(float fOffset=0) const</div><div class="ttdef"><b>Definition:</b> <a href="a00170_source.xhtml#l00098">RingBuffer.h:98</a></div></div>
-<div class="ttc" id="aa00502_xhtml_af265a6322c4b1584c880def00d31e663"><div class="ttname"><a href="a00502.xhtml#af265a6322c4b1584c880def00d31e663">CRingBuffer::setReadIdx</a></div><div class="ttdeci">void setReadIdx(int iNewReadIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00170_source.xhtml#l00171">RingBuffer.h:171</a></div></div>
-<div class="ttc" id="aa00514_xhtml_a22ff86e4fc2f8d5042159d9c84a7ff14"><div class="ttname"><a href="a00514.xhtml#a22ff86e4fc2f8d5042159d9c84a7ff14">CVector::addC_I</a></div><div class="ttdeci">static void addC_I(T *ptSrcDest, T fConst, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00248">Vector.h:248</a></div></div>
-<div class="ttc" id="aa00514_xhtml_a9811f50434dd058d201290b2dc98bfcd"><div class="ttname"><a href="a00514.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a></div><div class="ttdeci">static void mulC_I(T *ptSrcDest, T fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00162">Vector.h:162</a></div></div>
-<div class="ttc" id="aa00514_xhtml_aab8d1ce72a924e66e81e4802a9bed2a0"><div class="ttname"><a href="a00514.xhtml#aab8d1ce72a924e66e81e4802a9bed2a0">CVector::distManhattan</a></div><div class="ttdeci">static T distManhattan(const T *ptSrc1, const T *ptSrc2, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00342">Vector.h:342</a></div></div>
-<div class="ttc" id="aa00514_xhtml_ad475dff5686f7f82472071000a542806"><div class="ttname"><a href="a00514.xhtml#ad475dff5686f7f82472071000a542806">CVector::findMin</a></div><div class="ttdeci">static void findMin(const T *ptSrc, T &amp;fMin, long long &amp;iMin, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00653">Vector.h:653</a></div></div>
-<div class="ttc" id="aa00514_xhtml_ad7c5cba73e439adac77778f61c9418f0"><div class="ttname"><a href="a00514.xhtml#ad7c5cba73e439adac77778f61c9418f0">CVector::copy</a></div><div class="ttdeci">static void copy(T *ptDest, const T *ptSrc, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00161_source.xhtml#l00106">Vector.h:106</a></div></div>
-<div class="ttc" id="aa00518_xhtml_a3b1e9102e9dc61abfc81f9d6d4717736a168c215159ca19e298821888aee3f5aa"><div class="ttname"><a href="a00518.xhtml#a3b1e9102e9dc61abfc81f9d6d4717736a168c215159ca19e298821888aee3f5aa">CKey::kNoKey</a></div><div class="ttdeci">@ kNoKey</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.xhtml#l00048">Key.h:48</a></div></div>
-<div class="ttc" id="aa00518_xhtml_a3b1e9102e9dc61abfc81f9d6d4717736a47b30148e562081fc1db600b0257e422"><div class="ttname"><a href="a00518.xhtml#a3b1e9102e9dc61abfc81f9d6d4717736a47b30148e562081fc1db600b0257e422">CKey::kNumKeys</a></div><div class="ttdeci">@ kNumKeys</div><div class="ttdef"><b>Definition:</b> <a href="a00128_source.xhtml#l00051">Key.h:50</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00193">193</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  194</span>{</div>
+<div class="line"><span class="lineno">  195</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  196</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  197</span>    <span class="keywordflow">if</span> (!pfPitch)</div>
+<div class="line"><span class="lineno">  198</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  199</span> </div>
+<div class="line"><span class="lineno">  200</span>    assert(<a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>);</div>
+<div class="line"><span class="lineno">  201</span>    assert(<a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>);</div>
+<div class="line"><span class="lineno">  202</span>    assert(<a class="code hl_variable" href="a00522.xhtml#a0d670d26b5833fa2b603974bb8665cee">m_pCNormalize</a>);</div>
+<div class="line"><span class="lineno">  203</span>    assert(<a class="code hl_variable" href="a00522.xhtml#a9f187f32f74aa7295a966543fbd9326f">m_pCPitch</a>);</div>
+<div class="line"><span class="lineno">  204</span> </div>
+<div class="line"><span class="lineno">  205</span>    <span class="keyword">auto</span> iNumBlocks = <a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00542.xhtml#a595b3a391e2540a1dc9e53edf8634494">getNumBlocks</a>();</div>
+<div class="line"><span class="lineno">  206</span> </div>
+<div class="line"><span class="lineno">  207</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
+<div class="line"><span class="lineno">  208</span>    {</div>
+<div class="line"><span class="lineno">  209</span>        <span class="comment">// retrieve the next audio block</span></div>
+<div class="line"><span class="lineno">  210</span>        <a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00542.xhtml#a531920b36b04ecdb562bfbb09dd2e856">getNextBlock</a>(<a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>);</div>
+<div class="line"><span class="lineno">  211</span> </div>
+<div class="line"><span class="lineno">  212</span>        <span class="comment">// normalize if specified</span></div>
+<div class="line"><span class="lineno">  213</span>        <span class="keywordflow">if</span> (<a class="code hl_variable" href="a00522.xhtml#a0d670d26b5833fa2b603974bb8665cee">m_pCNormalize</a>)</div>
+<div class="line"><span class="lineno">  214</span>            <a class="code hl_variable" href="a00522.xhtml#a0d670d26b5833fa2b603974bb8665cee">m_pCNormalize</a>-&gt;<a class="code hl_function" href="a00606.xhtml#aa8a561b4133585586c5b595116a9217f">normalizeBlock</a>(<a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>, <a class="code hl_variable" href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">m_iBlockLength</a>);</div>
+<div class="line"><span class="lineno">  215</span> </div>
+<div class="line"><span class="lineno">  216</span>        <span class="keywordflow">if</span> (<a class="code hl_function" href="a00522.xhtml#ad1d4759da8b0fddeda3d1e3bbfc0cd23">isPitchExtractorSpectral_</a>(<a class="code hl_variable" href="a00522.xhtml#a9f187f32f74aa7295a966543fbd9326f">m_pCPitch</a>-&gt;<a class="code hl_function" href="a00526.xhtml#ac7496d16e4dfc1ab55305dc118c2e6bf">getPitchExtractorIdx</a>()))</div>
+<div class="line"><span class="lineno">  217</span>        {</div>
+<div class="line"><span class="lineno">  218</span>            assert(<a class="code hl_variable" href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">m_pfProcessBuff2</a>);</div>
+<div class="line"><span class="lineno">  219</span>            assert(<a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>);</div>
+<div class="line"><span class="lineno">  220</span>            <a class="code hl_function" href="a00522.xhtml#aa988c75557f8281271467b000a1a1d54">computeMagSpectrum_</a>();</div>
+<div class="line"><span class="lineno">  221</span>        }</div>
+<div class="line"><span class="lineno">  222</span> </div>
+<div class="line"><span class="lineno">  223</span>        pfPitch[n] = <a class="code hl_variable" href="a00522.xhtml#a9f187f32f74aa7295a966543fbd9326f">m_pCPitch</a>-&gt;<a class="code hl_function" href="a00526.xhtml#a680337ee1fcc59015ea679862cd8085c">compF0</a>(<a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>);</div>
+<div class="line"><span class="lineno">  224</span>    }</div>
+<div class="line"><span class="lineno">  225</span> </div>
+<div class="line"><span class="lineno">  226</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  227</span>}</div>
+<div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
+<div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
+<div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
+<div class="ttc" id="aa00522_xhtml_a0d670d26b5833fa2b603974bb8665cee"><div class="ttname"><a href="a00522.xhtml#a0d670d26b5833fa2b603974bb8665cee">CPitchIf::m_pCNormalize</a></div><div class="ttdeci">CNormalizeAudio * m_pCNormalize</div><div class="ttdoc">instantiate if audio file normalization is wanted</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00116">Pitch.h:116</a></div></div>
+<div class="ttc" id="aa00522_xhtml_a2255efde72d4da1f6502b34e2e3ae1c0"><div class="ttname"><a href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">CPitchIf::m_pfProcessBuff2</a></div><div class="ttdeci">float * m_pfProcessBuff2</div><div class="ttdoc">temporary buffer for current spectrum</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00131">Pitch.h:131</a></div></div>
+<div class="ttc" id="aa00522_xhtml_a9f187f32f74aa7295a966543fbd9326f"><div class="ttname"><a href="a00522.xhtml#a9f187f32f74aa7295a966543fbd9326f">CPitchIf::m_pCPitch</a></div><div class="ttdeci">CPitchFromBlockIf * m_pCPitch</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00120">Pitch.h:120</a></div></div>
+<div class="ttc" id="aa00522_xhtml_aa58e867919d005c9231e154337a27317"><div class="ttname"><a href="a00522.xhtml#aa58e867919d005c9231e154337a27317">CPitchIf::m_pCFft</a></div><div class="ttdeci">CFft * m_pCFft</div><div class="ttdoc">fft instance</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00124">Pitch.h:124</a></div></div>
+<div class="ttc" id="aa00522_xhtml_aa604804a2cd60ddf19eeab5811f473ea"><div class="ttname"><a href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">CPitchIf::m_bIsInitialized</a></div><div class="ttdeci">bool m_bIsInitialized</div><div class="ttdoc">true if initialized</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00134">Pitch.h:134</a></div></div>
+<div class="ttc" id="aa00522_xhtml_aa988c75557f8281271467b000a1a1d54"><div class="ttname"><a href="a00522.xhtml#aa988c75557f8281271467b000a1a1d54">CPitchIf::computeMagSpectrum_</a></div><div class="ttdeci">void computeMagSpectrum_()</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.xhtml#l00265">Pitch.cpp:265</a></div></div>
+<div class="ttc" id="aa00522_xhtml_ad1546204f40135b2b35d1037a1999901"><div class="ttname"><a href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">CPitchIf::m_iBlockLength</a></div><div class="ttdeci">int m_iBlockLength</div><div class="ttdoc">fft length</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00126">Pitch.h:126</a></div></div>
+<div class="ttc" id="aa00522_xhtml_ad1d4759da8b0fddeda3d1e3bbfc0cd23"><div class="ttname"><a href="a00522.xhtml#ad1d4759da8b0fddeda3d1e3bbfc0cd23">CPitchIf::isPitchExtractorSpectral_</a></div><div class="ttdeci">bool isPitchExtractorSpectral_(PitchExtractors_t ePitchIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.xhtml#l00323">Pitch.cpp:323</a></div></div>
+<div class="ttc" id="aa00522_xhtml_aecca537eb32e8509085a8880d6d455e6"><div class="ttname"><a href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">CPitchIf::m_pCBlockAudio</a></div><div class="ttdeci">CBlockAudioIf * m_pCBlockAudio</div><div class="ttdoc">instantiate for blocking time domain signal</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00118">Pitch.h:118</a></div></div>
+<div class="ttc" id="aa00522_xhtml_afedb8b11f2e2450ed31bf4e93fb925a6"><div class="ttname"><a href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">CPitchIf::m_pfProcessBuff1</a></div><div class="ttdeci">float * m_pfProcessBuff1</div><div class="ttdoc">temporary buffer</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00132">Pitch.h:132</a></div></div>
+<div class="ttc" id="aa00526_xhtml_a680337ee1fcc59015ea679862cd8085c"><div class="ttname"><a href="a00526.xhtml#a680337ee1fcc59015ea679862cd8085c">CPitchFromBlockIf::compF0</a></div><div class="ttdeci">virtual float compF0(const float *pfInput)=0</div></div>
+<div class="ttc" id="aa00526_xhtml_ac7496d16e4dfc1ab55305dc118c2e6bf"><div class="ttname"><a href="a00526.xhtml#ac7496d16e4dfc1ab55305dc118c2e6bf">CPitchFromBlockIf::getPitchExtractorIdx</a></div><div class="ttdeci">CPitchIf::PitchExtractors_t getPitchExtractorIdx() const</div><div class="ttdef"><b>Definition:</b> <a href="a00191_source.xhtml#l00038">PitchFromBlock.h:38</a></div></div>
+<div class="ttc" id="aa00542_xhtml_a531920b36b04ecdb562bfbb09dd2e856"><div class="ttname"><a href="a00542.xhtml#a531920b36b04ecdb562bfbb09dd2e856">CBlockAudioIf::getNextBlock</a></div><div class="ttdeci">virtual int getNextBlock(float *pfBlock, float *pfTimeStampInS=0)=0</div></div>
+<div class="ttc" id="aa00542_xhtml_a595b3a391e2540a1dc9e53edf8634494"><div class="ttname"><a href="a00542.xhtml#a595b3a391e2540a1dc9e53edf8634494">CBlockAudioIf::getNumBlocks</a></div><div class="ttdeci">long long getNumBlocks() const</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.xhtml#l00049">ToolBlockAudio.h:49</a></div></div>
+<div class="ttc" id="aa00606_xhtml_aa8a561b4133585586c5b595116a9217f"><div class="ttname"><a href="a00606.xhtml#aa8a561b4133585586c5b595116a9217f">CNormalizeAudio::normalizeBlock</a></div><div class="ttdeci">void normalizeBlock(float *pfAudioBlock, long long iNumSamples)</div><div class="ttdef"><b>Definition:</b> <a href="a00236_source.xhtml#l00114">ToolPreProc.h:114</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00161_source.xhtml#l00248">CVector::addC_I()</a>, <a class="el" href="a00161_source.xhtml#l00106">CVector::copy()</a>, <a class="el" href="a00161_source.xhtml#l00342">CVector::distManhattan()</a>, <a class="el" href="a00161_source.xhtml#l00653">CVector::findMin()</a>, <a class="el" href="a00170_source.xhtml#l00098">CRingBuffer&lt; T &gt;::get()</a>, <a class="el" href="a00161_source.xhtml#l00434">CVector::getSum()</a>, <a class="el" href="a00128_source.xhtml#l00048">CKey::kNoKey</a>, <a class="el" href="a00128_source.xhtml#l00050">CKey::kNumKeys</a>, <a class="el" href="a00143_source.xhtml#l00039">kNumModes</a>, <a class="el" href="a00143_source.xhtml#l00056">kNumPitchClasses</a>, <a class="el" href="a00143_source.xhtml#l00064">m_apCRingBuff</a>, <a class="el" href="a00161_source.xhtml#l00162">CVector::mulC_I()</a>, and <a class="el" href="a00170_source.xhtml#l00171">CRingBuffer&lt; T &gt;::setReadIdx()</a>.</p>
+<p class="reference">References <a class="el" href="a00526.xhtml#a680337ee1fcc59015ea679862cd8085c">CPitchFromBlockIf::compF0()</a>, <a class="el" href="a00119_source.xhtml#l00265">computeMagSpectrum_()</a>, <a class="el" href="a00542.xhtml#a531920b36b04ecdb562bfbb09dd2e856">CBlockAudioIf::getNextBlock()</a>, <a class="el" href="a00179_source.xhtml#l00049">CBlockAudioIf::getNumBlocks()</a>, <a class="el" href="a00191_source.xhtml#l00038">CPitchFromBlockIf::getPitchExtractorIdx()</a>, <a class="el" href="a00119_source.xhtml#l00323">isPitchExtractorSpectral_()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.xhtml#l00134">m_bIsInitialized</a>, <a class="el" href="a00137_source.xhtml#l00126">m_iBlockLength</a>, <a class="el" href="a00137_source.xhtml#l00118">m_pCBlockAudio</a>, <a class="el" href="a00137_source.xhtml#l00124">m_pCFft</a>, <a class="el" href="a00137_source.xhtml#l00116">m_pCNormalize</a>, <a class="el" href="a00137_source.xhtml#l00120">m_pCPitch</a>, <a class="el" href="a00137_source.xhtml#l00132">m_pfProcessBuff1</a>, <a class="el" href="a00137_source.xhtml#l00131">m_pfProcessBuff2</a>, and <a class="el" href="a00236_source.xhtml#l00114">CNormalizeAudio::normalizeBlock()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00032_source.xhtml#l00081">CKey::compKey()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00005_source.xhtml#l00017">main()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_adf22d441c8866b9fe13aef59549e1cff_cgraph.svg" width="575" height="392"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00522_a5c6fea7fdc8067f1d6a116b86d543aa1_cgraph.svg" width="100%" height="600"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
 </div>
 </div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_adf22d441c8866b9fe13aef59549e1cff_icgraph.svg" width="446" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a5c6fea7fdc8067f1d6a116b86d543aa1_icgraph.svg" width="232" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
 </div>
 </div>
 
 </div>
 </div>
-<a id="acfd214751d372f6ca62257e5a56f646f" name="acfd214751d372f6ca62257e5a56f646f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#acfd214751d372f6ca62257e5a56f646f">&#9670;&nbsp;</a></span>operator=()</h2>
+<a id="aa988c75557f8281271467b000a1a1d54" name="aa988c75557f8281271467b000a1a1d54"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa988c75557f8281271467b000a1a1d54">&#9670;&nbsp;</a></span>computeMagSpectrum_()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -469,25 +468,827 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00522.xhtml">CKeyFromChroma</a> &amp; CKeyFromChroma::operator= </td>
+          <td class="memname">void CPitchIf::computeMagSpectrum_ </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="a00522.xhtml">CKeyFromChroma</a> &amp;&#160;</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00265">265</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  266</span>{</div>
+<div class="line"><span class="lineno">  267</span>    assert(<a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>);</div>
+<div class="line"><span class="lineno">  268</span> </div>
+<div class="line"><span class="lineno">  269</span>    <span class="comment">// compute magnitude spectrum (hack</span></div>
+<div class="line"><span class="lineno">  270</span>    <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>-&gt;<a class="code hl_function" href="a00474.xhtml#a3cae73896785c2f12ba979e15de48087">compFft</a>(<a class="code hl_variable" href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">m_pfProcessBuff2</a>, <a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>);</div>
+<div class="line"><span class="lineno">  271</span>    <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>-&gt;<a class="code hl_function" href="a00474.xhtml#a48428f0ac37a3c112c9598c784771d4a">getMagnitude</a>(<a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>, <a class="code hl_variable" href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">m_pfProcessBuff2</a>);</div>
+<div class="line"><span class="lineno">  272</span> </div>
+<div class="line"><span class="lineno">  273</span>    <a class="code hl_function" href="a00502.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a>(<a class="code hl_variable" href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">m_pfProcessBuff2</a>, 2.F, <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>-&gt;<a class="code hl_function" href="a00474.xhtml#a9cb162394031e8b496f7a39b51c31d20">getLength</a>(<a class="code hl_enumvalue" href="a00474.xhtml#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">CFft::kLengthMagnitude</a>));</div>
+<div class="line"><span class="lineno">  274</span>}</div>
+<div class="ttc" id="aa00474_xhtml_a3cae73896785c2f12ba979e15de48087"><div class="ttname"><a href="a00474.xhtml#a3cae73896785c2f12ba979e15de48087">CFft::compFft</a></div><div class="ttdeci">Error_t compFft(complex_t *pfSpectrum, const float *pfInput)</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.xhtml#l00091">Fft.cpp:91</a></div></div>
+<div class="ttc" id="aa00474_xhtml_a48428f0ac37a3c112c9598c784771d4a"><div class="ttname"><a href="a00474.xhtml#a48428f0ac37a3c112c9598c784771d4a">CFft::getMagnitude</a></div><div class="ttdeci">Error_t getMagnitude(float *pfMag, const complex_t *pfSpectrum) const</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.xhtml#l00136">Fft.cpp:136</a></div></div>
+<div class="ttc" id="aa00474_xhtml_a9cb162394031e8b496f7a39b51c31d20"><div class="ttname"><a href="a00474.xhtml#a9cb162394031e8b496f7a39b51c31d20">CFft::getLength</a></div><div class="ttdeci">int getLength(Length_t eLengthIdx) const</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.xhtml#l00322">Fft.cpp:322</a></div></div>
+<div class="ttc" id="aa00474_xhtml_aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e"><div class="ttname"><a href="a00474.xhtml#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">CFft::kLengthMagnitude</a></div><div class="ttdeci">@ kLengthMagnitude</div><div class="ttdoc">length of the magnitude spectrum</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.xhtml#l00107">Fft.h:107</a></div></div>
+<div class="ttc" id="aa00502_xhtml_a9811f50434dd058d201290b2dc98bfcd"><div class="ttname"><a href="a00502.xhtml#a9811f50434dd058d201290b2dc98bfcd">CVector::mulC_I</a></div><div class="ttdeci">static void mulC_I(T *ptSrcDest, T fScale, long long int iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00162">Vector.h:162</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00059_source.xhtml#l00091">CFft::compFft()</a>, <a class="el" href="a00059_source.xhtml#l00322">CFft::getLength()</a>, <a class="el" href="a00059_source.xhtml#l00136">CFft::getMagnitude()</a>, <a class="el" href="a00158_source.xhtml#l00107">CFft::kLengthMagnitude</a>, <a class="el" href="a00137_source.xhtml#l00124">m_pCFft</a>, <a class="el" href="a00137_source.xhtml#l00132">m_pfProcessBuff1</a>, <a class="el" href="a00137_source.xhtml#l00131">m_pfProcessBuff2</a>, and <a class="el" href="a00155_source.xhtml#l00162">CVector::mulC_I()</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_aa988c75557f8281271467b000a1a1d54_cgraph.svg" width="570" height="270"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_aa988c75557f8281271467b000a1a1d54_icgraph.svg" width="494" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a83c68d41e86e2dd8616334e8b3ed9ab3" name="a83c68d41e86e2dd8616334e8b3ed9ab3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83c68d41e86e2dd8616334e8b3ed9ab3">&#9670;&nbsp;</a></span>create() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchIf::create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00522.xhtml">CPitchIf</a> *&amp;&#160;</td>
+          <td class="paramname"><em>pCInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a>&#160;</td>
+          <td class="paramname"><em>ePitchIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const float *&#160;</td>
+          <td class="paramname"><em>pfAudio</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">long long&#160;</td>
+          <td class="paramname"><em>iNumFrames</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>fSampleRate</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iBlockLength</em> = <code>2048</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iHopLength</em> = <code>1024</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >initializes a Pitch instance from audio data </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
+    <tr><td class="paramname">ePitchIdx</td><td>as defined in PitchExtractors_t </td></tr>
+    <tr><td class="paramname">pfAudio</td><td>complete audio data </td></tr>
+    <tr><td class="paramname">iNumFrames</td><td>length of pfAudio </td></tr>
+    <tr><td class="paramname">fSampleRate</td><td>sample rate in Hz </td></tr>
+    <tr><td class="paramname">iBlockLength</td><td>FFT block length in Frames </td></tr>
+    <tr><td class="paramname">iHopLength</td><td>hop length in Frames </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00115">115</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  116</span>{</div>
+<div class="line"><span class="lineno">  117</span>    <span class="keywordflow">if</span> (!pfAudio)</div>
+<div class="line"><span class="lineno">  118</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  119</span>    <span class="keywordflow">if</span> (iNumFrames &lt;= 0)</div>
+<div class="line"><span class="lineno">  120</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  121</span>    <span class="keywordflow">if</span> (fSampleRate &lt;= 0)</div>
+<div class="line"><span class="lineno">  122</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  123</span>    <span class="keywordflow">if</span> (iBlockLength &lt;= 2)</div>
+<div class="line"><span class="lineno">  124</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  125</span>    <span class="keywordflow">if</span> (iHopLength &lt;= 0 || iHopLength &gt; iBlockLength)</div>
+<div class="line"><span class="lineno">  126</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  127</span> </div>
+<div class="line"><span class="lineno">  128</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00374.xhtml">CPitchFromVector</a>(ePitchIdx, pfAudio, iNumFrames, fSampleRate, iBlockLength, iHopLength);</div>
+<div class="line"><span class="lineno">  129</span> </div>
+<div class="line"><span class="lineno">  130</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  131</span>}</div>
+<div class="ttc" id="aa00374_xhtml"><div class="ttname"><a href="a00374.xhtml">CPitchFromVector</a></div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.xhtml#l00064">Pitch.cpp:65</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
+
+</div>
+</div>
+<a id="aad21e51c82ea3cfb6b495b39acd40412" name="aad21e51c82ea3cfb6b495b39acd40412"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aad21e51c82ea3cfb6b495b39acd40412">&#9670;&nbsp;</a></span>create() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchIf::create </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00522.xhtml">CPitchIf</a> *&amp;&#160;</td>
+          <td class="paramname"><em>pCInstance</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a>&#160;</td>
+          <td class="paramname"><em>ePitchIdx</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const std::string &amp;&#160;</td>
+          <td class="paramname"><em>strAudioFilePath</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iBlockLength</em> = <code>2048</code>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iHopLength</em> = <code>1024</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >initializes a Pitch instance with file reading </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be written </td></tr>
+    <tr><td class="paramname">ePitchIdx</td><td>as defined in PitchExtractors_t </td></tr>
+    <tr><td class="paramname">strAudioFilePath</td><td>complete path to audio file </td></tr>
+    <tr><td class="paramname">iBlockLength</td><td>FFT block length in Frames </td></tr>
+    <tr><td class="paramname">iHopLength</td><td>hop length in Frames </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00100">100</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  101</span>{</div>
+<div class="line"><span class="lineno">  102</span>    <span class="keywordflow">if</span> (strAudioFilePath.empty())</div>
+<div class="line"><span class="lineno">  103</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  104</span>    <span class="keywordflow">if</span> (iBlockLength &lt;= 2 || !<a class="code hl_function" href="a00498.xhtml#a6d0e75b0bcbbb243b7141cfc0126e443">CUtil::isPowOf2</a>(iBlockLength))</div>
+<div class="line"><span class="lineno">  105</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  106</span>    <span class="keywordflow">if</span> (iHopLength &lt;= 0 || iHopLength &gt; iBlockLength)</div>
+<div class="line"><span class="lineno">  107</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  108</span> </div>
+<div class="line"><span class="lineno">  109</span>    pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00370.xhtml">CPitchFromFile</a>(ePitchIdx, strAudioFilePath, iBlockLength, iHopLength);</div>
+<div class="line"><span class="lineno">  110</span> </div>
+<div class="line"><span class="lineno">  111</span> </div>
+<div class="line"><span class="lineno">  112</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  113</span>}</div>
+<div class="ttc" id="aa00370_xhtml"><div class="ttname"><a href="a00370.xhtml">CPitchFromFile</a></div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.xhtml#l00019">Pitch.cpp:20</a></div></div>
+<div class="ttc" id="aa00498_xhtml_a6d0e75b0bcbbb243b7141cfc0126e443"><div class="ttname"><a href="a00498.xhtml#a6d0e75b0bcbbb243b7141cfc0126e443">CUtil::isPowOf2</a></div><div class="ttdeci">static bool isPowOf2(int n)</div><div class="ttdef"><b>Definition:</b> <a href="a00149_source.xhtml#l00042">Util.h:42</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00149_source.xhtml#l00042">CUtil::isPowOf2()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, and <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00005_source.xhtml#l00017">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_aad21e51c82ea3cfb6b495b39acd40412_cgraph.svg" width="284" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_aad21e51c82ea3cfb6b495b39acd40412_icgraph.svg" width="220" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a4eee721e50a85ed9d48f7a84d9144a3b" name="a4eee721e50a85ed9d48f7a84d9144a3b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4eee721e50a85ed9d48f7a84d9144a3b">&#9670;&nbsp;</a></span>destroy()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchIf::destroy </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00522.xhtml">CPitchIf</a> *&amp;&#160;</td>
+          <td class="paramname"><em>pCInstance</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >destroys a Pitch instance </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pCInstance</td><td>pointer to instance to be destroyed </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00133">133</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  134</span>{</div>
+<div class="line"><span class="lineno">  135</span>    <span class="keyword">delete</span> pCInstance;</div>
+<div class="line"><span class="lineno">  136</span>    pCInstance = 0;</div>
+<div class="line"><span class="lineno">  137</span> </div>
+<div class="line"><span class="lineno">  138</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  139</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00005_source.xhtml#l00017">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a4eee721e50a85ed9d48f7a84d9144a3b_icgraph.svg" width="227" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="af2ce0d31ee7e368ebc1889507972f9c2" name="af2ce0d31ee7e368ebc1889507972f9c2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af2ce0d31ee7e368ebc1889507972f9c2">&#9670;&nbsp;</a></span>getNumBlocks() <span class="overload">[1/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CPitchIf::getNumBlocks </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >returns size of vector to be allocated by user </p><dl class="section return"><dt>Returns</dt><dd>int </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00159">159</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  160</span>{</div>
+<div class="line"><span class="lineno">  161</span>    assert(<a class="code hl_variable" href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">m_bIsInitialized</a>);</div>
+<div class="line"><span class="lineno">  162</span>    assert(<a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>);</div>
+<div class="line"><span class="lineno">  163</span> </div>
+<div class="line"><span class="lineno">  164</span>    <span class="keywordflow">return</span> <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00542.xhtml#a595b3a391e2540a1dc9e53edf8634494">getNumBlocks</a>());</div>
+<div class="line"><span class="lineno">  165</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00179_source.xhtml#l00049">CBlockAudioIf::getNumBlocks()</a>, <a class="el" href="a00137_source.xhtml#l00134">m_bIsInitialized</a>, and <a class="el" href="a00137_source.xhtml#l00118">m_pCBlockAudio</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00141">getNumBlocks()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_af2ce0d31ee7e368ebc1889507972f9c2_cgraph.svg" width="418" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_af2ce0d31ee7e368ebc1889507972f9c2_icgraph.svg" width="480" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a253cce3499a721648eba3d7b2a9f2b16" name="a253cce3499a721648eba3d7b2a9f2b16"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a253cce3499a721648eba3d7b2a9f2b16">&#9670;&nbsp;</a></span>getNumBlocks() <span class="overload">[2/2]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchIf::getNumBlocks </td>
+          <td>(</td>
+          <td class="paramtype">int &amp;&#160;</td>
+          <td class="paramname"><em>iNumBlocks</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >returns size of vector to be allocated by user </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iNumBlocks</td><td>(number of blocks, to be written) </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00141">141</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  142</span>{</div>
+<div class="line"><span class="lineno">  143</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  144</span>    {</div>
+<div class="line"><span class="lineno">  145</span>        iNumBlocks = 0;</div>
+<div class="line"><span class="lineno">  146</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  147</span>    }</div>
+<div class="line"><span class="lineno">  148</span> </div>
+<div class="line"><span class="lineno">  149</span>    iNumBlocks = this-&gt;<a class="code hl_function" href="a00522.xhtml#af2ce0d31ee7e368ebc1889507972f9c2">getNumBlocks</a>();</div>
+<div class="line"><span class="lineno">  150</span> </div>
+<div class="line"><span class="lineno">  151</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  152</span>}</div>
+<div class="ttc" id="aa00522_xhtml_af2ce0d31ee7e368ebc1889507972f9c2"><div class="ttname"><a href="a00522.xhtml#af2ce0d31ee7e368ebc1889507972f9c2">CPitchIf::getNumBlocks</a></div><div class="ttdeci">int getNumBlocks() const</div><div class="ttdef"><b>Definition:</b> <a href="a00119_source.xhtml#l00159">Pitch.cpp:159</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00119_source.xhtml#l00159">getNumBlocks()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, and <a class="el" href="a00137_source.xhtml#l00134">m_bIsInitialized</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00005_source.xhtml#l00017">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a253cce3499a721648eba3d7b2a9f2b16_cgraph.svg" width="627" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a253cce3499a721648eba3d7b2a9f2b16_icgraph.svg" width="271" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ad782102749e4f057b10a5b84ae622889" name="ad782102749e4f057b10a5b84ae622889"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad782102749e4f057b10a5b84ae622889">&#9670;&nbsp;</a></span>getPitchIdxFromString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">CPitchIf::PitchExtractors_t</a> CPitchIf::getPitchIdxFromString </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>sPitchString</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >returns Pitch index from string </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sPitchString</td><td>string describing the Pitch </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>PitchExtractors_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00246">246</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  247</span>{</div>
+<div class="line"><span class="lineno">  248</span>    <span class="keyword">const</span> std::map&lt;std::string, CPitchIf::PitchExtractors_t&gt; PitchMap</div>
+<div class="line"><span class="lineno">  249</span>    {</div>
+<div class="line"><span class="lineno">  250</span>            {<span class="stringliteral">&quot;SpectralAcf&quot;</span>, <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">kPitchSpectralAcf</a>},</div>
+<div class="line"><span class="lineno">  251</span>            {<span class="stringliteral">&quot;SpectralHps&quot;</span>, <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">kPitchSpectralHps</a>},</div>
+<div class="line"><span class="lineno">  252</span> </div>
+<div class="line"><span class="lineno">  253</span>            {<span class="stringliteral">&quot;TimeAcf&quot;</span>, <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">kPitchTimeAcf</a>},</div>
+<div class="line"><span class="lineno">  254</span>            {<span class="stringliteral">&quot;TimeAmdf&quot;</span>, <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">kPitchTimeAmdf</a>},</div>
+<div class="line"><span class="lineno">  255</span>            {<span class="stringliteral">&quot;TimeAuditory&quot;</span>, <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa0aa79ae2abdd235504a99f60e8ba938">kPitchTimeAuditory</a>},</div>
+<div class="line"><span class="lineno">  256</span>            {<span class="stringliteral">&quot;TimeZeroCrossings&quot;</span>, <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">kPitchTimeZeroCrossings</a>}</div>
+<div class="line"><span class="lineno">  257</span>    };</div>
+<div class="line"><span class="lineno">  258</span>    <span class="keyword">auto</span> search = PitchMap.find(sPitchString);</div>
+<div class="line"><span class="lineno">  259</span>    <span class="keywordflow">if</span> (search != PitchMap.end())</div>
+<div class="line"><span class="lineno">  260</span>        <span class="keywordflow">return</span> PitchMap.at(sPitchString);</div>
+<div class="line"><span class="lineno">  261</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  262</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfad88fba09992bc8a5396f0e632efc1af2">kNumPitchExtractors</a>;</div>
+<div class="line"><span class="lineno">  263</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00137_source.xhtml#l00033">kNumPitchExtractors</a>, <a class="el" href="a00137_source.xhtml#l00025">kPitchSpectralAcf</a>, <a class="el" href="a00137_source.xhtml#l00026">kPitchSpectralHps</a>, <a class="el" href="a00137_source.xhtml#l00028">kPitchTimeAcf</a>, <a class="el" href="a00137_source.xhtml#l00029">kPitchTimeAmdf</a>, <a class="el" href="a00137_source.xhtml#l00030">kPitchTimeAuditory</a>, and <a class="el" href="a00137_source.xhtml#l00031">kPitchTimeZeroCrossings</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00005_source.xhtml#l00017">main()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ad782102749e4f057b10a5b84ae622889_icgraph.svg" width="280" height="52"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a7e7468138839039da42867bf6cef2a2f" name="a7e7468138839039da42867bf6cef2a2f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e7468138839039da42867bf6cef2a2f">&#9670;&nbsp;</a></span>getPitchString()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string CPitchIf::getPitchString </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a>&#160;</td>
+          <td class="paramname"><em>ePitchIdx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">static</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p >returns Pitch name as string </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">ePitchIdx</td><td>Pitch index </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>std::string </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00230">230</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  231</span>{</div>
+<div class="line"><span class="lineno">  232</span>    <span class="keyword">const</span> std::map&lt;CPitchIf::PitchExtractors_t, std::string&gt; PitchMap</div>
+<div class="line"><span class="lineno">  233</span>    {</div>
+<div class="line"><span class="lineno">  234</span>            {<a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfac81ee84b7eff9cfd3e4a7ff0593710ec">kPitchSpectralAcf</a>, <span class="stringliteral">&quot;SpectralAcf&quot;</span>},</div>
+<div class="line"><span class="lineno">  235</span>            {<a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">kPitchSpectralHps</a>, <span class="stringliteral">&quot;SpectralHps&quot;</span>},</div>
+<div class="line"><span class="lineno">  236</span> </div>
+<div class="line"><span class="lineno">  237</span>            {<a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa17aba05deef4f0d8150d8d7f52fbff19">kPitchTimeAcf</a>, <span class="stringliteral">&quot;TimeAcf&quot;</span>},</div>
+<div class="line"><span class="lineno">  238</span>            {<a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa90a88d1305dfaae1f420b276ae9176b">kPitchTimeAmdf</a>, <span class="stringliteral">&quot;TimeAmdf&quot;</span>},</div>
+<div class="line"><span class="lineno">  239</span>            {<a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfaa0aa79ae2abdd235504a99f60e8ba938">kPitchTimeAuditory</a>, <span class="stringliteral">&quot;TimeAuditory,&quot;</span>},</div>
+<div class="line"><span class="lineno">  240</span>            {<a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfacabf4a60a878c9bae6e535316b4dba07">kPitchTimeZeroCrossings</a>, <span class="stringliteral">&quot;TimeZeroCrossings&quot;</span>}</div>
+<div class="line"><span class="lineno">  241</span>    };</div>
+<div class="line"><span class="lineno">  242</span> </div>
+<div class="line"><span class="lineno">  243</span>    <span class="keywordflow">return</span> PitchMap.at(ePitchIdx);</div>
+<div class="line"><span class="lineno">  244</span>}</div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00137_source.xhtml#l00025">kPitchSpectralAcf</a>, <a class="el" href="a00137_source.xhtml#l00026">kPitchSpectralHps</a>, <a class="el" href="a00137_source.xhtml#l00028">kPitchTimeAcf</a>, <a class="el" href="a00137_source.xhtml#l00029">kPitchTimeAmdf</a>, <a class="el" href="a00137_source.xhtml#l00030">kPitchTimeAuditory</a>, and <a class="el" href="a00137_source.xhtml#l00031">kPitchTimeZeroCrossings</a>.</p>
+
+</div>
+</div>
+<a id="a70543df0ca9394f9b594e4f23bacc71b" name="a70543df0ca9394f9b594e4f23bacc71b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a70543df0ca9394f9b594e4f23bacc71b">&#9670;&nbsp;</a></span>getTimeStamp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float CPitchIf::getTimeStamp </td>
+          <td>(</td>
+          <td class="paramtype">int&#160;</td>
+          <td class="paramname"><em>iBlockIdx</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >returns time stamps </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">iBlockIdx</td><td>index of block </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>float time stamp </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00167">167</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  168</span>{</div>
+<div class="line"><span class="lineno">  169</span>    <span class="keywordflow">return</span> <a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00542.xhtml#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a>(iBlockIdx);</div>
+<div class="line"><span class="lineno">  170</span>}</div>
+<div class="ttc" id="aa00542_xhtml_a95d0310c888433e7e45806538dc0d347"><div class="ttname"><a href="a00542.xhtml#a95d0310c888433e7e45806538dc0d347">CBlockAudioIf::getTimeStamp</a></div><div class="ttdeci">float getTimeStamp(long long iBlockIdx)</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.xhtml#l00066">ToolBlockAudio.h:66</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00179_source.xhtml#l00066">CBlockAudioIf::getTimeStamp()</a>, and <a class="el" href="a00137_source.xhtml#l00118">m_pCBlockAudio</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00005_source.xhtml#l00017">main()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a70543df0ca9394f9b594e4f23bacc71b_cgraph.svg" width="415" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a70543df0ca9394f9b594e4f23bacc71b_icgraph.svg" width="270" height="38"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a0a4814909e09b3f8a21ec69de72f9f52" name="a0a4814909e09b3f8a21ec69de72f9f52"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0a4814909e09b3f8a21ec69de72f9f52">&#9670;&nbsp;</a></span>getTimeStamps()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchIf::getTimeStamps </td>
+          <td>(</td>
+          <td class="paramtype">float *&#160;</td>
+          <td class="paramname"><em>pfAxisTicks</em></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p >returns time stamps </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pfAxisTicks</td><td>(user- allocated, to be written) length iNumBlocks </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00172">172</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  173</span>{</div>
+<div class="line"><span class="lineno">  174</span>    <span class="keywordflow">if</span> (!<a class="code hl_variable" href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">m_bIsInitialized</a>)</div>
+<div class="line"><span class="lineno">  175</span>    {</div>
+<div class="line"><span class="lineno">  176</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno">  177</span>    }</div>
+<div class="line"><span class="lineno">  178</span> </div>
+<div class="line"><span class="lineno">  179</span>    <span class="keywordflow">if</span> (!pfAxisTicks)</div>
+<div class="line"><span class="lineno">  180</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  181</span> </div>
+<div class="line"><span class="lineno">  182</span>    assert(<a class="code hl_variable" href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">m_iBlockLength</a> &gt; 0);</div>
+<div class="line"><span class="lineno">  183</span>    assert(<a class="code hl_variable" href="a00522.xhtml#aafa86151248a2230bc3ededf3fa84700">m_iHopLength</a> &gt; 0);</div>
+<div class="line"><span class="lineno">  184</span>    assert(<a class="code hl_variable" href="a00522.xhtml#a94fd5824c8947489aefaa71d83bde23e">m_fSampleRate</a> &gt; 0);</div>
+<div class="line"><span class="lineno">  185</span> </div>
+<div class="line"><span class="lineno">  186</span>    <span class="keywordtype">long</span> <span class="keywordtype">long</span> iNumBlocks = <a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00542.xhtml#a595b3a391e2540a1dc9e53edf8634494">getNumBlocks</a>();</div>
+<div class="line"><span class="lineno">  187</span>    <span class="keywordflow">for</span> (<span class="keyword">auto</span> n = 0; n &lt; iNumBlocks; n++)</div>
+<div class="line"><span class="lineno">  188</span>        pfAxisTicks[n] = <a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>-&gt;<a class="code hl_function" href="a00542.xhtml#a95d0310c888433e7e45806538dc0d347">getTimeStamp</a>(n);</div>
+<div class="line"><span class="lineno">  189</span> </div>
+<div class="line"><span class="lineno">  190</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  191</span>}</div>
+<div class="ttc" id="aa00522_xhtml_a94fd5824c8947489aefaa71d83bde23e"><div class="ttname"><a href="a00522.xhtml#a94fd5824c8947489aefaa71d83bde23e">CPitchIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00129">Pitch.h:129</a></div></div>
+<div class="ttc" id="aa00522_xhtml_aafa86151248a2230bc3ededf3fa84700"><div class="ttname"><a href="a00522.xhtml#aafa86151248a2230bc3ededf3fa84700">CPitchIf::m_iHopLength</a></div><div class="ttdeci">int m_iHopLength</div><div class="ttdoc">hop length</div><div class="ttdef"><b>Definition:</b> <a href="a00137_source.xhtml#l00127">Pitch.h:127</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00179_source.xhtml#l00049">CBlockAudioIf::getNumBlocks()</a>, <a class="el" href="a00179_source.xhtml#l00066">CBlockAudioIf::getTimeStamp()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">kFunctionInvalidArgsError</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.xhtml#l00134">m_bIsInitialized</a>, <a class="el" href="a00137_source.xhtml#l00129">m_fSampleRate</a>, <a class="el" href="a00137_source.xhtml#l00126">m_iBlockLength</a>, <a class="el" href="a00137_source.xhtml#l00127">m_iHopLength</a>, and <a class="el" href="a00137_source.xhtml#l00118">m_pCBlockAudio</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a0a4814909e09b3f8a21ec69de72f9f52_cgraph.svg" width="423" height="88"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a3a966aff4a49e12324f205b20c5f2232" name="a3a966aff4a49e12324f205b20c5f2232"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a966aff4a49e12324f205b20c5f2232">&#9670;&nbsp;</a></span>init_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchIf::init_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a>&#160;</td>
+          <td class="paramname"><em>ePitchIdx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>init configuration </p>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00300">300</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  301</span>{</div>
+<div class="line"><span class="lineno">  302</span>    <span class="keywordflow">if</span> (<a class="code hl_function" href="a00522.xhtml#ad1d4759da8b0fddeda3d1e3bbfc0cd23">isPitchExtractorSpectral_</a>(ePitchIdx))</div>
+<div class="line"><span class="lineno">  303</span>    {</div>
+<div class="line"><span class="lineno">  304</span>        <span class="comment">// initialize FFT and fft  buffer</span></div>
+<div class="line"><span class="lineno">  305</span>        <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00474.xhtml">CFft</a>();</div>
+<div class="line"><span class="lineno">  306</span>        <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>-&gt;<a class="code hl_function" href="a00474.xhtml#adea9b0cecccfdb5a3da3218da6f683dd">init</a>(<a class="code hl_variable" href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">m_iBlockLength</a>);</div>
+<div class="line"><span class="lineno">  307</span>        <span class="comment">// allocate processing memory</span></div>
+<div class="line"><span class="lineno">  308</span>        <a class="code hl_function" href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>, <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>-&gt;<a class="code hl_function" href="a00474.xhtml#a9cb162394031e8b496f7a39b51c31d20">getLength</a>(<a class="code hl_enumvalue" href="a00474.xhtml#aaeae67c99cd6e689243892e429a66e33aae7f8e9cc1d7b43fa0239ce2122d4d6a">CFft::kLengthFft</a>));</div>
+<div class="line"><span class="lineno">  309</span>        <a class="code hl_function" href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">m_pfProcessBuff2</a>, <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>-&gt;<a class="code hl_function" href="a00474.xhtml#a9cb162394031e8b496f7a39b51c31d20">getLength</a>(<a class="code hl_enumvalue" href="a00474.xhtml#aaeae67c99cd6e689243892e429a66e33aae7f8e9cc1d7b43fa0239ce2122d4d6a">CFft::kLengthFft</a>));</div>
+<div class="line"><span class="lineno">  310</span>        <a class="code hl_function" href="a00526.xhtml#a1718a14a292a2a34ae92e8ce838456a3">CPitchFromBlockIf::create</a>(<a class="code hl_variable" href="a00522.xhtml#a9f187f32f74aa7295a966543fbd9326f">m_pCPitch</a>, ePitchIdx, <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>-&gt;<a class="code hl_function" href="a00474.xhtml#a9cb162394031e8b496f7a39b51c31d20">getLength</a>(<a class="code hl_enumvalue" href="a00474.xhtml#aaeae67c99cd6e689243892e429a66e33a280c54c7da09951bd33a05dfb5dd4f8e">CFft::kLengthMagnitude</a>), <a class="code hl_variable" href="a00522.xhtml#a94fd5824c8947489aefaa71d83bde23e">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno">  311</span>    }</div>
+<div class="line"><span class="lineno">  312</span>    <span class="keywordflow">else</span></div>
+<div class="line"><span class="lineno">  313</span>    {</div>
+<div class="line"><span class="lineno">  314</span>        <span class="comment">// allocate processing memory</span></div>
+<div class="line"><span class="lineno">  315</span>        <a class="code hl_function" href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>, <a class="code hl_variable" href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">m_iBlockLength</a>);</div>
+<div class="line"><span class="lineno">  316</span>        <a class="code hl_function" href="a00526.xhtml#a1718a14a292a2a34ae92e8ce838456a3">CPitchFromBlockIf::create</a>(<a class="code hl_variable" href="a00522.xhtml#a9f187f32f74aa7295a966543fbd9326f">m_pCPitch</a>, ePitchIdx, <a class="code hl_variable" href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">m_iBlockLength</a>, <a class="code hl_variable" href="a00522.xhtml#a94fd5824c8947489aefaa71d83bde23e">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno">  317</span>    }</div>
+<div class="line"><span class="lineno">  318</span>    <a class="code hl_variable" href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">m_bIsInitialized</a> = <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  319</span> </div>
+<div class="line"><span class="lineno">  320</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  321</span>}</div>
+<div class="ttc" id="aa00474_xhtml"><div class="ttname"><a href="a00474.xhtml">CFft</a></div><div class="ttdoc">class for FFT computation with windowing</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.xhtml#l00008">Fft.h:9</a></div></div>
+<div class="ttc" id="aa00474_xhtml_aaeae67c99cd6e689243892e429a66e33aae7f8e9cc1d7b43fa0239ce2122d4d6a"><div class="ttname"><a href="a00474.xhtml#aaeae67c99cd6e689243892e429a66e33aae7f8e9cc1d7b43fa0239ce2122d4d6a">CFft::kLengthFft</a></div><div class="ttdeci">@ kLengthFft</div><div class="ttdoc">length of the FFT</div><div class="ttdef"><b>Definition:</b> <a href="a00158_source.xhtml#l00105">Fft.h:105</a></div></div>
+<div class="ttc" id="aa00474_xhtml_adea9b0cecccfdb5a3da3218da6f683dd"><div class="ttname"><a href="a00474.xhtml#adea9b0cecccfdb5a3da3218da6f683dd">CFft::init</a></div><div class="ttdeci">Error_t init(int iBlockLength, int iZeroPadFactor=1, WindowFunction_t eWindow=kWindowHann, Windowing_t eWindowing=kPreWindow)</div><div class="ttdef"><b>Definition:</b> <a href="a00059_source.xhtml#l00024">Fft.cpp:24</a></div></div>
+<div class="ttc" id="aa00502_xhtml_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00023">Vector.h:23</a></div></div>
+<div class="ttc" id="aa00526_xhtml_a1718a14a292a2a34ae92e8ce838456a3"><div class="ttname"><a href="a00526.xhtml#a1718a14a292a2a34ae92e8ce838456a3">CPitchFromBlockIf::create</a></div><div class="ttdeci">static Error_t create(CPitchFromBlockIf *&amp;pCInstance, CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate=1.F)</div><div class="ttdef"><b>Definition:</b> <a href="a00077_source.xhtml#l00432">PitchFromBlock.cpp:432</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00023">CVector::alloc()</a>, <a class="el" href="a00077_source.xhtml#l00432">CPitchFromBlockIf::create()</a>, <a class="el" href="a00059_source.xhtml#l00322">CFft::getLength()</a>, <a class="el" href="a00059_source.xhtml#l00024">CFft::init()</a>, <a class="el" href="a00119_source.xhtml#l00323">isPitchExtractorSpectral_()</a>, <a class="el" href="a00158_source.xhtml#l00105">CFft::kLengthFft</a>, <a class="el" href="a00158_source.xhtml#l00107">CFft::kLengthMagnitude</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.xhtml#l00134">m_bIsInitialized</a>, <a class="el" href="a00137_source.xhtml#l00129">m_fSampleRate</a>, <a class="el" href="a00137_source.xhtml#l00126">m_iBlockLength</a>, <a class="el" href="a00137_source.xhtml#l00124">m_pCFft</a>, <a class="el" href="a00137_source.xhtml#l00120">m_pCPitch</a>, <a class="el" href="a00137_source.xhtml#l00132">m_pfProcessBuff1</a>, and <a class="el" href="a00137_source.xhtml#l00131">m_pfProcessBuff2</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00039">CPitchFromFile::CPitchFromFile()</a>, and <a class="el" href="a00119_source.xhtml#l00071">CPitchFromVector::CPitchFromVector()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><div class="zoom"><iframe scrolling="no" frameborder="0" src="a00522_a3a966aff4a49e12324f205b20c5f2232_cgraph.svg" width="100%" height="524"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe></div>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a3a966aff4a49e12324f205b20c5f2232_icgraph.svg" width="366" height="104"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="ad1d4759da8b0fddeda3d1e3bbfc0cd23" name="ad1d4759da8b0fddeda3d1e3bbfc0cd23"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1d4759da8b0fddeda3d1e3bbfc0cd23">&#9670;&nbsp;</a></span>isPitchExtractorSpectral_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a> CPitchIf::isPitchExtractorSpectral_ </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342df">PitchExtractors_t</a>&#160;</td>
+          <td class="paramname"><em>ePitchIdx</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00323">323</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  324</span>{</div>
+<div class="line"><span class="lineno">  325</span>    <span class="keywordflow">return</span> (ePitchIdx &lt;= <a class="code hl_enumvalue" href="a00522.xhtml#ac55ab3f8cd0b036cbb891537272342dfa53fd5da7cd7892a1a7d5094f04cb6f6f">kPitchSpectralHps</a>) ? <a class="code hl_define" href="a00266.xhtml#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a> : <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  326</span>}</div>
+<div class="ttc" id="aa00266_xhtml_a41f9c5fb8b08eb5dc3edce4dcb37fee7"><div class="ttname"><a href="a00266.xhtml#a41f9c5fb8b08eb5dc3edce4dcb37fee7">true</a></div><div class="ttdeci">#define true</div><div class="ttdef"><b>Definition:</b> <a href="a00266_source.xhtml#l00097">s7.h:97</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00137_source.xhtml#l00026">kPitchSpectralHps</a>, and <a class="el" href="a00266_source.xhtml#l00097">true</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, and <a class="el" href="a00119_source.xhtml#l00300">init_()</a>.</p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_ad1d4759da8b0fddeda3d1e3bbfc0cd23_icgraph.svg" width="604" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+
+</div>
+</div>
+<a id="a83c9ba6d865c2b239adeeceaa8691fdf" name="a83c9ba6d865c2b239adeeceaa8691fdf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a83c9ba6d865c2b239adeeceaa8691fdf">&#9670;&nbsp;</a></span>operator=()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00522.xhtml">CPitchIf</a> &amp; CPitchIf::operator= </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="a00522.xhtml">CPitchIf</a> &amp;&#160;</td>
           <td class="paramname"><em>c</em></td><td>)</td>
           <td></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
+
+</div>
+</div>
+<a id="a0841d88981bfe343f6439b7d4174a30b" name="a0841d88981bfe343f6439b7d4174a30b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0841d88981bfe343f6439b7d4174a30b">&#9670;&nbsp;</a></span>reset_()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7f">Error_t</a> CPitchIf::reset_ </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>reset configuration </p>
+
+<p class="definition">Definition at line <a class="el" href="a00119_source.xhtml#l00277">277</a> of file <a class="el" href="a00119_source.xhtml">Pitch.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  278</span>{</div>
+<div class="line"><span class="lineno">  279</span>    <a class="code hl_function" href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00522.xhtml#afedb8b11f2e2450ed31bf4e93fb925a6">m_pfProcessBuff1</a>);</div>
+<div class="line"><span class="lineno">  280</span> </div>
+<div class="line"><span class="lineno">  281</span>    <a class="code hl_function" href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00522.xhtml#a2255efde72d4da1f6502b34e2e3ae1c0">m_pfProcessBuff2</a>);</div>
+<div class="line"><span class="lineno">  282</span> </div>
+<div class="line"><span class="lineno">  283</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a>;</div>
+<div class="line"><span class="lineno">  284</span>    <a class="code hl_variable" href="a00522.xhtml#aa58e867919d005c9231e154337a27317">m_pCFft</a> = 0;</div>
+<div class="line"><span class="lineno">  285</span> </div>
+<div class="line"><span class="lineno">  286</span>    <span class="keyword">delete</span> <a class="code hl_variable" href="a00522.xhtml#a0d670d26b5833fa2b603974bb8665cee">m_pCNormalize</a>;</div>
+<div class="line"><span class="lineno">  287</span>    <a class="code hl_variable" href="a00522.xhtml#a0d670d26b5833fa2b603974bb8665cee">m_pCNormalize</a> = 0;</div>
+<div class="line"><span class="lineno">  288</span> </div>
+<div class="line"><span class="lineno">  289</span>    <a class="code hl_function" href="a00542.xhtml#a13d2bd6e36210dde0c64d188c1266b88">CBlockAudioIf::destroy</a>(<a class="code hl_variable" href="a00522.xhtml#aecca537eb32e8509085a8880d6d455e6">m_pCBlockAudio</a>);</div>
+<div class="line"><span class="lineno">  290</span>    <a class="code hl_function" href="a00526.xhtml#adadb010b152c65dc26b08f56fa700e77">CPitchFromBlockIf::destroy</a>(<a class="code hl_variable" href="a00522.xhtml#a9f187f32f74aa7295a966543fbd9326f">m_pCPitch</a>);</div>
+<div class="line"><span class="lineno">  291</span> </div>
+<div class="line"><span class="lineno">  292</span>    <a class="code hl_variable" href="a00522.xhtml#ad1546204f40135b2b35d1037a1999901">m_iBlockLength</a> = 0;</div>
+<div class="line"><span class="lineno">  293</span>    <a class="code hl_variable" href="a00522.xhtml#aafa86151248a2230bc3ededf3fa84700">m_iHopLength</a> = 0;</div>
+<div class="line"><span class="lineno">  294</span> </div>
+<div class="line"><span class="lineno">  295</span>    <a class="code hl_variable" href="a00522.xhtml#aa604804a2cd60ddf19eeab5811f473ea">m_bIsInitialized</a> = <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno">  296</span> </div>
+<div class="line"><span class="lineno">  297</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  298</span>}</div>
+<div class="ttc" id="aa00502_xhtml_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00037">Vector.h:37</a></div></div>
+<div class="ttc" id="aa00526_xhtml_adadb010b152c65dc26b08f56fa700e77"><div class="ttname"><a href="a00526.xhtml#adadb010b152c65dc26b08f56fa700e77">CPitchFromBlockIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CPitchFromBlockIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00077_source.xhtml#l00470">PitchFromBlock.cpp:470</a></div></div>
+<div class="ttc" id="aa00542_xhtml_a13d2bd6e36210dde0c64d188c1266b88"><div class="ttname"><a href="a00542.xhtml#a13d2bd6e36210dde0c64d188c1266b88">CBlockAudioIf::destroy</a></div><div class="ttdeci">static Error_t destroy(CBlockAudioIf *&amp;pCInstance)</div><div class="ttdef"><b>Definition:</b> <a href="a00179_source.xhtml#l00038">ToolBlockAudio.h:38</a></div></div>
+</div><!-- fragment -->
+<p class="reference">References <a class="el" href="a00179_source.xhtml#l00038">CBlockAudioIf::destroy()</a>, <a class="el" href="a00077_source.xhtml#l00470">CPitchFromBlockIf::destroy()</a>, <a class="el" href="a00155_source.xhtml#l00037">CVector::free()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00137_source.xhtml#l00134">m_bIsInitialized</a>, <a class="el" href="a00137_source.xhtml#l00126">m_iBlockLength</a>, <a class="el" href="a00137_source.xhtml#l00127">m_iHopLength</a>, <a class="el" href="a00137_source.xhtml#l00118">m_pCBlockAudio</a>, <a class="el" href="a00137_source.xhtml#l00124">m_pCFft</a>, <a class="el" href="a00137_source.xhtml#l00116">m_pCNormalize</a>, <a class="el" href="a00137_source.xhtml#l00120">m_pCPitch</a>, <a class="el" href="a00137_source.xhtml#l00132">m_pfProcessBuff1</a>, and <a class="el" href="a00137_source.xhtml#l00131">m_pfProcessBuff2</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00039">CPitchFromFile::CPitchFromFile()</a>, <a class="el" href="a00119_source.xhtml#l00090">CPitchIf()</a>, and <a class="el" href="a00119_source.xhtml#l00095">~CPitchIf()</a>.</p>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a0841d88981bfe343f6439b7d4174a30b_cgraph.svg" width="323" height="155"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><iframe scrolling="no" frameborder="0" src="a00522_a0841d88981bfe343f6439b7d4174a30b_icgraph.svg" width="378" height="139"><p><b>This browser is not able to show SVG: try Firefox, Chrome, Safari, or Opera instead.</b></p></iframe>
+</div>
+</div>
 
 </div>
 </div>
 <h2 class="groupheader">Member Data Documentation</h2>
-<a id="aa32fe899f352c13460a08ffb38d665bb" name="aa32fe899f352c13460a08ffb38d665bb"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa32fe899f352c13460a08ffb38d665bb">&#9670;&nbsp;</a></span>m_aafKeyProfiles</h2>
+<a id="aa604804a2cd60ddf19eeab5811f473ea" name="aa604804a2cd60ddf19eeab5811f473ea"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa604804a2cd60ddf19eeab5811f473ea">&#9670;&nbsp;</a></span>m_bIsInitialized</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -496,26 +1297,26 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">const float CKeyFromChroma::m_aafKeyProfiles[<a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a>][<a class="el" href="a00522.xhtml#aa38bcd91e9cc562a05f31ac737b6df5baea58f58c54518e46b4aa21727406f5b3">kNumPitchClasses</a>]</td>
+          <td class="memname"><a class="el" href="a00284.xhtml#abb452686968e48b67397da5f97445f5b">bool</a> CPitchIf::m_bIsInitialized = <a class="el" href="a00284.xhtml#a65e9886d74aaee76545e83dd09011727">false</a></td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
-<b>Initial value:</b><div class="fragment"><div class="line">= { {6.35F, 2.23F, 3.48F, 2.33F, 4.38F, 4.09F, 2.52F, 5.19F, 2.39F, 3.66F, 2.29F, 2.88F},  </div>
-<div class="line">                                                                  {6.33F, 2.68F, 3.52F, 5.38F, 2.60F, 3.53F, 2.54F, 4.75F, 3.98F, 2.69F, 3.34F, 3.17F} }</div>
-</div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="a00143_source.xhtml#l00061">61</a> of file <a class="el" href="a00143_source.xhtml">KeyFromChroma.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00003">CKeyFromChroma()</a>.</p>
+<p>true if initialized </p>
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00134">134</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, <a class="el" href="a00119_source.xhtml#l00141">getNumBlocks()</a>, <a class="el" href="a00119_source.xhtml#l00172">getTimeStamps()</a>, <a class="el" href="a00119_source.xhtml#l00300">init_()</a>, and <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
 
 </div>
 </div>
-<a id="ab1b079b9b5128fc288edd6bcaa1b0533" name="ab1b079b9b5128fc288edd6bcaa1b0533"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab1b079b9b5128fc288edd6bcaa1b0533">&#9670;&nbsp;</a></span>m_apCRingBuff</h2>
+<a id="a94fd5824c8947489aefaa71d83bde23e" name="a94fd5824c8947489aefaa71d83bde23e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a94fd5824c8947489aefaa71d83bde23e">&#9670;&nbsp;</a></span>m_fSampleRate</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -524,35 +1325,281 @@ Here is the caller graph for this function:</div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="a00502.xhtml">CRingBuffer</a>&lt;float&gt;* CKeyFromChroma::m_apCRingBuff[<a class="el" href="a00522.xhtml#a30498c10ccfd4947fce48a484a09b30fa8e9fbbf25bf50fcc48d0982ad30e2ce5">kNumModes</a>] = { 0 }</td>
+          <td class="memname">float CPitchIf::m_fSampleRate = 0</td>
         </tr>
       </table>
   </td>
   <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">private</span></span>  </td>
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
   </tr>
 </table>
 </div><div class="memdoc">
 
-<p>ringbuffer for cyclic shifting of the templates </p>
+<p>sample rate </p>
 
-<p class="definition">Definition at line <a class="el" href="a00143_source.xhtml#l00064">64</a> of file <a class="el" href="a00143_source.xhtml">KeyFromChroma.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00129">129</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00101_source.xhtml#l00003">CKeyFromChroma()</a>, <a class="el" href="a00101_source.xhtml#l00027">getKey()</a>, and <a class="el" href="a00101_source.xhtml#l00017">~CKeyFromChroma()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00039">CPitchFromFile::CPitchFromFile()</a>, <a class="el" href="a00119_source.xhtml#l00071">CPitchFromVector::CPitchFromVector()</a>, <a class="el" href="a00119_source.xhtml#l00172">getTimeStamps()</a>, and <a class="el" href="a00119_source.xhtml#l00300">init_()</a>.</p>
+
+</div>
+</div>
+<a id="ad1546204f40135b2b35d1037a1999901" name="ad1546204f40135b2b35d1037a1999901"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1546204f40135b2b35d1037a1999901">&#9670;&nbsp;</a></span>m_iBlockLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CPitchIf::m_iBlockLength = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>fft length </p>
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00126">126</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, <a class="el" href="a00119_source.xhtml#l00039">CPitchFromFile::CPitchFromFile()</a>, <a class="el" href="a00119_source.xhtml#l00071">CPitchFromVector::CPitchFromVector()</a>, <a class="el" href="a00119_source.xhtml#l00172">getTimeStamps()</a>, <a class="el" href="a00119_source.xhtml#l00300">init_()</a>, and <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
+
+</div>
+</div>
+<a id="aafa86151248a2230bc3ededf3fa84700" name="aafa86151248a2230bc3ededf3fa84700"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aafa86151248a2230bc3ededf3fa84700">&#9670;&nbsp;</a></span>m_iHopLength</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">int CPitchIf::m_iHopLength = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>hop length </p>
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00127">127</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00039">CPitchFromFile::CPitchFromFile()</a>, <a class="el" href="a00119_source.xhtml#l00071">CPitchFromVector::CPitchFromVector()</a>, <a class="el" href="a00119_source.xhtml#l00172">getTimeStamps()</a>, and <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
+
+</div>
+</div>
+<a id="a2268a1e89fc449747c6d1b999edda4e8" name="a2268a1e89fc449747c6d1b999edda4e8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2268a1e89fc449747c6d1b999edda4e8">&#9670;&nbsp;</a></span>m_pCAuditory</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">CPitchAuditory* CPitchIf::m_pCAuditory = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00122">122</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+</div>
+</div>
+<a id="aecca537eb32e8509085a8880d6d455e6" name="aecca537eb32e8509085a8880d6d455e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecca537eb32e8509085a8880d6d455e6">&#9670;&nbsp;</a></span>m_pCBlockAudio</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00542.xhtml">CBlockAudioIf</a>* CPitchIf::m_pCBlockAudio = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>instantiate for blocking time domain signal </p>
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00118">118</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, <a class="el" href="a00119_source.xhtml#l00039">CPitchFromFile::CPitchFromFile()</a>, <a class="el" href="a00119_source.xhtml#l00071">CPitchFromVector::CPitchFromVector()</a>, <a class="el" href="a00119_source.xhtml#l00159">getNumBlocks()</a>, <a class="el" href="a00119_source.xhtml#l00167">getTimeStamp()</a>, <a class="el" href="a00119_source.xhtml#l00172">getTimeStamps()</a>, and <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
+
+</div>
+</div>
+<a id="aa58e867919d005c9231e154337a27317" name="aa58e867919d005c9231e154337a27317"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa58e867919d005c9231e154337a27317">&#9670;&nbsp;</a></span>m_pCFft</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00474.xhtml">CFft</a>* CPitchIf::m_pCFft = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>fft instance </p>
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00124">124</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, <a class="el" href="a00119_source.xhtml#l00265">computeMagSpectrum_()</a>, <a class="el" href="a00119_source.xhtml#l00300">init_()</a>, and <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
+
+</div>
+</div>
+<a id="a0d670d26b5833fa2b603974bb8665cee" name="a0d670d26b5833fa2b603974bb8665cee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0d670d26b5833fa2b603974bb8665cee">&#9670;&nbsp;</a></span>m_pCNormalize</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00606.xhtml">CNormalizeAudio</a>* CPitchIf::m_pCNormalize = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>instantiate if audio file normalization is wanted </p>
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00116">116</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, <a class="el" href="a00119_source.xhtml#l00039">CPitchFromFile::CPitchFromFile()</a>, <a class="el" href="a00119_source.xhtml#l00071">CPitchFromVector::CPitchFromVector()</a>, <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>, and <a class="el" href="a00119_source.xhtml#l00024">CPitchFromFile::~CPitchFromFile()</a>.</p>
+
+</div>
+</div>
+<a id="a9f187f32f74aa7295a966543fbd9326f" name="a9f187f32f74aa7295a966543fbd9326f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f187f32f74aa7295a966543fbd9326f">&#9670;&nbsp;</a></span>m_pCPitch</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="a00526.xhtml">CPitchFromBlockIf</a>* CPitchIf::m_pCPitch = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00120">120</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, <a class="el" href="a00119_source.xhtml#l00300">init_()</a>, and <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
+
+</div>
+</div>
+<a id="afedb8b11f2e2450ed31bf4e93fb925a6" name="afedb8b11f2e2450ed31bf4e93fb925a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afedb8b11f2e2450ed31bf4e93fb925a6">&#9670;&nbsp;</a></span>m_pfProcessBuff1</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* CPitchIf::m_pfProcessBuff1 = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>temporary buffer </p>
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00132">132</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, <a class="el" href="a00119_source.xhtml#l00265">computeMagSpectrum_()</a>, <a class="el" href="a00119_source.xhtml#l00300">init_()</a>, <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>, and <a class="el" href="a00119_source.xhtml#l00024">CPitchFromFile::~CPitchFromFile()</a>.</p>
+
+</div>
+</div>
+<a id="a2255efde72d4da1f6502b34e2e3ae1c0" name="a2255efde72d4da1f6502b34e2e3ae1c0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2255efde72d4da1f6502b34e2e3ae1c0">&#9670;&nbsp;</a></span>m_pfProcessBuff2</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float* CPitchIf::m_pfProcessBuff2 = 0</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>temporary buffer for current spectrum </p>
+
+<p class="definition">Definition at line <a class="el" href="a00137_source.xhtml#l00131">131</a> of file <a class="el" href="a00137_source.xhtml">Pitch.h</a>.</p>
+
+<p class="reference">Referenced by <a class="el" href="a00119_source.xhtml#l00193">compF0()</a>, <a class="el" href="a00119_source.xhtml#l00265">computeMagSpectrum_()</a>, <a class="el" href="a00119_source.xhtml#l00300">init_()</a>, and <a class="el" href="a00119_source.xhtml#l00277">reset_()</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following files:<ul>
-<li><a class="el" href="a00143_source.xhtml">KeyFromChroma.h</a></li>
-<li><a class="el" href="a00101_source.xhtml">KeyFromChroma.cpp</a></li>
+<li><a class="el" href="a00137_source.xhtml">Pitch.h</a></li>
+<li><a class="el" href="a00119_source.xhtml">Pitch.cpp</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><a class="el" href="a00522.xhtml">CKeyFromChroma</a></li>
-    <li class="footer">Generated on Wed Jun 15 2022 19:05:48 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="navelem"><a class="el" href="a00522.xhtml">CPitchIf</a></li>
+    <li class="footer">Generated on Thu Jun 16 2022 21:11:12 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

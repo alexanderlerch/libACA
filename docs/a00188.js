@@ -1,4 +1,4 @@
 var a00188 =
 [
-    [ "CSubFingerprint", "a00550.xhtml", "a00550" ]
+    [ "CGmmClassifier", "a00570.xhtml", "a00570" ]
 ];

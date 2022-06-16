@@ -1,5 +1,6 @@
 var a00014 =
 [
-    [ "main", "a00014.xhtml#a0ddf1224851353fc92bfbff6f499fa97", null ],
-    [ "showClInfo", "a00014.xhtml#a2d0a5ce28a4b0030ec0353c6f7a0fd64", null ]
+    [ "CAudioFileRaw", "a00434.xhtml", "a00434" ],
+    [ "CAudioFileSndLib", "a00438.xhtml", "a00438" ],
+    [ "WITH_SNDLIB", "a00014.xhtml#a3016e8a6966db99d8d06a505595913e3", null ]
 ];

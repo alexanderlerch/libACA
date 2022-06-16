@@ -1,5 +1,6 @@
 var a00122 =
 [
-    [ "main", "a00122.xhtml#a0ddf1224851353fc92bfbff6f499fa97", null ],
-    [ "showClInfo", "a00122.xhtml#a2d0a5ce28a4b0030ec0353c6f7a0fd64", null ]
+    [ "getAcaBuildDate", "a00122.xhtml#a352c17bde18dd0d9c3989f6050b060b0", null ],
+    [ "getAcaVersion", "a00122.xhtml#aeca12b465ae15d8b8e775e1b0cfec9f3", null ],
+    [ "kAcaBuildDate", "a00122.xhtml#aa5d4bb2cfbabc0c204d2de941c9cfa71", null ]
 ];

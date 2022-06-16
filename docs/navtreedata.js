@@ -25,20 +25,38 @@
 var NAVTREE =
 [
   [ "ACA", "index.xhtml", [
-    [ "libACA", "index.xhtml#autotoc_md0", [
-      [ "Directory Structure", "index.xhtml#autotoc_md1", null ],
-      [ "Creating the Project Files with CMake", "index.xhtml#autotoc_md2", null ],
-      [ "Running the Tests with CTest", "index.xhtml#autotoc_md3", null ],
-      [ "Documentation", "index.xhtml#autotoc_md4", null ]
+    [ "libACA", "index.xhtml#autotoc_md0", null ],
+    [ "overview", "index.xhtml#autotoc_md1", [
+      [ "directory structure", "index.xhtml#autotoc_md2", null ],
+      [ "functionality", "index.xhtml#autotoc_md3", null ]
+    ] ],
+    [ "getting started", "index.xhtml#autotoc_md4", [
+      [ "creating the project files with CMake", "index.xhtml#autotoc_md5", null ],
+      [ "running the tests with CTest", "index.xhtml#autotoc_md6", null ],
+      [ "documentation", "index.xhtml#autotoc_md7", null ],
+      [ "code examples", "index.xhtml#autotoc_md8", [
+        [ "feature extraction: spectral centroid", "index.xhtml#autotoc_md9", null ],
+        [ "feature extraction: pitch chroma", "index.xhtml#autotoc_md10", null ],
+        [ "key detection", "index.xhtml#autotoc_md11", null ]
+      ] ]
+    ] ],
+    [ "design principles", "index.xhtml#autotoc_md12", [
+      [ "accessibility", "index.xhtml#autotoc_md13", null ],
+      [ "C++11 compatibility", "index.xhtml#autotoc_md14", null ],
+      [ "optimization vs. memory allocation vs. readability", "index.xhtml#autotoc_md15", null ]
+    ] ],
+    [ "other information", "index.xhtml#autotoc_md16", [
+      [ "text book", "index.xhtml#autotoc_md17", null ],
+      [ "slides", "index.xhtml#autotoc_md18", null ],
+      [ "video lectures", "index.xhtml#autotoc_md19", null ],
+      [ "datasets", "index.xhtml#autotoc_md20", null ],
+      [ "license", "index.xhtml#autotoc_md21", null ]
     ] ],
     [ "Namespaces", "namespaces.xhtml", [
       [ "Namespace List", "namespaces.xhtml", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.xhtml", [
         [ "All", "namespacemembers.xhtml", null ],
-        [ "Functions", "namespacemembers_func.xhtml", null ],
-        [ "Variables", "namespacemembers_vars.xhtml", null ],
-        [ "Typedefs", "namespacemembers_type.xhtml", null ],
-        [ "Enumerations", "namespacemembers_enum.xhtml", null ]
+        [ "Functions", "namespacemembers_func.xhtml", null ]
       ] ]
     ] ],
     [ "Classes", "annotated.xhtml", [
@@ -73,29 +91,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00002.xhtml",
-"a00254.xhtml#a0d3b1f978934e61ea69efe1db16d9befa792cd6cfb2d4c734746f9f413e787542",
-"a00254.xhtml#ac3b7c7c661ab7f604ae3536bd22fd444",
-"a00257.xhtml#a80ed1de962dce3b66d4c5505674d1a98",
-"a00260.xhtml#a4f5994f572cb3be32b511f4fa9b73fe0",
-"a00272.xhtml#a159f1f775d93d461d8c431a31f6c5912",
-"a00272.xhtml#a84f3d3f8978a64939e737b8d93573c77",
-"a00275_source.xhtml",
-"a00281.xhtml#a9da70821339851fc0c355ded520b34fd",
-"a00296.xhtml#a6e53e65dfedc4d39febcb7b2b862afd9",
-"a00302.xhtml#a7ad07967e688fdc03cf784f58be4b741",
-"a00370.xhtml#ae069b181a2b3f12ad4dc76a81f81962e",
-"a00462.xhtml#a5f773ad0baf325e182bd459c04ae7137",
-"a00486.xhtml#adf2bc81be5029515f69907765ecc2476",
-"a00530.xhtml#a7684ddb179de94eeae1f53469d903e22",
-"a00570.xhtml#aefc18c9ab9cf803636a6c5bb06340b13",
-"a00626.xhtml#acdd40f3bfb01336401e145c0a8b1c19aa7261d1387611cba7306189c5ec916ef7",
-"a00710.xhtml#a624e1ee3661fcf6094ceef1f654601efa87fa1f2a2a63290b61948002e2935377",
-"a00874.xhtml#a7b6e97e576377dd60c77ab551a180325",
-"a00930.xhtml#adb195fe477aedee2ecea88c888f16506",
-"a01014.xhtml#ac45340b98c41230a7def5bd86c2d870f",
-"a01110.xhtml#ad708036fa5a9bf0cd1520ce111bc851d",
-"a01170.xhtml#ae1ec73d460a2b58c7c9b022a430a34dd",
-"functions_vars_b.xhtml"
+"a00257.xhtml#a2de4ffae22157ca86a80b8e3ddb168a7",
+"a00266.xhtml#a38bf6913e7da813a48f1bac98d8df8e8",
+"a00266.xhtml#aec3fbc4966f18f061a6c18c034c7ab51",
+"a00272.xhtml#a946c3c1f454654ab9de8855a3718ef15",
+"a00278.xhtml#ac0d68e76aea013c123d3619427d6f865",
+"a00284.xhtml#acad5cb03b2eee585ac868b2462262fc5",
+"a00287.xhtml#a5a5f25458b542edb7f1f7c3c7b26e2c4",
+"a00287.xhtml#ad7a45881e16d91cd3d4b5c379f9ad4e9",
+"a00358.xhtml#a7807a1c5f7cf3b671f91c2c219dc0710a63311fad1672e52cdfd16449fb56a234",
+"a00450.xhtml#a3c3a39ab20e4ca9f1771bbd6f70327c9",
+"a00474.xhtml#aaeae67c99cd6e689243892e429a66e33a71b19fb39e78bd7a6ad197e57ef972cb",
+"a00518.xhtml#a21778c061afe83ab8e390d8c49b8baf3",
+"a00558.xhtml#acaf81407affa5b8a931a61178868ea45",
+"a00618.xhtml#a1324ec2c82f7cda3557e620b6232de98",
+"index.xhtml#autotoc_md18"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

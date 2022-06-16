@@ -1,20 +1,13 @@
 var a00610 =
 [
-    [ "CPca", "a00610.xhtml#a8e574710bbd7c8ad293ceb34fec88fa7", null ],
-    [ "~CPca", "a00610.xhtml#a4d220e0d4ed54cba58ff4fe386cc1dbb", null ],
-    [ "CPca", "a00610.xhtml#a2f2d8fcb4171ab28af0924cd7a140f81", null ],
-    [ "calcSVD", "a00610.xhtml#ad4ff4cdaad1b362cecb9ffd451b3a217", null ],
-    [ "compCov", "a00610.xhtml#a6fb2c806d453b0c946cffbdcd46b027f", null ],
-    [ "compPca", "a00610.xhtml#a9e44c134c68146bdc539135f3225a2d4", null ],
-    [ "init", "a00610.xhtml#a870d00dfd933ca6b61a274743ecd7691", null ],
-    [ "matPythag", "a00610.xhtml#a4fdc8487d3685debf82a6acd12f6d37e", null ],
-    [ "operator=", "a00610.xhtml#a35b34b65ae81e8288b1082c11d9c75df", null ],
-    [ "reset", "a00610.xhtml#aabe6211d0934456e942340242309db42", null ],
-    [ "m_iNumFeatures", "a00610.xhtml#ab664849af5b6a4773ced51edbbb564a7", null ],
-    [ "m_iNumObs", "a00610.xhtml#a9a4e924546965b46fc57a9c165ed5dad", null ],
-    [ "m_ppfProcTmp", "a00610.xhtml#a2c8051f7271212cf100b0896750707db", null ],
-    [ "m_ppfU", "a00610.xhtml#a76550e0afbca81c6b468b6359b0b4324", null ],
-    [ "m_ppfV", "a00610.xhtml#a84d0cbaa874f4615ad1cb92da06bb73e", null ],
-    [ "m_ppfW", "a00610.xhtml#a0b2588bce0db746b77170358260223e7", null ],
-    [ "piSortIndices", "a00610.xhtml#ab13a6216bc5130693cdbacefa14e9316", null ]
+    [ "CResample", "a00610.xhtml#a6af73d34704579d5d18ef456fe54a983", null ],
+    [ "~CResample", "a00610.xhtml#abf7624c3daf78a13e5bb949a242c3034", null ],
+    [ "CResample", "a00610.xhtml#aa35aba2e70d5325d5b3098faa79ba05d", null ],
+    [ "getOutputLength", "a00610.xhtml#a1fa6003e640ba66531236277eddc5158", null ],
+    [ "interp1d", "a00610.xhtml#a02a81c6177894649b0524b684118839e", null ],
+    [ "operator=", "a00610.xhtml#a0db33ae459e827fc0258b7b9ae3cf738", null ],
+    [ "process", "a00610.xhtml#a040a6674ec0ff9171d6b4cb4b8436cb2", null ],
+    [ "m_fInSampleRate", "a00610.xhtml#a9d56139a9c202823fe57a189146a9b8c", null ],
+    [ "m_fOutSampleRate", "a00610.xhtml#a4e704946c8bfe078190cdf36818e40db", null ],
+    [ "m_pCFilter", "a00610.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9", null ]
 ];

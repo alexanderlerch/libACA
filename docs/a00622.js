@@ -1,13 +1,29 @@
 var a00622 =
 [
-    [ "CResample", "a00622.xhtml#a6af73d34704579d5d18ef456fe54a983", null ],
-    [ "~CResample", "a00622.xhtml#abf7624c3daf78a13e5bb949a242c3034", null ],
-    [ "CResample", "a00622.xhtml#aa35aba2e70d5325d5b3098faa79ba05d", null ],
-    [ "getOutputLength", "a00622.xhtml#a1fa6003e640ba66531236277eddc5158", null ],
-    [ "interp1d", "a00622.xhtml#a02a81c6177894649b0524b684118839e", null ],
-    [ "operator=", "a00622.xhtml#a0db33ae459e827fc0258b7b9ae3cf738", null ],
-    [ "process", "a00622.xhtml#a040a6674ec0ff9171d6b4cb4b8436cb2", null ],
-    [ "m_fInSampleRate", "a00622.xhtml#a9d56139a9c202823fe57a189146a9b8c", null ],
-    [ "m_fOutSampleRate", "a00622.xhtml#a4e704946c8bfe078190cdf36818e40db", null ],
-    [ "m_pCFilter", "a00622.xhtml#ad227a6fd0acf022e8a41a1d4ab2b27c9", null ]
+    [ "States_t", "a00622.xhtml#a3ce6015f4298a0bcc3171dc12e589269", [
+      [ "kPrev", "a00622.xhtml#a3ce6015f4298a0bcc3171dc12e589269a56d0a7682138c7ccf9d6d986cde4e398", null ],
+      [ "kCurr", "a00622.xhtml#a3ce6015f4298a0bcc3171dc12e589269a66152c39002ef36640b0ae1bcd550ad0", null ],
+      [ "kNumStates", "a00622.xhtml#a3ce6015f4298a0bcc3171dc12e589269a1cb45bd16b0213cf419b6264f841333e", null ]
+    ] ],
+    [ "CKmeans", "a00622.xhtml#a837acb4ce7acdada01de097f0b0990aa", null ],
+    [ "~CKmeans", "a00622.xhtml#ad66ec35666d6a0c8c074d1ab0b17e5ff", null ],
+    [ "CKmeans", "a00622.xhtml#a933f0ec891a664200beb68fac0e67119", null ],
+    [ "assignClusterLabels_", "a00622.xhtml#a2f3d4cb01621ea0e62f13871595a522b", null ],
+    [ "checkConverged_", "a00622.xhtml#ac5158e0fb3ef94c2bfe79f66f86db59f", null ],
+    [ "compClusterMeans_", "a00622.xhtml#a5d650faa066ee79af47c78be88331bb0", null ],
+    [ "compKmeans", "a00622.xhtml#ac9199a37d06a0d589118941f80f3f774", null ],
+    [ "init", "a00622.xhtml#a13aa330d6b77bf5796f6f5a67ba6ef0a", null ],
+    [ "initClusterMeans_", "a00622.xhtml#a9fae895548f9c558d0360cb033e89cc6", null ],
+    [ "operator=", "a00622.xhtml#a21a59dff9d7f428cbf09a5777fe71a3d", null ],
+    [ "reinitClusterMeans_", "a00622.xhtml#abb4a98131b43f0709329eec3f2d3559a", null ],
+    [ "reset", "a00622.xhtml#ada383fb1fdfafafb29123d49dbbd238b", null ],
+    [ "m_appfClusterMeans", "a00622.xhtml#a84dc76b5718ddb787db3e0013d76a46f", null ],
+    [ "m_bIsInitialized", "a00622.xhtml#a2251df0f74f78b6d94008412592471c3", null ],
+    [ "m_iK", "a00622.xhtml#ab4c4e32014fa5acb9b3d4d4402940b80", null ],
+    [ "m_iMaxIter", "a00622.xhtml#a715a120f9b4605be0e82cea1415366f7", null ],
+    [ "m_iNumFeatures", "a00622.xhtml#a46348bc43426019faaa664e1e793610a", null ],
+    [ "m_iNumObs", "a00622.xhtml#ae5541f8739be2a4e44baba9f6aacc9c7", null ],
+    [ "m_pfDist", "a00622.xhtml#afc5dfb4ee3aaa73e5cf9da6b5680010c", null ],
+    [ "m_pfProc", "a00622.xhtml#a17716c9501ee9dd117bfb98a4f788d2f", null ],
+    [ "m_piClusterSize", "a00622.xhtml#a49848f67b619544e0637728c136f7162", null ]
 ];
