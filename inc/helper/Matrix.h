@@ -162,7 +162,7 @@ public:
     \param iNumRows number of rows in the matrix
     */
     template<typename T>
-    static void getCol(T* ptDest, T** pptMat, int iColIdx, int iNumRows)
+    static void getCol(T* ptDest, const T*const *const pptMat, int iColIdx, int iNumRows)
     {
         assert(iColIdx >= 0);
         assert(iNumRows > 0);
@@ -288,7 +288,7 @@ public:
     \return kld
     */
     template<typename T>
-    static T calcKlDivergence(T** pptSrc1, T** pptSrc2, int iNumRows, int iNumCols)
+    static T calcKlDivergence(const T* const* const pptSrc1, const T* const* const pptSrc2, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -315,7 +315,7 @@ public:
     \param iNumSrcCols number of columns in the matrix
     */
     template<typename T>
-    static void transpose(T** pptDest, T** pptSrc, int iNumSrcRows, int iNumSrcCols)
+    static void transpose(T** pptDest, const T*const*const pptSrc, int iNumSrcRows, int iNumSrcCols)
     {
         assert(iNumSrcRows > 0);
         assert(iNumSrcCols > 0);
@@ -689,7 +689,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static void copy(T** pptDestMat, T** pptSrcMat, int iNumRows, int iNumCols)
+    static void copy(T** pptDestMat, const T* const* const pptSrcMat, int iNumRows, int iNumCols)
     {
         assert(pptDestMat);
         assert(pptSrcMat);

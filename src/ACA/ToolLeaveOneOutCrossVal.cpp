@@ -14,24 +14,51 @@ Error_t CLeaveOneOutCrossVal::init(int iNumFeatures, int iNumObservations, CClas
     if (!pCClassifier)
         return Error_t::kFunctionInvalidArgsError;
 
-    reset();
+    if (m_iNumFeatures == iNumFeatures && m_iNumObs == iNumObservations && m_pCClassifier == pCClassifier)
+    {
+        m_pCClassifier->reset();
+        CMatrix::setZero(m_ppfTrain, m_iNumFeatures, m_iNumObs - static_cast<long long>(1));
+        CVector::setZero(m_piClassLabels, m_iNumObs - static_cast<long long>(1));
+        CVector::setZero(m_pfQuery, m_iNumFeatures);
+    }
+    else
+    {
+        reset();
 
-    // set internal member variables
-    m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
-    m_pCClassifier = pCClassifier;
 
-    // allocate memory for feature and ground truth data, and query
-    CMatrix::alloc(m_ppfTrain, m_iNumFeatures, m_iNumObs - static_cast<long long>(1));
-    CVector::alloc(m_piClassLabels, m_iNumObs - static_cast<long long>(1));
-    CVector::alloc(m_pfQuery, m_iNumFeatures);
+        // set internal member variables
+        m_iNumFeatures = iNumFeatures;
+        m_iNumObs = iNumObservations;
+        m_pCClassifier = pCClassifier;
 
-    m_bIsInitialized = true;
+        // allocate memory for feature and ground truth data, and query
+        CMatrix::alloc(m_ppfTrain, m_iNumFeatures, m_iNumObs - static_cast<long long>(1));
+        CVector::alloc(m_piClassLabels, m_iNumObs - static_cast<long long>(1));
+        CVector::alloc(m_pfQuery, m_iNumFeatures);
+
+        m_bIsInitialized = true;
+    }
 
     return Error_t::kNoError;
 }
 
-float CLeaveOneOutCrossVal::process(float** ppfTrainFeatures, const int* piTrainClassIndices)
+Error_t CLeaveOneOutCrossVal::reset()
+{
+    m_bIsInitialized = false;
+
+    // allocate memory for feature and ground truth data, and query
+    CMatrix::free(m_ppfTrain, m_iNumFeatures);
+    CVector::free(m_piClassLabels);
+    CVector::free(m_pfQuery);
+
+    m_iNumFeatures = 0;
+    m_iNumObs = 0;
+    m_pCClassifier = 0;
+
+    return Error_t::kNoError;
+}
+
+float CLeaveOneOutCrossVal::process(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices)
 {
     if (!m_bIsInitialized)
         return -1.F;
@@ -84,22 +111,3 @@ float CLeaveOneOutCrossVal::process(float** ppfTrainFeatures, const int* piTrain
     return iTruePositives * 1.F / m_iNumObs;
 }
 
-/*! resets LeaveOneOutCrossVal instance
-\return Error_t
-*/
-
-Error_t CLeaveOneOutCrossVal::reset()
-{
-    m_bIsInitialized = false;
-
-    // allocate memory for feature and ground truth data, and query
-    CMatrix::free(m_ppfTrain, m_iNumFeatures);
-    CVector::free(m_piClassLabels);
-    CVector::free(m_pfQuery);
-
-    m_iNumFeatures = 0;
-    m_iNumObs = 0;
-    m_pCClassifier = 0;
-
-    return Error_t::kNoError;
-}

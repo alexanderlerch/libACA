@@ -25,8 +25,12 @@ Error_t CKnn::init(int iNumFeatures, int iNumObservations)
     CVector::alloc(m_piClassLabels, m_iNumObs);
     CVector::alloc(m_piSortIdx, m_iNumObs);
     CVector::alloc(m_pfSortDist, m_iNumObs);
-    CMatrix::alloc(m_ppfTrain, m_iNumObs, m_iNumFeatures);
     CVector::alloc(m_pfQuery, m_iNumFeatures);
+
+    CVector::alloc(m_pfNormScale, m_iNumFeatures);
+    CVector::alloc(m_pfNormSub, m_iNumFeatures);
+
+    CMatrix::alloc(m_ppfTrain, m_iNumObs, m_iNumFeatures);
 
     CVector::alloc(m_pfHist, m_iK);
     CVector::alloc(m_piHistLabel, m_iK);
@@ -37,7 +41,29 @@ Error_t CKnn::init(int iNumFeatures, int iNumObservations)
     return Error_t::kNoError;
 }
 
-Error_t CKnn::train(float** ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
+Error_t CKnn::reset()
+{
+    CVector::free(m_piClassLabels);
+    CVector::free(m_piSortIdx);
+    CVector::free(m_pfSortDist);
+    CVector::free(m_pfQuery);
+    CMatrix::free(m_ppfTrain, m_iNumObs);
+
+    CVector::free(m_pfHist);
+    CVector::free(m_piHistLabel);
+    CVector::free(m_piHistCount);
+
+    CVector::free(m_pfNormScale);
+    CVector::free(m_pfNormSub);
+
+    m_iNumObs = 0;
+    m_iNumFeatures = 0;
+
+    m_bIsInitialized = false;
+
+    return Error_t::kNoError;
+}
+Error_t CKnn::train(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
 {
     if (!ppfTrainFeatures || !piTrainClassIndices)
         return Error_t::kFunctionInvalidArgsError;
@@ -59,27 +85,6 @@ Error_t CKnn::train(float** ppfTrainFeatures, const int* piTrainClassIndices, CC
     return Error_t::kNoError;
 }
 
-/*! resets Knn instance
-\return Error_t
-*/
-
-Error_t CKnn::reset()
-{
-    CVector::free(m_piClassLabels);
-    CVector::free(m_piSortIdx);
-    CVector::free(m_pfSortDist);
-    CMatrix::free(m_ppfTrain, m_iNumObs);
-
-    CVector::free(m_pfQuery);
-
-    CVector::free(m_pfHist);
-    CVector::free(m_piHistLabel);
-    CVector::free(m_piHistCount);
-
-    m_bIsInitialized = false;
-
-    return Error_t::kNoError;
-}
 
 Error_t CKnn::setParamK(int iK)
 {
