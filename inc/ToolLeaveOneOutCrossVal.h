@@ -5,7 +5,8 @@
 
 #include "ErrorDef.h"
 
-class ClassifierBase;
+// forward declaration
+class CClassifierBase;
 
 /*! \brief computation of leav one out cross validation
 */

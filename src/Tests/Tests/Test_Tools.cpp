@@ -1669,6 +1669,80 @@ TEST_CASE("ToolsResample", "[ToolsResample]")
     delete[] pfOut;
 }
 
+
+TEST_CASE("ToolsSeqFeatureSel", "[ToolsSeqFeatureSel]")
+{
+    int aiDim[2] = { 3,8 };
+
+    float** ppfData = 0;
+    int* piClass = 0;
+
+    float* pfResult = 0;
+    int* piResult = 0;
+
+    CSeqFeatureSel* pCInstance = new CSeqFeatureSel();
+
+    CMatrix::alloc(ppfData, aiDim[0], aiDim[1]);
+
+
+    CVector::alloc(piClass, aiDim[1]);
+
+    CVector::alloc(pfResult, aiDim[0]);
+    CVector::alloc(piResult, aiDim[0]);
+
+    SECTION("Api")
+    {
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(0, aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->init(aiDim[0], 0));
+
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->process(ppfData, piClass));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->getResult(piResult, pfResult));
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->process(0, piClass));
+        CHECK(Error_t::kFunctionInvalidArgsError == pCInstance->process(ppfData, 0));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->getResult(piResult, pfResult));
+
+        CHECK(Error_t::kNoError == pCInstance->process(ppfData, piClass));
+        CHECK(Error_t::kFunctionIllegalCallError == pCInstance->getResult(0, pfResult));
+
+        CHECK(Error_t::kNoError == pCInstance->getResult(piResult, pfResult));
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+
+    SECTION("SimpleSel")
+    {
+        for (auto n = 0; n < 4; n++)
+        {
+            float fOffset = .12F;
+            ppfData[0][n] = .2F * (n * .1F) + .5F * fOffset;
+            ppfData[0][n + 4] = (n * .1F) - .5F * fOffset;
+
+            ppfData[1][n] = (n * .1F) - 2.F * fOffset; 
+            ppfData[1][n + 4] = (n * .1F) + 2.F * fOffset;
+
+            piClass[n + 4] = 1;
+        }
+        piClass[aiDim[1] - 1] = 0; //wrong class label
+
+        // third feature is noise
+        CSynthesis::genNoise(ppfData[2], aiDim[1], .3F);
+
+        CHECK(Error_t::kNoError == pCInstance->init(aiDim[0], aiDim[1]));
+        CHECK(Error_t::kNoError == pCInstance->process(ppfData, piClass));
+
+        CHECK(Error_t::kNoError == pCInstance->getResult(piResult, pfResult));
+
+        CHECK(Error_t::kNoError == pCInstance->reset());
+    }
+
+    CMatrix::free(ppfData, aiDim[0]);
+    CVector::free(piClass);
+
+    delete pCInstance;
+}
+
 TEST_CASE("ToolsSinglePole", "[ToolsSinglePole]")
 {
 
