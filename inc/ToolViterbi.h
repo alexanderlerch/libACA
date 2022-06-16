@@ -20,7 +20,7 @@ public:
     \param iNumObservations number of observations
     \return Error_t
     */
-    Error_t init (float **ppfPTransition, float *pfPStart, int iNumStates, int iNumObservations);
+    Error_t init (const float* const* const ppfPTransition, const float *pfPStart, int iNumStates, int iNumObservations);
     
     /*! resets all internal class members
     \return Error_t
@@ -32,7 +32,7 @@ public:
     \param bUseLogLikelihood (use logarithmic likelihood - needed at least for longer sequences)
     \return Error_t
     */
-    Error_t compViterbi (float **ppfPEmission, bool bUseLogLikelihood = true);
+    Error_t compViterbi (const float* const* const ppfPEmission, bool bUseLogLikelihood = true);
     
     /*! returns the overall probability
     \return float
@@ -49,8 +49,8 @@ private:
     CViterbi(const CViterbi& that);
     CViterbi& operator=(const CViterbi& c);
 
-    void compProbability_(float** ppfPEmission);
-    void compLogLikelihood_(float** ppfPEmission);
+    void compProbability_(const float* const* const ppfPEmission);
+    void compLogLikelihood_(const float* const* const ppfPEmission);
 
     enum MatrixDimension_t
     {

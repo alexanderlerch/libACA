@@ -51,7 +51,7 @@ Error_t CKmeans::reset()
     return Error_t::kNoError;
 }
 
-Error_t CKmeans::compKmeans(int* piResult, float** ppfFeatures)
+Error_t CKmeans::compKmeans(int* piResult, const float* const* const ppfFeatures)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -89,7 +89,7 @@ Error_t CKmeans::compKmeans(int* piResult, float** ppfFeatures)
     return Error_t::kNoError;
 }
 
-void CKmeans::reinitClusterMeans_(float** ppfFeatures)
+void CKmeans::reinitClusterMeans_(const float* const* const ppfFeatures)
 {
     if (CVector::getMin(m_piClusterSize, m_iK) > 0)
         return;
@@ -108,7 +108,7 @@ void CKmeans::reinitClusterMeans_(float** ppfFeatures)
     }
 }
 
-void CKmeans::initClusterMeans_(float** ppfFeatures)
+void CKmeans::initClusterMeans_(const float* const* const ppfFeatures)
 {
     CSynthesis::genNoise(m_pfProc, m_iK);
     CVector::mulC_I(m_pfProc, m_iNumObs - 1.F, m_iK);
@@ -122,7 +122,7 @@ void CKmeans::initClusterMeans_(float** ppfFeatures)
     }
 }
 
-void CKmeans::compClusterMeans_(float** ppfFeatures, const int* piResult)
+void CKmeans::compClusterMeans_(const float* const* const ppfFeatures, const int* piResult)
 {
     CMatrix::setZero(m_appfClusterMeans[kCurr], m_iK, m_iNumFeatures);
     //CVector::setZero(m_piClusterSize, m_iK);
@@ -157,7 +157,7 @@ bool CKmeans::checkConverged_()
     return false;
 }
 
-void CKmeans::assignClusterLabels_(int* piResult, float** ppfFeatures)
+void CKmeans::assignClusterLabels_(int* piResult, const float* const* const ppfFeatures)
 {
     CVector::setZero(m_piClusterSize, m_iK);
     for (auto n = 0; n < m_iNumObs; n++)

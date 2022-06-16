@@ -14,7 +14,7 @@ CViterbi::~CViterbi( void )
     reset();
 }
 
-Error_t CViterbi::init(float** ppfPTransition, float* pfPStart, int iNumStates, int iNumObservations)
+Error_t CViterbi::init(const float* const* const ppfPTransition, const float* pfPStart, int iNumStates, int iNumObservations)
 {
     if (!ppfPTransition || !pfPStart)
         return Error_t::kFunctionInvalidArgsError;
@@ -66,7 +66,7 @@ Error_t CViterbi::reset()
     return Error_t::kNoError;
 }
 
-Error_t CViterbi::compViterbi(float** ppfPEmission, bool bUseLogLikelihood /*= true*/)
+Error_t CViterbi::compViterbi(const float* const* const ppfPEmission, bool bUseLogLikelihood /*= true*/)
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -99,7 +99,7 @@ Error_t CViterbi::compViterbi(float** ppfPEmission, bool bUseLogLikelihood /*= t
     return Error_t::kNoError;
 }
 
-void CViterbi::compProbability_(float** ppfPEmission)
+void CViterbi::compProbability_(const float* const* const ppfPEmission)
 {
     // initialize
     for (auto m = 0; m < m_iNumStates; m++)
@@ -131,7 +131,7 @@ void CViterbi::compProbability_(float** ppfPEmission)
     }
 }
 
-void CViterbi::compLogLikelihood_(float** ppfPEmission)
+void CViterbi::compLogLikelihood_(const float* const* const ppfPEmission)
 {
     // convert trans prob to log
     for (auto m = 0; m < m_iNumStates; m++)

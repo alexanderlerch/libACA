@@ -86,7 +86,7 @@ public:
     \param iNumFrames: number of frames to write (per channel)
     \return Error_t
     */
-    virtual Error_t writeData (float **ppfAudioData, long long int iNumFrames);
+    virtual Error_t writeData (const float* const* const ppfAudioData, long long int iNumFrames);
 
     /*! retrieve file specifications
     \param sFileSpec
@@ -184,7 +184,7 @@ private:
     virtual Error_t initDefaults_ ();
 
     virtual long long int readDataIntern_ (float **ppfAudioData, long long int iLength) = 0;
-    virtual long long int writeDataIntern_ (float **ppfAudioData, long long int iLength) = 0;
+    virtual long long int writeDataIntern_ (const float* const* const ppfAudioData, long long int iLength) = 0;
     virtual long long getLengthIntern_() = 0;
     virtual long long getPositionIntern_() = 0;
     virtual Error_t setPositionIntern_( long long iFrame ) = 0;

@@ -36,7 +36,7 @@ Error_t CPca::reset()
     return Error_t::kNoError;
 }
 
-Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, float** ppfIn)
+Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, const float* const* const ppfIn)
 {
     if (m_iNumFeatures <= 1 || m_iNumObs <= 1)
         return Error_t::kFunctionInvalidArgsError;
@@ -69,7 +69,7 @@ Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, float** ppfIn)
 
 //each row is a variable
 
-Error_t CPca::compCov(float** ppfCovOut, float** ppfIn, int iNumRows, int iNumCols)
+Error_t CPca::compCov(float** ppfCovOut, const float* const* const ppfIn, int iNumRows, int iNumCols)
 {
     if (iNumRows <= 1 || iNumCols <= 1)
         return Error_t::kFunctionInvalidArgsError;
@@ -97,7 +97,7 @@ Error_t CPca::compCov(float** ppfCovOut, float** ppfIn, int iNumRows, int iNumCo
     return Error_t::kNoError;
 }
 
-Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, int iNumRows, int iNumCols, int iMaxIterations)
+Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, const float* const* const ppfMat, int iNumRows, int iNumCols, int iMaxIterations)
 {
 
     int        i, k, l = 0;

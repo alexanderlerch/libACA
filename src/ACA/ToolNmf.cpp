@@ -56,7 +56,7 @@ Error_t CNmf::reset()
     return Error_t::kNoError;
 }
 
-Error_t CNmf::compNmf(CNmfResult* pCNmfResult, float** ppfInput)
+Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfInput)
 {
 
     if (!pCNmfResult || !ppfInput)
@@ -94,7 +94,7 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, float** ppfInput)
     return Error_t::kNoError;
 }
 
-float CNmf::runNmfIter(CNmfResult* pCNmfResult, float** ppfInput)
+float CNmf::runNmfIter(CNmfResult* pCNmfResult, const float* const* const ppfInput)
 {
     float** ppfW = pCNmfResult->getMatPointer(CNmfResult::kW);
     float** ppfH = pCNmfResult->getMatPointer(CNmfResult::kH);

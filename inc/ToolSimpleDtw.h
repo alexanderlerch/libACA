@@ -37,7 +37,7 @@ public:
     \param ppfDistanceMatrix (dimensions [rows][columns])
     \return Error_t
     */
-    Error_t compDtw (float **ppfDistanceMatrix);
+    Error_t compDtw (const float* const* const ppfDistanceMatrix);
  
     /*! returns the length of the path
     \return int

@@ -32,7 +32,7 @@ public:
     \param ppfIn input matrix (dimensions iNumFeatures X iNumObservations)
     \return Error_t
     */
-    Error_t compPca(float** ppfRes, float* pfEigenValues, float** ppfIn);
+    Error_t compPca(float** ppfRes, float* pfEigenValues, const float* const* const ppfIn);
 
 
     /*! computes covariance matrix
@@ -42,7 +42,7 @@ public:
     \param iNumCols number of columns/observations in the input matrix
     \return Error_t
     */
-    static Error_t compCov(float** ppfCovOut, float** ppfIn, int iNumRows, int iNumCols);
+    static Error_t compCov(float** ppfCovOut, const float* const* const  ppfIn, int iNumRows, int iNumCols);
 
 
     /*! computes singular value decomposition (ppfMat = ppfU * ppfW * ppfV)
@@ -55,7 +55,7 @@ public:
     \param iMaxIterations maximum number of iterations
     \return Error_t
     */
-    static Error_t calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, int iNumRows, int iNumCols, int iMaxIterations = 100);
+    static Error_t calcSVD(float** ppfU, float** ppfW, float** ppfV, const float* const* const  ppfMat, int iNumRows, int iNumCols, int iMaxIterations = 100);
 
 private:
     CPca(const CPca& that);     //!< disallow copy construction   

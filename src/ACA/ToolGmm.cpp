@@ -59,7 +59,7 @@ Error_t CGmm::reset()
 
 }
 
-Error_t CGmm::compGmm(CGmmResult* pCResult, float** ppfFeatures)
+Error_t CGmm::compGmm(CGmmResult* pCResult, const float* const* const  ppfFeatures)
 {
     if (!pCResult || !ppfFeatures)
         return Error_t::kFunctionInvalidArgsError;
@@ -90,7 +90,7 @@ Error_t CGmm::compGmm(CGmmResult* pCResult, float** ppfFeatures)
     return Error_t::kNoError;
 }
 
-void CGmm::initState_(float** ppfFeatures, CGmmResult* pCCurrState)
+void CGmm::initState_(const float* const* const  ppfFeatures, CGmmResult* pCCurrState)
 {
     // generate some noise
     CSynthesis::genNoise(m_apfProc[0], m_iK);
@@ -114,7 +114,7 @@ void CGmm::initState_(float** ppfFeatures, CGmmResult* pCCurrState)
     }
 }
 
-void CGmm::compProbabilities_(float** ppfFeatures, CGmmResult* pCCurrState)
+void CGmm::compProbabilities_(const float* const* const ppfFeatures, CGmmResult* pCCurrState)
 {
     // compute gaussian per cluster per observation
     for (auto k = 0; k < m_iK; k++)
@@ -152,7 +152,7 @@ void CGmm::compProbabilities_(float** ppfFeatures, CGmmResult* pCCurrState)
     }
 }
 
-void CGmm::updateState_(float** ppfFeatures, CGmmResult* pCCurrState)
+void CGmm::updateState_(const float* const* const ppfFeatures, CGmmResult* pCCurrState)
 {
     for (auto k = 0; k < m_iK; k++)
     {

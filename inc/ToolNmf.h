@@ -84,14 +84,14 @@ public:
     */
     Error_t reset ();
 
-    Error_t compNmf (CNmfResult *pCNmfResult, float** ppfInput);
+    Error_t compNmf (CNmfResult *pCNmfResult, const float* const* const  ppfInput);
  
  
 private:
     CNmf(const CNmf& that);     //!< disallow copy construction   
     CNmf& operator=(const CNmf& c);
 
-    float runNmfIter(CNmfResult* pNmfResult, float** ppfInput);
+    float runNmfIter(CNmfResult* pNmfResult, const float* const* const  ppfInput);
 
     float** m_ppfX = 0, //!< input matrix 
         ** m_ppfOnes = 0, //!< matrix with ones

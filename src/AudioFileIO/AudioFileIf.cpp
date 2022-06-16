@@ -116,7 +116,7 @@ Error_t CAudioFileIf::readData( float **ppfAudioData, long long int &iLength )
     return Error_t::kNoError;
 }
 
-Error_t CAudioFileIf::writeData( float **ppfAudioData, long long int iLength )
+Error_t CAudioFileIf::writeData(const float* const* const ppfAudioData, long long int iLength )
 {
 
     // check parameters

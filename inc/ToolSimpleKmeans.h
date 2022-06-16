@@ -35,7 +35,7 @@ public:
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
     \return Error_t
     */
-    Error_t compKmeans(int* piResult, float** ppfFeatures);
+    Error_t compKmeans(int* piResult, const float* const* const ppfFeatures);
  
  
 private:
@@ -52,20 +52,20 @@ private:
     /*! deals with empty clusters through new random initialization
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
     */
-    void reinitClusterMeans_(float** ppfFeatures);
+    void reinitClusterMeans_(const float* const* const ppfFeatures);
 
 
     /*! randomly initializes the initial cluster means
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
     */
-    void initClusterMeans_(float** ppfFeatures);
+    void initClusterMeans_(const float* const* const ppfFeatures);
 
 
     /*! computes the current cluster means
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
     \param piResult current cluster assignments
     */
-    void compClusterMeans_(float** ppfFeatures, const int* piResult);
+    void compClusterMeans_(const float* const* const ppfFeatures, const int* piResult);
 
 
     /*! check if the means have changed during the last iteration
@@ -78,7 +78,7 @@ private:
     \param piResult new cluster assignments
     \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
     */
-    void assignClusterLabels_(int* piResult, float** ppfFeatures);
+    void assignClusterLabels_(int* piResult, const float* const* const ppfFeatures);
 
     float** m_appfClusterMeans[kNumStates] = { 0 }; //!< contains the current and previous cluster means
 

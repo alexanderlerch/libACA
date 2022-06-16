@@ -65,7 +65,7 @@ Error_t CDtw::reset()
     return Error_t::kNoError;
 }
 
-Error_t CDtw::compDtw(float **ppfDistanceMatrix)
+Error_t CDtw::compDtw(const float* const* const ppfDistanceMatrix)
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;

@@ -15,7 +15,7 @@ class CPreProc
 public:
     /*! downmixes multichannel audio (can be inplace
     */
-    static void downmix (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)
+    static void downmix (float *pfOutput, const float* const* const ppfInput, int iNumChannels, long long iNumSamples)
     {
         // sanity checks
         assert(pfOutput);

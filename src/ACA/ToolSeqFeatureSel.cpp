@@ -33,7 +33,7 @@ Error_t CSeqFeatureSel::init(int iNumFeatures, int iNumObservations)
     return Error_t::kNoError;
 }
 
-Error_t CSeqFeatureSel::process(float** ppfFeatures, const int* piClassIndices)
+Error_t CSeqFeatureSel::process(const float* const* const ppfFeatures, const int* piClassIndices)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;

@@ -121,7 +121,7 @@ public:
     \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
     \return Error_t
     */
-    Error_t compGmm(CGmmResult* pCResult, float** ppfFeatures);
+    Error_t compGmm(CGmmResult* pCResult, const float* const* const ppfFeatures);
  
  
 private:
@@ -140,20 +140,20 @@ private:
     \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
     \param pCCurrState class holding the current state variables
     */
-    void initState_(float** ppfFeatures, CGmmResult* pCCurrState);
+    void initState_(const float* const* const  ppfFeatures, CGmmResult* pCCurrState);
 
 
     /*! computes probabilities given the current state
     \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
     \param pCCurrState class holding the current state variables
     */
-    void compProbabilities_(float** ppfFeatures, CGmmResult* pCCurrState);
+    void compProbabilities_(const float* const* const ppfFeatures, CGmmResult* pCCurrState);
 
     /*! update mean, sigma, and prior
     \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
     \param pCCurrState class holding the current state variables
     */
-    void updateState_(float** ppfFeatures, CGmmResult* pCCurrState);
+    void updateState_(const float* const* const ppfFeatures, CGmmResult* pCCurrState);
 
 
     /*! returns if the means are identical compared to previous iteration

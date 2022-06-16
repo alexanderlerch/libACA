@@ -166,7 +166,7 @@ long long int CAudioFileRaw::readDataIntern_( float **ppfAudioData, long long in
 
 }
 
-long long int CAudioFileRaw::writeDataIntern_( float **ppfAudioData, long long int iLength )
+long long int CAudioFileRaw::writeDataIntern_(const float* const* const ppfAudioData, long long int iLength )
 {
     long long int iIdx  = 0;
     int iNumChannels    = getNumChannels_();
@@ -441,7 +441,7 @@ long long int CAudioFileSndLib::readDataIntern_( float **ppfAudioData, long long
     return iNumFrames;
 }
 
-long long int CAudioFileSndLib::writeDataIntern_( float **ppfAudioData, long long int iLength )
+long long int CAudioFileSndLib::writeDataIntern_(const float* const* const ppfAudioData, long long int iLength )
 {
     long long int iIdx            = 0;
     long long int iNumChannels    = getNumChannels_();

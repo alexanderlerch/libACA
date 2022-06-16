@@ -24,12 +24,12 @@ public:
     */
     Error_t init(int iNumFeatures, int iNumObservations);
 
-    /*! initializes SeqFeatureSel instance
+    /*! selects the featyres
     \param ppfFeatures feature data for 'training' (dimensions iNumFeatures X iNumObservations)
     \param piClassIndices ground truth class index for each observation
     \return Error_t
     */
-    Error_t process(float** ppfFeatures, const int* piClassIndices);
+    Error_t process(const float* const* const ppfFeatures, const int* piClassIndices);
 
     /*! writes results after processing
     \param piFeatureIndices sorted feature indices, best first (dimensions iNumFeatures)

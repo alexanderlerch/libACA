@@ -10,7 +10,7 @@ class CSubFingerprint
 public:
     explicit CSubFingerprint(int iMagSpecLength = 1025, float fSampleRate = 5000.F);
 
-    virtual ~CSubFingerprint();;
+    virtual ~CSubFingerprint();
 
     /*! performs the SubFingerprint computation
     \param pfMagSpec input data of length iDataLength
