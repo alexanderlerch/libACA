@@ -41,3 +41,19 @@ jobs:
     - name: test
       working-directory: ${{github.workspace}}/bld
       run: ctest -C ${{env.BUILD_TYPE}}
+  
+  windows:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: configure 
+      run: cmake -B ${{github.workspace}}/bld -DCMAKE_BUILD_TYPE=${{env.BUILD_TYPE}} -DWITH_TESTS=1
+
+    - name: build
+      run: cmake --build ${{github.workspace}}/bld --config ${{env.BUILD_TYPE}}
+
+    - name: test
+      working-directory: ${{github.workspace}}/bld
+      run: ctest -C ${{env.BUILD_TYPE}}

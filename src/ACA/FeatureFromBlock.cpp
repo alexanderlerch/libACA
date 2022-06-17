@@ -674,6 +674,8 @@ private:
     float m_fKappa = 0.85F; //!< bandwidth parameter
 };
 
+/*! \brief class for computation of the tonal power ratio
+*/
 class CFeatureSpectralTonalPowerRatio : public CFeatureFromBlockIf
 {
 public:
