@@ -140,7 +140,7 @@ public:
     * \param pfMagSpec magnitude spectrum
     * \param iDataLength length of magnitude spectrum
     * \param fSampleRate audio sample rate (only needed for scaling)
-    * \param threshold for maximum computation
+    * \param fThresh for maximum computation
     \return float feature
     */
     static float compFeatureSpectralTonalPowerRatio(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F, float fThresh = 5e-4);
