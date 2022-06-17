@@ -127,12 +127,12 @@ public:
         if (bOnlyPositive)
         {
             for (int i = 0; i < iLen; i++)
-                pfOutBuff[i] = rand() * fAmplitude / RAND_MAX;
+                pfOutBuff[i] = rand() * fAmplitude / static_cast<float>(RAND_MAX);
         }
         else
         {
             for (int i = 0; i < iLen; i++)
-                pfOutBuff[i] = rand() * 2 * fAmplitude / RAND_MAX - 1;
+                pfOutBuff[i] = rand() * 2 * fAmplitude / static_cast<float>(RAND_MAX) - 1;
         }
         return Error_t::kNoError;
     }

@@ -35,6 +35,8 @@ public:
 
         kNumWordLengths
     };
+    /*! \brief structure containing basic data specs of the file
+    */
     struct FileSpec_t
     {
         FileFormat_t    eFormat;            //!< file format (wav, aiff, raw)

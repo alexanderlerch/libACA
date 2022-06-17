@@ -147,7 +147,7 @@ public:
     }
 
     /*! sets the length of the filter
-    \param iLenFilter length of the moving average filter (the longer the more lowpass)
+    \param iFilterLength length of the moving average filter (the longer the more lowpass)
     \return int
     */
     Error_t setFilterParam(int iFilterLength = 64)

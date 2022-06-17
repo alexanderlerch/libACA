@@ -337,6 +337,9 @@ CFeatureFromBlockIf::CFeatureFromBlockIf(CFeatureIf::Feature_t eFeatureIdx, int 
 
 ///////////////////////////////////////////////////////////////////
 // features that need "memory" so can't easily work as static functions
+
+/*! \brief class for computation of the spectral flux
+*/
 class CFeatureSpectralFlux : public CFeatureFromBlockIf
 {
 public:
@@ -368,6 +371,8 @@ private:
     float *m_pfPrevSpec = 0; //!< memory of previous spectrum
 };
 
+/*! \brief class for computation of the mfccs
+*/
 class CFeatureSpectralMfccs : public CFeatureFromBlockIf
 {
 public:
@@ -519,6 +524,9 @@ private:
 
     float *m_pfMelSpec = 0; //!< mel-transformed spectrum
 };
+
+/*! \brief class for computation of the pitch chroma
+*/
 class CFeatureSpectralPitchChroma : public CFeatureFromBlockIf
 {
 public:
@@ -629,6 +637,8 @@ private:
     float **m_ppfH = 0; //!< pitch filter bank matrix
 };
 
+/*! \brief class for computation of the spectral rolloff
+*/
 class CFeatureSpectralRolloff : public CFeatureFromBlockIf
 {
 public:
@@ -699,6 +709,8 @@ private:
     float m_fThresh = 5e-4F;
 };
 
+/*! \brief class for computation of an acf coefficient
+*/
 class CFeatureTimeAcfCoeff : public CFeatureFromBlockIf
 {
 public:
@@ -734,6 +746,8 @@ private:
     int m_iEta = 19; //!< int this example implementation, we chose the 19th coefficient
 };
 
+/*! \brief class for computation of the maximum of the acf
+*/
 class CFeatureTimeMaxAcf : public CFeatureFromBlockIf
 {
 public:
@@ -816,6 +830,8 @@ private:
     float m_fMax = 2000.F; //!< upper frequency boundary
 };
 
+/*! \brief class for computation of the peak envelope
+*/
 class CFeatureTimePeakEnvelope : public CFeatureFromBlockIf
 {
 public:
@@ -890,6 +906,8 @@ private:
     float m_fFilterBuff = 0.F; //!< internal filter memory
 };
 
+/*! \brief class for computation of the rms
+*/
 class CFeatureTimeRms : public CFeatureFromBlockIf
 {
 public:

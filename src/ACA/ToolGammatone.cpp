@@ -261,7 +261,7 @@ void CGammatone::calcFilterCoeffs_(int iOrder)
 #endif // ACA_USE_DOUBLE
 
 
-/*! \brief class for computation of the filterbank outputs from a vector of audio data
+/*! \brief class for computation of the filterbank outputs from a file
 */
 class CGammaToneFbFromFile : public CGammaToneFbIf
 {
@@ -326,8 +326,8 @@ CGammaToneFbFromVector::CGammaToneFbFromVector(const float *pfAudio, long long i
     init_();
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-// block by block extraction
+/*! \brief class for computation of the filterbank outputs in real time block by block
+*/
 class CGammaToneFbRealTime : public CGammaToneFbIf
 {
 public:

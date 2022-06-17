@@ -5,6 +5,9 @@
 
 #include "ErrorDef.h"
 
+
+/*! \brief class holding the result/details of a Gaussian Mixture Model created with ::CGmm
+*/
 class CGmmResult
 {
     friend class CGmm;

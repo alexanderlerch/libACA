@@ -74,6 +74,8 @@ public:
     */
     Error_t compSpectrogram(float **ppfSpectrogram);
 
+    /*! \brief structure holding configuration specifics for the mel spectrogram computation
+    */
     struct MelSpectrogramConfig_t
     {
         int iNumMelBins = 0;            //!< number of frequency bins

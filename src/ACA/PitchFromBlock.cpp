@@ -343,7 +343,6 @@ private:
 
 };
 
-
 /*! \brief class for computation of the pitch via the amdf method from the time domain signal
 */
 class CPitchTimeAmdf : public CPitchFromBlockIf
@@ -401,6 +400,8 @@ private:
 
 };
 
+/*! \brief class for computation of the pitch via the zero crossings method from the time domain signal
+*/
 class CPitchTimeZeroCrossings : public CPitchFromBlockIf
 {
 public:
