@@ -50,7 +50,7 @@ Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, const float* const* 
     calcSVD(m_ppfU, m_ppfW, m_ppfV, m_ppfProcTmp, m_iNumFeatures, m_iNumFeatures);
 
     // extract eigenvalues
-    CMatrix::diag(pfEigenValues, m_ppfW, m_iNumFeatures, m_iNumFeatures);
+    CMatrix::getDiag(pfEigenValues, m_ppfW, m_iNumFeatures, m_iNumFeatures);
 
     // sort eigenvalues
     CVector::sort_I(pfEigenValues, piSortIndices, m_iNumFeatures, false);
