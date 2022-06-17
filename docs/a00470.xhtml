@@ -227,7 +227,7 @@ Protected Attributes</h2></td></tr>
 <p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00188">188</a> of file <a class="el" href="a00215_source.xhtml">FeatureFromBlock.h</a>.</p>
 <div class="fragment"><div class="line"><span class="lineno">  188</span>{};</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00984">create()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00986">create()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -384,13 +384,13 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="a00326.xhtml#a01d9b56bba6b925332816534765b7723">CFeatureSpectralFlux</a>, <a class="el" href="a00330.xhtml#aeccf9a57b512f1c7de90b4e260482f8a">CFeatureSpectralMfccs</a>, <a class="el" href="a00334.xhtml#ac659cc10bad8a91121cd14533270497f">CFeatureSpectralPitchChroma</a>, <a class="el" href="a00338.xhtml#ac52fdefa069114d576a8105182084648">CFeatureSpectralRolloff</a>, <a class="el" href="a00342.xhtml#a43b303cd9ae3ec40f0f8a552fa7be4fe">CFeatureSpectralTonalPowerRatio</a>, <a class="el" href="a00346.xhtml#af3ad1fd2ce06c1a9fe976c9b962eccfe">CFeatureTimeAcfCoeff</a>, <a class="el" href="a00350.xhtml#a9edc446602d49a15cf4c978289e2094a">CFeatureTimeMaxAcf</a>, <a class="el" href="a00354.xhtml#a804fcf1a03e0bb857bdbec4454803b96">CFeatureTimePeakEnvelope</a>, and <a class="el" href="a00358.xhtml#ab68abfdfc2f9477c81b9d43015ab9ebe">CFeatureTimeRms</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01061">1061</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1062</span>{</div>
-<div class="line"><span class="lineno"> 1063</span>    <span class="comment">// default: use one of the static functions (can be overridden)</span></div>
-<div class="line"><span class="lineno"> 1064</span>    *pfFeature = <a class="code hl_variable" href="a00470.xhtml#abcd848057f825a60c88ca74394fbee6d">m_DispatchMap</a>.at(<a class="code hl_variable" href="a00470.xhtml#a3cdaa6a50139576cf1aaa73f4b0d3b6f">m_eFeatureIdx</a>)(pfIn, <a class="code hl_variable" href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>, <a class="code hl_variable" href="a00470.xhtml#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
-<div class="line"><span class="lineno"> 1065</span> </div>
-<div class="line"><span class="lineno"> 1066</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno"> 1067</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01063">1063</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1064</span>{</div>
+<div class="line"><span class="lineno"> 1065</span>    <span class="comment">// default: use one of the static functions (can be overridden)</span></div>
+<div class="line"><span class="lineno"> 1066</span>    *pfFeature = <a class="code hl_variable" href="a00470.xhtml#abcd848057f825a60c88ca74394fbee6d">m_DispatchMap</a>.at(<a class="code hl_variable" href="a00470.xhtml#a3cdaa6a50139576cf1aaa73f4b0d3b6f">m_eFeatureIdx</a>)(pfIn, <a class="code hl_variable" href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>, <a class="code hl_variable" href="a00470.xhtml#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a>);</div>
+<div class="line"><span class="lineno"> 1067</span> </div>
+<div class="line"><span class="lineno"> 1068</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno"> 1069</span>}</div>
 <div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
 <div class="ttc" id="aa00470_xhtml_abcd848057f825a60c88ca74394fbee6d"><div class="ttname"><a href="a00470.xhtml#abcd848057f825a60c88ca74394fbee6d">CFeatureFromBlockIf::m_DispatchMap</a></div><div class="ttdeci">const std::map&lt; CFeatureIf::Feature_t, std::function&lt; float(const float *, int, float)&gt; &gt; m_DispatchMap</div><div class="ttdef"><b>Definition:</b> <a href="a00215_source.xhtml#l00200">FeatureFromBlock.h:201</a></div></div>
 </div><!-- fragment -->
@@ -1355,7 +1355,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00215_source.xhtml#l00184">m_kfFloatThresh</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00684">CFeatureSpectralTonalPowerRatio::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00686">CFeatureSpectralTonalPowerRatio::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
@@ -1433,7 +1433,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00155_source.xhtml#l00246">CVector::mulScalar()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00721">CFeatureTimeAcfCoeff::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00723">CFeatureTimeAcfCoeff::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1508,7 +1508,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00155_source.xhtml#l00444">CVector::getMax()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00846">CFeatureTimePeakEnvelope::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00848">CFeatureTimePeakEnvelope::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1584,7 +1584,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00155_source.xhtml#l00524">CVector::getStd()</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00925">CFeatureTimeRms::compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00927">CFeatureTimeRms::compFeature()</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -1802,77 +1802,77 @@ Here is the call graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00984">984</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  985</span>{</div>
-<div class="line"><span class="lineno">  986</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
-<div class="line"><span class="lineno">  987</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
-<div class="line"><span class="lineno">  988</span> </div>
-<div class="line"><span class="lineno">  989</span>    <span class="comment">// see if we can compute this feature directly or have a derive class</span></div>
-<div class="line"><span class="lineno">  990</span>    <span class="keywordflow">switch</span> (eFeatureIdx)</div>
-<div class="line"><span class="lineno">  991</span>    {</div>
-<div class="line"><span class="lineno">  992</span>    <span class="keywordflow">default</span>:</div>
-<div class="line"><span class="lineno">  993</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3af835ba1196c45135d5b2c14bd71765fe">CFeatureIf::kFeatureSpectralCentroid</a>:</div>
-<div class="line"><span class="lineno">  994</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a56e83df863061d4093933f57dc036fd0">CFeatureIf::kFeatureSpectralCrestFactor</a>:</div>
-<div class="line"><span class="lineno">  995</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a73840e0ec4ffc58aac491b51add4ebae">CFeatureIf::kFeatureSpectralDecrease</a>:</div>
-<div class="line"><span class="lineno">  996</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3abe659e5b25086d04ed78c40d7411b71d">CFeatureIf::kFeatureSpectralFlatness</a>:</div>
-<div class="line"><span class="lineno">  997</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3aa0fa60f5d1741a50b4e018ae35c53084">CFeatureIf::kFeatureSpectralKurtosis</a>:</div>
-<div class="line"><span class="lineno">  998</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3adc99879506ae42b73740c06987993d6b">CFeatureIf::kFeatureSpectralSkewness</a>:</div>
-<div class="line"><span class="lineno">  999</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3ab48b0af125a41eb628e2867f53248828">CFeatureIf::kFeatureSpectralSlope</a>:</div>
-<div class="line"><span class="lineno"> 1000</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a2e51955c0f5d4edf37bb8b0c0b7af6f5">CFeatureIf::kFeatureSpectralSpread</a>:</div>
-<div class="line"><span class="lineno"> 1001</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3aa7fcbc742fe20a02ec32aa842ef5d9ac">CFeatureIf::kFeatureTimeStd</a>:</div>
-<div class="line"><span class="lineno"> 1002</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a4358b37321d69645738c1494bb94b925">CFeatureIf::kFeatureTimeZeroCrossingRate</a>:</div>
-<div class="line"><span class="lineno"> 1003</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00470.xhtml#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1004</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1005</span> </div>
-<div class="line"><span class="lineno"> 1006</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3ababfc8ce9c5b272fd805b5e8a1fb5ff6">CFeatureIf::kFeatureSpectralFlux</a>:</div>
-<div class="line"><span class="lineno"> 1007</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00326.xhtml">CFeatureSpectralFlux</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1008</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1009</span> </div>
-<div class="line"><span class="lineno"> 1010</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a47c4f31d2c8d477f955da1281c8bda85">CFeatureIf::kFeatureSpectralMfccs</a>:</div>
-<div class="line"><span class="lineno"> 1011</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00330.xhtml">CFeatureSpectralMfccs</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1012</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1013</span> </div>
-<div class="line"><span class="lineno"> 1014</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a6cca75d6d116b2284ae19d2b75093198">CFeatureIf::kFeatureSpectralPitchChroma</a>:</div>
-<div class="line"><span class="lineno"> 1015</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00334.xhtml">CFeatureSpectralPitchChroma</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1016</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1017</span> </div>
-<div class="line"><span class="lineno"> 1018</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a0fe1e0e5caf8fd22c48abcde74028c8f">CFeatureIf::kFeatureSpectralRolloff</a>:</div>
-<div class="line"><span class="lineno"> 1019</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00338.xhtml">CFeatureSpectralRolloff</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1020</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1021</span> </div>
-<div class="line"><span class="lineno"> 1022</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3ab91719fe00fbcbbd34b7b5b0e7631dfd">CFeatureIf::kFeatureSpectralTonalPowerRatio</a>:</div>
-<div class="line"><span class="lineno"> 1023</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00342.xhtml">CFeatureSpectralTonalPowerRatio</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1024</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1025</span> </div>
-<div class="line"><span class="lineno"> 1026</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3ab6c784d49502082864d1ff9170564dcd">CFeatureIf::kFeatureTimeAcfCoeff</a>:</div>
-<div class="line"><span class="lineno"> 1027</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00346.xhtml">CFeatureTimeAcfCoeff</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1028</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1029</span> </div>
-<div class="line"><span class="lineno"> 1030</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a1fcad202a3cfc949aed26a5ff806a180">CFeatureIf::kFeatureTimeMaxAcf</a>:</div>
-<div class="line"><span class="lineno"> 1031</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00350.xhtml">CFeatureTimeMaxAcf</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1032</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1033</span> </div>
-<div class="line"><span class="lineno"> 1034</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a138118ff8341d41558cd0b32a85eafd3">CFeatureIf::kFeatureTimePeakEnvelope</a>:</div>
-<div class="line"><span class="lineno"> 1035</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00354.xhtml">CFeatureTimePeakEnvelope</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1036</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1037</span> </div>
-<div class="line"><span class="lineno"> 1038</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3aedb0c71ed62a6df3eb21f53cad93682a">CFeatureIf::kFeatureTimeRms</a>:</div>
-<div class="line"><span class="lineno"> 1039</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00358.xhtml">CFeatureTimeRms</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
-<div class="line"><span class="lineno"> 1040</span>        <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno"> 1041</span>    }</div>
-<div class="line"><span class="lineno"> 1042</span> </div>
-<div class="line"><span class="lineno"> 1043</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno"> 1044</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00986">986</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  987</span>{</div>
+<div class="line"><span class="lineno">  988</span>    <span class="keywordflow">if</span> (iDataLength &lt;= 0 || fSampleRate &lt;= 0)</div>
+<div class="line"><span class="lineno">  989</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a>;</div>
+<div class="line"><span class="lineno">  990</span> </div>
+<div class="line"><span class="lineno">  991</span>    <span class="comment">// see if we can compute this feature directly or have a derive class</span></div>
+<div class="line"><span class="lineno">  992</span>    <span class="keywordflow">switch</span> (eFeatureIdx)</div>
+<div class="line"><span class="lineno">  993</span>    {</div>
+<div class="line"><span class="lineno">  994</span>    <span class="keywordflow">default</span>:</div>
+<div class="line"><span class="lineno">  995</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3af835ba1196c45135d5b2c14bd71765fe">CFeatureIf::kFeatureSpectralCentroid</a>:</div>
+<div class="line"><span class="lineno">  996</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a56e83df863061d4093933f57dc036fd0">CFeatureIf::kFeatureSpectralCrestFactor</a>:</div>
+<div class="line"><span class="lineno">  997</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a73840e0ec4ffc58aac491b51add4ebae">CFeatureIf::kFeatureSpectralDecrease</a>:</div>
+<div class="line"><span class="lineno">  998</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3abe659e5b25086d04ed78c40d7411b71d">CFeatureIf::kFeatureSpectralFlatness</a>:</div>
+<div class="line"><span class="lineno">  999</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3aa0fa60f5d1741a50b4e018ae35c53084">CFeatureIf::kFeatureSpectralKurtosis</a>:</div>
+<div class="line"><span class="lineno"> 1000</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3adc99879506ae42b73740c06987993d6b">CFeatureIf::kFeatureSpectralSkewness</a>:</div>
+<div class="line"><span class="lineno"> 1001</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3ab48b0af125a41eb628e2867f53248828">CFeatureIf::kFeatureSpectralSlope</a>:</div>
+<div class="line"><span class="lineno"> 1002</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a2e51955c0f5d4edf37bb8b0c0b7af6f5">CFeatureIf::kFeatureSpectralSpread</a>:</div>
+<div class="line"><span class="lineno"> 1003</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3aa7fcbc742fe20a02ec32aa842ef5d9ac">CFeatureIf::kFeatureTimeStd</a>:</div>
+<div class="line"><span class="lineno"> 1004</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a4358b37321d69645738c1494bb94b925">CFeatureIf::kFeatureTimeZeroCrossingRate</a>:</div>
+<div class="line"><span class="lineno"> 1005</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_function" href="a00470.xhtml#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1006</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1007</span> </div>
+<div class="line"><span class="lineno"> 1008</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3ababfc8ce9c5b272fd805b5e8a1fb5ff6">CFeatureIf::kFeatureSpectralFlux</a>:</div>
+<div class="line"><span class="lineno"> 1009</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00326.xhtml">CFeatureSpectralFlux</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1010</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1011</span> </div>
+<div class="line"><span class="lineno"> 1012</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a47c4f31d2c8d477f955da1281c8bda85">CFeatureIf::kFeatureSpectralMfccs</a>:</div>
+<div class="line"><span class="lineno"> 1013</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00330.xhtml">CFeatureSpectralMfccs</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1014</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1015</span> </div>
+<div class="line"><span class="lineno"> 1016</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a6cca75d6d116b2284ae19d2b75093198">CFeatureIf::kFeatureSpectralPitchChroma</a>:</div>
+<div class="line"><span class="lineno"> 1017</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00334.xhtml">CFeatureSpectralPitchChroma</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1018</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1019</span> </div>
+<div class="line"><span class="lineno"> 1020</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a0fe1e0e5caf8fd22c48abcde74028c8f">CFeatureIf::kFeatureSpectralRolloff</a>:</div>
+<div class="line"><span class="lineno"> 1021</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00338.xhtml">CFeatureSpectralRolloff</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1022</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1023</span> </div>
+<div class="line"><span class="lineno"> 1024</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3ab91719fe00fbcbbd34b7b5b0e7631dfd">CFeatureIf::kFeatureSpectralTonalPowerRatio</a>:</div>
+<div class="line"><span class="lineno"> 1025</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00342.xhtml">CFeatureSpectralTonalPowerRatio</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1026</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1027</span> </div>
+<div class="line"><span class="lineno"> 1028</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3ab6c784d49502082864d1ff9170564dcd">CFeatureIf::kFeatureTimeAcfCoeff</a>:</div>
+<div class="line"><span class="lineno"> 1029</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00346.xhtml">CFeatureTimeAcfCoeff</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1030</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1031</span> </div>
+<div class="line"><span class="lineno"> 1032</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a1fcad202a3cfc949aed26a5ff806a180">CFeatureIf::kFeatureTimeMaxAcf</a>:</div>
+<div class="line"><span class="lineno"> 1033</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00350.xhtml">CFeatureTimeMaxAcf</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1034</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1035</span> </div>
+<div class="line"><span class="lineno"> 1036</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a138118ff8341d41558cd0b32a85eafd3">CFeatureIf::kFeatureTimePeakEnvelope</a>:</div>
+<div class="line"><span class="lineno"> 1037</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00354.xhtml">CFeatureTimePeakEnvelope</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1038</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1039</span> </div>
+<div class="line"><span class="lineno"> 1040</span>    <span class="keywordflow">case</span> <a class="code hl_enumvalue" href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3aedb0c71ed62a6df3eb21f53cad93682a">CFeatureIf::kFeatureTimeRms</a>:</div>
+<div class="line"><span class="lineno"> 1041</span>        pCInstance = <span class="keyword">new</span> <a class="code hl_class" href="a00358.xhtml">CFeatureTimeRms</a>(eFeatureIdx, iDataLength, fSampleRate);</div>
+<div class="line"><span class="lineno"> 1042</span>        <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno"> 1043</span>    }</div>
+<div class="line"><span class="lineno"> 1044</span> </div>
+<div class="line"><span class="lineno"> 1045</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno"> 1046</span>}</div>
 <div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fa819a1ca163e9ca86f941b0b072a9a248">Error_t::kFunctionInvalidArgsError</a></div><div class="ttdeci">@ kFunctionInvalidArgsError</div></div>
 <div class="ttc" id="aa00326_xhtml"><div class="ttname"><a href="a00326.xhtml">CFeatureSpectralFlux</a></div><div class="ttdoc">class for computation of the spectral flux</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00343">FeatureFromBlock.cpp:344</a></div></div>
 <div class="ttc" id="aa00330_xhtml"><div class="ttname"><a href="a00330.xhtml">CFeatureSpectralMfccs</a></div><div class="ttdoc">class for computation of the mfccs</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00376">FeatureFromBlock.cpp:377</a></div></div>
 <div class="ttc" id="aa00334_xhtml"><div class="ttname"><a href="a00334.xhtml">CFeatureSpectralPitchChroma</a></div><div class="ttdoc">class for computation of the pitch chroma</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00530">FeatureFromBlock.cpp:531</a></div></div>
 <div class="ttc" id="aa00338_xhtml"><div class="ttname"><a href="a00338.xhtml">CFeatureSpectralRolloff</a></div><div class="ttdoc">class for computation of the spectral rolloff</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00642">FeatureFromBlock.cpp:643</a></div></div>
-<div class="ttc" id="aa00342_xhtml"><div class="ttname"><a href="a00342.xhtml">CFeatureSpectralTonalPowerRatio</a></div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00677">FeatureFromBlock.cpp:678</a></div></div>
-<div class="ttc" id="aa00346_xhtml"><div class="ttname"><a href="a00346.xhtml">CFeatureTimeAcfCoeff</a></div><div class="ttdoc">class for computation of an acf coefficient</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00714">FeatureFromBlock.cpp:715</a></div></div>
-<div class="ttc" id="aa00350_xhtml"><div class="ttname"><a href="a00350.xhtml">CFeatureTimeMaxAcf</a></div><div class="ttdoc">class for computation of the maximum of the acf</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00751">FeatureFromBlock.cpp:752</a></div></div>
-<div class="ttc" id="aa00354_xhtml"><div class="ttname"><a href="a00354.xhtml">CFeatureTimePeakEnvelope</a></div><div class="ttdoc">class for computation of the peak envelope</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00835">FeatureFromBlock.cpp:836</a></div></div>
-<div class="ttc" id="aa00358_xhtml"><div class="ttname"><a href="a00358.xhtml">CFeatureTimeRms</a></div><div class="ttdoc">class for computation of the rms</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00911">FeatureFromBlock.cpp:912</a></div></div>
+<div class="ttc" id="aa00342_xhtml"><div class="ttname"><a href="a00342.xhtml">CFeatureSpectralTonalPowerRatio</a></div><div class="ttdoc">class for computation of the tonal power ratio</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00679">FeatureFromBlock.cpp:680</a></div></div>
+<div class="ttc" id="aa00346_xhtml"><div class="ttname"><a href="a00346.xhtml">CFeatureTimeAcfCoeff</a></div><div class="ttdoc">class for computation of an acf coefficient</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00716">FeatureFromBlock.cpp:717</a></div></div>
+<div class="ttc" id="aa00350_xhtml"><div class="ttname"><a href="a00350.xhtml">CFeatureTimeMaxAcf</a></div><div class="ttdoc">class for computation of the maximum of the acf</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00753">FeatureFromBlock.cpp:754</a></div></div>
+<div class="ttc" id="aa00354_xhtml"><div class="ttname"><a href="a00354.xhtml">CFeatureTimePeakEnvelope</a></div><div class="ttdoc">class for computation of the peak envelope</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00837">FeatureFromBlock.cpp:838</a></div></div>
+<div class="ttc" id="aa00358_xhtml"><div class="ttname"><a href="a00358.xhtml">CFeatureTimeRms</a></div><div class="ttdoc">class for computation of the rms</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00913">FeatureFromBlock.cpp:914</a></div></div>
 <div class="ttc" id="aa00466_xhtml_a47ca14941c604beb42d60164b3e5e6b3a0fe1e0e5caf8fd22c48abcde74028c8f"><div class="ttname"><a href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a0fe1e0e5caf8fd22c48abcde74028c8f">CFeatureIf::kFeatureSpectralRolloff</a></div><div class="ttdeci">@ kFeatureSpectralRolloff</div><div class="ttdef"><b>Definition:</b> <a href="a00242_source.xhtml#l00034">Feature.h:34</a></div></div>
 <div class="ttc" id="aa00466_xhtml_a47ca14941c604beb42d60164b3e5e6b3a138118ff8341d41558cd0b32a85eafd3"><div class="ttname"><a href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a138118ff8341d41558cd0b32a85eafd3">CFeatureIf::kFeatureTimePeakEnvelope</a></div><div class="ttdeci">@ kFeatureTimePeakEnvelope</div><div class="ttdef"><b>Definition:</b> <a href="a00242_source.xhtml#l00042">Feature.h:42</a></div></div>
 <div class="ttc" id="aa00466_xhtml_a47ca14941c604beb42d60164b3e5e6b3a1fcad202a3cfc949aed26a5ff806a180"><div class="ttname"><a href="a00466.xhtml#a47ca14941c604beb42d60164b3e5e6b3a1fcad202a3cfc949aed26a5ff806a180">CFeatureIf::kFeatureTimeMaxAcf</a></div><div class="ttdeci">@ kFeatureTimeMaxAcf</div><div class="ttdef"><b>Definition:</b> <a href="a00242_source.xhtml#l00041">Feature.h:41</a></div></div>
@@ -1943,14 +1943,14 @@ Here is the caller graph for this function:</div>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Error_t </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01046">1046</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1047</span>{</div>
-<div class="line"><span class="lineno"> 1048</span>    <span class="keyword">delete</span> pCInstance;</div>
-<div class="line"><span class="lineno"> 1049</span> </div>
-<div class="line"><span class="lineno"> 1050</span>    pCInstance = 0;</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01048">1048</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1049</span>{</div>
+<div class="line"><span class="lineno"> 1050</span>    <span class="keyword">delete</span> pCInstance;</div>
 <div class="line"><span class="lineno"> 1051</span> </div>
-<div class="line"><span class="lineno"> 1052</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno"> 1053</span>}</div>
+<div class="line"><span class="lineno"> 1052</span>    pCInstance = 0;</div>
+<div class="line"><span class="lineno"> 1053</span> </div>
+<div class="line"><span class="lineno"> 1054</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno"> 1055</span>}</div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>.</p>
 
@@ -1990,11 +1990,11 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="a00330.xhtml#a8cf08736ea318aa731360a217eba5340">CFeatureSpectralMfccs</a>, <a class="el" href="a00334.xhtml#a3da23c0c38b2876adb5e302419817592">CFeatureSpectralPitchChroma</a>, <a class="el" href="a00354.xhtml#a55891d1e487afbe095399d19ab078469">CFeatureTimePeakEnvelope</a>, and <a class="el" href="a00358.xhtml#a69b3e227ffcbca082fbe0aac97a8e267">CFeatureTimeRms</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01055">1055</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1056</span>{</div>
-<div class="line"><span class="lineno"> 1057</span>    <span class="comment">// default: 1 value per block (can be overridden)</span></div>
-<div class="line"><span class="lineno"> 1058</span>    <span class="keywordflow">return</span> 1;</div>
-<div class="line"><span class="lineno"> 1059</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01057">1057</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1058</span>{</div>
+<div class="line"><span class="lineno"> 1059</span>    <span class="comment">// default: 1 value per block (can be overridden)</span></div>
+<div class="line"><span class="lineno"> 1060</span>    <span class="keywordflow">return</span> 1;</div>
+<div class="line"><span class="lineno"> 1061</span>}</div>
 </div><!-- fragment -->
 <p class="reference">Referenced by <a class="el" href="a00053_source.xhtml#l00212">CFeatureIf::compFeatureNDim()</a>, and <a class="el" href="a00053_source.xhtml#l00137">CFeatureIf::getFeatureDimensions()</a>.</p>
 <div class="dynheader">
@@ -2073,11 +2073,11 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="a00330.xhtml#ab3adc3df302d75ed8be5918eb18a52ab">CFeatureSpectralMfccs</a>, <a class="el" href="a00334.xhtml#acc84644f16e3d4518062e2843ab896e5">CFeatureSpectralPitchChroma</a>, <a class="el" href="a00338.xhtml#aace9db3eee49887a8fae69c07475fe19">CFeatureSpectralRolloff</a>, <a class="el" href="a00342.xhtml#abbf784ac24f69555002f2bae7fec93bf">CFeatureSpectralTonalPowerRatio</a>, <a class="el" href="a00346.xhtml#a799b62c99e4e4ab09aae77e73f85a1af">CFeatureTimeAcfCoeff</a>, <a class="el" href="a00350.xhtml#a03964245e9d7da47e512283728da4cd4">CFeatureTimeMaxAcf</a>, and <a class="el" href="a00358.xhtml#a0ac27ca50b3a6e88b08536fdcdd2b466">CFeatureTimeRms</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01069">1069</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1070</span>{</div>
-<div class="line"><span class="lineno"> 1071</span>    <span class="comment">// default: feature doesn&#39;t need any additional parameter (can be overridden)</span></div>
-<div class="line"><span class="lineno"> 1072</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
-<div class="line"><span class="lineno"> 1073</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01071">1071</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1072</span>{</div>
+<div class="line"><span class="lineno"> 1073</span>    <span class="comment">// default: feature doesn&#39;t need any additional parameter (can be overridden)</span></div>
+<div class="line"><span class="lineno"> 1074</span>    <span class="keywordflow">return</span> <span class="keyword">false</span>;</div>
+<div class="line"><span class="lineno"> 1075</span>}</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -2140,11 +2140,11 @@ Here is the caller graph for this function:</div>
 
 <p>Reimplemented in <a class="el" href="a00330.xhtml#a6ffd2585db71bf5b44aedc15223525e6">CFeatureSpectralMfccs</a>, <a class="el" href="a00334.xhtml#a6b4b3032eb9b09d9f64811613448c994">CFeatureSpectralPitchChroma</a>, <a class="el" href="a00338.xhtml#ae0c52ddeb125740c60dd33c003e6b257">CFeatureSpectralRolloff</a>, <a class="el" href="a00342.xhtml#a0f92352db0347a6295d817ddc2a5d5db">CFeatureSpectralTonalPowerRatio</a>, <a class="el" href="a00346.xhtml#a6c123f32dc4ddf5b63ff41d03ea574a2">CFeatureTimeAcfCoeff</a>, <a class="el" href="a00350.xhtml#ad08d755145fa0227b7e489000703ee30">CFeatureTimeMaxAcf</a>, and <a class="el" href="a00358.xhtml#af460352621ac7a18676d0a361c1df51e">CFeatureTimeRms</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01075">1075</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno"> 1076</span>{</div>
-<div class="line"><span class="lineno"> 1077</span>    <span class="comment">// default: setting a parameter that doesn&#39;t exist (can be overridden)</span></div>
-<div class="line"><span class="lineno"> 1078</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
-<div class="line"><span class="lineno"> 1079</span>}</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l01077">1077</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno"> 1078</span>{</div>
+<div class="line"><span class="lineno"> 1079</span>    <span class="comment">// default: setting a parameter that doesn&#39;t exist (can be overridden)</span></div>
+<div class="line"><span class="lineno"> 1080</span>    <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a>;</div>
+<div class="line"><span class="lineno"> 1081</span>}</div>
 <div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">Error_t::kFunctionIllegalCallError</a></div><div class="ttdeci">@ kFunctionIllegalCallError</div></div>
 </div><!-- fragment -->
 <p class="reference">References <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fad7652bf47cff43c21f12cb7df4ca66ec">kFunctionIllegalCallError</a>.</p>
@@ -2194,7 +2194,7 @@ Here is the caller graph for this function:</div>
 </div><!-- fragment -->
 <p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00200">200</a> of file <a class="el" href="a00215_source.xhtml">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l01061">compFeature()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l01063">compFeature()</a>.</p>
 
 </div>
 </div>
@@ -2222,7 +2222,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00194">194</a> of file <a class="el" href="a00215_source.xhtml">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l01061">compFeature()</a>, and <a class="el" href="a00215_source.xhtml#l00041">getFeatureIdx()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l01063">compFeature()</a>, and <a class="el" href="a00215_source.xhtml#l00041">getFeatureIdx()</a>.</p>
 
 </div>
 </div>
@@ -2251,7 +2251,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00197">197</a> of file <a class="el" href="a00215_source.xhtml">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l01061">compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00357">CFeatureSpectralFlux::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00649">CFeatureSpectralRolloff::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00684">CFeatureSpectralTonalPowerRatio::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00721">CFeatureTimeAcfCoeff::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00770">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00846">CFeatureTimePeakEnvelope::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00925">CFeatureTimeRms::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00445">CFeatureSpectralMfccs::genMfccFilters_()</a>, <a class="el" href="a00038_source.xhtml#l00596">CFeatureSpectralPitchChroma::genPcFilters_()</a>, and <a class="el" href="a00038_source.xhtml#l00812">CFeatureTimeMaxAcf::setAdditionalParam()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l01063">compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00357">CFeatureSpectralFlux::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00649">CFeatureSpectralRolloff::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00686">CFeatureSpectralTonalPowerRatio::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00723">CFeatureTimeAcfCoeff::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00772">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00848">CFeatureTimePeakEnvelope::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00927">CFeatureTimeRms::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00445">CFeatureSpectralMfccs::genMfccFilters_()</a>, <a class="el" href="a00038_source.xhtml#l00596">CFeatureSpectralPitchChroma::genPcFilters_()</a>, and <a class="el" href="a00038_source.xhtml#l00814">CFeatureTimeMaxAcf::setAdditionalParam()</a>.</p>
 
 </div>
 </div>
@@ -2279,7 +2279,7 @@ Here is the caller graph for this function:</div>
 
 <p class="definition">Definition at line <a class="el" href="a00215_source.xhtml#l00196">196</a> of file <a class="el" href="a00215_source.xhtml">FeatureFromBlock.h</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00346">CFeatureSpectralFlux::CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.xhtml#l01061">compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00357">CFeatureSpectralFlux::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00402">CFeatureSpectralMfccs::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00546">CFeatureSpectralPitchChroma::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00649">CFeatureSpectralRolloff::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00684">CFeatureSpectralTonalPowerRatio::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00721">CFeatureTimeAcfCoeff::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00770">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00846">CFeatureTimePeakEnvelope::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00925">CFeatureTimeRms::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00445">CFeatureSpectralMfccs::genMfccFilters_()</a>, and <a class="el" href="a00038_source.xhtml#l00596">CFeatureSpectralPitchChroma::genPcFilters_()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00346">CFeatureSpectralFlux::CFeatureSpectralFlux()</a>, <a class="el" href="a00038_source.xhtml#l01063">compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00357">CFeatureSpectralFlux::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00402">CFeatureSpectralMfccs::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00546">CFeatureSpectralPitchChroma::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00649">CFeatureSpectralRolloff::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00686">CFeatureSpectralTonalPowerRatio::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00723">CFeatureTimeAcfCoeff::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00772">CFeatureTimeMaxAcf::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00848">CFeatureTimePeakEnvelope::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00927">CFeatureTimeRms::compFeature()</a>, <a class="el" href="a00038_source.xhtml#l00445">CFeatureSpectralMfccs::genMfccFilters_()</a>, and <a class="el" href="a00038_source.xhtml#l00596">CFeatureSpectralPitchChroma::genPcFilters_()</a>.</p>
 
 </div>
 </div>
@@ -2321,7 +2321,7 @@ Here is the caller graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00470.xhtml">CFeatureFromBlockIf</a></li>
-    <li class="footer">Generated on Fri Jun 17 2022 19:19:11 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Fri Jun 17 2022 19:37:36 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>

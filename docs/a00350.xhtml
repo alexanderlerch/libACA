@@ -223,7 +223,7 @@ Additional Inherited Members</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p >class for computation of the maximum of the acf </p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00751">751</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00753">753</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a541f40820696e37cc302fc780b8313ee" name="a541f40820696e37cc302fc780b8313ee"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a541f40820696e37cc302fc780b8313ee">&#9670;&nbsp;</a></span>CFeatureTimeMaxAcf() <span class="overload">[1/3]</span></h2>
@@ -265,23 +265,23 @@ Additional Inherited Members</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00754">754</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  754</span>                                                                                            : <a class="code hl_function" href="a00470.xhtml#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate)</div>
-<div class="line"><span class="lineno">  755</span>    {</div>
-<div class="line"><span class="lineno">  756</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00546.xhtml">CCcf</a>();</div>
-<div class="line"><span class="lineno">  757</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00546.xhtml#af683b1b5e37ca2039424af02f4bfb3c5">init</a>(iDataLength);</div>
-<div class="line"><span class="lineno">  758</span> </div>
-<div class="line"><span class="lineno">  759</span>        <a class="code hl_function" href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>, <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00546.xhtml#afe56cc1681b982d7d31b0830b3471b61">getCcfLength</a>(<span class="keyword">true</span>));</div>
-<div class="line"><span class="lineno">  760</span>    };</div>
-<div class="ttc" id="aa00350_xhtml_a9fb60b727600dc5d28d874349adb5dc0"><div class="ttname"><a href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">CFeatureTimeMaxAcf::m_pCCcf</a></div><div class="ttdeci">CCcf * m_pCCcf</div><div class="ttdoc">correlation instance</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00827">FeatureFromBlock.cpp:827</a></div></div>
-<div class="ttc" id="aa00350_xhtml_ac15ec6a2d0fdf91df801d6befd4117db"><div class="ttname"><a href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">CFeatureTimeMaxAcf::m_pfAcf</a></div><div class="ttdeci">float * m_pfAcf</div><div class="ttdoc">acf result</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00828">FeatureFromBlock.cpp:828</a></div></div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00756">756</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  756</span>                                                                                            : <a class="code hl_function" href="a00470.xhtml#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf</a>(eFeatureIdx, iDataLength, fSampleRate)</div>
+<div class="line"><span class="lineno">  757</span>    {</div>
+<div class="line"><span class="lineno">  758</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a> = <span class="keyword">new</span> <a class="code hl_class" href="a00546.xhtml">CCcf</a>();</div>
+<div class="line"><span class="lineno">  759</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00546.xhtml#af683b1b5e37ca2039424af02f4bfb3c5">init</a>(iDataLength);</div>
+<div class="line"><span class="lineno">  760</span> </div>
+<div class="line"><span class="lineno">  761</span>        <a class="code hl_function" href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a>(<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>, <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00546.xhtml#afe56cc1681b982d7d31b0830b3471b61">getCcfLength</a>(<span class="keyword">true</span>));</div>
+<div class="line"><span class="lineno">  762</span>    };</div>
+<div class="ttc" id="aa00350_xhtml_a9fb60b727600dc5d28d874349adb5dc0"><div class="ttname"><a href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">CFeatureTimeMaxAcf::m_pCCcf</a></div><div class="ttdeci">CCcf * m_pCCcf</div><div class="ttdoc">correlation instance</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00829">FeatureFromBlock.cpp:829</a></div></div>
+<div class="ttc" id="aa00350_xhtml_ac15ec6a2d0fdf91df801d6befd4117db"><div class="ttname"><a href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">CFeatureTimeMaxAcf::m_pfAcf</a></div><div class="ttdeci">float * m_pfAcf</div><div class="ttdoc">acf result</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00830">FeatureFromBlock.cpp:830</a></div></div>
 <div class="ttc" id="aa00470_xhtml_a483bca508e2817799a3173a6180d245e"><div class="ttname"><a href="a00470.xhtml#a483bca508e2817799a3173a6180d245e">CFeatureFromBlockIf::CFeatureFromBlockIf</a></div><div class="ttdeci">CFeatureFromBlockIf()</div><div class="ttdef"><b>Definition:</b> <a href="a00215_source.xhtml#l00188">FeatureFromBlock.h:188</a></div></div>
 <div class="ttc" id="aa00502_xhtml_abaadac98b1cad18b7b568852bc951696"><div class="ttname"><a href="a00502.xhtml#abaadac98b1cad18b7b568852bc951696">CVector::alloc</a></div><div class="ttdeci">static void alloc(T *&amp;ptVec, long long iLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00025">Vector.h:25</a></div></div>
 <div class="ttc" id="aa00546_xhtml"><div class="ttname"><a href="a00546.xhtml">CCcf</a></div><div class="ttdoc">computation of correlation (freq domain implementation)</div><div class="ttdef"><b>Definition:</b> <a href="a00200_source.xhtml#l00013">ToolCcf.h:14</a></div></div>
 <div class="ttc" id="aa00546_xhtml_af683b1b5e37ca2039424af02f4bfb3c5"><div class="ttname"><a href="a00546.xhtml#af683b1b5e37ca2039424af02f4bfb3c5">CCcf::init</a></div><div class="ttdeci">Error_t init(int iBlockLength)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.xhtml#l00020">ToolCcf.cpp:20</a></div></div>
 <div class="ttc" id="aa00546_xhtml_afe56cc1681b982d7d31b0830b3471b61"><div class="ttname"><a href="a00546.xhtml#afe56cc1681b982d7d31b0830b3471b61">CCcf::getCcfLength</a></div><div class="ttdeci">int getCcfLength(bool bisAcf=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.xhtml#l00103">ToolCcf.cpp:103</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00155_source.xhtml#l00025">CVector::alloc()</a>, <a class="el" href="a00086_source.xhtml#l00103">CCcf::getCcfLength()</a>, <a class="el" href="a00086_source.xhtml#l00020">CCcf::init()</a>, <a class="el" href="a00038_source.xhtml#l00827">m_pCCcf</a>, and <a class="el" href="a00038_source.xhtml#l00828">m_pfAcf</a>.</p>
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00025">CVector::alloc()</a>, <a class="el" href="a00086_source.xhtml#l00103">CCcf::getCcfLength()</a>, <a class="el" href="a00086_source.xhtml#l00020">CCcf::init()</a>, <a class="el" href="a00038_source.xhtml#l00829">m_pCCcf</a>, and <a class="el" href="a00038_source.xhtml#l00830">m_pfAcf</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -314,16 +314,16 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00762">762</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  763</span>    {</div>
-<div class="line"><span class="lineno">  764</span>        <a class="code hl_function" href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>);</div>
-<div class="line"><span class="lineno">  765</span> </div>
-<div class="line"><span class="lineno">  766</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>;</div>
-<div class="line"><span class="lineno">  767</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a> = 0;</div>
-<div class="line"><span class="lineno">  768</span>    };</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00764">764</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  765</span>    {</div>
+<div class="line"><span class="lineno">  766</span>        <a class="code hl_function" href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a>(<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>);</div>
+<div class="line"><span class="lineno">  767</span> </div>
+<div class="line"><span class="lineno">  768</span>        <span class="keyword">delete</span> <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>;</div>
+<div class="line"><span class="lineno">  769</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a> = 0;</div>
+<div class="line"><span class="lineno">  770</span>    };</div>
 <div class="ttc" id="aa00502_xhtml_aa86bdb0c663d4d52f2765793756f8737"><div class="ttname"><a href="a00502.xhtml#aa86bdb0c663d4d52f2765793756f8737">CVector::free</a></div><div class="ttdeci">static void free(T *&amp;ptVec)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00057">Vector.h:57</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00155_source.xhtml#l00057">CVector::free()</a>, <a class="el" href="a00038_source.xhtml#l00827">m_pCCcf</a>, and <a class="el" href="a00038_source.xhtml#l00828">m_pfAcf</a>.</p>
+<p class="reference">References <a class="el" href="a00155_source.xhtml#l00057">CVector::free()</a>, <a class="el" href="a00038_source.xhtml#l00829">m_pCCcf</a>, and <a class="el" href="a00038_source.xhtml#l00830">m_pfAcf</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -356,8 +356,8 @@ Here is the call graph for this function:</div>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00823">823</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  823</span>{};</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00825">825</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  825</span>{};</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -434,51 +434,51 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00470.xhtml#a7eea1378e1f161f7a69c4723405efa8a">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00770">770</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  771</span>    {</div>
-<div class="line"><span class="lineno">  772</span>        <span class="keywordtype">float</span> fMinThresh = 0.35F;</div>
-<div class="line"><span class="lineno">  773</span> </div>
-<div class="line"><span class="lineno">  774</span>        <span class="keywordtype">int</span> iEta = 0,</div>
-<div class="line"><span class="lineno">  775</span>            iEtaMin = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00470.xhtml#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a> / <a class="code hl_variable" href="a00350.xhtml#aeb05f443644d9e5db8bfd9a18af380a8">m_fMax</a>);</div>
-<div class="line"><span class="lineno">  776</span> </div>
-<div class="line"><span class="lineno">  777</span>        <span class="comment">// compute ACF</span></div>
-<div class="line"><span class="lineno">  778</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00546.xhtml#a63f5ef7a9ef502fb8dd393824265d967">compCcf</a>(pfIn, pfIn, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  779</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00546.xhtml#a02c0e23cbcecab5af2fb20a25160321a">getCcf</a>(<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>, <span class="keyword">true</span>);</div>
-<div class="line"><span class="lineno">  780</span> </div>
-<div class="line"><span class="lineno">  781</span>        <span class="comment">// avoid main lobe</span></div>
-<div class="line"><span class="lineno">  782</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>[iEta] &gt; fMinThresh)</div>
-<div class="line"><span class="lineno">  783</span>            iEta++;</div>
-<div class="line"><span class="lineno">  784</span>        <span class="keywordflow">if</span> (iEtaMin &lt; iEta)</div>
-<div class="line"><span class="lineno">  785</span>            iEtaMin = iEta;</div>
-<div class="line"><span class="lineno">  786</span> </div>
-<div class="line"><span class="lineno">  787</span>        <span class="comment">// only look after first minimum</span></div>
-<div class="line"><span class="lineno">  788</span>        iEta = 0;</div>
-<div class="line"><span class="lineno">  789</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>[iEta] &gt; <a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>[iEta + 1])</div>
-<div class="line"><span class="lineno">  790</span>        {</div>
-<div class="line"><span class="lineno">  791</span>            iEta++;</div>
-<div class="line"><span class="lineno">  792</span>            <span class="keywordflow">if</span> (iEta &gt;= <a class="code hl_variable" href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>-1)</div>
-<div class="line"><span class="lineno">  793</span>                <span class="keywordflow">break</span>;</div>
-<div class="line"><span class="lineno">  794</span>        }</div>
-<div class="line"><span class="lineno">  795</span> </div>
-<div class="line"><span class="lineno">  796</span>        <span class="keywordflow">if</span> (iEta &gt;= <a class="code hl_variable" href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>-1)</div>
-<div class="line"><span class="lineno">  797</span>            iEtaMin = 0;</div>
-<div class="line"><span class="lineno">  798</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iEtaMin &lt; iEta)</div>
-<div class="line"><span class="lineno">  799</span>            iEtaMin = iEta;</div>
-<div class="line"><span class="lineno">  800</span> </div>
-<div class="line"><span class="lineno">  801</span>        <span class="comment">// get the maximum given the constraints above</span></div>
-<div class="line"><span class="lineno">  802</span>        *pfFeature = <a class="code hl_function" href="a00502.xhtml#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a>(&amp;<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>[iEtaMin], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>) - iEtaMin);</div>
-<div class="line"><span class="lineno">  803</span> </div>
-<div class="line"><span class="lineno">  804</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  805</span>    };</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00772">772</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  773</span>    {</div>
+<div class="line"><span class="lineno">  774</span>        <span class="keywordtype">float</span> fMinThresh = 0.35F;</div>
+<div class="line"><span class="lineno">  775</span> </div>
+<div class="line"><span class="lineno">  776</span>        <span class="keywordtype">int</span> iEta = 0,</div>
+<div class="line"><span class="lineno">  777</span>            iEtaMin = <span class="keyword">static_cast&lt;</span><span class="keywordtype">int</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00470.xhtml#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a> / <a class="code hl_variable" href="a00350.xhtml#aeb05f443644d9e5db8bfd9a18af380a8">m_fMax</a>);</div>
+<div class="line"><span class="lineno">  778</span> </div>
+<div class="line"><span class="lineno">  779</span>        <span class="comment">// compute ACF</span></div>
+<div class="line"><span class="lineno">  780</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00546.xhtml#a63f5ef7a9ef502fb8dd393824265d967">compCcf</a>(pfIn, pfIn, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  781</span>        <a class="code hl_variable" href="a00350.xhtml#a9fb60b727600dc5d28d874349adb5dc0">m_pCCcf</a>-&gt;<a class="code hl_function" href="a00546.xhtml#a02c0e23cbcecab5af2fb20a25160321a">getCcf</a>(<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>, <span class="keyword">true</span>);</div>
+<div class="line"><span class="lineno">  782</span> </div>
+<div class="line"><span class="lineno">  783</span>        <span class="comment">// avoid main lobe</span></div>
+<div class="line"><span class="lineno">  784</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>[iEta] &gt; fMinThresh)</div>
+<div class="line"><span class="lineno">  785</span>            iEta++;</div>
+<div class="line"><span class="lineno">  786</span>        <span class="keywordflow">if</span> (iEtaMin &lt; iEta)</div>
+<div class="line"><span class="lineno">  787</span>            iEtaMin = iEta;</div>
+<div class="line"><span class="lineno">  788</span> </div>
+<div class="line"><span class="lineno">  789</span>        <span class="comment">// only look after first minimum</span></div>
+<div class="line"><span class="lineno">  790</span>        iEta = 0;</div>
+<div class="line"><span class="lineno">  791</span>        <span class="keywordflow">while</span> (<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>[iEta] &gt; <a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>[iEta + 1])</div>
+<div class="line"><span class="lineno">  792</span>        {</div>
+<div class="line"><span class="lineno">  793</span>            iEta++;</div>
+<div class="line"><span class="lineno">  794</span>            <span class="keywordflow">if</span> (iEta &gt;= <a class="code hl_variable" href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>-1)</div>
+<div class="line"><span class="lineno">  795</span>                <span class="keywordflow">break</span>;</div>
+<div class="line"><span class="lineno">  796</span>        }</div>
+<div class="line"><span class="lineno">  797</span> </div>
+<div class="line"><span class="lineno">  798</span>        <span class="keywordflow">if</span> (iEta &gt;= <a class="code hl_variable" href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>-1)</div>
+<div class="line"><span class="lineno">  799</span>            iEtaMin = 0;</div>
+<div class="line"><span class="lineno">  800</span>        <span class="keywordflow">else</span> <span class="keywordflow">if</span> (iEtaMin &lt; iEta)</div>
+<div class="line"><span class="lineno">  801</span>            iEtaMin = iEta;</div>
+<div class="line"><span class="lineno">  802</span> </div>
+<div class="line"><span class="lineno">  803</span>        <span class="comment">// get the maximum given the constraints above</span></div>
+<div class="line"><span class="lineno">  804</span>        *pfFeature = <a class="code hl_function" href="a00502.xhtml#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a>(&amp;<a class="code hl_variable" href="a00350.xhtml#ac15ec6a2d0fdf91df801d6befd4117db">m_pfAcf</a>[iEtaMin], <span class="keyword">static_cast&lt;</span><span class="keywordtype">long</span> <span class="keywordtype">long</span><span class="keyword">&gt;</span>(<a class="code hl_variable" href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">m_iDataLength</a>) - iEtaMin);</div>
+<div class="line"><span class="lineno">  805</span> </div>
+<div class="line"><span class="lineno">  806</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  807</span>    };</div>
 <div class="ttc" id="aa00224_xhtml_a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b"><div class="ttname"><a href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a></div><div class="ttdeci">@ kNoError</div></div>
-<div class="ttc" id="aa00350_xhtml_aeb05f443644d9e5db8bfd9a18af380a8"><div class="ttname"><a href="a00350.xhtml#aeb05f443644d9e5db8bfd9a18af380a8">CFeatureTimeMaxAcf::m_fMax</a></div><div class="ttdeci">float m_fMax</div><div class="ttdoc">upper frequency boundary</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00830">FeatureFromBlock.cpp:830</a></div></div>
+<div class="ttc" id="aa00350_xhtml_aeb05f443644d9e5db8bfd9a18af380a8"><div class="ttname"><a href="a00350.xhtml#aeb05f443644d9e5db8bfd9a18af380a8">CFeatureTimeMaxAcf::m_fMax</a></div><div class="ttdeci">float m_fMax</div><div class="ttdoc">upper frequency boundary</div><div class="ttdef"><b>Definition:</b> <a href="a00038_source.xhtml#l00832">FeatureFromBlock.cpp:832</a></div></div>
 <div class="ttc" id="aa00470_xhtml_a2fefdb1b1217edd46c2b4e9336fa2aed"><div class="ttname"><a href="a00470.xhtml#a2fefdb1b1217edd46c2b4e9336fa2aed">CFeatureFromBlockIf::m_iDataLength</a></div><div class="ttdeci">int m_iDataLength</div><div class="ttdoc">block length</div><div class="ttdef"><b>Definition:</b> <a href="a00215_source.xhtml#l00196">FeatureFromBlock.h:196</a></div></div>
 <div class="ttc" id="aa00470_xhtml_a75ac4ef94667058662a8100bb1c1e1cd"><div class="ttname"><a href="a00470.xhtml#a75ac4ef94667058662a8100bb1c1e1cd">CFeatureFromBlockIf::m_fSampleRate</a></div><div class="ttdeci">float m_fSampleRate</div><div class="ttdoc">sample rate</div><div class="ttdef"><b>Definition:</b> <a href="a00215_source.xhtml#l00197">FeatureFromBlock.h:197</a></div></div>
 <div class="ttc" id="aa00502_xhtml_a9f5be871090bc5a64a7732cebfb4f8ec"><div class="ttname"><a href="a00502.xhtml#a9f5be871090bc5a64a7732cebfb4f8ec">CVector::getMax</a></div><div class="ttdeci">static T getMax(const T *ptSrc, long long int iLength, bool bAbs=false)</div><div class="ttdef"><b>Definition:</b> <a href="a00155_source.xhtml#l00444">Vector.h:444</a></div></div>
 <div class="ttc" id="aa00546_xhtml_a02c0e23cbcecab5af2fb20a25160321a"><div class="ttname"><a href="a00546.xhtml#a02c0e23cbcecab5af2fb20a25160321a">CCcf::getCcf</a></div><div class="ttdeci">Error_t getCcf(float *pfCcfResult, bool bisAcf=false) const</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.xhtml#l00111">ToolCcf.cpp:111</a></div></div>
 <div class="ttc" id="aa00546_xhtml_a63f5ef7a9ef502fb8dd393824265d967"><div class="ttname"><a href="a00546.xhtml#a63f5ef7a9ef502fb8dd393824265d967">CCcf::compCcf</a></div><div class="ttdeci">Error_t compCcf(const float *pfIn1, const float *pfIn2, bool bNormalize=true)</div><div class="ttdef"><b>Definition:</b> <a href="a00086_source.xhtml#l00062">ToolCcf.cpp:62</a></div></div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00086_source.xhtml#l00062">CCcf::compCcf()</a>, <a class="el" href="a00086_source.xhtml#l00111">CCcf::getCcf()</a>, <a class="el" href="a00155_source.xhtml#l00444">CVector::getMax()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00038_source.xhtml#l00830">m_fMax</a>, <a class="el" href="a00215_source.xhtml#l00197">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00215_source.xhtml#l00196">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.xhtml#l00827">m_pCCcf</a>, and <a class="el" href="a00038_source.xhtml#l00828">m_pfAcf</a>.</p>
+<p class="reference">References <a class="el" href="a00086_source.xhtml#l00062">CCcf::compCcf()</a>, <a class="el" href="a00086_source.xhtml#l00111">CCcf::getCcf()</a>, <a class="el" href="a00155_source.xhtml#l00444">CVector::getMax()</a>, <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00038_source.xhtml#l00832">m_fMax</a>, <a class="el" href="a00215_source.xhtml#l00197">CFeatureFromBlockIf::m_fSampleRate</a>, <a class="el" href="a00215_source.xhtml#l00196">CFeatureFromBlockIf::m_iDataLength</a>, <a class="el" href="a00038_source.xhtml#l00829">m_pCCcf</a>, and <a class="el" href="a00038_source.xhtml#l00830">m_pfAcf</a>.</p>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
@@ -514,10 +514,10 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00470.xhtml#a41daabd1afa9c2307c64b431fcf8da62">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00807">807</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  808</span>    {</div>
-<div class="line"><span class="lineno">  809</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
-<div class="line"><span class="lineno">  810</span>    }</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00809">809</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  810</span>    {</div>
+<div class="line"><span class="lineno">  811</span>        <span class="keywordflow">return</span> <span class="keyword">true</span>;</div>
+<div class="line"><span class="lineno">  812</span>    }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -580,17 +580,17 @@ Here is the call graph for this function:</div>
 
 <p>Reimplemented from <a class="el" href="a00470.xhtml#a7f3f62f3787b0ddc4c8938f5d54170af">CFeatureFromBlockIf</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00812">812</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">  813</span>    {</div>
-<div class="line"><span class="lineno">  814</span>        <span class="keywordflow">if</span> (fParamValue &lt;= 0 || fParamValue &gt; <a class="code hl_variable" href="a00470.xhtml#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a> / 2)</div>
-<div class="line"><span class="lineno">  815</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  816</span> </div>
-<div class="line"><span class="lineno">  817</span>        <a class="code hl_variable" href="a00350.xhtml#aeb05f443644d9e5db8bfd9a18af380a8">m_fMax</a> = fParamValue;</div>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00814">814</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">  815</span>    {</div>
+<div class="line"><span class="lineno">  816</span>        <span class="keywordflow">if</span> (fParamValue &lt;= 0 || fParamValue &gt; <a class="code hl_variable" href="a00470.xhtml#a75ac4ef94667058662a8100bb1c1e1cd">m_fSampleRate</a> / 2)</div>
+<div class="line"><span class="lineno">  817</span>            <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
 <div class="line"><span class="lineno">  818</span> </div>
-<div class="line"><span class="lineno">  819</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
-<div class="line"><span class="lineno">  820</span>    }</div>
+<div class="line"><span class="lineno">  819</span>        <a class="code hl_variable" href="a00350.xhtml#aeb05f443644d9e5db8bfd9a18af380a8">m_fMax</a> = fParamValue;</div>
+<div class="line"><span class="lineno">  820</span> </div>
+<div class="line"><span class="lineno">  821</span>        <span class="keywordflow">return</span> <a class="code hl_enumvalue" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">Error_t::kNoError</a>;</div>
+<div class="line"><span class="lineno">  822</span>    }</div>
 </div><!-- fragment -->
-<p class="reference">References <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00038_source.xhtml#l00830">m_fMax</a>, and <a class="el" href="a00215_source.xhtml#l00197">CFeatureFromBlockIf::m_fSampleRate</a>.</p>
+<p class="reference">References <a class="el" href="a00224.xhtml#a4e8c0d09726859e3d3369c0da5a1aa7fafcd1af9ec66cb99f2d106d7fdc865c8b">kNoError</a>, <a class="el" href="a00038_source.xhtml#l00832">m_fMax</a>, and <a class="el" href="a00215_source.xhtml#l00197">CFeatureFromBlockIf::m_fSampleRate</a>.</p>
 
 </div>
 </div>
@@ -617,9 +617,9 @@ Here is the call graph for this function:</div>
 
 <p>upper frequency boundary </p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00830">830</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00832">832</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00770">compFeature()</a>, and <a class="el" href="a00038_source.xhtml#l00812">setAdditionalParam()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00772">compFeature()</a>, and <a class="el" href="a00038_source.xhtml#l00814">setAdditionalParam()</a>.</p>
 
 </div>
 </div>
@@ -645,9 +645,9 @@ Here is the call graph for this function:</div>
 
 <p>correlation instance </p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00827">827</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00829">829</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00754">CFeatureTimeMaxAcf()</a>, <a class="el" href="a00038_source.xhtml#l00770">compFeature()</a>, and <a class="el" href="a00038_source.xhtml#l00762">~CFeatureTimeMaxAcf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00756">CFeatureTimeMaxAcf()</a>, <a class="el" href="a00038_source.xhtml#l00772">compFeature()</a>, and <a class="el" href="a00038_source.xhtml#l00764">~CFeatureTimeMaxAcf()</a>.</p>
 
 </div>
 </div>
@@ -673,9 +673,9 @@ Here is the call graph for this function:</div>
 
 <p>acf result </p>
 
-<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00828">828</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="a00038_source.xhtml#l00830">830</a> of file <a class="el" href="a00038_source.xhtml">FeatureFromBlock.cpp</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00754">CFeatureTimeMaxAcf()</a>, <a class="el" href="a00038_source.xhtml#l00770">compFeature()</a>, and <a class="el" href="a00038_source.xhtml#l00762">~CFeatureTimeMaxAcf()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="a00038_source.xhtml#l00756">CFeatureTimeMaxAcf()</a>, <a class="el" href="a00038_source.xhtml#l00772">compFeature()</a>, and <a class="el" href="a00038_source.xhtml#l00764">~CFeatureTimeMaxAcf()</a>.</p>
 
 </div>
 </div>
@@ -688,7 +688,7 @@ Here is the call graph for this function:</div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="a00350.xhtml">CFeatureTimeMaxAcf</a></li>
-    <li class="footer">Generated on Fri Jun 17 2022 19:19:11 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
+    <li class="footer">Generated on Fri Jun 17 2022 19:37:36 for ACA by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.4 </li>
   </ul>
 </div>
 </body>
