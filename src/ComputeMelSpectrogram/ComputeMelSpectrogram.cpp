@@ -16,22 +16,22 @@ void    showClInfo();
 // main function
 int main(int argc, char* argv[])
 {
-    std::string sInFilePath,                 //!< file paths
+    std::string sInFilePath,  //!< file paths
         sOutFilePath;
 
-    int iBlockLength = 0,
-        iHopLength = 0;
-    int aiSpecGramDimensions[2] = { 0,0 };
+    int iBlockLength = 0, //!< block length in samples 
+        iHopLength = 0; //!< hop length in samples
+    int aiSpecGramDims[2] = { 0,0 }; //!< spectrogram number of rows and cols
 
     CSpectrogramIf::MelSpectrogramConfig_t stMelConfig;
 
     clock_t time = 0;
 
-    CSpectrogramIf* pCSpectrogram = 0;
+    CSpectrogramIf* pCSpectrogram = 0; //!< instance to extract the spectrogram
 
-    float** ppfSpectrogram = 0;
+    float **ppfSpectrogram = 0; //!< resulting spectrogram
 
-    std::fstream hOutFile;
+    std::fstream hOutFile; //!< output file handle
 
     showClInfo();
 
@@ -59,7 +59,7 @@ int main(int argc, char* argv[])
     stMelConfig.fMaxFreqInHz = 16000;
     stMelConfig.fMinFreqInHz = 100;
     stMelConfig.iNumMelBins = 128;
-    pCSpectrogram->getMelSpectrogramDimensions(aiSpecGramDimensions[0], aiSpecGramDimensions[1], &stMelConfig);
+    pCSpectrogram->getMelSpectrogramDimensions(aiSpecGramDims[0], aiSpecGramDims[1], &stMelConfig);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
@@ -73,9 +73,9 @@ int main(int argc, char* argv[])
 
     //////////////////////////////////////////////////////////////////////////////
     // allocate memory
-    ppfSpectrogram = new float* [aiSpecGramDimensions[0]];
-    for (auto k = 0; k < aiSpecGramDimensions[0]; k++)
-        ppfSpectrogram[k] = new float[aiSpecGramDimensions[1]];
+    ppfSpectrogram = new float* [aiSpecGramDims[0]];
+    for (auto k = 0; k < aiSpecGramDims[0]; k++)
+        ppfSpectrogram[k] = new float[aiSpecGramDims[1]];
 
 
     if (!ppfSpectrogram )
@@ -101,10 +101,10 @@ int main(int argc, char* argv[])
 
     cout << "\n2. writing output file..." << endl;
 
-    for (auto k = 0; k < aiSpecGramDimensions[0]; k++)
+    for (auto k = 0; k < aiSpecGramDims[0]; k++)
     {
         // write
-        for (int n = 0; n < aiSpecGramDimensions[1]; n++)
+        for (int n = 0; n < aiSpecGramDims[1]; n++)
         {
             hOutFile << ppfSpectrogram[k][n] << "\t";
         }
@@ -118,7 +118,7 @@ int main(int argc, char* argv[])
     CSpectrogramIf::destroy(pCSpectrogram);
     hOutFile.close();
 
-    for (int k = 0; k < aiSpecGramDimensions[0]; k++)
+    for (int k = 0; k < aiSpecGramDims[0]; k++)
         delete[] ppfSpectrogram[k];
     delete[] ppfSpectrogram;
 

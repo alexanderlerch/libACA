@@ -1,7 +1,6 @@
 #if !defined(__ACA_LowPass_HEADER_INCLUDED__)
 #define __ACA_LowPass_HEADER_INCLUDED__
 
-
 #include <cmath>
 
 #include "RingBuffer.h"
@@ -18,7 +17,7 @@ public:
     \param pCInstance pointer to instance to be written
     \return Error_t
     */
-    static Error_t create(CSinglePoleLp*& pCInstance)
+    static Error_t create(CSinglePoleLp *&pCInstance)
     {
         pCInstance = new CSinglePoleLp();
 
@@ -29,7 +28,7 @@ public:
     \param pCInstance pointer to instance to be destroyed
     \return Error_t
     */
-    static Error_t destroy(CSinglePoleLp*& pCInstance)
+    static Error_t destroy(CSinglePoleLp *&pCInstance)
     {
         delete pCInstance;
         pCInstance = 0;
@@ -65,7 +64,7 @@ public:
     \param iNumSamples length of buffers
     return Error_t
     */
-    Error_t process(float* pfOut, const float* pfIn, long long iNumSamples)
+    Error_t process(float *pfOut, const float *pfIn, long long iNumSamples)
     {
         if (!pfOut || !pfIn || iNumSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -108,16 +107,16 @@ public:
 private:
     CSinglePoleLp() {};
     virtual ~CSinglePoleLp() {};
-    CSinglePoleLp(const CSinglePoleLp& that);
-    CSinglePoleLp& operator=(const CSinglePoleLp& c);
+    CSinglePoleLp(const CSinglePoleLp &that);
+    CSinglePoleLp &operator=(const CSinglePoleLp &c);
 
-    float m_fAlpha = 0.9F;      //!< filter coeff
+    float m_fAlpha = 0.9F; //!< filter coeff
 
-    float m_fPrevOut = 0.F;     //!< filter buffer
+    float m_fPrevOut = 0.F; //!< filter buffer
 };
 
 
-/*! \brief class for single-pole low pass filtering
+/*! \brief class for moving average low pass filtering
 */
 class CMovingAverage
 {
@@ -127,7 +126,7 @@ public:
     \param pCInstance pointer to instance to be written
     \return Error_t
     */
-    static Error_t create(CMovingAverage*& pCInstance)
+    static Error_t create(CMovingAverage *&pCInstance)
     {
         pCInstance = new CMovingAverage();
 
@@ -139,7 +138,7 @@ public:
     \param pCInstance pointer to instance to be destroyed
     \return Error_t
     */
-    static Error_t destroy(CMovingAverage*& pCInstance)
+    static Error_t destroy(CMovingAverage *&pCInstance)
     {
         delete pCInstance;
         pCInstance = 0;
@@ -195,7 +194,7 @@ public:
     \param iLenBuff length of buffer in samples
     \return Error_t
     */
-    Error_t process(float* pfOut, const float* pfIn, long long iLenBuff)
+    Error_t process(float *pfOut, const float *pfIn, long long iLenBuff)
     {
         if (!pfOut || !pfIn || iLenBuff <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -230,14 +229,14 @@ public:
     \param pfIn input data of length iLenBuff
     \param iLenBuff length of buffer in samples
     */
-    void filtfilt(float* pfOut, const float* pfIn, long long iLenBuff)
+    void filtfilt(float *pfOut, const float *pfIn, long long iLenBuff)
     {
 
         int iLenFilter = this->getFilterParam();
         this->reset();
         this->setFilterParam(iLenFilter);
 
-        float* pfTmpBuff = 0;
+        float *pfTmpBuff = 0;
         CVector::alloc(pfTmpBuff, iLenBuff + 2 * static_cast<long long>(iLenFilter));
 
         this->process(&pfTmpBuff[iLenFilter], pfIn, iLenBuff);
@@ -271,16 +270,17 @@ private:
     {
         reset();
     };
+
     virtual ~CMovingAverage()
     {
         delete m_pCRingBuff;
     };
-    CMovingAverage(const CMovingAverage& that);
-    CMovingAverage& operator=(const CMovingAverage& c);
+    CMovingAverage(const CMovingAverage &that);
+    CMovingAverage &operator=(const CMovingAverage &c);
 
-    CRingBuffer<float>* m_pCRingBuff = new CRingBuffer<float>(65);
+    CRingBuffer<float> *m_pCRingBuff = new CRingBuffer<float>(65); //!< filter buffer
 
-    float m_fPrevOut = 0;
+    float m_fPrevOut = 0; //!< previous output value
 };
 
 #endif // #if !defined(__ACA_LowPass_HEADER_INCLUDED__)

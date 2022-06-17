@@ -11,7 +11,7 @@ class CPca
 {
 public:
     CPca(void) {};
-    virtual ~CPca(void);;
+    virtual ~CPca(void);
 
 
     /*! initializes PCA instance
@@ -32,7 +32,7 @@ public:
     \param ppfIn input matrix (dimensions iNumFeatures X iNumObs)
     \return Error_t
     */
-    Error_t compPca(float** ppfRes, float* pfEigenValues, const float* const* const ppfIn);
+    Error_t compPca(float **ppfRes, float *pfEigenValues, const float *const *const ppfIn);
 
 
     /*! computes covariance matrix
@@ -42,7 +42,7 @@ public:
     \param iNumCols number of columns/observations in the input matrix
     \return Error_t
     */
-    static Error_t compCov(float** ppfCovOut, const float* const* const  ppfIn, int iNumRows, int iNumCols);
+    static Error_t compCov(float **ppfCovOut, const float *const *const  ppfIn, int iNumRows, int iNumCols);
 
 
     /*! computes singular value decomposition (ppfMat = ppfU * ppfW * ppfV)
@@ -55,22 +55,22 @@ public:
     \param iMaxIterations maximum number of iterations
     \return Error_t
     */
-    static Error_t calcSVD(float** ppfU, float** ppfW, float** ppfV, const float* const* const  ppfMat, int iNumRows, int iNumCols, int iMaxIterations = 100);
+    static Error_t calcSVD(float **ppfU, float **ppfW, float **ppfV, const float *const *const  ppfMat, int iNumRows, int iNumCols, int iMaxIterations = 100);
 
 private:
-    CPca(const CPca& that);     //!< disallow copy construction   
-    CPca& operator=(const CPca& c);
+    CPca(const CPca &that);     //!< disallow copy construction   
+    CPca &operator=(const CPca &c);
 
-    static float matPythag(float dA, float dB);;
+    static float matPythag(float dA, float dB);
 
     int m_iNumFeatures = 0, //!< number of features
         m_iNumObs = 0; //!< number of observations
 
-    float** m_ppfProcTmp = 0; //!< temporary processing memoru
-    float** m_ppfU = 0; //!< SVD result: U
-    float** m_ppfW = 0; //!< SVD result: W
-    float** m_ppfV = 0; //!< SVD result: V
-    int* piSortIndices = 0; //!< array for sorted indices
+    float **m_ppfProcTmp = 0; //!< temporary processing memoru
+    float **m_ppfU = 0; //!< SVD result: U
+    float **m_ppfW = 0; //!< SVD result: W
+    float **m_ppfV = 0; //!< SVD result: V
+    int *piSortIndices = 0; //!< array for sorted indices
 };
 
 #endif // __ACA_Pca_HEADER_INCLUDED__

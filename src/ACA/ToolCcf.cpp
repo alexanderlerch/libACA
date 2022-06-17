@@ -59,7 +59,7 @@ Error_t CCcf::reset()
     return Error_t::kNoError;
 }
 
-Error_t CCcf::compCcf(const float* pfIn1, const float* pfIn2, bool bNormalize)
+Error_t CCcf::compCcf(const float *pfIn1, const float *pfIn2, bool bNormalize)
 {
     if (!pfIn1 || !pfIn2)
         return Error_t::kFunctionInvalidArgsError;
@@ -108,7 +108,7 @@ int CCcf::getCcfLength(bool bIsAcf)
     return bIsAcf ? m_iBlockLength : 2 * m_iBlockLength - 1;
 }
 
-Error_t CCcf::getCcf(float* pfCcfResult, bool bIsAcf) const
+Error_t CCcf::getCcf(float *pfCcfResult, bool bIsAcf) const
 {
     if (!(m_bIsInitialized && m_bWasProcessed))
         return Error_t::kFunctionIllegalCallError;

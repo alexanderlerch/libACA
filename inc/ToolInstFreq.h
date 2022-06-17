@@ -53,7 +53,7 @@ public:
     \param pfSpectrum current (complex) spectrum
     return Error_t
     */
-    Error_t process(float* pfInstFreq, const CFft::complex_t* pfSpectrum)
+    Error_t process(float *pfInstFreq, const CFft::complex_t *pfSpectrum)
     {
         if (!pfInstFreq || !pfSpectrum)
             return Error_t::kFunctionInvalidArgsError;
@@ -86,10 +86,10 @@ private:
 
         kNumPhases
     };
-    CInstFreq(const CInstFreq& that);
-    CInstFreq& operator=(const CInstFreq& c);
+    CInstFreq(const CInstFreq &that);
+    CInstFreq &operator=(const CInstFreq &c);
 
-    void princArg_(float* pfSrcDestPhase)
+    void princArg_(float *pfSrcDestPhase)
     {
         assert(pfSrcDestPhase);
 
@@ -103,11 +103,11 @@ private:
         m_iHopLength = 0; //!< hop length in samples
     float m_fSampleRate = 0.F;  //!< sample rate in hz
 
-    float* m_apfPhase[kNumPhases] = { 0 }; //!< pointers to buffer for storing the phase
-    float* m_pfSwapBuff = 0;  //!< temporary process buffer and storage of previous phase spectrum
-    float* m_pfOmega = 0; //!< constant offset
+    float *m_apfPhase[kNumPhases] = { 0 }; //!< pointers to buffer for storing the phase
+    float *m_pfSwapBuff = 0;  //!< temporary process buffer and storage of previous phase spectrum
+    float *m_pfOmega = 0; //!< constant offset
 
-    CFft* m_pCFft = 0;  //!< fft instance for handling compex spectra
+    CFft *m_pCFft = 0;  //!< fft instance for handling compex spectra
 };
 
 #endif // #if !defined(__ACA_InstFreq_HEADER_INCLUDED__)

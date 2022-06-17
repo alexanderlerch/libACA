@@ -8,7 +8,7 @@
 // forward declarations
 class CFft;
 
-/*! \brief computation of correlation (freq domain)
+/*! \brief computation of correlation (freq domain implementation)
 */
 class CCcf
 {
@@ -34,7 +34,7 @@ public:
     \param bNormalize flag whether the output is normalized
     \return Error_t
     */
-    Error_t compCcf(const float* pfIn1, const float* pfIn2, bool bNormalize = true);
+    Error_t compCcf(const float *pfIn1, const float *pfIn2, bool bNormalize = true);
 
     /*! returns the length of the CCF result
     \return int
@@ -46,7 +46,7 @@ public:
     \param bisAcf returns only non-redundant ACF result if true
     \return Error_t
     */
-    Error_t getCcf(float* pfCcfResult, bool bisAcf = false) const;
+    Error_t getCcf(float *pfCcfResult, bool bisAcf = false) const;
 
     /*! returns the overall max
     \param bisAcf search only non-redundant ACF result if true
@@ -61,17 +61,17 @@ public:
     int getCcfMaxIdx(bool bisAcf = false) const;
 
 private:
-    CCcf(const CCcf& that);     //!< disallow copy construction   
-    CCcf& operator=(const CCcf& c);
+    CCcf(const CCcf &that); //!< disallow copy construction   
+    CCcf &operator=(const CCcf &c);
 
-    bool m_bIsInitialized = false;  //!< true if init has been called
-    bool m_bWasProcessed = false;   //!< true if process has been called
+    bool m_bIsInitialized = false; //!< true if init has been called
+    bool m_bWasProcessed = false; //!< true if process has been called
 
-    float* m_apfData[2] = { 0,0 };  //!< CCF result
-    CFft* m_pCFft = 0;               //!< FFT instance
+    float *m_apfData[2] = { 0,0 }; //!< CCF result
+    CFft *m_pCFft = 0; //!< FFT instance
 
-    int   m_iBlockLength = 0;       //!< length of input
-    int   m_iFftLength = 0;         //!< length of FFT
+    int   m_iBlockLength = 0; //!< length of input
+    int   m_iFftLength = 0; //!< length of FFT
 };
 
 #endif // __ACA_Ccf_HEADER_INCLUDED__

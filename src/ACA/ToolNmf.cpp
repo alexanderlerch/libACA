@@ -16,7 +16,7 @@ CNmf::~CNmf(void)
     reset();
 }
 
-Error_t CNmf::init(CNmfResult* pCNmfResult, int iRank, int iNumRows, int iNumCols, int iMaxIter /*= 300*/, float fSparsity /*= 0*/)
+Error_t CNmf::init(CNmfResult *pCNmfResult, int iRank, int iNumRows, int iNumCols, int iMaxIter /*= 300*/, float fSparsity /*= 0*/)
 {
     if (!pCNmfResult || iRank <= 0 || iNumRows <= 0 || iNumCols <= 0 || iMaxIter <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -56,7 +56,7 @@ Error_t CNmf::reset()
     return Error_t::kNoError;
 }
 
-Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfIn)
+Error_t CNmf::compNmf(CNmfResult *pCNmfResult, const float *const *const ppfIn)
 {
 
     if (!pCNmfResult || !ppfIn)
@@ -77,10 +77,12 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfIn)
 
     for (int k = 0; k < m_iMaxIter; k++)
     {
+        // this is the heart of it
         afCost[kCurrCost] = runNmfIter(pCNmfResult, ppfIn);
 
         assert(!std::isnan(afCost[kCurrCost]));
 
+        // check if we can stop
         if (k > 0)
         {
             if (std::abs((afCost[kCurrCost] - afCost[kPrevCost]) / (afCost[kStartCost] - afCost[kCurrCost] + m_kMinOffset)) < .001F)
@@ -94,16 +96,17 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfIn)
     return Error_t::kNoError;
 }
 
-float CNmf::runNmfIter(CNmfResult* pCNmfResult, const float* const* const ppfIn)
+float CNmf::runNmfIter(CNmfResult *pCNmfResult, const float *const *const ppfIn)
 {
-    float** ppfW = pCNmfResult->getMatPointer(CNmfResult::kW);
-    float** ppfH = pCNmfResult->getMatPointer(CNmfResult::kH);
-    float** ppfXHat = pCNmfResult->getMatPointer(CNmfResult::kXHat);
+    float **ppfW = pCNmfResult->getMatPointer(CNmfResult::kW);
+    float **ppfH = pCNmfResult->getMatPointer(CNmfResult::kH);
+    float **ppfXHat = pCNmfResult->getMatPointer(CNmfResult::kXHat);
 
     int iRank = pCNmfResult->getMatCols(CNmfResult::kW);
     int iNumObs = pCNmfResult->getMatCols(CNmfResult::kH);
     int iNumBins = pCNmfResult->getMatRows(CNmfResult::kW);
 
+    // there are special cases were we don't want to update both matrices
     const bool bUpdateH = true,
         bUpdateW = true;
 
@@ -227,14 +230,14 @@ int CNmfResult::getMatRows(NmfMatrices_t eMatIdx) const
     return  m_aaiMatrixDims[eMatIdx][0];
 }
 
-void CNmfResult::getMatDims(NmfMatrices_t eMatIdx, int& iNumRows, int& iNumCols) const
+void CNmfResult::getMatDims(NmfMatrices_t eMatIdx, int &iNumRows, int &iNumCols) const
 {
     iNumRows = getMatRows(eMatIdx);
     iNumCols = getMatCols(eMatIdx);
     return;
 }
 
-Error_t CNmfResult::getMat(float** ppfDest, NmfMatrices_t eMatIdx)
+Error_t CNmfResult::getMat(float **ppfDest, NmfMatrices_t eMatIdx)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -253,7 +256,7 @@ bool CNmfResult::isInitialized() const
     return m_bIsInitialized;
 }
 
-float** CNmfResult::getMatPointer(NmfMatrices_t eMatIdx) const
+float **CNmfResult::getMatPointer(NmfMatrices_t eMatIdx) const
 {
     return m_appfMatrices[eMatIdx];
 }

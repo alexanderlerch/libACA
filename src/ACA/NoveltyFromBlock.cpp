@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////////////////////
 // static member functions
 
-float CNoveltyFromBlockIf::compNoveltyFlux(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
+float CNoveltyFromBlockIf::compNoveltyFlux(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(pfPrevSpec);
@@ -17,7 +17,7 @@ float CNoveltyFromBlockIf::compNoveltyFlux(const float* pfMagSpec, const float* 
     float fSum = 0;
     for (auto k = 0; k < iDataLength; k++)
     {
-
+        // spectral flux with HWR
         float fDiff = pfMagSpec[k] - pfPrevSpec[k];
         fSum += (fDiff > 0) ? fDiff * fDiff : 0.F;
     }
@@ -25,7 +25,7 @@ float CNoveltyFromBlockIf::compNoveltyFlux(const float* pfMagSpec, const float* 
     return std::sqrt(fSum) / iDataLength;
 }
 
-float CNoveltyFromBlockIf::compNoveltyHainsworth(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
+float CNoveltyFromBlockIf::compNoveltyHainsworth(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(pfPrevSpec);
@@ -44,7 +44,7 @@ float CNoveltyFromBlockIf::compNoveltyHainsworth(const float* pfMagSpec, const f
     return fSum / iDataLength;
 }
 
-float CNoveltyFromBlockIf::compNoveltyLaroche(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
+float CNoveltyFromBlockIf::compNoveltyLaroche(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(pfPrevSpec);
@@ -54,7 +54,6 @@ float CNoveltyFromBlockIf::compNoveltyLaroche(const float* pfMagSpec, const floa
 
     for (auto k = 0; k < iDataLength; k++)
     {
-
         float fDiff = std::sqrt(pfMagSpec[k]) - std::sqrt(pfPrevSpec[k]);
         fSum += (fDiff > 0) ? fDiff : 0.F;
     }
@@ -82,7 +81,7 @@ CNoveltyFromBlockIf::~CNoveltyFromBlockIf()
     CVector::free(m_pfPrevSpec);
 }
 
-Error_t CNoveltyFromBlockIf::create(CNoveltyFromBlockIf*& pCInstance, CNoveltyIf::Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate)
+Error_t CNoveltyFromBlockIf::create(CNoveltyFromBlockIf *&pCInstance, CNoveltyIf::Novelty_t eNoveltyIdx, int iDataLength, float fSampleRate)
 {
     if (iDataLength <= 0 || fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -92,7 +91,7 @@ Error_t CNoveltyFromBlockIf::create(CNoveltyFromBlockIf*& pCInstance, CNoveltyIf
     return Error_t::kNoError;
 }
 
-Error_t CNoveltyFromBlockIf::destroy(CNoveltyFromBlockIf*& pCInstance)
+Error_t CNoveltyFromBlockIf::destroy(CNoveltyFromBlockIf *&pCInstance)
 {
     delete pCInstance;
 
@@ -107,7 +106,7 @@ int CNoveltyFromBlockIf::getNoveltyDimension() const
     return 1;
 }
 
-Error_t CNoveltyFromBlockIf::compNovelty(float* pfNovelty, const float* pfIn)
+Error_t CNoveltyFromBlockIf::compNovelty(float *pfNovelty, const float *pfIn)
 {
     *pfNovelty = m_DispatchMap.at(m_eNoveltyIdx)(pfIn, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
 

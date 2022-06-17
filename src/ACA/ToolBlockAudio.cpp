@@ -8,10 +8,12 @@
 #include "ToolBlockAudio.h"
 
 
+/*! \brief class for audio blocking from a file
+*/
 class CBlockAudioFile : public CBlockAudioIf
 {
 public:
-    CBlockAudioFile(CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength) :
+    CBlockAudioFile(CAudioFileIf *pCAudioFile, int iBlockLength, int iHopLength) :
         m_pCAudioFile(pCAudioFile),
         m_pCRingBuff(0),
         m_ppfAudioData(0)
@@ -51,7 +53,7 @@ public:
         return m_pCAudioFile->isEof();
     }
 
-    int getNextBlock(float* pfBlock, float* pfTimeStamp) override
+    int getNextBlock(float *pfBlock, float *pfTimeStamp) override
     {
         if (!m_pCAudioFile || !pfBlock)
             return -1;
@@ -83,8 +85,8 @@ public:
     }
 
 private:
-    CBlockAudioFile(const CBlockAudioFile& that);     //!< disallow copy construction   
-    CBlockAudioFile& operator=(const CBlockAudioFile& c);
+    CBlockAudioFile(const CBlockAudioFile &that);     //!< disallow copy construction   
+    CBlockAudioFile &operator=(const CBlockAudioFile &c);
 
     inline void readFile2RingBuff()
     {
@@ -110,18 +112,18 @@ private:
         // write data into inputbuffer
         m_pCRingBuff->putPostInc(m_ppfAudioData[0], m_iHopLength);
     }
-    CAudioFileIf* m_pCAudioFile;
-    CRingBuffer<float>* m_pCRingBuff;
-    float** m_ppfAudioData;
+    CAudioFileIf *m_pCAudioFile;
+    CRingBuffer<float> *m_pCRingBuff;
+    float **m_ppfAudioData;
 };
 
 
-
-
+/*! \brief class for audio blocking from a buffer 
+*/
 class CBlockAudioBuffer : public CBlockAudioIf
 {
 public:
-    CBlockAudioBuffer(const float* pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate) :
+    CBlockAudioBuffer(const float *pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate) :
         m_iCurrIdx(0),
         m_pfAudioData(0)
     {
@@ -152,7 +154,7 @@ public:
         return m_iAudioLength == m_iCurrIdx;
     }
 
-    int getNextBlock(float* pfBlock, float* pfTimeStamp) override
+    int getNextBlock(float *pfBlock, float *pfTimeStamp) override
     {
         if (!m_pfAudioData)
             return -1;
@@ -172,15 +174,15 @@ public:
     }
 
 private:
-    CBlockAudioBuffer(const CBlockAudioBuffer& that);     //!< disallow copy construction   
-    CBlockAudioBuffer& operator=(const CBlockAudioBuffer& c);
+    CBlockAudioBuffer(const CBlockAudioBuffer &that);     //!< disallow copy construction   
+    CBlockAudioBuffer &operator=(const CBlockAudioBuffer &c);
 
     long long m_iCurrIdx = 0;
-    float* m_pfAudioData = 0;
+    float *m_pfAudioData = 0;
 };
 
 
-Error_t CBlockAudioIf::create(CBlockAudioIf*& pCInstance, CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength)
+Error_t CBlockAudioIf::create(CBlockAudioIf *&pCInstance, CAudioFileIf *pCAudioFile, int iBlockLength, int iHopLength)
 {
     if (!pCAudioFile)
         return Error_t::kFunctionInvalidArgsError;
@@ -192,7 +194,7 @@ Error_t CBlockAudioIf::create(CBlockAudioIf*& pCInstance, CAudioFileIf* pCAudioF
     return Error_t::kNoError;
 }
 
-Error_t CBlockAudioIf::create(CBlockAudioIf*& pCInstance, const float* pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate)
+Error_t CBlockAudioIf::create(CBlockAudioIf *&pCInstance, const float *pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate)
 {
     if (!pfAudioBuff)
         return Error_t::kFunctionInvalidArgsError;

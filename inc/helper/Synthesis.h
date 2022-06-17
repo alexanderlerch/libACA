@@ -23,7 +23,7 @@ public:
     \return Error_t
     */
     template <class T>
-    static Error_t genSine(T* pfOutBuff, T fFreqInHz, T fSampleRateInHz, long long iLen, T fAmplitude = 1.F, T fStartPhaseInRad = 0.)
+    static Error_t genSine(T *pfOutBuff, T fFreqInHz, T fSampleRateInHz, long long iLen, T fAmplitude = 1.F, T fStartPhaseInRad = 0.)
     {
         if (!pfOutBuff)
             return Error_t::kFunctionInvalidArgsError;
@@ -45,7 +45,7 @@ public:
     \return Error_t
     */
     template <class T>
-    static Error_t genRect(T* pfOutBuff, T fFreqInHz, T fSampleRateInHz, long long iLen, T fAmplitude = 1.)
+    static Error_t genRect(T *pfOutBuff, T fFreqInHz, T fSampleRateInHz, long long iLen, T fAmplitude = 1.)
     {
         if (!pfOutBuff)
             return Error_t::kFunctionInvalidArgsError;
@@ -76,7 +76,7 @@ public:
    \return Error_t
    */
     template <class T>
-    static Error_t genSaw(T* pfOutBuff, T fFreqInHz, T fSampleRateInHz, long long iLen, T fAmplitude = 1.)
+    static Error_t genSaw(T *pfOutBuff, T fFreqInHz, T fSampleRateInHz, long long iLen, T fAmplitude = 1.)
     {
         if (!pfOutBuff)
             return Error_t::kFunctionInvalidArgsError;
@@ -98,7 +98,7 @@ public:
     \return Error_t
     */
     template <class T>
-    static Error_t genDc(T* pfOutBuff, long long iLen, T fAmplitude = 1.)
+    static Error_t genDc(T *pfOutBuff, long long iLen, T fAmplitude = 1.)
     {
         if (!pfOutBuff)
             return Error_t::kFunctionInvalidArgsError;
@@ -119,7 +119,7 @@ public:
     \return Error_t
     */
     template <class T>
-    static Error_t genNoise(T* pfOutBuff, long long iLen, T fAmplitude = 1., bool bOnlyPositive = true)
+    static Error_t genNoise(T *pfOutBuff, long long iLen, T fAmplitude = 1., bool bOnlyPositive = true)
     {
         if (!pfOutBuff)
             return Error_t::kFunctionInvalidArgsError;

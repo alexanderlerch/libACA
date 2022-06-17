@@ -16,7 +16,7 @@ public:
     \param pfMagSpec input data of length iDataLength
     \return Error_t
     */
-    uint32_t compSubFingerprint(const float* pfMagSpec);;
+    uint32_t compSubFingerprint(const float *pfMagSpec);;
 
     /*! performs the SubFingerprint computation
     \param pfSubFingerprint feature result (user-allocated, to be written, length from CSubFingerprint::getFeatureDimensions)
@@ -26,8 +26,8 @@ public:
     Error_t reset();
 
 protected:
-    CSubFingerprint(const CSubFingerprint& that);
-    CSubFingerprint& operator=(const CSubFingerprint& c);
+    CSubFingerprint(const CSubFingerprint &that);
+    CSubFingerprint &operator=(const CSubFingerprint &c);
 
     enum Block_t
     {
@@ -40,15 +40,15 @@ protected:
 
     void genBands_();
 
-    int m_iMagSpecLength = 1025;//!< block length
+    int m_iMagSpecLength = 1025; //!< block length
 
-    const int m_iNumBands = 32;
+    const int m_iNumBands = 32; //!< number of bands
 
-    float m_fSampleRate = 5000;//!< sample rate
+    float m_fSampleRate = 5000; //!< sample rate
 
-    float** m_ppfH = 0; //!< transformation matrix bin to band
+    float **m_ppfH = 0; //!< transformation matrix bin to band
 
-    float* m_apfProcBuff[kNumProcBuffs] = { 0 };
+    float *m_apfProcBuff[kNumProcBuffs] = { 0 }; //!< temporary processing buffers
 };
 
 #endif // #if !defined(__ACA_SubFingerprint_HEADER_INCLUDED__)

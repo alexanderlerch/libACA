@@ -3,6 +3,7 @@
 
 #pragma once
 
+#include "Vector.h"
 
 /*! \brief abstract base class for traditional classifiers
 */

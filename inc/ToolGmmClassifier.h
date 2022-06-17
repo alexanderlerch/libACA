@@ -30,7 +30,7 @@ public:
     \param eNorm specification of what normalization should be applied to the feature data
     \return Error_t
     */
-    Error_t train(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
+    Error_t train(const float *const *const ppfTrainFeatures, const int *piTrainClassIndices, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
 
     /*! resets GmmClassifier instance
     \return Error_t
@@ -53,30 +53,30 @@ public:
     \param pfQuery vector of length iNumFeatures to classify
     \return int class label of most likely class (returns CClassifierBase::kIllegalClassLabel in case of error)
     */
-    int classify(const float* pfQuery) override;
+    int classify(const float *pfQuery) override;
 
 
 private:
-    CGmmClassifier(const CGmmClassifier& that);     //!< disallow copy construction   
-    CGmmClassifier& operator=(const CGmmClassifier& c);
+    CGmmClassifier(const CGmmClassifier &that); //!< disallow copy construction   
+    CGmmClassifier &operator=(const CGmmClassifier &c);
 
     /*! counts the number of unique classes in piClassLabels
     \param piClassLabels vector containing int class labels
     \return int number of classes
     */
-    int countClasses(const int* piClassLabels);
+    int countClasses(const int *piClassLabels);
 
     int m_iNumFeatures = 0, //!< number of features
         m_iNumObs = 0, //!< number of training observations
         m_iNumClasses = 0, //!< number of classes in the data
         m_iK = 3; //!< number of neighbors for classification
 
-    int* m_piClassLabels = 0;  //!< preallocated vector containing the unique set of classes
-    float* m_pfQuery = 0; //!< preallocated vector for the normalized query
+    int *m_piClassLabels = 0;  //!< preallocated vector containing the unique set of classes
+    float *m_pfQuery = 0; //!< preallocated vector for the normalized query
 
     bool m_bIsInitialized = false; //!< indicates if instance has been properly initialized
 
-    CGmmResult** m_ppCGmmResult = 0; //!< array holding the individual Gmm models (length m_iNumClasses)
+    CGmmResult **m_ppCGmmResult = 0; //!< array holding the individual Gmm models (length m_iNumClasses)
 
 };
 

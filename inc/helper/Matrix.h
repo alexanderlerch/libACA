@@ -813,7 +813,7 @@ public:
             {
                 for (int j1 = i + 1; j1 < iNumCols; j1++)
                 {
-                    if (pptSrcDest[i][j1] != 0)			// Column pivotting not supported
+                    if (pptSrcDest[i][j1] != 0)	
                     {
                         for (int i1 = 0; i1 < iNumRows; i1++)
                         {

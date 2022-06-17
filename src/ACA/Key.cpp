@@ -16,10 +16,11 @@ CKey::CKey()
 CKey::~CKey()
 {
     reset();
+
     delete m_pCKeyFromChroma;
 }
 
-Error_t CKey::init(const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
+Error_t CKey::init(const std::string &strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
@@ -42,7 +43,7 @@ Error_t CKey::init(const std::string& strAudioFilePath, int iBlockLength, int iH
         return rErr;
 }
 
-Error_t CKey::init(const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CKey::init(const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
@@ -84,20 +85,23 @@ int CKey::compKey()
         return -1;
 
     int aiDim[2] = { 0 };
-    float** m_ppfPitchChroma = 0;
+    float **m_ppfPitchChromagram = 0;
     float afAvgPitchChroma[12] = { 0 };
 
+    // alloc memory
     m_pCPitchChromaExtractor->getFeatureDimensions(aiDim[0], aiDim[1]);
+    CMatrix::alloc(m_ppfPitchChromagram, aiDim[0], aiDim[1]);
 
-    CMatrix::alloc(m_ppfPitchChroma, aiDim[0], aiDim[1]);
+    // compute pitch chromagram
+    m_pCPitchChromaExtractor->compFeatureNDim(m_ppfPitchChromagram);
 
-    m_pCPitchChromaExtractor->compFeatureNDim(m_ppfPitchChroma);
-
+    // average pitch chroma
     for (auto n = 0; n < aiDim[0]; n++)
-        afAvgPitchChroma[n] = CVector::getMean(m_ppfPitchChroma[n], aiDim[1]);
+        afAvgPitchChroma[n] = CVector::getMean(m_ppfPitchChromagram[n], aiDim[1]);
 
-    CMatrix::free(m_ppfPitchChroma, aiDim[0]);
+    CMatrix::free(m_ppfPitchChromagram, aiDim[0]);
 
+    // compute key
     return m_pCKeyFromChroma->getKey(afAvgPitchChroma);
 }
 

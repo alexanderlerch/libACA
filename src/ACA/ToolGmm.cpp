@@ -1,13 +1,14 @@
-#include "ToolGmm.h"
 
 #include "Matrix.h"
 #include "Vector.h"
 #include "Synthesis.h"
 #include "ToolPca.h"
 
+#include "ToolGmm.h"
+
 CGmm::~CGmm(void) { reset(); }
 
-Error_t CGmm::init(CGmmResult* pCResult, int iK, int iNumFeatures, int iNumObs, int iMaxIter)
+Error_t CGmm::init(CGmmResult *pCResult, int iK, int iNumFeatures, int iNumObs, int iMaxIter)
 {
     if (!pCResult || iK < 1 || iNumFeatures < 1 || iNumObs < 1 || iMaxIter < 1)
         return Error_t::kFunctionInvalidArgsError;
@@ -23,7 +24,6 @@ Error_t CGmm::init(CGmmResult* pCResult, int iK, int iNumFeatures, int iNumObs, 
     // init result class
     pCResult->init(iK, iNumFeatures);
     PrevState = CGmmResult(*pCResult);
-
 
     // alloc memory
     for (auto i = 0; i < 2; i++)
@@ -59,7 +59,7 @@ Error_t CGmm::reset()
 
 }
 
-Error_t CGmm::compGmm(CGmmResult* pCResult, const float* const* const  ppfFeatures)
+Error_t CGmm::compGmm(CGmmResult *pCResult, const float *const *const  ppfFeatures)
 {
     if (!pCResult || !ppfFeatures)
         return Error_t::kFunctionInvalidArgsError;
@@ -90,7 +90,7 @@ Error_t CGmm::compGmm(CGmmResult* pCResult, const float* const* const  ppfFeatur
     return Error_t::kNoError;
 }
 
-void CGmm::initState_(const float* const* const  ppfFeatures, CGmmResult* pCCurrState)
+void CGmm::initState_(const float *const *const  ppfFeatures, CGmmResult *pCCurrState)
 {
     // generate some noise
     CSynthesis::genNoise(m_apfProc[0], m_iK);
@@ -114,7 +114,7 @@ void CGmm::initState_(const float* const* const  ppfFeatures, CGmmResult* pCCurr
     }
 }
 
-void CGmm::compProbabilities_(const float* const* const ppfFeatures, CGmmResult* pCCurrState)
+void CGmm::compProbabilities_(const float *const *const ppfFeatures, CGmmResult *pCCurrState)
 {
     // compute gaussian per cluster per observation
     for (auto k = 0; k < m_iK; k++)
@@ -152,7 +152,7 @@ void CGmm::compProbabilities_(const float* const* const ppfFeatures, CGmmResult*
     }
 }
 
-void CGmm::updateState_(const float* const* const ppfFeatures, CGmmResult* pCCurrState)
+void CGmm::updateState_(const float *const *const ppfFeatures, CGmmResult *pCCurrState)
 {
     for (auto k = 0; k < m_iK; k++)
     {
@@ -185,7 +185,7 @@ void CGmm::updateState_(const float* const* const ppfFeatures, CGmmResult* pCCur
     }
 }
 
-bool CGmm::checkConverged_(CGmmResult* pCCurrState)
+bool CGmm::checkConverged_(CGmmResult *pCCurrState)
 {
     float fSum = 0;
     for (auto k = 0; k < m_iK; k++)
@@ -202,7 +202,7 @@ bool CGmm::checkConverged_(CGmmResult* pCCurrState)
 
 CGmmResult::~CGmmResult(void) { reset(); }
 
-CGmmResult& CGmmResult::operator=(const CGmmResult& that)
+CGmmResult &CGmmResult::operator=(const CGmmResult &that)
 {
     // should be all the same
     if (this->m_iK != that.m_iK || this->m_iNumFeatures != that.m_iNumFeatures || this->m_bIsInitialized != that.m_bIsInitialized)
@@ -219,7 +219,7 @@ CGmmResult& CGmmResult::operator=(const CGmmResult& that)
     return *this;
 }
 
-float CGmmResult::getProb(const float* pfQuery)
+float CGmmResult::getProb(const float *pfQuery)
 {
     float fProb = 0;
     for (auto k = 0; k < m_iK; k++)
@@ -240,7 +240,7 @@ float CGmmResult::getProb(const float* pfQuery)
     return fProb;
 }
 
-CGmmResult::CGmmResult(const CGmmResult& that) :
+CGmmResult::CGmmResult(const CGmmResult &that) :
     m_iK(that.m_iK),
     m_iNumFeatures(that.m_iNumFeatures),
     m_bIsInitialized(that.m_bIsInitialized)
@@ -287,7 +287,7 @@ float CGmmResult::getSigma(int iGaussianIdx, int iRowIdx, int iColIdx) const
     return m_apppfSigma[kNormal][iGaussianIdx][iRowIdx][iColIdx];
 }
 
-void CGmmResult::getSigma(float** ppfSigma, int iGaussianIdx) const
+void CGmmResult::getSigma(float **ppfSigma, int iGaussianIdx) const
 {
     CMatrix::copy(ppfSigma, m_apppfSigma[kNormal][iGaussianIdx], m_iNumFeatures, m_iNumFeatures);
     return;
@@ -358,7 +358,7 @@ Error_t CGmmResult::setPrior(int iGaussianIdx, float fParamValue)
     return Error_t::kNoError;
 }
 
-Error_t CGmmResult::setSigma(int iGaussianIdx, float** ppfSigma)
+Error_t CGmmResult::setSigma(int iGaussianIdx, float **ppfSigma)
 {
     CMatrix::copy(m_apppfSigma[kNormal][iGaussianIdx], ppfSigma, m_iNumFeatures, m_iNumFeatures);
 

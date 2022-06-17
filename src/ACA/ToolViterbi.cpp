@@ -14,7 +14,7 @@ CViterbi::~CViterbi(void)
     reset();
 }
 
-Error_t CViterbi::init(const float* const* const ppfPTransition, const float* pfPStart, int iNumStates, int iNumObs)
+Error_t CViterbi::init(const float *const *const ppfPTransition, const float *pfPStart, int iNumStates, int iNumObs)
 {
     if (!ppfPTransition || !pfPStart)
         return Error_t::kFunctionInvalidArgsError;
@@ -66,7 +66,7 @@ Error_t CViterbi::reset()
     return Error_t::kNoError;
 }
 
-Error_t CViterbi::compViterbi(const float* const* const ppfPEmission, bool bUseLogLikelihood /*= true*/)
+Error_t CViterbi::compViterbi(const float *const *const ppfPEmission, bool bUseLogLikelihood /*= true*/)
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -99,7 +99,7 @@ Error_t CViterbi::compViterbi(const float* const* const ppfPEmission, bool bUseL
     return Error_t::kNoError;
 }
 
-void CViterbi::compProbability_(const float* const* const ppfPEmission)
+void CViterbi::compProbability_(const float *const *const ppfPEmission)
 {
     // initialize
     for (auto m = 0; m < m_iNumStates; m++)
@@ -108,13 +108,12 @@ void CViterbi::compProbability_(const float* const* const ppfPEmission)
         m_ppfProb[m][0] = ppfPEmission[m][0] * m_pfStart[m];
     }
 
-
     // compute probability matrix and store backtracking path
     for (int n = 1; n < m_iNumObs; n++)
     {
         for (int m = 0; m < m_iNumStates; m++)
         {
-            // find max of preceding times trans prob
+            // find max of preceding prob times trans prob
             float fMaxProb = 0;
             for (auto s = 0; s < m_iNumStates; s++)
             {
@@ -131,7 +130,7 @@ void CViterbi::compProbability_(const float* const* const ppfPEmission)
     }
 }
 
-void CViterbi::compLogLikelihood_(const float* const* const ppfPEmission)
+void CViterbi::compLogLikelihood_(const float *const *const ppfPEmission)
 {
     // convert trans prob to log
     for (auto m = 0; m < m_iNumStates; m++)
@@ -142,13 +141,12 @@ void CViterbi::compLogLikelihood_(const float* const* const ppfPEmission)
     for (auto m = 0; m < m_iNumStates; m++)
         m_ppfProb[m][0] = std::log(ppfPEmission[m][0] + m_kLogMin) + std::log(m_pfStart[m] + m_kLogMin);
 
-
     // compute probability matrix and store backtracking path
     for (int n = 1; n < m_iNumObs; n++)
     {
         for (int m = 0; m < m_iNumStates; m++)
         {
-            // find max of preceding times trans prob
+            // find max of preceding prob times trans prob
             float fMaxProb = -std::numeric_limits<float>::max();
             for (auto s = 0; s < m_iNumStates; s++)
             {
@@ -171,7 +169,7 @@ float CViterbi::getOverallProbability() const
     return m_fOverallProb;
 }
 
-Error_t CViterbi::getStateSequence(int* piStateSequence) const
+Error_t CViterbi::getStateSequence(int *piStateSequence) const
 {
     if (!piStateSequence)
         return Error_t::kFunctionInvalidArgsError;
@@ -184,6 +182,7 @@ Error_t CViterbi::getStateSequence(int* piStateSequence) const
     // init
     piStateSequence[iIdx] = m_iEndState;
 
+    // trace back
     while (iIdx > 0)
     {
         piStateSequence[iIdx - 1] = m_ppiPathIdx[piStateSequence[iIdx]][iIdx];

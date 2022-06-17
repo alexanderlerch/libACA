@@ -3,6 +3,7 @@
 #include "Vector.h"
 #include "Fft.h"
 #include "Novelty.h"
+
 #include "ToolCcf.h"
 #include "ToolBlockAudio.h"
 #include "ToolPreProc.h"
@@ -16,7 +17,7 @@ inline CBeatHistoIf::~CBeatHistoIf()
     reset_();
 }
 
-Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
+Error_t CBeatHistoIf::create(CBeatHistoIf *&pCInstance, const std::string &strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
@@ -32,7 +33,7 @@ Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const std::string& strAu
     return pCInstance->init_(strAudioFilePath);
 }
 
-Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CBeatHistoIf::create(CBeatHistoIf *&pCInstance, const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
@@ -52,7 +53,7 @@ Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const float* pfAudio, lo
     return pCInstance->init_(pfAudio, iNumSamples, fSampleRate);
 }
 
-Error_t CBeatHistoIf::destroy(CBeatHistoIf*& pCInstance)
+Error_t CBeatHistoIf::destroy(CBeatHistoIf *&pCInstance)
 {
     delete pCInstance;
     pCInstance = 0;
@@ -60,7 +61,7 @@ Error_t CBeatHistoIf::destroy(CBeatHistoIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CBeatHistoIf::getNumBins(int& iBeatHistoLength, BeatHisto_t eBeatHistoComp) const
+Error_t CBeatHistoIf::getNumBins(int &iBeatHistoLength, BeatHisto_t eBeatHistoComp) const
 {
     if (!m_bIsInitialized)
     {
@@ -79,7 +80,7 @@ int CBeatHistoIf::getNumBins(BeatHisto_t eBeatHistoComp) const
     return aiRangeIndices[1] - aiRangeIndices[0] + 1;
 }
 
-Error_t CBeatHistoIf::getBeatHistoAxisTicks(float* pfAxisTicks, BeatHisto_t eBeatHistoComp) const
+Error_t CBeatHistoIf::getBeatHistoAxisTicks(float *pfAxisTicks, BeatHisto_t eBeatHistoComp) const
 {
     if (!m_bIsInitialized)
     {
@@ -110,14 +111,14 @@ Error_t CBeatHistoIf::getBeatHistoAxisTicks(float* pfAxisTicks, BeatHisto_t eBea
     return Error_t::kNoError;
 }
 
-Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoComp)
+Error_t CBeatHistoIf::compBeatHisto(float *pfBeatHisto, BeatHisto_t eBeatHistoComp)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
     if (!pfBeatHisto)
         return Error_t::kFunctionInvalidArgsError;
 
-    CBlockAudioIf* pCBlock = 0;
+    CBlockAudioIf *pCBlock = 0;
     int aiBeatHistoRange[2] = { 0,0 };
 
     int iBeatHistoLength = getNumBins(eBeatHistoComp);
@@ -133,7 +134,7 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
 
     if (eBeatHistoComp == kBeatHistoCorr)
     {
-        CCcf* pCAcf = new CCcf();
+        CCcf *pCAcf = new CCcf();
 
         // create correlation instance with zeropadding
         pCAcf->init(m_iBeatHistoLength);
@@ -160,7 +161,7 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
     }
     else if (eBeatHistoComp == kBeatHistoFft)
     {
-        CFft* pCFft = new CFft();
+        CFft *pCFft = new CFft();
 
         // create FFT instance with zeropadding
         pCFft->init(m_iBeatHistoLength, 2);
@@ -190,11 +191,7 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
     compHistoRange_(aiBeatHistoRange[0], aiBeatHistoRange[1], eBeatHistoComp);
 
     // copy to output
-    //CVector::moveInMem(m_pfBeatHisto, 0, aiBeatHistoRange[0], aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1);
-    //CVector::setZero(&m_pfBeatHisto[aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1], iBeatHistoLength - (aiBeatHistoRange[1] - aiBeatHistoRange[0] + 1));
     CVector::copy(pfBeatHisto, &m_pfBeatHisto[aiBeatHistoRange[0]], iBeatHistoLength);
-
-    // create BPM axis labels
 
     // normalize result
     CNormalizeAudio::normalizeSignal(pfBeatHisto, iBeatHistoLength);
@@ -224,7 +221,7 @@ Error_t CBeatHistoIf::reset_()
     return Error_t::kNoError;
 }
 
-Error_t CBeatHistoIf::init_(const std::string& strAudioFilePath)
+Error_t CBeatHistoIf::init_(const std::string &strAudioFilePath)
 {
     if (Error_t::kNoError == CNoveltyIf::create(m_pCNovelty, CNoveltyIf::kNoveltyFlux, strAudioFilePath, m_iBlockLength, m_iHopLength))
     {
@@ -247,7 +244,7 @@ Error_t CBeatHistoIf::init_(const std::string& strAudioFilePath)
         return Error_t::kMemError;
 }
 
-Error_t CBeatHistoIf::init_(const float* pfAudio, long long iNumSamples, float fSampleRate)
+Error_t CBeatHistoIf::init_(const float *pfAudio, long long iNumSamples, float fSampleRate)
 {
     if (Error_t::kNoError == CNoveltyIf::create(m_pCNovelty, CNoveltyIf::kNoveltyFlux, pfAudio, iNumSamples, fSampleRate, m_iBlockLength, m_iHopLength))
     {
@@ -267,7 +264,7 @@ Error_t CBeatHistoIf::init_(const float* pfAudio, long long iNumSamples, float f
         return Error_t::kMemError;
 }
 
-inline void CBeatHistoIf::compHistoRange_(int& iStartIdx, int& iStopIdx, BeatHisto_t eBeatHistoComp) const
+inline void CBeatHistoIf::compHistoRange_(int &iStartIdx, int &iStopIdx, BeatHisto_t eBeatHistoComp) const
 {
     const float afBpmRange[2] = { 30.F, 200.F };
 

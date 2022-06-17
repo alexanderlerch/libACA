@@ -27,7 +27,7 @@ float CConversion::convertMel2Freq(float fMel, MelConversionFunctions_t eFunc)
     return m_MelDispatchMap.at(eFunc + kNumMelConversionFunctions)(fMel);
 }
 
-void CConversion::convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengthBuff, MelConversionFunctions_t eFunc)
+void CConversion::convertFreq2Mel(float *pfMel, const float *pffInHz, int iLengthBuff, MelConversionFunctions_t eFunc)
 {
     assert(pfMel);
     assert(pffInHz);
@@ -37,7 +37,7 @@ void CConversion::convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengt
         pfMel[k] = m_MelDispatchMap.at(eFunc)(pffInHz[k]);
 }
 
-void CConversion::convertMel2Freq(float* pffInHz, const float* pfMel, int iLengthBuff, MelConversionFunctions_t eFunc)
+void CConversion::convertMel2Freq(float *pffInHz, const float *pfMel, int iLengthBuff, MelConversionFunctions_t eFunc)
 {
     assert(pfMel);
     assert(pffInHz);
@@ -102,7 +102,7 @@ float CConversion::convertBark2Freq(float fBark, BarkConversionFunctions_t eFunc
     return m_BarkDispatchMap.at(eFunc + kNumBarkConversionFunctions)(fBark);
 }
 
-void CConversion::convertFreq2Bark(float* pfBark, const float* pffInHz, int iLengthBuff, BarkConversionFunctions_t eFunc)
+void CConversion::convertFreq2Bark(float *pfBark, const float *pffInHz, int iLengthBuff, BarkConversionFunctions_t eFunc)
 {
     assert(pfBark);
     assert(pffInHz);
@@ -112,7 +112,7 @@ void CConversion::convertFreq2Bark(float* pfBark, const float* pffInHz, int iLen
         pfBark[k] = m_BarkDispatchMap.at(eFunc)(pffInHz[k]);
 }
 
-void CConversion::convertBark2Freq(float* pffInHz, const float* pfBark, int iLengthBuff, BarkConversionFunctions_t eFunc)
+void CConversion::convertBark2Freq(float *pffInHz, const float *pfBark, int iLengthBuff, BarkConversionFunctions_t eFunc)
 {
     assert(pfBark);
     assert(pffInHz);
@@ -168,7 +168,7 @@ float CConversion::convertBark2FreqTraunmuller(float fBark)
 }
 
 //////////////////////////////////////////////////////////////////////////////
-void CConversion::convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate)
+void CConversion::convertBin2Freq(float *pffInHz, const float *pfBin, int iLengthBuff, int iFftLength, float fSampleRate)
 {
     assert(pfBin);
     assert(pffInHz);

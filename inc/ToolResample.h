@@ -21,7 +21,7 @@ public:
     \param iNumInSamples length of pfIn
     \return Error_t
     */
-    static Error_t interp1d(float* pfOut, const float* pfNewIdx, const float* pfIn, long long iNumOutSamples, long long iNumInSamples)
+    static Error_t interp1d(float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)
     {
         if (!pfNewIdx || !pfOut || !pfIn || iNumInSamples <= 0 || iNumOutSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -99,7 +99,7 @@ public:
     \param iNumInSamples length of input buffer
     \return Error_t
     */
-    Error_t process(float* pfOut, const float* pfIn, long long iNumInSamples)
+    Error_t process(float *pfOut, const float *pfIn, long long iNumInSamples)
     {
         if (!pfOut || !pfIn || iNumInSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -109,7 +109,7 @@ public:
 
         // compute index axis
         long long iNumOutSamples = getOutputLength(iNumInSamples);
-        float* pfOutIdx = 0;
+        float *pfOutIdx = 0;
         CVector::alloc(pfOutIdx, iNumOutSamples);
         for (auto i = 0; i < iNumOutSamples; i++)
             pfOutIdx[i] = i * m_fInSampleRate / m_fOutSampleRate;
@@ -129,7 +129,7 @@ public:
         }
         else // downsample
         {
-            float* pfFiltered = 0;
+            float *pfFiltered = 0;
             CVector::alloc(pfFiltered, iNumInSamples);
 
             // apply zero phase filter
@@ -148,13 +148,13 @@ public:
     }
 
 private:
-    CResample(const CResample& that);
-    CResample& operator=(const CResample& c);
+    CResample(const CResample &that);
+    CResample &operator=(const CResample &c);
 
     float m_fInSampleRate = 0.F; //!< sample rate of input
     float m_fOutSampleRate = 0.F; //!< sample rate of output
 
-    CFilter<float>* m_pCFilter = 0; //!< low pass filter processing
+    CFilter<float> *m_pCFilter = 0; //!< low pass filter processing
 };
 
 #endif // #if !defined(__ACA_Resample_HEADER_INCLUDED__)

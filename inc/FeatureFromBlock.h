@@ -22,13 +22,13 @@ public:
     \param fSampleRate: sample rate (only used when needed)
     \return Error_t
     */
-    static Error_t create(CFeatureFromBlockIf*& pCInstance, CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate = 1.F);
+    static Error_t create(CFeatureFromBlockIf *&pCInstance, CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate = 1.F);
 
     /*! destroys a FeatureFromBlock instance
     \param pCInstance pointer to instance to be destroyed
     \return Error_t
     */
-    static Error_t destroy(CFeatureFromBlockIf*& pCInstance);
+    static Error_t destroy(CFeatureFromBlockIf *&pCInstance);
 
     /*! returns size of output feature (1 in most cases)
     \return int
@@ -48,7 +48,7 @@ public:
     \param pfIn input data of length iDataLength
     \return Error_t
     */
-    virtual Error_t compFeature(float* pfFeature, const float* pfIn);
+    virtual Error_t compFeature(float *pfFeature, const float *pfIn);
 
     /*! returns true if there is an additional parameter
     \return bool
@@ -64,41 +64,140 @@ public:
 
     ////////////////////////////////////////////////////////////////////////////
     // static functions for some features where it makes sense (use at your own risk)
-    static float compFeatureSpectralCentroid(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralCrestFactor(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralDecrease(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralFlatness(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralFlux(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralKurtosis(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralRolloff(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F, float fKappa = .85F);
-    static float compFeatureSpectralSkewness(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralSlope(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralSpread(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float fSampleRate = 1.F, float fThresh = 5e-4);
-    static float compFeatureTimeAcfCoeff(const float* pfSamples, int iDataLength, float fSampleRate = 1.F, int  iEta = 19);
-    static float compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureTimeRms(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureTimeStd(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
-    static float compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralCentroid(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralCrestFactor(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralDecrease(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralFlatness(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param pfPrevSpec preceding magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralFlux(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralKurtosis(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    * \param fKappa bandwidth parameter
+    \return float feature
+    */
+    static float compFeatureSpectralRolloff(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F, float fKappa = .85F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralSkewness(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralSlope(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureSpectralSpread(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfMagSpec magnitude spectrum
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    * \param threshold for maximum computation
+    \return float feature
+    */
+    static float compFeatureSpectralTonalPowerRatio(const float *pfMagSpec, int iDataLength, float fSampleRate = 1.F, float fThresh = 5e-4);
+    /*! returns feature from block
+    * \param pfSamples block of time domain samples
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    * \param iEta index of coefficient to extract
+    \return float feature
+    */
+    static float compFeatureTimeAcfCoeff(const float *pfSamples, int iDataLength, float fSampleRate = 1.F, int  iEta = 19);
+    /*! returns feature from block
+    * \param pfSamples block of time domain samples
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureTimePeakEnvelope(const float *pfSamples, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfSamples block of time domain samples
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureTimeRms(const float *pfSamples, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfSamples block of time domain samples
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureTimeStd(const float *pfSamples, int iDataLength, float fSampleRate = 1.F);
+    /*! returns feature from block
+    * \param pfSamples block of time domain samples
+    * \param iDataLength length of magnitude spectrum
+    * \param fSampleRate audio sample rate (only needed for scaling)
+    \return float feature
+    */
+    static float compFeatureTimeZeroCrossingRate(const float *pfSamples, int iDataLength, float fSampleRate = 1.F);
 
-    static const float m_kfFloatThresh;         //!< below this we just assume it's zero
+    static const float m_kfFloatThresh;  //!< below this we just assume everything's zero
 
 
 protected:
     CFeatureFromBlockIf() {};
     CFeatureFromBlockIf(CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate);
     virtual ~CFeatureFromBlockIf() {};
-    CFeatureFromBlockIf(const CFeatureFromBlockIf& that);
-    CFeatureFromBlockIf& operator=(const CFeatureFromBlockIf& c);
+    CFeatureFromBlockIf(const CFeatureFromBlockIf &that);
+    CFeatureFromBlockIf &operator=(const CFeatureFromBlockIf &c);
 
-    CFeatureIf::Feature_t m_eFeatureIdx = CFeatureIf::kNumFeatures;     //!< index of feature to extract
+    CFeatureIf::Feature_t m_eFeatureIdx = CFeatureIf::kNumFeatures; //!< index of feature to extract
 
-    int m_iDataLength = 0;                      //!< block length
-
-    float m_fSampleRate = 0;                    //!< sample rate
+    int m_iDataLength = 0; //!< block length
+    float m_fSampleRate = 0; //!< sample rate
 
     //!< dispatcher map for static functions without additional arguments
-    const std::map<CFeatureIf::Feature_t, std::function<float(const float*, int, float)>> m_DispatchMap
+    const std::map<CFeatureIf::Feature_t, std::function<float(const float *, int, float)>> m_DispatchMap
     {
             {CFeatureIf::kFeatureSpectralCentroid, &compFeatureSpectralCentroid},
             {CFeatureIf::kFeatureSpectralCrestFactor, &compFeatureSpectralCrestFactor},

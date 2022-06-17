@@ -13,9 +13,8 @@
 #include "PitchFromBlock.h"
 
 
-
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of the pitch from a file
+*/
 class CPitchFromFile : public CPitchIf
 {
 public:
@@ -59,8 +58,8 @@ CPitchFromFile::CPitchFromFile(PitchExtractors_t ePitchIdx, std::string strAudio
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of the pitch from a vector of audio data
+*/
 class CPitchFromVector : public CPitchIf
 {
 public:
@@ -151,11 +150,6 @@ Error_t CPitchIf::getNumBlocks(int& iNumBlocks) const
     return Error_t::kNoError;
 }
 
-
-/*! returns size of vector to be allocated by user
-\return int
-*/
-
 int CPitchIf::getNumBlocks() const
 {
     assert(m_bIsInitialized);
@@ -215,11 +209,13 @@ Error_t CPitchIf::compF0(float* pfPitch)
 
         if (isPitchExtractorSpectral_(m_pCPitch->getPitchExtractorIdx()))
         {
+            // compute magnitude specturm
             assert(m_pfProcBuff2);
             assert(m_pCFft);
             computeMagSpectrum_();
         }
 
+        // extract f0
         pfPitch[n] = m_pCPitch->compF0(m_pfProcBuff1);
     }
 
@@ -266,7 +262,7 @@ void CPitchIf::computeMagSpectrum_()
 {
     assert(m_pCFft);
 
-    // compute magnitude spectrum (hack
+    // compute magnitude spectrum 
     m_pCFft->compFft(m_pfProcBuff2, m_pfProcBuff1);
     m_pCFft->getMagnitude(m_pfProcBuff1, m_pfProcBuff2);
 

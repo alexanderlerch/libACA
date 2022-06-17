@@ -17,14 +17,14 @@ void    showClInfo();
 int main(int argc, char* argv[])
 {
 
-    std::string             sInFilePath,                 //!< file paths
+    std::string sInFilePath,//!< file paths
         sOutFilePath;
 
     std::string sFeatureString; //!< string of the feature to be extracted
 
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
-    int aiFeatureDimensions[2] = { 0,0 };
+    int aiFeatureDims[2] = { 0,0 }; //!< feature (matrix) dimension
 
     clock_t time = 0;
 
@@ -58,7 +58,7 @@ int main(int argc, char* argv[])
     // initialize feature instance
     eFeatureIdx = CFeatureIf::getFeatureIdxFromString(sFeatureString);
     CFeatureIf::create(pCInstance, eFeatureIdx, sInFilePath, iBlockLength, iHopLength);
-    pCInstance->getFeatureDimensions(aiFeatureDimensions[0], aiFeatureDimensions[1]);
+    pCInstance->getFeatureDimensions(aiFeatureDims[0], aiFeatureDims[1]);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
@@ -72,9 +72,9 @@ int main(int argc, char* argv[])
 
     //////////////////////////////////////////////////////////////////////////////
     // allocate memory
-    ppfFeature = new float* [aiFeatureDimensions[0]];
-    for (auto k = 0; k < aiFeatureDimensions[0]; k++)
-        ppfFeature[k] = new float[aiFeatureDimensions[1]];
+    ppfFeature = new float* [aiFeatureDims[0]];
+    for (auto k = 0; k < aiFeatureDims[0]; k++)
+        ppfFeature[k] = new float[aiFeatureDims[1]];
 
 
     if (!ppfFeature)
@@ -89,7 +89,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // compute feature
     cout << "\n1. computing feature..." << endl;
-    if (aiFeatureDimensions[0] == 1)
+    if (aiFeatureDims[0] == 1)
         pCInstance->compFeature1Dim(ppfFeature[0]);
     else
         pCInstance->compFeatureNDim(ppfFeature);
@@ -103,10 +103,10 @@ int main(int argc, char* argv[])
 
     cout << "\n2. writing output file..." << endl;
 
-    for (auto k = 0; k < aiFeatureDimensions[0]; k++)
+    for (auto k = 0; k < aiFeatureDims[0]; k++)
     {
         // write
-        for (int n = 0; n < aiFeatureDimensions[1]; n++)
+        for (int n = 0; n < aiFeatureDims[1]; n++)
         {
             hOutFile << ppfFeature[k][n] << "\t";
         }
@@ -120,7 +120,7 @@ int main(int argc, char* argv[])
     CFeatureIf::destroy(pCInstance);
     hOutFile.close();
 
-    for (int k = 0; k < aiFeatureDimensions[0]; k++)
+    for (int k = 0; k < aiFeatureDims[0]; k++)
         delete[] ppfFeature[k];
     delete[] ppfFeature;
 

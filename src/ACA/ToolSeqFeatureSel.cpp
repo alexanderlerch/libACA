@@ -1,7 +1,6 @@
 #include "Vector.h"
 #include "Matrix.h"
 
-
 #include "ToolLeaveOneOutCrossVal.h"
 #include "ToolSimpleKnn.h"
 
@@ -33,7 +32,7 @@ Error_t CSeqFeatureSel::init(int iNumFeatures, int iNumObs)
     return Error_t::kNoError;
 }
 
-Error_t CSeqFeatureSel::process(const float* const* const ppfFeatures, const int* piClassIndices)
+Error_t CSeqFeatureSel::process(const float *const *const ppfFeatures, const int *piClassIndices)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -63,6 +62,7 @@ Error_t CSeqFeatureSel::process(const float* const* const ppfFeatures, const int
         }
     }
 
+    // copy best feature value to the first row of our feature matrix
     CVector::copy(m_ppfTrain[0], ppfFeatures[m_piSelFeatures[0]], m_iNumObs);
     iNumSelFeatures++;
 
@@ -102,7 +102,7 @@ Error_t CSeqFeatureSel::process(const float* const* const ppfFeatures, const int
     return Error_t::kNoError;
 }
 
-Error_t CSeqFeatureSel::getResult(int* piFeatureIndices, float* pfAccuracyPerStep /*= 0*/)
+Error_t CSeqFeatureSel::getResult(int *piFeatureIndices, float *pfAccuracyPerStep /*= 0*/)
 {
     if (!m_bWasProcessed)
         return Error_t::kFunctionIllegalCallError;
@@ -115,6 +115,7 @@ Error_t CSeqFeatureSel::getResult(int* piFeatureIndices, float* pfAccuracyPerSte
 
     return Error_t::kNoError;
 }
+
 Error_t CSeqFeatureSel::reset()
 {
     m_bIsInitialized = false;

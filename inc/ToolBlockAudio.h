@@ -18,7 +18,7 @@ public:
     \param iHopLength hop length in samples
     \return float
     */
-    static Error_t create(CBlockAudioIf*& pCInstance, CAudioFileIf* pCAudioFile, int iBlockLength, int iHopLength);
+    static Error_t create(CBlockAudioIf *&pCInstance, CAudioFileIf *pCAudioFile, int iBlockLength, int iHopLength);
 
     /*! creates an instance for blocking from vector
     \param pCInstance pointer to instance to be written
@@ -29,13 +29,13 @@ public:
     \param fSampleRate sample rate in Hz
     \return float
     */
-    static Error_t create(CBlockAudioIf*& pCInstance, const float* pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate);
+    static Error_t create(CBlockAudioIf *&pCInstance, const float *pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate);
 
     /*! destroys a block audio instance
     \param pCInstance pointer to instance to be written
     \return Error_t
     */
-    static Error_t destroy(CBlockAudioIf*& pCInstance)
+    static Error_t destroy(CBlockAudioIf *&pCInstance)
     {
         delete pCInstance;
         pCInstance = 0;
@@ -78,23 +78,23 @@ public:
     \param pfTimeStampInS (to be written, optional) for current time stamp
     \return int iNumsamplesRead
     */
-    virtual int getNextBlock(float* pfBlock, float* pfTimeStampInS = 0) = 0;
+    virtual int getNextBlock(float *pfBlock, float *pfTimeStampInS = 0) = 0;
 
 protected:
     CBlockAudioIf() {};
     virtual ~CBlockAudioIf() {};
-    CBlockAudioIf(const CBlockAudioIf& that);
-    CBlockAudioIf& operator=(const CBlockAudioIf& c);
+    CBlockAudioIf(const CBlockAudioIf &that);
+    CBlockAudioIf &operator=(const CBlockAudioIf &c);
 
-    long long m_iNumBlocks = 0,     //!< number of blocks
-        m_iCurrBlock = 0,           //!< current block index
-        m_iAudioLength = 0;         //!< length of audio buffer
+    long long m_iNumBlocks = 0, //!< number of blocks
+        m_iCurrBlock = 0, //!< current block index
+        m_iAudioLength = 0; //!< length of audio buffer
 
-    int m_iBlockLength = 0,         //!< block length
-        m_iNumChannels = 0,         //!< number of channels
-        m_iHopLength = 0;           //!< hop length
+    int m_iBlockLength = 0, //!< block length
+        m_iNumChannels = 0, //!< number of channels
+        m_iHopLength = 0; //!< hop length
 
-    float m_fSampleRate = 0;        //!< sample rate
+    float m_fSampleRate = 0; //!< sample rate
 };
 
 #endif // __ACA_ToolBlockAudio_HEADER_INCLUDED__

@@ -64,7 +64,7 @@ Error_t CFft::reset()
 
 }
 
-Error_t CFft::overrideWindow(const float* pfNewWindow)
+Error_t CFft::overrideWindow(const float *pfNewWindow)
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -76,7 +76,7 @@ Error_t CFft::overrideWindow(const float* pfNewWindow)
     return Error_t::kNoError;
 }
 
-Error_t CFft::getWindow(float* pfWindow) const
+Error_t CFft::getWindow(float *pfWindow) const
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -88,7 +88,7 @@ Error_t CFft::getWindow(float* pfWindow) const
     return Error_t::kNoError;
 }
 
-Error_t CFft::compFft(complex_t* pfSpectrum, const float* pfIn)
+Error_t CFft::compFft(complex_t *pfSpectrum, const float *pfIn)
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -112,7 +112,7 @@ Error_t CFft::compFft(complex_t* pfSpectrum, const float* pfIn)
     return Error_t::kNoError;
 }
 
-Error_t CFft::compInvFft(float* pfOut, const complex_t* pfSpectrum)
+Error_t CFft::compInvFft(float *pfOut, const complex_t *pfSpectrum)
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -133,7 +133,7 @@ Error_t CFft::compInvFft(float* pfOut, const complex_t* pfSpectrum)
     return Error_t::kNoError;
 }
 
-Error_t CFft::getMagnitude(float* pfMag, const complex_t* pfSpectrum) const
+Error_t CFft::getMagnitude(float *pfMag, const complex_t *pfSpectrum) const
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -153,7 +153,7 @@ Error_t CFft::getMagnitude(float* pfMag, const complex_t* pfSpectrum) const
     return Error_t::kNoError;
 }
 
-Error_t CFft::getPhase(float* pfPhase, const complex_t* pfSpectrum) const
+Error_t CFft::getPhase(float *pfPhase, const complex_t *pfSpectrum) const
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -175,7 +175,7 @@ Error_t CFft::getPhase(float* pfPhase, const complex_t* pfSpectrum) const
     return Error_t::kNoError;
 }
 
-Error_t CFft::splitRealImag(float* pfReal, float* pfImag, const complex_t* pfSpectrum) const
+Error_t CFft::splitRealImag(float *pfReal, float *pfImag, const complex_t *pfSpectrum) const
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -195,7 +195,7 @@ Error_t CFft::splitRealImag(float* pfReal, float* pfImag, const complex_t* pfSpe
     return Error_t::kNoError;
 }
 
-Error_t CFft::mergeRealImag(complex_t* pfSpectrum, const float* pfReal, const float* pfImag) const
+Error_t CFft::mergeRealImag(complex_t *pfSpectrum, const float *pfReal, const float *pfImag) const
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -223,13 +223,13 @@ float CFft::bin2freq(int iBinIdx, float fSampleRateInHz) const
     return iBinIdx * fSampleRateInHz / m_iFftLength;
 }
 
-void CFft::conjugate_I(complex_t* pfFftResult) const
+void CFft::conjugate_I(complex_t *pfFftResult) const
 {
     // re(0),re(1),re(2),...,re(size/2),im(size/2-1),...,im(1)
     CVector::mulC_I(&pfFftResult[(m_iFftLength >> 1) + 1], -1.F, static_cast<long long>(m_iFftLength >> 1) - 1);
 }
 
-void CFft::multiply_I(complex_t* pfFftSrc1Dest, const complex_t* pfFftSrc2) const
+void CFft::multiply_I(complex_t *pfFftSrc1Dest, const complex_t *pfFftSrc2) const
 {
     int i = 0,
         j = 0;

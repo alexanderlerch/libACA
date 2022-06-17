@@ -21,7 +21,7 @@ int main(int argc, char* argv[])
 
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
-    int aiSpecGramDimensions[2] = { 0,0 }; //!< spectrogram number of rows and cols
+    int aiSpecGramDims[2] = { 0,0 }; //!< spectrogram number of rows and cols
 
     clock_t time = 0;
 
@@ -52,7 +52,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // initialize spectrogram instance
     CSpectrogramIf::create(pCSpectrogram, sInFilePath, iBlockLength, iHopLength);
-    pCSpectrogram->getSpectrogramDimensions(aiSpecGramDimensions[0], aiSpecGramDimensions[1]);
+    pCSpectrogram->getSpectrogramDimensions(aiSpecGramDims[0], aiSpecGramDims[1]);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
@@ -66,9 +66,9 @@ int main(int argc, char* argv[])
 
     //////////////////////////////////////////////////////////////////////////////
     // allocate memory
-    ppfSpectrogram = new float* [aiSpecGramDimensions[0]];
-    for (auto k = 0; k < aiSpecGramDimensions[0]; k++)
-        ppfSpectrogram[k] = new float[aiSpecGramDimensions[1]];
+    ppfSpectrogram = new float* [aiSpecGramDims[0]];
+    for (auto k = 0; k < aiSpecGramDims[0]; k++)
+        ppfSpectrogram[k] = new float[aiSpecGramDims[1]];
 
 
     if (!ppfSpectrogram )
@@ -94,10 +94,10 @@ int main(int argc, char* argv[])
 
     cout << "\n2. writing output file..." << endl;
 
-    for (auto k = 0; k < aiSpecGramDimensions[0]; k++)
+    for (auto k = 0; k < aiSpecGramDims[0]; k++)
     {
         // write
-        for (int n = 0; n < aiSpecGramDimensions[1]; n++)
+        for (int n = 0; n < aiSpecGramDims[1]; n++)
         {
             hOutFile << ppfSpectrogram[k][n] << "\t";
         }
@@ -111,7 +111,7 @@ int main(int argc, char* argv[])
     CSpectrogramIf::destroy(pCSpectrogram);
     hOutFile.close();
 
-    for (int k = 0; k < aiSpecGramDimensions[0]; k++)
+    for (int k = 0; k < aiSpecGramDims[0]; k++)
         delete[] ppfSpectrogram[k];
     delete[] ppfSpectrogram;
 

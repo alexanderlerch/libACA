@@ -22,21 +22,21 @@ CFingerprint::~CFingerprint()
     CBlockAudioIf::destroy(m_pCBlockAudio);
 }
 
-Error_t CFingerprint::init(const std::string& strAudioFilePath)
+Error_t CFingerprint::init(const std::string &strAudioFilePath)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
 
     long long iInLength = 0;
-    CAudioFileIf* pCAudioFile = 0;
-    CResample* pCResample = 0;
+    CAudioFileIf *pCAudioFile = 0;
+    CResample *pCResample = 0;
 
     CAudioFileIf::FileSpec_t stFileSpec;
 
     const int iBlockLength = 4096;
     long long iCurrPos = 0;
-    float** ppfAudioBlock = 0;
-    float* pfAllAudio = 0;
+    float **ppfAudioBlock = 0;
+    float *pfAllAudio = 0;
 
     CAudioFileIf::create(pCAudioFile);
     pCAudioFile->openFile(strAudioFilePath, CAudioFileIf::kFileRead);
@@ -82,14 +82,14 @@ Error_t CFingerprint::init(const std::string& strAudioFilePath)
     return Error_t::kNoError;
 }
 
-Error_t CFingerprint::init(const float* pfIn, long long iNumFrames, float fSampleRate)
+Error_t CFingerprint::init(const float *pfIn, long long iNumFrames, float fSampleRate)
 {
     if (!pfIn)
         return Error_t::kFunctionInvalidArgsError;
     if (iNumFrames <= 0 || fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
-    CResample* pCResample = 0;
+    CResample *pCResample = 0;
 
     pCResample = new CResample(fSampleRate, m_fProcSampleRate);
 
@@ -116,7 +116,7 @@ float CFingerprint::getTimeStamp(int iBlockIdx) const
     return m_pCBlockAudio->getTimeStamp(iBlockIdx);
 }
 
-Error_t CFingerprint::getTimeStamps(float* pfAxisTicks) const
+Error_t CFingerprint::getTimeStamps(float *pfAxisTicks) const
 {
     if (!m_bIsInitialized)
     {
@@ -137,7 +137,7 @@ Error_t CFingerprint::getTimeStamps(float* pfAxisTicks) const
     return Error_t::kNoError;
 }
 
-Error_t CFingerprint::compFingerprint(uint32_t* puiFingerprint)
+Error_t CFingerprint::compFingerprint(uint32_t *puiFingerprint)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -166,7 +166,7 @@ Error_t CFingerprint::compFingerprint(uint32_t* puiFingerprint)
 }
 
 
-Error_t CFingerprint::reset()                    //!< reset configuration
+Error_t CFingerprint::reset()  
 {
     m_bIsInitialized = false;
 
@@ -184,12 +184,12 @@ Error_t CFingerprint::reset()                    //!< reset configuration
     return Error_t::kNoError;
 }
 
-Error_t CFingerprint::init_()                     //!< init configuration
+Error_t CFingerprint::init_() 
 {
 
     CBlockAudioIf::create(m_pCBlockAudio, m_pfAudioBuff, m_iAudioLength, m_iBlockLength, m_iHopLength, m_fProcSampleRate);
 
-    // initialize FFT and fft  buffer
+    // initialize FFT and buffer
     m_pCFft = new CFft();
     m_pCFft->init(m_iBlockLength);
 
@@ -208,7 +208,7 @@ void CFingerprint::computeMagSpectrum_()
 {
     assert(m_pCFft);
 
-    // compute magnitude spectrum (hack
+    // compute magnitude spectrum 
     m_pCFft->compFft(m_pfProcBuff2, m_pfProcBuff1);
     m_pCFft->getMagnitude(m_pfProcBuff1, m_pfProcBuff2);
 

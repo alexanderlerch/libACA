@@ -29,7 +29,7 @@ Error_t CGmmClassifier::init(int iNumFeatures, int iNumObs)
     return Error_t::kNoError;
 }
 
-Error_t CGmmClassifier::train(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
+Error_t CGmmClassifier::train(const float *const *const ppfTrainFeatures, const int *piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -40,7 +40,7 @@ Error_t CGmmClassifier::train(const float* const* const ppfTrainFeatures, const 
     if (!ppfTrainFeatures[0])
         return Error_t::kFunctionInvalidArgsError;
 
-    float** ppfTrain = 0;
+    float **ppfTrain = 0;
     CGmm Gmm;
 
     // alloc temp train data matrix
@@ -132,7 +132,7 @@ int CGmmClassifier::getNumMixtures() const
 }
 
 
-int CGmmClassifier::classify(const float* pfQuery)
+int CGmmClassifier::classify(const float *pfQuery)
 {
     if (!pfQuery || !m_bIsInitialized)
         return kIllegalClassLabel;
@@ -161,7 +161,7 @@ int CGmmClassifier::classify(const float* pfQuery)
         return iIdx;
 }
 
-int CGmmClassifier::countClasses(const int* piClassLabels)
+int CGmmClassifier::countClasses(const int *piClassLabels)
 {
     m_iNumClasses = 1;
     m_piClassLabels[0] = piClassLabels[0];

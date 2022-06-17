@@ -7,7 +7,7 @@
 
 CLeaveOneOutCrossVal::~CLeaveOneOutCrossVal(void) { reset(); }
 
-Error_t CLeaveOneOutCrossVal::init(int iNumFeatures, int iNumObs, CClassifierBase* pCClassifier)
+Error_t CLeaveOneOutCrossVal::init(int iNumFeatures, int iNumObs, CClassifierBase *pCClassifier)
 {
     if (iNumFeatures <= 0 || iNumObs <= 1)
         return Error_t::kFunctionInvalidArgsError;
@@ -58,7 +58,7 @@ Error_t CLeaveOneOutCrossVal::reset()
     return Error_t::kNoError;
 }
 
-float CLeaveOneOutCrossVal::process(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices)
+float CLeaveOneOutCrossVal::process(const float *const *const ppfTrainFeatures, const int *piTrainClassIndices)
 {
     if (!m_bIsInitialized)
         return -1.F;

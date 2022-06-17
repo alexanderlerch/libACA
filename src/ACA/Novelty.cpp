@@ -12,8 +12,8 @@
 
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of the novelty function from a file
+*/
 class CNoveltyFromFile : public CNoveltyIf
 {
 public:
@@ -31,7 +31,7 @@ public:
     };
 
 private:
-    CAudioFileIf* m_pCAudioFile;
+    CAudioFileIf *m_pCAudioFile;
 };
 
 CNoveltyFromFile::CNoveltyFromFile(Novelty_t eNoveltyIdx, std::string strAudioFilePath, int iBlockLength, int iHopLength) :
@@ -57,16 +57,16 @@ CNoveltyFromFile::CNoveltyFromFile(Novelty_t eNoveltyIdx, std::string strAudioFi
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of the novelty function from a vector of audio data
+*/
 class CNoveltyFromVector : public CNoveltyIf
 {
 public:
-    CNoveltyFromVector(Novelty_t eNoveltyIdx, const float* pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength);
+    CNoveltyFromVector(Novelty_t eNoveltyIdx, const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength);
     virtual ~CNoveltyFromVector() {};
 };
 
-CNoveltyFromVector::CNoveltyFromVector(Novelty_t eNoveltyIdx, const float* pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength)
+CNoveltyFromVector::CNoveltyFromVector(Novelty_t eNoveltyIdx, const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength)
 {
     // set length variables
     m_iBlockLength = iBlockLength;
@@ -95,7 +95,7 @@ inline CNoveltyIf::~CNoveltyIf()
     reset_();
 }
 
-Error_t CNoveltyIf::create(CNoveltyIf*& pCInstance, Novelty_t eNoveltyIdx, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
+Error_t CNoveltyIf::create(CNoveltyIf *&pCInstance, Novelty_t eNoveltyIdx, const std::string &strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
@@ -110,7 +110,7 @@ Error_t CNoveltyIf::create(CNoveltyIf*& pCInstance, Novelty_t eNoveltyIdx, const
     return Error_t::kNoError;
 }
 
-Error_t CNoveltyIf::create(CNoveltyIf*& pCInstance, Novelty_t eNoveltyIdx, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CNoveltyIf::create(CNoveltyIf *&pCInstance, Novelty_t eNoveltyIdx, const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
@@ -128,7 +128,7 @@ Error_t CNoveltyIf::create(CNoveltyIf*& pCInstance, Novelty_t eNoveltyIdx, const
     return Error_t::kNoError;
 }
 
-Error_t CNoveltyIf::destroy(CNoveltyIf*& pCInstance)
+Error_t CNoveltyIf::destroy(CNoveltyIf *&pCInstance)
 {
     delete pCInstance;
     pCInstance = 0;
@@ -136,7 +136,7 @@ Error_t CNoveltyIf::destroy(CNoveltyIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CNoveltyIf::getNumBlocks(int& iNumBlocks) const
+Error_t CNoveltyIf::getNumBlocks(int &iNumBlocks) const
 {
     if (!m_bIsInitialized)
     {
@@ -162,7 +162,7 @@ float CNoveltyIf::getTimeStamp(int iBlockIdx) const
     return m_pCBlockAudio->getTimeStamp(iBlockIdx);
 }
 
-Error_t CNoveltyIf::getTimeStamps(float* pfAxisTicks) const
+Error_t CNoveltyIf::getTimeStamps(float *pfAxisTicks) const
 {
     if (!m_bIsInitialized)
     {
@@ -183,7 +183,7 @@ Error_t CNoveltyIf::getTimeStamps(float* pfAxisTicks) const
     return Error_t::kNoError;
 }
 
-Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
+Error_t CNoveltyIf::compNovelty(float *pfNovelty, bool *pbIsOnset)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -201,7 +201,7 @@ Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
     const float fThreshLpLenInS = 0.14F;
     auto iNumBlocks = m_pCBlockAudio->getNumBlocks();
 
-    float* pfThreshold = 0; //!< memory allocation is ok since we compDtw the whole signal at once
+    float *pfThreshold = 0; //!< adaptive threshold - memory allocation is ok since we compDtw the whole signal at once anyway
     CVector::alloc(pfThreshold, iNumBlocks);
 
     for (auto n = 0; n < iNumBlocks; n++)
@@ -213,8 +213,10 @@ Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
         if (m_pCNormalize)
             m_pCNormalize->normalizeBlock(m_pfProcBuff1, m_iBlockLength);
 
+        // compute spectrum
         computeMagSpectrum_();
 
+        // extract novelty for this block
         m_pCNovelty->compNovelty(&pfNovelty[n], m_pfProcBuff1);
     }
 
@@ -285,7 +287,7 @@ void CNoveltyIf::computeMagSpectrum_()
 {
     assert(m_pCFft);
 
-    // compute magnitude spectrum (hack
+    // compute magnitude spectrum
     m_pCFft->compFft(m_pfProcBuff2, m_pfProcBuff1);
     m_pCFft->getMagnitude(m_pfProcBuff1, m_pfProcBuff2);
 
@@ -323,6 +325,7 @@ Error_t CNoveltyIf::init_(Novelty_t eNoveltyIdx)
     // initialize FFT and fft  buffer
     m_pCFft = new CFft();
     m_pCFft->init(m_iBlockLength);
+
     // allocate processing memory
     CVector::alloc(m_pfProcBuff1, m_pCFft->getLength(CFft::kLengthFft));
     CVector::alloc(m_pfProcBuff2, m_pCFft->getLength(CFft::kLengthFft));

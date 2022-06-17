@@ -69,7 +69,7 @@ public:
     \param tValue2 second value
     */
     template<typename T>
-    static void swap(T& tValue1, T& tValue2)
+    static void swap(T &tValue1, T &tValue2)
     {
         T tTmp = tValue1;
 

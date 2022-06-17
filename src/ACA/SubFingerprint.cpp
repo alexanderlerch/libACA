@@ -32,7 +32,7 @@ CSubFingerprint::~CSubFingerprint()
     CMatrix::free(m_ppfH, m_iNumBands + 1);
 }
 
-uint32_t CSubFingerprint::compSubFingerprint(const float* pfMagSpec)
+uint32_t CSubFingerprint::compSubFingerprint(const float *pfMagSpec)
 {
     assert(pfMagSpec);
 

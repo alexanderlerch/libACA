@@ -9,11 +9,11 @@
 
 #include "FeatureFromBlock.h"
 
-const float CFeatureFromBlockIf::m_kfFloatThresh = 1e-30F;      //!< below this we just assume it's zero
+const float CFeatureFromBlockIf::m_kfFloatThresh = 1e-30F;
 
 ////////////////////////////////////////////////////////////////////////
 // static member functions
-float CFeatureFromBlockIf::compFeatureSpectralCentroid(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralCentroid(const float *pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -28,6 +28,7 @@ float CFeatureFromBlockIf::compFeatureSpectralCentroid(const float* pfMagSpec, i
         fvsc += k * pfMagSpec[k];
     }
 
+    // check if zero
     if (fNorm < m_kfFloatThresh)
         return 0;
 
@@ -35,20 +36,21 @@ float CFeatureFromBlockIf::compFeatureSpectralCentroid(const float* pfMagSpec, i
     return fvsc * fSampleRate / (2.F * fNorm * (iDataLength - 1));
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralCrestFactor(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralCrestFactor(const float *pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
 
     float fNorm = CVector::getSum(pfMagSpec, iDataLength);
 
+    // check if zero
     if (fNorm < m_kfFloatThresh)
         return 0;
 
     return CVector::getMax(pfMagSpec, iDataLength) / fNorm;
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralDecrease(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralDecrease(const float *pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -62,13 +64,14 @@ float CFeatureFromBlockIf::compFeatureSpectralDecrease(const float* pfMagSpec, i
         fvsd += (pfMagSpec[k] - pfMagSpec[0]) / k;
     }
 
+    // check if zero
     if (fNorm < m_kfFloatThresh)
         return 0;
 
     return fvsd / fNorm;
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float *pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -87,7 +90,7 @@ float CFeatureFromBlockIf::compFeatureSpectralFlatness(const float* pfMagSpec, i
     return std::exp(fGeoMean / iDataLength) / fNorm;
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralFlux(const float* pfMagSpec, const float* pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralFlux(const float *pfMagSpec, const float *pfPrevSpec, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfMagSpec);
     assert(pfPrevSpec);
@@ -103,7 +106,7 @@ float CFeatureFromBlockIf::compFeatureSpectralFlux(const float* pfMagSpec, const
     return std::sqrt(fSum) / iDataLength;
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralSpread(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralSpread(const float *pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -113,6 +116,7 @@ float CFeatureFromBlockIf::compFeatureSpectralSpread(const float* pfMagSpec, int
     float fvss = 0;
     float fvsc = compFeatureSpectralCentroid(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);
 
+    // check if zero
     if (fvsc < m_kfFloatThresh)
         return 0;
 
@@ -127,7 +131,7 @@ float CFeatureFromBlockIf::compFeatureSpectralSpread(const float* pfMagSpec, int
     return std::sqrt(fvss / fNorm) * fSampleRate / (2.F * (iDataLength - 1));
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralKurtosis(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralKurtosis(const float *pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -138,6 +142,7 @@ float CFeatureFromBlockIf::compFeatureSpectralKurtosis(const float* pfMagSpec, i
     float fvsc = compFeatureSpectralCentroid(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);
     float fvss = compFeatureSpectralSpread(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);
 
+    // check if zero
     if (fvsc < m_kfFloatThresh || fvss < m_kfFloatThresh)
         return 0;
 
@@ -149,13 +154,14 @@ float CFeatureFromBlockIf::compFeatureSpectralKurtosis(const float* pfMagSpec, i
         fvsk += fAgg * pfMagSpec[k];
     }
 
+    // check if zero
     if (fNorm < m_kfFloatThresh)
         return 0;
 
     return fvsk / (fvss * fvss * fvss * fvss * fNorm) - 3;
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralRolloff(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/, float fKappa /*= .85F*/)
+float CFeatureFromBlockIf::compFeatureSpectralRolloff(const float *pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/, float fKappa /*= .85F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -166,6 +172,7 @@ float CFeatureFromBlockIf::compFeatureSpectralRolloff(const float* pfMagSpec, in
     float fSum = 0;
     int k = 0;
 
+    // check if zero
     if (fNorm < m_kfFloatThresh)
         return 0;
 
@@ -182,7 +189,7 @@ float CFeatureFromBlockIf::compFeatureSpectralRolloff(const float* pfMagSpec, in
     return (k - 1) * fSampleRate / (2.F * (iDataLength - 1));
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralSkewness(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralSkewness(const float *pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -193,6 +200,7 @@ float CFeatureFromBlockIf::compFeatureSpectralSkewness(const float* pfMagSpec, i
     float fvsc = compFeatureSpectralCentroid(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);
     float fvss = compFeatureSpectralSpread(pfMagSpec, iDataLength, fSampleRate) * 2 / fSampleRate * (iDataLength - 1);
 
+    // check if zero
     if (fvsc < m_kfFloatThresh || fvss < m_kfFloatThresh)
         return 0;
 
@@ -203,13 +211,14 @@ float CFeatureFromBlockIf::compFeatureSpectralSkewness(const float* pfMagSpec, i
         fvssk += fAgg * pfMagSpec[k];
     }
 
+    // check if zero
     if (fNorm < m_kfFloatThresh)
         return 0;
 
     return fvssk / (fvss * fvss * fvss * fNorm);
 }
 
-float CFeatureFromBlockIf::compFeatureSpectralSlope(const float* pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
+float CFeatureFromBlockIf::compFeatureSpectralSlope(const float *pfMagSpec, int iDataLength, float fSampleRate /*= 1.F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -220,6 +229,7 @@ float CFeatureFromBlockIf::compFeatureSpectralSlope(const float* pfMagSpec, int 
     float fvssl = 0;
     float fNorm = 0;
 
+    // check if zero
     if (fvsc < m_kfFloatThresh)
         return 0;
 
@@ -230,12 +240,13 @@ float CFeatureFromBlockIf::compFeatureSpectralSlope(const float* pfMagSpec, int 
         fNorm += fk * fk;
     }
 
+    // check if zero
     if (fNorm < m_kfFloatThresh)
         return 0;
 
     return fvssl / fNorm;
 }
-float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float* pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/, float fThresh /*= 5e-4F*/)
+float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float *pfMagSpec, int iDataLength, float /*fSampleRate = 1.F*/, float fThresh /*= 5e-4F*/)
 {
     assert(pfMagSpec);
     assert(iDataLength > 0);
@@ -262,13 +273,14 @@ float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float* pfMag
         }
     }
 
+    // check if zero
     if (fNorm < m_kfFloatThresh)
         return 0;
 
     return fvtpr / fNorm;
 }
 
-float CFeatureFromBlockIf::compFeatureTimeAcfCoeff(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/, int  iEta /*= 19*/)
+float CFeatureFromBlockIf::compFeatureTimeAcfCoeff(const float *pfSamples, int iDataLength, float /*fSampleRate = 1.F*/, int  iEta /*= 19*/)
 {
     assert(pfSamples);
     assert(iDataLength > iEta);
@@ -277,7 +289,7 @@ float CFeatureFromBlockIf::compFeatureTimeAcfCoeff(const float* pfSamples, int i
     return CVector::mulScalar(pfSamples, &pfSamples[iEta], static_cast<long long>(iDataLength) - iEta);
 }
 
-float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
+float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float *pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfSamples);
     assert(iDataLength > 0);
@@ -285,7 +297,7 @@ float CFeatureFromBlockIf::compFeatureTimePeakEnvelope(const float* pfSamples, i
     return CVector::getMax(pfSamples, iDataLength);
 }
 
-float CFeatureFromBlockIf::compFeatureTimeStd(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
+float CFeatureFromBlockIf::compFeatureTimeStd(const float *pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfSamples);
     assert(iDataLength > 0);
@@ -293,7 +305,7 @@ float CFeatureFromBlockIf::compFeatureTimeStd(const float* pfSamples, int iDataL
     return CVector::getStd(pfSamples, iDataLength);
 }
 
-float CFeatureFromBlockIf::compFeatureTimeRms(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
+float CFeatureFromBlockIf::compFeatureTimeRms(const float *pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfSamples);
     assert(iDataLength > 0);
@@ -301,7 +313,7 @@ float CFeatureFromBlockIf::compFeatureTimeRms(const float* pfSamples, int iDataL
     return CVector::getStd(pfSamples, iDataLength, 0.F);
 }
 
-float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float* pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
+float CFeatureFromBlockIf::compFeatureTimeZeroCrossingRate(const float *pfSamples, int iDataLength, float /*fSampleRate = 1.F*/)
 {
     assert(pfSamples);
     assert(iDataLength > 0);
@@ -339,7 +351,7 @@ public:
         CVector::free(m_pfPrevSpec);
     };
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
         *pfFeature = compFeatureSpectralFlux(pfIn, m_pfPrevSpec, m_iDataLength, m_fSampleRate);
 
@@ -350,10 +362,10 @@ public:
 
 private:
     CFeatureSpectralFlux() {};
-    CFeatureSpectralFlux(const CFeatureSpectralFlux& that);     //!< disallow copy construction
-    CFeatureSpectralFlux& operator=(const CFeatureSpectralFlux& c);
+    CFeatureSpectralFlux(const CFeatureSpectralFlux &that);     //!< disallow copy construction
+    CFeatureSpectralFlux &operator=(const CFeatureSpectralFlux &c);
 
-    float* m_pfPrevSpec = 0;
+    float *m_pfPrevSpec = 0; //!< memory of previous spectrum
 };
 
 class CFeatureSpectralMfccs : public CFeatureFromBlockIf
@@ -364,7 +376,10 @@ public:
         // alloc transfer function memory
         CMatrix::alloc(m_ppfH, m_iNumBands, iDataLength);
 
+        // init MFCC filters
         genMfccFilters_();
+
+        // init dct transform
         genDctMat_(m_iNumMfcCoeffs);
 
         CVector::alloc(m_pfMelSpec, m_iNumBands);
@@ -379,7 +394,7 @@ public:
         CVector::free(m_pfMelSpec);
     }
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
         assert(pfFeature);
         assert(pfIn);
@@ -419,8 +434,8 @@ public:
     }
 private:
     CFeatureSpectralMfccs() {};
-    CFeatureSpectralMfccs(const CFeatureSpectralMfccs& that);     //!< disallow copy construction  
-    CFeatureSpectralMfccs& operator=(const CFeatureSpectralMfccs& c);
+    CFeatureSpectralMfccs(const CFeatureSpectralMfccs &that);     //!< disallow copy construction  
+    CFeatureSpectralMfccs &operator=(const CFeatureSpectralMfccs &c);
 
     void genMfccFilters_()
     {
@@ -455,8 +470,6 @@ private:
             for (auto k = aiBoundIdx[1] + 1; k <= aiBoundIdx[2]; k++)
             {
                 float fFreqk = CConversion::convertBin2Freq(1.F * k, (m_iDataLength - 1) * 2, m_fSampleRate);
-                //if ((afBoundFreqs[2] - fFreqk) < 0.F)
-                //    continue;
                 m_ppfH[c][k] = static_cast<float>(dFilterAmp * (adBoundFreqs[2] - fFreqk) / (adBoundFreqs[2] - adBoundFreqs[1]));
                 assert(m_ppfH[c][k] >= 0);
             }
@@ -498,13 +511,13 @@ private:
         CMatrix::free(m_ppfDct, m_iNumMfcCoeffs);
     }
 
-    const int m_iNumBands = 40;
-    int m_iNumMfcCoeffs = 13;
+    const int m_iNumBands = 40; //!< number of mel bands
+    int m_iNumMfcCoeffs = 13; //!< number of dct coefficients to extract
 
-    float** m_ppfH = 0,
-        ** m_ppfDct = 0;
+    float **m_ppfH = 0, //!< filter bank matrix
+        **m_ppfDct = 0; //!< dct matrix
 
-    float* m_pfMelSpec = 0;
+    float *m_pfMelSpec = 0; //!< mel-transformed spectrum
 };
 class CFeatureSpectralPitchChroma : public CFeatureFromBlockIf
 {
@@ -522,7 +535,7 @@ public:
         CMatrix::free(m_ppfH, m_iNumPitchClasses);
     };
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
         assert(pfFeature);
         assert(pfIn);
@@ -533,13 +546,11 @@ public:
         {
             // we could do this nicer with CVector::mulScalar if we allocated memory
             for (auto k = 0; k < m_iDataLength; k++)
-            {
                 pfFeature[p] += m_ppfH[p][k] * (pfIn[k] * pfIn[k]);
-            }
         }
 
+        // normalize chroma
         float fSum = CVector::getSum(pfFeature, m_iNumPitchClasses);
-
         if (fSum > 0)
             CVector::mulC_I(pfFeature, 1.F / fSum, m_iNumPitchClasses);
 
@@ -571,8 +582,8 @@ public:
     }
 private:
     CFeatureSpectralPitchChroma() {};
-    CFeatureSpectralPitchChroma(const CFeatureSpectralPitchChroma& that);     //!< disallow copy construction
-    CFeatureSpectralPitchChroma& operator=(const CFeatureSpectralPitchChroma& c);
+    CFeatureSpectralPitchChroma(const CFeatureSpectralPitchChroma &that);     //!< disallow copy construction
+    CFeatureSpectralPitchChroma &operator=(const CFeatureSpectralPitchChroma &c);
 
     void genPcFilters_()
     {
@@ -610,12 +621,12 @@ private:
         }
     }
 
-    const int m_iNumPitchClasses = 12;
+    const int m_iNumPitchClasses = 12; //!< number of pitch classes
 
-    const float m_fA4 = 440.F;
-    int m_iNumOctaves = 4;
+    const float m_fA4 = 440.F; //!< frequency of concert pitch
+    int m_iNumOctaves = 4; //!< number of octaves to aggregate
 
-    float** m_ppfH = 0;
+    float **m_ppfH = 0; //!< pitch filter bank matrix
 };
 
 class CFeatureSpectralRolloff : public CFeatureFromBlockIf
@@ -625,7 +636,7 @@ public:
 
     virtual ~CFeatureSpectralRolloff() {};
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
         *pfFeature = compFeatureSpectralRolloff(pfIn, m_iDataLength, m_fSampleRate, m_fKappa);
 
@@ -650,7 +661,7 @@ public:
 private:
     CFeatureSpectralRolloff() {};
 
-    float m_fKappa = 0.85F;
+    float m_fKappa = 0.85F; //!< bandwidth parameter
 };
 
 class CFeatureSpectralTonalPowerRatio : public CFeatureFromBlockIf
@@ -660,7 +671,7 @@ public:
 
     virtual ~CFeatureSpectralTonalPowerRatio() {};
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
         *pfFeature = compFeatureSpectralTonalPowerRatio(pfIn, m_iDataLength, m_fSampleRate, m_fThresh);
 
@@ -695,7 +706,7 @@ public:
 
     virtual ~CFeatureTimeAcfCoeff() {};
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
         *pfFeature = compFeatureTimeAcfCoeff(pfIn, m_iDataLength, m_fSampleRate, m_iEta);
 
@@ -720,7 +731,7 @@ public:
 private:
     CFeatureTimeAcfCoeff() {};
 
-    int m_iEta = 19;
+    int m_iEta = 19; //!< int this example implementation, we chose the 19th coefficient
 };
 
 class CFeatureTimeMaxAcf : public CFeatureFromBlockIf
@@ -742,13 +753,14 @@ public:
         m_pCCcf = 0;
     };
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
         float fMinThresh = 0.35F;
 
         int iEta = 0,
             iEtaMin = static_cast<int>(m_fSampleRate / m_fMax);
 
+        // compute ACF
         m_pCCcf->compCcf(pfIn, pfIn, true);
         m_pCCcf->getCcf(m_pfAcf, true);
 
@@ -766,7 +778,6 @@ public:
             if (iEta >= m_iDataLength)
                 break;
         }
-
 
         if (iEta >= m_iDataLength)
             iEtaMin = 0;
@@ -796,13 +807,13 @@ public:
 
 private:
     CFeatureTimeMaxAcf() {};
-    CFeatureTimeMaxAcf(const CFeatureTimeMaxAcf& that);     //!< disallow copy construction
-    CFeatureTimeMaxAcf& operator=(const CFeatureTimeMaxAcf& c);
+    CFeatureTimeMaxAcf(const CFeatureTimeMaxAcf &that);     //!< disallow copy construction
+    CFeatureTimeMaxAcf &operator=(const CFeatureTimeMaxAcf &c);
 
-    CCcf* m_pCCcf = 0;
-    float* m_pfAcf = 0;
+    CCcf *m_pCCcf = 0; //!< correlation instance
+    float *m_pfAcf = 0; //!< acf result
 
-    float m_fMax = 2000.F;
+    float m_fMax = 2000.F; //!< upper frequency boundary
 };
 
 class CFeatureTimePeakEnvelope : public CFeatureFromBlockIf
@@ -816,10 +827,12 @@ public:
 
     virtual ~CFeatureTimePeakEnvelope() {};
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
-        pfFeature[kBlock] = compFeatureTimePeakEnvelope(pfIn, m_iDataLength, m_fSampleRate);
+        // extract 1st variant: maximum per block
+        pfFeature[kBlockMax] = compFeatureTimePeakEnvelope(pfIn, m_iDataLength, m_fSampleRate);
 
+        // extract 2nd variant: maximum of ppm
         pfFeature[kPpmMax] = 0;
         for (auto i = 0; i < m_iDataLength; i++)
         {
@@ -841,7 +854,7 @@ private:
 
     enum PeakType_t
     {
-        kBlock,
+        kBlockMax,
         kPpmMax,
 
         kNumPeakTypes
@@ -861,6 +874,7 @@ private:
 
         fIn = std::abs(fIn);
 
+        // check release vs. attack phase
         if (m_fFilterBuff > fIn)
             fOut = m_afAlpha[kRelease] * m_fFilterBuff;
         else
@@ -871,9 +885,9 @@ private:
         return fOut;
     }
 
-    float m_afIntegrationTimeInS[kNumPpmFilters] = { .01F, 1.5F };
-    float m_afAlpha[kNumPpmFilters] = { 0,0 };
-    float m_fFilterBuff = 0.F;
+    const float m_afIntegrationTimeInS[kNumPpmFilters] = { .01F, 1.5F }; //!< integration times for filter initialization
+    float m_afAlpha[kNumPpmFilters] = { 0,0 }; //!< filter coefficients
+    float m_fFilterBuff = 0.F; //!< internal filter memory
 };
 
 class CFeatureTimeRms : public CFeatureFromBlockIf
@@ -890,11 +904,13 @@ public:
         CSinglePoleLp::destroy(m_pCSinglePole);
     };
 
-    Error_t compFeature(float* pfFeature, const float* pfIn) override
+    Error_t compFeature(float *pfFeature, const float *pfIn) override
     {
-        pfFeature[kBlock] = compFeatureTimeRms(pfIn, m_iDataLength, m_fSampleRate);
+        // extract 1st variant: rms per block
+        pfFeature[kBlockRms] = compFeatureTimeRms(pfIn, m_iDataLength, m_fSampleRate);
 
-        // do inefficient sample based processing so we don't have to alloc memory
+        // extract 2nd variant: rms from single pole
+        // do inefficient sample based processing so we don't have to alloc extra memory
         pfFeature[kLowpass] = 0;
         for (auto i = 0; i < m_iDataLength; i++)
         {
@@ -932,27 +948,27 @@ public:
 private:
     enum RmsType_t
     {
-        kBlock,
+        kBlockRms,
         kLowpass,
 
         kNumRmsTypes
     };
     CFeatureTimeRms() {};
-    CFeatureTimeRms(const CFeatureTimeRms& that);     //!< disallow copy construction   
+    CFeatureTimeRms(const CFeatureTimeRms &that); //!< disallow copy construction   
 
-    CSinglePoleLp* m_pCSinglePole = 0;
+    CSinglePoleLp *m_pCSinglePole = 0; //!< instance of low pass filter
 
-    float m_fIntegrationTimeInS = .3F;
+    float m_fIntegrationTimeInS = .3F; //!< integration time for filter coeff calculation
 };
 
 ///////////////////////////////////////////////////////////////////
 // normal member functions
-Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate)
+Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf *&pCInstance, CFeatureIf::Feature_t eFeatureIdx, int iDataLength, float fSampleRate)
 {
     if (iDataLength <= 0 || fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
-
+    // see if we can compute this feature directly or have a derive class
     switch (eFeatureIdx)
     {
     default:
@@ -1009,7 +1025,7 @@ Error_t CFeatureFromBlockIf::create(CFeatureFromBlockIf*& pCInstance, CFeatureIf
     return Error_t::kNoError;
 }
 
-Error_t CFeatureFromBlockIf::destroy(CFeatureFromBlockIf*& pCInstance)
+Error_t CFeatureFromBlockIf::destroy(CFeatureFromBlockIf *&pCInstance)
 {
     delete pCInstance;
 
@@ -1020,13 +1036,13 @@ Error_t CFeatureFromBlockIf::destroy(CFeatureFromBlockIf*& pCInstance)
 
 int CFeatureFromBlockIf::getFeatureDimensions() const
 {
-    // default: 1 value per block
+    // default: 1 value per block (can be overridden)
     return 1;
 }
 
-Error_t CFeatureFromBlockIf::compFeature(float* pfFeature, const float* pfIn)
+Error_t CFeatureFromBlockIf::compFeature(float *pfFeature, const float *pfIn)
 {
-    // default: use one of the static functions
+    // default: use one of the static functions (can be overridden)
     *pfFeature = m_DispatchMap.at(m_eFeatureIdx)(pfIn, m_iDataLength, m_fSampleRate);
 
     return Error_t::kNoError;
@@ -1034,12 +1050,12 @@ Error_t CFeatureFromBlockIf::compFeature(float* pfFeature, const float* pfIn)
 
 bool CFeatureFromBlockIf::hasAdditionalParam() const
 {
-    // default: feature doesn't need any additional parameters
+    // default: feature doesn't need any additional parameter (can be overridden)
     return false;
 }
 
 Error_t CFeatureFromBlockIf::setAdditionalParam(float /*fParamValue*/)
 {
-    // default: setting a parameter that doesn't exist
+    // default: setting a parameter that doesn't exist (can be overridden)
     return Error_t::kFunctionIllegalCallError;
 }

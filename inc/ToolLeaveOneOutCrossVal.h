@@ -39,7 +39,7 @@ public:
 
 
 private:
-    CLeaveOneOutCrossVal(const CLeaveOneOutCrossVal& that);     //!< disallow copy construction   
+    CLeaveOneOutCrossVal(const CLeaveOneOutCrossVal& that); //!< disallow copy construction   
     CLeaveOneOutCrossVal& operator=(const CLeaveOneOutCrossVal& c);
 
     int m_iNumFeatures = 0, //!< number of features

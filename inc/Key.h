@@ -59,7 +59,7 @@ public:
     \param iHopLength: hop length in samples
     \return Error_t
     */
-    Error_t init(const std::string& strAudioFilePath, int iBlockLength = 4096, int iHopLength = 2048);
+    Error_t init(const std::string &strAudioFilePath, int iBlockLength = 4096, int iHopLength = 2048);
 
     /*! initializes a Key instance from audio data
     \param pfAudio complete audio data
@@ -69,7 +69,7 @@ public:
     \param iHopLength: hop length in samples
     \return Error_t
     */
-    Error_t init(const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 4096, int iHopLength = 2048);
+    Error_t init(const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 4096, int iHopLength = 2048);
 
     /*! resets instance
     \return Error_t
@@ -94,13 +94,13 @@ public:
     static Keys_t getKeyIdxFromString(std::string sKeyString);
 
 protected:
-    CKey(const CKey& that);
-    CKey& operator=(const CKey& c);
+    CKey(const CKey &that);
+    CKey &operator=(const CKey &c);
 
-    CFeatureIf* m_pCPitchChromaExtractor = 0;
-    CKeyFromChroma* m_pCKeyFromChroma = 0;
+    CFeatureIf *m_pCPitchChromaExtractor = 0; //!< instance for extracting the pitch chroma
+    CKeyFromChroma *m_pCKeyFromChroma = 0; //!< estimate key from one chroma
 
-    bool    m_bIsInitialized = false;    //!< true if initialized
+    bool    m_bIsInitialized = false;  //!< true if initialized
 };
 
 #endif // #if !defined(__ACA_Key_HEADER_INCLUDED__)

@@ -34,7 +34,7 @@ public:
     \param iNumSamples length of buffers
     return Error_t
     */
-    Error_t process(float* pfOut, const float* pfIn, long long iNumSamples);
+    Error_t process(float *pfOut, const float *pfIn, long long iNumSamples);
 
     /*! clears internal buffers and sets parameters to default
     \return Error_t
@@ -42,8 +42,8 @@ public:
     Error_t reset();
 
 private:
-    CGammatone(const CGammatone& that);
-    CGammatone& operator=(const CGammatone& c);
+    CGammatone(const CGammatone &that);
+    CGammatone &operator=(const CGammatone &c);
 
     /*! compute the filter coeffs
     \param iOrder filter order
@@ -62,11 +62,11 @@ private:
 #ifdef ACA_USE_DOUBLE
     double m_aafCoeffB[kNumFilters][kNumCoeffs] = { { 0 } };
     double m_aafCoeffA[kNumFilters][kNumCoeffs] = { { 0 } };
-    CFilter<double>* m_apCFilter[kNumFilters] = { 0 };
+    CFilter<double> *m_apCFilter[kNumFilters] = { 0 };
 #else
     float m_aafCoeffB[kNumFilters][kNumCoeffs] = { { 0 } }; //!< FIR coefficients
     float m_aafCoeffA[kNumFilters][kNumCoeffs] = { { 0 } }; //!< IIR coefficients
-    CFilter<float>* m_apCFilter[kNumFilters] = { 0 }; //!< number crunching (multiple instances b/c cascaded)
+    CFilter<float> *m_apCFilter[kNumFilters] = { 0 }; //!< number crunching (multiple instances b/c cascaded)
 #endif // ACA_USE_DOUBLE
     bool m_bIsInitialized = false; //!< flag indicating that this is initialized
 };
@@ -104,7 +104,7 @@ Error_t CGammatone::init(float fFreqCenter, float fSampleRate)
     return Error_t::kNoError;
 }
 
-Error_t CGammatone::process(float* pfOut, const float* pfIn, long long iNumSamples)
+Error_t CGammatone::process(float *pfOut, const float *pfIn, long long iNumSamples)
 {
     if (!pfOut || !pfIn || iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -261,12 +261,12 @@ void CGammatone::calcFilterCoeffs_(int iOrder)
 #endif // ACA_USE_DOUBLE
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of the filterbank outputs from a vector of audio data
+*/
 class CGammaToneFbFromFile : public CGammaToneFbIf
 {
 public:
-    CGammaToneFbFromFile(const std::string& strAudioFilePath, int iNumBands, float fStartInHz);
+    CGammaToneFbFromFile(const std::string &strAudioFilePath, int iNumBands, float fStartInHz);
 
     virtual ~CGammaToneFbFromFile()
     {
@@ -278,10 +278,10 @@ public:
     };
 
 private:
-    CAudioFileIf* m_pCAudioFile;
+    CAudioFileIf *m_pCAudioFile;
 };
 
-CGammaToneFbFromFile::CGammaToneFbFromFile(const std::string& strAudioFilePath, int iNumBands, float fStartInHz) :
+CGammaToneFbFromFile::CGammaToneFbFromFile(const std::string &strAudioFilePath, int iNumBands, float fStartInHz) :
     m_pCAudioFile(0)
 
 {
@@ -304,16 +304,16 @@ CGammaToneFbFromFile::CGammaToneFbFromFile(const std::string& strAudioFilePath, 
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of the filterbank outputs from a vector of audio data
+*/
 class CGammaToneFbFromVector : public CGammaToneFbIf
 {
 public:
-    CGammaToneFbFromVector(const float* pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz);
+    CGammaToneFbFromVector(const float *pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz);
     virtual ~CGammaToneFbFromVector() {};
 };
 
-CGammaToneFbFromVector::CGammaToneFbFromVector(const float* pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz)
+CGammaToneFbFromVector::CGammaToneFbFromVector(const float *pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz)
 {
     m_iNumBands = iNumBands;
     m_fSampleRate = fSampleRate;
@@ -357,7 +357,7 @@ inline CGammaToneFbIf::~CGammaToneFbIf()
     reset_();
 }
 
-Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const std::string& strAudioFilePath, int iNumBands, float fStartInHz)
+Error_t CGammaToneFbIf::create(CGammaToneFbIf *&pCInstance, const std::string &strAudioFilePath, int iNumBands, float fStartInHz)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
@@ -372,7 +372,7 @@ Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const std::string& s
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz)
+Error_t CGammaToneFbIf::create(CGammaToneFbIf *&pCInstance, const float *pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
@@ -390,7 +390,7 @@ Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const float* pfAudio
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, float fSampleRate, int iNumBands, float fStartInHz)
+Error_t CGammaToneFbIf::create(CGammaToneFbIf *&pCInstance, float fSampleRate, int iNumBands, float fStartInHz)
 {
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -404,7 +404,7 @@ Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, float fSampleRate, i
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::destroy(CGammaToneFbIf*& pCInstance)
+Error_t CGammaToneFbIf::destroy(CGammaToneFbIf *&pCInstance)
 {
     delete pCInstance;
     pCInstance = 0;
@@ -412,7 +412,7 @@ Error_t CGammaToneFbIf::destroy(CGammaToneFbIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::getOutputDimensions(long long& iNumRows, long long& iNumCols) const
+Error_t CGammaToneFbIf::getOutputDimensions(long long &iNumRows, long long &iNumCols) const
 {
     if (!m_bIsInitialized)
     {
@@ -432,7 +432,7 @@ float CGammaToneFbIf::getCenterFreq(int iBandIdx) const
     return compMidFreqs_(m_fStartInHz, m_fSampleRate / 2, iBandIdx);
 }
 
-Error_t CGammaToneFbIf::process(float** ppfOut, const float* pfIn /*= 0*/, long long iNumSamples /*= 0*/)
+Error_t CGammaToneFbIf::process(float **ppfOut, const float *pfIn /*= 0*/, long long iNumSamples /*= 0*/)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;

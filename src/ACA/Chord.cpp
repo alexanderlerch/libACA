@@ -17,8 +17,8 @@
 #include "ChordFromBlock.h"
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of chord progression from a file
+*/
 class CChordFromFile : public CChordIf
 {
 public:
@@ -62,8 +62,8 @@ CChordFromFile::CChordFromFile(std::string strAudioFilePath, int iBlockLength, i
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of chord progression from a vector of audio data
+*/
 class CChordFromVector : public CChordIf
 {
 public:
@@ -89,7 +89,7 @@ CChordFromVector::CChordFromVector(const float* pfAudio, long long iAudioLength,
 
 
 /////////////////////////////////////////////////////////////////////////////////
-// base class
+// base (interface) class
 CChordIf::CChordIf()
 {
     reset_();
@@ -220,6 +220,8 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
 
         assert(m_pfProcBuff2);
         assert(m_pCFft);
+
+        // compute magnitude spectrum
         computeMagSpectrum_();
 
         // compute instantaneous chord probs
@@ -242,9 +244,13 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
     {
         int* piTmp = 0;
         CVector::alloc(piTmp, iNumBlocks);
+
         m_pCViterbi->compViterbi(m_ppfChordProbs);
+
+        // retrieve result
         m_pCViterbi->getStateSequence(piTmp);
 
+        // write output
         for (auto n = 0; n < iNumBlocks; n++)
             peChord[n] = static_cast<Chords_t>(piTmp[n]);
 
@@ -355,7 +361,7 @@ void CChordIf::computeMagSpectrum_()
 {
     assert(m_pCFft);
 
-    // compute magnitude spectrum (hack
+    // compute magnitude spectrum 
     m_pCFft->compFft(m_pfProcBuff2, m_pfProcBuff1);
     m_pCFft->getMagnitude(m_pfProcBuff1, m_pfProcBuff2);
 

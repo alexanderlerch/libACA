@@ -22,7 +22,7 @@ public:
         kBeatHistoCorr, //!< use correlation based method
         kBeatHistoFft, //!< use FFT based method
 
-        kNumBeatHistoComputations
+        kNumBeatHistoCompModes
     };
 
     /*! initializes a BeatHisto instance with file reading
@@ -32,7 +32,7 @@ public:
     \param iHopLength: hop length in samples
     \return Error_t
     */
-    static Error_t create(CBeatHistoIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 1024, int iHopLength = 8);
+    static Error_t create(CBeatHistoIf *&pCInstance, const std::string &strAudioFilePath, int iBlockLength = 1024, int iHopLength = 8);
 
     /*! initializes a BeatHisto instance from audio data
     \param pCInstance pointer to instance to be written
@@ -43,20 +43,20 @@ public:
     \param iHopLength: hop length in samples
     \return Error_t
     */
-    static Error_t create(CBeatHistoIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 1024, int iHopLength = 8);
+    static Error_t create(CBeatHistoIf *&pCInstance, const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 1024, int iHopLength = 8);
 
     /*! destroys a BeatHisto instance
     \param pCInstance pointer to instance to be destroyed
     \return Error_t
     */
-    static Error_t destroy(CBeatHistoIf*& pCInstance);
+    static Error_t destroy(CBeatHistoIf *&pCInstance);
 
     /*! returns length of the frequency axis of the beat histogram
     \param iNumBeatHistoBins (number of bins, to be written)
     \param eBeatHistoComp (computation method used in CBeatHistoIf::compBeatHisto)
     \return Error_t
     */
-    Error_t getNumBins(int& iNumBeatHistoBins, BeatHisto_t eBeatHistoComp) const;
+    Error_t getNumBins(int &iNumBeatHistoBins, BeatHisto_t eBeatHistoComp) const;
 
     /*! returns length of the frequency axis of the beat histogram
     \param eBeatHistoComp (computation method used in CBeatHistoIf::compBeatHisto)
@@ -69,14 +69,14 @@ public:
     \param eBeatHistoComp (computation method used in CBeatHistoIf::compBeatHisto)
     \return Error_t
     */
-    Error_t getBeatHistoAxisTicks(float* pfAxisTicks, BeatHisto_t eBeatHistoComp) const;
+    Error_t getBeatHistoAxisTicks(float *pfAxisTicks, BeatHisto_t eBeatHistoComp) const;
 
     /*! performs the BeatHisto computation for 1 dimensional BeatHistos and writes the result
     \param pfBeatHisto (user-allocated, to be written, dimensions from CBeatHistoIf::getNumBins)
     \param eBeatHistoComp computation method
     \return Error_t
     */
-    Error_t compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoComp = kBeatHistoFft);
+    Error_t compBeatHisto(float *pfBeatHisto, BeatHisto_t eBeatHistoComp = kBeatHistoFft);
 
 protected:
     explicit CBeatHistoIf(int iBlockLength, int iHopLength, float fSampleRate) :
@@ -85,24 +85,24 @@ protected:
         m_fSampleRate(fSampleRate)
     {};
     virtual ~CBeatHistoIf();
-    CBeatHistoIf(const CBeatHistoIf& that);
-    CBeatHistoIf& operator=(const CBeatHistoIf& c);
+    CBeatHistoIf(const CBeatHistoIf &that);
+    CBeatHistoIf &operator=(const CBeatHistoIf &c);
 
-    Error_t reset_();                    //!< reset configuration
+    Error_t init_(const std::string &strAudioFilePath);//!< init configuration
+    Error_t init_(const float *pfAudio, long long iNumSamples, float fSampleRate);//!< init configuration
 
-    Error_t init_(const std::string& strAudioFilePath);//!< init configuration
-    Error_t init_(const float* pfAudio, long long iNumSamples, float fSampleRate);//!< init configuration
+    Error_t reset_(); //!< reset configuration
 
-    void compHistoRange_(int& istartIdx, int& istopIdx, BeatHisto_t eBeatHistoComp) const;
+    void compHistoRange_(int &istartIdx, int &istopIdx, BeatHisto_t eBeatHistoComp) const;
 
-    CFft* m_pCFft = 0;  //!< fft instance
-    CCcf* m_pCCcf = 0;  //!< correlation instance
+    CFft *m_pCFft = 0;  //!< fft instance
+    CCcf *m_pCCcf = 0;  //!< correlation instance
 
-    CNoveltyIf* m_pCNovelty = 0; //!< novelty function extraction instance
+    CNoveltyIf *m_pCNovelty = 0; //!< novelty function extraction instance
 
-    float* m_pfNovelty = 0;  //!< buffer to hold extracted nvelty function
-    float* m_pfProcBuff = 0; //!< temporary processing buffer
-    float* m_pfBeatHisto = 0; //!< result buffer
+    float *m_pfNovelty = 0;  //!< buffer to hold extracted nvelty function
+    float *m_pfProcBuff = 0; //!< temporary processing buffer
+    float *m_pfBeatHisto = 0; //!< result buffer
 
     int m_iBlockLength = 0, //!< processing block length for novelty
         m_iHopLength = 0;  //!< hop length for novelty

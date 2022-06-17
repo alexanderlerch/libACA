@@ -10,9 +10,8 @@
 #include "FeatureFromBlock.h"
 
 
-
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of a feature from a file
+*/
 class CFeatureFromFile : public CFeatureIf
 {
 public:
@@ -30,7 +29,7 @@ public:
     };
 
 private:
-    CAudioFileIf* m_pCAudioFile;
+    CAudioFileIf *m_pCAudioFile;
 };
 
 CFeatureFromFile::CFeatureFromFile(Feature_t eFeatureIdx, std::string strAudioFilePath, int iBlockLength, int iHopLength) :
@@ -56,16 +55,16 @@ CFeatureFromFile::CFeatureFromFile(Feature_t eFeatureIdx, std::string strAudioFi
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of a feature from a vector of audio data
+*/
 class CFeatureFromVector : public CFeatureIf
 {
 public:
-    CFeatureFromVector(Feature_t eFeatureIdx, const float* pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength);
+    CFeatureFromVector(Feature_t eFeatureIdx, const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength);
     virtual ~CFeatureFromVector() {};
 };
 
-CFeatureFromVector::CFeatureFromVector(Feature_t eFeatureIdx, const float* pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength)
+CFeatureFromVector::CFeatureFromVector(Feature_t eFeatureIdx, const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength)
 {
     // set length variables
     m_iBlockLength = iBlockLength;
@@ -94,7 +93,7 @@ inline CFeatureIf::~CFeatureIf()
     reset_();
 }
 
-Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
+Error_t CFeatureIf::create(CFeatureIf *&pCInstance, Feature_t eFeatureIdx, const std::string &strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
@@ -109,7 +108,7 @@ Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CFeatureIf::create(CFeatureIf *&pCInstance, Feature_t eFeatureIdx, const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
@@ -127,7 +126,7 @@ Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::destroy(CFeatureIf*& pCInstance)
+Error_t CFeatureIf::destroy(CFeatureIf *&pCInstance)
 {
     delete pCInstance;
     pCInstance = 0;
@@ -135,7 +134,7 @@ Error_t CFeatureIf::destroy(CFeatureIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::getFeatureDimensions(int& iNumRows, int& iNumCols) const
+Error_t CFeatureIf::getFeatureDimensions(int &iNumRows, int &iNumCols) const
 {
     if (!m_bIsInitialized)
     {
@@ -155,7 +154,7 @@ float CFeatureIf::getTimeStamp(int iBlockIdx) const
     return m_pCBlockAudio->getTimeStamp(iBlockIdx);
 }
 
-Error_t CFeatureIf::getTimeStamps(float* pfAxisTicks) const
+Error_t CFeatureIf::getTimeStamps(float *pfAxisTicks) const
 {
     if (!m_bIsInitialized)
     {
@@ -176,7 +175,7 @@ Error_t CFeatureIf::getTimeStamps(float* pfAxisTicks) const
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::compFeature1Dim(float* pfFeature)
+Error_t CFeatureIf::compFeature1Dim(float *pfFeature)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -210,7 +209,7 @@ Error_t CFeatureIf::compFeature1Dim(float* pfFeature)
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::compFeatureNDim(float** ppfFeature)
+Error_t CFeatureIf::compFeatureNDim(float **ppfFeature)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;

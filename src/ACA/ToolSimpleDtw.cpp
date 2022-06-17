@@ -15,7 +15,7 @@ const int CDtw::aiDecrement[kNumDirections][kNumMatrixDimensions] =
 CDtw::CDtw(void)
 {
     CVector::setZero(m_apfCost, kNumVectors);
-    CVector::setZero(m_aiMatrixDimensions, kNumMatrixDimensions);
+    CVector::setZero(m_aiMatrixDims, kNumMatrixDimensions);
 
     reset();
 }
@@ -32,14 +32,14 @@ Error_t CDtw::init(int iNumRows, int iNumCols)
 
     reset();
 
-    m_aiMatrixDimensions[kRow] = iNumRows;
-    m_aiMatrixDimensions[kCol] = iNumCols;
+    m_aiMatrixDims[kRow] = iNumRows;
+    m_aiMatrixDims[kCol] = iNumCols;
 
     // allocate memory
     for (int i = 0; i < kNumVectors; i++)
-        CVector::alloc(m_apfCost[i], m_aiMatrixDimensions[kCol]);
+        CVector::alloc(m_apfCost[i], m_aiMatrixDims[kCol]);
 
-    CMatrix::alloc(m_ppePathIdx, m_aiMatrixDimensions[kRow], m_aiMatrixDimensions[kCol]);
+    CMatrix::alloc(m_ppePathIdx, m_aiMatrixDims[kRow], m_aiMatrixDims[kCol]);
 
     // all done here
     m_bIsInitialized = true;
@@ -52,20 +52,20 @@ Error_t CDtw::reset()
     m_bIsInitialized = false;
     m_bWasProcessed = false;
 
-    CMatrix::free(m_ppePathIdx, m_aiMatrixDimensions[kRow]);
+    CMatrix::free(m_ppePathIdx, m_aiMatrixDims[kRow]);
 
     for (int i = 0; i < kNumVectors; i++)
         CVector::free(m_apfCost[i]);
 
-    m_aiMatrixDimensions[kRow] = 0;
-    m_aiMatrixDimensions[kCol] = 0;
+    m_aiMatrixDims[kRow] = 0;
+    m_aiMatrixDims[kCol] = 0;
     m_fOverallCost = 0;
     m_iPathLength = 0;
 
     return Error_t::kNoError;
 }
 
-Error_t CDtw::compDtw(const float* const* const ppfDistanceMatrix)
+Error_t CDtw::compDtw(const float *const *const ppfDistanceMatrix)
 {
     if (!m_bIsInitialized)
         return Error_t::kNotInitializedError;
@@ -73,32 +73,30 @@ Error_t CDtw::compDtw(const float* const* const ppfDistanceMatrix)
     if (!ppfDistanceMatrix)
         return Error_t::kFunctionInvalidArgsError;
 
-    float fFirstColCost = 0;        //!< variable that will only contain the cost of the first column (for the current row to be processed)
+    float fFirstColCost = 0;//!< variable that will only contain the cost of the first column (for the current row to be processed)
 
     // initialize
-    CVector::setZero(m_apfCost[kRowNext], m_aiMatrixDimensions[kCol]);
+    CVector::setZero(m_apfCost[kRowNext], m_aiMatrixDims[kCol]);
     m_apfCost[kRowCurr][0] = ppfDistanceMatrix[0][0];
     fFirstColCost = ppfDistanceMatrix[0][0];
     m_ppePathIdx[0][0] = kDiag;
-    for (int j = 1; j < m_aiMatrixDimensions[kCol]; j++)
+    for (int j = 1; j < m_aiMatrixDims[kCol]; j++)
     {
         m_apfCost[kRowCurr][j] = m_apfCost[kRowCurr][j - 1] + ppfDistanceMatrix[0][j];
         m_ppePathIdx[0][j] = kHoriz;
     }
-    for (int i = 1; i < m_aiMatrixDimensions[kRow]; i++)
-    {
+    for (int i = 1; i < m_aiMatrixDims[kRow]; i++)
         m_ppePathIdx[i][0] = kVert;
-    }
 
     // compute cost 'matrix' (we only use two rows here) and store backtracking path
-    for (int i = 1; i < m_aiMatrixDimensions[kRow]; i++)
+    for (int i = 1; i < m_aiMatrixDims[kRow]; i++)
     {
         // init the variables we need for the current row (remember the cost in the first column, and then increment it)
         m_apfCost[kRowCurr][0] = fFirstColCost;
         fFirstColCost += ppfDistanceMatrix[i][0];
         m_apfCost[kRowNext][0] = fFirstColCost;
 
-        for (int j = 1; j < m_aiMatrixDimensions[kCol]; j++)
+        for (int j = 1; j < m_aiMatrixDims[kCol]; j++)
         {
             m_ppePathIdx[i][j] = static_cast<unsigned char>(findMin_(m_apfCost[kRowNext][j - 1],   // horiz
                 m_apfCost[kRowCurr][j],     // vert
@@ -119,14 +117,15 @@ Error_t CDtw::compDtw(const float* const* const ppfDistanceMatrix)
 
 int CDtw::getPathLength()
 {
-    int i = m_aiMatrixDimensions[kRow] - 1;
-    int j = m_aiMatrixDimensions[kCol] - 1;
+    int i = m_aiMatrixDims[kRow] - 1;
+    int j = m_aiMatrixDims[kCol] - 1;
 
     if (!m_bWasProcessed)
         return 0;
 
     m_iPathLength = 1;
 
+    // dummy traceback
     while (i > 0 || j > 0)
     {
         int iNewI = i + aiDecrement[m_ppePathIdx[i][j]][kRow];
@@ -140,10 +139,10 @@ int CDtw::getPathLength()
 
 float CDtw::getPathCost() const
 {
-    return m_apfCost[kRowCurr][m_aiMatrixDimensions[kCol] - 1];
+    return m_apfCost[kRowCurr][m_aiMatrixDims[kCol] - 1];
 }
 
-Error_t CDtw::getPath(int** ppiPathResult) const
+Error_t CDtw::getPath(int **ppiPathResult) const
 {
     if (!ppiPathResult)
         return Error_t::kFunctionInvalidArgsError;
@@ -156,9 +155,10 @@ Error_t CDtw::getPath(int** ppiPathResult) const
     // init
     ppiPathResult[kRow][0] = 0;
     ppiPathResult[kCol][0] = 0;
-    ppiPathResult[kRow][iIdx] = m_aiMatrixDimensions[kRow] - 1;
-    ppiPathResult[kCol][iIdx] = m_aiMatrixDimensions[kCol] - 1;
+    ppiPathResult[kRow][iIdx] = m_aiMatrixDims[kRow] - 1;
+    ppiPathResult[kCol][iIdx] = m_aiMatrixDims[kCol] - 1;
 
+    // traceback
     while (iIdx > 0)
     {
         ppiPathResult[kRow][iIdx - 1] = ppiPathResult[kRow][iIdx] + aiDecrement[m_ppePathIdx[ppiPathResult[kRow][iIdx]][ppiPathResult[kCol][iIdx]]][kRow];

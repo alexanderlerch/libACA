@@ -6,7 +6,7 @@
 #include "Pitch.h"
 
 
-/*! \brief class for computation of a Pitch from a block of data (e.g., time or magnitude spectrum)
+/*! \brief class for computation of f0 from a block of data (e.g., time or magnitude spectrum)
 */
 class CPitchFromBlockIf
 {
@@ -48,11 +48,11 @@ protected:
     CPitchFromBlockIf(const CPitchFromBlockIf& that);
     CPitchFromBlockIf& operator=(const CPitchFromBlockIf& c);
 
-    CPitchIf::PitchExtractors_t m_ePitchIdx = CPitchIf::kNumPitchExtractors;     //!< index of Pitch to extract
+    CPitchIf::PitchExtractors_t m_ePitchIdx = CPitchIf::kNumPitchExtractors; //!< index of Pitch to extract
 
-    int m_iDataLength = 0;                      //!< block length
+    int m_iDataLength = 0; //!< block length
 
-    float m_fSampleRate = 0;                    //!< sample rate
+    float m_fSampleRate = 0; //!< sample rate
 };
 
 #endif // #if !defined(__ACA_PitchFromBlock_HEADER_INCLUDED__)

@@ -29,7 +29,7 @@ public:
     \param iNumCoeffs length of both pfB, and pfA
     \return Error_t
     */
-    Error_t init(const T* pfB, const T* pfA, int iNumCoeffs)
+    Error_t init(const T *pfB, const T *pfA, int iNumCoeffs)
     {
         if (!pfA || !pfB || iNumCoeffs <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -97,7 +97,7 @@ public:
      \param iNumSamples length of both pfOut and pfIn
      \return Error_t
      */
-    Error_t process(T* pfOut, const T* pfIn, long long iNumSamples)
+    Error_t process(T *pfOut, const T *pfIn, long long iNumSamples)
     {
         if (!m_bisInitialized)
             return Error_t::kFunctionIllegalCallError;
@@ -124,7 +124,7 @@ public:
      \param iNumSamples length of both pfOut and pfIn
      \return Error_t
      */
-    Error_t processDFII(T* pfOut, const T* pfIn, long long iNumSamples)
+    Error_t processDFII(T *pfOut, const T *pfIn, long long iNumSamples)
     {
         if (!m_bisInitialized)
             return Error_t::kFunctionIllegalCallError;
@@ -162,7 +162,7 @@ public:
      \param iNumSamples length of both pfOut and pfIn
      \return Error_t
      */
-    Error_t filtfilt(T* pfOut, const T* pfIn, long long iNumSamples)
+    Error_t filtfilt(T *pfOut, const T *pfIn, long long iNumSamples)
     {
         if (!m_bisInitialized)
             return Error_t::kFunctionIllegalCallError;
@@ -172,8 +172,8 @@ public:
         // reset filter but don't delete memory
         this->reset(false);
 
-        float* pfTmpBuff = 0;
-        float* pfPadding = 0;
+        float *pfTmpBuff = 0;
+        float *pfPadding = 0;
         int iPadLength = 3 * (m_iNumFilterCoeffs - 1);
 
         if (iPadLength > iNumSamples)
@@ -222,8 +222,8 @@ public:
     }
 
 private:
-    CFilter(const CFilter& that);
-    CFilter& operator=(const CFilter& c);
+    CFilter(const CFilter &that);
+    CFilter &operator=(const CFilter &c);
 
     enum FilterCoeffs_t
     {
@@ -236,9 +236,9 @@ private:
     // see sadovsky, bartusek, optimisation of the transient response of a digital filter, radioengineering (9) no 2, 2000
     void setInitState_(float fWeight)
     {
-        float** ppfA = 0;
-        float* pfB = 0;
-        float* pfZi = 0;
+        float **ppfA = 0;
+        float *pfB = 0;
+        float *pfZi = 0;
 
         int iLenCoeffBuffs = m_iNumFilterCoeffs - 1;
 
@@ -271,11 +271,11 @@ private:
         CVector::free(pfZi);
     }
 
-    CRingBuffer<T>* m_pCFilterBuff = 0; //!< internal ring buffer for filter (only used for direct form II implementation CFilter::processDFII)
+    CRingBuffer<T> *m_pCFilterBuff = 0; //!< internal ring buffer for filter (only used for direct form II implementation CFilter::processDFII)
 
-    T* m_aptCoeff[kNumFilterDims] = { 0,0 }; //!< filter coefficients
+    T *m_aptCoeff[kNumFilterDims] = { 0,0 }; //!< filter coefficients
 
-    T* m_ptProcBuff = 0; //!< temp buffer for processing
+    T *m_ptProcBuff = 0; //!< temp buffer for processing
 
     int m_iNumFilterCoeffs = 0; //!< number of filter coefficients
 
@@ -297,10 +297,10 @@ public:
      \return Error_t
      */
     template<typename T>
-    static Error_t calcCoeffs(T* pfB, T* pfA, int iOrder, T fCutOff)
+    static Error_t calcCoeffs(T *pfB, T *pfA, int iOrder, T fCutOff)
     {
         const long long iTmpOrder = static_cast<long long>(iOrder); // silly compiler warnings get annoying
-        float* pfTmpA = 0;
+        float *pfTmpA = 0;
         CVector::alloc(pfTmpA, 2 * iTmpOrder);
         CVector::setZero(pfB, iTmpOrder + 1);
         CVector::setZero(pfTmpA, 2 * iTmpOrder);
@@ -316,7 +316,7 @@ public:
 private:
 
     template<typename T>
-    static Error_t calcB(T* pfB, int iOrder, T fCutOff)
+    static Error_t calcB(T *pfB, int iOrder, T fCutOff)
     {
         pfB[0] = 1;
         pfB[1] = static_cast<T>(iOrder);
@@ -337,9 +337,9 @@ private:
     }
 
     template<typename T>
-    static Error_t calcA(T* pfA, int iOrder, T fCutOff)
+    static Error_t calcA(T *pfA, int iOrder, T fCutOff)
     {
-        T* pfCoeff = 0;     // binomial coefficients
+        T *pfCoeff = 0;     // binomial coefficients
 
         CVector::alloc<T>(pfCoeff, static_cast<long long>(2) * iOrder);
 
@@ -380,7 +380,7 @@ private:
     }
 
     template<typename T>
-    static Error_t multBinomial(T* pfOut, const T* pfIn, int iOrder)
+    static Error_t multBinomial(T *pfOut, const T *pfIn, int iOrder)
     {
         for (auto i = 0; i < iOrder; i++)
         {

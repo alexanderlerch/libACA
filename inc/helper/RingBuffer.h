@@ -41,7 +41,7 @@ public:
     \param ptNewBuff: new values
     \param iLength: number of values
     */
-    void putPostInc(const T* ptNewBuff, int iLength)
+    void putPostInc(const T *ptNewBuff, int iLength)
     {
         put(ptNewBuff, iLength);
         incIdx(m_iWriteIdx, iLength);
@@ -59,7 +59,7 @@ public:
     \param ptNewBuff: new values
     \param iLength: number of values
     */
-    void put(const T* ptNewBuff, int iLength)
+    void put(const T *ptNewBuff, int iLength)
     {
         assert(iLength <= m_iBuffLength && iLength >= 0);
 
@@ -85,7 +85,7 @@ public:
     \param ptBuff: pointer to where the values will be written
     \param iLength: number of values
     */
-    void getPostInc(T* ptBuff, int iLength)
+    void getPostInc(T *ptBuff, int iLength)
     {
         get(ptBuff, iLength);
         incIdx(m_iReadIdx, iLength);
@@ -120,7 +120,7 @@ public:
     \param ptBuff to where the values will be written
     \param iLength: number of values
     */
-    void get(T* ptBuff, int iLength) const
+    void get(T *ptBuff, int iLength) const
     {
         assert(iLength <= m_iBuffLength && iLength >= 0);
 
@@ -190,10 +190,10 @@ public:
     }
 private:
     CRingBuffer();
-    CRingBuffer(const CRingBuffer& that);
-    CRingBuffer& operator=(const CRingBuffer& c);
+    CRingBuffer(const CRingBuffer &that);
+    CRingBuffer &operator=(const CRingBuffer &c);
 
-    void incIdx(int& iIdx, int iOffset = 1)
+    void incIdx(int &iIdx, int iOffset = 1)
     {
         while ((iIdx + iOffset) < 0)
         {
@@ -203,11 +203,11 @@ private:
         iIdx = (iIdx + iOffset) % m_iBuffLength;
     };
 
-    int m_iBuffLength = 0,      //!< length of the internal buffer
-        m_iReadIdx = 0,         //!< current read index
-        m_iWriteIdx = 0;        //!< current write index
+    int m_iBuffLength = 0, //!< length of the internal buffer
+        m_iReadIdx = 0, //!< current read index
+        m_iWriteIdx = 0; //!< current write index
 
-    T* m_ptBuff = 0;            //!< data buffer
+    T *m_ptBuff = 0; //!< data buffer
 };
 
 #endif // __ACA_RingBuffer_HEADER_INCLUDED__
