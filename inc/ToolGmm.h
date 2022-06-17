@@ -39,7 +39,7 @@ public:
     */
     float getPrior(int iGaussianIdx) const;
 
-    /*! returns entry of sigma matrix for one Gaussian, 
+    /*! returns entry of sigma matrix for one Gaussian,
     \param iGaussianIdx index of Gaussian
     \param iRowIdx row index (< iNumFeatures)
     \param iColIdx col index (< iNumFeatures)
@@ -49,7 +49,7 @@ public:
 
     /*! writes sigma matrix for one Gaussian
     \param ppfSigma to be written (user allocated, dimensions iNumFeatures X iNumFeatures)
-    \param iGaussianIdx index of Gaussian 
+    \param iGaussianIdx index of Gaussian
     */
     void getSigma(float** ppfSigma, int iGaussianIdx) const;
 
@@ -100,16 +100,16 @@ public:
     CGmm(void) {};
     virtual ~CGmm(void);
 
-    /*! initializes the class 
+    /*! initializes the class
     \param pCResult class holding resulting mean, sigma, and priors, see class ::CGmmResult (user-allocated)
     \param iK target number of Gaussians
-    \param iNumFeatures number of rows (features) of input matrix 
-    \param iNumObs number of columns (observations) of input matrix 
+    \param iNumFeatures number of rows (features) of input matrix
+    \param iNumObs number of columns (observations) of input matrix
     \param iMaxIter maximum number of iterations
     \return Error_t
     */
     Error_t init(CGmmResult* pCResult, int iK, int iNumFeatures, int iNumObs, int iMaxIter = 300);
-    
+
     /*! resets all internal class members
     \return Error_t
     */
@@ -122,8 +122,8 @@ public:
     \return Error_t
     */
     Error_t compGmm(CGmmResult* pCResult, const float* const* const ppfFeatures);
- 
- 
+
+
 private:
     enum States_t
     {
@@ -168,7 +168,7 @@ private:
 
     float* m_apfProc[2] = { 0 }, //!< temporary pre-allocated memory buffer 
         ** m_appfSigma[2] = { 0 }, //!< temporary sigma matrices (m_iNumFeatures x m_iNumFeatures)
-        **m_ppfProb = 0;  //!< probabilities (temp, dims m_iK x m_iNumObs)
+        ** m_ppfProb = 0;  //!< probabilities (temp, dims m_iK x m_iNumObs)
 
     int* m_piClusterSize = 0; //!< number of observations per cluster
 
@@ -179,6 +179,5 @@ private:
 
     bool m_bisInitialized = false; //!< indicates whether instance is initialized
 };
-
 
 #endif // __ACA_Gmm_HEADER_INCLUDED__

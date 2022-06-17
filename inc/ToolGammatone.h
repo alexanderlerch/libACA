@@ -85,7 +85,7 @@ protected:
     Error_t reset_(); //!< reset configuration
     Error_t init_(); //!< init configuration
     float compMidFreqs_(float fFreqLow, float fFreqHigh, int k) const;  //!< compute center frequencies for all bands
-        
+
     CNormalizeAudio* m_pCNormalize = 0; //!< instantiate if audio file normalization is wanted
 
     CBlockAudioIf* m_pCBlockAudio = 0; //!< instantiate for blocking time domain signal
@@ -98,12 +98,9 @@ protected:
     float m_fSampleRate = 0;            //!< sample rate
     float m_fStartInHz = 0; //!< lowest band center frequency
 
-    float *m_pfProcBuff = 0; //!< temporary processing buffer
+    float* m_pfProcBuff = 0; //!< temporary processing buffer
 
     bool m_bIsInitialized = false;   //!< true if initialized
 };
 
 #endif // #if !defined(__ACA_Gammatone_HEADER_INCLUDED__)
-
-
-

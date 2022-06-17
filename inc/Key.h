@@ -104,6 +104,3 @@ protected:
 };
 
 #endif // #if !defined(__ACA_Key_HEADER_INCLUDED__)
-
-
-

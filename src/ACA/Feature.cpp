@@ -93,7 +93,7 @@ inline CFeatureIf::~CFeatureIf()
 {
     reset_();
 }
-                            
+
 Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())

@@ -99,7 +99,7 @@ inline CChordIf::~CChordIf()
 {
     reset_();
 }
-                            
+
 Error_t CChordIf::create(CChordIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
@@ -221,7 +221,7 @@ Error_t CChordIf::compChords(Chords_t* peChord, bool bWithViterbi /*= true*/)
         assert(m_pfProcBuff2);
         assert(m_pCFft);
         computeMagSpectrum_();
-                    
+
         // compute instantaneous chord probs
         m_pCChord->compChordProb(afChordProb, m_pfProcBuff1);
 
@@ -429,7 +429,7 @@ void CChordIf::initViterbi_()
     float fRadius = 1.F;
     float fDistance = .5F;
 
-    for (auto m = 0; m < kNumChords-1; m++)
+    for (auto m = 0; m < kNumChords - 1; m++)
     {
         float fX1 = static_cast<float>(fRadius * std::cos(2. * M_PI * aiCircleOfFifths[m] / 12.));
         float fY1 = static_cast<float>(fRadius * std::sin(2. * M_PI * aiCircleOfFifths[m] / 12.));

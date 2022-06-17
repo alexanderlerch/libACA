@@ -64,13 +64,13 @@ private:
 
     int m_iNumFeatures = 0, //!< number of features
         m_iNumObs = 0, //!< number of training observations
-        
+
         m_iK = 3; //!< number of neighbors for classification
 
     float** m_ppfTrain = 0; //!< train data (m_iNumObs X m_iNumFeatures)
     int* m_piClassLabels = 0; //!< ground truth train labels
-    
-    float *m_pfSortDist = 0; //!< preallocated vector for distance of query to all data points
+
+    float* m_pfSortDist = 0; //!< preallocated vector for distance of query to all data points
     float* m_pfQuery = 0; //!< preallocated vector for the normalized query
     int* m_piSortIdx = 0; //!< preallocated vector for the resorted class indices
 
@@ -81,6 +81,5 @@ private:
     bool m_bIsInitialized = false; //!< indicates if instance has been properly initialized
 
 };
-
 
 #endif // __ACA_Knn_HEADER_INCLUDED__

@@ -18,7 +18,7 @@ public:
     {
         m_iBlockLength = iBlockLength;
         m_iHopLength = iHopLength;
-            
+
         CAudioFileIf::FileSpec_t stFileSpec;
 
         // get length of audio file
@@ -31,11 +31,11 @@ public:
         m_iNumBlocks = m_iAudioLength / m_iHopLength + 1;
 
         // initialize read buffers
-        m_pCRingBuff = new CRingBuffer<float>(iBlockLength+1);
+        m_pCRingBuff = new CRingBuffer<float>(iBlockLength + 1);
         CMatrix::alloc(m_ppfAudioData, m_iNumChannels, iHopLength);
-        
+
         // prefill from file to read buffer
-        while(m_pCRingBuff->getNumValuesInBuffer() < m_pCRingBuff->getLength() - m_iHopLength - 1)
+        while (m_pCRingBuff->getNumValuesInBuffer() < m_pCRingBuff->getLength() - m_iHopLength - 1)
             readFile2RingBuff();
     }
 
@@ -76,7 +76,7 @@ public:
 
         if (pfTimeStamp)
             *pfTimeStamp = getTimeStamp(m_iCurrBlock);
-        
+
         m_iCurrBlock++;
 
         return iNumSamples;
@@ -85,9 +85,9 @@ public:
 private:
     CBlockAudioFile(const CBlockAudioFile& that);     //!< disallow copy construction   
     CBlockAudioFile& operator=(const CBlockAudioFile& c);
-    
+
     inline void readFile2RingBuff()
-    {        
+    {
         // set file read length variable
         //long long iNumSamples = std::min(m_iHopLength, m_pCRingBuff->getLength() - m_pCRingBuff->getNumValuesInBuffer() + 1);
         long long iNumSamples = m_iHopLength;
@@ -100,7 +100,7 @@ private:
         {
             for (int c = 0; c < m_iNumChannels; c++)
                 CVector::setZero(&m_ppfAudioData[c][iNumSamples], m_iHopLength - iNumSamples);
-            
+
             iNumSamples = m_iHopLength;
         }
 
@@ -152,7 +152,7 @@ public:
         return m_iAudioLength == m_iCurrIdx;
     }
 
-    int getNextBlock(float* pfBlock, float *pfTimeStamp) override
+    int getNextBlock(float* pfBlock, float* pfTimeStamp) override
     {
         if (!m_pfAudioData)
             return -1;

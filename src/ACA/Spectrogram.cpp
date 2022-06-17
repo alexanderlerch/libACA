@@ -318,7 +318,7 @@ Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float* pfAxisTicks, AxisLab
     if (eAxisLabel == kFrequencyInHz)
     {
         generateMelFb_(pMelSpecConfig);
-        
+
         assert(m_pffcMel);
 
         // note that we start with 1 to look at the center freqs only
@@ -394,12 +394,12 @@ Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t* pMelSpecCon
     // allocate filter matrix and frequency matrix
     CVector::alloc(m_pffcMel, static_cast<long long>(pMelSpecConfig->iNumMelBins) + 2); // +2 for lower and upper bound
     CMatrix::alloc(m_ppfHMel, pMelSpecConfig->iNumMelBins, iMagLength);
-    
+
 
     // compute center band frequencies
     m_pffcMel[0] = CConversion::convertFreq2Mel(pMelSpecConfig->fMinFreqInHz);
     m_pffcMel[pMelSpecConfig->iNumMelBins + 1] = CConversion::convertFreq2Mel(pMelSpecConfig->fMaxFreqInHz);
-    float fMelInc = (m_pffcMel[pMelSpecConfig->iNumMelBins + 1] - m_pffcMel[0]) / (pMelSpecConfig->iNumMelBins+1);
+    float fMelInc = (m_pffcMel[pMelSpecConfig->iNumMelBins + 1] - m_pffcMel[0]) / (pMelSpecConfig->iNumMelBins + 1);
     for (auto k = 1; k < pMelSpecConfig->iNumMelBins + 1; k++)
         m_pffcMel[k] = m_pffcMel[k - 1] + fMelInc;
     for (auto k = 0; k < pMelSpecConfig->iNumMelBins + 2; k++)

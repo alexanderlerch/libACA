@@ -49,12 +49,6 @@ protected:
     float** m_ppfH = 0; //!< transformation matrix bin to band
 
     float* m_apfProcBuff[kNumProcBuffs] = { 0 };
-
 };
 
-
-
 #endif // #if !defined(__ACA_SubFingerprint_HEADER_INCLUDED__)
-
-
-

@@ -12,7 +12,7 @@ class CPitchFromBlockIf
 {
 public:
 
-    /*! initializes a PitchFromBlock instance 
+    /*! initializes a PitchFromBlock instance
     \param pCInstance pointer to instance to be written
     \param ePitchIdx index of Pitch to extract
     \param iDataLength: block length
@@ -40,7 +40,7 @@ public:
     \return float fF0InHz
     */
     virtual float compF0(const float* pfIn) = 0;
- 
+
 protected:
     CPitchFromBlockIf() {};
     CPitchFromBlockIf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate);;
@@ -53,11 +53,6 @@ protected:
     int m_iDataLength = 0;                      //!< block length
 
     float m_fSampleRate = 0;                    //!< sample rate
- };
-
-
+};
 
 #endif // #if !defined(__ACA_PitchFromBlock_HEADER_INCLUDED__)
-
-
-

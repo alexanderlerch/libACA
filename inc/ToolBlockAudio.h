@@ -29,13 +29,13 @@ public:
     \param fSampleRate sample rate in Hz
     \return float
     */
-    static Error_t create(CBlockAudioIf*& pCInstance, const float *pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate);
+    static Error_t create(CBlockAudioIf*& pCInstance, const float* pfAudioBuff, long long iAudioLength, int iBlockLength, int iHopLength, float fSampleRate);
 
     /*! destroys a block audio instance
     \param pCInstance pointer to instance to be written
     \return Error_t
     */
-    static Error_t destroy(CBlockAudioIf*& pCInstance) 
+    static Error_t destroy(CBlockAudioIf*& pCInstance)
     {
         delete pCInstance;
         pCInstance = 0;
@@ -78,7 +78,7 @@ public:
     \param pfTimeStampInS (to be written, optional) for current time stamp
     \return int iNumsamplesRead
     */
-    virtual int getNextBlock(float* pfBlock, float *pfTimeStampInS = 0) = 0;
+    virtual int getNextBlock(float* pfBlock, float* pfTimeStampInS = 0) = 0;
 
 protected:
     CBlockAudioIf() {};
@@ -96,4 +96,5 @@ protected:
 
     float m_fSampleRate = 0;        //!< sample rate
 };
+
 #endif // __ACA_ToolBlockAudio_HEADER_INCLUDED__

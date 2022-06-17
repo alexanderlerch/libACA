@@ -62,7 +62,7 @@ public:
     static Error_t destroy(CPitchIf*& pCInstance);
 
     /*! returns length of vector to be allocated by user
-    \param iNumBlocks (number of blocks, to be written) 
+    \param iNumBlocks (number of blocks, to be written)
     \return Error_t
     */
     Error_t getNumBlocks(int& iNumBlocks) const;
@@ -114,7 +114,7 @@ protected:
     void computeMagSpectrum_();
 
     CNormalizeAudio* m_pCNormalize = 0;  //!< instantiate if audio file normalization is wanted
- 
+
     CBlockAudioIf* m_pCBlockAudio = 0;   //!< instantiate for blocking time domain signal
 
     CPitchFromBlockIf* m_pCPitch = 0;
@@ -135,6 +135,3 @@ protected:
 };
 
 #endif // #if !defined(__ACA_Pitch_HEADER_INCLUDED__)
-
-
-

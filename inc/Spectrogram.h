@@ -33,7 +33,7 @@ public:
     \param pfWindow: window function of length iBlockLength (optional, default will be von-Hann if 0)
     \return Error_t
     */
-    static Error_t create(CSpectrogramIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024, bool bNormalize = true, float *pfWindow = 0);
+    static Error_t create(CSpectrogramIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength = 2048, int iHopLength = 1024, bool bNormalize = true, float* pfWindow = 0);
 
     /*! initializes a Spectrogram instance from audio data
     \param pCInstance pointer to instance to be written
@@ -46,7 +46,7 @@ public:
     \param pfWindow: window function of length iBlockLength (optional, default will be von-Hann if 0)
     \return Error_t
     */
-    static Error_t create(CSpectrogramIf*& pCInstance, const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 2048, int iHopLength = 1024, bool bNormalize = true, float* pfWindow = 0);
+    static Error_t create(CSpectrogramIf*& pCInstance, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength = 2048, int iHopLength = 1024, bool bNormalize = true, float* pfWindow = 0);
 
     /*! destroys a Spectrogram instance
     \param pCInstance pointer to instance to be destroyed
@@ -88,7 +88,7 @@ public:
     \param pMelSpecConfig parametrization of the mel spectrogram
     \return Error_t
     */
-    Error_t getMelSpectrogramDimensions(int& iNumRows, int& iNumCols, const MelSpectrogramConfig_t *pMelSpecConfig) const;
+    Error_t getMelSpectrogramDimensions(int& iNumRows, int& iNumCols, const MelSpectrogramConfig_t* pMelSpecConfig) const;
 
     /*! returns axis ticks
     \param pfAxisTicks (to be written) equals iNumRows if eAxisLabel == kFrequencyInHz, otherwise iNumCols
@@ -115,11 +115,11 @@ protected:
     Error_t init_(float* pfWindow);      //!< init configuration
     void computeMagSpectrum_(int iLength);
 
-    Error_t generateMelFb_(const MelSpectrogramConfig_t *pMelSpecConfig);
+    Error_t generateMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig);
     void destroyMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig);
 
     CNormalizeAudio* m_pCNormalize = 0;  //!< instantiate if audio file normalization is wanted
- 
+
     CBlockAudioIf* m_pCBlockAudio = 0;   //!< instantiate for blocking time domain signal
 
     CFft* m_pCFft = 0;                   //!< fft instance
@@ -139,6 +139,3 @@ protected:
 };
 
 #endif // #if !defined(__ACA_Spectrogram_HEADER_INCLUDED__)
-
-
-

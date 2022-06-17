@@ -80,7 +80,7 @@ float CLeaveOneOutCrossVal::process(const float* const* const ppfTrainFeatures, 
     CMatrix::copy(m_ppfTrain, ppfTrainFeatures, m_iNumFeatures, m_iNumObs - static_cast<long long>(1));
     CVector::copy(m_piClassLabels, piTrainClassIndices, m_iNumObs - static_cast<long long>(1));
 
-    for (int n = 0; n < m_iNumObs-1; n++)
+    for (int n = 0; n < m_iNumObs - 1; n++)
     {
         CMatrix::getCol(m_pfQuery, ppfTrainFeatures, m_iNumObs - 1 - n, m_iNumFeatures);
         iGtLabel = piTrainClassIndices[m_iNumObs - 1 - n];

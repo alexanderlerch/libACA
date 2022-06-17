@@ -8,7 +8,7 @@ const float  CNmf::m_kMinOffset = 1e-30F;
 
 CNmf::CNmf(void)
 {
-   reset();
+    reset();
 }
 
 CNmf::~CNmf(void)
@@ -64,7 +64,7 @@ Error_t CNmf::compNmf(CNmfResult* pCNmfResult, const float* const* const ppfIn)
 
     if (!m_bIsInitialized || !pCNmfResult->isInitialized())
         return Error_t::kFunctionIllegalCallError;
-    
+
     enum Cost_t
     {
         kStartCost,
@@ -161,7 +161,7 @@ float CNmf::runNmfIter(CNmfResult* pCNmfResult, const float* const* const ppfIn)
     // deal with sparsity
     CMatrix::addC_I(ppfXHat, m_fSparsity * CMatrix::getNorm(ppfXHat, iNumBins, iNumObs), iNumBins, iNumObs);
 
-    return CMatrix::calcKlDivergence(ppfIn, ppfXHat, iNumBins, iNumObs); 
+    return CMatrix::calcKlDivergence(ppfIn, ppfXHat, iNumBins, iNumObs);
 }
 
 
@@ -177,7 +177,7 @@ CNmfResult::~CNmfResult(void)
 
 Error_t CNmfResult::init(int iRank, int iNumRows, int iNumCols)
 {
-    if (iRank <=0 || iNumRows <= 0 || iNumCols <= 0)
+    if (iRank <= 0 || iNumRows <= 0 || iNumCols <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
     m_aaiMatrixDims[kW][0] = iNumRows;

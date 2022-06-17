@@ -52,7 +52,7 @@ public:
     static Error_t destroy(CBeatHistoIf*& pCInstance);
 
     /*! returns length of the frequency axis of the beat histogram
-    \param iNumBeatHistoBins (number of bins, to be written) 
+    \param iNumBeatHistoBins (number of bins, to be written)
     \param eBeatHistoComp (computation method used in CBeatHistoIf::compBeatHisto)
     \return Error_t
     */
@@ -80,8 +80,8 @@ public:
 
 protected:
     explicit CBeatHistoIf(int iBlockLength, int iHopLength, float fSampleRate) :
-        m_iBlockLength(iBlockLength), 
-        m_iHopLength(iHopLength), 
+        m_iBlockLength(iBlockLength),
+        m_iHopLength(iHopLength),
         m_fSampleRate(fSampleRate)
     {};
     virtual ~CBeatHistoIf();
@@ -103,7 +103,7 @@ protected:
     float* m_pfNovelty = 0;  //!< buffer to hold extracted nvelty function
     float* m_pfProcBuff = 0; //!< temporary processing buffer
     float* m_pfBeatHisto = 0; //!< result buffer
-    
+
     int m_iBlockLength = 0, //!< processing block length for novelty
         m_iHopLength = 0;  //!< hop length for novelty
 
@@ -115,6 +115,3 @@ protected:
 };
 
 #endif // #if !defined(__ACA_BeatHisto_HEADER_INCLUDED__)
-
-
-

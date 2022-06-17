@@ -15,16 +15,16 @@ template <class T>
 class CFilter
 {
 public:
- 
+
     CFilter() {};
-    virtual ~CFilter() 
+    virtual ~CFilter()
     {
         reset();
     };
 
 
     /*! initializes the filter
-    \param pfB numerator coefficients 
+    \param pfB numerator coefficients
     \param pfA denominator coefficients (normalized: pfA[0] = 1)
     \param iNumCoeffs length of both pfB, and pfA
     \return Error_t
@@ -52,13 +52,13 @@ public:
         m_pCFilterBuff = new CRingBuffer<T>(iNumCoeffs);
         m_pCFilterBuff->setWriteIdx(static_cast<long long>(iNumCoeffs - 1));
 
-        CVector::alloc(m_ptProcBuff, static_cast<long long>(iNumCoeffs)-1);
+        CVector::alloc(m_ptProcBuff, static_cast<long long>(iNumCoeffs) - 1);
 
         m_bisInitialized = true;
 
         return Error_t::kNoError;
     }
-    
+
     /*! resets a Filter instance
     \return Error_t
     */
@@ -111,7 +111,7 @@ public:
             for (auto j = 1; j < m_iNumFilterCoeffs - 1; j++)
                 m_ptProcBuff[j - 1] = m_ptProcBuff[j] - m_aptCoeff[kIir][j] * fTmp + m_aptCoeff[kFir][j] * pfIn[i];
 
-            m_ptProcBuff[m_iNumFilterCoeffs-2] = -m_aptCoeff[kIir][m_iNumFilterCoeffs - 1] * fTmp + m_aptCoeff[kFir][m_iNumFilterCoeffs-1] * pfIn[i];
+            m_ptProcBuff[m_iNumFilterCoeffs - 2] = -m_aptCoeff[kIir][m_iNumFilterCoeffs - 1] * fTmp + m_aptCoeff[kFir][m_iNumFilterCoeffs - 1] * pfIn[i];
 
             pfOut[i] = fTmp;
         }
@@ -191,22 +191,22 @@ public:
 
         // front padding (discard results)
         this->process(pfTmpBuff, pfPadding, iPadLength);
-        
+
         // forward path
         this->process(pfTmpBuff, pfIn, iNumSamples);
-        
+
         // back padding in forward path
         for (auto i = 0; i < iPadLength; i++)
             pfPadding[i] = 2 * pfIn[iNumSamples - 1] - pfIn[iNumSamples - 2 - i];
         this->process(&pfTmpBuff[iNumSamples], pfPadding, iPadLength);
 
         // set initial state
-        this->setInitState_(pfTmpBuff[iNumSamples+iPadLength-1]);
+        this->setInitState_(pfTmpBuff[iNumSamples + iPadLength - 1]);
 
         // padded backward path (discard results)
         for (auto i = iNumSamples + iPadLength - 1; i >= iNumSamples; i--)
             this->process(pfOut, &pfTmpBuff[i], 1);
-        
+
         // backward path
         for (auto i = iNumSamples - 1; i >= 0; i--)
             this->process(&pfOut[i], &pfTmpBuff[i], 1);
@@ -240,7 +240,7 @@ private:
         float* pfB = 0;
         float* pfZi = 0;
 
-        int iLenCoeffBuffs = m_iNumFilterCoeffs - 1; 
+        int iLenCoeffBuffs = m_iNumFilterCoeffs - 1;
 
         CVector::alloc(pfB, iLenCoeffBuffs);
         CVector::alloc(pfZi, iLenCoeffBuffs);
@@ -253,7 +253,7 @@ private:
         {
             ppfA[m][m] = 1;
             ppfA[m][0] += m_aptCoeff[kIir][m + 1];
-            if (m < iLenCoeffBuffs-1)
+            if (m < iLenCoeffBuffs - 1)
                 ppfA[m][m + 1] = -1;
         }
 
@@ -272,10 +272,10 @@ private:
     }
 
     CRingBuffer<T>* m_pCFilterBuff = 0; //!< internal ring buffer for filter (only used for direct form II implementation CFilter::processDFII)
-    
+
     T* m_aptCoeff[kNumFilterDims] = { 0,0 }; //!< filter coefficients
-    
-    T *m_ptProcBuff = 0; //!< temp buffer for processing
+
+    T* m_ptProcBuff = 0; //!< temp buffer for processing
 
     int m_iNumFilterCoeffs = 0; //!< number of filter coefficients
 
@@ -351,11 +351,11 @@ private:
             pfCoeff[2 * j + 1] = static_cast<T>(-std::sin(M_PI * fCutOff) * std::cos(fArg) / fNorm);
         }
 
-        multBinomial(pfA, pfCoeff, iOrder); 
+        multBinomial(pfA, pfCoeff, iOrder);
 
         pfA[1] = pfA[0];
         pfA[0] = 1;
-            for (auto j = 3; j <= iOrder; j++)
+        for (auto j = 3; j <= iOrder; j++)
             pfA[j] = pfA[2 * j - 2];
 
         CVector::free<T>(pfCoeff);
@@ -396,8 +396,4 @@ private:
     }
 };
 
-
 #endif // #if !defined(__ACA_Filter_HEADER_INCLUDED__)
-
-
-

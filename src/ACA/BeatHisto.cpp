@@ -15,7 +15,7 @@ inline CBeatHistoIf::~CBeatHistoIf()
 {
     reset_();
 }
-                            
+
 Error_t CBeatHistoIf::create(CBeatHistoIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
@@ -95,7 +95,7 @@ Error_t CBeatHistoIf::getBeatHistoAxisTicks(float* pfAxisTicks, BeatHisto_t eBea
 
     int aiRangeIndices[2] = { 0,0 };
     compHistoRange_(aiRangeIndices[0], aiRangeIndices[1], eBeatHistoComp);
-    
+
     if (eBeatHistoComp == kBeatHistoFft)
     {
         for (auto k = aiRangeIndices[0], j = 0; k <= aiRangeIndices[1]; k++, j++)
@@ -104,7 +104,7 @@ Error_t CBeatHistoIf::getBeatHistoAxisTicks(float* pfAxisTicks, BeatHisto_t eBea
     else
     {
         for (auto k = aiRangeIndices[0], j = 0; k <= aiRangeIndices[1]; k++, j++)
-            pfAxisTicks[j] = 60.F / m_iHopLength *  m_fSampleRate / (m_iBeatHistoLength - k);
+            pfAxisTicks[j] = 60.F / m_iHopLength * m_fSampleRate / (m_iBeatHistoLength - k);
     }
 
     return Error_t::kNoError;
@@ -160,11 +160,11 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
     }
     else if (eBeatHistoComp == kBeatHistoFft)
     {
-        CFft *pCFft = new CFft();
-        
+        CFft* pCFft = new CFft();
+
         // create FFT instance with zeropadding
         pCFft->init(m_iBeatHistoLength, 2);
-        
+
         // loop over novelty functions with hopsize
         CVector::setZero(m_pfBeatHisto, m_iBeatHistoLength);
         for (auto n = 0; n < iNumBlocks; n++)

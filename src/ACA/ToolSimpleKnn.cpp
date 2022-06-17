@@ -7,7 +7,7 @@
 const int CClassifierBase::kIllegalClassLabel = -1111111111;
 
 
-CKnn::~CKnn(void) 
+CKnn::~CKnn(void)
 {
     reset();
 }

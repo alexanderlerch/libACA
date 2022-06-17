@@ -81,6 +81,4 @@ protected:
     };
 };
 
-
-
 #endif // #if !defined(__ACA_NoveltyFromBlock_HEADER_INCLUDED__)

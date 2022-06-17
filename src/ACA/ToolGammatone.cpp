@@ -96,7 +96,7 @@ Error_t CGammatone::init(float fFreqCenter, float fSampleRate)
 {
     m_fFreqCenter = fFreqCenter;
     m_fSampleRate = fSampleRate;
-    
+
     calcFilterCoeffs_();
 
     m_bIsInitialized = true;
@@ -283,7 +283,7 @@ private:
 
 CGammaToneFbFromFile::CGammaToneFbFromFile(const std::string& strAudioFilePath, int iNumBands, float fStartInHz) :
     m_pCAudioFile(0)
-    
+
 {
     this->reset_();
 
@@ -429,7 +429,7 @@ Error_t CGammaToneFbIf::getOutputDimensions(long long& iNumRows, long long& iNum
 
 float CGammaToneFbIf::getCenterFreq(int iBandIdx) const
 {
-    return compMidFreqs_(m_fStartInHz, m_fSampleRate/2, iBandIdx);
+    return compMidFreqs_(m_fStartInHz, m_fSampleRate / 2, iBandIdx);
 }
 
 Error_t CGammaToneFbIf::process(float** ppfOut, const float* pfIn /*= 0*/, long long iNumSamples /*= 0*/)
@@ -469,7 +469,7 @@ Error_t CGammaToneFbIf::process(float** ppfOut, const float* pfIn /*= 0*/, long 
         for (auto i = 0; i < m_iNumBands; i++)
         {
             assert(ppfOut[i]);
-            m_ppCGammatone[i]->process(&ppfOut[i][n*m_iBlockLength], m_pfProcBuff, iNumFrames);
+            m_ppCGammatone[i]->process(&ppfOut[i][n * m_iBlockLength], m_pfProcBuff, iNumFrames);
         }
     }
 
@@ -502,7 +502,7 @@ Error_t CGammaToneFbIf::init_()
     for (auto i = 0; i < m_iNumBands; i++)
     {
         m_ppCGammatone[i] = new CGammatone();
-        m_ppCGammatone[i]->init(compMidFreqs_(m_fStartInHz, m_fSampleRate/2, i), m_fSampleRate);
+        m_ppCGammatone[i]->init(compMidFreqs_(m_fStartInHz, m_fSampleRate / 2, i), m_fSampleRate);
     }
 
     m_bIsInitialized = true;
@@ -516,6 +516,6 @@ inline float CGammaToneFbIf::compMidFreqs_(float fFreqLow, float fFreqHigh, int 
     const float fEarQ = 9.26449F;
     const float fBandwidth = 24.7F;
 
-    return -(fEarQ * fBandwidth) + std::exp((m_iNumBands-k) * (-std::log(fFreqHigh + fEarQ * fBandwidth) + std::log(fFreqLow + fEarQ * fBandwidth)) / m_iNumBands) * (fFreqHigh + fEarQ * fBandwidth);
+    return -(fEarQ * fBandwidth) + std::exp((m_iNumBands - k) * (-std::log(fFreqHigh + fEarQ * fBandwidth) + std::log(fFreqLow + fEarQ * fBandwidth)) / m_iNumBands) * (fFreqHigh + fEarQ * fBandwidth);
 }
 

@@ -13,7 +13,7 @@ class CChordFromBlockIf
 {
 public:
 
-    /*! initializes a ChordFromBlock instance 
+    /*! initializes a ChordFromBlock instance
     \param pCInstance pointer to instance to be written
     \param iMagSpecLength: block length
     \param fSampleRate: sample rate
@@ -32,8 +32,8 @@ public:
     \param pfIn input data of length iMagSpecLength
     \return Error_t
     */
-    virtual Error_t compChordProb(float *pfChordProb, const float* pfIn);
- 
+    virtual Error_t compChordProb(float* pfChordProb, const float* pfIn);
+
 protected:
     enum PitchClasses_t
     {
@@ -62,17 +62,12 @@ protected:
 
     int m_iMagSpecLength = 0;  //!< block length
     float m_fSampleRate = 0; //!< sample rate
-    
-    float *m_pfPitchChroma = 0; //!< current pitch chroma
+
+    float* m_pfPitchChroma = 0; //!< current pitch chroma
 
     float** m_ppfTemplateMatrix = 0; //!< matrix holding all chord templates
 
     CFeatureFromBlockIf* m_pCFeatureExtractor = 0; //!< instance for pitch chroma extraction
- };
-
-
+};
 
 #endif // #if !defined(__ACA_ChordFromBlock_HEADER_INCLUDED__)
-
-
-

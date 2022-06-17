@@ -18,7 +18,7 @@ public:
     CPitchSpectralAcf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
     {
         m_pCCcf = new CCcf();
-        m_pCCcf->init((m_iDataLength-1)*2);
+        m_pCCcf->init((m_iDataLength - 1) * 2);
         CVector::alloc(m_pfProcBuff, (static_cast<long long>(m_iDataLength) - 1) * 2);
 
         CVector::alloc(m_pfAcf, m_pCCcf->getCcfLength(true));
@@ -53,7 +53,7 @@ public:
         m_pCCcf->getCcf(m_pfAcf, true);
 
         // adjust lower search boundary for local maxima
-        for (auto k = iMin-1; k < m_iDataLength; k++)
+        for (auto k = iMin - 1; k < m_iDataLength; k++)
         {
             if (m_pfAcf[k + 1] < m_pfAcf[k])
             {
@@ -62,7 +62,7 @@ public:
             }
             iMin++;
         }
-        
+
         // sanity check
         if (iMin >= m_iDataLength - 2)
             return 0.F;
@@ -70,7 +70,7 @@ public:
         // now find the maximum
         CVector::findMax(&m_pfAcf[iMin], fTmp, iMaxIdx, m_iDataLength - static_cast<long long>(1) - iMin);
 
-        return CConversion::convertBin2Freq((iMin+iMaxIdx) * 1.F, (m_iDataLength - 1) * 2, m_fSampleRate);
+        return CConversion::convertBin2Freq((iMin + iMaxIdx) * 1.F, (m_iDataLength - 1) * 2, m_fSampleRate);
     };
 
 private:
@@ -107,7 +107,7 @@ public:
         int iMin = CUtil::float2int<int>(CConversion::convertFreq2Bin(m_fMin, (m_iDataLength - 1) * 2, m_fSampleRate));
         CVector::copy(m_pfProcBuff, pfIn, m_iDataLength);
         CVector::setZero(m_pfProcBuff, iMin);
-        CVector::setZero(&m_pfProcBuff[m_iDataLength/m_iOrder], static_cast<long long>(m_iDataLength) - (m_iDataLength / m_iOrder));
+        CVector::setZero(&m_pfProcBuff[m_iDataLength / m_iOrder], static_cast<long long>(m_iDataLength) - (m_iDataLength / m_iOrder));
 
         // do the actual product sum
         for (auto j = 2; j <= m_iOrder; j++)
@@ -257,7 +257,7 @@ public:
         CVector::setZero(m_pfSumAcf, m_iDataLength);
 
         m_pCFilterBank->process(m_ppfProcBuff, pfIn, m_iDataLength);
-        
+
         for (auto c = 0; c < m_iNumBands; c++)
         {
             // smooth
@@ -272,7 +272,7 @@ public:
         }
 
         int iEta = getAcfMax_(m_pfSumAcf);
-        return m_fSampleRate / iEta;    
+        return m_fSampleRate / iEta;
     }
 
 
@@ -336,9 +336,9 @@ private:
 class CPitchTimeAmdf : public CPitchFromBlockIf
 {
 public:
-    CPitchTimeAmdf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate) {    };
+    CPitchTimeAmdf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate) {};
 
-    virtual ~CPitchTimeAmdf() {    };
+    virtual ~CPitchTimeAmdf() {};
 
     float compF0(const float* pfIn) override
     {
@@ -347,7 +347,7 @@ public:
         float fResMin = std::numeric_limits<float>::max();
         int iResEta = -1;
         int iEtaMin = static_cast<int>(m_fSampleRate / m_fMax),
-            iEtaMax = static_cast<int>(m_fSampleRate / m_fMin)+1;
+            iEtaMax = static_cast<int>(m_fSampleRate / m_fMin) + 1;
 
         // sanity checks
         if (iEtaMax > m_iDataLength)
@@ -403,7 +403,7 @@ public:
         int iPrevIdx = -1;
         int iDist2Prev = 0;
 
-        for (auto i = 0; i < m_iDataLength-1; i++)
+        for (auto i = 0; i < m_iDataLength - 1; i++)
         {
             if (pfIn[i] * pfIn[i + 1] < 0)
             {
@@ -417,7 +417,7 @@ public:
         }
         if (iNumZeroCrossings <= 1)
             return 0.F;
-        
+
         return m_fSampleRate / (iDist2Prev * 2.F / iNumZeroCrossings);
     };
 
@@ -446,9 +446,9 @@ Error_t CPitchFromBlockIf::create(CPitchFromBlockIf*& pCInstance, CPitchIf::Pitc
         pCInstance = new CPitchTimeZeroCrossings(ePitchIdx, iDataLength, fSampleRate);
         break;
 
-    //case CPitchIf::kPitchTimeAuditory:
-    //    pCInstance = new CPitchTimeAuditory(ePitchIdx, iDataLength, fSampleRate);
-    //    break;
+        //case CPitchIf::kPitchTimeAuditory:
+        //    pCInstance = new CPitchTimeAuditory(ePitchIdx, iDataLength, fSampleRate);
+        //    break;
 
     case CPitchIf::kPitchTimeAmdf:
         pCInstance = new CPitchTimeAmdf(ePitchIdx, iDataLength, fSampleRate);

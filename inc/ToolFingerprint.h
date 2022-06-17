@@ -30,9 +30,9 @@ public:
     \param fSampleRate: sample rate in Hz
     \return Error_t
     */
-    Error_t init( const float* pfAudio, long long iNumSamples, float fSampleRate);
+    Error_t init(const float* pfAudio, long long iNumSamples, float fSampleRate);
 
-    /*! resets a Fingerprint instance 
+    /*! resets a Fingerprint instance
     \return Error_t
     */
     Error_t reset();
@@ -67,7 +67,7 @@ protected:
 
     Error_t init_();
     void computeMagSpectrum_();
- 
+
     CBlockAudioIf* m_pCBlockAudio = 0;   //!< instantiate for blocking the resampled time domain signal
     CSubFingerprint* m_pCSubFingerprint = 0; //!< fingerprint per block
     CFft* m_pCFft = 0;  //!< fft instance
@@ -86,6 +86,3 @@ protected:
 };
 
 #endif // #if !defined(__ACA_Fingerprint_HEADER_INCLUDED__)
-
-
-
