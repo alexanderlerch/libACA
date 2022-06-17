@@ -20,7 +20,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void alloc(T**& pptMat, int iNumRows, int iNumCols)
+    static inline void alloc(T **&pptMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -39,7 +39,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void copy(T** pptDestMat, const T* const* const pptSrcMat, int iNumRows, int iNumCols)
+    static inline void copy(T **pptDestMat, const T *const *const pptSrcMat, int iNumRows, int iNumCols)
     {
         assert(pptDestMat);
         assert(pptSrcMat);
@@ -55,7 +55,7 @@ public:
     \param iNumRows number of rows
     */
     template<typename T>
-    static inline void free(T**& pptMat, int iNumRows)
+    static inline void free(T **&pptMat, int iNumRows)
     {
         if (!pptMat) return;
         assert(iNumRows > 0);
@@ -76,7 +76,7 @@ public:
     \param iNumRows number of columns
     */
     template<typename T>
-    static inline void setCol(T** pptDestMat, const T* ptSrcVec, int iColIdx, int iNumRows)
+    static inline void setCol(T **pptDestMat, const T *ptSrcVec, int iColIdx, int iNumRows)
     {
         assert(pptDestMat);
         assert(ptSrcVec);
@@ -93,7 +93,7 @@ public:
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static inline void setEye(T** pptDest, int iNumRows, int iNumCols)
+    static inline void setEye(T **pptDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows == iNumCols);
@@ -113,7 +113,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void setRand(T** pptMat, int iNumRows, int iNumCols)
+    static inline void setRand(T **pptMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -131,7 +131,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void setRow(T** pptDestMat, const T* ptSrcVec, int iRowIdx, int iNumCols)
+    static inline void setRow(T **pptDestMat, const T *ptSrcVec, int iRowIdx, int iNumCols)
     {
         assert(pptDestMat);
         assert(ptSrcVec);
@@ -148,7 +148,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void setValue(T** pptMat, T tValue, int iNumRows, int iNumCols)
+    static inline void setValue(T **pptMat, T tValue, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -165,7 +165,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void setZero(T** pptMat, int iNumRows, int iNumCols)
+    static inline void setZero(T **pptMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -183,7 +183,7 @@ public:
     \param tThresh threshold
     */
     template<typename T>
-    static inline void setZeroBelowThresh(T** pptMat, int iNumRows, int iNumCols, T tThresh)
+    static inline void setZeroBelowThresh(T **pptMat, int iNumRows, int iNumCols, T tThresh)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -200,7 +200,7 @@ public:
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static inline void vecnorm_I(T** pptSrcDest, int iNumRows, int iNumCols)
+    static inline void vecnorm_I(T **pptSrcDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -227,7 +227,7 @@ public:
     \param iNumRows number of rows in the matrix
     */
     template<typename T>
-    static inline void getCol(T* ptDest, const T* const* const pptMat, int iColIdx, int iNumRows)
+    static inline void getCol(T *ptDest, const T *const *const pptMat, int iColIdx, int iNumRows)
     {
         assert(iColIdx >= 0);
         assert(iNumRows > 0);
@@ -246,7 +246,7 @@ public:
     \param iNumSrcCols number of columns in the matrix
     */
     template<typename T>
-    static inline void getDiag(T* ptDest, const T* const* const pptSrc, int iNumSrcRows, int iNumSrcCols)
+    static inline void getDiag(T *ptDest, const T *const *const pptSrc, int iNumSrcRows, int iNumSrcCols)
     {
         assert(iNumSrcRows > 0);
         assert(iNumSrcCols > 0);
@@ -267,7 +267,7 @@ public:
     \return max
     */
     template<typename T>
-    static inline T getMax(const T* const* const pptMat, int iNumRows, int iNumCols)
+    static inline T getMax(const T *const *const pptMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -291,7 +291,7 @@ public:
     \return norm
     */
     template<typename T>
-    static inline T getNorm(const T* const* const pptMat, int iNumRows, int iNumCols)
+    static inline T getNorm(const T *const *const pptMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -321,7 +321,7 @@ public:
     \return sum
     */
     template<typename T>
-    static inline T getSum(T** pptMat, int iNumRows, int iNumCols, bool bAbs = false)
+    static inline T getSum(T **pptMat, int iNumRows, int iNumCols, bool bAbs = false)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -344,7 +344,7 @@ public:
     \return sum
     */
     template<typename T>
-    static inline T getSumCol(T** pptMat, int iColIdx, int iNumRows, bool bAbs = false)
+    static inline T getSumCol(T **pptMat, int iColIdx, int iNumRows, bool bAbs = false)
     {
         assert(iNumRows > 0);
         assert(pptMat);
@@ -376,7 +376,7 @@ public:
     \return kld
     */
     template<typename T>
-    static T calcKlDivergence(const T* const* const pptSrc1, const T* const* const pptSrc2, int iNumRows, int iNumCols)
+    static T calcKlDivergence(const T *const *const pptSrc1, const T *const *const pptSrc2, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -405,7 +405,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void add_I(T** pptSrcDest, const T* const* const pptSrc, int iNumRows, int iNumCols)
+    static inline void add_I(T **pptSrcDest, const T *const *const pptSrc, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows > 0);
@@ -428,7 +428,7 @@ public:
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static inline void addC_I(T** pptMat, T tAdd, int iNumRows, int iNumCols)
+    static inline void addC_I(T **pptMat, T tAdd, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -447,7 +447,7 @@ public:
     \param bAddSmallConst a small floating point number is added before division if true
     */
     template<typename T>
-    static inline void div_I(T** pptSrcDest, const T* const* const pptSrc, int iNumRows, int iNumCols, bool bAddSmallConst = false)
+    static inline void div_I(T **pptSrcDest, const T *const *const pptSrc, int iNumRows, int iNumCols, bool bAddSmallConst = false)
     {
         assert(iNumRows > 0);
         assert(iNumRows > 0);
@@ -472,7 +472,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void mul_I(T** pptSrcDest, const T* const* const pptSrc, int iNumRows, int iNumCols)
+    static inline void mul_I(T **pptSrcDest, const T *const *const pptSrc, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows > 0);
@@ -495,7 +495,7 @@ public:
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static inline void mulC_I(T** pptMat, T tScale, int iNumRows, int iNumCols)
+    static inline void mulC_I(T **pptMat, T tScale, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
@@ -514,7 +514,7 @@ public:
     \param iNumRows number of rows in the matrix
     */
     template<typename T>
-    static inline void mulColC_I(T** pptMat, T fValue, int iCol, int iNumRows)
+    static inline void mulColC_I(T **pptMat, T fValue, int iCol, int iNumRows)
     {
         assert(iNumRows > 0);
         assert(iCol >= 0);
@@ -533,7 +533,7 @@ public:
     \param iNumMatCols number of columns in the matrix
     */
     template<typename T>
-    static inline void mulColvecRowvec(T** pptDestMat, const T* ptSrcColVec, const T* ptSrcRowVec, int iNumMatRows, int iNumMatCols)
+    static inline void mulColvecRowvec(T **pptDestMat, const T *ptSrcColVec, const T *ptSrcRowVec, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
@@ -557,7 +557,7 @@ public:
     \param iNumMatCols number of columns in the matrix
     */
     template<typename T>
-    static inline void mulMatColvec(T* ptDestColVec, const T* const* const pptMat, const T* ptSrcColVec, int iNumMatRows, int iNumMatCols)
+    static inline void mulMatColvec(T *ptDestColVec, const T *const *const pptMat, const T *ptSrcColVec, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
@@ -580,7 +580,7 @@ public:
     \param iNum2Cols number of columns in matrix 2
     */
     template<typename T>
-    static inline void mulMatMat(T** pptDest, const T* const* const pptSrc1, const T* const* const pptSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)
+    static inline void mulMatMat(T **pptDest, const T *const *const pptSrc1, const T *const *const pptSrc2, int iNum1Rows, int iNum1Cols, int iNum2Rows, int iNum2Cols)
     {
         assert(iNum1Rows > 0);
         assert(iNum1Cols > 0);
@@ -615,7 +615,7 @@ public:
     \param iNumMatCols number of columns in the matrix
     */
     template<typename T>
-    static inline void mulRowvecMat(T* ptDestRowVec, const T* ptSrcRowVec, const T* const* const pptMat, int iNumMatRows, int iNumMatCols)
+    static inline void mulRowvecMat(T *ptDestRowVec, const T *ptSrcRowVec, const T *const *const pptMat, int iNumMatRows, int iNumMatCols)
     {
         assert(iNumMatRows > 0);
         assert(iNumMatCols > 0);
@@ -637,7 +637,7 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static inline void sub_I(T** pptSrcDest, const T* const* const pptSrc, int iNumRows, int iNumCols)
+    static inline void sub_I(T **pptSrcDest, const T *const *const pptSrc, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows > 0);
@@ -656,13 +656,13 @@ public:
     //////////////////////////////////////////////////////////////////////////////
     //////////////////////////////////////////////////////////////////////////////
     template<typename T>
-    static T det(const T* const* const pptMat, int iNumRows, int iNumCols)
+    static T det(const T *const *const pptMat, int iNumRows, int iNumCols)
     {
         assert(pptMat);
         assert(iNumRows == iNumCols);
 
         const T kSingularityThresh = 1e-15F;
-        T** pptTmp = 0;
+        T **pptTmp = 0;
         double dDet = 1;
 
 
@@ -740,7 +740,7 @@ public:
         CMatrix::free(pptTmp, iNumRows);
 
         return static_cast<T>(dDet);
-    }    
+    }
 
     /*! computes inverse of square matrix
     \param pptSrcDest input and output matrix (to be modified, user allocated)
@@ -748,7 +748,7 @@ public:
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static inline void inv_I(T** pptSrcDest, int iNumRows, int iNumCols)
+    static inline void inv_I(T **pptSrcDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows == iNumCols);
@@ -756,8 +756,8 @@ public:
         assert(pptSrcDest[0]);
 
         const T kSingularityThresh = 1e-15F;
-        T** ppfTmp = 0;
-        T** ppfEye = 0;
+        T **ppfTmp = 0;
+        T **ppfEye = 0;
         int    i, j;
         double dDet = 1;
 
@@ -851,14 +851,14 @@ public:
     \param iNumRows number of rows in the matrix
     */
     template<typename T>
-    static inline void rearrangeRows(T** pptSrcDest, int* piRowIndices, int iNumRows)
+    static inline void rearrangeRows(T **pptSrcDest, int *piRowIndices, int iNumRows)
     {
         assert(iNumRows > 0);
         assert(piRowIndices);
         assert(pptSrcDest);
         assert(pptSrcDest[0]);
 
-        T** pptTmp = 0;
+        T **pptTmp = 0;
         CVector::alloc(pptTmp, iNumRows);
 
         for (auto m = 0; m < iNumRows; m++)
@@ -880,7 +880,7 @@ public:
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static inline void swapRowCol(T** pptSrcDest, int iRowIdx, int iColIdx, int iNumCols)
+    static inline void swapRowCol(T **pptSrcDest, int iRowIdx, int iColIdx, int iNumCols)
     {
         assert(iRowIdx > 0);
         assert(iColIdx > 0);
@@ -903,7 +903,7 @@ public:
     \param iNumSrcCols number of columns in the matrix
     */
     template<typename T>
-    static inline void transpose(T** pptDest, const T* const* const pptSrc, int iNumSrcRows, int iNumSrcCols)
+    static inline void transpose(T **pptDest, const T *const *const pptSrc, int iNumSrcRows, int iNumSrcCols)
     {
         assert(iNumSrcRows > 0);
         assert(iNumSrcCols > 0);

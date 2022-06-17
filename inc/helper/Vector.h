@@ -22,7 +22,7 @@ public:
     \param iLength number of Ts
     */
     template<typename T>
-    static inline void alloc(T*& ptVec, long long iLength)
+    static inline void alloc(T *&ptVec, long long iLength)
     {
         assert(iLength > 0);
 
@@ -38,7 +38,7 @@ public:
     \param iLength length of buffer
     */
     template<typename T>
-    static inline void copy(T* ptDest, const T* ptSrc, long long int iLength)
+    static inline void copy(T *ptDest, const T *ptSrc, long long int iLength)
     {
         assert(iLength >= 0);
 
@@ -54,7 +54,7 @@ public:
     \param ptVec (empty pointer, to be allocated)
     */
     template<typename T>
-    static inline void free(T*& ptVec)
+    static inline void free(T *&ptVec)
     {
         delete[] ptVec;
         ptVec = 0;
@@ -67,7 +67,7 @@ public:
     \param iLength number of elements to be moved
     */
     template<typename T>
-    static inline void moveInMem(T* ptSrcDest, int iDestIdx, int isrcIdx, long long int iLength)
+    static inline void moveInMem(T *ptSrcDest, int iDestIdx, int isrcIdx, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -83,7 +83,7 @@ public:
     \param iLength number of elements to be set
     */
     template<typename T>
-    static inline void setRand(T* ptDest, long long iLength)
+    static inline void setRand(T *ptDest, long long iLength)
     {
         assert(iLength >= 0);
         assert(ptDest);
@@ -97,7 +97,7 @@ public:
     \param iLength number of elements to be set
     */
     template<typename T>
-    static inline void setValue(T* ptDest, T tValue, long long iLength)
+    static inline void setValue(T *ptDest, T tValue, long long iLength)
     {
         assert(iLength >= 0);
         assert(ptDest);
@@ -111,7 +111,7 @@ public:
     \param iLength  buffer length
     */
     template<typename T>
-    static inline void setZero(T* ptSrcDest, long long iLength)
+    static inline void setZero(T *ptSrcDest, long long iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -126,7 +126,7 @@ public:
     \param tThresh threshold value
     */
     template<typename T>
-    static inline void setZeroBelowThresh(T* ptSrcDest, long long int iLength, T tThresh)
+    static inline void setZeroBelowThresh(T *ptSrcDest, long long int iLength, T tThresh)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -144,7 +144,7 @@ public:
     \param iLength number of element to be added
     */
     template<typename T>
-    static inline void add_I(T* ptSrcDest, const T* ptSrc, long long int iLength)
+    static inline void add_I(T *ptSrcDest, const T *ptSrc, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -160,7 +160,7 @@ public:
     \param iLength number of element to be added
     */
     template<typename T>
-    static inline void addC_I(T* ptSrcDest, T fConst, long long int iLength)
+    static inline void addC_I(T *ptSrcDest, T fConst, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -176,7 +176,7 @@ public:
     \param iLength number of elements to be added
     */
     template<typename T>
-    static inline void addW_I(T* ptSrcDest, const T* ptSrc, T fWeight, long long int iLength)
+    static inline void addW_I(T *ptSrcDest, const T *ptSrc, T fWeight, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -192,7 +192,7 @@ public:
     \param iLength number of element to be divided
     */
     template<typename T>
-    static inline void div_I(T* ptSrcDest, const T* ptSrc, long long int iLength)
+    static inline void div_I(T *ptSrcDest, const T *ptSrc, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -211,7 +211,7 @@ public:
     \param iLength number of element to be multiplied
     */
     template<typename T>
-    static inline void mulC_I(T* ptSrcDest, T fScale, long long int iLength)
+    static inline void mulC_I(T *ptSrcDest, T fScale, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -226,7 +226,7 @@ public:
     \param iLength number of element to be multiplied
     */
     template<typename T>
-    static inline void mul_I(T* ptSrcDest, const T* ptSrc, long long int iLength)
+    static inline void mul_I(T *ptSrcDest, const T *ptSrc, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -243,7 +243,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T mulScalar(const T* ptSrc1, const T* ptSrc2, long long int iLength)
+    static inline T mulScalar(const T *ptSrc1, const T *ptSrc2, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrc1);
@@ -262,7 +262,7 @@ public:
     \param iLength number of element to be subtracted
     */
     template<typename T>
-    static inline void sub_I(T* ptSrcDest, const T* ptSrc, long long int iLength)
+    static inline void sub_I(T *ptSrcDest, const T *ptSrc, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrcDest);
@@ -279,7 +279,7 @@ public:
     \param iLength number of element to be subtracted
     */
     template<typename T>
-    static inline void subW_I(T* ptSrcDest, const T* ptSrc, T fWeight, long long int iLength)
+    static inline void subW_I(T *ptSrcDest, const T *ptSrc, T fWeight, long long int iLength)
     {
         addW_I(ptSrcDest, ptSrc, -fWeight, iLength);
     }
@@ -291,7 +291,7 @@ public:
     \param iLength number of elements
     */
     template<typename T>
-    static inline void flip_I(T* ptSrcDest, long long int iLength)
+    static inline void flip_I(T *ptSrcDest, long long int iLength)
     {
         assert(iLength >= 0);
 
@@ -316,7 +316,7 @@ public:
     \param bAscending sort order (descending -> false)
     */
     template<typename T>
-    static inline void sort_I(T* ptSrcDest, int* piIndices, int iLength, bool bAscending = true)
+    static inline void sort_I(T *ptSrcDest, int *piIndices, int iLength, bool bAscending = true)
     {
         // go bubble sort! ( should be replaced some time with something faster)
 
@@ -378,7 +378,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T distCosine(const T* ptSrc1, const T* ptSrc2, long long iLength)
+    static inline T distCosine(const T *ptSrc1, const T *ptSrc2, long long iLength)
     {
         assert(iLength >= 0);
         assert(ptSrc1);
@@ -399,7 +399,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T distEuclidean(const T* ptSrc1, const T* ptSrc2, long long iLength)
+    static inline T distEuclidean(const T *ptSrc1, const T *ptSrc2, long long iLength)
     {
         assert(iLength >= 0);
         assert(ptSrc1);
@@ -419,7 +419,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T distManhattan(const T* ptSrc1, const T* ptSrc2, long long iLength)
+    static inline T distManhattan(const T *ptSrc1, const T *ptSrc2, long long iLength)
     {
         assert(iLength >= 0);
         assert(ptSrc1);
@@ -441,7 +441,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T getMax(const T* ptSrc, long long int iLength, bool bAbs = false)
+    static inline T getMax(const T *ptSrc, long long int iLength, bool bAbs = false)
     {
         T fMax = 0;
         long long iMax = -1;
@@ -457,7 +457,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T getMean(const T* ptSrc, long long int iLength)
+    static inline T getMean(const T *ptSrc, long long int iLength)
     {
         assert(iLength >= 0);
 
@@ -478,7 +478,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T getMin(const T* ptSrc, long long int iLength, bool bAbs = false)
+    static inline T getMin(const T *ptSrc, long long int iLength, bool bAbs = false)
     {
         T fMin = 0;
         long long iMin = -1;
@@ -494,7 +494,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T getRms(const T* ptSrc, long long int iLength)
+    static inline T getRms(const T *ptSrc, long long int iLength)
     {
         assert(iLength >= 0);
 
@@ -521,7 +521,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T getStd(const T* ptSrc, long long int iLength, T fMean = std::numeric_limits<T>::max())
+    static inline T getStd(const T *ptSrc, long long int iLength, T fMean = std::numeric_limits<T>::max())
     {
         assert(iLength >= 0);
 
@@ -553,7 +553,7 @@ public:
     \return T
     */
     template<typename T>
-    static inline T getSum(const T* ptSrc, long long int iLength, bool bAbs = false)
+    static inline T getSum(const T *ptSrc, long long int iLength, bool bAbs = false)
     {
         assert(iLength >= 0);
         assert(ptSrc);
@@ -582,7 +582,7 @@ public:
     \param bAbs bool to specify whether we search absolute values
     */
     template<typename T>
-    static inline void findMax(const T* ptSrc, T& fMax, long long& iMax, long long int iLength, bool bAbs = false)
+    static inline void findMax(const T *ptSrc, T &fMax, long long &iMax, long long int iLength, bool bAbs = false)
     {
         assert(iLength >= 0);
         assert(ptSrc);
@@ -610,7 +610,7 @@ public:
     \param bAbs bool to specify whether we search absolute values
     */
     template<typename T>
-    static inline void findMin(const T* ptSrc, T& fMin, long long& iMin, long long int iLength, bool bAbs = false)
+    static inline void findMin(const T *ptSrc, T &fMin, long long &iMin, long long int iLength, bool bAbs = false)
     {
         assert(iLength >= 0);
         assert(ptSrc);
@@ -637,7 +637,7 @@ public:
      \return int number of local maxima
      */
     template<typename T>
-    static inline int findPeaks(bool* pbisLocalMax, const T* ptSrc, long long int iLength, T fThresh = -std::numeric_limits<T>::max())
+    static inline int findPeaks(bool *pbisLocalMax, const T *ptSrc, long long int iLength, T fThresh = -std::numeric_limits<T>::max())
     {
         assert(iLength >= 0);
         assert(ptSrc);
@@ -673,7 +673,7 @@ public:
     \return bool
     */
     template<typename T>
-    static inline bool isEqual(const T* ptSrc1, const T* ptSrc2, long long int iLength)
+    static inline bool isEqual(const T *ptSrc1, const T *ptSrc2, long long int iLength)
     {
         assert(iLength >= 0);
         assert(ptSrc1);
@@ -682,6 +682,6 @@ public:
         return (memcmp(ptSrc1, ptSrc2, iLength * sizeof(T)) == 0);
     }
 
- };
+};
 
 #endif // __ACA_Vector_HEADER_INCLUDED__
