@@ -1,0 +1,27 @@
+var a00626 =
+[
+    [ "CKnn", "a00626.xhtml#af72a4a1ea093075b7b515358bc32f0fc", null ],
+    [ "~CKnn", "a00626.xhtml#afdcd6685b49c99b5f0b2cd7e492c516c", null ],
+    [ "CKnn", "a00626.xhtml#a2f5fbba1a9faa9f70f1138ba3c02deaf", null ],
+    [ "buildHistogram_", "a00626.xhtml#a875c603ba28294ac2575eb6e06407018", null ],
+    [ "classify", "a00626.xhtml#a16bb56f19951aee5c4986a9dc7aeb853", null ],
+    [ "countMaxima_", "a00626.xhtml#aa92470fc0e97510d9b2f4d4da8e86bfb", null ],
+    [ "getParamK", "a00626.xhtml#ac2c230c0091a2cf45a4305bb1db210cd", null ],
+    [ "init", "a00626.xhtml#a0897bf0a4e49a3779ecb2104ffe4ac56", null ],
+    [ "operator=", "a00626.xhtml#a882e4ec4e16f8b55a8fcaefbf7f98d03", null ],
+    [ "reset", "a00626.xhtml#a75658b6df984b6a8c00049f35de655a8", null ],
+    [ "setParamK", "a00626.xhtml#a1316452b2327c722f61ba7e2d78fb333", null ],
+    [ "train", "a00626.xhtml#aedd5ce22bf1cf98b70cc3757ba244b94", null ],
+    [ "m_bIsInitialized", "a00626.xhtml#ae232726e55c0fc54e57e1cadfeeebb54", null ],
+    [ "m_iK", "a00626.xhtml#ac71dc4421a9eee8c2be3b45412a8fdac", null ],
+    [ "m_iNumFeatures", "a00626.xhtml#aed813f15d7daf560aa8e7265116ac6c2", null ],
+    [ "m_iNumObs", "a00626.xhtml#a0865e733a21353a58ab79fa5209656e8", null ],
+    [ "m_pfHist", "a00626.xhtml#a8e26fe47e07767294f478d53a240ec5c", null ],
+    [ "m_pfQuery", "a00626.xhtml#a77befb515c2aeb161d01f99d2d972a84", null ],
+    [ "m_pfSortDist", "a00626.xhtml#a2c6f89f8780facdce5d20b2aa5c67725", null ],
+    [ "m_piClassLabels", "a00626.xhtml#a909b3d2ac17876263df64cb0785ff432", null ],
+    [ "m_piHistCount", "a00626.xhtml#aa983e4a2cfa81ebb92dbb3d06e15c1b3", null ],
+    [ "m_piHistLabel", "a00626.xhtml#a009efb42ed0fd32427825efec5798403", null ],
+    [ "m_piSortIdx", "a00626.xhtml#adc1e0d22988b9e13f295f1c2965d32bb", null ],
+    [ "m_ppfTrain", "a00626.xhtml#a400556e4af6b707e404d03da0c39c040", null ]
+];
