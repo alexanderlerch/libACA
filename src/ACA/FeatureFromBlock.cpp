@@ -775,11 +775,11 @@ public:
         while (m_pfAcf[iEta] > m_pfAcf[iEta + 1])
         {
             iEta++;
-            if (iEta >= m_iDataLength)
+            if (iEta >= m_iDataLength-1)
                 break;
         }
 
-        if (iEta >= m_iDataLength)
+        if (iEta >= m_iDataLength-1)
             iEtaMin = 0;
         else if (iEtaMin < iEta)
             iEtaMin = iEta;
