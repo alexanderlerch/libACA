@@ -1,4 +1,5 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/alexanderlerch/libACA)
+![release](https://img.shields.io/github/v/release/alexanderlerch/libACA)
 ![GitHub issues](https://img.shields.io/github/issues-raw/alexanderlerch/libACA)
 [![Tests](https://github.com/alexanderlerch/libACA/actions/workflows/cmake.yml/badge.svg)](https://github.com/alexanderlerch/libACA/actions/workflows/cmake.yml)
 ![GitHub last commit](https://img.shields.io/github/last-commit/alexanderlerch/libACA)
@@ -100,15 +101,15 @@ While the code is intended for reading or as easy-to-understand reference implem
 CFeatureIf* pCInstance = 0; //!< new instance of the Feature Interface class
 CFeatureIf::Feature_t eFeatureIdx = CFeatureIf::kFeatureSpectralCentroid; //!< specifies feature to extract
 std::string sInFilePath = "testname.wav"; //!< input file path
-int aiFeatureDimensions[2] = { 0,0 }; //!< resulting feature matrix dimension
+int aiFeatureDims[2] = { 0,0 }; //!< resulting feature matrix dimension
 float* pfFeature = 0; //!< feature result
 
 // create instance
 CFeatureIf::create(pCInstance, eFeatureIdx, sInFilePath);
-pCInstance->getFeatureDimensions(aiFeatureDimensions[0], aiFeatureDimensions[1]);
+pCInstance->getFeatureDimensions(aiFeatureDims[0], aiFeatureDims[1]);
 
 // allocate memory
-ppfFeature = new float [aiFeatureDimensions[1]];
+ppfFeature = new float [aiFeatureDims[1]];
 	
 // extract feature
 pCInstance->compFeature1Dim(ppfFeature[0]);
@@ -126,24 +127,24 @@ delete[] pfFeature;
 CFeatureIf* pCInstance = 0; //!< new instance of the Feature Interface class
 CFeatureIf::Feature_t eFeatureIdx = CFeatureIf::kFeatureSpectralPitchChroma; //!< specifies feature to extract
 std::string sInFilePath = "testname.wav"; //!< input file path
-int aiFeatureDimensions[2] = { 0,0 }; //!< resulting feature matrix dimension
+int aiFeatureDims[2] = { 0,0 }; //!< resulting feature matrix dimension
 float** ppfFeature = 0; //!< feature result
 
 // create instance
 CFeatureIf::create(pCInstance, eFeatureIdx, sInFilePath);
-pCInstance->getFeatureDimensions(aiFeatureDimensions[0], aiFeatureDimensions[1]);
+pCInstance->getFeatureDimensions(aiFeatureDims[0], aiFeatureDims[1]);
 
 // allocate memory
-ppfFeature = new float* [aiFeatureDimensions[0]];
-for (auto k = 0; k < aiFeatureDimensions[0]; k++)
-	ppfFeature[k] = new float[aiFeatureDimensions[1]];
+ppfFeature = new float* [aiFeatureDims[0]];
+for (auto k = 0; k < aiFeatureDims[0]; k++)
+	ppfFeature[k] = new float[aiFeatureDims[1]];
 	
 // extract feature
 pCInstance->compFeatureNDim(ppfFeature);
 
 // clean-up 
 CFeatureIf::destroy(pCInstance);
-for (int k = 0; k < aiFeatureDimensions[0]; k++)
+for (int k = 0; k < aiFeatureDims[0]; k++)
 	delete[] ppfFeature[k];
 delete[] ppfFeature;
 
@@ -172,7 +173,7 @@ CKey::destroy(pCInstance);
 ```
 # design principles
 C++ is not the most convenient language for explaining algorithmic concepts. Other languages such as Python or Matlab are better suited for this taks. Audio applications and especially applications capable of real-time processing, however, often require implementation in a language such as C++, as do many embedded applications.
-The source code of a C++ implementation often gives the reader a better estimate of algorithmic complexity and required memory than with a high-level language, as long as too many 3rd Party dependencies are avoided.
+The source code of a C++ implementation can give the reader a better estimate of algorithmic complexity and required memory than code written in a high-level language, as long as too many 3rd Party dependencies are avoided.
 
 ## accessibility
 
@@ -181,6 +182,8 @@ readability, flat class hierarchies, descriptive variable names
 ## C++11 compatibility
 
 ## optimization vs. memory allocation vs. readability
+
+## api memory ownership
 
 # other information
 
