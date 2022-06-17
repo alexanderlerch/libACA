@@ -29,12 +29,12 @@ public:
     Error_t init(float fFreqCenter, float fSampleRate);
 
     /*! performs the Gammatone filter computation
-    \param pfOutput filter result (user-allocated, to be written, length iNumSamples)
-    \param pfInput input data of length iNumSamples
+    \param pfOut filter result (user-allocated, to be written, length iNumSamples)
+    \param pfIn input data of length iNumSamples
     \param iNumSamples length of buffers
     return Error_t
     */
-    Error_t process(float* pfOutput, const float* pfInput, long long iNumSamples);
+    Error_t process(float *pfOut, const float *pfIn, long long iNumSamples);
 
     /*! clears internal buffers and sets parameters to default
     \return Error_t
@@ -42,8 +42,8 @@ public:
     Error_t reset();
 
 private:
-    CGammatone(const CGammatone& that);
-    CGammatone& operator=(const CGammatone& c);
+    CGammatone(const CGammatone &that);
+    CGammatone &operator=(const CGammatone &c);
 
     /*! compute the filter coeffs
     \param iOrder filter order
@@ -62,11 +62,11 @@ private:
 #ifdef ACA_USE_DOUBLE
     double m_aafCoeffB[kNumFilters][kNumCoeffs] = { { 0 } };
     double m_aafCoeffA[kNumFilters][kNumCoeffs] = { { 0 } };
-    CFilter<double>* m_apCFilter[kNumFilters] = { 0 };
+    CFilter<double> *m_apCFilter[kNumFilters] = { 0 };
 #else
     float m_aafCoeffB[kNumFilters][kNumCoeffs] = { { 0 } }; //!< FIR coefficients
     float m_aafCoeffA[kNumFilters][kNumCoeffs] = { { 0 } }; //!< IIR coefficients
-    CFilter<float>* m_apCFilter[kNumFilters] = { 0 }; //!< number crunching (multiple instances b/c cascaded)
+    CFilter<float> *m_apCFilter[kNumFilters] = { 0 }; //!< number crunching (multiple instances b/c cascaded)
 #endif // ACA_USE_DOUBLE
     bool m_bIsInitialized = false; //!< flag indicating that this is initialized
 };
@@ -96,7 +96,7 @@ Error_t CGammatone::init(float fFreqCenter, float fSampleRate)
 {
     m_fFreqCenter = fFreqCenter;
     m_fSampleRate = fSampleRate;
-    
+
     calcFilterCoeffs_();
 
     m_bIsInitialized = true;
@@ -104,9 +104,9 @@ Error_t CGammatone::init(float fFreqCenter, float fSampleRate)
     return Error_t::kNoError;
 }
 
-Error_t CGammatone::process(float* pfOutput, const float* pfInput, long long iNumSamples)
+Error_t CGammatone::process(float *pfOut, const float *pfIn, long long iNumSamples)
 {
-    if (!pfOutput || !pfInput || iNumSamples <= 0)
+    if (!pfOut || !pfIn || iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
     if (!m_bIsInitialized)
@@ -115,15 +115,15 @@ Error_t CGammatone::process(float* pfOutput, const float* pfInput, long long iNu
 #ifdef ACA_USE_DOUBLE
     for (auto i = 0; i < iNumSamples; i++)
     {
-        double fTmp = pfInput[i];
+        double fTmp = pfIn[i];
         for (auto c = 0; c < kNumFilters; c++)
             m_apCFilter[c]->process(&fTmp, &fTmp, 1);
-        pfOutput[i] = static_cast<float>(fTmp);
+        pfOut[i] = static_cast<float>(fTmp);
     }
 #else
-    CVector::copy(pfOutput, pfInput, iNumSamples);
+    CVector::copy(pfOut, pfIn, iNumSamples);
     for (auto c = 0; c < kNumFilters; c++)
-        m_apCFilter[c]->process(pfOutput, pfOutput, iNumSamples);
+        m_apCFilter[c]->process(pfOut, pfOut, iNumSamples);
 #endif // ACA_USE_DOUBLE
 
     return Error_t::kNoError;
@@ -261,12 +261,12 @@ void CGammatone::calcFilterCoeffs_(int iOrder)
 #endif // ACA_USE_DOUBLE
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of the filterbank outputs from a file
+*/
 class CGammaToneFbFromFile : public CGammaToneFbIf
 {
 public:
-    CGammaToneFbFromFile(const std::string& strAudioFilePath, int iNumBands, float fStartInHz);
+    CGammaToneFbFromFile(const std::string &strAudioFilePath, int iNumBands, float fStartInHz);
 
     virtual ~CGammaToneFbFromFile()
     {
@@ -278,12 +278,12 @@ public:
     };
 
 private:
-    CAudioFileIf* m_pCAudioFile;
+    CAudioFileIf *m_pCAudioFile;
 };
 
-CGammaToneFbFromFile::CGammaToneFbFromFile(const std::string& strAudioFilePath, int iNumBands, float fStartInHz) :
+CGammaToneFbFromFile::CGammaToneFbFromFile(const std::string &strAudioFilePath, int iNumBands, float fStartInHz) :
     m_pCAudioFile(0)
-    
+
 {
     this->reset_();
 
@@ -304,30 +304,30 @@ CGammaToneFbFromFile::CGammaToneFbFromFile(const std::string& strAudioFilePath, 
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of the filterbank outputs from a vector of audio data
+*/
 class CGammaToneFbFromVector : public CGammaToneFbIf
 {
 public:
-    CGammaToneFbFromVector(const float* pfAudio, long long iNumFrames, float fSampleRate, int iNumBands, float fStartInHz);
+    CGammaToneFbFromVector(const float *pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz);
     virtual ~CGammaToneFbFromVector() {};
 };
 
-CGammaToneFbFromVector::CGammaToneFbFromVector(const float* pfAudio, long long iNumFrames, float fSampleRate, int iNumBands, float fStartInHz)
+CGammaToneFbFromVector::CGammaToneFbFromVector(const float *pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz)
 {
     m_iNumBands = iNumBands;
     m_fSampleRate = fSampleRate;
     m_fStartInHz = fStartInHz;
 
-    CBlockAudioIf::create(m_pCBlockAudio, pfAudio, iNumFrames, m_iBlockLength, m_iBlockLength, m_fSampleRate);
+    CBlockAudioIf::create(m_pCBlockAudio, pfAudio, iNumSamples, m_iBlockLength, m_iBlockLength, m_fSampleRate);
 
-    m_pCNormalize = new CNormalizeAudio(pfAudio, iNumFrames);
+    m_pCNormalize = new CNormalizeAudio(pfAudio, iNumSamples);
 
     init_();
 }
 
-/////////////////////////////////////////////////////////////////////////////////
-// block by block extraction
+/*! \brief class for computation of the filterbank outputs in real time block by block
+*/
 class CGammaToneFbRealTime : public CGammaToneFbIf
 {
 public:
@@ -357,7 +357,7 @@ inline CGammaToneFbIf::~CGammaToneFbIf()
     reset_();
 }
 
-Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const std::string& strAudioFilePath, int iNumBands, float fStartInHz)
+Error_t CGammaToneFbIf::create(CGammaToneFbIf *&pCInstance, const std::string &strAudioFilePath, int iNumBands, float fStartInHz)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
@@ -372,11 +372,11 @@ Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const std::string& s
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iNumBands, float fStartInHz)
+Error_t CGammaToneFbIf::create(CGammaToneFbIf *&pCInstance, const float *pfAudio, long long iNumSamples, float fSampleRate, int iNumBands, float fStartInHz)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
-    if (iNumFrames <= 0)
+    if (iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -385,12 +385,12 @@ Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, const float* pfAudio
     if (fStartInHz <= 0 || fStartInHz >= fSampleRate / 2)
         return Error_t::kFunctionInvalidArgsError;
 
-    pCInstance = new CGammaToneFbFromVector(pfAudio, iNumFrames, fSampleRate, iNumBands, fStartInHz);
+    pCInstance = new CGammaToneFbFromVector(pfAudio, iNumSamples, fSampleRate, iNumBands, fStartInHz);
 
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, float fSampleRate, int iNumBands, float fStartInHz)
+Error_t CGammaToneFbIf::create(CGammaToneFbIf *&pCInstance, float fSampleRate, int iNumBands, float fStartInHz)
 {
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -404,7 +404,7 @@ Error_t CGammaToneFbIf::create(CGammaToneFbIf*& pCInstance, float fSampleRate, i
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::destroy(CGammaToneFbIf*& pCInstance)
+Error_t CGammaToneFbIf::destroy(CGammaToneFbIf *&pCInstance)
 {
     delete pCInstance;
     pCInstance = 0;
@@ -412,43 +412,43 @@ Error_t CGammaToneFbIf::destroy(CGammaToneFbIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::getOutputDimensions(long long& iNumRows, long long& iNumColumns) const
+Error_t CGammaToneFbIf::getOutputDimensions(long long &iNumRows, long long &iNumCols) const
 {
     if (!m_bIsInitialized)
     {
         iNumRows = 0;
-        iNumColumns = 0;
+        iNumCols = 0;
         return Error_t::kFunctionIllegalCallError;
     }
 
     iNumRows = m_iNumBands;
-    iNumColumns = m_pCBlockAudio->getLengthInSamples();
+    iNumCols = m_pCBlockAudio->getLengthInSamples();
 
     return Error_t::kNoError;
 }
 
 float CGammaToneFbIf::getCenterFreq(int iBandIdx) const
 {
-    return compMidFreqs_(m_fStartInHz, m_fSampleRate/2, iBandIdx);
+    return compMidFreqs_(m_fStartInHz, m_fSampleRate / 2, iBandIdx);
 }
 
-Error_t CGammaToneFbIf::process(float** ppfOutput, const float* pfInput /*= 0*/, long long iNumSamples /*= 0*/)
+Error_t CGammaToneFbIf::process(float **ppfOut, const float *pfIn /*= 0*/, long long iNumSamples /*= 0*/)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
-    if (!ppfOutput)
+    if (!ppfOut)
         return Error_t::kFunctionInvalidArgsError;
-    if (!ppfOutput[0])
+    if (!ppfOut[0])
         return Error_t::kFunctionInvalidArgsError;
 
     // special case of block by block processing - no normalization, no blocking
-    if (pfInput)
+    if (pfIn)
     {
         assert(iNumSamples > 0);
         for (auto i = 0; i < m_iNumBands; i++)
         {
-            assert(ppfOutput[i]);
-            m_ppCGammatone[i]->process(ppfOutput[i], pfInput, iNumSamples);
+            assert(ppfOut[i]);
+            m_ppCGammatone[i]->process(ppfOut[i], pfIn, iNumSamples);
         }
         return Error_t::kNoError;
     }
@@ -460,16 +460,16 @@ Error_t CGammaToneFbIf::process(float** ppfOutput, const float* pfInput /*= 0*/,
     for (auto n = 0; n < iNumBlocks; n++)
     {
         // retrieve the next audio block
-        int iNumFrames = m_pCBlockAudio->getNextBlock(m_pfProcessBuff);
+        int iNumFrames = m_pCBlockAudio->getNextBlock(m_pfProcBuff);
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff, m_iBlockLength);
+            m_pCNormalize->normalizeBlock(m_pfProcBuff, m_iBlockLength);
 
         for (auto i = 0; i < m_iNumBands; i++)
         {
-            assert(ppfOutput[i]);
-            m_ppCGammatone[i]->process(&ppfOutput[i][n*m_iBlockLength], m_pfProcessBuff, iNumFrames);
+            assert(ppfOut[i]);
+            m_ppCGammatone[i]->process(&ppfOut[i][n * m_iBlockLength], m_pfProcBuff, iNumFrames);
         }
     }
 
@@ -478,7 +478,7 @@ Error_t CGammaToneFbIf::process(float** ppfOutput, const float* pfInput /*= 0*/,
 
 Error_t CGammaToneFbIf::reset_()
 {
-    CVector::free(m_pfProcessBuff);
+    CVector::free(m_pfProcBuff);
 
     delete m_pCNormalize;
     m_pCNormalize = 0;
@@ -496,13 +496,13 @@ Error_t CGammaToneFbIf::reset_()
 Error_t CGammaToneFbIf::init_()
 {
     // allocate processing memory
-    CVector::alloc(m_pfProcessBuff, m_iBlockLength);
+    CVector::alloc(m_pfProcBuff, m_iBlockLength);
 
     CVector::alloc(m_ppCGammatone, m_iNumBands);
     for (auto i = 0; i < m_iNumBands; i++)
     {
         m_ppCGammatone[i] = new CGammatone();
-        m_ppCGammatone[i]->init(compMidFreqs_(m_fStartInHz, m_fSampleRate/2, i), m_fSampleRate);
+        m_ppCGammatone[i]->init(compMidFreqs_(m_fStartInHz, m_fSampleRate / 2, i), m_fSampleRate);
     }
 
     m_bIsInitialized = true;
@@ -516,6 +516,6 @@ inline float CGammaToneFbIf::compMidFreqs_(float fFreqLow, float fFreqHigh, int 
     const float fEarQ = 9.26449F;
     const float fBandwidth = 24.7F;
 
-    return -(fEarQ * fBandwidth) + std::exp((m_iNumBands-k) * (-std::log(fFreqHigh + fEarQ * fBandwidth) + std::log(fFreqLow + fEarQ * fBandwidth)) / m_iNumBands) * (fFreqHigh + fEarQ * fBandwidth);
+    return -(fEarQ * fBandwidth) + std::exp((m_iNumBands - k) * (-std::log(fFreqHigh + fEarQ * fBandwidth) + std::log(fFreqLow + fEarQ * fBandwidth)) / m_iNumBands) * (fFreqHigh + fEarQ * fBandwidth);
 }
 

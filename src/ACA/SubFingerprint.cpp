@@ -32,13 +32,13 @@ CSubFingerprint::~CSubFingerprint()
     CMatrix::free(m_ppfH, m_iNumBands + 1);
 }
 
-uint32_t CSubFingerprint::compSubFingerprint(const float* pfMagSpec)
+uint32_t CSubFingerprint::compSubFingerprint(const float *pfMagSpec)
 {
     assert(pfMagSpec);
 
     CVector::setZero(m_apfProcBuff[kCurr], m_iNumBands + static_cast<long long>(1));
 
-    for (auto p = 0; p < m_iNumBands+1; p++)
+    for (auto p = 0; p < m_iNumBands + 1; p++)
     {
         // we could do this nicer with CVector::mulScalar if we allocated memory; or, we could use the bin boundaries for start and end of loop. or both.
         for (auto k = 0; k < m_iMagSpecLength; k++)
@@ -90,12 +90,12 @@ void CSubFingerprint::genBands_()
 
     for (auto p = 0; p < m_iNumBands; p++)
     {
-        float fHighBound = afFreqBounds[kLow] * std::exp((p+1) * fFreqScale / iNumBands);
+        float fHighBound = afFreqBounds[kLow] * std::exp((p + 1) * fFreqScale / iNumBands);
         // get indices from freqs
         const int aiBoundIdx[kNumBounds] = { static_cast<int>(CConversion::convertFreq2Bin(fLowBound, iFftLength, m_fSampleRate)) + 1,
             static_cast<int>(CConversion::convertFreq2Bin(fHighBound, iFftLength, m_fSampleRate)) };
 
-        CVector::setValue(&m_ppfH[p][aiBoundIdx[kLow]], 1.F, aiBoundIdx[kHigh] + static_cast<long long>(1) - aiBoundIdx[kLow] );
+        CVector::setValue(&m_ppfH[p][aiBoundIdx[kLow]], 1.F, aiBoundIdx[kHigh] + static_cast<long long>(1) - aiBoundIdx[kLow]);
 
         // proceed to next band
         fLowBound = fHighBound;

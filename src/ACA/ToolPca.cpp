@@ -6,13 +6,13 @@
 
 CPca::~CPca(void) { reset(); }
 
-Error_t CPca::init(int iNumFeatures, int iNumObservations)
+Error_t CPca::init(int iNumFeatures, int iNumObs)
 {
-    if (iNumFeatures <= 0 || iNumObservations <= 0)
+    if (iNumFeatures <= 0 || iNumObs <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
     m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
 
     CMatrix::alloc(m_ppfProcTmp, m_iNumFeatures, m_iNumFeatures);
     CMatrix::alloc(m_ppfU, m_iNumFeatures, m_iNumFeatures);
@@ -36,7 +36,7 @@ Error_t CPca::reset()
     return Error_t::kNoError;
 }
 
-Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, float** ppfIn)
+Error_t CPca::compPca(float **ppfRes, float *pfEigenValues, const float *const *const ppfIn)
 {
     if (m_iNumFeatures <= 1 || m_iNumObs <= 1)
         return Error_t::kFunctionInvalidArgsError;
@@ -50,7 +50,7 @@ Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, float** ppfIn)
     calcSVD(m_ppfU, m_ppfW, m_ppfV, m_ppfProcTmp, m_iNumFeatures, m_iNumFeatures);
 
     // extract eigenvalues
-    CMatrix::diag(pfEigenValues, m_ppfW, m_iNumFeatures, m_iNumFeatures);
+    CMatrix::getDiag(pfEigenValues, m_ppfW, m_iNumFeatures, m_iNumFeatures);
 
     // sort eigenvalues
     CVector::sort_I(pfEigenValues, piSortIndices, m_iNumFeatures, false);
@@ -69,7 +69,7 @@ Error_t CPca::compPca(float** ppfRes, float* pfEigenValues, float** ppfIn)
 
 //each row is a variable
 
-Error_t CPca::compCov(float** ppfCovOut, float** ppfIn, int iNumRows, int iNumCols)
+Error_t CPca::compCov(float **ppfCovOut, const float *const *const ppfIn, int iNumRows, int iNumCols)
 {
     if (iNumRows <= 1 || iNumCols <= 1)
         return Error_t::kFunctionInvalidArgsError;
@@ -97,12 +97,12 @@ Error_t CPca::compCov(float** ppfCovOut, float** ppfIn, int iNumRows, int iNumCo
     return Error_t::kNoError;
 }
 
-Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, int iNumRows, int iNumCols, int iMaxIterations)
+Error_t CPca::calcSVD(float **ppfU, float **ppfW, float **ppfV, const float *const *const ppfMat, int iNumRows, int iNumCols, int iMaxIterations)
 {
 
     int        i, k, l = 0;
 
-    float* pdRV1;
+    float *pdRV1;
     float    dTmp,
         dF,
         dH,
@@ -118,8 +118,6 @@ Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, 
     if (!pdRV1)
         return Error_t::kMemError;
 
-    //rErr = ppfW->SetDimensions(1, iNumCols);
-    //rErr = ppfV->SetDimensions(iNumCols, iNumCols);
     CMatrix::setZero(ppfU, iNumRows, iNumCols);
     CMatrix::setZero(ppfW, iNumCols, iNumCols);
     CMatrix::setZero(ppfV, iNumCols, iNumCols);
@@ -188,7 +186,6 @@ Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, 
 
             if (dScale)
             {
-                //RowMultC(i, l, 1 / dScale);
                 for (auto j = l; j < iNumCols; j++)
                     ppfU[i][j] *= 1 / dScale;
                 for (k = l; k < iNumCols; k++)
@@ -198,7 +195,6 @@ Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, 
                 }
 
                 dF = ppfU[i][l];
-                //dG = -MHLP_SIGN(sqrt(dS), dF);
                 dG = std::sqrt(dS);
                 if (dF >= 0)
                     dG *= -1;
@@ -219,7 +215,6 @@ Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, 
                             ppfU[j][k] += dS * pdRV1[k];
                     }
                 }
-                //RowMultC(i, l, dScale);
                 for (auto j = l; j < iNumCols; j++)
                     ppfU[i][j] *= dScale;
             }
@@ -265,7 +260,7 @@ Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, 
         dG = ppfW[i][i];
 
         if (i < iNumCols)
-        {    //RowMultC(i, l, 0); 
+        {   
             for (auto j = l; j < iNumCols; j++)
                 ppfU[i][j] = 0;
         }
@@ -287,7 +282,6 @@ Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, 
             }
         }
 
-        //ColMultC(i, i, dG);
         for (auto j = i; j < iNumRows; j++)
             ppfU[j][i] *= dG;
         ppfU[i][i] += 1;
@@ -361,7 +355,6 @@ Error_t CPca::calcSVD(float** ppfU, float** ppfW, float** ppfV, float** ppfMat, 
             dH = pdRV1[k];
             dF = ((dY - dZ) * (dY + dZ) + (dG - dH) * (dG + dH)) / (2.F * dH * dY);
             dG = matPythag(dF, 1.);
-            //dF = ((dX - dZ) * (dX + dZ) + dH * ((dY / (dF + MHLP_SIGN(dG, dF))) - dH)) / dX;
             dF = ((dX - dZ) * (dX + dZ) + dH * ((dY / (dF + (dF >= 0 ? fabs(dG) : -fabs(dG)))) - dH)) / dX;
             dC = 1;
             dS = 1;

@@ -21,7 +21,7 @@ public:
     \param iNumInSamples length of pfIn
     \return Error_t
     */
-    static Error_t interp1d(float* pfOut, const float* pfNewIdx, const float* pfIn, long long iNumOutSamples, long long iNumInSamples)
+    static Error_t interp1d(float *pfOut, const float *pfNewIdx, const float *pfIn, long long iNumOutSamples, long long iNumInSamples)
     {
         if (!pfNewIdx || !pfOut || !pfIn || iNumInSamples <= 0 || iNumOutSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -79,7 +79,7 @@ public:
         m_pCFilter = new CFilter<float>();
     }
 
-    virtual ~CResample() 
+    virtual ~CResample()
     {
         delete m_pCFilter;
     }
@@ -90,7 +90,7 @@ public:
     */
     long long getOutputLength(long long iNumInSamples) const
     {
-        return CUtil::float2int<long long>(iNumInSamples/m_fInSampleRate*m_fOutSampleRate);
+        return CUtil::float2int<long long>(iNumInSamples / m_fInSampleRate * m_fOutSampleRate);
     }
 
     /*! does the sample rate conversion (filtered linear interpolation)
@@ -109,7 +109,7 @@ public:
 
         // compute index axis
         long long iNumOutSamples = getOutputLength(iNumInSamples);
-        float* pfOutIdx = 0;
+        float *pfOutIdx = 0;
         CVector::alloc(pfOutIdx, iNumOutSamples);
         for (auto i = 0; i < iNumOutSamples; i++)
             pfOutIdx[i] = i * m_fInSampleRate / m_fOutSampleRate;
@@ -117,7 +117,7 @@ public:
         // compute butterworth low pass filter coefficients
         float aafCoeffs[2][iOrder + 1] = { { 0 } };
         CButterLp::calcCoeffs(aafCoeffs[0], aafCoeffs[1], iOrder, .9F * fOmegaCutoff);
-        m_pCFilter->init(aafCoeffs[0], aafCoeffs[1], iOrder+1);
+        m_pCFilter->init(aafCoeffs[0], aafCoeffs[1], iOrder + 1);
 
         if (m_fOutSampleRate > m_fInSampleRate) // upsample
         {
@@ -129,7 +129,7 @@ public:
         }
         else // downsample
         {
-            float* pfFiltered = 0;
+            float *pfFiltered = 0;
             CVector::alloc(pfFiltered, iNumInSamples);
 
             // apply zero phase filter
@@ -148,16 +148,13 @@ public:
     }
 
 private:
-    CResample(const CResample& that);
-    CResample& operator=(const CResample& c);
+    CResample(const CResample &that);
+    CResample &operator=(const CResample &c);
 
     float m_fInSampleRate = 0.F; //!< sample rate of input
     float m_fOutSampleRate = 0.F; //!< sample rate of output
 
-    CFilter<float>* m_pCFilter = 0; //!< low pass filter processing
+    CFilter<float> *m_pCFilter = 0; //!< low pass filter processing
 };
 
 #endif // #if !defined(__ACA_Resample_HEADER_INCLUDED__)
-
-
-

@@ -8,34 +8,34 @@
 #include "Matrix.h"
 #include "Vector.h"
 
-/*! \brief class with static utility functions for pre-processing 
+/*! \brief class with static utility functions for pre-processing
 */
 class CPreProc
 {
 public:
     /*! downmixes multichannel audio (can be inplace
     */
-    static void downmix (float *pfOutput, float **ppfInput, int iNumChannels, long long iNumSamples)
+    static void downmix(float *pfOut, const float *const *const ppfIn, int iNumChannels, long long iNumSamples)
     {
         // sanity checks
-        assert(pfOutput);
-        assert(ppfInput);
-        assert(ppfInput[0]);
+        assert(pfOut);
+        assert(ppfIn);
+        assert(ppfIn[0]);
         assert(iNumChannels > 0);
         assert(iNumSamples > 0);
 
         // copy in case of not inplace processing
-        if (pfOutput != ppfInput[0])
-            CVector::copy(pfOutput, ppfInput[0], iNumSamples);
+        if (pfOut != ppfIn[0])
+            CVector::copy(pfOut, ppfIn[0], iNumSamples);
 
         // downmix
         for (auto c = 1; c < iNumChannels; c++)
-            CVector::add_I(pfOutput, ppfInput[c], iNumSamples);
-        CVector::mulC_I(pfOutput, 1.F / iNumChannels, iNumSamples);
+            CVector::add_I(pfOut, ppfIn[c], iNumSamples);
+        CVector::mulC_I(pfOut, 1.F / iNumChannels, iNumSamples);
 
         return;
     }
- };
+};
 
 
 /*! \brief class for audio normalization offering three options
@@ -46,7 +46,7 @@ public:
 class CNormalizeAudio
 {
 public:
-    explicit CNormalizeAudio(CAudioFileIf* pCAudioFile) :
+    explicit CNormalizeAudio(CAudioFileIf *pCAudioFile) :
         m_fScaleFactor(1.F)
     {
         assert(pCAudioFile);
@@ -57,7 +57,7 @@ public:
         const int iBlockLength = 4096;
         float fGlobalMax = 0.F;
         long long iCurrPos = 0;
-        float** ppfAudioData = 0;
+        float **ppfAudioData = 0;
 
         // alloc read buffer
         CMatrix::alloc(ppfAudioData, stFileSpec.iNumChannels, iBlockLength);
@@ -75,7 +75,7 @@ public:
             long long iNumSamples = iBlockLength;
             float fMax = 0;
 
-            // read data (iNumOfFrames might be updated!)
+            // read data (iNumSamples might be updated!)
             pCAudioFile->readData(ppfAudioData, iNumSamples);
 
             //downmix if multichannel
@@ -95,7 +95,8 @@ public:
         //free internal memory
         CMatrix::free(ppfAudioData, stFileSpec.iNumChannels);
     };
-    CNormalizeAudio(const float* pfAudioBuff, long long iAudioLength) :
+
+    CNormalizeAudio(const float *pfAudioBuff, long long iAudioLength) :
         m_fScaleFactor(1.F)
     {
         assert(pfAudioBuff);
@@ -105,13 +106,14 @@ public:
         if (fGlobalMax > 0)
             m_fScaleFactor = 1.F / fGlobalMax;
     };
+
     virtual ~CNormalizeAudio() {};
 
     /*! performs the normalization on a buffer after previous file parsing to get the maximum
     \param pfAudioBlock audio data, to be over-written
     \param  iNumSamples legnth of pfAudio
     */
-    void normalizeBlock(float* pfAudioBlock, long long iNumSamples)
+    void normalizeBlock(float *pfAudioBlock, long long iNumSamples)
     {
         assert(pfAudioBlock);
         assert(iNumSamples > 0);
@@ -123,7 +125,7 @@ public:
     \param pfAudio audio data, to be over-written
     \param  iNumSamples legnth of pfAudio
     */
-    static void normalizeSignal(float* pfAudio, long long iNumSamples)
+    static void normalizeSignal(float *pfAudio, long long iNumSamples)
     {
         assert(pfAudio);
         assert(iNumSamples > 0);
@@ -137,9 +139,10 @@ public:
     }
 private:
     CNormalizeAudio();
-    CNormalizeAudio(const CNormalizeAudio& that);
-    CNormalizeAudio& operator=(const CNormalizeAudio& c);
+    CNormalizeAudio(const CNormalizeAudio &that);
+    CNormalizeAudio &operator=(const CNormalizeAudio &c);
 
-    float m_fScaleFactor;   //!< factor to normalize
+    float m_fScaleFactor; //!< factor to normalize
 };
+
 #endif // __ACA_ToolPreProc_HEADER_INCLUDED__

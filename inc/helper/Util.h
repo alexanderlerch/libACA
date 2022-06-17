@@ -5,43 +5,43 @@
 #include <cstring>
 #include <limits>
 
-/*! \brief class with static utility functions 
+/*! \brief class with static utility functions
 */
 class CUtil
 {
 public:
     /*! converts a float to an int
-    \param fInput float value
+    \param fIn float value
     \return T
     */
     template<typename T>
-    static T float2int (float fInput)
+    static T float2int(float fIn)
     {
-        if (fInput >= 0.F)
-            return static_cast<T>(fInput + .5);
+        if (fIn >= 0.F)
+            return static_cast<T>(fIn + .5);
         else
-            return static_cast<T>(fInput - .5);
+            return static_cast<T>(fIn - .5);
     }
     /*! converts a double to an int
-    \param fInput double value
+    \param fIn double value
     \return T
     */
     template<typename T>
-    static T double2int (double fInput)
+    static T double2int(double fIn)
     {
-        if (fInput >= 0)
-            return static_cast<T>(fInput + .5);
+        if (fIn >= 0)
+            return static_cast<T>(fIn + .5);
         else
-            return static_cast<T>(fInput - .5);
+            return static_cast<T>(fIn - .5);
     }
 
     /*! checks if the input is a power of 2
     \param n integer value
     \return bool
     */
-    static bool isPowOf2 (int n) 
+    static bool isPowOf2(int n)
     {
-        return !(n & (n-1));
+        return !(n & (n - 1));
     }
 
     /*! converts an arbitrary integer (positive) to the next larger power of two
@@ -55,13 +55,13 @@ public:
         if (n <= 0)
             return 0;
 
-        while (n>>iOrder)
+        while (n >> iOrder)
             iOrder++;
 
-        if (!(n%(1<<(iOrder-1))))
+        if (!(n % (1 << (iOrder - 1))))
             iOrder--;
 
-        return (1<<(iOrder));
+        return (1 << (iOrder));
     }
 
     /*! swaps two values
@@ -69,7 +69,7 @@ public:
     \param tValue2 second value
     */
     template<typename T>
-    static void swap(T& tValue1, T& tValue2)
+    static void swap(T &tValue1, T &tValue2)
     {
         T tTmp = tValue1;
 
@@ -101,4 +101,5 @@ public:
         return 0;
     }
 };
+
 #endif // __ACA_Util_HEADER_INCLUDED__

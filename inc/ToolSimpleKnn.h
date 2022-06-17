@@ -17,18 +17,18 @@ public:
 
     /*! initializes Knn instance
     \param iNumFeatures number of features (rows in the input matrix)
-    \param iNumObservations number of observations (columns in the feature matrix)
+    \param iNumObs number of observations (columns in the feature matrix)
     \return Error_t
     */
-    Error_t init(int iNumFeatures, int iNumObservations) override;
+    Error_t init(int iNumFeatures, int iNumObs) override;
 
     /*! initializes Knn instance
-    \param ppfTrainFeatures feature data for 'training' (dimensions iNumFeatures X iNumObservations)
+    \param ppfTrainFeatures feature data for 'training' (dimensions iNumFeatures X iNumObs)
     \param piTrainClassIndices ground truth class index for each observation
     \param eNorm specification of what normalization should be applied to the feature data
     \return Error_t
     */
-    Error_t train(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
+    Error_t train(const float *const *const ppfTrainFeatures, const int *piTrainClassIndices, CClassifierBase::Normalization_t eNorm = CClassifierBase::kNoNormalization) override;
 
     /*! resets Knn instance
     \return Error_t
@@ -51,12 +51,12 @@ public:
     \param pfQuery vector of length iNumFeatures to classify
     \return int class label of most likely class (returns CClassifierBase::kIllegalClassLabel in case of error)
     */
-    int classify(const float* pfQuery) override;
+    int classify(const float *pfQuery) override;
 
 
 private:
-    CKnn(const CKnn& that);     //!< disallow copy construction   
-    CKnn& operator=(const CKnn& c);
+    CKnn(const CKnn &that);     //!< disallow copy construction   
+    CKnn &operator=(const CKnn &c);
 
     void buildHistogram_(bool bUseDistance);
 
@@ -64,23 +64,21 @@ private:
 
     int m_iNumFeatures = 0, //!< number of features
         m_iNumObs = 0, //!< number of training observations
-        
+
         m_iK = 3; //!< number of neighbors for classification
 
-    float** m_ppfTrain = 0; //!< train data (m_iNumObs X m_iNumFeatures)
-    int* m_piClassLabels = 0; //!< ground truth train labels
-    
-    float *m_pfSortDist = 0; //!< preallocated vector for distance of query to all data points
-    float* m_pfQuery = 0; //!< preallocated vector for the normalized query
-    int* m_piSortIdx = 0; //!< preallocated vector for the resorted class indices
+    float **m_ppfTrain = 0; //!< train data (m_iNumObs X m_iNumFeatures)
+    int *m_piClassLabels = 0; //!< ground truth train labels
 
-    float* m_pfHist = 0; //!< preallocated vector for the histogram of nearest neighbors
-    int* m_piHistLabel = 0; //!< preallocated vector holding the histogram class labels
-    int* m_piHistCount = 0; //!< number of entries per class (for weighted hist)
+    float *m_pfSortDist = 0; //!< preallocated vector for distance of query to all data points
+    float *m_pfQuery = 0; //!< preallocated vector for the normalized query
+    int *m_piSortIdx = 0; //!< preallocated vector for the resorted class indices
+
+    float *m_pfHist = 0; //!< preallocated vector for the histogram of nearest neighbors
+    int *m_piHistLabel = 0; //!< preallocated vector holding the histogram class labels
+    int *m_piHistCount = 0; //!< number of entries per class (for weighted hist)
 
     bool m_bIsInitialized = false; //!< indicates if instance has been properly initialized
-
 };
-
 
 #endif // __ACA_Knn_HEADER_INCLUDED__

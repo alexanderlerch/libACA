@@ -13,9 +13,8 @@
 #include "PitchFromBlock.h"
 
 
-
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of the pitch from a file
+*/
 class CPitchFromFile : public CPitchIf
 {
 public:
@@ -26,7 +25,7 @@ public:
         delete m_pCNormalize;
         m_pCNormalize = 0;
 
-        CVector::free(m_pfProcessBuff1);
+        CVector::free(m_pfProcBuff1);
 
         m_pCAudioFile->closeFile();
         CAudioFileIf::destroy(m_pCAudioFile);
@@ -59,8 +58,8 @@ CPitchFromFile::CPitchFromFile(PitchExtractors_t ePitchIdx, std::string strAudio
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of the pitch from a vector of audio data
+*/
 class CPitchFromVector : public CPitchIf
 {
 public:
@@ -96,7 +95,7 @@ inline CPitchIf::~CPitchIf()
 {
     reset_();
 }
-                            
+
 Error_t CPitchIf::create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
@@ -112,11 +111,11 @@ Error_t CPitchIf::create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, con
     return Error_t::kNoError;
 }
 
-Error_t CPitchIf::create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CPitchIf::create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const float* pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
-    if (iNumFrames <= 0)
+    if (iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -125,7 +124,7 @@ Error_t CPitchIf::create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, con
     if (iHopLength <= 0 || iHopLength > iBlockLength)
         return Error_t::kFunctionInvalidArgsError;
 
-    pCInstance = new CPitchFromVector(ePitchIdx, pfAudio, iNumFrames, fSampleRate, iBlockLength, iHopLength);
+    pCInstance = new CPitchFromVector(ePitchIdx, pfAudio, iNumSamples, fSampleRate, iBlockLength, iHopLength);
 
     return Error_t::kNoError;
 }
@@ -150,11 +149,6 @@ Error_t CPitchIf::getNumBlocks(int& iNumBlocks) const
 
     return Error_t::kNoError;
 }
-
-
-/*! returns size of vector to be allocated by user
-\return int
-*/
 
 int CPitchIf::getNumBlocks() const
 {
@@ -197,7 +191,7 @@ Error_t CPitchIf::compF0(float* pfPitch)
     if (!pfPitch)
         return Error_t::kFunctionInvalidArgsError;
 
-    assert(m_pfProcessBuff1);
+    assert(m_pfProcBuff1);
     assert(m_pCBlockAudio);
     assert(m_pCNormalize);
     assert(m_pCPitch);
@@ -207,20 +201,22 @@ Error_t CPitchIf::compF0(float* pfPitch)
     for (auto n = 0; n < iNumBlocks; n++)
     {
         // retrieve the next audio block
-        m_pCBlockAudio->getNextBlock(m_pfProcessBuff1);
+        m_pCBlockAudio->getNextBlock(m_pfProcBuff1);
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizeBlock(m_pfProcBuff1, m_iBlockLength);
 
         if (isPitchExtractorSpectral_(m_pCPitch->getPitchExtractorIdx()))
         {
-            assert(m_pfProcessBuff2);
+            // compute magnitude specturm
+            assert(m_pfProcBuff2);
             assert(m_pCFft);
             computeMagSpectrum_();
         }
 
-        pfPitch[n] = m_pCPitch->compF0(m_pfProcessBuff1);
+        // extract f0
+        pfPitch[n] = m_pCPitch->compF0(m_pfProcBuff1);
     }
 
     return Error_t::kNoError;
@@ -266,19 +262,19 @@ void CPitchIf::computeMagSpectrum_()
 {
     assert(m_pCFft);
 
-    // compute magnitude spectrum (hack
-    m_pCFft->compFft(m_pfProcessBuff2, m_pfProcessBuff1);
-    m_pCFft->getMagnitude(m_pfProcessBuff1, m_pfProcessBuff2);
+    // compute magnitude spectrum 
+    m_pCFft->compFft(m_pfProcBuff2, m_pfProcBuff1);
+    m_pCFft->getMagnitude(m_pfProcBuff1, m_pfProcBuff2);
 
-    CVector::mulC_I(m_pfProcessBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
+    CVector::mulC_I(m_pfProcBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
 }
 
 
 Error_t CPitchIf::reset_()
 {
-    CVector::free(m_pfProcessBuff1);
+    CVector::free(m_pfProcBuff1);
 
-    CVector::free(m_pfProcessBuff2);
+    CVector::free(m_pfProcBuff2);
 
     delete m_pCFft;
     m_pCFft = 0;
@@ -305,14 +301,14 @@ Error_t CPitchIf::init_(PitchExtractors_t ePitchIdx)
         m_pCFft = new CFft();
         m_pCFft->init(m_iBlockLength);
         // allocate processing memory
-        CVector::alloc(m_pfProcessBuff1, m_pCFft->getLength(CFft::kLengthFft));
-        CVector::alloc(m_pfProcessBuff2, m_pCFft->getLength(CFft::kLengthFft));
+        CVector::alloc(m_pfProcBuff1, m_pCFft->getLength(CFft::kLengthFft));
+        CVector::alloc(m_pfProcBuff2, m_pCFft->getLength(CFft::kLengthFft));
         CPitchFromBlockIf::create(m_pCPitch, ePitchIdx, m_pCFft->getLength(CFft::kLengthMagnitude), m_fSampleRate);
     }
     else
     {
         // allocate processing memory
-        CVector::alloc(m_pfProcessBuff1, m_iBlockLength);
+        CVector::alloc(m_pfProcBuff1, m_iBlockLength);
         CPitchFromBlockIf::create(m_pCPitch, ePitchIdx, m_iBlockLength, m_fSampleRate);
     }
     m_bIsInitialized = true;

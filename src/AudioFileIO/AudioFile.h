@@ -23,7 +23,7 @@ private:
     Error_t freeMemory_ () override;
     Error_t allocMemory_ () override;
     long long int readDataIntern_ (float **ppfAudioData, long long int iNumFrames) override;
-    long long int writeDataIntern_ (float **ppfAudioData, long long int iLength) override;
+    long long int writeDataIntern_ (const float* const* const ppfAudioData, long long int iLength) override;
     long long getLengthIntern_() override;
     long long getPositionIntern_() override;
     Error_t setPositionIntern_( long long iFrame ) override;
@@ -54,7 +54,7 @@ public:
 private:
     CAudioFileSndLib(const CAudioFileSndLib& that);
     long long int readDataIntern_ (float **ppfAudioData, long long int iLength) override;
-    long long int writeDataIntern_ (float **ppfAudioData, long long int iLength) override;
+    long long int writeDataIntern_ (const float* const* const ppfAudioData, long long int iLength) override;
     long long getLengthIntern_() override;
     long long getPositionIntern_() override;
     Error_t setPositionIntern_( long long iFrame ) override;

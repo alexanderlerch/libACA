@@ -6,19 +6,19 @@
 #include "ToolSimpleKmeans.h"
 
 
-CKmeans::~CKmeans(void) 
+CKmeans::~CKmeans(void)
 {
     this->reset();
 }
 
-Error_t CKmeans::init(int iK, int iNumFeatures, int iNumObservations, int iMaxIter)
+Error_t CKmeans::init(int iK, int iNumFeatures, int iNumObs, int iMaxIter)
 {
-    if (iK <= 0 || iNumFeatures <= 0 || iNumObservations <= iK || iMaxIter < 1)
+    if (iK <= 0 || iNumFeatures <= 0 || iNumObs <= iK || iMaxIter < 1)
         return Error_t::kFunctionInvalidArgsError;
 
     m_iK = iK;
     m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
     m_iMaxIter = iMaxIter;
 
     CMatrix::alloc(m_appfClusterMeans[kPrev], m_iK, m_iNumFeatures);
@@ -51,7 +51,7 @@ Error_t CKmeans::reset()
     return Error_t::kNoError;
 }
 
-Error_t CKmeans::compKmeans(int* piResult, float** ppfFeatures)
+Error_t CKmeans::compKmeans(int *piResult, const float *const *const ppfFeatures)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -89,7 +89,7 @@ Error_t CKmeans::compKmeans(int* piResult, float** ppfFeatures)
     return Error_t::kNoError;
 }
 
-void CKmeans::reinitClusterMeans_(float** ppfFeatures)
+void CKmeans::reinitClusterMeans_(const float *const *const ppfFeatures)
 {
     if (CVector::getMin(m_piClusterSize, m_iK) > 0)
         return;
@@ -108,7 +108,7 @@ void CKmeans::reinitClusterMeans_(float** ppfFeatures)
     }
 }
 
-void CKmeans::initClusterMeans_(float** ppfFeatures)
+void CKmeans::initClusterMeans_(const float *const *const ppfFeatures)
 {
     CSynthesis::genNoise(m_pfProc, m_iK);
     CVector::mulC_I(m_pfProc, m_iNumObs - 1.F, m_iK);
@@ -122,15 +122,17 @@ void CKmeans::initClusterMeans_(float** ppfFeatures)
     }
 }
 
-void CKmeans::compClusterMeans_(float** ppfFeatures, const int* piResult)
+void CKmeans::compClusterMeans_(const float *const *const ppfFeatures, const int *piResult)
 {
     CMatrix::setZero(m_appfClusterMeans[kCurr], m_iK, m_iNumFeatures);
-    //CVector::setZero(m_piClusterSize, m_iK);
     for (auto n = 0; n < m_iNumObs; n++)
     {
+        // add all observations per feature per cluster
         for (auto v = 0; v < m_iNumFeatures; v++)
             m_appfClusterMeans[kCurr][piResult[n]][v] += ppfFeatures[v][n];
     }
+
+    // norm sum by number of entries
     for (auto k = 0; k < m_iK; k++)
     {
         if (!m_piClusterSize[k])
@@ -157,7 +159,7 @@ bool CKmeans::checkConverged_()
     return false;
 }
 
-void CKmeans::assignClusterLabels_(int* piResult, float** ppfFeatures)
+void CKmeans::assignClusterLabels_(int *piResult, const float *const *const ppfFeatures)
 {
     CVector::setZero(m_piClusterSize, m_iK);
     for (auto n = 0; n < m_iNumObs; n++)
@@ -170,6 +172,7 @@ void CKmeans::assignClusterLabels_(int* piResult, float** ppfFeatures)
         for (auto k = 0; k < m_iK; k++)
             m_pfDist[k] = CVector::distEuclidean(m_appfClusterMeans[kCurr][k], m_pfProc, m_iNumFeatures);
 
+        // add observation to closets cluster
         CVector::findMin(m_pfDist, fMin, iMin, m_iK);
         piResult[n] = static_cast<int>(iMin);
         m_piClusterSize[iMin]++;

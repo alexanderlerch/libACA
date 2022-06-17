@@ -1,3 +1,11 @@
+
+#include "ErrorDef.h"
+
+#include "Vector.h"
+#include "RingBuffer.h"
+
+#include "Key.h"
+
 #include "KeyFromChroma.h"
 
 CKeyFromChroma::CKeyFromChroma(void)
@@ -20,11 +28,7 @@ CKeyFromChroma::~CKeyFromChroma(void)
         delete m_apCRingBuff[m];
 }
 
-/*! classifies a new query chroma vector
-\return int index of most likely key
-*/
-
-int CKeyFromChroma::getKey(const float* pfQuery)
+int CKeyFromChroma::getKey(const float *pfQuery)
 {
     long long iRes = -1;
     float afQueryN[kNumPitchClasses] = { 0 };

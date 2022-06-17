@@ -7,18 +7,18 @@
 #include "Chord.h"
 #include "ChordFromBlock.h"
 
-Error_t CChordFromBlockIf::create(CChordFromBlockIf*& pCInstance, int iMagSpecLength, float fSampleRate)
+Error_t CChordFromBlockIf::create(CChordFromBlockIf *&pCInstance, int iMagSpecLength, float fSampleRate)
 {
     if (iMagSpecLength <= 0 || fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
 
-    pCInstance = new CChordFromBlockIf(iMagSpecLength, fSampleRate); 
+    pCInstance = new CChordFromBlockIf(iMagSpecLength, fSampleRate);
 
     return Error_t::kNoError;
 }
 
-Error_t CChordFromBlockIf::destroy(CChordFromBlockIf*& pCInstance)
+Error_t CChordFromBlockIf::destroy(CChordFromBlockIf *&pCInstance)
 {
     delete pCInstance;
 
@@ -27,11 +27,12 @@ Error_t CChordFromBlockIf::destroy(CChordFromBlockIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CChordFromBlockIf::compChordProb(float* pfChordProb, const float* pfInput)
+Error_t CChordFromBlockIf::compChordProb(float *pfChordProb, const float *pfIn)
 {
     // compute pitch chroma
-    m_pCFeatureExtractor->compFeature(m_pfPitchChroma, pfInput);
+    m_pCFeatureExtractor->compFeature(m_pfPitchChroma, pfIn);
 
+    // check if zero
     if (CVector::getSum(m_pfPitchChroma, kNumPitchClasses) <= 1e-20F)
     {
         CVector::setZero(pfChordProb, CChordIf::kNumChords);
@@ -60,7 +61,7 @@ inline CChordFromBlockIf::CChordFromBlockIf(int iMagSpecLength, float fSampleRat
     genTemplateMatrix_();
 }
 
-inline CChordFromBlockIf::~CChordFromBlockIf() 
+inline CChordFromBlockIf::~CChordFromBlockIf()
 {
     CVector::free(m_pfPitchChroma);
     CMatrix::free(m_ppfTemplateMatrix, CChordIf::kNumChords);
@@ -77,12 +78,13 @@ void CChordFromBlockIf::genTemplateMatrix_()
     const int aiMajorIndices[3] = { 0,4,7 };
     const int aiMinorIndices[3] = { 0,3,7 };
 
+    // simple template with equally weighted chord pitches, zero otherwise
     for (auto c = 0; c < kNumPitchClasses; c++)
     {
         for (auto p = 0; p < iNumChordPitches; p++)
         {
-            m_ppfTemplateMatrix[c][(c + aiMajorIndices[p])%12] = 1.F / iNumChordPitches;
-            m_ppfTemplateMatrix[c+ kNumPitchClasses][(c + aiMinorIndices[p])%12] = 1.F / iNumChordPitches;
+            m_ppfTemplateMatrix[c][(c + aiMajorIndices[p]) % 12] = 1.F / iNumChordPitches;
+            m_ppfTemplateMatrix[c + kNumPitchClasses][(c + aiMinorIndices[p]) % 12] = 1.F / iNumChordPitches;
         }
     }
     CVector::addC_I(m_ppfTemplateMatrix[CChordIf::kNoChord], 1.F / kNumPitchClasses, kNumPitchClasses);

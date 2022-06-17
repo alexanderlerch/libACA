@@ -17,8 +17,8 @@ void    showClInfo();
 int main(int argc, char* argv[])
 {
 
-    std::string             sInputFilePath,                 //!< file paths
-        sOutputFilePath;
+    std::string             sInFilePath,                 //!< file paths
+        sOutFilePath;
 
     long long iNumBlocks = 0; //!< number of blocks
 
@@ -27,7 +27,7 @@ int main(int argc, char* argv[])
 
     CFingerprint* pCInstance = 0;
 
-    std::fstream hOutputFile;
+    std::fstream hOutFile;
 
     showClInfo();
 
@@ -41,8 +41,8 @@ int main(int argc, char* argv[])
     }
     else
     {
-        sInputFilePath = argv[1];
-        sOutputFilePath = (argc < 3) ? "" : argv[2];
+        sInFilePath = argv[1];
+        sOutFilePath = (argc < 3) ? "" : argv[2];
     }
 
     //////////////////////////////////////////////////////////////////////////////
@@ -50,15 +50,15 @@ int main(int argc, char* argv[])
     pCInstance = new CFingerprint();
     if (!pCInstance)
         return -1;
-    pCInstance->init(sInputFilePath);
+    pCInstance->init(sInFilePath);
     iNumBlocks = pCInstance->getFingerprintLength();
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
-    if (!sOutputFilePath.empty())
+    if (!sOutFilePath.empty())
     {
-        hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
-        if (!hOutputFile.is_open())
+        hOutFile.open(sOutFilePath.c_str(), std::ios::out);
+        if (!hOutFile.is_open())
         {
             cout << "Text file open error!";
             delete pCInstance;
@@ -80,20 +80,20 @@ int main(int argc, char* argv[])
 
     //////////////////////////////////////////////////////////////////////////////
     // file writing
-    if (!sOutputFilePath.empty())
+    if (!sOutFilePath.empty())
     {
         time = clock(); 
         cout << "\n2. writing output file..." << endl;
 
         for (auto n = 0; n < iNumBlocks; n++)
-            hOutputFile << std::hex << piFingerprintRes[n] << endl;
+            hOutFile << std::hex << piFingerprintRes[n] << endl;
 
         cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
     }
 
     //////////////////////////////////////////////////////////////////////////////
     // clean-up (close files, delete instances, and free memory)
-    hOutputFile.close();
+    hOutFile.close();
 
     delete pCInstance;
 

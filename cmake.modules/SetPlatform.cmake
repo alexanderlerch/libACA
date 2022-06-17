@@ -31,3 +31,4 @@ if (MSVC)
 	add_compile_options("-D_USE_MATH_DEFINES" "/wd26812")
 	  
 endif (MSVC)
+set (CMAKE_CXX_STANDARD 11)

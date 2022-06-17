@@ -1,7 +1,6 @@
 #include "Vector.h"
 #include "Matrix.h"
 
-
 #include "ToolLeaveOneOutCrossVal.h"
 #include "ToolSimpleKnn.h"
 
@@ -9,15 +8,15 @@
 
 CSeqFeatureSel::~CSeqFeatureSel(void) { reset(); }
 
-Error_t CSeqFeatureSel::init(int iNumFeatures, int iNumObservations)
+Error_t CSeqFeatureSel::init(int iNumFeatures, int iNumObs)
 {
-    if (iNumFeatures <= 0 || iNumObservations <= 1)
+    if (iNumFeatures <= 0 || iNumObs <= 1)
         return Error_t::kFunctionInvalidArgsError;
 
     reset();
 
     m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
 
     m_pCClassifier = new CKnn();
     m_pCClassifier->setParamK(1);
@@ -33,7 +32,7 @@ Error_t CSeqFeatureSel::init(int iNumFeatures, int iNumObservations)
     return Error_t::kNoError;
 }
 
-Error_t CSeqFeatureSel::process(float** ppfFeatures, const int* piClassIndices)
+Error_t CSeqFeatureSel::process(const float *const *const ppfFeatures, const int *piClassIndices)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -63,6 +62,7 @@ Error_t CSeqFeatureSel::process(float** ppfFeatures, const int* piClassIndices)
         }
     }
 
+    // copy best feature value to the first row of our feature matrix
     CVector::copy(m_ppfTrain[0], ppfFeatures[m_piSelFeatures[0]], m_iNumObs);
     iNumSelFeatures++;
 
@@ -81,7 +81,7 @@ Error_t CSeqFeatureSel::process(float** ppfFeatures, const int* piClassIndices)
             // add current feature v to internal feature matrix
             CVector::copy(m_ppfTrain[iNumSelFeatures], ppfFeatures[v], m_iNumObs);
 
-            m_pCCv->init(iNumSelFeatures+1, m_iNumObs, m_pCClassifier);
+            m_pCCv->init(iNumSelFeatures + 1, m_iNumObs, m_pCClassifier);
 
             //accuracy of selected features plus current feature f
             fAcc = m_pCCv->process(m_ppfTrain, piClassIndices);
@@ -102,7 +102,7 @@ Error_t CSeqFeatureSel::process(float** ppfFeatures, const int* piClassIndices)
     return Error_t::kNoError;
 }
 
-Error_t CSeqFeatureSel::getResult(int* piFeatureIndices, float* pfAccuracyPerStep /*= 0*/)
+Error_t CSeqFeatureSel::getResult(int *piFeatureIndices, float *pfAccuracyPerStep /*= 0*/)
 {
     if (!m_bWasProcessed)
         return Error_t::kFunctionIllegalCallError;
@@ -115,6 +115,7 @@ Error_t CSeqFeatureSel::getResult(int* piFeatureIndices, float* pfAccuracyPerSte
 
     return Error_t::kNoError;
 }
+
 Error_t CSeqFeatureSel::reset()
 {
     m_bIsInitialized = false;

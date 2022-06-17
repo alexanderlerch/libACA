@@ -10,9 +10,8 @@
 #include "FeatureFromBlock.h"
 
 
-
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of a feature from a file
+*/
 class CFeatureFromFile : public CFeatureIf
 {
 public:
@@ -23,14 +22,14 @@ public:
         delete m_pCNormalize;
         m_pCNormalize = 0;
 
-        CVector::free(m_pfProcessBuff1);
+        CVector::free(m_pfProcBuff1);
 
         m_pCAudioFile->closeFile();
         CAudioFileIf::destroy(m_pCAudioFile);
     };
 
 private:
-    CAudioFileIf* m_pCAudioFile;
+    CAudioFileIf *m_pCAudioFile;
 };
 
 CFeatureFromFile::CFeatureFromFile(Feature_t eFeatureIdx, std::string strAudioFilePath, int iBlockLength, int iHopLength) :
@@ -56,16 +55,16 @@ CFeatureFromFile::CFeatureFromFile(Feature_t eFeatureIdx, std::string strAudioFi
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of a feature from a vector of audio data
+*/
 class CFeatureFromVector : public CFeatureIf
 {
 public:
-    CFeatureFromVector(Feature_t eFeatureIdx, const float* pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength);
+    CFeatureFromVector(Feature_t eFeatureIdx, const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength);
     virtual ~CFeatureFromVector() {};
 };
 
-CFeatureFromVector::CFeatureFromVector(Feature_t eFeatureIdx, const float* pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength)
+CFeatureFromVector::CFeatureFromVector(Feature_t eFeatureIdx, const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength)
 {
     // set length variables
     m_iBlockLength = iBlockLength;
@@ -93,8 +92,8 @@ inline CFeatureIf::~CFeatureIf()
 {
     reset_();
 }
-                            
-Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
+
+Error_t CFeatureIf::create(CFeatureIf *&pCInstance, Feature_t eFeatureIdx, const std::string &strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
@@ -109,11 +108,11 @@ Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength, int iHopLength)
+Error_t CFeatureIf::create(CFeatureIf *&pCInstance, Feature_t eFeatureIdx, const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
-    if (iNumFrames <= 0)
+    if (iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -122,12 +121,12 @@ Error_t CFeatureIf::create(CFeatureIf*& pCInstance, Feature_t eFeatureIdx, const
     if (iHopLength <= 0 || iHopLength > iBlockLength)
         return Error_t::kFunctionInvalidArgsError;
 
-    pCInstance = new CFeatureFromVector(eFeatureIdx, pfAudio, iNumFrames, fSampleRate, iBlockLength, iHopLength);
+    pCInstance = new CFeatureFromVector(eFeatureIdx, pfAudio, iNumSamples, fSampleRate, iBlockLength, iHopLength);
 
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::destroy(CFeatureIf*& pCInstance)
+Error_t CFeatureIf::destroy(CFeatureIf *&pCInstance)
 {
     delete pCInstance;
     pCInstance = 0;
@@ -135,7 +134,7 @@ Error_t CFeatureIf::destroy(CFeatureIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::getFeatureDimensions(int& iNumRows, int& iNumCols) const
+Error_t CFeatureIf::getFeatureDimensions(int &iNumRows, int &iNumCols) const
 {
     if (!m_bIsInitialized)
     {
@@ -155,7 +154,7 @@ float CFeatureIf::getTimeStamp(int iBlockIdx) const
     return m_pCBlockAudio->getTimeStamp(iBlockIdx);
 }
 
-Error_t CFeatureIf::getTimeStamps(float* pfAxisTicks) const
+Error_t CFeatureIf::getTimeStamps(float *pfAxisTicks) const
 {
     if (!m_bIsInitialized)
     {
@@ -176,15 +175,15 @@ Error_t CFeatureIf::getTimeStamps(float* pfAxisTicks) const
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::compFeature1Dim(float* pfFeature)
+Error_t CFeatureIf::compFeature1Dim(float *pfFeature)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
     if (!pfFeature)
         return Error_t::kFunctionInvalidArgsError;
 
-    assert(m_pfProcessBuff1);
-    assert(m_pfProcessBuff2);
+    assert(m_pfProcBuff1);
+    assert(m_pfProcBuff2);
     assert(m_pCFft);
     assert(m_pCBlockAudio);
     assert(m_pCNormalize);
@@ -195,22 +194,22 @@ Error_t CFeatureIf::compFeature1Dim(float* pfFeature)
     for (auto n = 0; n < iNumBlocks; n++)
     {
         // retrieve the next audio block
-        m_pCBlockAudio->getNextBlock(m_pfProcessBuff1);
+        m_pCBlockAudio->getNextBlock(m_pfProcBuff1);
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizeBlock(m_pfProcBuff1, m_iBlockLength);
 
         if (isFeatureSpectral_(m_pCFeature->getFeatureIdx()))
             computeMagSpectrum_();
 
-        m_pCFeature->compFeature(&pfFeature[n], m_pfProcessBuff1);
+        m_pCFeature->compFeature(&pfFeature[n], m_pfProcBuff1);
     }
 
     return Error_t::kNoError;
 }
 
-Error_t CFeatureIf::compFeatureNDim(float** ppfFeature)
+Error_t CFeatureIf::compFeatureNDim(float **ppfFeature)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -219,8 +218,8 @@ Error_t CFeatureIf::compFeatureNDim(float** ppfFeature)
     if (!ppfFeature[0])
         return Error_t::kFunctionInvalidArgsError;
 
-    assert(m_pfProcessBuff1);
-    assert(m_pfProcessBuff2);
+    assert(m_pfProcBuff1);
+    assert(m_pfProcBuff2);
     assert(m_pCBlockAudio);
     assert(m_pCNormalize);
     assert(m_pCFeature);
@@ -231,20 +230,20 @@ Error_t CFeatureIf::compFeatureNDim(float** ppfFeature)
     for (auto n = 0; n < iNumBlocks; n++)
     {
         // retrieve the next audio block
-        m_pCBlockAudio->getNextBlock(m_pfProcessBuff1);
+        m_pCBlockAudio->getNextBlock(m_pfProcBuff1);
 
         // normalize if specified
         if (m_pCNormalize)
-            m_pCNormalize->normalizeBlock(m_pfProcessBuff1, m_iBlockLength);
+            m_pCNormalize->normalizeBlock(m_pfProcBuff1, m_iBlockLength);
 
         if (isFeatureSpectral_(m_pCFeature->getFeatureIdx()))
             computeMagSpectrum_();
 
-        m_pCFeature->compFeature(m_pfProcessBuff2, m_pfProcessBuff1);
+        m_pCFeature->compFeature(m_pfProcBuff2, m_pfProcBuff1);
 
         // copy to output buffer
         for (auto k = 0; k < iNumFeatures; k++)
-            ppfFeature[k][n] = m_pfProcessBuff2[k];
+            ppfFeature[k][n] = m_pfProcBuff2[k];
     }
 
     return Error_t::kNoError;
@@ -316,18 +315,18 @@ void CFeatureIf::computeMagSpectrum_()
     assert(m_pCFft);
 
     // compute magnitude spectrum (hack
-    m_pCFft->compFft(m_pfProcessBuff2, m_pfProcessBuff1);
-    m_pCFft->getMagnitude(m_pfProcessBuff1, m_pfProcessBuff2);
+    m_pCFft->compFft(m_pfProcBuff2, m_pfProcBuff1);
+    m_pCFft->getMagnitude(m_pfProcBuff1, m_pfProcBuff2);
 
-    CVector::mulC_I(m_pfProcessBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
+    CVector::mulC_I(m_pfProcBuff2, 2.F, m_pCFft->getLength(CFft::kLengthMagnitude));
 }
 
 
 Error_t CFeatureIf::reset_()
 {
-    CVector::free(m_pfProcessBuff1);
+    CVector::free(m_pfProcBuff1);
 
-    CVector::free(m_pfProcessBuff2);
+    CVector::free(m_pfProcBuff2);
 
     delete m_pCFft;
     m_pCFft = 0;
@@ -354,14 +353,14 @@ Error_t CFeatureIf::init_(Feature_t eFeatureIdx)
         m_pCFft = new CFft();
         m_pCFft->init(m_iBlockLength);
         // allocate processing memory
-        CVector::alloc(m_pfProcessBuff1, m_pCFft->getLength(CFft::kLengthFft));
-        CVector::alloc(m_pfProcessBuff2, m_pCFft->getLength(CFft::kLengthFft));
+        CVector::alloc(m_pfProcBuff1, m_pCFft->getLength(CFft::kLengthFft));
+        CVector::alloc(m_pfProcBuff2, m_pCFft->getLength(CFft::kLengthFft));
         CFeatureFromBlockIf::create(m_pCFeature, eFeatureIdx, m_pCFft->getLength(CFft::kLengthMagnitude), m_fSampleRate);
     }
     else
     {
         // allocate processing memory
-        CVector::alloc(m_pfProcessBuff1, m_iBlockLength);
+        CVector::alloc(m_pfProcBuff1, m_iBlockLength);
         CFeatureFromBlockIf::create(m_pCFeature, eFeatureIdx, m_iBlockLength, m_fSampleRate);
     }
     m_bIsInitialized = true;

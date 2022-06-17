@@ -7,14 +7,14 @@
 
 CLeaveOneOutCrossVal::~CLeaveOneOutCrossVal(void) { reset(); }
 
-Error_t CLeaveOneOutCrossVal::init(int iNumFeatures, int iNumObservations, CClassifierBase* pCClassifier)
+Error_t CLeaveOneOutCrossVal::init(int iNumFeatures, int iNumObs, CClassifierBase *pCClassifier)
 {
-    if (iNumFeatures <= 0 || iNumObservations <= 1)
+    if (iNumFeatures <= 0 || iNumObs <= 1)
         return Error_t::kFunctionInvalidArgsError;
     if (!pCClassifier)
         return Error_t::kFunctionInvalidArgsError;
 
-    if (m_iNumFeatures == iNumFeatures && m_iNumObs == iNumObservations && m_pCClassifier == pCClassifier)
+    if (m_iNumFeatures == iNumFeatures && m_iNumObs == iNumObs && m_pCClassifier == pCClassifier)
     {
         m_pCClassifier->reset();
         CMatrix::setZero(m_ppfTrain, m_iNumFeatures, m_iNumObs - static_cast<long long>(1));
@@ -28,7 +28,7 @@ Error_t CLeaveOneOutCrossVal::init(int iNumFeatures, int iNumObservations, CClas
 
         // set internal member variables
         m_iNumFeatures = iNumFeatures;
-        m_iNumObs = iNumObservations;
+        m_iNumObs = iNumObs;
         m_pCClassifier = pCClassifier;
 
         // allocate memory for feature and ground truth data, and query
@@ -58,7 +58,7 @@ Error_t CLeaveOneOutCrossVal::reset()
     return Error_t::kNoError;
 }
 
-float CLeaveOneOutCrossVal::process(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices)
+float CLeaveOneOutCrossVal::process(const float *const *const ppfTrainFeatures, const int *piTrainClassIndices)
 {
     if (!m_bIsInitialized)
         return -1.F;
@@ -80,7 +80,7 @@ float CLeaveOneOutCrossVal::process(const float* const* const ppfTrainFeatures, 
     CMatrix::copy(m_ppfTrain, ppfTrainFeatures, m_iNumFeatures, m_iNumObs - static_cast<long long>(1));
     CVector::copy(m_piClassLabels, piTrainClassIndices, m_iNumObs - static_cast<long long>(1));
 
-    for (int n = 0; n < m_iNumObs-1; n++)
+    for (int n = 0; n < m_iNumObs - 1; n++)
     {
         CMatrix::getCol(m_pfQuery, ppfTrainFeatures, m_iNumObs - 1 - n, m_iNumFeatures);
         iGtLabel = piTrainClassIndices[m_iNumObs - 1 - n];

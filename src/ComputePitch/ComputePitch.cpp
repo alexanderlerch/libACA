@@ -17,8 +17,8 @@ void    showClInfo();
 int main(int argc, char* argv[])
 {
 
-    std::string             sInputFilePath,                 //!< file paths
-        sOutputFilePath;
+    std::string             sInFilePath,                 //!< file paths
+        sOutFilePath;
 
     std::string sPitchString; //!< string of the Pitch to be extracted
 
@@ -33,7 +33,7 @@ int main(int argc, char* argv[])
 
     float* pfPitch = 0; //!< F0 result
 
-    std::fstream hOutputFile;
+    std::fstream hOutFile;
 
     showClInfo();
 
@@ -47,9 +47,9 @@ int main(int argc, char* argv[])
     }
     else
     {
-        sInputFilePath = argv[1];
+        sInFilePath = argv[1];
         sPitchString = (argc < 3) ? "SpectralAcf" : argv[2];
-        sOutputFilePath = (argc < 4) ? sInputFilePath + ".txt" : argv[3];
+        sOutFilePath = (argc < 4) ? sInFilePath + ".txt" : argv[3];
         iBlockLength = (argc < 5) ? 4096 : std::stoi(argv[4]);
         iHopLength = (argc < 6) ? 512 : std::stoi(argv[5]);
     }
@@ -57,13 +57,13 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // initialize Pitch instance
     ePitchIdx = CPitchIf::getPitchIdxFromString(sPitchString);
-    CPitchIf::create(pCInstance, ePitchIdx, sInputFilePath, iBlockLength, iHopLength);
+    CPitchIf::create(pCInstance, ePitchIdx, sInFilePath, iBlockLength, iHopLength);
     pCInstance->getNumBlocks(iNumBlocks);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
-    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
-    if (!hOutputFile.is_open())
+    hOutFile.open(sOutFilePath.c_str(), std::ios::out);
+    if (!hOutFile.is_open())
     {
         cout << "Text file open error!";
         CPitchIf::destroy(pCInstance);
@@ -78,7 +78,7 @@ int main(int argc, char* argv[])
     if (!pfPitch)
     {
         CPitchIf::destroy(pCInstance);
-        hOutputFile.close();
+        hOutFile.close();
         return -1;
     }
 
@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
-        hOutputFile << pCInstance->getTimeStamp(n) << "\t" << pfPitch[n] << endl;
+        hOutFile << pCInstance->getTimeStamp(n) << "\t" << pfPitch[n] << endl;
     }
 
     cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
@@ -108,7 +108,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // clean-up (close files, delete instances, and free memory)
     CPitchIf::destroy(pCInstance);
-    hOutputFile.close();
+    hOutFile.close();
 
     delete[] pfPitch;
 

@@ -18,8 +18,8 @@ void    showClInfo();
 int main(int argc, char* argv[])
 {
 
-    std::string             sInputFilePath,                 //!< file paths
-        sOutputFilePath;
+    std::string             sInFilePath,                 //!< file paths
+        sOutFilePath;
 
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
@@ -31,7 +31,7 @@ int main(int argc, char* argv[])
 
     CChordIf::Chords_t* peChord = 0; //!< chord result
 
-    std::fstream hOutputFile;
+    std::fstream hOutFile;
 
     showClInfo();
 
@@ -45,21 +45,21 @@ int main(int argc, char* argv[])
     }
     else
     {
-        sInputFilePath = argv[1];
-        sOutputFilePath = (argc < 3) ? sInputFilePath + ".txt" : argv[2];
+        sInFilePath = argv[1];
+        sOutFilePath = (argc < 3) ? sInFilePath + ".txt" : argv[2];
         iBlockLength = (argc < 4) ? 8192 : std::stoi(argv[3]);
         iHopLength = (argc < 5) ? 2048 : std::stoi(argv[4]);
     }
 
     //////////////////////////////////////////////////////////////////////////////
     // initialize Chord instance
-    CChordIf::create(pCInstance, sInputFilePath, iBlockLength, iHopLength);
+    CChordIf::create(pCInstance, sInFilePath, iBlockLength, iHopLength);
     pCInstance->getNumBlocks(iNumBlocks);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
-    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
-    if (!hOutputFile.is_open())
+    hOutFile.open(sOutFilePath.c_str(), std::ios::out);
+    if (!hOutFile.is_open())
     {
         cout << "Text file open error!";
         CChordIf::destroy(pCInstance);
@@ -74,7 +74,7 @@ int main(int argc, char* argv[])
     if (!peChord)
     {
         CChordIf::destroy(pCInstance);
-        hOutputFile.close();
+        hOutFile.close();
         return -1;
     }
 
@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
 
     for (auto n = 0; n < iNumBlocks; n++)
     {
-        hOutputFile  << pCInstance->getTimeStamp(n) << "\t" << pCInstance->getChordString(peChord[n]) << endl;
+        hOutFile  << pCInstance->getTimeStamp(n) << "\t" << pCInstance->getChordString(peChord[n]) << endl;
     }
 
     cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
@@ -104,7 +104,7 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // clean-up (close files, delete instances, and free memory)
     CChordIf::destroy(pCInstance);
-    hOutputFile.close();
+    hOutFile.close();
 
     delete[] peChord;
 

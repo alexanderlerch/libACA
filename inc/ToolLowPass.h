@@ -1,7 +1,6 @@
 #if !defined(__ACA_LowPass_HEADER_INCLUDED__)
 #define __ACA_LowPass_HEADER_INCLUDED__
 
-
 #include <cmath>
 
 #include "RingBuffer.h"
@@ -18,7 +17,7 @@ public:
     \param pCInstance pointer to instance to be written
     \return Error_t
     */
-    static Error_t create(CSinglePoleLp*& pCInstance)
+    static Error_t create(CSinglePoleLp *&pCInstance)
     {
         pCInstance = new CSinglePoleLp();
 
@@ -29,7 +28,7 @@ public:
     \param pCInstance pointer to instance to be destroyed
     \return Error_t
     */
-    static Error_t destroy(CSinglePoleLp*& pCInstance)
+    static Error_t destroy(CSinglePoleLp *&pCInstance)
     {
         delete pCInstance;
         pCInstance = 0;
@@ -60,22 +59,22 @@ public:
     }
 
     /*! performs the SinglePoleLp computation
-    \param pfOutput filter result (user-allocated, to be written, length iNumSamples)
-    \param pfInput input data of length iNumSamples
+    \param pfOut filter result (user-allocated, to be written, length iNumSamples)
+    \param pfIn input data of length iNumSamples
     \param iNumSamples length of buffers
     return Error_t
     */
-    Error_t process(float* pfOutput, const float* pfInput, long long iNumSamples)
+    Error_t process(float *pfOut, const float *pfIn, long long iNumSamples)
     {
-        if (!pfOutput || !pfInput || iNumSamples <= 0)
+        if (!pfOut || !pfIn || iNumSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
 
-        pfOutput[0] = (1.F - m_fAlpha) * pfInput[0] + m_fAlpha * m_fPrevOut;
-        
-        for (auto i = 1; i < iNumSamples; i++)
-            pfOutput[i] = (1 - m_fAlpha) * pfInput[0] + m_fAlpha * pfOutput[i-1];
+        pfOut[0] = (1.F - m_fAlpha) * pfIn[0] + m_fAlpha * m_fPrevOut;
 
-        m_fPrevOut = pfOutput[iNumSamples - 1];
+        for (auto i = 1; i < iNumSamples; i++)
+            pfOut[i] = (1 - m_fAlpha) * pfIn[0] + m_fAlpha * pfOut[i - 1];
+
+        m_fPrevOut = pfOut[iNumSamples - 1];
 
         return Error_t::kNoError;
     }
@@ -108,16 +107,16 @@ public:
 private:
     CSinglePoleLp() {};
     virtual ~CSinglePoleLp() {};
-    CSinglePoleLp(const CSinglePoleLp& that);
-    CSinglePoleLp& operator=(const CSinglePoleLp& c);
+    CSinglePoleLp(const CSinglePoleLp &that);
+    CSinglePoleLp &operator=(const CSinglePoleLp &c);
 
-    float m_fAlpha = 0.9F;      //!< filter coeff
+    float m_fAlpha = 0.9F; //!< filter coeff
 
-    float m_fPrevOut = 0.F;     //!< filter buffer
+    float m_fPrevOut = 0.F; //!< filter buffer
 };
 
 
-/*! \brief class for single-pole low pass filtering
+/*! \brief class for moving average low pass filtering
 */
 class CMovingAverage
 {
@@ -127,7 +126,7 @@ public:
     \param pCInstance pointer to instance to be written
     \return Error_t
     */
-    static Error_t create(CMovingAverage*& pCInstance)
+    static Error_t create(CMovingAverage *&pCInstance)
     {
         pCInstance = new CMovingAverage();
 
@@ -139,7 +138,7 @@ public:
     \param pCInstance pointer to instance to be destroyed
     \return Error_t
     */
-    static Error_t destroy(CMovingAverage*& pCInstance)
+    static Error_t destroy(CMovingAverage *&pCInstance)
     {
         delete pCInstance;
         pCInstance = 0;
@@ -159,7 +158,7 @@ public:
         if (m_pCRingBuff->getLength() < iFilterLength)
         {
             delete m_pCRingBuff;
-            m_pCRingBuff = new CRingBuffer<float>(iFilterLength+1);
+            m_pCRingBuff = new CRingBuffer<float>(iFilterLength + 1);
         }
         m_pCRingBuff->setReadIdx(-iFilterLength);
 
@@ -190,24 +189,24 @@ public:
     }
 
     /*! performs the MovingAverage computation
-    \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
-    \param pfInput input data of length iLengthOfBuffer
-    \param iLengthOfBuffer length of buffer in samples
+    \param pfOut filter result (user-allocated, to be written, length iLenBuff)
+    \param pfIn input data of length iLenBuff
+    \param iLenBuff length of buffer in samples
     \return Error_t
     */
-    Error_t process(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
+    Error_t process(float *pfOut, const float *pfIn, long long iLenBuff)
     {
-        if (!pfOutput || !pfInput || iLengthOfBuffer <= 0)
+        if (!pfOut || !pfIn || iLenBuff <= 0)
             return Error_t::kFunctionInvalidArgsError;
-        
-        int iFilterLength = m_pCRingBuff->getNumValuesInBuffer();
+
+        int iLenFilter = m_pCRingBuff->getNumValuesInBuffer();
 
         // recursive implementation - beware of potential error propagation due to numerical precision
-        for (auto i = 0; i < iLengthOfBuffer; i++)
+        for (auto i = 0; i < iLenBuff; i++)
         {
-            m_fPrevOut += (pfInput[i] - m_pCRingBuff->getPostInc()) / iFilterLength;
-            pfOutput[i] = m_fPrevOut;
-            m_pCRingBuff->putPostInc(pfInput[i]);
+            m_fPrevOut += (pfIn[i] - m_pCRingBuff->getPostInc()) / iLenFilter;
+            pfOut[i] = m_fPrevOut;
+            m_pCRingBuff->putPostInc(pfIn[i]);
         }
 
         return Error_t::kNoError;
@@ -226,41 +225,41 @@ public:
     }
 
     /*! performs zero-phase filtering with the MA
-    \param pfOutput filter result (user-allocated, to be written, length iLengthOfBuffer)
-    \param pfInput input data of length iLengthOfBuffer
-    \param iLengthOfBuffer length of buffer in samples
+    \param pfOut filter result (user-allocated, to be written, length iLenBuff)
+    \param pfIn input data of length iLenBuff
+    \param iLenBuff length of buffer in samples
     */
-    void filtfilt(float* pfOutput, const float* pfInput, long long iLengthOfBuffer)
+    void filtfilt(float *pfOut, const float *pfIn, long long iLenBuff)
     {
-        
-        int iFilterLength = this->getFilterParam();
+
+        int iLenFilter = this->getFilterParam();
         this->reset();
-        this->setFilterParam(iFilterLength);
+        this->setFilterParam(iLenFilter);
 
-        float* pfTmpBuff = 0;
-        CVector::alloc(pfTmpBuff, iLengthOfBuffer + 2 * static_cast<long long>(iFilterLength));
+        float *pfTmpBuff = 0;
+        CVector::alloc(pfTmpBuff, iLenBuff + 2 * static_cast<long long>(iLenFilter));
 
-        this->process(&pfTmpBuff[iFilterLength], pfInput, iLengthOfBuffer);
+        this->process(&pfTmpBuff[iLenFilter], pfIn, iLenBuff);
 
         // tail
-        for (auto i = 0; i < iFilterLength; i++)
+        for (auto i = 0; i < iLenFilter; i++)
         {
             float fZero = 0.F;
-            this->process(&pfTmpBuff[iLengthOfBuffer + iFilterLength + i], &fZero, 1);
+            this->process(&pfTmpBuff[iLenBuff + iLenFilter + i], &fZero, 1);
         }
 
         // reverse tail
-        for (auto i = iLengthOfBuffer + 2*static_cast<long long>(iFilterLength) - 1; i >= iLengthOfBuffer + iFilterLength; i--)
+        for (auto i = iLenBuff + 2 * static_cast<long long>(iLenFilter) - 1; i >= iLenBuff + iLenFilter; i--)
         {
             float fZero = 0.F;
             this->process(&fZero, &pfTmpBuff[i], 1);
         }
 
-        for (auto i = iLengthOfBuffer + iFilterLength - 1; i >= iFilterLength; i--)
-            this->process(&pfOutput[i-iFilterLength], &pfTmpBuff[i], 1);
+        for (auto i = iLenBuff + iLenFilter - 1; i >= iLenFilter; i--)
+            this->process(&pfOut[i - iLenFilter], &pfTmpBuff[i], 1);
 
         this->reset();
-        this->setFilterParam(iFilterLength);
+        this->setFilterParam(iLenFilter);
 
         CVector::free(pfTmpBuff);
     }
@@ -271,20 +270,17 @@ private:
     {
         reset();
     };
-    virtual ~CMovingAverage() 
+
+    virtual ~CMovingAverage()
     {
         delete m_pCRingBuff;
     };
-    CMovingAverage(const CMovingAverage& that);
-    CMovingAverage& operator=(const CMovingAverage& c);
+    CMovingAverage(const CMovingAverage &that);
+    CMovingAverage &operator=(const CMovingAverage &c);
 
-    CRingBuffer<float>* m_pCRingBuff = new CRingBuffer<float>(65);
+    CRingBuffer<float> *m_pCRingBuff = new CRingBuffer<float>(65); //!< filter buffer
 
-    float m_fPrevOut = 0;
+    float m_fPrevOut = 0; //!< previous output value
 };
 
-
 #endif // #if !defined(__ACA_LowPass_HEADER_INCLUDED__)
-
-
-

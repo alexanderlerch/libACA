@@ -12,13 +12,16 @@
 
 ///////////////////////////////////////////////////////////////////
 // Pitch extractors
+
+/*! \brief class for computation of the pitch via the acf of the magnitude spectrum
+*/
 class CPitchSpectralAcf : public CPitchFromBlockIf
 {
 public:
     CPitchSpectralAcf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate)
     {
         m_pCCcf = new CCcf();
-        m_pCCcf->init((m_iDataLength-1)*2);
+        m_pCCcf->init((m_iDataLength - 1) * 2);
         CVector::alloc(m_pfProcBuff, (static_cast<long long>(m_iDataLength) - 1) * 2);
 
         CVector::alloc(m_pfAcf, m_pCCcf->getCcfLength(true));
@@ -33,9 +36,9 @@ public:
         m_pCCcf = 0;
     };
 
-    float compF0(const float* pfInput) override
+    float compF0(const float *pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         // get minimum bin
         int iMin = CUtil::float2int<int>(CConversion::convertFreq2Bin(m_fMin, (m_iDataLength - 1) * 2, m_fSampleRate));
@@ -43,17 +46,17 @@ public:
         long long iMaxIdx = -1;
 
         // flip data so it's more robust and set bin 0 to max
-        CVector::copy(m_pfProcBuff, pfInput, m_iDataLength);
+        CVector::copy(m_pfProcBuff, pfIn, m_iDataLength);
         CVector::flip_I(m_pfProcBuff, m_iDataLength);
-        CVector::copy(&m_pfProcBuff[m_iDataLength - 1], pfInput, m_iDataLength - static_cast<long long>(1));
-        m_pfProcBuff[m_iDataLength - 1] = CVector::getMax(pfInput, m_iDataLength);
+        CVector::copy(&m_pfProcBuff[m_iDataLength - 1], pfIn, m_iDataLength - static_cast<long long>(1));
+        m_pfProcBuff[m_iDataLength - 1] = CVector::getMax(pfIn, m_iDataLength);
 
         // compute acf
         m_pCCcf->compCcf(m_pfProcBuff, m_pfProcBuff, true);
         m_pCCcf->getCcf(m_pfAcf, true);
 
         // adjust lower search boundary for local maxima
-        for (auto k = iMin-1; k < m_iDataLength; k++)
+        for (auto k = iMin - 1; k < m_iDataLength; k++)
         {
             if (m_pfAcf[k + 1] < m_pfAcf[k])
             {
@@ -62,7 +65,7 @@ public:
             }
             iMin++;
         }
-        
+
         // sanity check
         if (iMin >= m_iDataLength - 2)
             return 0.F;
@@ -70,21 +73,23 @@ public:
         // now find the maximum
         CVector::findMax(&m_pfAcf[iMin], fTmp, iMaxIdx, m_iDataLength - static_cast<long long>(1) - iMin);
 
-        return CConversion::convertBin2Freq((iMin+iMaxIdx) * 1.F, (m_iDataLength - 1) * 2, m_fSampleRate);
+        return CConversion::convertBin2Freq((iMin + iMaxIdx) * 1.F, (m_iDataLength - 1) * 2, m_fSampleRate);
     };
 
 private:
     CPitchSpectralAcf() {};
-    CPitchSpectralAcf(const CPitchSpectralAcf& that);     //!< disallow copy construction
-    CPitchSpectralAcf& operator=(const CPitchSpectralAcf& c);
+    CPitchSpectralAcf(const CPitchSpectralAcf &that);     //!< disallow copy construction
+    CPitchSpectralAcf &operator=(const CPitchSpectralAcf &c);
 
-    CCcf* m_pCCcf = 0;
-    float* m_pfAcf = 0;
-    float* m_pfProcBuff = 0;
+    CCcf *m_pCCcf = 0; //!< instance for correlation function computation
+    float *m_pfAcf = 0; //!< acf result
+    float *m_pfProcBuff = 0; //!< temporary buffer for processing
 
-    float m_fMin = 300.F;
+    float m_fMin = 300.F; //!< minimum frequency
 };
 
+/*! \brief class for computation of the pitch via the hps of the magnitude spectrum
+*/
 class CPitchSpectralHps : public CPitchFromBlockIf
 {
 public:
@@ -98,22 +103,22 @@ public:
         CVector::free(m_pfProcBuff);
     }
 
-    float compF0(const float* pfInput) override
+    float compF0(const float *pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         float fTmp = 0.F;
         long long iMaxIdx = 0;
         int iMin = CUtil::float2int<int>(CConversion::convertFreq2Bin(m_fMin, (m_iDataLength - 1) * 2, m_fSampleRate));
-        CVector::copy(m_pfProcBuff, pfInput, m_iDataLength);
+        CVector::copy(m_pfProcBuff, pfIn, m_iDataLength);
         CVector::setZero(m_pfProcBuff, iMin);
-        CVector::setZero(&m_pfProcBuff[m_iDataLength/m_iOrder], static_cast<long long>(m_iDataLength) - (m_iDataLength / m_iOrder));
+        CVector::setZero(&m_pfProcBuff[m_iDataLength / m_iOrder], static_cast<long long>(m_iDataLength) - (m_iDataLength / m_iOrder));
 
         // do the actual product sum
         for (auto j = 2; j <= m_iOrder; j++)
         {
             for (auto k = 0; k < m_iDataLength / j; k++)
-                m_pfProcBuff[k] *= pfInput[j * k];
+                m_pfProcBuff[k] *= pfIn[j * k];
         }
 
         // this could be restricted a bit, but is it worth it?
@@ -127,14 +132,16 @@ public:
     };
 private:
     CPitchSpectralHps() {};
-    CPitchSpectralHps(const CPitchSpectralHps& that);     //!< disallow copy construction  
-    CPitchSpectralHps& operator=(const CPitchSpectralHps& c);
+    CPitchSpectralHps(const CPitchSpectralHps &that);     //!< disallow copy construction  
+    CPitchSpectralHps &operator=(const CPitchSpectralHps &c);
 
-    float* m_pfProcBuff = 0;
-    int m_iOrder = 4;
-    float m_fMin = 300.F;
+    float *m_pfProcBuff = 0; //!< temporary buffer for processing
+    int m_iOrder = 4; //!< HPS order
+    float m_fMin = 300.F; //!< minimum frequency
 };
 
+/*! \brief class for computation of the pitch via the acf of the time domain signal
+*/
 class CPitchTimeAcf : public CPitchFromBlockIf
 {
 public:
@@ -154,14 +161,14 @@ public:
         m_pCCcf = 0;
     };
 
-    float compF0(const float* pfInput) override
+    float compF0(const float *pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         int iEta = 0,
             iEtaMin = static_cast<int>(m_fSampleRate / m_fMax);
 
-        m_pCCcf->compCcf(pfInput, pfInput, true);
+        m_pCCcf->compCcf(pfIn, pfIn, true);
         m_pCCcf->getCcf(m_pfAcf, true);
 
         // avoid main lobe
@@ -198,17 +205,20 @@ public:
 
 private:
     CPitchTimeAcf() {};
-    CPitchTimeAcf(const CPitchTimeAcf& that);     //!< disallow copy construction
-    CPitchTimeAcf& operator=(const CPitchTimeAcf& c);
+    CPitchTimeAcf(const CPitchTimeAcf &that);     //!< disallow copy construction
+    CPitchTimeAcf &operator=(const CPitchTimeAcf &c);
 
-    CCcf* m_pCCcf = 0;
-    float* m_pfAcf = 0;
+    CCcf *m_pCCcf = 0; //!< instance for correlation function computation
+    float *m_pfAcf = 0; //!< acf result
 
-    float m_fMax = 2000.F;
-    const float m_fMinThresh = 0.35F;
+    float m_fMax = 2000.F; //!< maximum frequency
+    const float m_fMinThresh = 0.35F; //!< acf threshold for parsing
 
 };
 
+
+/*! \brief class for computation of the pitch via the auditory method from the time domain signal
+*/
 class CPitchTimeAuditory : public CPitchFromBlockIf
 {
 public:
@@ -250,14 +260,14 @@ public:
         CGammaToneFbIf::destroy(m_pCFilterBank);
     };
 
-    float compF0(const float* pfInput) override
+    float compF0(const float *pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         CVector::setZero(m_pfSumAcf, m_iDataLength);
 
-        m_pCFilterBank->process(m_ppfProcBuff, pfInput, m_iDataLength);
-        
+        m_pCFilterBank->process(m_ppfProcBuff, pfIn, m_iDataLength);
+
         for (auto c = 0; c < m_iNumBands; c++)
         {
             // smooth
@@ -272,16 +282,16 @@ public:
         }
 
         int iEta = getAcfMax_(m_pfSumAcf);
-        return m_fSampleRate / iEta;    
+        return m_fSampleRate / iEta;
     }
 
 
 private:
     CPitchTimeAuditory() {};
-    CPitchTimeAuditory(const CPitchTimeAuditory& that);     //!< disallow copy construction
-    CPitchTimeAuditory& operator=(const CPitchTimeAuditory& c);
+    CPitchTimeAuditory(const CPitchTimeAuditory &that);     //!< disallow copy construction
+    CPitchTimeAuditory &operator=(const CPitchTimeAuditory &c);
 
-    int getAcfMax_(const float* pfInput)
+    int getAcfMax_(const float *pfInput)
     {
         int iEta = 0,
             iEtaMin = static_cast<int>(m_fSampleRate / m_fMax);
@@ -317,43 +327,45 @@ private:
         return static_cast<int>(iMax + iEtaMin);
     };
 
-    CCcf* m_pCCcf = 0;
-    float* m_pfAcf = 0;
-    float* m_pfSumAcf = 0;
-    float** m_ppfProcBuff = 0;
+    CCcf *m_pCCcf = 0; //!< instance for correlation function computation
+    float *m_pfAcf = 0; //!< acf result
+    float *m_pfSumAcf = 0; //!< aggregated acf result
+    float **m_ppfProcBuff = 0; //!< temporary processing buffer
 
-    static const int m_iNumBands = 20;
-    CFilter<float>* m_apCFilter[m_iNumBands] = { 0 };
-    CGammaToneFbIf* m_pCFilterBank = 0;
+    static const int m_iNumBands = 20; //!< number of filter bands
+    CFilter<float> *m_apCFilter[m_iNumBands] = { 0 }; //!< the actual filters
+    CGammaToneFbIf *m_pCFilterBank = 0; //!< instance of gammatone filterbank
 
 
-    float m_fMax = 2000.F;
-    const float m_fSmoothLpCutoff = 0.02F;
-    const float m_fMinThresh = 0.35F;
+    float m_fMax = 2000.F; //!< maximum frequency to detect
+    const float m_fSmoothLpCutoff = 0.02F; //!< cutoff frequency for smoothing lowpass
+    const float m_fMinThresh = 0.35F; //!< minimum threshold for acf parsing
 
 };
 
+/*! \brief class for computation of the pitch via the amdf method from the time domain signal
+*/
 class CPitchTimeAmdf : public CPitchFromBlockIf
 {
 public:
-    CPitchTimeAmdf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate) {    };
+    CPitchTimeAmdf(CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate) : CPitchFromBlockIf(ePitchIdx, iDataLength, fSampleRate) {};
 
-    virtual ~CPitchTimeAmdf() {    };
+    virtual ~CPitchTimeAmdf() {};
 
-    float compF0(const float* pfInput) override
+    float compF0(const float *pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         float fResMin = std::numeric_limits<float>::max();
         int iResEta = -1;
         int iEtaMin = static_cast<int>(m_fSampleRate / m_fMax),
-            iEtaMax = static_cast<int>(m_fSampleRate / m_fMin)+1;
+            iEtaMax = static_cast<int>(m_fSampleRate / m_fMin) + 1;
 
         // sanity checks
         if (iEtaMax > m_iDataLength)
             iEtaMax = m_iDataLength;
 
-        if (CVector::getSum(pfInput, m_iDataLength, true) <= 0)
+        if (CVector::getSum(pfIn, m_iDataLength, true) <= 0)
             return 0.F;
 
         // compute amdf
@@ -361,7 +373,7 @@ public:
         {
             float fAmdf = 0.F;
             for (auto i = 0; i < m_iDataLength - iEta; i++)
-                fAmdf += std::abs(pfInput[i] - pfInput[i + iEta]);
+                fAmdf += std::abs(pfIn[i] - pfIn[i + iEta]);
 
             if (fAmdf <= fResMin)
             {
@@ -380,14 +392,16 @@ public:
 
 private:
     CPitchTimeAmdf() {};
-    CPitchTimeAmdf(const CPitchTimeAmdf& that);     //!< disallow copy construction
-    CPitchTimeAmdf& operator=(const CPitchTimeAmdf& c);
+    CPitchTimeAmdf(const CPitchTimeAmdf &that);     //!< disallow copy construction
+    CPitchTimeAmdf &operator=(const CPitchTimeAmdf &c);
 
-    float m_fMax = 2000.F;
-    float m_fMin = 50.F;
+    float m_fMax = 2000.F; //!< maximum frequency
+    float m_fMin = 50.F; //!< minimum frequency
 
 };
 
+/*! \brief class for computation of the pitch via the zero crossings method from the time domain signal
+*/
 class CPitchTimeZeroCrossings : public CPitchFromBlockIf
 {
 public:
@@ -395,17 +409,18 @@ public:
 
     virtual ~CPitchTimeZeroCrossings() {};
 
-    float compF0(const float* pfInput) override
+    float compF0(const float *pfIn) override
     {
-        assert(pfInput);
+        assert(pfIn);
 
         int iNumZeroCrossings = 0;
         int iPrevIdx = -1;
         int iDist2Prev = 0;
 
-        for (auto i = 0; i < m_iDataLength-1; i++)
+        for (auto i = 0; i < m_iDataLength - 1; i++)
         {
-            if (pfInput[i] * pfInput[i + 1] < 0)
+            // check if sign has changed
+            if (pfIn[i] * pfIn[i + 1] < 0)
             {
                 if (iPrevIdx > 0)
                 {
@@ -417,19 +432,19 @@ public:
         }
         if (iNumZeroCrossings <= 1)
             return 0.F;
-        
+
         return m_fSampleRate / (iDist2Prev * 2.F / iNumZeroCrossings);
     };
 
 private:
     CPitchTimeZeroCrossings() {};
-    CPitchTimeZeroCrossings(const CPitchTimeZeroCrossings& that);     //!< disallow copy construction
-    CPitchTimeZeroCrossings& operator=(const CPitchTimeZeroCrossings& c);
+    CPitchTimeZeroCrossings(const CPitchTimeZeroCrossings &that);     //!< disallow copy construction
+    CPitchTimeZeroCrossings &operator=(const CPitchTimeZeroCrossings &c);
 };
 
 ///////////////////////////////////////////////////////////////////
 // normal member functions
-Error_t CPitchFromBlockIf::create(CPitchFromBlockIf*& pCInstance, CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate)
+Error_t CPitchFromBlockIf::create(CPitchFromBlockIf *&pCInstance, CPitchIf::PitchExtractors_t ePitchIdx, int iDataLength, float fSampleRate)
 {
     if (iDataLength <= 0 || fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -445,10 +460,6 @@ Error_t CPitchFromBlockIf::create(CPitchFromBlockIf*& pCInstance, CPitchIf::Pitc
     case CPitchIf::kPitchTimeZeroCrossings:
         pCInstance = new CPitchTimeZeroCrossings(ePitchIdx, iDataLength, fSampleRate);
         break;
-
-    //case CPitchIf::kPitchTimeAuditory:
-    //    pCInstance = new CPitchTimeAuditory(ePitchIdx, iDataLength, fSampleRate);
-    //    break;
 
     case CPitchIf::kPitchTimeAmdf:
         pCInstance = new CPitchTimeAmdf(ePitchIdx, iDataLength, fSampleRate);
@@ -467,7 +478,7 @@ Error_t CPitchFromBlockIf::create(CPitchFromBlockIf*& pCInstance, CPitchIf::Pitc
     return Error_t::kNoError;
 }
 
-Error_t CPitchFromBlockIf::destroy(CPitchFromBlockIf*& pCInstance)
+Error_t CPitchFromBlockIf::destroy(CPitchFromBlockIf *&pCInstance)
 {
     delete pCInstance;
 

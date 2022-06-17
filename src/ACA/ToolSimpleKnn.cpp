@@ -7,19 +7,19 @@
 const int CClassifierBase::kIllegalClassLabel = -1111111111;
 
 
-CKnn::~CKnn(void) 
+CKnn::~CKnn(void)
 {
     reset();
 }
 
-Error_t CKnn::init(int iNumFeatures, int iNumObservations)
+Error_t CKnn::init(int iNumFeatures, int iNumObs)
 {
-    if (iNumFeatures <= 0 || iNumObservations <= 1)
+    if (iNumFeatures <= 0 || iNumObs <= 1)
         return Error_t::kFunctionInvalidArgsError;
 
     reset();
 
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
     m_iNumFeatures = iNumFeatures;
 
     CVector::alloc(m_piClassLabels, m_iNumObs);
@@ -63,7 +63,7 @@ Error_t CKnn::reset()
 
     return Error_t::kNoError;
 }
-Error_t CKnn::train(const float* const* const ppfTrainFeatures, const int* piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
+Error_t CKnn::train(const float *const *const ppfTrainFeatures, const int *piTrainClassIndices, CClassifierBase::Normalization_t eNorm)
 {
     if (!ppfTrainFeatures || !piTrainClassIndices)
         return Error_t::kFunctionInvalidArgsError;
@@ -110,7 +110,7 @@ int CKnn::getParamK() const
     return m_iK;
 }
 
-int CKnn::classify(const float* pfQuery)
+int CKnn::classify(const float *pfQuery)
 {
     if (!pfQuery || !m_bIsInitialized)
         return kIllegalClassLabel;
@@ -183,7 +183,7 @@ void CKnn::buildHistogram_(bool bUseDistance)
         iNumLabelsInK++;
     }
 
-    // distance based metrics
+    // distance-based metrics
     if (bUseDistance)
     {
         // scale by number of entries in histogram
@@ -203,12 +203,15 @@ int CKnn::countMaxima_()
     int iNumMax = 0;
     float fMax = 0;
     long long iMax = 0;
+
+    // find first max
     CVector::findMax(m_pfHist, fMax, iMax, m_iK);
     CUtil::swap(m_pfHist[iNumMax], m_pfHist[iMax]);
     CUtil::swap(m_piHistLabel[iNumMax], m_piHistLabel[iMax]);
     iNumMax++;
     for (auto k = 1; k < m_iK; k++)
     {
+        // check for others
         if (m_pfHist[k] >= fMax)
         {
             CUtil::swap(m_pfHist[iNumMax], m_pfHist[k]);

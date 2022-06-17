@@ -12,29 +12,29 @@
 #include "Spectrogram.h"
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// file extraction
+/*! \brief class for computation of the spectrogram from a file
+*/
 class CSpectrogramFromFile : public CSpectrogramIf
 {
 public:
-    CSpectrogramFromFile(std::string strAudioFilePath, int iBlockLength, int iHopLength, bool bNormalize, float* pfWindow);
+    CSpectrogramFromFile(std::string strAudioFilePath, int iBlockLength, int iHopLength, bool bNormalize, float *pfWindow);
 
     virtual ~CSpectrogramFromFile()
     {
         delete m_pCNormalize;
         m_pCNormalize = 0;
 
-        CVector::free(m_pfProcessBuff);
+        CVector::free(m_pfProcBuff);
 
         m_pCAudioFile->closeFile();
         CAudioFileIf::destroy(m_pCAudioFile);
     };
 
 private:
-    CAudioFileIf* m_pCAudioFile;
+    CAudioFileIf *m_pCAudioFile;
 };
 
-CSpectrogramFromFile::CSpectrogramFromFile(std::string strAudioFilePath, int iBlockLength, int iHopLength, bool bNormalize, float* pfWindow) :
+CSpectrogramFromFile::CSpectrogramFromFile(std::string strAudioFilePath, int iBlockLength, int iHopLength, bool bNormalize, float *pfWindow) :
     m_pCAudioFile(0)
 {
     this->reset_();
@@ -58,16 +58,16 @@ CSpectrogramFromFile::CSpectrogramFromFile(std::string strAudioFilePath, int iBl
 }
 
 
-/////////////////////////////////////////////////////////////////////////////////
-// vector extraction
+/*! \brief class for computation of the spectrogram from a vector of audio data
+*/
 class CSpectrogramFromVector : public CSpectrogramIf
 {
 public:
-    CSpectrogramFromVector(const float* pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength, bool bNormalize, float* pfWindow);
+    CSpectrogramFromVector(const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength, bool bNormalize, float *pfWindow);
     virtual ~CSpectrogramFromVector() {};
 };
 
-CSpectrogramFromVector::CSpectrogramFromVector(const float* pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength, bool bNormalize, float* pfWindow)
+CSpectrogramFromVector::CSpectrogramFromVector(const float *pfAudio, long long iAudioLength, float fSampleRate, int iBlockLength, int iHopLength, bool bNormalize, float *pfWindow)
 {
     // set length variables
     m_iBlockLength = iBlockLength;
@@ -97,7 +97,7 @@ inline CSpectrogramIf::~CSpectrogramIf()
     reset_();
 }
 
-Error_t CSpectrogramIf::create(CSpectrogramIf*& pCInstance, const std::string& strAudioFilePath, int iBlockLength, int iHopLength, bool bNormalize, float* pfWindow)
+Error_t CSpectrogramIf::create(CSpectrogramIf *&pCInstance, const std::string &strAudioFilePath, int iBlockLength, int iHopLength, bool bNormalize, float *pfWindow)
 {
     if (strAudioFilePath.empty())
         return Error_t::kFunctionInvalidArgsError;
@@ -112,11 +112,11 @@ Error_t CSpectrogramIf::create(CSpectrogramIf*& pCInstance, const std::string& s
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::create(CSpectrogramIf*& pCInstance, const float* pfAudio, long long iNumFrames, float fSampleRate, int iBlockLength, int iHopLength, bool bNormalize, float* pfWindow)
+Error_t CSpectrogramIf::create(CSpectrogramIf *&pCInstance, const float *pfAudio, long long iNumSamples, float fSampleRate, int iBlockLength, int iHopLength, bool bNormalize, float *pfWindow)
 {
     if (!pfAudio)
         return Error_t::kFunctionInvalidArgsError;
-    if (iNumFrames <= 0)
+    if (iNumSamples <= 0)
         return Error_t::kFunctionInvalidArgsError;
     if (fSampleRate <= 0)
         return Error_t::kFunctionInvalidArgsError;
@@ -125,12 +125,12 @@ Error_t CSpectrogramIf::create(CSpectrogramIf*& pCInstance, const float* pfAudio
     if (iHopLength <= 0 || iHopLength > iBlockLength)
         return Error_t::kFunctionInvalidArgsError;
 
-    pCInstance = new CSpectrogramFromVector(pfAudio, iNumFrames, fSampleRate, iBlockLength, iHopLength, bNormalize, pfWindow);
+    pCInstance = new CSpectrogramFromVector(pfAudio, iNumSamples, fSampleRate, iBlockLength, iHopLength, bNormalize, pfWindow);
 
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::destroy(CSpectrogramIf*& pCInstance)
+Error_t CSpectrogramIf::destroy(CSpectrogramIf *&pCInstance)
 {
     delete pCInstance;
     pCInstance = 0;
@@ -138,7 +138,7 @@ Error_t CSpectrogramIf::destroy(CSpectrogramIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::getSpectrogramDimensions(int& iNumRows, int& iNumCols) const
+Error_t CSpectrogramIf::getSpectrogramDimensions(int &iNumRows, int &iNumCols) const
 {
     if (!m_bIsInitialized)
     {
@@ -153,7 +153,7 @@ Error_t CSpectrogramIf::getSpectrogramDimensions(int& iNumRows, int& iNumCols) c
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::getSpectrogramAxisVectors(float* pfAxisTicks, AxisLabel_t eAxisLabel) const
+Error_t CSpectrogramIf::getSpectrogramAxisVectors(float *pfAxisTicks, AxisLabel_t eAxisLabel) const
 {
     if (!m_bIsInitialized)
     {
@@ -185,7 +185,7 @@ Error_t CSpectrogramIf::getSpectrogramAxisVectors(float* pfAxisTicks, AxisLabel_
 }
 
 
-Error_t CSpectrogramIf::compSpectrogram(float** ppfSpectrogram)
+Error_t CSpectrogramIf::compSpectrogram(float **ppfSpectrogram)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -194,7 +194,7 @@ Error_t CSpectrogramIf::compSpectrogram(float** ppfSpectrogram)
     if (!ppfSpectrogram[0])
         return Error_t::kFunctionInvalidArgsError;
 
-    assert(m_pfProcessBuff);
+    assert(m_pfProcBuff);
     assert(m_pfSpectrum);
     assert(m_pCFft);
 
@@ -217,27 +217,27 @@ Error_t CSpectrogramIf::compSpectrogram(float** ppfSpectrogram)
 void CSpectrogramIf::computeMagSpectrum_(int iLength)
 {
     // retrieve the next audio block
-    m_pCBlockAudio->getNextBlock(m_pfProcessBuff);
+    m_pCBlockAudio->getNextBlock(m_pfProcBuff);
 
     // normalize if specified
     if (m_pCNormalize)
-        m_pCNormalize->normalizeBlock(m_pfProcessBuff, m_iBlockLength);
+        m_pCNormalize->normalizeBlock(m_pfProcBuff, m_iBlockLength);
 
-    // compute magnitude spectrum (hack
-    m_pCFft->compFft(m_pfSpectrum, m_pfProcessBuff);
+    // compute magnitude spectrum 
+    m_pCFft->compFft(m_pfSpectrum, m_pfProcBuff);
     m_pCFft->getMagnitude(m_pfSpectrum, m_pfSpectrum);
 
     CVector::mulC_I(m_pfSpectrum, 2.F, iLength);
 }
 
-void CSpectrogramIf::destroyMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig)
+void CSpectrogramIf::destroyMelFb_(const MelSpectrogramConfig_t *pMelSpecConfig)
 {
     CMatrix::free(m_ppfHMel, pMelSpecConfig->iNumMelBins);
 }
 
 Error_t CSpectrogramIf::reset_()
 {
-    CVector::free(m_pfProcessBuff);
+    CVector::free(m_pfProcBuff);
 
     CVector::free(m_pfSpectrum);
 
@@ -257,7 +257,7 @@ Error_t CSpectrogramIf::reset_()
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::init_(float* pfWindow)
+Error_t CSpectrogramIf::init_(float *pfWindow)
 {
     // initialize FFT and fft  buffer
     m_pCFft = new CFft();
@@ -267,7 +267,7 @@ Error_t CSpectrogramIf::init_(float* pfWindow)
 
     // allocate processing memory
     CVector::alloc(m_pfSpectrum, m_iBlockLength);
-    CVector::alloc(m_pfProcessBuff, m_iBlockLength);
+    CVector::alloc(m_pfProcBuff, m_iBlockLength);
 
     m_bIsInitialized = true;
 
@@ -275,7 +275,7 @@ Error_t CSpectrogramIf::init_(float* pfWindow)
 }
 
 
-Error_t CSpectrogramIf::getMelSpectrogramDimensions(int& iNumRows, int& iNumCols, const MelSpectrogramConfig_t* pMelSpecConfig) const
+Error_t CSpectrogramIf::getMelSpectrogramDimensions(int &iNumRows, int &iNumCols, const MelSpectrogramConfig_t *pMelSpecConfig) const
 {
     if (!pMelSpecConfig)
         return Error_t::kFunctionInvalidArgsError;
@@ -293,7 +293,7 @@ Error_t CSpectrogramIf::getMelSpectrogramDimensions(int& iNumRows, int& iNumCols
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float* pfAxisTicks, AxisLabel_t eAxisLabel, const MelSpectrogramConfig_t* pMelSpecConfig)
+Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float *pfAxisTicks, AxisLabel_t eAxisLabel, const MelSpectrogramConfig_t *pMelSpecConfig)
 {
     if (!m_bIsInitialized)
     {
@@ -318,7 +318,7 @@ Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float* pfAxisTicks, AxisLab
     if (eAxisLabel == kFrequencyInHz)
     {
         generateMelFb_(pMelSpecConfig);
-        
+
         assert(m_pffcMel);
 
         // note that we start with 1 to look at the center freqs only
@@ -330,7 +330,7 @@ Error_t CSpectrogramIf::getMelSpectrogramAxisVectors(float* pfAxisTicks, AxisLab
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::compMelSpectrogram(float** ppfMelSpectrogram, const MelSpectrogramConfig_t* pMelSpecConfig)
+Error_t CSpectrogramIf::compMelSpectrogram(float **ppfMelSpectrogram, const MelSpectrogramConfig_t *pMelSpecConfig)
 {
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
@@ -341,7 +341,7 @@ Error_t CSpectrogramIf::compMelSpectrogram(float** ppfMelSpectrogram, const MelS
     if (!ppfMelSpectrogram[0])
         return Error_t::kFunctionInvalidArgsError;
 
-    assert(m_pfProcessBuff);
+    assert(m_pfProcBuff);
     assert(m_pfSpectrum);
     assert(m_pCFft);
 
@@ -377,7 +377,7 @@ Error_t CSpectrogramIf::compMelSpectrogram(float** ppfMelSpectrogram, const MelS
     return Error_t::kNoError;
 }
 
-Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t* pMelSpecConfig)
+Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t *pMelSpecConfig)
 {
     assert(pMelSpecConfig);
 
@@ -394,20 +394,20 @@ Error_t CSpectrogramIf::generateMelFb_(const MelSpectrogramConfig_t* pMelSpecCon
     // allocate filter matrix and frequency matrix
     CVector::alloc(m_pffcMel, static_cast<long long>(pMelSpecConfig->iNumMelBins) + 2); // +2 for lower and upper bound
     CMatrix::alloc(m_ppfHMel, pMelSpecConfig->iNumMelBins, iMagLength);
-    
+
 
     // compute center band frequencies
     m_pffcMel[0] = CConversion::convertFreq2Mel(pMelSpecConfig->fMinFreqInHz);
     m_pffcMel[pMelSpecConfig->iNumMelBins + 1] = CConversion::convertFreq2Mel(pMelSpecConfig->fMaxFreqInHz);
-    float fMelInc = (m_pffcMel[pMelSpecConfig->iNumMelBins + 1] - m_pffcMel[0]) / (pMelSpecConfig->iNumMelBins+1);
+    float fMelInc = (m_pffcMel[pMelSpecConfig->iNumMelBins + 1] - m_pffcMel[0]) / (pMelSpecConfig->iNumMelBins + 1);
     for (auto k = 1; k < pMelSpecConfig->iNumMelBins + 1; k++)
         m_pffcMel[k] = m_pffcMel[k - 1] + fMelInc;
     for (auto k = 0; k < pMelSpecConfig->iNumMelBins + 2; k++)
         m_pffcMel[k] = CConversion::convertMel2Freq(m_pffcMel[k]);
 
-    float* pf_l = &m_pffcMel[0],
-        * pf_c = &m_pffcMel[1],
-        * pf_u = &m_pffcMel[2];
+    float *pf_l = &m_pffcMel[0],
+        *pf_c = &m_pffcMel[1],
+        *pf_u = &m_pffcMel[2];
 
     for (auto m = 0; m < pMelSpecConfig->iNumMelBins; m++)
     {

@@ -36,7 +36,7 @@ public:
         kNumBarkConversionFunctions
     };
 
- 
+
     /*! converts a frequency scalar to a mel value
     \param fInHz frequency in Hz
     \param eFunc index for conversion function selection
@@ -58,7 +58,7 @@ public:
     \param eFunc index for conversion function selection
     \return void
     */
-    static void convertFreq2Mel(float* pfMel, const float* pffInHz, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
+    static void convertFreq2Mel(float *pfMel, const float *pffInHz, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
 
     /*! converts a mel array to a frequency array
     \param pffInHz output frequency values in Hz (length iLenghBuff, to be written)
@@ -67,7 +67,7 @@ public:
     \param eFunc index for conversion function selection
     \return void
     */
-    static void convertMel2Freq(float* pffInHz, const float* pfMel, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
+    static void convertMel2Freq(float *pffInHz, const float *pfMel, int iLengthBuff, MelConversionFunctions_t eFunc = kFant);
 
 
     /*! converts a frequency scalar to a Bark value
@@ -90,7 +90,7 @@ public:
     \param iLengthBuff length of buffers
     \param eFunc index for conversion function selection
     */
-    static void convertFreq2Bark(float* pfBark, const float* pffInHz, int iLengthBuff, BarkConversionFunctions_t eFunc = kSchroeder);
+    static void convertFreq2Bark(float *pfBark, const float *pffInHz, int iLengthBuff, BarkConversionFunctions_t eFunc = kSchroeder);
 
     /*! converts a Bark array to a frequency array
     \param pffInHz output frequency values in Hz (length iLenghBuff, to be written)
@@ -98,7 +98,7 @@ public:
     \param iLengthBuff length of buffers
     \param eFunc index for conversion function selection
     */
-    static void convertBark2Freq(float* pffInHz, const float* pfBark, int iLengthBuff, BarkConversionFunctions_t eFunc = kSchroeder);
+    static void convertBark2Freq(float *pffInHz, const float *pfBark, int iLengthBuff, BarkConversionFunctions_t eFunc = kSchroeder);
 
 
     /*! converts a frequency scalar to midi (float)
@@ -119,7 +119,7 @@ public:
     \param iLengthBuff length of buffers
     \param fA4InHz tuning (reference) frequency in Hz
     */
-    static void convertFreq2Midi(float* pfMidi, const float* pffInHz, int iLengthBuff, float fA4InHz = 440.F)
+    static void convertFreq2Midi(float *pfMidi, const float *pffInHz, int iLengthBuff, float fA4InHz = 440.F)
     {
         assert(pfMidi);
         assert(pffInHz);
@@ -130,8 +130,8 @@ public:
             pfMidi[n] = convertFreq2Midi(pffInHz[n], fA4InHz);
     };
 
-    /*! converts a midi scalar to frequency 
-    \param fMidi value 
+    /*! converts a midi scalar to frequency
+    \param fMidi value
     \param fA4InHz tuning (reference) frequency in Hz
     \return frequency value in Hz
     */
@@ -142,13 +142,13 @@ public:
         return fA4InHz * std::exp2((fMidi - 69.F) / 12.F);
     };
 
-    /*! converts a midi vector to frequency 
+    /*! converts a midi vector to frequency
     \param pffInHz output buffer with frequency values in Hz (length iLengthBuff)
     \param pfMidi input buffer (length iLengthBuff, to be written)
     \param iLengthBuff length of buffers
     \param fA4InHz tuning (reference) frequency in Hz
     */
-    static void convertMidi2Freq(float* pffInHz, const float* pfMidi, int iLengthBuff, float fA4InHz = 440.F)
+    static void convertMidi2Freq(float *pffInHz, const float *pfMidi, int iLengthBuff, float fA4InHz = 440.F)
     {
         assert(pfMidi);
         assert(pffInHz);
@@ -183,7 +183,7 @@ public:
     \param iFftLength length of FFT
     \param fSampleRate sample rate frequency in Hz
     */
-    static void convertFreq2Bin(float* pfBin, const float* pffInHz, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F)
+    static void convertFreq2Bin(float *pfBin, const float *pffInHz, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F)
     {
         assert(pfBin);
         assert(pffInHz);
@@ -207,7 +207,7 @@ public:
         assert(iFftLength >= 0);
         assert(fBin < iFftLength);
         assert(fSampleRate > 0);
-        
+
         return fBin * fSampleRate / static_cast<float>(iFftLength);
     };
 
@@ -218,13 +218,13 @@ public:
     \param iFftLength length of FFT
     \param fSampleRate sample rate frequency in Hz
     */
-    static void convertBin2Freq(float* pffInHz, const float* pfBin, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F);;
+    static void convertBin2Freq(float *pffInHz, const float *pfBin, int iLengthBuff, int iFftLength, float fSampleRate = 44100.F);;
 
     /*! converts a float vector in a 32 bit word based on the sign
     \param pfVec vector of signed float values (length 32)
     \return uint32_t 32 bit word
     */
-    static uint32_t convertFloat2Word(const float* pfVec)
+    static uint32_t convertFloat2Word(const float *pfVec)
     {
         assert(pfVec);
 
@@ -240,11 +240,11 @@ public:
         return iRes;
     }
 
-    /*! converts a 32 bit word into a float vector of -1.F and 1.F 
+    /*! converts a 32 bit word into a float vector of -1.F and 1.F
     \param pfDest destination buffer (length 32, to be written)
     \param iWord 32 bit word to be decoded
     */
-    static void convertWord2Float(float* pfDest, uint32_t iWord)
+    static void convertWord2Float(float *pfDest, uint32_t iWord)
     {
         assert(pfDest);
 
@@ -289,7 +289,5 @@ private:
     // dispatcher map for static Bark functions 
     static const std::map<int, std::function<float(float)>> m_BarkDispatchMap;
 };
-
-
 
 #endif // __ACA_ToolConversion_HEADER_INCLUDED__

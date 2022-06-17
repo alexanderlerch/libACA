@@ -16,12 +16,12 @@ void    showClInfo();
 // main function
 int main(int argc, char* argv[])
 {
-    std::string sInputFilePath, //!< file paths
-        sOutputFilePath;
+    std::string sInFilePath, //!< file paths
+        sOutFilePath;
 
     int iBlockLength = 0, //!< block length in samples 
         iHopLength = 0; //!< hop length in samples
-    int aiSpecGramDimensions[2] = { 0,0 }; //!< spectrogram number of rows and cols
+    int aiSpecGramDims[2] = { 0,0 }; //!< spectrogram number of rows and cols
 
     clock_t time = 0;
 
@@ -29,7 +29,7 @@ int main(int argc, char* argv[])
 
     float** ppfSpectrogram = 0; //!< resulting spectrogram
 
-    std::fstream hOutputFile; //!< output text file
+    std::fstream hOutFile; //!< output text file
 
     showClInfo();
 
@@ -43,21 +43,21 @@ int main(int argc, char* argv[])
     }
     else
     {
-        sInputFilePath = argv[1];
-        sOutputFilePath = (argc < 3) ? sInputFilePath + ".txt" : argv[2];
+        sInFilePath = argv[1];
+        sOutFilePath = (argc < 3) ? sInFilePath + ".txt" : argv[2];
         iBlockLength = (argc < 4) ? 4096 : std::stoi(argv[3]);
         iHopLength = (argc < 5) ? 2048 : std::stoi(argv[4]);
     }
 
     //////////////////////////////////////////////////////////////////////////////
     // initialize spectrogram instance
-    CSpectrogramIf::create(pCSpectrogram, sInputFilePath, iBlockLength, iHopLength);
-    pCSpectrogram->getSpectrogramDimensions(aiSpecGramDimensions[0], aiSpecGramDimensions[1]);
+    CSpectrogramIf::create(pCSpectrogram, sInFilePath, iBlockLength, iHopLength);
+    pCSpectrogram->getSpectrogramDimensions(aiSpecGramDims[0], aiSpecGramDims[1]);
 
     //////////////////////////////////////////////////////////////////////////////
     // open the output text file
-    hOutputFile.open(sOutputFilePath.c_str(), std::ios::out);
-    if (!hOutputFile.is_open())
+    hOutFile.open(sOutFilePath.c_str(), std::ios::out);
+    if (!hOutFile.is_open())
     {
         cout << "Text file open error!";
         CSpectrogramIf::destroy(pCSpectrogram);
@@ -66,15 +66,15 @@ int main(int argc, char* argv[])
 
     //////////////////////////////////////////////////////////////////////////////
     // allocate memory
-    ppfSpectrogram = new float* [aiSpecGramDimensions[0]];
-    for (auto k = 0; k < aiSpecGramDimensions[0]; k++)
-        ppfSpectrogram[k] = new float[aiSpecGramDimensions[1]];
+    ppfSpectrogram = new float* [aiSpecGramDims[0]];
+    for (auto k = 0; k < aiSpecGramDims[0]; k++)
+        ppfSpectrogram[k] = new float[aiSpecGramDims[1]];
 
 
     if (!ppfSpectrogram )
     {
         CSpectrogramIf::destroy(pCSpectrogram);
-        hOutputFile.close();
+        hOutFile.close();
         return -1;
     }
 
@@ -94,14 +94,14 @@ int main(int argc, char* argv[])
 
     cout << "\n2. writing output file..." << endl;
 
-    for (auto k = 0; k < aiSpecGramDimensions[0]; k++)
+    for (auto k = 0; k < aiSpecGramDims[0]; k++)
     {
         // write
-        for (int n = 0; n < aiSpecGramDimensions[1]; n++)
+        for (int n = 0; n < aiSpecGramDims[1]; n++)
         {
-            hOutputFile << ppfSpectrogram[k][n] << "\t";
+            hOutFile << ppfSpectrogram[k][n] << "\t";
         }
-        hOutputFile << endl;
+        hOutFile << endl;
     }
 
     cout << "\n writing done in: \t" << (clock() - time) * 1.F / CLOCKS_PER_SEC << " seconds." << endl;
@@ -109,9 +109,9 @@ int main(int argc, char* argv[])
     //////////////////////////////////////////////////////////////////////////////
     // clean-up (close files, delete instances, and free memory)
     CSpectrogramIf::destroy(pCSpectrogram);
-    hOutputFile.close();
+    hOutFile.close();
 
-    for (int k = 0; k < aiSpecGramDimensions[0]; k++)
+    for (int k = 0; k < aiSpecGramDims[0]; k++)
         delete[] ppfSpectrogram[k];
     delete[] ppfSpectrogram;
 
