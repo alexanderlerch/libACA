@@ -79,13 +79,13 @@ public:
     */
     static Error_t destroy(CChordIf*& pCInstance);
 
-    /*! returns size of vector to be allocated by user
+    /*! returns length of vector to be allocated by user
     \param iNumBlocks (number of blocks, to be written) 
     \return Error_t
     */
     Error_t getNumBlocks(int& iNumBlocks) const;
 
-    /*! returns size of vector to be allocated by user
+    /*! returns length of vector to be allocated by user
     \return int
     */
     int getNumBlocks() const;

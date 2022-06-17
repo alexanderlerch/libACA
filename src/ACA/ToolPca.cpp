@@ -6,13 +6,13 @@
 
 CPca::~CPca(void) { reset(); }
 
-Error_t CPca::init(int iNumFeatures, int iNumObservations)
+Error_t CPca::init(int iNumFeatures, int iNumObs)
 {
-    if (iNumFeatures <= 0 || iNumObservations <= 0)
+    if (iNumFeatures <= 0 || iNumObs <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
     m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
 
     CMatrix::alloc(m_ppfProcTmp, m_iNumFeatures, m_iNumFeatures);
     CMatrix::alloc(m_ppfU, m_iNumFeatures, m_iNumFeatures);

@@ -104,11 +104,11 @@ public:
     \param pCResult class holding resulting mean, sigma, and priors, see class ::CGmmResult (user-allocated)
     \param iK target number of Gaussians
     \param iNumFeatures number of rows (features) of input matrix 
-    \param iNumObservations number of columns (observations) of input matrix 
+    \param iNumObs number of columns (observations) of input matrix 
     \param iMaxIter maximum number of iterations
     \return Error_t
     */
-    Error_t init(CGmmResult* pCResult, int iK, int iNumFeatures, int iNumObservations, int iMaxIter = 300);
+    Error_t init(CGmmResult* pCResult, int iK, int iNumFeatures, int iNumObs, int iMaxIter = 300);
     
     /*! resets all internal class members
     \return Error_t
@@ -118,7 +118,7 @@ public:
 
     /*! computes the mixture model
     \param pCResult class holding resulting mean, sigma, and priors, see class ::CGmmResult
-    \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
+    \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObs
     \return Error_t
     */
     Error_t compGmm(CGmmResult* pCResult, const float* const* const ppfFeatures);
@@ -137,20 +137,20 @@ private:
 
 
     /*! randomly initializes the state variables
-    \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
+    \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObs
     \param pCCurrState class holding the current state variables
     */
     void initState_(const float* const* const  ppfFeatures, CGmmResult* pCCurrState);
 
 
     /*! computes probabilities given the current state
-    \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
+    \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObs
     \param pCCurrState class holding the current state variables
     */
     void compProbabilities_(const float* const* const ppfFeatures, CGmmResult* pCCurrState);
 
     /*! update mean, sigma, and prior
-    \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObservations
+    \param ppfFeatures input matrix of dimensions iNumFeatures X iNumObs
     \param pCCurrState class holding the current state variables
     */
     void updateState_(const float* const* const ppfFeatures, CGmmResult* pCCurrState);

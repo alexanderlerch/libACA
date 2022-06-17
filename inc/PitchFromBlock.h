@@ -27,11 +27,6 @@ public:
     */
     static Error_t destroy(CPitchFromBlockIf*& pCInstance);
 
-    /*! returns size of output Pitch (1 in most cases)
-    \return int
-    */
-    //virtual int getPitchDimensions() const;
-
     /*! returns index of the Pitch to extract
     \return Pitch_t
     */

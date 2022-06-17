@@ -60,15 +60,15 @@ Error_t CBeatHistoIf::destroy(CBeatHistoIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CBeatHistoIf::getNumBins(int& iLengthOfBeatHisto, BeatHisto_t eBeatHistoComp) const
+Error_t CBeatHistoIf::getNumBins(int& iBeatHistoLength, BeatHisto_t eBeatHistoComp) const
 {
     if (!m_bIsInitialized)
     {
-        iLengthOfBeatHisto = 0;
+        iBeatHistoLength = 0;
         return Error_t::kFunctionIllegalCallError;
     }
 
-    iLengthOfBeatHisto = this->getNumBins(eBeatHistoComp);
+    iBeatHistoLength = this->getNumBins(eBeatHistoComp);
 
     return Error_t::kNoError;
 }
@@ -121,14 +121,14 @@ Error_t CBeatHistoIf::compBeatHisto(float* pfBeatHisto, BeatHisto_t eBeatHistoCo
     int aiBeatHistoRange[2] = { 0,0 };
 
     int iBeatHistoLength = getNumBins(eBeatHistoComp);
-    int iHopSize = m_iBeatHistoLength >> 2;
+    int iNoveltyHop = m_iBeatHistoLength >> 2;
 
-    assert(iHopSize > 0);
+    assert(iNoveltyHop > 0);
 
     m_pCNovelty->compNovelty(m_pfNovelty);
 
     // create a blocking instance to use it on the Novelty function
-    CBlockAudioIf::create(pCBlock, m_pfNovelty, m_pCNovelty->getNumBlocks(), m_iBeatHistoLength, iHopSize, m_fSampleRate / m_iHopLength);
+    CBlockAudioIf::create(pCBlock, m_pfNovelty, m_pCNovelty->getNumBlocks(), m_iBeatHistoLength, iNoveltyHop, m_fSampleRate / m_iHopLength);
     long long iNumBlocks = pCBlock->getNumBlocks();
 
     if (eBeatHistoComp == kBeatHistoCorr)

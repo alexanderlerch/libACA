@@ -12,14 +12,14 @@ CKnn::~CKnn(void)
     reset();
 }
 
-Error_t CKnn::init(int iNumFeatures, int iNumObservations)
+Error_t CKnn::init(int iNumFeatures, int iNumObs)
 {
-    if (iNumFeatures <= 0 || iNumObservations <= 1)
+    if (iNumFeatures <= 0 || iNumObs <= 1)
         return Error_t::kFunctionInvalidArgsError;
 
     reset();
 
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
     m_iNumFeatures = iNumFeatures;
 
     CVector::alloc(m_piClassLabels, m_iNumObs);

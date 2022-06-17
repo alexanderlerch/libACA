@@ -14,12 +14,12 @@ CViterbi::~CViterbi( void )
     reset();
 }
 
-Error_t CViterbi::init(const float* const* const ppfPTransition, const float* pfPStart, int iNumStates, int iNumObservations)
+Error_t CViterbi::init(const float* const* const ppfPTransition, const float* pfPStart, int iNumStates, int iNumObs)
 {
     if (!ppfPTransition || !pfPStart)
         return Error_t::kFunctionInvalidArgsError;
 
-    if (iNumStates <= 0 || iNumObservations <= 0)
+    if (iNumStates <= 0 || iNumObs <= 0)
         return Error_t::kFunctionInvalidArgsError;
 
     assert(ppfPTransition[0]);
@@ -27,7 +27,7 @@ Error_t CViterbi::init(const float* const* const ppfPTransition, const float* pf
     reset();
 
     m_iNumStates  = iNumStates;
-    m_iNumObs  = iNumObservations;
+    m_iNumObs  = iNumObs;
 
     // allocate memory
     CVector::alloc(m_pfStart, m_iNumStates);

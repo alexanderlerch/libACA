@@ -9,15 +9,15 @@
 
 CSeqFeatureSel::~CSeqFeatureSel(void) { reset(); }
 
-Error_t CSeqFeatureSel::init(int iNumFeatures, int iNumObservations)
+Error_t CSeqFeatureSel::init(int iNumFeatures, int iNumObs)
 {
-    if (iNumFeatures <= 0 || iNumObservations <= 1)
+    if (iNumFeatures <= 0 || iNumObs <= 1)
         return Error_t::kFunctionInvalidArgsError;
 
     reset();
 
     m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
 
     m_pCClassifier = new CKnn();
     m_pCClassifier->setParamK(1);

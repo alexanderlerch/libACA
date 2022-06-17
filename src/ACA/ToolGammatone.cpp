@@ -412,17 +412,17 @@ Error_t CGammaToneFbIf::destroy(CGammaToneFbIf*& pCInstance)
     return Error_t::kNoError;
 }
 
-Error_t CGammaToneFbIf::getOutputDimensions(long long& iNumRows, long long& iNumColumns) const
+Error_t CGammaToneFbIf::getOutputDimensions(long long& iNumRows, long long& iNumCols) const
 {
     if (!m_bIsInitialized)
     {
         iNumRows = 0;
-        iNumColumns = 0;
+        iNumCols = 0;
         return Error_t::kFunctionIllegalCallError;
     }
 
     iNumRows = m_iNumBands;
-    iNumColumns = m_pCBlockAudio->getLengthInSamples();
+    iNumCols = m_pCBlockAudio->getLengthInSamples();
 
     return Error_t::kNoError;
 }

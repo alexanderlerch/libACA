@@ -18,11 +18,11 @@ public:
     /*! initializes the class 
     \param iK target number of clusters
     \param iNumFeatures number of rows of matrix to be clustered
-    \param iNumObservations number of columns of matrix to be clustered
+    \param iNumObs number of columns of matrix to be clustered
     \param iMaxIter maximum number of iterations
     \return Error_t
     */
-    Error_t init(int iK, int iNumFeatures, int iNumObservations, int iMaxIter = 300);
+    Error_t init(int iK, int iNumFeatures, int iNumObs, int iMaxIter = 300);
     
     /*! resets all internal class members
     \return Error_t
@@ -31,8 +31,8 @@ public:
 
 
     /*! clusters the data
-    \param piResult resulting cluster indices, starting with 0 (length iNumObservations, user-allocated, to be written)
-    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
+    \param piResult resulting cluster indices, starting with 0 (length iNumObs, user-allocated, to be written)
+    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObs
     \return Error_t
     */
     Error_t compKmeans(int* piResult, const float* const* const ppfFeatures);
@@ -50,19 +50,19 @@ private:
     CKmeans& operator=(const CKmeans& c);
 
     /*! deals with empty clusters through new random initialization
-    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
+    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObs
     */
     void reinitClusterMeans_(const float* const* const ppfFeatures);
 
 
     /*! randomly initializes the initial cluster means
-    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
+    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObs
     */
     void initClusterMeans_(const float* const* const ppfFeatures);
 
 
     /*! computes the current cluster means
-    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
+    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObs
     \param piResult current cluster assignments
     */
     void compClusterMeans_(const float* const* const ppfFeatures, const int* piResult);
@@ -76,7 +76,7 @@ private:
 
     /*! assigns cluster labels given the means
     \param piResult new cluster assignments
-    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObservations
+    \param ppfFeatures input matrix of dimesions iNumFeatures X iNumObs
     */
     void assignClusterLabels_(int* piResult, const float* const* const ppfFeatures);
 

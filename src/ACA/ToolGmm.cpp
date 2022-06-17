@@ -7,9 +7,9 @@
 
 CGmm::~CGmm(void) { reset(); }
 
-Error_t CGmm::init(CGmmResult* pCResult, int iK, int iNumFeatures, int iNumObservations, int iMaxIter)
+Error_t CGmm::init(CGmmResult* pCResult, int iK, int iNumFeatures, int iNumObs, int iMaxIter)
 {
-    if (!pCResult || iK < 1 || iNumFeatures < 1 || iNumObservations < 1 || iMaxIter < 1)
+    if (!pCResult || iK < 1 || iNumFeatures < 1 || iNumObs < 1 || iMaxIter < 1)
         return Error_t::kFunctionInvalidArgsError;
 
     reset();
@@ -17,7 +17,7 @@ Error_t CGmm::init(CGmmResult* pCResult, int iK, int iNumFeatures, int iNumObser
     // set variables
     m_iMaxIter = iMaxIter;
     m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
     m_iK = iK;
 
     // init result class

@@ -16,10 +16,10 @@ public:
 
     /*! initializes PCA instance
     \param iNumFeatures number of rows in the input and output matrices
-    \param iNumObservations number of columns in the input and output matrices
+    \param iNumObs number of columns in the input and output matrices
     \return Error_t
     */
-    Error_t init(int iNumFeatures, int iNumObservations);
+    Error_t init(int iNumFeatures, int iNumObs);
 
     /*! resets PCA instance
     \return Error_t
@@ -29,7 +29,7 @@ public:
     /*! computes the principal components
     \param ppfRes matrix with principal components (user-allocated, to be written, dimensions equal input matrix)
     \param pfEigenValues eigenvalues of principle components (user-allocated, to be written, length equals number of features)
-    \param ppfIn input matrix (dimensions iNumFeatures X iNumObservations)
+    \param ppfIn input matrix (dimensions iNumFeatures X iNumObs)
     \return Error_t
     */
     Error_t compPca(float** ppfRes, float* pfEigenValues, const float* const* const ppfIn);

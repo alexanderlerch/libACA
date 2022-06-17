@@ -19,13 +19,13 @@ public:
 
     /*! initializes SeqFeatureSel instance
     \param iNumFeatures number of features (rows in the input matrix)
-    \param iNumObservations number of observations (columns in the feature matrix)
+    \param iNumObs number of observations (columns in the feature matrix)
     \return Error_t
     */
-    Error_t init(int iNumFeatures, int iNumObservations);
+    Error_t init(int iNumFeatures, int iNumObs);
 
     /*! selects the featyres
-    \param ppfFeatures feature data for 'training' (dimensions iNumFeatures X iNumObservations)
+    \param ppfFeatures feature data for 'training' (dimensions iNumFeatures X iNumObs)
     \param piClassIndices ground truth class index for each observation
     \return Error_t
     */

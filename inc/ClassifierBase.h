@@ -21,13 +21,13 @@ public:
 
     /*! initializes instance
     \param iNumFeatures number of features (rows in the input matrix)
-    \param iNumObservations number of observations (columns in the feature matrix)
+    \param iNumObs number of observations (columns in the feature matrix)
     \return Error_t
     */
-    virtual Error_t init(int iNumFeatures, int iNumObservations) = 0;
+    virtual Error_t init(int iNumFeatures, int iNumObs) = 0;
 
     /*! trains a classifier instance
-    \param ppfTrainFeatures feature data for 'training' (dimensions iNumFeatures X iNumObservations)
+    \param ppfTrainFeatures feature data for 'training' (dimensions iNumFeatures X iNumObs)
     \param piTrainClassIndices ground truth class index for each observation
     \param eNorm specification of what normalization should be applied to the feature data
     \return Error_t

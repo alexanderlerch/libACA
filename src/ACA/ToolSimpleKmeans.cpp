@@ -11,14 +11,14 @@ CKmeans::~CKmeans(void)
     this->reset();
 }
 
-Error_t CKmeans::init(int iK, int iNumFeatures, int iNumObservations, int iMaxIter)
+Error_t CKmeans::init(int iK, int iNumFeatures, int iNumObs, int iMaxIter)
 {
-    if (iK <= 0 || iNumFeatures <= 0 || iNumObservations <= iK || iMaxIter < 1)
+    if (iK <= 0 || iNumFeatures <= 0 || iNumObs <= iK || iMaxIter < 1)
         return Error_t::kFunctionInvalidArgsError;
 
     m_iK = iK;
     m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
     m_iMaxIter = iMaxIter;
 
     CMatrix::alloc(m_appfClusterMeans[kPrev], m_iK, m_iNumFeatures);

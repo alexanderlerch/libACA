@@ -98,7 +98,7 @@ private:
     float m_fOverallCost = 0; //!< overall cost
 
     unsigned char  **m_ppePathIdx = 0; //!< matrix with directions for traceback
-    int   m_iLengthOfPath = 0; //!< overall length of path
+    int   m_iPathLength = 0; //!< overall length of path
 
     int   m_aiMatrixDimensions[kNumMatrixDimensions] = {0,0}; //!< size of distance matrix
 

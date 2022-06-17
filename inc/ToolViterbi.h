@@ -17,10 +17,10 @@ public:
     \param ppfPTransition transition probability matrix (dimension iNumStates X iNumStates)
     \param pfPStart start probabilities (length iNumStates)
     \param iNumStates number of states
-    \param iNumObservations number of observations
+    \param iNumObs number of observations
     \return Error_t
     */
-    Error_t init (const float* const* const ppfPTransition, const float *pfPStart, int iNumStates, int iNumObservations);
+    Error_t init (const float* const* const ppfPTransition, const float *pfPStart, int iNumStates, int iNumObs);
     
     /*! resets all internal class members
     \return Error_t
@@ -28,7 +28,7 @@ public:
     Error_t reset ();
 
     /*! computes cost and path w/o back-tracking
-    \param ppfPEmission (dimensions iNumStates X iNumObservations)
+    \param ppfPEmission (dimensions iNumStates X iNumObs)
     \param bUseLogLikelihood (use logarithmic likelihood - needed at least for longer sequences)
     \return Error_t
     */
@@ -40,7 +40,7 @@ public:
     float getOverallProbability () const;
     
     /*! returns the state sequence
-    \param pistateSequence pointer to memory the result is written to (user allocated, length iNumObservations)
+    \param pistateSequence pointer to memory the result is written to (user allocated, length iNumObs)
     \return Error_t
     */
     Error_t getStateSequence ( int *pistateSequence) const;

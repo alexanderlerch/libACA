@@ -60,7 +60,7 @@ Error_t CDtw::reset()
     m_aiMatrixDimensions[kRow]  = 0;
     m_aiMatrixDimensions[kCol]  = 0;
     m_fOverallCost              = 0;
-    m_iLengthOfPath             = 0;
+    m_iPathLength             = 0;
 
     return Error_t::kNoError;
 }
@@ -125,17 +125,17 @@ int CDtw::getPathLength()
     if (!m_bWasProcessed)
         return 0;
 
-    m_iLengthOfPath = 1;
+    m_iPathLength = 1;
 
     while (i > 0 || j > 0)
     {
         int iNewI   = i + aiDecrement[m_ppePathIdx[i][j]][kRow];
         j          += aiDecrement[m_ppePathIdx[i][j]][kCol];
         i           = iNewI;
-        m_iLengthOfPath++;
+        m_iPathLength++;
     }
     
-    return m_iLengthOfPath;
+    return m_iPathLength;
 }
 
 float CDtw::getPathCost() const
@@ -148,10 +148,10 @@ Error_t CDtw::getPath( int **ppiPathResult ) const
     if (!ppiPathResult)
         return Error_t::kFunctionInvalidArgsError;
 
-    if (m_iLengthOfPath <= 0)
+    if (m_iPathLength <= 0)
         return Error_t::kFunctionIllegalCallError;
 
-    int iIdx = m_iLengthOfPath - 1;
+    int iIdx = m_iPathLength - 1;
 
     // init
     ppiPathResult[kRow][0] = 0;

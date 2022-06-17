@@ -6,15 +6,15 @@
 
 CGmmClassifier::~CGmmClassifier(void) { reset(); }
 
-Error_t CGmmClassifier::init(int iNumFeatures, int iNumObservations)
+Error_t CGmmClassifier::init(int iNumFeatures, int iNumObs)
 {
-    if (iNumFeatures <= 0 || iNumObservations < 1)
+    if (iNumFeatures <= 0 || iNumObs < 1)
         return Error_t::kFunctionInvalidArgsError;
 
     reset();
 
     m_iNumFeatures = iNumFeatures;
-    m_iNumObs = iNumObservations;
+    m_iNumObs = iNumObs;
 
     // worst case: number of classes equals number of observations
     CVector::alloc(m_piClassLabels, m_iNumObs);
