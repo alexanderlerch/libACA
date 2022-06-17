@@ -111,13 +111,13 @@ protected:
     void computeMagSpectrum_();
 
     CNormalizeAudio* m_pCNormalize = 0;  //!< instantiate if audio file normalization is wanted
- 
+
     CBlockAudioIf* m_pCBlockAudio = 0;   //!< instantiate for blocking time domain signal
 
     CNoveltyFromBlockIf* m_pCNovelty = 0;
 
     CFft* m_pCFft = 0;                   //!< fft instance
-    
+
     CMovingAverage* m_pCLpFilter = 0;
 
     int m_iBlockLength = 0,             //!< fft length
@@ -132,6 +132,3 @@ protected:
 };
 
 #endif // #if !defined(__ACA_Novelty_HEADER_INCLUDED__)
-
-
-

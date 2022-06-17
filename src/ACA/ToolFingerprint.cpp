@@ -21,7 +21,7 @@ CFingerprint::~CFingerprint()
 
     CBlockAudioIf::destroy(m_pCBlockAudio);
 }
-                            
+
 Error_t CFingerprint::init(const std::string& strAudioFilePath)
 {
     if (strAudioFilePath.empty())
@@ -157,7 +157,7 @@ Error_t CFingerprint::compFingerprint(uint32_t* puiFingerprint)
         // retrieve the next audio block
         m_pCBlockAudio->getNextBlock(m_pfProcBuff1);
 
-         computeMagSpectrum_();
+        computeMagSpectrum_();
 
         puiFingerprint[n] = m_pCSubFingerprint->compSubFingerprint(m_pfProcBuff1);
     }

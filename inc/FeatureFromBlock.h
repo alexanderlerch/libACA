@@ -15,7 +15,7 @@ class CFeatureFromBlockIf
 {
 public:
 
-    /*! initializes a FeatureFromBlock instance 
+    /*! initializes a FeatureFromBlock instance
     \param pCInstance pointer to instance to be written
     \param eFeatureIdx index of Feature to extract
     \param iDataLength: block length
@@ -113,9 +113,4 @@ protected:
     };
 };
 
-
-
 #endif // #if !defined(__ACA_FeatureFromBlock_HEADER_INCLUDED__)
-
-
-

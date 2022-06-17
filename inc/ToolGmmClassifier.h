@@ -45,7 +45,7 @@ public:
 
 
     /*! returns the number of Gaussians per class
-    \return int 
+    \return int
     */
     int getNumMixtures() const;
 
@@ -79,6 +79,5 @@ private:
     CGmmResult** m_ppCGmmResult = 0; //!< array holding the individual Gmm models (length m_iNumClasses)
 
 };
-
 
 #endif // __ACA_GmmClassifier_HEADER_INCLUDED__

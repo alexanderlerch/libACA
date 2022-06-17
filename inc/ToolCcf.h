@@ -21,12 +21,12 @@ public:
     \param iBlockLength
     \return Error_t
     */
-    Error_t init (int iBlockLength);
-    
+    Error_t init(int iBlockLength);
+
     /*! resets all internal class members
     \return Error_t
     */
-    Error_t reset ();
+    Error_t reset();
 
     /*! computes cross correlation function
     \param pfIn1 (block of data to be correlated)
@@ -34,19 +34,19 @@ public:
     \param bNormalize flag whether the output is normalized
     \return Error_t
     */
-    Error_t compCcf (const float* pfIn1, const float* pfIn2, bool bNormalize = true);
- 
+    Error_t compCcf(const float* pfIn1, const float* pfIn2, bool bNormalize = true);
+
     /*! returns the length of the CCF result
     \return int
     */
-    int getCcfLength (bool bisAcf = false);
-    
+    int getCcfLength(bool bisAcf = false);
+
     /*! returns the correlation result
     \param pfCcfResult result buffer
     \param bisAcf returns only non-redundant ACF result if true
     \return Error_t
     */
-    Error_t getCcf (float *pfCcfResult, bool bisAcf = false) const;
+    Error_t getCcf(float* pfCcfResult, bool bisAcf = false) const;
 
     /*! returns the overall max
     \param bisAcf search only non-redundant ACF result if true
@@ -68,11 +68,10 @@ private:
     bool m_bWasProcessed = false;   //!< true if process has been called
 
     float* m_apfData[2] = { 0,0 };  //!< CCF result
-    CFft *m_pCFft= 0;               //!< FFT instance
+    CFft* m_pCFft = 0;               //!< FFT instance
 
     int   m_iBlockLength = 0;       //!< length of input
     int   m_iFftLength = 0;         //!< length of FFT
 };
-
 
 #endif // __ACA_Ccf_HEADER_INCLUDED__

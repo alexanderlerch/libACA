@@ -94,7 +94,7 @@ inline CNoveltyIf::~CNoveltyIf()
 {
     reset_();
 }
-                            
+
 Error_t CNoveltyIf::create(CNoveltyIf*& pCInstance, Novelty_t eNoveltyIdx, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
@@ -201,7 +201,7 @@ Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
     const float fThreshLpLenInS = 0.14F;
     auto iNumBlocks = m_pCBlockAudio->getNumBlocks();
 
-    float *pfThreshold = 0; //!< memory allocation is ok since we compDtw the whole signal at once
+    float* pfThreshold = 0; //!< memory allocation is ok since we compDtw the whole signal at once
     CVector::alloc(pfThreshold, iNumBlocks);
 
     for (auto n = 0; n < iNumBlocks; n++)
@@ -227,7 +227,7 @@ Error_t CNoveltyIf::compNovelty(float* pfNovelty, bool* pbIsOnset)
     m_pCLpFilter->reset();
     m_pCLpFilter->setFilterParam(m_pCLpFilter->calcFilterLength(fSmoothLpLenInS, m_fSampleRate / m_iHopLength));
     m_pCLpFilter->filtfilt(pfNovelty, pfNovelty, iNumBlocks);
-    
+
     // HWR
     CVector::setZeroBelowThresh(pfNovelty, iNumBlocks, 0.F);
 
@@ -326,7 +326,7 @@ Error_t CNoveltyIf::init_(Novelty_t eNoveltyIdx)
     // allocate processing memory
     CVector::alloc(m_pfProcBuff1, m_pCFft->getLength(CFft::kLengthFft));
     CVector::alloc(m_pfProcBuff2, m_pCFft->getLength(CFft::kLengthFft));
-    
+
     CNoveltyFromBlockIf::create(m_pCNovelty, eNoveltyIdx, m_pCFft->getLength(CFft::kLengthMagnitude), m_fSampleRate);
     CMovingAverage::create(m_pCLpFilter);
 

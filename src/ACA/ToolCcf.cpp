@@ -29,7 +29,7 @@ Error_t CCcf::init(int iBlockLength)
     if (CUtil::isPowOf2(m_iBlockLength))
         m_iFftLength = 2 * m_iBlockLength;
     else
-        m_iFftLength = CUtil::nextPowOf2(2*iBlockLength);
+        m_iFftLength = CUtil::nextPowOf2(2 * iBlockLength);
 
     m_pCFft->init(m_iBlockLength, 2, CFft::kWindowHann, CFft::kNoWindow);
 
@@ -52,7 +52,7 @@ Error_t CCcf::reset()
     {
         CVector::free(m_apfData[j]);
     }
-    
+
     m_iFftLength = 0;
     m_iBlockLength = 0;
 
@@ -62,11 +62,11 @@ Error_t CCcf::reset()
 Error_t CCcf::compCcf(const float* pfIn1, const float* pfIn2, bool bNormalize)
 {
     if (!pfIn1 || !pfIn2)
-        return Error_t::kFunctionInvalidArgsError;   
+        return Error_t::kFunctionInvalidArgsError;
 
     if (!m_bIsInitialized)
         return Error_t::kFunctionIllegalCallError;
-    
+
     // extract standard deviation for normalization
     float afStd[2] = { 1.F, 1.F };
     if (bNormalize)
@@ -137,7 +137,7 @@ int CCcf::getCcfMaxIdx(bool bIsAcf) const
     float fMax = -1.F;
     long long iMax = -1;
     int iStartIdx = bIsAcf ? m_iBlockLength - 1 : 0;
-    
+
     CVector::findMax(&m_apfData[1][iStartIdx], fMax, iMax, static_cast<long long>(2) * m_iBlockLength - 1 - iStartIdx);
 
     return static_cast<int>(iMax);

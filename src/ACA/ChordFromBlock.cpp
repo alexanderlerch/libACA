@@ -13,7 +13,7 @@ Error_t CChordFromBlockIf::create(CChordFromBlockIf*& pCInstance, int iMagSpecLe
         return Error_t::kFunctionInvalidArgsError;
 
 
-    pCInstance = new CChordFromBlockIf(iMagSpecLength, fSampleRate); 
+    pCInstance = new CChordFromBlockIf(iMagSpecLength, fSampleRate);
 
     return Error_t::kNoError;
 }
@@ -60,7 +60,7 @@ inline CChordFromBlockIf::CChordFromBlockIf(int iMagSpecLength, float fSampleRat
     genTemplateMatrix_();
 }
 
-inline CChordFromBlockIf::~CChordFromBlockIf() 
+inline CChordFromBlockIf::~CChordFromBlockIf()
 {
     CVector::free(m_pfPitchChroma);
     CMatrix::free(m_ppfTemplateMatrix, CChordIf::kNumChords);
@@ -81,8 +81,8 @@ void CChordFromBlockIf::genTemplateMatrix_()
     {
         for (auto p = 0; p < iNumChordPitches; p++)
         {
-            m_ppfTemplateMatrix[c][(c + aiMajorIndices[p])%12] = 1.F / iNumChordPitches;
-            m_ppfTemplateMatrix[c+ kNumPitchClasses][(c + aiMinorIndices[p])%12] = 1.F / iNumChordPitches;
+            m_ppfTemplateMatrix[c][(c + aiMajorIndices[p]) % 12] = 1.F / iNumChordPitches;
+            m_ppfTemplateMatrix[c + kNumPitchClasses][(c + aiMinorIndices[p]) % 12] = 1.F / iNumChordPitches;
         }
     }
     CVector::addC_I(m_ppfTemplateMatrix[CChordIf::kNoChord], 1.F / kNumPitchClasses, kNumPitchClasses);

@@ -96,7 +96,7 @@ inline CPitchIf::~CPitchIf()
 {
     reset_();
 }
-                            
+
 Error_t CPitchIf::create(CPitchIf*& pCInstance, PitchExtractors_t ePitchIdx, const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())

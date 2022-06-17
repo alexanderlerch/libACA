@@ -5,7 +5,7 @@
 #include <cstring>
 #include <limits>
 
-/*! \brief class with static utility functions 
+/*! \brief class with static utility functions
 */
 class CUtil
 {
@@ -15,7 +15,7 @@ public:
     \return T
     */
     template<typename T>
-    static T float2int (float fIn)
+    static T float2int(float fIn)
     {
         if (fIn >= 0.F)
             return static_cast<T>(fIn + .5);
@@ -27,7 +27,7 @@ public:
     \return T
     */
     template<typename T>
-    static T double2int (double fIn)
+    static T double2int(double fIn)
     {
         if (fIn >= 0)
             return static_cast<T>(fIn + .5);
@@ -39,9 +39,9 @@ public:
     \param n integer value
     \return bool
     */
-    static bool isPowOf2 (int n) 
+    static bool isPowOf2(int n)
     {
-        return !(n & (n-1));
+        return !(n & (n - 1));
     }
 
     /*! converts an arbitrary integer (positive) to the next larger power of two
@@ -55,13 +55,13 @@ public:
         if (n <= 0)
             return 0;
 
-        while (n>>iOrder)
+        while (n >> iOrder)
             iOrder++;
 
-        if (!(n%(1<<(iOrder-1))))
+        if (!(n % (1 << (iOrder - 1))))
             iOrder--;
 
-        return (1<<(iOrder));
+        return (1 << (iOrder));
     }
 
     /*! swaps two values
@@ -101,4 +101,5 @@ public:
         return 0;
     }
 };
+
 #endif // __ACA_Util_HEADER_INCLUDED__

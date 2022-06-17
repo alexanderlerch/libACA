@@ -46,7 +46,7 @@ private:
         m_iNumObs = 0; //!< number of observations
 
     float** m_ppfTrain = 0; //!< temporary train data (m_iNumObs X m_iNumFeatures)
-    
+
     float* m_pfQuery = 0; //!< preallocated vector for the normalized query (test vector)
 
     int* m_piClassLabels = 0; //!< vector holding the temporary train set class labels
@@ -56,6 +56,5 @@ private:
     bool m_bIsInitialized = false; //!< indicates if instance has been properly initialized
 
 };
-
 
 #endif // __ACA_LeaveOneOutCrossVal_HEADER_INCLUDED__

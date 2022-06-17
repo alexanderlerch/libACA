@@ -71,9 +71,9 @@ public:
             return Error_t::kFunctionInvalidArgsError;
 
         pfOut[0] = (1.F - m_fAlpha) * pfIn[0] + m_fAlpha * m_fPrevOut;
-        
+
         for (auto i = 1; i < iNumSamples; i++)
-            pfOut[i] = (1 - m_fAlpha) * pfIn[0] + m_fAlpha * pfOut[i-1];
+            pfOut[i] = (1 - m_fAlpha) * pfIn[0] + m_fAlpha * pfOut[i - 1];
 
         m_fPrevOut = pfOut[iNumSamples - 1];
 
@@ -159,7 +159,7 @@ public:
         if (m_pCRingBuff->getLength() < iFilterLength)
         {
             delete m_pCRingBuff;
-            m_pCRingBuff = new CRingBuffer<float>(iFilterLength+1);
+            m_pCRingBuff = new CRingBuffer<float>(iFilterLength + 1);
         }
         m_pCRingBuff->setReadIdx(-iFilterLength);
 
@@ -199,7 +199,7 @@ public:
     {
         if (!pfOut || !pfIn || iLenBuff <= 0)
             return Error_t::kFunctionInvalidArgsError;
-        
+
         int iLenFilter = m_pCRingBuff->getNumValuesInBuffer();
 
         // recursive implementation - beware of potential error propagation due to numerical precision
@@ -232,7 +232,7 @@ public:
     */
     void filtfilt(float* pfOut, const float* pfIn, long long iLenBuff)
     {
-        
+
         int iLenFilter = this->getFilterParam();
         this->reset();
         this->setFilterParam(iLenFilter);
@@ -250,14 +250,14 @@ public:
         }
 
         // reverse tail
-        for (auto i = iLenBuff + 2*static_cast<long long>(iLenFilter) - 1; i >= iLenBuff + iLenFilter; i--)
+        for (auto i = iLenBuff + 2 * static_cast<long long>(iLenFilter) - 1; i >= iLenBuff + iLenFilter; i--)
         {
             float fZero = 0.F;
             this->process(&fZero, &pfTmpBuff[i], 1);
         }
 
         for (auto i = iLenBuff + iLenFilter - 1; i >= iLenFilter; i--)
-            this->process(&pfOut[i-iLenFilter], &pfTmpBuff[i], 1);
+            this->process(&pfOut[i - iLenFilter], &pfTmpBuff[i], 1);
 
         this->reset();
         this->setFilterParam(iLenFilter);
@@ -271,7 +271,7 @@ private:
     {
         reset();
     };
-    virtual ~CMovingAverage() 
+    virtual ~CMovingAverage()
     {
         delete m_pCRingBuff;
     };
@@ -283,8 +283,4 @@ private:
     float m_fPrevOut = 0;
 };
 
-
 #endif // #if !defined(__ACA_LowPass_HEADER_INCLUDED__)
-
-
-

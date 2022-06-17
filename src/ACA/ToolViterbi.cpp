@@ -4,12 +4,12 @@
 
 #include "ToolViterbi.h"
 
-CViterbi::CViterbi( void )
+CViterbi::CViterbi(void)
 {
     reset();
 }
 
-CViterbi::~CViterbi( void )
+CViterbi::~CViterbi(void)
 {
     reset();
 }
@@ -26,8 +26,8 @@ Error_t CViterbi::init(const float* const* const ppfPTransition, const float* pf
 
     reset();
 
-    m_iNumStates  = iNumStates;
-    m_iNumObs  = iNumObs;
+    m_iNumStates = iNumStates;
+    m_iNumObs = iNumObs;
 
     // allocate memory
     CVector::alloc(m_pfStart, m_iNumStates);
@@ -42,15 +42,15 @@ Error_t CViterbi::init(const float* const* const ppfPTransition, const float* pf
     CMatrix::copy(m_ppfTransProb, ppfPTransition, m_iNumStates, m_iNumStates);
 
     // all done here
-    m_bIsInitialized    = true;
+    m_bIsInitialized = true;
 
     return Error_t::kNoError;
 }
 
 Error_t CViterbi::reset()
 {
-    m_bIsInitialized    = false;
-    m_bWasProcessed     = false;
+    m_bIsInitialized = false;
+    m_bWasProcessed = false;
 
     CVector::free(m_pfStart);
 
@@ -140,7 +140,7 @@ void CViterbi::compLogLikelihood_(const float* const* const ppfPEmission)
 
     // initialize
     for (auto m = 0; m < m_iNumStates; m++)
-        m_ppfProb[m][0] = std::log(ppfPEmission[m][0]+ m_kLogMin) + std::log(m_pfStart[m]+ m_kLogMin);
+        m_ppfProb[m][0] = std::log(ppfPEmission[m][0] + m_kLogMin) + std::log(m_pfStart[m] + m_kLogMin);
 
 
     // compute probability matrix and store backtracking path
@@ -160,7 +160,7 @@ void CViterbi::compLogLikelihood_(const float* const* const ppfPEmission)
                     m_ppiPathIdx[m][n] = s;
                 }
             }
-            m_ppfProb[m][n] += std::log(ppfPEmission[m][n]+ m_kLogMin);
+            m_ppfProb[m][n] += std::log(ppfPEmission[m][n] + m_kLogMin);
         }
     }
 }
@@ -171,7 +171,7 @@ float CViterbi::getOverallProbability() const
     return m_fOverallProb;
 }
 
-Error_t CViterbi::getStateSequence( int* piStateSequence) const
+Error_t CViterbi::getStateSequence(int* piStateSequence) const
 {
     if (!piStateSequence)
         return Error_t::kFunctionInvalidArgsError;
@@ -186,7 +186,7 @@ Error_t CViterbi::getStateSequence( int* piStateSequence) const
 
     while (iIdx > 0)
     {
-        piStateSequence[iIdx-1] = m_ppiPathIdx[piStateSequence[iIdx]][iIdx];
+        piStateSequence[iIdx - 1] = m_ppiPathIdx[piStateSequence[iIdx]][iIdx];
         iIdx--;
     }
 

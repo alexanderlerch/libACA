@@ -58,10 +58,10 @@ protected:
     \param iNumObs number of observations (columns in the feature matrix)
     \param eNorm method for normalization
     */
-    virtual void compNormConstants(const float *const *const ppfTrainFeatures, int iNumFeatures, int iNumObs, Normalization_t eNorm)
+    virtual void compNormConstants(const float* const* const ppfTrainFeatures, int iNumFeatures, int iNumObs, Normalization_t eNorm)
     {
-        assert (m_pfNormScale);
-        assert (m_pfNormSub);
+        assert(m_pfNormScale);
+        assert(m_pfNormSub);
 
         // normalization constants
         if (eNorm == kZscoreNormalization)

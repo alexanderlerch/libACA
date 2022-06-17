@@ -129,7 +129,7 @@ protected:
     void computeMagSpectrum_();
 
     CNormalizeAudio* m_pCNormalize = 0;  //!< instantiate if audio file normalization is wanted
- 
+
     CBlockAudioIf* m_pCBlockAudio = 0;   //!< instantiate for blocking time domain signal
 
     CFeatureFromBlockIf* m_pCFeature = 0;
@@ -148,6 +148,3 @@ protected:
 };
 
 #endif // #if !defined(__ACA_Feature_HEADER_INCLUDED__)
-
-
-

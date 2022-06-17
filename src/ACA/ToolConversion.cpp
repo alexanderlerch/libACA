@@ -148,7 +148,7 @@ float CConversion::convertBark2FreqTerhardt(float fBark)
 float CConversion::convertFreq2BarkZwicker(float fFrequency)
 {
     assert(fFrequency > 0);
-    return 13.F * std::atan(0.76F  * fFrequency / 1000.F) + 3.5F * std::atan(fFrequency / 7500.F);
+    return 13.F * std::atan(0.76F * fFrequency / 1000.F) + 3.5F * std::atan(fFrequency / 7500.F);
 }
 float CConversion::convertBark2FreqZwicker(float /*fBark*/)
 {

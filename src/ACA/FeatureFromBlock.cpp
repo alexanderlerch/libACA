@@ -258,7 +258,7 @@ float CFeatureFromBlockIf::compFeatureSpectralTonalPowerRatio(const float* pfMag
 
             // increment because the next bin cannot be a local max but don't forget fNorm
             fNorm += pfMagSpec[k + 1] * pfMagSpec[k + 1];
-            k++; 
+            k++;
         }
     }
 
@@ -334,7 +334,7 @@ public:
         CVector::setZero(m_pfPrevSpec, m_iDataLength);
     };
 
-    virtual ~CFeatureSpectralFlux() 
+    virtual ~CFeatureSpectralFlux()
     {
         CVector::free(m_pfPrevSpec);
     };
@@ -394,7 +394,7 @@ public:
         for (auto j = 0; j < m_iNumMfcCoeffs; j++)
             pfFeature[j] = CVector::mulScalar(m_ppfDct[j], m_pfMelSpec, m_iNumBands);
 
-         return Error_t::kNoError;
+        return Error_t::kNoError;
     };
 
 
@@ -424,18 +424,18 @@ private:
 
     void genMfccFilters_()
     {
-        const double dFreq = 400. / 3.; 
+        const double dFreq = 400. / 3.;
         const int iNumLinFilters = 13;
         const double dLinSpacing = 200. / 3.,
             dLogSpacing = 1.0711703; // note sure where this mel resolution comes from exactly
 
         assert(m_iNumBands > iNumLinFilters);
-        double adBoundFreqs[3] = { dFreq, 
+        double adBoundFreqs[3] = { dFreq,
             dFreq + dLinSpacing,
-            dFreq + 2. * dLinSpacing};
+            dFreq + 2. * dLinSpacing };
         int aiBoundIdx[3] = { static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[0]), (m_iDataLength - 1) * 2, m_fSampleRate)),
             static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[1]), (m_iDataLength - 1) * 2, m_fSampleRate)),
-            static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[2]), (m_iDataLength - 1) * 2, m_fSampleRate))};
+            static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[2]), (m_iDataLength - 1) * 2, m_fSampleRate)) };
 
         for (auto c = 0; c < m_iNumBands; c++)
         {
@@ -452,7 +452,7 @@ private:
             }
 
             // downward slope
-            for (auto k = aiBoundIdx[1]+1; k <= aiBoundIdx[2]; k++)
+            for (auto k = aiBoundIdx[1] + 1; k <= aiBoundIdx[2]; k++)
             {
                 float fFreqk = CConversion::convertBin2Freq(1.F * k, (m_iDataLength - 1) * 2, m_fSampleRate);
                 //if ((afBoundFreqs[2] - fFreqk) < 0.F)
@@ -464,7 +464,7 @@ private:
             // proceed to next band
             adBoundFreqs[0] = adBoundFreqs[1];
             adBoundFreqs[1] = adBoundFreqs[2];
-            adBoundFreqs[2] = (c < iNumLinFilters-3) ? adBoundFreqs[1] + dLinSpacing : adBoundFreqs[2] * dLogSpacing; //!< Check me
+            adBoundFreqs[2] = (c < iNumLinFilters - 3) ? adBoundFreqs[1] + dLinSpacing : adBoundFreqs[2] * dLogSpacing; //!< Check me
             aiBoundIdx[0] = aiBoundIdx[1];
             aiBoundIdx[1] = aiBoundIdx[2];
             aiBoundIdx[2] = static_cast<int>(CConversion::convertFreq2Bin(static_cast<float>(adBoundFreqs[2]), (m_iDataLength - 1) * 2, m_fSampleRate));
@@ -480,7 +480,7 @@ private:
             for (auto b = 0; b < m_iNumBands; b++)
                 m_ppfDct[c][b] = static_cast<float>(std::cos(c * (2. * b + 1) * M_PI / 2. / m_iNumBands));
 
-            CVector::mulC_I(m_ppfDct[c], 1/std::sqrt(m_iNumBands / 2.F), m_iNumBands);
+            CVector::mulC_I(m_ppfDct[c], 1 / std::sqrt(m_iNumBands / 2.F), m_iNumBands);
         }
         CVector::mulC_I(m_ppfDct[0], 1.F / std::sqrt(2.f), m_iNumBands);
 
@@ -502,9 +502,9 @@ private:
     int m_iNumMfcCoeffs = 13;
 
     float** m_ppfH = 0,
-        **m_ppfDct = 0;
+        ** m_ppfDct = 0;
 
-    float *m_pfMelSpec = 0;
+    float* m_pfMelSpec = 0;
 };
 class CFeatureSpectralPitchChroma : public CFeatureFromBlockIf
 {
@@ -541,7 +541,7 @@ public:
         float fSum = CVector::getSum(pfFeature, m_iNumPitchClasses);
 
         if (fSum > 0)
-            CVector::mulC_I(pfFeature, 1.F/fSum, m_iNumPitchClasses);
+            CVector::mulC_I(pfFeature, 1.F / fSum, m_iNumPitchClasses);
 
         return Error_t::kNoError;
     };
@@ -731,10 +731,10 @@ public:
         m_pCCcf = new CCcf();
         m_pCCcf->init(iDataLength);
 
-        CVector::alloc(m_pfAcf , m_pCCcf->getCcfLength(true));
+        CVector::alloc(m_pfAcf, m_pCCcf->getCcfLength(true));
     };
 
-    virtual ~CFeatureTimeMaxAcf() 
+    virtual ~CFeatureTimeMaxAcf()
     {
         CVector::free(m_pfAcf);
 
@@ -766,7 +766,7 @@ public:
             if (iEta >= m_iDataLength)
                 break;
         }
-        
+
 
         if (iEta >= m_iDataLength)
             iEtaMin = 0;
@@ -786,7 +786,7 @@ public:
 
     Error_t setAdditionalParam(float fParamValue) override
     {
-        if (fParamValue <= 0 || fParamValue > m_fSampleRate/2)
+        if (fParamValue <= 0 || fParamValue > m_fSampleRate / 2)
             return Error_t::kNoError;
 
         m_fMax = fParamValue;
@@ -799,7 +799,7 @@ private:
     CFeatureTimeMaxAcf(const CFeatureTimeMaxAcf& that);     //!< disallow copy construction
     CFeatureTimeMaxAcf& operator=(const CFeatureTimeMaxAcf& c);
 
-    CCcf *m_pCCcf = 0;
+    CCcf* m_pCCcf = 0;
     float* m_pfAcf = 0;
 
     float m_fMax = 2000.F;
@@ -885,7 +885,7 @@ public:
         m_pCSinglePole->setFilterParam(CSinglePoleLp::calcFilterParam(m_fIntegrationTimeInS, fSampleRate));
     };
 
-    virtual ~CFeatureTimeRms() 
+    virtual ~CFeatureTimeRms()
     {
         CSinglePoleLp::destroy(m_pCSinglePole);
     };
@@ -893,7 +893,7 @@ public:
     Error_t compFeature(float* pfFeature, const float* pfIn) override
     {
         pfFeature[kBlock] = compFeatureTimeRms(pfIn, m_iDataLength, m_fSampleRate);
-        
+
         // do inefficient sample based processing so we don't have to alloc memory
         pfFeature[kLowpass] = 0;
         for (auto i = 0; i < m_iDataLength; i++)

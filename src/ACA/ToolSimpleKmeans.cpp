@@ -6,7 +6,7 @@
 #include "ToolSimpleKmeans.h"
 
 
-CKmeans::~CKmeans(void) 
+CKmeans::~CKmeans(void)
 {
     this->reset();
 }

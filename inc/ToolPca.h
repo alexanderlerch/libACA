@@ -73,5 +73,4 @@ private:
     int* piSortIndices = 0; //!< array for sorted indices
 };
 
-
-#endif
+#endif // __ACA_Pca_HEADER_INCLUDED__

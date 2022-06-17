@@ -8,14 +8,14 @@
 #include "Matrix.h"
 #include "Vector.h"
 
-/*! \brief class with static utility functions for pre-processing 
+/*! \brief class with static utility functions for pre-processing
 */
 class CPreProc
 {
 public:
     /*! downmixes multichannel audio (can be inplace
     */
-    static void downmix (float *pfOut, const float* const* const ppfIn, int iNumChannels, long long iNumSamples)
+    static void downmix(float* pfOut, const float* const* const ppfIn, int iNumChannels, long long iNumSamples)
     {
         // sanity checks
         assert(pfOut);
@@ -35,7 +35,7 @@ public:
 
         return;
     }
- };
+};
 
 
 /*! \brief class for audio normalization offering three options
@@ -142,4 +142,5 @@ private:
 
     float m_fScaleFactor;   //!< factor to normalize
 };
+
 #endif // __ACA_ToolPreProc_HEADER_INCLUDED__

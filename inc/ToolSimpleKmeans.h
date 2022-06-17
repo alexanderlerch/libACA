@@ -15,7 +15,7 @@ public:
     CKmeans(void) {};
     virtual ~CKmeans(void);;
 
-    /*! initializes the class 
+    /*! initializes the class
     \param iK target number of clusters
     \param iNumFeatures number of rows of matrix to be clustered
     \param iNumObs number of columns of matrix to be clustered
@@ -23,7 +23,7 @@ public:
     \return Error_t
     */
     Error_t init(int iK, int iNumFeatures, int iNumObs, int iMaxIter = 300);
-    
+
     /*! resets all internal class members
     \return Error_t
     */
@@ -36,8 +36,8 @@ public:
     \return Error_t
     */
     Error_t compKmeans(int* piResult, const float* const* const ppfFeatures);
- 
- 
+
+
 private:
     enum States_t
     {
@@ -83,7 +83,7 @@ private:
     float** m_appfClusterMeans[kNumStates] = { 0 }; //!< contains the current and previous cluster means
 
     float* m_pfProc = 0, //!< temporary pre-allocated memory buffer 
-        *m_pfDist = 0; //!< buffer for distance calculation
+        * m_pfDist = 0; //!< buffer for distance calculation
 
     int* m_piClusterSize = 0; //!< number of observations per cluster
 
@@ -94,6 +94,5 @@ private:
 
     bool m_bIsInitialized = false;
 };
-
 
 #endif // __ACA_Kmeans_HEADER_INCLUDED__

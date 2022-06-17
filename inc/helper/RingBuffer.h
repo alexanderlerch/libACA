@@ -66,9 +66,9 @@ public:
         // copy two parts: to the end of buffer and after wrap around
         int iNumValues2End = std::min(iLength, m_iBuffLength - m_iWriteIdx);
 
-        std::memcpy (&m_ptBuff[m_iWriteIdx], ptNewBuff, sizeof(T)*iNumValues2End);
+        std::memcpy(&m_ptBuff[m_iWriteIdx], ptNewBuff, sizeof(T) * iNumValues2End);
         if ((iLength - iNumValues2End) > 0)
-            std::memcpy (m_ptBuff, &ptNewBuff[iNumValues2End], sizeof(T)*(static_cast<long long>(iLength) - iNumValues2End));
+            std::memcpy(m_ptBuff, &ptNewBuff[iNumValues2End], sizeof(T) * (static_cast<long long>(iLength) - iNumValues2End));
     }
 
     /*! return the value at the current read index and increment the read pointer
@@ -127,17 +127,17 @@ public:
         // copy two parts: to the end of buffer and after wrap around
         int iNumValues2End = std::min(iLength, m_iBuffLength - m_iReadIdx);
 
-        std::memcpy (ptBuff, &m_ptBuff[m_iReadIdx], sizeof(T)*iNumValues2End);
-        if ((iLength - iNumValues2End)>0)
-            std::memcpy (&ptBuff[iNumValues2End], m_ptBuff, sizeof(T)*(static_cast<long long>(iLength) - iNumValues2End));
+        std::memcpy(ptBuff, &m_ptBuff[m_iReadIdx], sizeof(T) * iNumValues2End);
+        if ((iLength - iNumValues2End) > 0)
+            std::memcpy(&ptBuff[iNumValues2End], m_ptBuff, sizeof(T) * (static_cast<long long>(iLength) - iNumValues2End));
     }
 
     /*! set buffer content and indices to 0
     */
     void reset()
     {
-        std::memset (m_ptBuff, 0, sizeof(T)*m_iBuffLength);
-        m_iReadIdx  = 0;
+        std::memset(m_ptBuff, 0, sizeof(T) * m_iBuffLength);
+        m_iReadIdx = 0;
         m_iWriteIdx = 0;
     }
 
@@ -209,4 +209,5 @@ private:
 
     T* m_ptBuff = 0;            //!< data buffer
 };
+
 #endif // __ACA_RingBuffer_HEADER_INCLUDED__

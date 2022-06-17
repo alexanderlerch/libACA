@@ -18,7 +18,7 @@ CKey::~CKey()
     reset();
     delete m_pCKeyFromChroma;
 }
-                            
+
 Error_t CKey::init(const std::string& strAudioFilePath, int iBlockLength, int iHopLength)
 {
     if (strAudioFilePath.empty())
@@ -31,7 +31,7 @@ Error_t CKey::init(const std::string& strAudioFilePath, int iBlockLength, int iH
     reset();
 
     Error_t rErr = CFeatureIf::create(m_pCPitchChromaExtractor, CFeatureIf::kFeatureSpectralPitchChroma, strAudioFilePath, iBlockLength, iHopLength);
-    
+
     if (rErr == Error_t::kNoError)
     {
         m_bIsInitialized = true;
@@ -58,7 +58,7 @@ Error_t CKey::init(const float* pfAudio, long long iNumSamples, float fSampleRat
     reset();
 
     Error_t rErr = CFeatureIf::create(m_pCPitchChromaExtractor, CFeatureIf::kFeatureSpectralPitchChroma, pfAudio, iNumSamples, fSampleRate, iBlockLength, iHopLength);
-  
+
     if (rErr == Error_t::kNoError)
     {
         m_bIsInitialized = true;

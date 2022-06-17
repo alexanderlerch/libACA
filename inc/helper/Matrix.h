@@ -18,19 +18,19 @@ public:
     \param iNumCols number of columns
     */
     template<typename T>
-    static void alloc(T** &pptMat, int iNumRows, int iNumCols)
+    static void alloc(T**& pptMat, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumCols > 0);
 
         CVector::alloc(pptMat, iNumRows);
         assert(pptMat);
- 
+
         for (auto m = 0; m < iNumRows; m++)
             CVector::alloc(pptMat[m], iNumCols);
     }
 
-    /*! frees a matrix 
+    /*! frees a matrix
     \param pptMat (empty double pointer, to be set to zero)
     \param iNumRows number of rows
     */
@@ -162,7 +162,7 @@ public:
     \param iNumRows number of rows in the matrix
     */
     template<typename T>
-    static void getCol(T* ptDest, const T*const *const pptMat, int iColIdx, int iNumRows)
+    static void getCol(T* ptDest, const T* const* const pptMat, int iColIdx, int iNumRows)
     {
         assert(iColIdx >= 0);
         assert(iNumRows > 0);
@@ -175,7 +175,7 @@ public:
     }
 
     /*! adds all elements in one columns
-    \param pptMat input matrix of dimension iNumRows x iNumCols 
+    \param pptMat input matrix of dimension iNumRows x iNumCols
     \param iColIdx column of interest
     \param iNumRows number of rows in the matrix
     \param bAbs flag to indicate whether to sum the absolute values
@@ -315,7 +315,7 @@ public:
     \param iNumSrcCols number of columns in the matrix
     */
     template<typename T>
-    static void transpose(T** pptDest, const T*const*const pptSrc, int iNumSrcRows, int iNumSrcCols)
+    static void transpose(T** pptDest, const T* const* const pptSrc, int iNumSrcRows, int iNumSrcCols)
     {
         assert(iNumSrcRows > 0);
         assert(iNumSrcCols > 0);
@@ -589,7 +589,7 @@ public:
         assert(pptSrc);
         assert(pptSrc[0]);
 
-        T fEpsilon = bAddSmallConst? 1e-30F : .0F;
+        T fEpsilon = bAddSmallConst ? 1e-30F : .0F;
 
         for (auto m = 0; m < iNumRows; m++)
         {
@@ -724,7 +724,7 @@ public:
         assert(iNumRows == iNumCols);
 
         const T kSingularityThresh = 1e-15F;
-        T **pptTmp = 0;
+        T** pptTmp = 0;
         double dDet = 1;
 
 
@@ -810,7 +810,7 @@ public:
     \param iNumCols number of columns in the matrix
     */
     template<typename T>
-    static void inv_I (T **pptSrcDest, int iNumRows, int iNumCols)
+    static void inv_I(T** pptSrcDest, int iNumRows, int iNumCols)
     {
         assert(iNumRows > 0);
         assert(iNumRows == iNumCols);
@@ -854,7 +854,7 @@ public:
         {
             j = 0;
 
-            if (std::abs(dDet) < kSingularityThresh * 1.* kSingularityThresh)
+            if (std::abs(dDet) < kSingularityThresh * 1. * kSingularityThresh)
                 dDet = 0;
 
             while (j < i)

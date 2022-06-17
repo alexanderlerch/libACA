@@ -36,7 +36,7 @@ public:
     \param pfAccuracyPerStep best accuracy for each combination (1 feature, 2 features, 3 features...)
     \return Error_t
     */
-    Error_t getResult(int *piFeatureIndices, float *pfAccuracyPerStep = 0);
+    Error_t getResult(int* piFeatureIndices, float* pfAccuracyPerStep = 0);
 
     /*! resets SeqFeatureSel instance
     \return Error_t
@@ -66,8 +66,8 @@ private:
         m_iNumObs = 0; //!< number of neighbors for classification
 
     float** m_ppfTrain = 0; //!< train data (m_iNumObs X m_iNumFeatures)
-    
-    float* m_pfAccuracy = 0; 
+
+    float* m_pfAccuracy = 0;
 
     int* m_piSelFeatures = 0;
 
@@ -79,6 +79,5 @@ private:
     bool m_bWasProcessed = false;
 
 };
-
 
 #endif // __ACA_SeqFeatureSel_HEADER_INCLUDED__

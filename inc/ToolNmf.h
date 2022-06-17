@@ -7,7 +7,7 @@
 
 class CNmfResult
 {
-friend class CNmf;
+    friend class CNmf;
 
 public:
     enum NmfMatrices_t
@@ -23,7 +23,7 @@ public:
 
 
     /*! returns the number of columns in the matrix specified in eMatIdx
-    \param eMatIdx 
+    \param eMatIdx
     \return int
     */
     int getMatCols(NmfMatrices_t eMatIdx) const;
@@ -77,16 +77,16 @@ public:
     \param fSparsity sparsity weight
     \return Error_t
     */
-    Error_t init (CNmfResult* pCNmfResult, int iRank, int iNumRows, int iNumCols, int iMaxIter = 300, float fSparsity = 0);
-    
+    Error_t init(CNmfResult* pCNmfResult, int iRank, int iNumRows, int iNumCols, int iMaxIter = 300, float fSparsity = 0);
+
     /*! resets all internal class members
     \return Error_t
     */
-    Error_t reset ();
+    Error_t reset();
 
-    Error_t compNmf (CNmfResult *pCNmfResult, const float* const* const  ppfIn);
- 
- 
+    Error_t compNmf(CNmfResult* pCNmfResult, const float* const* const  ppfIn);
+
+
 private:
     CNmf(const CNmf& that);     //!< disallow copy construction   
     CNmf& operator=(const CNmf& c);
@@ -96,8 +96,8 @@ private:
     float** m_ppfX = 0, //!< input matrix 
         ** m_ppfOnes = 0, //!< matrix with ones
         ** m_ppfTransp = 0, //!< matrix for transpositions
-        **m_ppfNum = 0, //!< numerator matrix
-        **m_ppfDenom = 0; //!< denominator matrix
+        ** m_ppfNum = 0, //!< numerator matrix
+        ** m_ppfDenom = 0; //!< denominator matrix
     float m_fSparsity = 0; //!< sparsity weight
     int m_iMaxIter = 0; //!< maximum number of iteration
     int m_iAllocSize = 0; //!< temp variable
@@ -107,6 +107,5 @@ private:
 
     static const float m_kMinOffset;
 };
-
 
 #endif // __ACA_Nmf_HEADER_INCLUDED__

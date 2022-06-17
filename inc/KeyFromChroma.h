@@ -15,7 +15,7 @@
 
 /*! \brief computation of key profile distance
 */
-class CKeyFromChroma 
+class CKeyFromChroma
 {
 public:
     CKeyFromChroma(void);;
@@ -25,7 +25,7 @@ public:
 
 
     /*! classifies a new query chroma vector
-    \return int index of most likely key 
+    \return int index of most likely key
     */
     int getKey(const float* pfQuery);
 

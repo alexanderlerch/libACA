@@ -64,7 +64,7 @@ Error_t CGmm::compGmm(CGmmResult* pCResult, const float* const* const  ppfFeatur
     if (!pCResult || !ppfFeatures)
         return Error_t::kFunctionInvalidArgsError;
     if (!ppfFeatures[0])
-        return Error_t::kFunctionInvalidArgsError;    
+        return Error_t::kFunctionInvalidArgsError;
     if (!m_bisInitialized)
         return Error_t::kFunctionIllegalCallError;
 
@@ -194,7 +194,7 @@ bool CGmm::checkConverged_(CGmmResult* pCCurrState)
             fSum += std::abs(pCCurrState->getMu(k, v) - PrevState.getMu(k, v));
     }
 
-    if (fSum/m_iK <= 1e-20F)
+    if (fSum / m_iK <= 1e-20F)
         return true;
 
     return false;
@@ -284,7 +284,7 @@ float CGmmResult::getPrior(int iGaussianIdx) const
 
 float CGmmResult::getSigma(int iGaussianIdx, int iRowIdx, int iColIdx) const
 {
-    return m_apppfSigma[kNormal] [iGaussianIdx] [iRowIdx] [iColIdx] ;
+    return m_apppfSigma[kNormal][iGaussianIdx][iRowIdx][iColIdx];
 }
 
 void CGmmResult::getSigma(float** ppfSigma, int iGaussianIdx) const
@@ -298,7 +298,7 @@ bool CGmmResult::isInitialized() const
     return m_bIsInitialized;
 }
 
- Error_t CGmmResult::init(int iK, int iNumFeatures)
+Error_t CGmmResult::init(int iK, int iNumFeatures)
 {
     reset();
 

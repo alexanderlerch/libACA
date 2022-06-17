@@ -20,7 +20,5 @@ enum class Error_t
 
     kNumErrors
 };
+
 #endif // #if !defined(__ACA_ErrorDef_HEADER_INCLUDED__)
-
-
-

@@ -79,7 +79,7 @@ public:
         m_pCFilter = new CFilter<float>();
     }
 
-    virtual ~CResample() 
+    virtual ~CResample()
     {
         delete m_pCFilter;
     }
@@ -90,7 +90,7 @@ public:
     */
     long long getOutputLength(long long iNumInSamples) const
     {
-        return CUtil::float2int<long long>(iNumInSamples/m_fInSampleRate*m_fOutSampleRate);
+        return CUtil::float2int<long long>(iNumInSamples / m_fInSampleRate * m_fOutSampleRate);
     }
 
     /*! does the sample rate conversion (filtered linear interpolation)
@@ -99,7 +99,7 @@ public:
     \param iNumInSamples length of input buffer
     \return Error_t
     */
-    Error_t process(float *pfOut, const float *pfIn, long long iNumInSamples)
+    Error_t process(float* pfOut, const float* pfIn, long long iNumInSamples)
     {
         if (!pfOut || !pfIn || iNumInSamples <= 0)
             return Error_t::kFunctionInvalidArgsError;
@@ -117,7 +117,7 @@ public:
         // compute butterworth low pass filter coefficients
         float aafCoeffs[2][iOrder + 1] = { { 0 } };
         CButterLp::calcCoeffs(aafCoeffs[0], aafCoeffs[1], iOrder, .9F * fOmegaCutoff);
-        m_pCFilter->init(aafCoeffs[0], aafCoeffs[1], iOrder+1);
+        m_pCFilter->init(aafCoeffs[0], aafCoeffs[1], iOrder + 1);
 
         if (m_fOutSampleRate > m_fInSampleRate) // upsample
         {
@@ -158,6 +158,3 @@ private:
 };
 
 #endif // #if !defined(__ACA_Resample_HEADER_INCLUDED__)
-
-
-

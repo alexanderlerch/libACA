@@ -81,7 +81,7 @@ Error_t CSeqFeatureSel::process(const float* const* const ppfFeatures, const int
             // add current feature v to internal feature matrix
             CVector::copy(m_ppfTrain[iNumSelFeatures], ppfFeatures[v], m_iNumObs);
 
-            m_pCCv->init(iNumSelFeatures+1, m_iNumObs, m_pCClassifier);
+            m_pCCv->init(iNumSelFeatures + 1, m_iNumObs, m_pCClassifier);
 
             //accuracy of selected features plus current feature f
             fAcc = m_pCCv->process(m_ppfTrain, piClassIndices);
