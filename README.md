@@ -1,6 +1,6 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/alexanderlerch/libACA)
 ![GitHub issues](https://img.shields.io/github/issues-raw/alexanderlerch/libACA)
-![DOI](https://zenodo.org/badge/485183471.svg)(https://zenodo.org/badge/latestdoi/485183471)
+[![DOI](https://zenodo.org/badge/485183471.svg)](https://zenodo.org/badge/latestdoi/485183471)
 [![Tests](https://github.com/alexanderlerch/libACA/actions/workflows/cmake.yml/badge.svg)](https://github.com/alexanderlerch/libACA/actions/workflows/cmake.yml)
 ![GitHub last commit](https://img.shields.io/github/last-commit/alexanderlerch/libACA)
 ![GitHub](https://img.shields.io/github/license/alexanderlerch/libACA)
