@@ -1,9 +1,10 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/alexanderlerch/libACA)
-![release](https://img.shields.io/github/v/release/alexanderlerch/libACA)
 ![GitHub issues](https://img.shields.io/github/issues-raw/alexanderlerch/libACA)
+![DOI](https://zenodo.org/badge/485183471.svg)(https://zenodo.org/badge/latestdoi/485183471)
 [![Tests](https://github.com/alexanderlerch/libACA/actions/workflows/cmake.yml/badge.svg)](https://github.com/alexanderlerch/libACA/actions/workflows/cmake.yml)
 ![GitHub last commit](https://img.shields.io/github/last-commit/alexanderlerch/libACA)
 ![GitHub](https://img.shields.io/github/license/alexanderlerch/libACA)
+![release](https://img.shields.io/github/v/release/alexanderlerch/libACA)
 
 # libACA
 C++ code accompanying the book ["An Introduction to Audio Content Analysis"](https://www.AudioContentAnalysis.org). The source code shows example implementations of basic approaches, features, and algorithms for music audio content analysis.
@@ -21,7 +22,7 @@ As the implementation aims at providing an accessible code base to foster unders
 If this is your first glance at this project, it might be helpful to visit the [Matlab: ACA-Code](https://github.com/alexanderlerch/ACA-Code) or [Python: pyACA](https://github.com/alexanderlerch/pyACA) repositories of the same algorithms first. Projects and source code in these languages are often more compact and thus more easily accessible. 
 
 Each folder in the src directory is a build target.
-All algorithmic implementations which compile into the actualy libACA library can be found in the source directory [./src/ACA](https://github.com/alexanderlerch/libACA/tree/main/src/ACA) with the corresponding header files in [./inc](https://github.com/alexanderlerch/libACA/tree/main/inc). 
+All algorithmic implementations which compile into the actual libACA library can be found in the source directory [./src/ACA](https://github.com/alexanderlerch/libACA/tree/main/src/ACA) with the corresponding header files in [./inc](https://github.com/alexanderlerch/libACA/tree/main/inc). 
 All folders starting with 'Compute' are executable targets that can be run from the command line. 
 The 'Test' folder contains the test executable.
 
