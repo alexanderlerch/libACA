@@ -1,4 +1,5 @@
 var a00191 =
 [
-    [ "CPitchFromBlockIf", "a00526.xhtml", "a00526" ]
+    [ "CFilter< T >", "a00478.xhtml", "a00478" ],
+    [ "CButterLp", "a00482.xhtml", "a00482" ]
 ];

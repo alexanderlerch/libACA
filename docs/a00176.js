@@ -1,4 +1,4 @@
 var a00176 =
 [
-    [ "CKmeans", "a00622.xhtml", "a00622" ]
+    [ "CGmmClassifier", "a00570.xhtml", "a00570" ]
 ];

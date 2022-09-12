@@ -1,4 +1,5 @@
 var a00218 =
 [
-    [ "CChordFromBlockIf", "a00458.xhtml", "a00458" ]
+    [ "CSpectrogramIf", "a00530.xhtml", "a00530" ],
+    [ "CSpectrogramIf::MelSpectrogramConfig_t", "a00534.xhtml", "a00534" ]
 ];

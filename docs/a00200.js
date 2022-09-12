@@ -1,4 +1,4 @@
 var a00200 =
 [
-    [ "CCcf", "a00546.xhtml", "a00546" ]
+    [ "CRingBuffer< T >", "a00490.xhtml", "a00490" ]
 ];

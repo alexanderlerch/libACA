@@ -1,4 +1,4 @@
 var a00188 =
 [
-    [ "CGmmClassifier", "a00570.xhtml", "a00570" ]
+    [ "CSynthesis", "a00494.xhtml", "a00494" ]
 ];

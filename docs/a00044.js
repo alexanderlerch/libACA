@@ -1,5 +1,7 @@
 var a00044 =
 [
-    [ "CChordFromFile", "a00310.xhtml", "a00310" ],
-    [ "CChordFromVector", "a00314.xhtml", "a00314" ]
+    [ "CGammatone", "a00418.xhtml", "a00418" ],
+    [ "CGammaToneFbFromFile", "a00422.xhtml", "a00422" ],
+    [ "CGammaToneFbFromVector", "a00426.xhtml", "a00426" ],
+    [ "CGammaToneFbRealTime", "a00430.xhtml", "a00430" ]
 ];

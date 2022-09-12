@@ -1,4 +1,4 @@
 var a00179 =
 [
-    [ "CBlockAudioIf", "a00542.xhtml", "a00542" ]
+    [ "CBeatHistoIf", "a00450.xhtml", "a00450" ]
 ];

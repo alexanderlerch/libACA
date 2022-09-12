@@ -1,6 +1,6 @@
 var searchData=
 [
-  ['c_5fto_5fxen_5foff_5ft_0',['c_to_xen_off_t',['../a00284.xhtml#a03cdc2d616f13e579c9de5c1da8c8074',1,'xen.h']]],
+  ['c_5fto_5fxen_5foff_5ft_0',['c_to_xen_off_t',['../a00263.xhtml#a03cdc2d616f13e579c9de5c1da8c8074',1,'xen.h']]],
   ['calca_1',['calcA',['../a00482.xhtml#a4a70bdde7f075d2591fd03c52c16145c',1,'CButterLp']]],
   ['calcb_2',['calcB',['../a00482.xhtml#a9c08c0b6f891bb37fb4230088f94b0a0',1,'CButterLp']]],
   ['calccoeffs_3',['calcCoeffs',['../a00482.xhtml#a3878460603a6e6e1a64de6021b2bb73e',1,'CButterLp']]],
@@ -57,8 +57,8 @@ var searchData=
   ['classify_54',['classify',['../a00462.xhtml#ae187572c8c6af54f060105b91cf72e9f',1,'CClassifierBase::classify()'],['../a00570.xhtml#a6ddfb025951b2206db8f98f53275d509',1,'CGmmClassifier::classify()'],['../a00626.xhtml#a16bb56f19951aee5c4986a9dc7aeb853',1,'CKnn::classify()']]],
   ['cleaveoneoutcrossval_55',['CLeaveOneOutCrossVal',['../a00578.xhtml#a0cb5a0fff0b4959502ec49e3cbf8f3a7',1,'CLeaveOneOutCrossVal::CLeaveOneOutCrossVal(void)'],['../a00578.xhtml#a6f4e6c1ce9c4295a067d6c983908efdd',1,'CLeaveOneOutCrossVal::CLeaveOneOutCrossVal(const CLeaveOneOutCrossVal &amp;that)']]],
   ['clip2range_5f_56',['clip2Range_',['../a00442.xhtml#a4fbb0a778b2b8113081d670fc8378031',1,'CAudioFileIf']]],
-  ['clm_5fdefault_5ffrequency_5fc_57',['clm_default_frequency_c',['../a00269.xhtml#a90fe8aa9215d93e51a00e9e6b69eaf0c',1,'clm2xen.h']]],
-  ['clm_5fdefault_5ftable_5fsize_5fc_58',['clm_default_table_size_c',['../a00269.xhtml#a5acf362d587835740a39e9735b8ce1c3',1,'clm2xen.h']]],
+  ['clm_5fdefault_5ffrequency_5fc_57',['clm_default_frequency_c',['../a00275.xhtml#a90fe8aa9215d93e51a00e9e6b69eaf0c',1,'clm2xen.h']]],
+  ['clm_5fdefault_5ftable_5fsize_5fc_58',['clm_default_table_size_c',['../a00275.xhtml#a5acf362d587835740a39e9735b8ce1c3',1,'clm2xen.h']]],
   ['closefile_59',['closeFile',['../a00434.xhtml#a5d678d9ff6ccd1a3b196c34979572e7f',1,'CAudioFileRaw::closeFile()'],['../a00438.xhtml#a11bbaadab88f5a801ea60a518069e40d',1,'CAudioFileSndLib::closeFile()'],['../a00442.xhtml#a9b8022f870f94a4b8c5a1f25cf24d2f9',1,'CAudioFileIf::closeFile()']]],
   ['cmovingaverage_60',['CMovingAverage',['../a00586.xhtml#a7fbde1ace5417196843209065c07d687',1,'CMovingAverage::CMovingAverage(const CMovingAverage &amp;that)'],['../a00586.xhtml#aa02ee977828ff103f3e2c25889131122',1,'CMovingAverage::CMovingAverage()']]],
   ['cnmf_61',['CNmf',['../a00594.xhtml#a09232b6ba993abb0842570a0eba87188',1,'CNmf::CNmf(void)'],['../a00594.xhtml#a7e7496e9eaaf63c02c980dc30325584c',1,'CNmf::CNmf(const CNmf &amp;that)']]],

@@ -1,4 +1,5 @@
 var a00137 =
 [
-    [ "CPitchIf", "a00522.xhtml", "a00522" ]
+    [ "CPreProc", "a00602.xhtml", "a00602" ],
+    [ "CNormalizeAudio", "a00606.xhtml", "a00606" ]
 ];

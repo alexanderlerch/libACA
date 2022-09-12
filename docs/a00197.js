@@ -1,4 +1,4 @@
 var a00197 =
 [
-    [ "CViterbi", "a00630.xhtml", "a00630" ]
+    [ "CMatrix", "a00486.xhtml", "a00486" ]
 ];

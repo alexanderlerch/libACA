@@ -1,4 +1,5 @@
 var a00233 =
 [
-    [ "CNoveltyIf", "a00514.xhtml", "a00514" ]
+    [ "CSinglePoleLp", "a00582.xhtml", "a00582" ],
+    [ "CMovingAverage", "a00586.xhtml", "a00586" ]
 ];
