@@ -404,7 +404,7 @@ TEST_CASE("Features (class interface per block)", "[FeaturesBlockClass]")
         CHECK(fResult == Approx(0.F).margin(1e-6F).epsilon(1e-6F));
 
         // sine wave
-        int eta = 500;
+        int eta = 250;
         fSampleRate = 1000;
         CSynthesis::genSine<float>(pfIn, 2, fSampleRate, iLenBuff, 1.F);
         CHECK(Error_t::kNoError == pCInstance->compFeature(&fResult, pfIn));

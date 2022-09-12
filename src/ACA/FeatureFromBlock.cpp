@@ -801,7 +801,7 @@ public:
             iEtaMin = iEta;
 
         // get the maximum given the constraints above
-        *pfFeature = CVector::getMax(&m_pfAcf[iEtaMin], static_cast<long long>(m_iDataLength) - iEtaMin);
+        *pfFeature = CVector::getMax(&m_pfAcf[iEtaMin], static_cast<long long>(m_iDataLength) - iEtaMin, true);
 
         return Error_t::kNoError;
     };
