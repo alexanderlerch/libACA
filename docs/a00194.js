@@ -1,4 +1,4 @@
 var a00194 =
 [
-    [ "CVector", "a00502.xhtml", "a00502" ]
+    [ "CSynthesis", "a00497.xhtml", "a00497" ]
 ];

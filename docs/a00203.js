@@ -1,4 +1,4 @@
 var a00203 =
 [
-    [ "CFeatureIf", "a00466.xhtml", "a00466" ]
+    [ "CRingBuffer< T >", "a00493.xhtml", "a00493" ]
 ];

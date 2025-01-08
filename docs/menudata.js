@@ -104,7 +104,7 @@ var menudata={children:[
 {text:"w",url:"functions_enum.xhtml#index_w"}]},
 {text:"Enumerator",url:"functions_eval.xhtml",children:[
 {text:"k",url:"functions_eval.xhtml#index_k"}]},
-{text:"Related Functions",url:"functions_rela.xhtml"}]}]},
+{text:"Related Symbols",url:"functions_rela.xhtml"}]}]},
 {text:"Files",url:"files.xhtml",children:[
 {text:"File List",url:"files.xhtml"},
 {text:"File Members",url:"globals.xhtml",children:[

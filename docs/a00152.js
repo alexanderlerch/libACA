@@ -1,5 +1,4 @@
 var a00152 =
 [
-    [ "CGmmResult", "a00562.xhtml", "a00562" ],
-    [ "CGmm", "a00566.xhtml", "a00566" ]
+    [ "CKeyFromChroma", "a00513.xhtml", "a00513" ]
 ];

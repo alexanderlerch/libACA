@@ -1,4 +1,4 @@
 var a00143 =
 [
-    [ "CDtw", "a00618.xhtml", "a00618" ]
+    [ "CSeqFeatureSel", "a00617.xhtml", "a00617" ]
 ];

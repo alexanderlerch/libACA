@@ -1,4 +1,5 @@
 var a00164 =
 [
-    [ "CPitchFromBlockIf", "a00526.xhtml", "a00526" ]
+    [ "CGmmResult", "a00565.xhtml", "a00565" ],
+    [ "CGmm", "a00569.xhtml", "a00569" ]
 ];

@@ -25,33 +25,6 @@
 var NAVTREE =
 [
   [ "ACA", "index.xhtml", [
-    [ "libACA", "index.xhtml#autotoc_md0", null ],
-    [ "overview", "index.xhtml#autotoc_md1", null ],
-    [ "getting started", "index.xhtml#autotoc_md2", [
-      [ "creating the project files with CMake", "index.xhtml#autotoc_md3", null ],
-      [ "running the tests with CTest", "index.xhtml#autotoc_md4", null ],
-      [ "directory structure", "index.xhtml#autotoc_md5", null ],
-      [ "functionality", "index.xhtml#autotoc_md6", null ],
-      [ "documentation", "index.xhtml#autotoc_md7", null ],
-      [ "code examples", "index.xhtml#autotoc_md8", [
-        [ "feature extraction: spectral centroid", "index.xhtml#autotoc_md9", null ],
-        [ "feature extraction: pitch chroma", "index.xhtml#autotoc_md10", null ],
-        [ "key detection", "index.xhtml#autotoc_md11", null ]
-      ] ]
-    ] ],
-    [ "design principles", "index.xhtml#autotoc_md12", [
-      [ "minimal dependencies", "index.xhtml#autotoc_md13", null ],
-      [ "readability", "index.xhtml#autotoc_md14", null ],
-      [ "memory allocation and ownership", "index.xhtml#autotoc_md15", null ],
-      [ "optimization", "index.xhtml#autotoc_md16", null ]
-    ] ],
-    [ "other information", "index.xhtml#autotoc_md17", [
-      [ "text book", "index.xhtml#autotoc_md18", null ],
-      [ "slides", "index.xhtml#autotoc_md19", null ],
-      [ "video lectures", "index.xhtml#autotoc_md20", null ],
-      [ "datasets", "index.xhtml#autotoc_md21", null ],
-      [ "license", "index.xhtml#autotoc_md22", null ]
-    ] ],
     [ "Namespaces", "namespaces.xhtml", [
       [ "Namespace List", "namespaces.xhtml", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.xhtml", [
@@ -70,7 +43,7 @@ var NAVTREE =
         [ "Typedefs", "functions_type.xhtml", null ],
         [ "Enumerations", "functions_enum.xhtml", null ],
         [ "Enumerator", "functions_eval.xhtml", "functions_eval" ],
-        [ "Related Functions", "functions_rela.xhtml", null ]
+        [ "Related Symbols", "functions_rela.xhtml", null ]
       ] ]
     ] ],
     [ "Files", "files.xhtml", [
@@ -91,22 +64,21 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "a00002.xhtml",
-"a00257.xhtml#a66d1df753449f9e8d179f439065e0ac1",
-"a00260.xhtml#a4dc8e00a5881191856bdb79a61c1102c",
-"a00260.xhtml#ac99c39d7f7881edeb9f4db96d819b499",
-"a00263.xhtml#aa888aedf5723ee19bb0bf4e5bd8b3707",
-"a00269.xhtml#a741a389c4754788ff6fa2ccfd673ca2d",
-"a00278.xhtml#a97f092e570347b6b3014a76e070c225c",
-"a00290.xhtml#a115472f6d0d1035f1885658ce0821537",
-"a00293.xhtml#abc88b7cc5b2a76cf3571532671ecf0d6",
-"a00358.xhtml#a7807a1c5f7cf3b671f91c2c219dc0710ac1487bbff575acc504653aa6d692eb03",
-"a00450.xhtml#a3c3a39ab20e4ca9f1771bbd6f70327c9",
-"a00474.xhtml#aaeae67c99cd6e689243892e429a66e33aae7f8e9cc1d7b43fa0239ce2122d4d6a",
-"a00518.xhtml#a21778c061afe83ab8e390d8c49b8baf3",
-"a00558.xhtml#ac2de88f207d4482f3aa0c7be334da9c4",
-"a00618.xhtml#a1324ec2c82f7cda3557e620b6232de98",
-"index.xhtml#autotoc_md18"
+"a00263.xhtml#a1fd7ae205bfaf844957cf6e9cba116f6",
+"a00263.xhtml#ad405a1c826d954d80ed8e1bb9480c766",
+"a00272.xhtml#ab9e852929f76c8700c2cca4bce7f4526",
+"a00278.xhtml#a9fdd8740f142b0e49d478101f7d85b96",
+"a00284.xhtml#ae218445974287fed3715528f9fec1f61",
+"a00290.xhtml#aee2b2985604c53d16a5caf3028ad218f",
+"a00293.xhtml#a6d72987ab558ad70ac7240346d7f69e0",
+"a00293.xhtml#ae7e0ae52b8755378e53db0e48de5f06a",
+"a00373.xhtml#a3c8855a644dfe8e49b3dc3f6aee11f53",
+"a00453.xhtml#aa1412f9c268dde46889e7642512bdb76",
+"a00481.xhtml#a4e31c29ccb288a7227e65e2b925deb02",
+"a00525.xhtml#a0841d88981bfe343f6439b7d4174a30b",
+"a00565.xhtml#a5d6f25dd8032431bb923bc5b47d5e210",
+"a00621.xhtml#a952828125cfee61b5dc7023a6942d8d8a6eec7f038bf10fa9d2e5e989ab03f580"
 ];
 
-var SYNCONMSG = 'click to disable panel synchronisation';
-var SYNCOFFMSG = 'click to enable panel synchronisation';
+var SYNCONMSG = 'click to disable panel synchronization';
+var SYNCOFFMSG = 'click to enable panel synchronization';

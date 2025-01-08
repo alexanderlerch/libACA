@@ -1,4 +1,4 @@
 var a00239 =
 [
-    [ "CResample", "a00610.xhtml", "a00610" ]
+    [ "CClassifierBase", "a00465.xhtml", "a00465" ]
 ];

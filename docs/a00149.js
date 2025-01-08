@@ -1,4 +1,4 @@
 var a00149 =
 [
-    [ "CKnn", "a00626.xhtml", "a00626" ]
+    [ "CResample", "a00613.xhtml", "a00613" ]
 ];
