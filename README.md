@@ -14,7 +14,7 @@ All implementations are also available in:
 * [Python: pyACA](https://github.com/alexanderlerch/pyACA)
 
 # overview
-The library libACA offers simple implementations of basic audio content analysis algorithms, including low level audio features, different f0 extractors, as well as simple approaches to chord, musical key detection, and onset detection. It also offers implementations of multiple generic algorithms useful in audio content analysis. 
+The library libACA offers simple implementations of basic audio content analysis algorithms, including low level audio features, different f0 (fundamental frequency) extractors, as well as simple approaches to chord, musical key detection, and onset detection. It also offers implementations of multiple generic algorithms useful in audio content analysis. 
 
 As the implementation aims at providing an accessible code base to foster understanding of algorithms presented in the text book, there are necessarily compromises to be made between readability, performance, memory efficiency, and structure.
 
