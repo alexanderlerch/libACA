@@ -406,7 +406,7 @@ TEST_CASE("ToolsGammatone", "[ToolsGammatone]")
         for (auto c = 0; c < iNumBands; c++)
             CHECK(0.F == CVector::getSum(ppfOut[c], iLenBuff, true));
 
-        CHECK(fStartFreq == pCGammatone->getCenterFreq(0));
+        CHECK_THAT(fStartFreq, Catch::Matchers::WithinAbs(pCGammatone->getCenterFreq(0), 0.00001f));
 
         CHECK(Error_t::kNoError == CGammaToneFbIf::destroy(pCGammatone));
     }
