@@ -1,5 +1,4 @@
 #include <cstdint>
-
 #include "Util.h"
 #include "Matrix.h"
 #include "Vector.h"

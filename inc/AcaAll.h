@@ -1,5 +1,6 @@
 #if !defined(__AcaAll_HEADER_INCLUDED__)
 #define __AcaAll_HEADER_INCLUDED__
+#include <cstdint>
 
 #include "ACAConfig.h"
 
