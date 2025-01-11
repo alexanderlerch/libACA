@@ -100,7 +100,7 @@ protected:
 
     CNoveltyIf *m_pCNovelty = 0; //!< novelty function extraction instance
 
-    float *m_pfNovelty = 0;  //!< buffer to hold extracted nvelty function
+    float *m_pfNovelty = 0;  //!< buffer to hold extracted novelty function
     float *m_pfProcBuff = 0; //!< temporary processing buffer
     float *m_pfBeatHisto = 0; //!< result buffer
 
