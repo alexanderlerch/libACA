@@ -1,7 +1,7 @@
-#include "AcaAll.h"
-
 #include <string>
+#include <cstdint>
 
+#include "AcaAll.h"
 
 static const std::string kAcaBuildDate = __DATE__;
 
