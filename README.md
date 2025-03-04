@@ -211,7 +211,7 @@ CKey::destroy(pCInstance);
 ```
 
 # design principles
-C++ is not the most convenient language for explaining algorithmic concepts. Other languages such as Python or Matlab are better suited for this taks. Audio applications and especially applications capable of real-time processing, however, often require implementation in a language such as C++, as do many embedded applications.
+C++ is not the most convenient language for explaining algorithmic concepts. Other languages such as Python or Matlab are better suited for this task. Audio applications and especially applications capable of real-time processing, however, often require implementation in a language such as C++, as do many embedded applications.
 The source code of a sample C++ implementation such as libACA provides can give the reader a better estimate of algorithmic complexity and required memory than code written in a high-level language (at least as long as too many 3rd Party dependencies are avoided).
 
 
