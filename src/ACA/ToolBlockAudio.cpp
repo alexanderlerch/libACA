@@ -43,7 +43,7 @@ public:
 
     virtual ~CBlockAudioFile()
     {
-        CVector::free(m_pCRingBuff);
+        delete m_pCRingBuff;//CVector::free(m_pCRingBuff);
 
         CMatrix::free(m_ppfAudioData, m_iNumChannels);
     }
